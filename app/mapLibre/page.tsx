@@ -1,6 +1,5 @@
 import MapLibre from "./mapLibre";
-import PlacesJSON from '../places.json';
-
+import PlacesJSON from '../../data/example.json';
 
 export default async function Page() {
 
