@@ -1,0 +1,160 @@
+[{
+  "identifier": "SJ",
+  "campus": "SJ",
+  "name": "San Joaquín",
+  "shortName": "San Joaquín",
+  "address": "Av. Vicuña Mackenna 4860, Macul, Chile",
+  "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaquín) con 82 hás., el actual campus San Joaquín de la Universidad comenzó su implementación como ciudad universitaria en los sesenta y continúa en desarrollo.",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.496568, -70.616281],
+        [-33.496246, -70.616206],
+        [-33.495637, -70.607430],
+        [-33.497141, -70.605660],
+        [-33.501703, -70.606100],
+        [-33.500898, -70.615262]
+      ]
+    ]
+  },
+  "parent": null,
+  "ancestors": [],
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "categories": [
+    "campus"
+  ]
+}, {
+  "identifier": "CC",
+  "campus": "CC",
+  "name": "Casa Central",
+  "shortName": "Casa Central",
+  "address": "Av. Alameda 340, Santiago, Chile",
+  "information": "El edificio principal y fundacional de la Universidad se terminó de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su discípulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Dirección Superior y a varias facultades.",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.441202, -70.641785],
+        [-33.440255, -70.640432],
+        [-33.441794, -70.638986],
+        [-33.442673, -70.641206]
+      ]
+    ]
+  },
+  "parent": null,
+  "ancestors": [],
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "categories": [
+    "campus"
+  ]
+}, {
+  "identifier": "LC",
+  "campus": "LC",
+  "name": "Lo Contador",
+  "shortName": "Lo Contador",
+  "address": "El Comendador 1916, Providencia, Chile",
+  "information": "Antigua hacienda del siglo XVIII contemporánea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitectónico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Diseño y Estudios Urbanos de la Universidad.",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.419498, -70.619088],
+        [-33.418578, -70.618084],
+        [-33.418744, -70.617878],
+        [-33.418641, -70.617686],
+        [-33.418692, -70.617589],
+        [-33.418430, -70.617140],
+        [-33.418137, -70.617260],
+        [-33.418062, -70.617057],
+        [-33.418626, -70.616523],
+        [-33.419039, -70.616779],
+        [-33.420279, -70.618040]
+      ]
+    ]
+  },
+  "parent": null,
+  "ancestors": [],
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "categories": [
+    "campus"
+  ]
+}, {
+  "identifier": "OR",
+  "campus": "OR",
+  "name": "Oriente",
+  "shortName": "Oriente",
+  "address": "Av. Jaime Guzmán Errázuriz 3300, Providencia, Chile",
+  "information": "Construido en 1934 y adquirido por la Universidad a la Congregación de las Monjas Francesas en la década de los setenta (1971), acoge a las carreras de la Facultad de Artes y al Instituto de Estética.",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.446396, -70.595273],
+        [-33.446139, -70.595099],
+        [-33.445868, -70.595595],
+        [-33.445101, -70.595025],
+        [-33.444970, -70.595287],
+        [-33.443975, -70.594523],
+        [-33.444066, -70.594331],
+        [-33.443975, -70.594271],
+        [-33.444163, -70.593896],
+        [-33.444273, -70.593982],
+        [-33.445466, -70.591640],
+        [-33.446403, -70.592286],
+        [-33.446610, -70.591940],
+        [-33.446732, -70.592023],
+        [-33.446616, -70.592233],
+        [-33.446688, -70.592312],
+        [-33.446606, -70.592451],
+        [-33.447198, -70.593006],
+        [-33.446976, -70.593461],
+        [-33.447220, -70.593708]
+      ]
+    ]
+  },
+  "parent": null,
+  "ancestors": [],
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "categories": [
+    "campus"
+  ]
+}, {
+  "identifier": "VR",
+  "campus": "VR",
+  "name": "Villarrica",
+  "shortName": "Villarrica",
+  "address": "Bernardo OHiggins 501, Villarrica, Chile",
+  "information": "",
+  "parent": null,
+  "ancestors": [],
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "categories": [
+    "campus"
+  ]
+}]

@@ -1,0 +1,304 @@
+[{
+  "identifier": "CDI",
+  "campus": "SJ",
+  "name": "Centro de Innovación UC - Anacleto Angelini",
+  "shortName": "Centro de Innovación",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.497752, -70.615494],
+        [-33.497696, -70.615174],
+        [-33.497579, -70.615226],
+        [-33.497547, -70.615018],
+        [-33.497891, -70.614928],
+        [-33.497916, -70.615057],
+        [-33.498027, -70.615030],
+        [-33.498039, -70.615094],
+        [-33.497976, -70.615096],
+        [-33.498042, -70.615579],
+        [-33.497991, -70.615526],
+        [-33.497975, -70.615441]
+      ]
+    ]
+  },
+  "address": "Av. Vicuña Mackenna 4860, Macul, Santiago, Chile",
+  "information": "El Centro de Innovación UC Anacleto Angelini es un espacio concebido para promover una ecología pro innovación y emprendimiento, abierto a todas las facultades de nuestra universidad.  Concebido como un centro multidisciplinario y generalista, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto económico, social y cultur El Centro aspira a hacer una contribución muy significativa en nuestra sociedad, ayudando a articular una fructífera interacción entre educación superior, sector privado y sector público.",
+  "contact": {
+    "urls": [
+      "http://centrodeinnovacion.uc.cl/"
+    ],
+    "phones": [
+      "(56 2) 2354 2280"
+    ],
+    "emails": [
+      "centrodeinnovacionuc.cl"
+    ],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/pages/Centro-de-Innovación-UC/673851555989524"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/CentroinnovaUC"
+    }]
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "LA_Y",
+  "campus": "SJ",
+  "name": "Centro Desarrollo Docente",
+  "shortName": "La Y",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498908, -70.612336],
+        [-33.499037, -70.611879],
+        [-33.499108, -70.611889],
+        [-33.499316, -70.611868],
+        [-33.499349, -70.612250],
+        [-33.499161, -70.612374],
+        [-33.499037, -70.612388]
+      ]
+    ]
+  },
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "HALL SJ",
+  "campus": "SJ",
+  "name": "Hall Universitario",
+  "shortName": "Hall",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.497799, -70.613593],
+        [-33.497819, -70.613432],
+        [-33.497880, -70.613421],
+        [-33.497901, -70.613211],
+        [-33.497616, -70.613173],
+        [-33.497606, -70.613051],
+        [-33.498169, -70.612993],
+        [-33.498202, -70.613535]
+      ]
+    ]
+  },
+  "information": "",
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "AL",
+  "campus": "SJ",
+  "name": "Aula Magna",
+  "shortName": "Aula Magna",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498010, -70.609496],
+        [-33.497443, -70.609074],
+        [-33.497532, -70.608628],
+        [-33.498041, -70.608792],
+        [-33.498147, -70.609232],
+        [-33.498188, -70.609576],
+        [-33.498072, -70.609593]
+      ]
+    ]
+  },
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "TEMPLO",
+  "campus": "SJ",
+  "name": "Templo",
+  "shortName": "Templo",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498246, -70.611723],
+        [-33.497565, -70.611063],
+        [-33.498233, -70.610978],
+        [-33.498273, -70.611524],
+        [-33.498231, -70.611524]
+      ]
+    ]
+  },
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "SAN_AGUSTIN",
+  "campus": "SJ",
+  "name": "Edificio San Agustín",
+  "shortName": "Edificio San Agustín",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498970, -70.615267],
+        [-33.498744, -70.615121],
+        [-33.498869, -70.615091],
+        [-33.498831, -70.614526],
+        [-33.499179, -70.614454],
+        [-33.499326, -70.614419],
+        [-33.499576, -70.614470],
+        [-33.499846, -70.614438],
+        [-33.499895, -70.614958],
+        [-33.499871, -70.615059]
+      ]
+    ]
+  },
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "CONTAINERS",
+  "campus": "SJ",
+  "name": "Salas TMP",
+  "shortName": "Salas TMP",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.497502, -70.608489],
+        [-33.497452, -70.608071],
+        [-33.497641, -70.608034],
+        [-33.497671, -70.608159],
+        [-33.497719, -70.608153],
+        [-33.497731, -70.608261],
+        [-33.497686, -70.608267],
+        [-33.497710, -70.608444]
+      ]
+    ]
+  },
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "building"
+  ]
+}, {
+  "identifier": "complejo_luksic",
+  "name": "Complejo Andrónico Luksic",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.499541, -70.614404],
+        [-33.499525, -70.614163],
+        [-33.500028, -70.614104],
+        [-33.500110, -70.615057],
+        [-33.499914, -70.615105],
+        [-33.499849, -70.614375]
+      ]
+    ]
+  },
+  "information": "",
+  "categories": [
+    "building"
+  ],
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }]
+}]

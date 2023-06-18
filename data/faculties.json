@@ -1,0 +1,998 @@
+[{
+  "identifier": "AGC",
+  "campus": "SJ",
+  "name": "Facultad de Agronomía e Ingeniería Forestal",
+  "shortName": "Agronomía e Ingeniería Forestal",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.496046, -70.610720],
+        [-33.496353, -70.610690],
+        [-33.496296, -70.610018],
+        [-33.497221, -70.609903],
+        [-33.497201, -70.608806],
+        [-33.496912, -70.608458],
+        [-33.496567, -70.608688],
+        [-33.496411, -70.608358],
+        [-33.496121, -70.608496],
+        [-33.496154, -70.609214],
+        [-33.495914, -70.609257]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://agronomia.uc.cl"
+    ],
+    "phones": [
+      "(56 2) 2354 4895"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/faifuc"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/AgroyForestalUC"
+    }]
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "DPT",
+  "campus": "SJ",
+  "name": "Deportes",
+  "shortName": "Deportes",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.500377, -70.609745],
+        [-33.500090, -70.609452],
+        [-33.500037, -70.609227],
+        [-33.499913, -70.609082],
+        [-33.499785, -70.609044],
+        [-33.498565, -70.609083],
+        [-33.498498, -70.609028],
+        [-33.498122, -70.608297],
+        [-33.497888, -70.606828],
+        [-33.497980, -70.606488],
+        [-33.500472, -70.606635],
+        [-33.501546, -70.606670],
+        [-33.501291, -70.609533],
+        [-33.500871, -70.609516],
+        [-33.500833, -70.610033],
+        [-33.500710, -70.610017]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "FADEU",
+  "campus": "LC",
+  "name": "Facultad de Arquitectura, Diseño y Estudios Urbanos",
+  "shortName": "Arquitectura, Diseño y Estudios Urbanos",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.419498, -70.619088],
+        [-33.418578, -70.618084],
+        [-33.418744, -70.617878],
+        [-33.418641, -70.617686],
+        [-33.418692, -70.617589],
+        [-33.418430, -70.617140],
+        [-33.418137, -70.617260],
+        [-33.418062, -70.617057],
+        [-33.418626, -70.616523],
+        [-33.419039, -70.616779],
+        [-33.420279, -70.618040]
+      ]
+    ]
+  },
+  "address": "",
+  "information": "Facultad de Arquitectura, Diseño y Estudios Urbanos de la Pontificia Universidad Católica de Chile.\nLa facultad está compuesta por 3 unidades: la Escuela de Arquitectura, la Escuela de Diseño y el Instituto de Estudios Urbanos.",
+  "contact": {
+    "urls": [
+      "http://puc.cl"
+    ],
+    "phones": [
+      "(56) (2) 2354 7750"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/fadeuuc"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/FADEU_UC"
+    }]
+  },
+  "parent": {
+    "identifier": "LC",
+    "campus": "LC"
+  },
+  "ancestors": [{
+    "identifier": "LC",
+    "campus": "LC"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "ART",
+  "campus": "OR",
+  "name": "Facultad de Artes",
+  "shortName": "Artes",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      []
+    ]
+  },
+  "address": "Avda. Jaime Guzmán Errázuriz 3300, Providencia, Santiago, Chile.",
+  "information": "Somos una red dedicada a generar espacios diálogo y comunicar las actividades de los estudiantes, egresados y profesores de la Facultad de Artes UC y de otros núcleos de desarrollo artístico en Chile. Escríbenos a mjleonuc.cl",
+  "contact": {
+    "urls": [
+      "http://artes.uc.cl"
+    ],
+    "phones": [
+      "+562 2354 2000"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/ExtensionFacultadArtesUC"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/facartesuc"
+    }]
+  },
+  "parent": {
+    "identifier": "OR",
+    "campus": "OR"
+  },
+  "ancestors": [{
+    "identifier": "OR",
+    "campus": "OR"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "EA",
+  "campus": "SJ",
+  "name": "Facultad de Ciencias Económicas y Administrativas",
+  "shortName": "Ciencias Económicas y Administrativas",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.496927, -70.612149],
+        [-33.496824, -70.610891],
+        [-33.497113, -70.610834],
+        [-33.497222, -70.612113]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://economiayadministracion.uc.cl"
+    ],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "SOC",
+  "campus": "SJ",
+  "name": "Facultad de Ciencias Sociales",
+  "shortName": "Ciencias Sociales",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.497400, -70.610485],
+        [-33.497352, -70.609779],
+        [-33.499406, -70.609554],
+        [-33.499453, -70.610231]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "COM",
+  "campus": "CC",
+  "name": "Facultad de Comunicaciones",
+  "shortName": "Comunicaciones",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.441410, -70.640994],
+        [-33.441268, -70.640844],
+        [-33.441497, -70.640617],
+        [-33.441634, -70.640803]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://comunicaciones.uc.cl"
+    ],
+    "phones": [
+      "(56-2) 23542020"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/fcomuc"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/fcomuc"
+    }]
+  },
+  "parent": {
+    "identifier": "CC",
+    "campus": "CC"
+  },
+  "ancestors": [{
+    "identifier": "CC",
+    "campus": "CC"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "LET",
+  "campus": "SJ",
+  "name": "Facultad de Letras",
+  "shortName": "Letras",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.496899, -70.614132],
+        [-33.496894, -70.613979],
+        [-33.497167, -70.613938],
+        [-33.497162, -70.613917],
+        [-33.497264, -70.613906],
+        [-33.497250, -70.613722],
+        [-33.497237, -70.613721],
+        [-33.497232, -70.613651],
+        [-33.497221, -70.613652],
+        [-33.497206, -70.613466],
+        [-33.497464, -70.613448],
+        [-33.497478, -70.613695],
+        [-33.497384, -70.613708],
+        [-33.497398, -70.613889],
+        [-33.497578, -70.613872],
+        [-33.497600, -70.614076],
+        [-33.497183, -70.614121],
+        [-33.497177, -70.614098]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://www7.uc.cl/letras"
+    ],
+    "phones": [
+      "223542000"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/letrasuc"
+    }]
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "DE",
+  "campus": "CC",
+  "name": "Facultad de Derecho",
+  "shortName": "Derecho",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.440663, -70.640776],
+        [-33.440394, -70.640399],
+        [-33.440765, -70.640034],
+        [-33.441070, -70.640458],
+        [-33.440971, -70.640553],
+        [-33.440752, -70.640238],
+        [-33.440579, -70.640412],
+        [-33.440759, -70.640680]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://derecho.uc.cl"
+    ],
+    "phones": [
+      "(56) (2) 2 354 2000"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/derechouc"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/derechouc"
+    }]
+  },
+  "parent": {
+    "identifier": "CC",
+    "campus": "CC"
+  },
+  "ancestors": [{
+    "identifier": "CC",
+    "campus": "CC"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "EDU",
+  "campus": "SJ",
+  "name": "Facultad de Educación",
+  "shortName": "Educación",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498263, -70.615077],
+        [-33.498090, -70.615021],
+        [-33.497928, -70.614865],
+        [-33.497961, -70.614650],
+        [-33.497855, -70.613893],
+        [-33.498050, -70.613683],
+        [-33.498223, -70.613765],
+        [-33.498316, -70.614836]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://educacion.uc.cl"
+    ],
+    "phones": [
+      "+56 (2) 22354 5350"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "FIS",
+  "campus": "SJ",
+  "name": "Facultad de Física",
+  "shortName": "Física",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.499301, -70.611432],
+        [-33.499201, -70.610488],
+        [-33.499425, -70.610478],
+        [-33.499578, -70.610605],
+        [-33.499646, -70.610702],
+        [-33.499667, -70.611061],
+        [-33.499639, -70.611066],
+        [-33.499683, -70.611611],
+        [-33.499379, -70.611637]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://fisica.uc.cl"
+    ],
+    "phones": [
+      "(56) (2) 354 4470"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "HIS",
+  "campus": "SJ",
+  "name": "Facultad de Historia, Geografía y Ciencia Política",
+  "shortName": "Historia, Geografía y Ciencia Política",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.496751, -70.613354],
+        [-33.496731, -70.613147],
+        [-33.497444, -70.613057],
+        [-33.497454, -70.613281]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://www7.uc.cl/historiageografiaycienciapolitica"
+    ],
+    "phones": [
+      "3547808"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "CCL",
+  "campus": "SJ",
+  "name": "Escuela de Construcción Civil",
+  "shortName": "Construcción Civil",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498771, -70.614362],
+        [-33.498703, -70.613376],
+        [-33.499093, -70.613308],
+        [-33.499189, -70.614373],
+        [-33.498915, -70.614395]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://www7.uc.cl/construc_civil"
+    ],
+    "phones": [
+      "6864565"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "ING",
+  "campus": "SJ",
+  "name": "Escuela de Ingeniería",
+  "shortName": "Ingeniería",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.499600, -70.613308],
+        [-33.499528, -70.612452],
+        [-33.499497, -70.612065],
+        [-33.499487, -70.611948],
+        [-33.499606, -70.611789],
+        [-33.499716, -70.611788],
+        [-33.499799, -70.612045],
+        [-33.499834, -70.612301],
+        [-33.500540, -70.612249],
+        [-33.500641, -70.613287],
+        [-33.500303, -70.613330],
+        [-33.500239, -70.613484],
+        [-33.499875, -70.613516]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://www.ing.puc.cl"
+    ],
+    "phones": [
+      "+56 2 354 11 93"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/EscueladeIngenieriaUniversidadCatolica"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/ingenieriaUC"
+    }]
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "MAT",
+  "campus": "SJ",
+  "name": "Facultad de Matemática",
+  "shortName": "Matemática",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.499755, -70.610958],
+        [-33.499669, -70.610001],
+        [-33.499975, -70.609966],
+        [-33.500013, -70.610313],
+        [-33.499900, -70.610334],
+        [-33.499958, -70.610965]
+      ]
+    ]
+  },
+  "address": "Edificio Rolando Chuaqui. Facultad de Matemáticas. Avda. Vicuña Mackenna #4860. Macul, Santiago. Chile.",
+  "contact": {
+    "urls": [
+      "http://www.mat.uc.cl"
+    ],
+    "phones": [
+      "(56 2) 354 4511"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "ENF",
+  "campus": "SJ",
+  "name": "Escuela de Enfermería",
+  "shortName": "Enfermería",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498720, -70.613220],
+        [-33.498700, -70.612896],
+        [-33.499100, -70.612843],
+        [-33.499163, -70.613183]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [],
+    "phones": [
+      "(56-2) 2354 5831"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/escueladeenfermeria.uc"
+    }, {
+      "type": "twitter",
+      "url": "https://twitter.com/Enfermeria_UC"
+    }]
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "MED",
+  "campus": "CC",
+  "name": "Escuela de Medicina",
+  "shortName": "Medicina",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.441611, -70.640766],
+        [-33.441281, -70.640322],
+        [-33.441313, -70.640283],
+        [-33.441336, -70.640319],
+        [-33.441406, -70.640208],
+        [-33.441730, -70.640693]
+      ]
+    ]
+  },
+  "address": "Alameda Libertador Bernardo O´Higgins 340, 8331150 Santiago de Chile",
+  "contact": {
+    "urls": [
+      "http://medicina.uc.cl"
+    ],
+    "phones": [
+      "(56) (2) 354 2000"
+    ],
+    "emails": [],
+    "social": [{
+      "type": "facebook",
+      "url": "https://www.facebook.com/escuelamedicinauc"
+    }]
+  },
+  "parent": {
+    "identifier": "CC",
+    "campus": "CC"
+  },
+  "ancestors": [{
+    "identifier": "CC",
+    "campus": "CC"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "QIM",
+  "campus": "SJ",
+  "name": "Facultad de Química",
+  "shortName": "Química",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.498663, -70.611674],
+        [-33.498647, -70.611445],
+        [-33.498627, -70.611447],
+        [-33.498609, -70.611254],
+        [-33.498561, -70.610660],
+        [-33.498857, -70.610608],
+        [-33.498845, -70.610504],
+        [-33.499145, -70.610481],
+        [-33.499261, -70.611666],
+        [-33.498842, -70.611705],
+        [-33.498826, -70.611739],
+        [-33.498728, -70.611750],
+        [-33.498719, -70.611671]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://www.quimica.uc.cl"
+    ],
+    "phones": [
+      "(56) (2) 2354 2000"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "TTF",
+  "campus": "SJ",
+  "name": "Facultad de Teología",
+  "shortName": "Teología",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.497537, -70.610959],
+        [-33.497527, -70.610807],
+        [-33.497586, -70.610792],
+        [-33.497565, -70.610558],
+        [-33.498018, -70.610497],
+        [-33.498041, -70.610743],
+        [-33.498133, -70.610738],
+        [-33.498147, -70.610912]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://teologia.uc.cl"
+    ],
+    "phones": [
+      "(56) (2) 2354 1634"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "D",
+  "campus": "SJ",
+  "name": "College",
+  "shortName": "College",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.500313, -70.611342],
+        [-33.500283, -70.610906],
+        [-33.500386, -70.610890],
+        [-33.500358, -70.610541],
+        [-33.500699, -70.610594],
+        [-33.500640, -70.611403],
+        [-33.500521, -70.611393]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://college.uc.cl"
+    ],
+    "phones": [
+      "(56) (2) 2354 5774"
+    ],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "CS",
+  "campus": "SJ",
+  "name": "Ciencias de la Salud",
+  "shortName": "Ciencias de la Salud",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.500247, -70.610440],
+        [-33.500188, -70.609931],
+        [-33.500396, -70.609901],
+        [-33.500439, -70.610422]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [],
+    "phones": [],
+    "emails": [],
+    "social": []
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "FIL",
+  "campus": "SJ",
+  "name": "Instituto de Filosofía",
+  "shortName": "Filosofía",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.496663, -70.614209],
+        [-33.496649, -70.613913],
+        [-33.496824, -70.613890],
+        [-33.496846, -70.614193]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://filosofia.uc.cl"
+    ],
+    "phones": [
+      "(56-2) 2354 1460"
+    ],
+    "emails": [
+      "filosofia@uc.cl"
+    ],
+    "social": [{
+      "type": "facebook",
+      "url": "ExtensionInstitutoDeFilosofiaUc"
+    }]
+  },
+  "parent": {
+    "identifier": "SJ",
+    "campus": "SJ"
+  },
+  "ancestors": [{
+    "identifier": "SJ",
+    "campus": "SJ"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}, {
+  "identifier": "BIO",
+  "campus": "CC",
+  "name": "Facultad de Ciencias Biológicas",
+  "shortName": "Biología",
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-33.441616, -70.640040],
+        [-33.441487, -70.639824],
+        [-33.441315, -70.639711],
+        [-33.441238, -70.639589],
+        [-33.441683, -70.639132],
+        [-33.441848, -70.639177],
+        [-33.442057, -70.639700],
+        [-33.441932, -70.639786],
+        [-33.441864, -70.639801]
+      ]
+    ]
+  },
+  "address": "",
+  "contact": {
+    "urls": [
+      "http://biologia.uc.cl"
+    ],
+    "phones": [],
+    "emails": [
+      "comunicaciones@bio.puc.cl",
+      "decanato@bio.puc.cl "
+    ],
+    "social": []
+  },
+  "parent": {
+    "identifier": "CC",
+    "campus": "CC"
+  },
+  "ancestors": [{
+    "identifier": "CC",
+    "campus": "CC"
+  }],
+  "categories": [
+    "faculty"
+  ]
+}]
