@@ -24,11 +24,35 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Uso
+## Developing
+
+### Instalación
+
+Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local``
 
 ```shell
-# ...
+NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
 ```
+
+### Instalar dependencias 
+
+```shell
+npm install
+```
+
+### Ejecutar servidor de desarrollo
+
+```shell
+npm run dev
+```
+
+## Building
+
+```shell
+npm run build
+```
+
+
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## Contribuir
