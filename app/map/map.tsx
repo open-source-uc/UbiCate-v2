@@ -1,5 +1,5 @@
 'use client'
-import mapboxgl from 'mapbox-gl';  // add !mapbox-gl
+import mapboxgl from 'mapbox-gl';
 import ErrorComponent from './error'; 
 
 import { useRef, useState, useEffect } from 'react';
@@ -18,7 +18,7 @@ export default function Map({Places} : any) {
   const [error, setError] = useState<Error>();
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/dark-v11',
@@ -30,33 +30,35 @@ export default function Map({Places} : any) {
       ]
     });
 
+    map.current.on('move', () => {
+
+      if(map.current){
+        setLng(map.current.getCenter().lng.toFixed(4));
+        setLat(map.current.getCenter().lat.toFixed(4));
+        setZoom(map.current.getZoom().toFixed(2));
+      }
+      else{
+        setError(new Error('Map is not initialized'));
+      }
+    });
 
     map.current.on('style.load', () => {
       addLayers();
     });
 
     map.current.on('click', 'places-circle', (places : any) => {
-      console.log('click' , places);
-
       const [ selectedPlace ] = places.features
 
-      if(selectedPlace) {
-        console.log('selectedPlace', selectedPlace);
-
-        setClickedPlace(selectedPlace.properties);
-      }
+      console.log('selectedPlace clicked', selectedPlace);
+      setClickedPlace(selectedPlace.properties);
     });
 
     map.current.on('click', 'cluster-circle', (clusters : any) => {
-      console.log('click' , clusters);
 
       const [ selectedCluster ] = clusters.features
 
-      if(selectedCluster) {
-        console.log('selectedCluster', selectedCluster);
-
-        setClickedClusterIds(selectedCluster.properties.ids.split(','));
-      }
+      console.log('selectedCluster clicked', selectedCluster);
+      setClickedClusterIds(selectedCluster.properties.ids.split(','));
     });
 
     const popupHover = new mapboxgl.Popup({
@@ -69,36 +71,18 @@ export default function Map({Places} : any) {
 
       const [ place ] = places.features;
 
-      if(place) {
-        const coordinates = places.features[0].geometry.coordinates.slice();
-        const category = places.features[0].properties.category;
+      const coordinates = place.geometry.coordinates.slice();
+      const identifier = place.properties.identifier;
 
-        map.current.getCanvas().style.cursor = 'pointer';
-
-        popupHover.setLngLat(coordinates).setHTML(category).addTo(map.current);
-      }
+      map.current.getCanvas().style.cursor = 'pointer';
+      popupHover.setLngLat(coordinates).setHTML(identifier).addTo(map.current);
+      
     });
        
     map.current.on('mouseleave', 'places-circle', () => {
       map.current.getCanvas().style.cursor = '';
       popupHover.remove();
     });
-
-    const popup = new mapboxgl.Popup({ offset: 25, className: 'text-black' }).setText(
-      'Construction on the Washington Monument began in 1848.'
-    );
-
-    new mapboxgl.Marker({
-      color: '#FFFFFF',
-      scale: 1.5
-    })
-      .setLngLat([-72.22, -39.27])
-      .addTo(map.current);
-
-    new mapboxgl.Marker()
-      .setLngLat([-70.22, -39.27])
-      .setPopup(popup)
-      .addTo(map.current);
 
   }, [map.current]);
 
@@ -108,7 +92,7 @@ export default function Map({Places} : any) {
       type: 'geojson',
       data: Places,
       cluster: true,
-      clusterProperties: { "ids": ["concat", ["concat", ["get", "id"], ","]]},
+      clusterProperties: { "ids": ["concat", ["concat", ["get", "identifier"], ","]]},
       clusterRadius: 10,
     });
 
@@ -120,7 +104,7 @@ export default function Map({Places} : any) {
       paint: {
         'circle-color': [
           'match',
-          ['get', 'category'],
+          ["at", 0, ['get', 'categories']],
           'classroom', '#FF8C00',
           'shop', '#0ef305',
           'other', '#e55e5e',
@@ -142,22 +126,6 @@ export default function Map({Places} : any) {
      });
 
   }
-
-  useEffect(() => {
-    if (!map.current) return; 
-    map.current.on('move', () => {
-
-      if(map.current){
-        setLng(map.current.getCenter().lng.toFixed(4));
-        setLat(map.current.getCenter().lat.toFixed(4));
-        setZoom(map.current.getZoom().toFixed(2));
-      }
-      else{
-        setError(new Error('Map is not initialized'));
-      }
-    });
-
-  }, [map.current]);
 
   if(error) return <ErrorComponent error={error} reset={() => setError(undefined)} />
 
@@ -181,9 +149,9 @@ export default function Map({Places} : any) {
         
         {clickedPlace && (
           <div className='bg-sidebar-color py-1.5 px-3 z-10  m-3 rounded-s'>
-            Id: {clickedPlace.id} | Nombre: {clickedPlace.name} | Categoria: {clickedPlace.category} | Descripcion: {clickedPlace.description}
+            Id: {clickedPlace.identifier} | Nombre: {clickedPlace.name} | Categoria: {clickedPlace.categories} | Descripcion: {clickedPlace.information}
           </div>
-        )} 
+        )}
 
         {clickedClusterIds && clickedClusterIds.length > 0 && (
           <div className='bg-sidebar-color py-1.5 px-3 z-10  m-3 rounded-s flex-row flex'>
@@ -191,8 +159,7 @@ export default function Map({Places} : any) {
               <div key={clusterId} className='px-3' >{clusterId}</div>))}
           </div> 
         )}
-            
-
+          
       </div>
     
       <div ref={mapContainer} className='h-full w-full' />
