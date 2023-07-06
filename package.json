@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^13.4.8",
     "@types/geojson": "^7946.0.10",
     "@types/mapbox-gl": "^2.7.11",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "eslint-config-next": "^13.4.8",
     "mapbox-gl": "^2.15.0",
     "maplibre-gl": "^3.1.0",
     "next": "13.4.4",
@@ -23,5 +25,12 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "3.0.0"
   }
 }
