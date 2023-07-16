@@ -1,15 +1,21 @@
 "use client";
+import Image from "next/image";
+
 import { useRef, useState, useEffect } from "react";
 
 import mapboxgl from "mapbox-gl";
 
 import ErrorComponent from "./error";
 
+import Img from "./img";
+
 export default function Map({ Places }: any) {
   mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 
   const map = useRef<mapboxgl.Map | any>(null);
+  const m2 = useRef<any>(null);
   const mapContainer = useRef<any>(null);
+  const [markers, setMarkers] = useState<mapboxgl.Marker[]>([]);
   const [clickedPlace, setClickedPlace] = useState<any>(null);
   const [clickedClusterIds, setClickedClusterIds] = useState<number[]>([]);
   const [lng, setLng] = useState<number>(-70.6109);
@@ -86,26 +92,115 @@ export default function Map({ Places }: any) {
         clusterRadius: 10,
       });
 
-      map.current.addLayer({
-        id: "places-circle",
-        type: "circle",
-        filter: ["!", ["has", "point_count"]],
-        source: "places",
-        paint: {
-          "circle-color": [
-            "match",
-            ["at", 0, ["get", "categories"]],
-            "classroom",
-            "#FF8C00",
-            "shop",
-            "#0ef305",
-            "other",
-            "#e55e5e",
-            "#ccc",
-          ],
-          "circle-radius": 10,
-        },
+      map.current.loadImage("/static/meta/square.png", (error, image) => {
+        if (error) throw error;
+
+        map.current.addImage("UbicMarker", image);
+
+        map.current.addLayer({
+          id: "places-circle",
+          type: "symbol",
+          filter: ["!", ["has", "point_count"]],
+          source: "places",
+          layout: {
+            "icon-image": "UbicMarker",
+            "icon-size": 0.1,
+          },
+        });
       });
+
+      setMarkers([
+        new mapboxgl.Marker(m2.current).setLngLat([-70.6009, -33.4983]),
+        new mapboxgl.Marker(m2.current).setLngLat([-70.6109, -33.4983]),
+        new mapboxgl.Marker(m2.current).setLngLat([-70.6209, -33.4983]),
+      ]);
+      /*map.current.
+
+      // Store IDs and cluster/marker HTMLElements
+    const markers = new Map();
+
+    function updateMarkers(){
+        const features = map.querySourceFeatures('addresses');
+        const keepMarkers = [];
+
+        for (let i = 0; i < features.length; i++) {
+            const coords = features[ i ].geometry.coordinates;
+            const props = features[ i ].properties;
+            const featureID = features[ i ].id;
+            
+            const clusterID = props.cluster_id || null;
+
+            if (props.cluster && markers.has('cluster_'+clusterID)) {
+
+                //Cluster marker is already on screen
+                keepMarkers.push('cluster_'+clusterID);
+
+            } else if (props.cluster) {
+
+                //This feature is clustered, create an icon for it and use props.point_count for its count
+
+                var el = document.createElement('div');
+                el.className = 'mapCluster';
+                el.style.width = '60px';
+                el.style.height = '60px';
+                el.style.textAlign = 'center';
+                el.style.color = 'white';
+                el.style.background = '#16d3f9';
+                el.style.borderRadius = '50%';
+                el.innerText = props.point_count;
+                const marker = new mapboxgl.Marker(el).setLngLat(coords);
+                marker.addTo(map);
+                keepMarkers.push('cluster_'+featureID);
+                markers.set('cluster_'+clusterID,el);
+                
+            } else if (markers.has(featureID)) {
+
+                //Feature marker is already on screen
+                keepMarkers.push(featureID);
+
+            } else {
+                
+                //Feature is not clustered and has not been created, create an icon for it
+                const el = new Image();
+                el.style.backgroundImage = 'url(https://placekitten.com/g/50/50)';
+                el.className = 'mapMarker';
+                el.style.width = '50px';
+                el.style.height = '50px';
+                el.style.borderRadius = '50%';
+                el.dataset.type = props.type;
+                const marker = new mapboxgl.Marker(el).setLngLat(coords);
+                marker.addTo(map);
+                keepMarkers.push(featureID);
+                markers.set(featureID,el);
+                
+            }
+            
+        }
+
+        //Let's clean-up any old markers. Loop through all markers
+        markers.forEach((value,key,map) => {
+            //If marker exists but is not in the keep array
+            if (keepMarkers.indexOf(key) === -1) {
+                console.log('deleting key: '+key);
+                //Remove it from the page
+                value.remove();
+                //Remove it from markers map
+                map.delete(key);
+            }
+        });
+
+    };
+
+    map.on('data', function (e) {
+        if (e.sourceId !== 'addresses' || !e.isSourceLoaded) return;
+        map.on('moveend', updateMarkers); // moveend also fires on zoomend
+        updateMarkers();
+    });
+    */
+      new mapboxgl.Marker(m2.current).setLngLat([-70.6109, -33.4983]).addTo(map.current);
+      //new mapboxgl.Marker(m2.current).setLngLat([-70.6119, -33.4983]).addTo(map.current);
+
+      
 
       map.current.addLayer({
         id: "cluster-circle",
@@ -159,6 +254,12 @@ export default function Map({ Places }: any) {
             ))}
           </div>
         ) : null}
+
+        <Image src="/static/assets/logo.svg" alt="Logo" width={100} height={100} />
+      </div>
+
+      <div ref={m2} className="relative w-5 h-5">
+        <Image className="" src="/static/assets/logo.svg" alt="Logo" width={20} height={20} />
       </div>
 
       <div ref={mapContainer} className="h-full w-full" />

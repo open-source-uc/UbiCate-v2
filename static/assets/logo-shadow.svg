@@ -1,0 +1,8 @@
+<svg width="94.91" height="127.8" fill="none" version="1.1" viewBox="0 0 94.91 127.8" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="a" x="-.04215" y="-.03065" width="1.084" height="1.061" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="1.5372113"/>
+  </filter>
+ </defs>
+ <path d="m63.11 6.465c-22.52-8.468-47.65 3.087-56.21 25.84-11.61 30.87 11.98 91.76 11.98 91.76s57.87-30.25 69.48-61.12c8.559-22.76-2.729-48.01-25.25-56.48zm-5.414 14.4 23.41 27.39-35.66 5.175-23.41-27.39zm-28.03 17.47 14.9 17.44 22.7-3.298-4.083 10.86-22.7 3.298-14.9-17.44z" fill="#3a3a3a" fill-opacity=".4817" filter="url(#a)" opacity=".2803" stroke-width=".8865"/>
+</svg>
