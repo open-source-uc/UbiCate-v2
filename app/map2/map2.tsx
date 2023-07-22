@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState, useMemo, useCallback } from "react";
 
-import mapboxgl from "mapbox-gl";
 import { Map, Source, Layer, Popup } from "react-map-gl";
 import type { MapRef, GeoJSONSource } from "react-map-gl";
 
