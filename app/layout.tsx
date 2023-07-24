@@ -22,9 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/map" className="my-1 mx-2">
               Map
             </Link>
-            <Link href="/map2" className="my-1 mx-2">
-              MapComponent
-            </Link>
           </nav>
           {children}
         </main>
