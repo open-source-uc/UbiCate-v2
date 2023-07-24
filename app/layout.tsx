@@ -22,6 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/map" className="my-1 mx-2">
               Map
             </Link>
+            <Link href="/form-geo" className="my-1 mx-2">
+              Form
+            </Link>
           </nav>
           {children}
         </main>
