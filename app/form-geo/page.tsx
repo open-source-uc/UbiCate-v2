@@ -122,7 +122,7 @@ export default function Page() {
               <ErrorMessage className="text-error text-sm w-full text-left" name="placeName" component="div" />
 
               <label className="my-2 flex items-center justify-center text-light-4" htmlFor="information">
-                Informacion (opcional)
+                Información (opcional)
               </label>
               <Field
                 className="block p-2.5 w-full text-s rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
