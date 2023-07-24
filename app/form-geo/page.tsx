@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
-import NumberInputDisabled from "./NumberInputDisabled";
-
 interface newPlace {
   longitude: number;
   latitude: number;
@@ -22,8 +20,8 @@ interface errors {
 
 export default function Page() {
   const [submitting, setSubmitting] = useState<boolean>(false);
-  const [longitude, setLongitude] = useState<number>((-70.6171 + -70.6043) / 2);
-  const [latitude, setLatitude] = useState<number>((-33.5021 + -33.4952) / 2);
+  const [longitude, setLongitude] = useState<number | null>(null);
+  const [latitude, setLatitude] = useState<number | null>(null);
 
   const validate = (newPlace: newPlace) => {
     const campusBoundaries = [
@@ -36,10 +34,10 @@ export default function Page() {
 
     const errors: errors = {};
 
-    if (newPlace.longitude === null) {
-      errors.longitude = "Requerido";
-    } else if (newPlace.latitude === null) {
-      errors.latitude = "Requerido";
+    if (!newPlace.longitude) {
+      errors.longitude = "Longitud Requerida";
+    } else if (!newPlace.latitude) {
+      errors.latitude = "Latitud Requerida";
     } else {
       var campus: string | null = null;
 
@@ -55,7 +53,7 @@ export default function Page() {
         }
       }
 
-      if (!campus) errors.latitude = "Ubicacion fuera de los campus";
+      if (!campus) errors.latitude = "Estas fuera de algún campus";
     }
 
     if (!newPlace.placeName) {
@@ -80,14 +78,24 @@ export default function Page() {
   }
 
   useEffect(() => {
-    // setear ubicacion actual con geolocalizacion
-    const timeout = setTimeout(() => {
-      setLatitude(1);
-      setLongitude(1);
-      console.log("timeout");
-    }, 8000);
-  }, []);
+    const getGeolocation = () => {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+          },
+          (error) => {
+            console.error("Error al obtener la ubicación:", error);
+          },
+        );
+      } else {
+        console.error("Geolocalización no disponible en este navegador.");
+      }
+    };
 
+    getGeolocation();
+  }, []);
   return (
     <div className="flex h-full w-full items-center justify-center bg-dark-1">
       <div className="flex flex-col w-3/4 h-3/4 items-center justify-center rounded bg-dark-2">
@@ -98,14 +106,9 @@ export default function Page() {
           enableReinitialize={true}
         >
           {() => (
-            <Form className="flex flex-col justify-center items-center">
-              <div className="flex flex-row w-full">
-                <Field id="longitude" name="longitude" label="Longitud" component={NumberInputDisabled} />
-                <Field id="latitude" name="latitude" label="Latitud" component={NumberInputDisabled} />
-              </div>
-
-              <ErrorMessage className="text-error text-sm w-3/4 text-center" name="longitude" component="div" />
-              <ErrorMessage className="text-error text-sm w-3/4 text-center" name="latitude" component="div" />
+            <Form className="flex flex-col px-4 justify-center items-center">
+              <ErrorMessage className="text-error text-sm w-full text-center" name="longitude" component="div" />
+              <ErrorMessage className="text-error text-sm w-full text-center" name="latitude" component="div" />
 
               <label className="my-2 flex items-center justify-center text-light-4" htmlFor="placeName">
                 Sala
