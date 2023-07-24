@@ -107,6 +107,7 @@ export default function Page() {
         >
           {() => (
             <Form className="flex flex-col px-4 justify-center items-center">
+              <h1 className="text-2xl mb-2 text-light-4">Nueva Sala</h1>
               <ErrorMessage className="text-error text-sm w-full text-center" name="longitude" component="div" />
               <ErrorMessage className="text-error text-sm w-full text-center" name="latitude" component="div" />
 
