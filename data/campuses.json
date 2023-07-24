@@ -10,9 +10,7 @@
         "shortName": "San Joaquín",
         "address": "Av. Vicuña Mackenna 4860, Macul, Chile",
         "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaquín) con 82 hás., el actual campus San Joaquín de la Universidad comenzó su implementación como ciudad universitaria en los sesenta y continúa en desarrollo.",
-        "parent": null,
-        "ancestors": [],
-        "categories": ["campus"]
+        "categories": "campus"
       },
       "geometry": {
         "type": "Polygon",
@@ -38,9 +36,7 @@
         "shortName": "Casa Central",
         "address": "Av. Alameda 340, Santiago, Chile",
         "information": "El edificio principal y fundacional de la Universidad se terminó de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su discípulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Dirección Superior y a varias facultades.",
-        "parent": null,
-        "ancestors": [],
-        "categories": ["campus"]
+        "categories": "campus"
       },
       "geometry": {
         "type": "Polygon",
@@ -64,9 +60,7 @@
         "shortName": "Lo Contador",
         "address": "El Comendador 1916, Providencia, Chile",
         "information": "Antigua hacienda del siglo XVIII contemporánea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitectónico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Diseño y Estudios Urbanos de la Universidad.",
-        "parent": null,
-        "ancestors": [],
-        "categories": ["campus"]
+        "categories": "campus"
       },
       "geometry": {
         "type": "Polygon",
@@ -97,9 +91,7 @@
         "shortName": "Oriente",
         "address": "Av. Jaime Guzmán Errázuriz 3300, Providencia, Chile",
         "information": "Construido en 1934 y adquirido por la Universidad a la Congregación de las Monjas Francesas en la década de los setenta (1971), acoge a las carreras de la Facultad de Artes y al Instituto de Estética.",
-        "parent": null,
-        "ancestors": [],
-        "categories": ["campus"]
+        "categories": "campus"
       },
       "geometry": {
         "type": "Polygon",
@@ -139,33 +131,16 @@
         "shortName": "Villarrica",
         "address": "Bernardo OHiggins 501, Villarrica, Chile",
         "information": "",
-        "parent": null,
-        "ancestors": [],
-        "categories": ["campus"]
+        "categories": "campus"
       },
       "geometry": {
         "coordinates": [
           [
-            [
-              -72.22554669349407,
-              -39.27729344343152
-            ],
-            [
-              -72.22603747436048,
-              -39.27770591498732
-            ],
-            [
-              -72.22574767994438,
-              -39.27789044094905
-            ],
-            [
-              -72.22525923612956,
-              -39.27749967951302
-            ],
-            [
-              -72.22554669349407,
-              -39.27729344343152
-            ]
+            [-72.22554669349407, -39.27729344343152],
+            [-72.22603747436048, -39.27770591498732],
+            [-72.22574767994438, -39.27789044094905],
+            [-72.22525923612956, -39.27749967951302],
+            [-72.22554669349407, -39.27729344343152]
           ]
         ],
         "type": "Polygon"

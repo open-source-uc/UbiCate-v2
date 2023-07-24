@@ -8,11 +8,8 @@
         "campus": "SJ",
         "name": "Facultad de Agronomía e Ingeniería Forestal",
         "shortName": "Agronomía e Ingeniería Forestal",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -41,11 +38,8 @@
         "campus": "SJ",
         "name": "Deportes",
         "shortName": "Deportes",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -79,11 +73,8 @@
         "campus": "LC",
         "name": "Facultad de Arquitectura, Diseño y Estudios Urbanos",
         "shortName": "Arquitectura, Diseño y Estudios Urbanos",
-        "address": "",
         "information": "Facultad de Arquitectura, Diseño y Estudios Urbanos de la Pontificia Universidad Católica de Chile.\nLa facultad está compuesta por 3 unidades: la Escuela de Arquitectura, la Escuela de Diseño y el Instituto de Estudios Urbanos.",
-        "parent": { "identifier": "LC", "campus": "LC" },
-        "ancestors": [{ "identifier": "LC", "campus": "LC" }],
-        "categories": ["faculty"]
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -112,11 +103,8 @@
         "campus": "SJ",
         "name": "Facultad de Ciencias Económicas y Administrativas",
         "shortName": "Ciencias Económicas y Administrativas",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -138,11 +126,8 @@
         "campus": "SJ",
         "name": "Facultad de Ciencias Sociales",
         "shortName": "Ciencias Sociales",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -164,11 +149,9 @@
         "campus": "CC",
         "name": "Facultad de Comunicaciones",
         "shortName": "Comunicaciones",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "CC", "campus": "CC" },
-        "ancestors": [{ "identifier": "CC", "campus": "CC" }],
-        "categories": ["faculty"]
+        "information": "",
+
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -190,11 +173,8 @@
         "campus": "SJ",
         "name": "Facultad de Letras",
         "shortName": "Letras",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -230,11 +210,9 @@
         "campus": "CC",
         "name": "Facultad de Derecho",
         "shortName": "Derecho",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "CC", "campus": "CC" },
-        "ancestors": [{ "identifier": "CC", "campus": "CC" }],
-        "categories": ["faculty"]
+        "information": "",
+
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -260,11 +238,8 @@
         "campus": "SJ",
         "name": "Facultad de Educación",
         "shortName": "Educación",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -290,11 +265,8 @@
         "campus": "SJ",
         "name": "Facultad de Física",
         "shortName": "Física",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -321,11 +293,8 @@
         "campus": "SJ",
         "name": "Facultad de Historia, Geografía y Ciencia Política",
         "shortName": "Historia, Geografía y Ciencia Política",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -347,11 +316,8 @@
         "campus": "SJ",
         "name": "Escuela de Construcción Civil",
         "shortName": "Construcción Civil",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -374,11 +340,8 @@
         "campus": "SJ",
         "name": "Escuela de Ingeniería",
         "shortName": "Ingeniería",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -410,10 +373,8 @@
         "name": "Facultad de Matemática",
         "shortName": "Matemática",
         "address": "Edificio Rolando Chuaqui. Facultad de Matemáticas. Avda. Vicuña Mackenna #4860. Macul, Santiago. Chile.",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -437,11 +398,8 @@
         "campus": "SJ",
         "name": "Escuela de Enfermería",
         "shortName": "Enfermería",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -463,11 +421,8 @@
         "campus": "CC",
         "name": "Escuela de Medicina",
         "shortName": "Medicina",
-        "address": "Alameda Libertador Bernardo O´Higgins 340, 8331150 Santiago de Chile",
-        "information": null,
-        "parent": { "identifier": "CC", "campus": "CC" },
-        "ancestors": [{ "identifier": "CC", "campus": "CC" }],
-        "categories": ["faculty"]
+        "information": "Alameda Libertador Bernardo O´Higgins 340, 8331150 Santiago de Chile",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -491,11 +446,8 @@
         "campus": "SJ",
         "name": "Facultad de Química",
         "shortName": "Química",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -526,11 +478,8 @@
         "campus": "SJ",
         "name": "Facultad de Teología",
         "shortName": "Teología",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -556,11 +505,8 @@
         "campus": "SJ",
         "name": "College",
         "shortName": "College",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -585,11 +531,8 @@
         "campus": "SJ",
         "name": "Ciencias de la Salud",
         "shortName": "Ciencias de la Salud",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -611,11 +554,8 @@
         "campus": "SJ",
         "name": "Instituto de Filosofía",
         "shortName": "Filosofía",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "SJ", "campus": "SJ" },
-        "ancestors": [{ "identifier": "SJ", "campus": "SJ" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
@@ -637,11 +577,8 @@
         "campus": "CC",
         "name": "Facultad de Ciencias Biológicas",
         "shortName": "Biología",
-        "address": "",
-        "information": null,
-        "parent": { "identifier": "CC", "campus": "CC" },
-        "ancestors": [{ "identifier": "CC", "campus": "CC" }],
-        "categories": ["faculty"]
+        "information": "",
+        "categories": "faculty"
       },
       "geometry": {
         "type": "Polygon",
