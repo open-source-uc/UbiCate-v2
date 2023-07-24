@@ -13,7 +13,7 @@ import {
   ScaleControl,
 } from "react-map-gl";
 
-import { placesLayer, newClusterLayer } from "./layers";
+import { placesLayer, clusterLayer } from "./layers";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
 
@@ -62,7 +62,7 @@ export default function MapComponent(Places: any) {
         }}
         mapStyle="mapbox://styles/mapbox/dark-v9"
         mapboxAccessToken={MAPBOX_TOKEN}
-        interactiveLayerIds={[placesLayer.id, newClusterLayer.id]}
+        interactiveLayerIds={[placesLayer.id, clusterLayer.id]}
         // onClick={onClick}
         onMouseMove={onHover}
         ref={mapRef}
@@ -75,11 +75,8 @@ export default function MapComponent(Places: any) {
         <NavigationControl position="top-left" />
         <ScaleControl />
         <Source id="places" type="geojson" data={Places.Places} cluster={true} clusterRadius={10}>
-          {/* <Layer {...clusterLayer} />
-          <Layer {...clusterCountLayer} />
-          <Layer {...unclusteredPointLayer} /> */}
           <Layer {...placesLayer} />
-          <Layer {...newClusterLayer} />
+          <Layer {...clusterLayer} />
         </Source>
         {selectedPlace ? (
           <Popup
