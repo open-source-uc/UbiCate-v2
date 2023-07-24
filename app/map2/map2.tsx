@@ -1,8 +1,17 @@
 "use client";
 import { useRef, useState, useMemo, useCallback } from "react";
 
-import { Map, Source, Layer, Popup } from "react-map-gl";
 import type { MapRef, GeoJSONSource } from "react-map-gl";
+import {
+  Map,
+  Source,
+  Layer,
+  Popup,
+  GeolocateControl,
+  FullscreenControl,
+  NavigationControl,
+  ScaleControl,
+} from "react-map-gl";
 
 import { placesLayer, newClusterLayer } from "./layers";
 
@@ -54,13 +63,17 @@ export default function MapComponent(Places: any) {
         mapStyle="mapbox://styles/mapbox/dark-v9"
         mapboxAccessToken={MAPBOX_TOKEN}
         interactiveLayerIds={[placesLayer.id, newClusterLayer.id]}
-        onClick={onClick}
+        // onClick={onClick}
         onMouseMove={onHover}
         ref={mapRef}
         className="h-full w-full"
         minZoom={10}
       >
         {/* {pins} */}
+        <GeolocateControl position="top-left" />
+        <FullscreenControl position="top-left" />
+        <NavigationControl position="top-left" />
+        <ScaleControl />
         <Source id="places" type="geojson" data={Places.Places} cluster={true} clusterRadius={10}>
           {/* <Layer {...clusterLayer} />
           <Layer {...clusterCountLayer} />
