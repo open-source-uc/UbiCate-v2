@@ -10,14 +10,11 @@ export const placesLayer: LayerProps = {
   paint: {
     "circle-color": [
       "match",
-      ["at", 0, ["get", "categories"]],
-      "classroom",
-      "#FF8C00",
-      "shop",
-      "#0ef305",
-      "other",
-      "#e55e5e",
-      "#ccc",
+      ["get", "categories"], // Updated to access the "categories" property
+      "classroom", "#FF8C00",
+      "shop", "#0ef305",
+      "other", "#e55e5e",
+      "#ccc"
     ],
     "circle-radius": 10,
   },

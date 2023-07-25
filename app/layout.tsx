@@ -8,9 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Ubicate UC",
-  description: "Buscador de salas en campus de la Pontificia Universidad Católica de Chile, con mapa dinámico. Proyecto Open Source.",
+  description:
+    "Buscador de salas en campus de la Pontificia Universidad Católica de Chile, con mapa dinámico. Proyecto Open Source.",
   author: "OSUC",
-  keywords: "Pontificia Universidad Católica de Chile, salas, campus, mapa, uc, ubicación, estudiantes, Open Source, san Joaquin, casa central, lo contador",
+  keywords:
+    "Pontificia Universidad Católica de Chile, salas, campus, mapa, uc, ubicación, estudiantes, Open Source, san Joaquin, casa central, lo contador",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -23,17 +25,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="keywords" content={metadata.keywords} />
       </Head>
       <body className={inter.className}>
-        <main className="flex w-screen h-screen flex-col justify-between ">
-        <nav className="w-screen text-black bg-blue-200 h-10 flex flex-row">
-            <Link href="" className="my-1 mx-2">
-              Home
-            </Link>
-            <Link href="/map" className="my-1 mx-2">
-              Map
-            </Link>
-            <Link href="/form-geo" className="my-1 mx-2">
-              Form
-            </Link>
+        <main className="flex w-screen h-screen flex-col justify-between bg-dark-1">
+          <nav className="w-screen text-white h-12 flex items-center justify-between px-4 bg-dark-4">
+            <div className="text-xl font-bold font-heading">
+              <Link href="/">Ubicate UC</Link>
+            </div>
+            <ul className="flex space-x-8 font-semibold font-heading">
+              <li>
+                <Link href="/map">Map</Link>
+              </li>
+              <li>
+                <Link href="/form-geo">Form</Link>
+              </li>
+            </ul>
           </nav>
           {children}
         </main>
