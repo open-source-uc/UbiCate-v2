@@ -106,7 +106,7 @@ export default function Page() {
           enableReinitialize={true}
         >
           {({ isSubmitting }) => (
-            <Form className="flex flex-col justify-center items-center w-full space-y-4">
+            <Form className="flex flex-col justify-center items-center w-full max-w-lg space-y-4">
               <h1 className="text-2xl mb-2 text-light-4">Nueva Sala</h1>
               <ErrorMessage className="text-error text-sm w-full text-center" name="longitude" component="div" />
               <ErrorMessage className="text-error text-sm w-full text-center" name="latitude" component="div" />
@@ -115,7 +115,7 @@ export default function Page() {
                 Sala
               </label>
               <Field
-                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="placeName"
                 id="placeName"
                 type="text"
@@ -126,7 +126,7 @@ export default function Page() {
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
                 type="text"
