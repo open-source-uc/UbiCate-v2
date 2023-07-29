@@ -1,7 +1,11 @@
 "use client";
-import { useRef, useState, useMemo, useCallback } from "react";
+import { useRef, useState, useMemo, useCallback, useEffect } from "react";
 
-import type { MapRef, GeoJSONSource } from "react-map-gl";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import Mapbox from "mapbox-gl";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+
+import type { MapRef } from "react-map-gl";
 import {
   Map,
   Source,
@@ -13,7 +17,9 @@ import {
   ScaleControl,
 } from "react-map-gl";
 
-import { placesLayer, clusterLayer } from "./layers";
+import geojson from "../../data/places.json";
+
+import { placesLayer } from "./layers";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
 
@@ -21,36 +27,52 @@ export default function ReactMap(Places: any) {
   const mapRef = useRef<MapRef>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
 
+  const customData = geojson;
+  const map = mapRef.current?.getMap();
+
+  function forwardGeocoder(query: any) {
+    const matchingFeatures = [];
+    for (const feature of customData.features) {
+      if (feature.properties.name.toLowerCase().includes(query.toLowerCase())) {
+        let faculty = feature.properties.faculties ? ` | Facultad: ${feature.properties.faculties}` : "";
+        feature["place_name"] = `${feature.properties.name}` + faculty;
+        feature["center"] = feature.geometry.coordinates;
+        feature["place_type"] = ["poi"];
+        matchingFeatures.push(feature);
+      }
+    }
+    return matchingFeatures;
+  }
+
+  useEffect(() => {
+    const geocoder = new MapboxGeocoder({
+      accessToken: MAPBOX_TOKEN,
+      localGeocoder: forwardGeocoder,
+      localGeocoderOnly: true,
+      mapboxgl: Mapbox,
+      marker: {
+        color: "red",
+      },
+      placeholder: "i.e. Sala de Estudio",
+      limit: 10,
+      zoom: 18,
+      types: "poi",
+      poi_categories: ["poi"],
+    });
+    mapRef.current?.getMap().addControl(geocoder);
+  }, [map]);
+
   const onHover = useCallback((event: any) => {
     const place = event.features && event.features[0];
     setHoverInfo({
-      longitude: event.lngLat.lng,
-      latitude: event.lngLat.lat,
+      longitude: place?.geometry.coordinates[0],
+      latitude: place?.geometry.coordinates[1],
       place: place ? place.properties.name : null,
     });
   }, []);
 
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   const filter = useMemo(() => ["in", "name", selectedPlace], [selectedPlace]);
-
-  const onClick = (event: any) => {
-    const feature = event.features[0];
-    const clusterId = feature ? feature.properties.cluster_id : null;
-
-    const mapboxSource = mapRef.current.getSource("places") as GeoJSONSource;
-
-    mapboxSource.getClusterExpansionZoom(clusterId, (err: any, zoom: any) => {
-      if (err) {
-        return;
-      }
-
-      mapRef.current.easeTo({
-        center: feature.geometry.coordinates,
-        zoom,
-        duration: 500,
-      });
-    });
-  };
 
   return (
     <>
@@ -62,21 +84,19 @@ export default function ReactMap(Places: any) {
         }}
         mapStyle="mapbox://styles/mapbox/dark-v9"
         mapboxAccessToken={MAPBOX_TOKEN}
-        interactiveLayerIds={[placesLayer.id, clusterLayer.id]}
-        // onClick={onClick}
+        interactiveLayerIds={[placesLayer.id]}
         onMouseMove={onHover}
         ref={mapRef}
         className="h-full w-full"
-        minZoom={10}
       >
         {/* {pins} */}
         <GeolocateControl position="top-left" />
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
-        <Source id="places" type="geojson" data={Places.Places} cluster={true} clusterRadius={10}>
+        <Source id="places" type="geojson" data={Places.Places} cluster={false} clusterRadius={10}>
           <Layer {...placesLayer} />
-          <Layer {...clusterLayer} />
+          {/* <Layer {...clusterLayer} /> */}
         </Source>
         {selectedPlace ? (
           <Popup
