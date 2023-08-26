@@ -4,7 +4,6 @@ import { useRef, useState, useMemo, useCallback, useEffect } from "react";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Mapbox from "mapbox-gl";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
-
 import type { MapRef } from "react-map-gl";
 import {
   Map,
@@ -30,29 +29,25 @@ export default function ReactMap(Places: any) {
   const customData = geojson;
   const map = mapRef.current?.getMap();
 
-  function forwardGeocoder(query: any) {
-    const matchingFeatures = [];
-    for (const feature of customData.features) {
-      if (feature.properties.name.toLowerCase().includes(query.toLowerCase())) {
-        let faculty = feature.properties.faculties ? ` | Facultad: ${feature.properties.faculties}` : "";
-        feature["place_name"] = `${feature.properties.name}` + faculty;
-        feature["center"] = feature.geometry.coordinates;
-        feature["place_type"] = ["poi"];
-        matchingFeatures.push(feature);
-      }
-    }
-    return matchingFeatures;
-  }
-
   useEffect(() => {
+    function forwardGeocoder(query: any) {
+      const matchingFeatures = [];
+      for (const feature of customData.features) {
+        if (feature.properties.name.toLowerCase().includes(query.toLowerCase())) {
+          let faculty = feature.properties.faculties ? ` | Facultad: ${feature.properties.faculties}` : "";
+          feature["place_name"] = `${feature.properties.name}` + faculty;
+          feature["center"] = feature.geometry.coordinates;
+          feature["place_type"] = ["poi"];
+          matchingFeatures.push(feature);
+        }
+      }
+      return matchingFeatures;
+    }
     const geocoder = new MapboxGeocoder({
       accessToken: MAPBOX_TOKEN,
       localGeocoder: forwardGeocoder,
       localGeocoderOnly: true,
       mapboxgl: Mapbox,
-      marker: {
-        color: "red",
-      },
       placeholder: "i.e. Sala de Estudio",
       limit: 10,
       zoom: 18,
@@ -60,7 +55,7 @@ export default function ReactMap(Places: any) {
       poi_categories: ["poi"],
     });
     mapRef.current?.getMap().addControl(geocoder);
-  }, [map]);
+  }, [map, customData]);
 
   const onHover = useCallback((event: any) => {
     const place = event.features && event.features[0];
@@ -89,14 +84,12 @@ export default function ReactMap(Places: any) {
         ref={mapRef}
         className="h-full w-full"
       >
-        {/* {pins} */}
         <GeolocateControl position="top-left" />
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
         <Source id="places" type="geojson" data={Places.Places} cluster={false} clusterRadius={10}>
           <Layer {...placesLayer} />
-          {/* <Layer {...clusterLayer} /> */}
         </Source>
         {selectedPlace ? (
           <Popup
