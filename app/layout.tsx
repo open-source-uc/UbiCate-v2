@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import Head from "next/head";
+import Link from "next/link";
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
