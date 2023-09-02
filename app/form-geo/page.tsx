@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import getGeolocation from "@/utils/getGeolocation";
-
 import { Formik, Field, Form, ErrorMessage } from "formik";
+
+import getGeolocation from "@/utils/getGeolocation";
 
 interface newPlace {
   longitude: number;
