@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useMemo, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Mapbox from "mapbox-gl";
@@ -19,12 +19,17 @@ import {
 import geojson from "../../data/places.json";
 
 import { placesLayer } from "./layers";
+import Marker from "./marker";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
 
 export default function ReactMap(Places: any) {
   const mapRef = useRef<MapRef>(null);
+  const geocoder = useRef<any>(null);
+  const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
+  const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
+  console.log("render");
 
   const customData = geojson;
   const map = mapRef.current?.getMap();
@@ -43,7 +48,7 @@ export default function ReactMap(Places: any) {
       }
       return matchingFeatures;
     }
-    const geocoder = new MapboxGeocoder({
+    geocoder.current = new MapboxGeocoder({
       accessToken: MAPBOX_TOKEN,
       localGeocoder: forwardGeocoder,
       localGeocoderOnly: true,
@@ -51,10 +56,40 @@ export default function ReactMap(Places: any) {
       placeholder: "i.e. Sala de Estudio",
       limit: 10,
       zoom: 18,
+      marker: false,
       types: "poi",
       poi_categories: ["poi"],
     });
-    mapRef.current?.getMap().addControl(geocoder);
+    geocoder.current.on("result", function (result: any) {
+      const selectedPlaceId = result.result.properties.identifier;
+      setGeocoderPlaces(null);
+      for (const place of customData.features) {
+        if (place.properties.identifier === selectedPlaceId) {
+          setGeocoderPlace(place);
+          break;
+        }
+      }
+    });
+
+    geocoder.current.on("results", function (results: any) {
+      const places = [];
+      for (const result of results.features) {
+        const selectedPlaceId = result.properties.identifier;
+        for (const place of customData.features) {
+          if (place.properties.identifier === selectedPlaceId) {
+            places.push(place);
+            break;
+          }
+        }
+      }
+      setGeocoderPlaces(places);
+    });
+
+    geocoder.current.on("clear", function () {
+      setGeocoderPlace(null);
+      setGeocoderPlaces(null);
+    });
+    mapRef.current?.getMap().addControl(geocoder.current);
   }, [map, customData]);
 
   const onHover = useCallback((event: any) => {
@@ -67,7 +102,6 @@ export default function ReactMap(Places: any) {
   }, []);
 
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
-  const filter = useMemo(() => ["in", "name", selectedPlace], [selectedPlace]);
 
   return (
     <>
@@ -103,6 +137,12 @@ export default function ReactMap(Places: any) {
             {selectedPlace}
           </Popup>
         ) : null}
+        {geocoderPlace ? <Marker place={geocoderPlace} /> : null}
+        {geocoderPlaces
+          ? geocoderPlaces.map((place: any) => {
+              return <Marker key={place.properties.identifier} place={place} />;
+            })
+          : null}
       </Map>
     </>
   );
