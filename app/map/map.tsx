@@ -19,12 +19,16 @@ import {
 import geojson from "../../data/places.json";
 
 import { placesLayer } from "./layers";
+import Marker from "./marker";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
 
 export default function ReactMap(Places: any) {
   const mapRef = useRef<MapRef>(null);
+  const geocoder = useRef<any>(null);
+  const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
+  console.log("render");
 
   const customData = geojson;
   const map = mapRef.current?.getMap();
@@ -43,7 +47,7 @@ export default function ReactMap(Places: any) {
       }
       return matchingFeatures;
     }
-    const geocoder = new MapboxGeocoder({
+    geocoder.current = new MapboxGeocoder({
       accessToken: MAPBOX_TOKEN,
       localGeocoder: forwardGeocoder,
       localGeocoderOnly: true,
@@ -51,10 +55,21 @@ export default function ReactMap(Places: any) {
       placeholder: "i.e. Sala de Estudio",
       limit: 10,
       zoom: 18,
+      marker: false,
       types: "poi",
       poi_categories: ["poi"],
     });
-    mapRef.current?.getMap().addControl(geocoder);
+    geocoder.current.on("result", function (result: any) {
+      const selectedPlaceId = result.result.properties.identifier;
+      for (const place of customData.features) {
+        if (place.properties.identifier === selectedPlaceId) {
+          setGeocoderPlace(place);
+          break;
+        }
+      }
+      console.log(result.result);
+    });
+    mapRef.current?.getMap().addControl(geocoder.current);
   }, [map, customData]);
 
   const onHover = useCallback((event: any) => {
@@ -68,7 +83,7 @@ export default function ReactMap(Places: any) {
 
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   const filter = useMemo(() => ["in", "name", selectedPlace], [selectedPlace]);
-
+  if (geocoder.current && geocoder.current.getAutoComplete) console.log(geocoder.current.getAutoComplete);
   return (
     <>
       <Map
@@ -103,6 +118,7 @@ export default function ReactMap(Places: any) {
             {selectedPlace}
           </Popup>
         ) : null}
+        {geocoderPlace ? <Marker place={geocoderPlace} /> : null}
       </Map>
     </>
   );
