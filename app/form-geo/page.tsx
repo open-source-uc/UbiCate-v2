@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import getGeolocation from "@/utils/getGeolocation";
+
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 interface newPlace {
@@ -78,23 +80,7 @@ export default function Page() {
   }
 
   useEffect(() => {
-    const getGeolocation = () => {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-          },
-          (error) => {
-            console.error("Error al obtener la ubicación:", error);
-          },
-        );
-      } else {
-        console.error("Geolocalización no disponible en este navegador.");
-      }
-    };
-
-    getGeolocation();
+    getGeolocation(setLatitude, setLongitude);
   }, []);
   return (
     <div className="flex h-full w-full items-center justify-center bg-dark-1">
