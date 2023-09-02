@@ -56,7 +56,6 @@ export default function ReactMap(Places: any) {
       placeholder: "i.e. Sala de Estudio",
       limit: 10,
       zoom: 18,
-      minLength: -1,
       marker: false,
       types: "poi",
       poi_categories: ["poi"],
@@ -73,7 +72,6 @@ export default function ReactMap(Places: any) {
     });
 
     geocoder.current.on("results", function (results: any) {
-      console.log(results.features);
       const places = [];
       for (const result of results.features) {
         const selectedPlaceId = result.properties.identifier;
