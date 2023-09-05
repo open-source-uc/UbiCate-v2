@@ -28,9 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/">Ubicate UC</Link>
             </div>
             <ul className="flex space-x-8 font-semibold font-heading">
-              <li>
+              {/*<li>
                 <Link href="/map">Map</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/form-geo">Form</Link>
               </li>
