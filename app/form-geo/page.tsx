@@ -7,10 +7,11 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import getGeolocation from "@/utils/getGeolocation";
 
 interface newPlace {
-  longitude: number;
-  latitude: number;
+  longitude: number | null;
+  latitude: number | null;
   placeName: string;
   information: string;
+  author: string;
 }
 
 interface errors {
@@ -18,6 +19,7 @@ interface errors {
   latitude?: string;
   placeName?: string;
   information?: string;
+  author?: string;
 }
 
 export default function Page() {
@@ -60,7 +62,7 @@ export default function Page() {
 
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
-    } else if (newPlace.placeName.length > 40) {
+    } else if (newPlace.placeName.length > 20) {
       errors.placeName = "Nombre demasiado largo";
     }
 
@@ -68,15 +70,37 @@ export default function Page() {
       errors.information = "Informacion demasiado larga";
     }
 
+    if (newPlace.author.length > 20) {
+      errors.author = "Nombre del autor demasiado largo";
+    }
+
     return errors;
   };
 
   async function handleSubmit(values: any) {
     setSubmitting(true);
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+
+    const transformedValues = {
+      ...values,
+      name: values.placeName,
+    };
+    delete transformedValues.placeName;
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(transformedValues),
+    };
+
+    fetch("https://ubicate-uc.fly.dev/api/collections/coordinates/records", requestOptions)
+      .then((data) => {
+        setSubmitting(false);
+        alert("Tu sala ha sido registrada.");
+      })
+      .catch((error) => {
+        setSubmitting(false);
+        console.error("Error al registrar la sala:", error);
+      });
   }
 
   useEffect(() => {
@@ -84,44 +108,53 @@ export default function Page() {
   }, []);
   return (
     <div className="flex h-full w-full items-center justify-center bg-dark-1">
-      <div className="flex flex-col w-5/6 h-5/6 items-center justify-center rounded bg-dark-2 p-4 space-y-6">
+      <div className="flex flex-col px-4 w-5/6 h-5/6 items-center justify-center rounded bg-dark-2 space-y-6">
         <Formik
-          initialValues={{ longitude: longitude, latitude: latitude, placeName: "", information: "" }}
+          initialValues={{ longitude: longitude, latitude: latitude, placeName: "", information: "", author: "" }}
           onSubmit={handleSubmit}
           validate={validate}
           enableReinitialize={true}
         >
           {({ isSubmitting }) => (
-            <Form className="flex flex-col justify-center items-center w-full max-w-lg space-y-4">
-              <h1 className="text-2xl mb-2 text-light-4">Nueva Sala</h1>
+            <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
+              <h1 className="text-3xl lg:text-6xl text-light-2">Nueva localización</h1>
+              <h2 className="mb-16 pb-16 text-base lg:text-lg text-light-4 text-center">
+                Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
+              </h2>
               <ErrorMessage className="text-error text-sm w-full text-center" name="longitude" component="div" />
               <ErrorMessage className="text-error text-sm w-full text-center" name="latitude" component="div" />
-
-              <label className="my-2 flex items-center justify-center text-light-4" htmlFor="placeName">
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
                 Sala
               </label>
               <Field
-                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="placeName"
                 id="placeName"
                 type="text"
               />
               <ErrorMessage className="text-error text-sm w-full text-left" name="placeName" component="div" />
-
-              <label className="my-2 flex items-center justify-center text-light-4" htmlFor="information">
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
+                Autor (opcional)
+              </label>
+              <Field
+                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="author"
+                id="author"
+                type="text"
+              />
+              <ErrorMessage className="text-error text-sm w-full text-left" name="author" component="div" />
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
                 type="text"
-                component="textarea"
               />
-              <ErrorMessage className="text-error text-sm w-full text-left" name="information" component="div" />
 
               <button
-                className="my-2 text-light-4 bg-dark-3 enabled:hover:bg-dark-4 font-medium rounded-lg text-lg w-full sm:w-auto px-6 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="my-2 w-48 h-12 flex items-center justify-center text-light-4 bg-dark-3 enabled:hover:bg-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
                 disabled={isSubmitting}
               >
