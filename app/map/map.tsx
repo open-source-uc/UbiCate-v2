@@ -2,7 +2,7 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import Mapbox from "mapbox-gl";
+import Mapbox, { Point } from "mapbox-gl";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import type { MapRef } from "react-map-gl";
 import {
@@ -40,16 +40,21 @@ export default function ReactMap(Places: any) {
       for (const feature of customData.features) {
         if (feature.properties.name.toLowerCase().includes(query.toLowerCase())) {
           let faculty = feature.properties.faculties ? ` | Facultad: ${feature.properties.faculties}` : "";
-          feature["place_name"] = `${feature.properties.name}` + faculty;
-          feature["center"] = feature.geometry.coordinates;
-          feature["place_type"] = ["poi"];
-          matchingFeatures.push(feature);
+
+          const matchedFeatures: any = {
+            ...feature,
+            place_name: `${feature.properties.name}` + faculty,
+            center: feature.geometry.coordinates,
+            place_type: ["poi"],
+          };
+
+          matchingFeatures.push(matchedFeatures);
         }
       }
       return matchingFeatures;
     }
     geocoder.current = new MapboxGeocoder({
-      accessToken: MAPBOX_TOKEN,
+      accessToken: MAPBOX_TOKEN as string,
       localGeocoder: forwardGeocoder,
       localGeocoderOnly: true,
       mapboxgl: Mapbox,
@@ -58,7 +63,6 @@ export default function ReactMap(Places: any) {
       zoom: 18,
       marker: false,
       types: "poi",
-      poi_categories: ["poi"],
     });
     geocoder.current.on("result", function (result: any) {
       const selectedPlaceId = result.result.properties.identifier;
@@ -113,10 +117,9 @@ export default function ReactMap(Places: any) {
         }}
         mapStyle="mapbox://styles/mapbox/dark-v9"
         mapboxAccessToken={MAPBOX_TOKEN}
-        interactiveLayerIds={[placesLayer.id]}
+        interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
         ref={mapRef}
-        className="h-full w-full"
       >
         <GeolocateControl position="top-left" />
         <FullscreenControl position="top-left" />
@@ -132,7 +135,7 @@ export default function ReactMap(Places: any) {
             closeButton={false}
             closeOnClick={false}
             className="place"
-            offset={[0, -10]}
+            offset={new Point(0, -10)}
           >
             {selectedPlace}
           </Popup>
