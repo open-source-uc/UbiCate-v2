@@ -38,27 +38,27 @@ export default function Page() {
 
     const errors: errors = {};
 
-    // if (!newPlace.longitude) {
-    //   errors.longitude = "Longitud Requerida";
-    // } else if (!newPlace.latitude) {
-    //   errors.latitude = "Latitud Requerida";
-    // } else {
-    //   var campus: string | null = null;
+    if (!newPlace.longitude) {
+      errors.longitude = "Longitud Requerida";
+    } else if (!newPlace.latitude) {
+      errors.latitude = "Latitud Requerida";
+    } else {
+      var campus: string | null = null;
 
-    //   for (const boundary of campusBoundaries) {
-    //     if (
-    //       newPlace.longitude >= boundary.longitudeRange[0] &&
-    //       newPlace.longitude <= boundary.longitudeRange[1] &&
-    //       newPlace.latitude >= boundary.latitudeRange[0] &&
-    //       newPlace.latitude <= boundary.latitudeRange[1]
-    //     ) {
-    //       campus = boundary.campus;
-    //       break;
-    //     }
-    //   }
+      for (const boundary of campusBoundaries) {
+        if (
+          newPlace.longitude >= boundary.longitudeRange[0] &&
+          newPlace.longitude <= boundary.longitudeRange[1] &&
+          newPlace.latitude >= boundary.latitudeRange[0] &&
+          newPlace.latitude <= boundary.latitudeRange[1]
+        ) {
+          campus = boundary.campus;
+          break;
+        }
+      }
 
-    //   if (!campus) errors.latitude = "Estas fuera de algún campus";
-    // }
+      if (!campus) errors.latitude = "Estas fuera de algún campus";
+    }
 
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
@@ -116,46 +116,45 @@ export default function Page() {
           enableReinitialize={true}
         >
           {({ isSubmitting }) => (
-            <Form className="flex flex-col justify-center items-center w-full max-w-lg space-y-4">
-              <h1 className="text-2xl text-light-2">Nueva localización</h1>
-              <h2 className="mb-6 pb-5 text-xs text-light-4 text-center">
+            <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
+              <h1 className="text-3xl lg:text-6xl text-light-2">Nueva localización</h1>
+              <h2 className="mb-16 pb-16 text-base lg:text-lg text-light-4 text-center">
                 Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
               </h2>
               <ErrorMessage className="text-error text-sm w-full text-center" name="longitude" component="div" />
               <ErrorMessage className="text-error text-sm w-full text-center" name="latitude" component="div" />
-              <label className="my-2 flex items-center justify-center text-light-4" htmlFor="placeName">
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
                 Sala
               </label>
               <Field
-                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="placeName"
                 id="placeName"
                 type="text"
               />
               <ErrorMessage className="text-error text-sm w-full text-left" name="placeName" component="div" />
-              <label className="my-2 flex items-center justify-center text-light-4" htmlFor="author">
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
                 Autor (opcional)
               </label>
               <Field
-                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="author"
                 id="author"
                 type="text"
               />
               <ErrorMessage className="text-error text-sm w-full text-left" name="author" component="div" />
-              <label className="my-2 flex items-center justify-center text-light-4" htmlFor="information">
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full max-w-lg text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
                 type="text"
-                component="textarea"
               />
-              <ErrorMessage className="text-error text-sm w-full text-left" name="information" component="div" />
+
               <button
-                className="my-2 text-light-4 bg-dark-3 enabled:hover:bg-dark-4 font-medium rounded-lg text-lg w-full sm:w-auto px-6 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="my-2 w-48 h-12 flex items-center justify-center text-light-4 bg-dark-3 enabled:hover:bg-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
                 disabled={isSubmitting}
               >
