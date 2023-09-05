@@ -34,7 +34,7 @@ Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local
 NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
 ```
 
-### Instalar dependencias 
+### Instalar dependencias
 
 ```shell
 npm install

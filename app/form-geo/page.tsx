@@ -36,27 +36,27 @@ export default function Page() {
 
     const errors: errors = {};
 
-    if (!newPlace.longitude) {
-      errors.longitude = "Longitud Requerida";
-    } else if (!newPlace.latitude) {
-      errors.latitude = "Latitud Requerida";
-    } else {
-      var campus: string | null = null;
+    // if (!newPlace.longitude) {
+    //   errors.longitude = "Longitud Requerida";
+    // } else if (!newPlace.latitude) {
+    //   errors.latitude = "Latitud Requerida";
+    // } else {
+    //   var campus: string | null = null;
 
-      for (const boundary of campusBoundaries) {
-        if (
-          newPlace.longitude >= boundary.longitudeRange[0] &&
-          newPlace.longitude <= boundary.longitudeRange[1] &&
-          newPlace.latitude >= boundary.latitudeRange[0] &&
-          newPlace.latitude <= boundary.latitudeRange[1]
-        ) {
-          campus = boundary.campus;
-          break;
-        }
-      }
+    //   for (const boundary of campusBoundaries) {
+    //     if (
+    //       newPlace.longitude >= boundary.longitudeRange[0] &&
+    //       newPlace.longitude <= boundary.longitudeRange[1] &&
+    //       newPlace.latitude >= boundary.latitudeRange[0] &&
+    //       newPlace.latitude <= boundary.latitudeRange[1]
+    //     ) {
+    //       campus = boundary.campus;
+    //       break;
+    //     }
+    //   }
 
-      if (!campus) errors.latitude = "Estas fuera de algún campus";
-    }
+    //   if (!campus) errors.latitude = "Estas fuera de algún campus";
+    // }
 
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
@@ -73,10 +73,28 @@ export default function Page() {
 
   async function handleSubmit(values: any) {
     setSubmitting(true);
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+
+    const transformedValues = {
+      ...values,
+      name: values.placeName,
+    };
+    delete transformedValues.placeName;
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(transformedValues),
+    };
+
+    fetch("https://ubicate-uc.fly.dev/api/collections/coordinates/records", requestOptions)
+      .then((data) => {
+        setSubmitting(false);
+        alert("Tu sala ha sido registrada.");
+      })
+      .catch((error) => {
+        setSubmitting(false);
+        console.error("Error al registrar la sala:", error);
+      });
   }
 
   useEffect(() => {
