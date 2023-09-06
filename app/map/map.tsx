@@ -29,7 +29,6 @@ export default function ReactMap(Places: any) {
   const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
-  console.log("render");
 
   const customData = geojson;
   const map = mapRef.current?.getMap();
