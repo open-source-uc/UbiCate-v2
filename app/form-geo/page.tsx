@@ -6,6 +6,8 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
 
+import FormMap from "./FormMap";
+
 interface newPlace {
   longitude: number | null;
   latitude: number | null;
@@ -152,6 +154,13 @@ export default function Page() {
                 id="information"
                 type="text"
               />
+
+              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
+                Selecciona tu ubicación en el mapa
+              </label>
+              <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <FormMap initialViewState={{ longitude: -70.6109, latitude: -33.4983, zoom: 15 }} />
+              </div>
 
               <button
                 className="my-2 w-48 h-12 flex items-center justify-center text-light-4 bg-dark-3 enabled:hover:bg-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
