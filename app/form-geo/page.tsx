@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
@@ -17,8 +17,8 @@ interface newPlace {
 }
 
 interface errors {
-  longitude?: string;
-  latitude?: string;
+  longitude?: number | string | null;
+  latitude?: number | string | null;
   placeName?: string;
   information?: string;
   author?: string;
@@ -28,6 +28,11 @@ export default function Page() {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [latitude, setLatitude] = useState<number | null>(null);
+
+  const dragLocUpdate = useCallback((event: any) => {
+    setLongitude(event.lngLat.lng);
+    setLatitude(event.lngLat.lat);
+  }, []);
 
   const validate = (newPlace: newPlace) => {
     const campusBoundaries = [
@@ -159,7 +164,10 @@ export default function Page() {
                 Selecciona tu ubicación en el mapa
               </label>
               <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <FormMap initialViewState={{ longitude: -70.6109, latitude: -33.4983, zoom: 15 }} />
+                <FormMap
+                  initialViewState={{ longitude: -70.6109, latitude: -33.4983, zoom: 15 }}
+                  onDrag={dragLocUpdate}
+                />
               </div>
 
               <button

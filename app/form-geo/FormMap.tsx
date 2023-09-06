@@ -8,7 +8,7 @@ import Pin from "./pin";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-export default function FormMap({ initialViewState }: any) {
+export default function FormMap(props: any) {
   const [marker, setMarker] = useState({
     latitude: -33.4983,
     longitude: -70.6109,
@@ -29,15 +29,19 @@ export default function FormMap({ initialViewState }: any) {
     });
   }, []);
 
-  const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
-    setEvents((_events) => ({ ..._events, onDragEnd: event.lngLat }));
-  }, []);
+  const onMarkerDragEnd = useCallback(
+    (event: MarkerDragEvent) => {
+      setEvents((_events) => ({ ..._events, onDragEnd: event.lngLat }));
+      props.onDrag(event);
+    },
+    [props],
+  );
 
   return (
     <>
       <div className="flex flex-col h-96 w-full justify-center place-content-center justify-items-center">
         <Map
-          initialViewState={initialViewState}
+          initialViewState={props.initialViewState}
           mapStyle="mapbox://styles/mapbox/dark-v11"
           mapboxAccessToken={MAPBOX_TOKEN}
         >
