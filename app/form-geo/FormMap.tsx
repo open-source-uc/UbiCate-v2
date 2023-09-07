@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
 import type { LngLat, MarkerDragEvent } from "react-map-gl";
@@ -10,8 +10,8 @@ const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export default function FormMap(props: any) {
   const [marker, setMarker] = useState({
-    latitude: -33.4983,
-    longitude: -70.6109,
+    latitude: props.initialViewState.latitude,
+    longitude: props.initialViewState.longitude,
   });
 
   const [events, setEvents] = useState<Record<string, LngLat>>({});
@@ -36,6 +36,13 @@ export default function FormMap(props: any) {
     },
     [props],
   );
+
+  useEffect(() => {
+    setMarker({
+      longitude: props.initialViewState.longitude,
+      latitude: props.initialViewState.latitude,
+    });
+  }, [props]);
 
   return (
     <>

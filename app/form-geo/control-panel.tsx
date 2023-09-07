@@ -8,8 +8,6 @@ function round5(value: any) {
   return (Math.round(value * 1e5) / 1e5).toFixed(5);
 }
 
-const initialLoc = { latitude: -33.4983, longitude: -70.6109 };
-
 function ControlPanel(props: { events: Record<string, LngLat> }) {
   return (
     <div className="control-panel flex flex-col place-content-center">

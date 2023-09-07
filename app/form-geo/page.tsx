@@ -113,7 +113,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="flex h-full w-full items-center justify-center bg-dark-1">
+    <div className="flex min-h-full w-full items-center justify-center bg-dark-1">
       <div className="flex flex-col px-4 w-5/6 h-5/6 items-center justify-center rounded bg-dark-2 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting }) => (
@@ -159,7 +159,7 @@ export default function Page() {
               </label>
               <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <FormMap
-                  initialViewState={{ longitude: -70.6109, latitude: -33.4983, zoom: 15 }}
+                  initialViewState={{ longitude: longitude, latitude: latitude, zoom: 15 }}
                   onDrag={dragLocUpdate}
                 />
               </div>
