@@ -4,7 +4,6 @@ import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
 import type { LngLat, MarkerDragEvent } from "react-map-gl";
 
 import ControlPanel from "./control-panel";
-import Pin from "./pin";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -60,9 +59,9 @@ export default function FormMap(props: any) {
             onDragStart={onMarkerDragStart}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
-          >
-            <Pin size={20} />
-          </Marker>
+            color="red"
+            style={{ zIndex: 1 }}
+          />
 
           <NavigationControl />
           <GeolocateControl showAccuracyCircle={false} />
