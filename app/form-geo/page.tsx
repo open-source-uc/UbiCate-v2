@@ -113,8 +113,8 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="flex min-h-full w-full items-center justify-center bg-dark-1">
-      <div className="flex flex-col px-4 w-5/6 h-5/6 items-center justify-center rounded bg-dark-2 space-y-6">
+    <main className="flex min-h-full w-full items-center justify-center bg-dark-1">
+      <div className="flex flex-col px-4 w-5/6 h-5/6 my-2 py-1 items-center justify-center rounded bg-dark-2 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
@@ -175,6 +175,6 @@ export default function Page() {
           )}
         </Formik>
       </div>
-    </div>
+    </main>
   );
 }
