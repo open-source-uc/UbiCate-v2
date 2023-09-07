@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
@@ -59,9 +61,10 @@ export default function FormMap(props: any) {
             onDragStart={onMarkerDragStart}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
-            color="red"
             style={{ zIndex: 1 }}
-          />
+          >
+            <Image className="" src="/logo-white.svg" alt="Logo" width={20} height={20} />
+          </Marker>
 
           <NavigationControl />
           <GeolocateControl showAccuracyCircle={false} />
