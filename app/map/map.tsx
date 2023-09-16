@@ -57,7 +57,7 @@ export default function ReactMap(Places: any) {
       localGeocoder: forwardGeocoder,
       localGeocoderOnly: true,
       mapboxgl: Mapbox,
-      placeholder: "i.e. Sala de Estudio",
+      placeholder: "e.g. Sala de Estudio",
       limit: 10,
       zoom: 18,
       marker: false,
