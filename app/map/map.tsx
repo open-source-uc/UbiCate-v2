@@ -114,7 +114,7 @@ export default function ReactMap(Places: any) {
           latitude: -33.4983,
           zoom: 16,
         }}
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle="mapbox://styles/mapbox/dark-v11"
         mapboxAccessToken={MAPBOX_TOKEN}
         interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
