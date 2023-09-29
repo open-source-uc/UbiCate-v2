@@ -1,5 +1,7 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+
 import { useEffect, useState, useCallback } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -13,7 +15,7 @@ interface newPlace {
   latitude: number | null;
   placeName: string;
   information: string;
-  author: string;
+  floor: number;
 }
 
 interface errors {
@@ -21,20 +23,35 @@ interface errors {
   latitude?: number | string | null;
   placeName?: string;
   information?: string;
-  author?: string;
+  floor?: string;
 }
 
-const campusBoundaries = [
-  { campus: "San Joaquin", longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
-  { campus: "Lo Contador", longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
-  { campus: "Villarrica", longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
-  { campus: "Casa Central", longitudeRange: [-70.6481, -70.6471], latitudeRange: [-33.4428, -33.4418] },
-  { campus: "Oriente", longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
-];
+interface CampusBounds {
+  longitudeRange: [number, number];
+  latitudeRange: [number, number];
+}
 
-const initialValues = { placeName: "", information: "", author: "" };
+const campusBounds: Record<string, CampusBounds> = {
+  "San Joaquin": { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
+  "Lo Contador": { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
+  Villarrica: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
+  "Casa Central": { longitudeRange: [-70.6424, -70.6386], latitudeRange: [-33.4427, -33.4403] },
+  Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
+};
+
+const initialValues = { placeName: "", information: "", floor: 1 };
 
 export default function Page() {
+  const searchParams = useSearchParams();
+  const paramCampus: string = searchParams.get("campus") || "San Joaquin";
+
+  const campusMapBounds = [
+    [campusBounds[paramCampus].longitudeRange[0], campusBounds[paramCampus].latitudeRange[0]],
+    [campusBounds[paramCampus].longitudeRange[1], campusBounds[paramCampus].latitudeRange[1]],
+  ];
+
+  console.log(campusMapBounds);
+
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
@@ -49,14 +66,14 @@ export default function Page() {
 
     var campus: string | null = null;
 
-    for (const boundary of campusBoundaries) {
+    for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
       if (
         longitude >= boundary.longitudeRange[0] &&
         longitude <= boundary.longitudeRange[1] &&
         latitude >= boundary.latitudeRange[0] &&
         latitude <= boundary.latitudeRange[1]
       ) {
-        campus = boundary.campus;
+        campus = boundaryCampus;
         break;
       }
 
@@ -65,7 +82,7 @@ export default function Page() {
 
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
-    } else if (newPlace.placeName.length > 20) {
+    } else if (newPlace.placeName.length > 50) {
       errors.placeName = "Nombre demasiado largo";
     }
 
@@ -73,8 +90,8 @@ export default function Page() {
       errors.information = "Informacion demasiado larga";
     }
 
-    if (newPlace.author.length > 20) {
-      errors.author = "Nombre del autor demasiado largo";
+    if (Math.abs(newPlace.floor) > 20) {
+      errors.floor = "Piso inválido";
     }
 
     return errors;
@@ -135,15 +152,15 @@ export default function Page() {
               />
               <ErrorMessage className="text-error text-sm w-full text-left" name="placeName" component="div" />
               <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
-                Autor (opcional)
+                Piso
               </label>
               <Field
                 className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="author"
-                id="author"
-                type="text"
+                name="floor"
+                id="floor"
+                type="number"
               />
-              <ErrorMessage className="text-error text-sm w-full text-left" name="author" component="div" />
+              <ErrorMessage className="text-error text-sm w-full text-left" name="floor" component="div" />
               <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
                 Información (opcional)
               </label>
@@ -159,7 +176,12 @@ export default function Page() {
               </label>
               <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <FormMap
-                  initialViewState={{ longitude: longitude, latitude: latitude, zoom: 15 }}
+                  initialViewState={{
+                    longitude: longitude,
+                    latitude: latitude,
+                    zoom: 15,
+                  }}
+                  mapBounds={campusMapBounds}
                   onDrag={dragLocUpdate}
                 />
               </div>

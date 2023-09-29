@@ -44,12 +44,11 @@ export default function FormMap(props: any) {
       latitude: props.initialViewState.latitude,
     });
   }, [props]);
-
   return (
     <>
       <div className="flex flex-col h-96 w-full justify-center place-content-center justify-items-center">
         <Map
-          initialViewState={props.initialViewState}
+          initialViewState={{ bounds: props.mapBounds }}
           mapStyle="mapbox://styles/mapbox/dark-v11"
           mapboxAccessToken={MAPBOX_TOKEN}
         >
