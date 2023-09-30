@@ -10,10 +10,7 @@ import ControlPanel from "./control-panel";
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export default function FormMap(props: any) {
-  const [marker, setMarker] = useState({
-    latitude: props.initialViewState.latitude,
-    longitude: props.initialViewState.longitude,
-  });
+  const [marker, setMarker] = useState({ ...props.markerPosition });
 
   const [events, setEvents] = useState<Record<string, LngLat>>({});
 
@@ -39,10 +36,7 @@ export default function FormMap(props: any) {
   );
 
   useEffect(() => {
-    setMarker({
-      longitude: props.initialViewState.longitude,
-      latitude: props.initialViewState.latitude,
-    });
+    setMarker({ ...props.markerPosition });
   }, [props]);
   return (
     <>
