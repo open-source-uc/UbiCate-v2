@@ -187,7 +187,7 @@
         "identifier": "ENF_222",
         "name": "222",
         "information": "Auditorio",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "ENF"
       },
@@ -682,7 +682,7 @@
         "identifier": "Auditorio_SA",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "ING"
       },
@@ -697,7 +697,7 @@
         "identifier": "auditorio_Y",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "ING"
       },
@@ -712,7 +712,7 @@
         "identifier": "auditorio_acg",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "AGC"
       },
@@ -727,7 +727,7 @@
         "identifier": "auditorio_ccl",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "CCL"
       },
@@ -742,7 +742,7 @@
         "identifier": "auditorio_college",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "D"
       },
@@ -757,7 +757,7 @@
         "identifier": "auditorio_h_1",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "HIS"
       },
@@ -772,7 +772,7 @@
         "identifier": "auditorio_h_2",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "HIS"
       },
@@ -787,7 +787,7 @@
         "identifier": "auditorio_h_fil",
         "name": "Auditorio",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "FIL"
       },
@@ -802,7 +802,7 @@
         "identifier": "AUD_10",
         "name": "Auditorio 10",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -817,7 +817,7 @@
         "identifier": "102",
         "name": "Auditorio 102",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -832,7 +832,7 @@
         "identifier": "103",
         "name": "Auditorio 103",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -847,7 +847,7 @@
         "identifier": "104",
         "name": "Auditorio 104",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -862,7 +862,7 @@
         "identifier": "105",
         "name": "Auditorio 105",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -877,7 +877,7 @@
         "identifier": "106",
         "name": "Auditorio 106",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -892,7 +892,7 @@
         "identifier": "107",
         "name": "Auditorio 107",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -907,7 +907,7 @@
         "identifier": "108",
         "name": "Auditorio 108",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -922,7 +922,7 @@
         "identifier": "109",
         "name": "Auditorio 109",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -937,7 +937,7 @@
         "identifier": "110",
         "name": "Auditorio 110",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -952,7 +952,7 @@
         "identifier": "111",
         "name": "Auditorio 111",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -967,7 +967,7 @@
         "identifier": "112",
         "name": "Auditorio 112",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -982,7 +982,7 @@
         "identifier": "113",
         "name": "Auditorio 113",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "EA"
       },
@@ -997,7 +997,7 @@
         "identifier": "AUD_21",
         "name": "Auditorio 21",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1012,7 +1012,7 @@
         "identifier": "AUD_24",
         "name": "Auditorio 24",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1027,7 +1027,7 @@
         "identifier": "ASILVA",
         "name": "Auditorio Alejandro Silva",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1042,7 +1042,7 @@
         "identifier": "CLARO",
         "name": "Auditorio Claro y Cia.",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1057,7 +1057,7 @@
         "identifier": "auditorio_joaco_luco",
         "name": "Auditorio Dr. Joaquín Luco",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1072,7 +1072,7 @@
         "identifier": "FD-101",
         "name": "Auditorio FD101",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1102,7 +1102,7 @@
         "identifier": "auditorio_astro",
         "name": "Auditorio Ninoslav Bralic",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": ""
       },
@@ -1117,7 +1117,7 @@
         "identifier": "AUD_N",
         "name": "Auditorio Norte",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "LC",
         "faculties": "FADEU"
       },
@@ -1132,7 +1132,7 @@
         "identifier": "AUD_S",
         "name": "Auditorio Sur",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "LC",
         "faculties": "FADEU"
       },
@@ -1147,7 +1147,7 @@
         "identifier": "auditorio_qim",
         "name": "Auditorio Victor Pillón",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": "QIM"
       },
@@ -1162,7 +1162,7 @@
         "identifier": "aulamagna_cc",
         "name": "Aula Magna",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "CC",
         "faculties": ""
       },
@@ -1177,7 +1177,7 @@
         "identifier": "aulamagna_comercial",
         "name": "Aula Magna",
         "information": "",
-        "categories": "classroom",
+        "categories": "auditorium",
         "campus": "SJ",
         "faculties": ""
       },
