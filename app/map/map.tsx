@@ -17,6 +17,7 @@ import {
 } from "react-map-gl";
 
 import geojson from "../../data/places.json";
+import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesLayer } from "./layers";
 import Marker from "./marker";
@@ -29,6 +30,7 @@ export default function ReactMap(Places: any) {
   const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
+  const { searchResult, setSearchResult } = useSearchResultCtx();
 
   const customData = geojson;
   const map = mapRef.current?.getMap();
@@ -52,6 +54,7 @@ export default function ReactMap(Places: any) {
       }
       return matchingFeatures;
     }
+
     geocoder.current = new MapboxGeocoder({
       accessToken: MAPBOX_TOKEN as string,
       localGeocoder: forwardGeocoder,
@@ -87,6 +90,23 @@ export default function ReactMap(Places: any) {
       }
       setGeocoderPlaces(places);
     });
+
+    if (searchResult) {
+      for (const place of customData.features) {
+        if (place.properties.identifier === searchResult) {
+          setGeocoderPlace(place);
+          setSearchResult("");
+          setTimeout(() => {
+            const map = mapRef.current?.getMap();
+            map?.flyTo({
+              center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+              zoom: 18,
+            });
+          }, 100);
+          break;
+        }
+      }
+    }
 
     geocoder.current.on("clear", function () {
       setGeocoderPlace(null);

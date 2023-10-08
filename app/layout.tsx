@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
+
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { SearchResultProvider } from "./context/SearchResultCtx";
 
 export const metadata = {
   title: "Ubicate UC",
@@ -36,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </li>
             </ul>
           </nav>
-          {children}
+          <SearchResultProvider>{children}</SearchResultProvider>
         </main>
       </body>
     </html>
