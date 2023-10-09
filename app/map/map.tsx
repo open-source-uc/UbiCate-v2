@@ -30,10 +30,13 @@ export default function ReactMap(Places: any) {
   const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
-  const { searchResult, setSearchResult } = useSearchResultCtx();
+  const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
 
   const customData = geojson;
   const map = mapRef.current?.getMap();
+
+  const setSearchResultRef = useRef(setSearchResult);
+  setSearchResultRef.current = setSearchResult;
 
   useEffect(() => {
     function forwardGeocoder(query: any) {
@@ -91,29 +94,25 @@ export default function ReactMap(Places: any) {
       setGeocoderPlaces(places);
     });
 
-    if (searchResult) {
-      for (const place of customData.features) {
-        if (place.properties.identifier === searchResult) {
-          setGeocoderPlace(place);
-          setSearchResult("");
-          setTimeout(() => {
-            const map = mapRef.current?.getMap();
-            map?.flyTo({
-              center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
-              zoom: 18,
-            });
-          }, 100);
-          break;
-        }
-      }
-    }
-
     geocoder.current.on("clear", function () {
       setGeocoderPlace(null);
       setGeocoderPlaces(null);
     });
     mapRef.current?.getMap().addControl(geocoder.current);
   }, [map, customData]);
+
+  useEffect(() => {
+    if (searchResult) {
+      for (const place of customData.features) {
+        if (place.properties.identifier === searchResult) {
+          setGeocoderPlace(place);
+          setSearchResultRef.current("");
+          setInitialLng(-70.6109);
+          setInitialLat(-33.4983);
+        }
+      }
+    }
+  }, [customData.features, searchResult, setInitialLat, setInitialLng]);
 
   const onHover = useCallback((event: any) => {
     const place = event.features && event.features[0];
@@ -130,9 +129,9 @@ export default function ReactMap(Places: any) {
     <>
       <Map
         initialViewState={{
-          longitude: -70.6109,
-          latitude: -33.4983,
-          zoom: 16,
+          longitude: initialLng,
+          latitude: initialLat,
+          zoom: initialLat === -33.4983 && initialLng === -70.6109 ? 16 : 18,
         }}
         mapStyle="mapbox://styles/mapbox/dark-v11"
         mapboxAccessToken={MAPBOX_TOKEN}

@@ -18,8 +18,7 @@ export default function LandingSearch() {
   const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
-  const [test, setTest] = useState<any>([]);
-  const { setSearchResult } = useSearchResultCtx();
+  const { setSearchResult, setInitialLat, setInitialLng } = useSearchResultCtx();
 
   const router = useRouter();
 
@@ -67,6 +66,8 @@ export default function LandingSearch() {
         if (place.properties.identifier === selectedPlaceId) {
           setGeocoderPlace(place);
           setSearchResult(result.result.properties.identifier);
+          setInitialLng(result.result.geometry.coordinates[0]);
+          setInitialLat(result.result.geometry.coordinates[1]);
           redirectToMap();
           break;
         }
@@ -93,11 +94,7 @@ export default function LandingSearch() {
     });
 
     geocoderContainer.current?.appendChild(geocoder.current.onAdd());
-  }, [customData, router, setSearchResult]);
+  }, [customData, router, setInitialLat, setInitialLng, setSearchResult]);
 
-  return (
-    <div ref={geocoderContainer} style={{ position: "relative" }}>
-      {test}
-    </div>
-  );
+  return <section ref={geocoderContainer} style={{ position: "relative" }} />;
 }
