@@ -1,8 +1,7 @@
 "use client";
 import { useRef, useState, useCallback, useEffect } from "react";
 
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import Mapbox, { Point } from "mapbox-gl";
+import { Point } from "mapbox-gl";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import type { MapRef } from "react-map-gl";
 import {
@@ -16,18 +15,19 @@ import {
   ScaleControl,
 } from "react-map-gl";
 
+import getGeocoder from "@/utils/getGeocoder";
+
 import geojson from "../../data/places.json";
 import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesLayer } from "./layers";
 import Marker from "./marker";
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export default function ReactMap(Places: any) {
   const mapRef = useRef<MapRef>(null);
   const geocoder = useRef<any>(null);
-  const [geocoderPlace, setGeocoderPlace] = useState<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
   const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
@@ -39,42 +39,13 @@ export default function ReactMap(Places: any) {
   setSearchResultRef.current = setSearchResult;
 
   useEffect(() => {
-    function forwardGeocoder(query: any) {
-      const matchingFeatures = [];
-      for (const feature of customData.features) {
-        if (feature.properties.name.toLowerCase().includes(query.toLowerCase())) {
-          let faculty = feature.properties.faculties ? ` | Facultad: ${feature.properties.faculties}` : "";
+    geocoder.current = getGeocoder();
 
-          const matchedFeatures: any = {
-            ...feature,
-            place_name: `${feature.properties.name}` + faculty,
-            center: feature.geometry.coordinates,
-            place_type: ["poi"],
-          };
-
-          matchingFeatures.push(matchedFeatures);
-        }
-      }
-      return matchingFeatures;
-    }
-
-    geocoder.current = new MapboxGeocoder({
-      accessToken: MAPBOX_TOKEN as string,
-      localGeocoder: forwardGeocoder,
-      localGeocoderOnly: true,
-      mapboxgl: Mapbox,
-      placeholder: "e.g. Sala de Estudio",
-      limit: 10,
-      zoom: 18,
-      marker: false,
-      types: "poi",
-    });
     geocoder.current.on("result", function (result: any) {
       const selectedPlaceId = result.result.properties.identifier;
-      setGeocoderPlaces(null);
       for (const place of customData.features) {
         if (place.properties.identifier === selectedPlaceId) {
-          setGeocoderPlace(place);
+          setGeocoderPlaces([place]);
           break;
         }
       }
@@ -95,7 +66,6 @@ export default function ReactMap(Places: any) {
     });
 
     geocoder.current.on("clear", function () {
-      setGeocoderPlace(null);
       setGeocoderPlaces(null);
     });
     mapRef.current?.getMap().addControl(geocoder.current);
@@ -105,7 +75,7 @@ export default function ReactMap(Places: any) {
     if (searchResult) {
       for (const place of customData.features) {
         if (place.properties.identifier === searchResult) {
-          setGeocoderPlace(place);
+          setGeocoderPlaces([place]);
           setSearchResultRef.current("");
           setInitialLng(-70.6109);
           setInitialLat(-33.4983);
@@ -158,7 +128,6 @@ export default function ReactMap(Places: any) {
             {selectedPlace}
           </Popup>
         ) : null}
-        {geocoderPlace ? <Marker place={geocoderPlace} /> : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: any) => {
               return <Marker key={place.properties.identifier} place={place} />;
