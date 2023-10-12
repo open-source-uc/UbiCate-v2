@@ -21,8 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="author" content={metadata.author} />
         <meta name="keywords" content={metadata.keywords} />
       </Head>
-      <body className="h-full">
-        <main className="w-full h-screen flex-col justify-between bg-dark-1">
+      <body className="h-full pb-[-12px] bg-dark-1">
+        <main className="w-full h-screen flex-col justify-between pb-12 bg-dark-1">
           <nav className="w-full text-white h-12 flex items-center justify-between px-4 bg-dark-4">
             <div className="text-xl font-bold font-heading">
               <Link href="/">Ubicate UC</Link>
