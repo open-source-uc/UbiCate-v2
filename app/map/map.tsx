@@ -20,6 +20,7 @@ import geojson from "../../data/places.json";
 
 import { placesLayer } from "./layers";
 import Marker from "./marker";
+import Image from "next/image";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
 
@@ -100,7 +101,7 @@ export default function ReactMap(Places: any) {
     setHoverInfo({
       longitude: place?.geometry.coordinates[0],
       latitude: place?.geometry.coordinates[1],
-      place: place ? place.properties.name : null,
+      place: place ? place.properties: null,
     });
   }, []);
 
@@ -128,17 +129,39 @@ export default function ReactMap(Places: any) {
           <Layer {...placesLayer} />
         </Source>
         {selectedPlace ? (
-          <Popup
-            longitude={hoverInfo.longitude}
-            latitude={hoverInfo.latitude}
-            closeButton={false}
-            closeOnClick={false}
-            className="place"
-            offset={new Point(0, -10)}
-          >
-            {selectedPlace}
-          </Popup>
-        ) : null}
+  <Popup
+    longitude={hoverInfo.longitude}
+    latitude={hoverInfo.latitude}
+    closeButton={false}
+    closeOnClick={false}
+    offset={new Point(0, -10)}
+    anchor="bottom"
+    className="place rounded-s min-w-fit" 
+  >
+      <Image 
+        src="/monito-del-monte-placeholder.png" 
+        width={200} 
+        height={200}
+        alt="POI Image Placeholder" 
+        className=""
+      />
+      <h3 className="bg-dark-4 font-semibold text-white p-2"> {selectedPlace.name} </h3>
+      <h4 className="p-1 pl-2"> {selectedPlace?.information} </h4>
+  </Popup>
+) : null}
+<style>{`
+  .mapboxgl-popup-content{ /* no se puede modificar desde el tag de popup, solo cambiando directamente el css*/
+    padding: 0;
+    margin: 0;
+  }
+  .mapboxgl-popup-content img{ 
+margin: 0;                /* siempre hereda un margen a la derecha aunque lo ponga en 0 :( */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+`}
+</style>
         {geocoderPlace ? <Marker place={geocoderPlace} /> : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: any) => {
