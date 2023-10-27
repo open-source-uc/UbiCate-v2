@@ -3,7 +3,7 @@
 const nextConfig = {
   async redirects() {
  
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "poduction") {
       console.log("Ejecutando rewrites para producción");
       return [
         {
