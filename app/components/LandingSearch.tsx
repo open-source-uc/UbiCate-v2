@@ -10,7 +10,7 @@ import getGeocoder from "@/utils/getGeocoder";
 import geojson from "../../data/places.json";
 import { useSearchResultCtx } from "../context/SearchResultCtx";
 
-export default function LandingSearch() {
+export default function LandingSearch({ mapboxToken }: { mapboxToken: string }) {
   const geocoderContainer = useRef<HTMLDivElement>(null);
   const geocoder = useRef<any>(null);
   const { setSearchResult, setInitialLat, setInitialLng } = useSearchResultCtx();
@@ -20,7 +20,7 @@ export default function LandingSearch() {
   const customData = geojson;
 
   useEffect(() => {
-    geocoder.current = getGeocoder();
+    geocoder.current = getGeocoder(mapboxToken);
 
     const redirectToMap = () => {
       router.push("/map");
@@ -41,7 +41,7 @@ export default function LandingSearch() {
     });
 
     geocoderContainer.current?.appendChild(geocoder.current.onAdd());
-  }, [customData, router, setInitialLat, setInitialLng, setSearchResult]);
+  }, [customData, router, setInitialLat, setInitialLng, setSearchResult, mapboxToken]);
 
   return <section ref={geocoderContainer} style={{ position: "relative" }} />;
 }

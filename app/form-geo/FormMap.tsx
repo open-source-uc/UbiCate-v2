@@ -4,10 +4,9 @@ import { useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
 import type { LngLat, MarkerDragEvent } from "react-map-gl";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 import ControlPanel from "./control-panel";
-
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export default function FormMap(props: any) {
   const [marker, setMarker] = useState({ ...props.markerPosition });
@@ -44,7 +43,7 @@ export default function FormMap(props: any) {
         <Map
           initialViewState={{ bounds: props.mapBounds }}
           mapStyle="mapbox://styles/mapbox/dark-v11"
-          mapboxAccessToken={MAPBOX_TOKEN}
+          mapboxAccessToken={props.mapboxToken}
         >
           <Marker
             longitude={marker.longitude}
