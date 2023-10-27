@@ -1,4 +1,4 @@
-function get10MinutesFloorDate(): Date {
+function get10MinutesFloorNowDate(): Date {
   var date = new Date();
 
   const dateFloor = new Date(date.getTime());
@@ -8,11 +8,11 @@ function get10MinutesFloorDate(): Date {
   return dateFloor;
 }
 
-async function getTempToken(): Promise<string> {
-  const now = get10MinutesFloorDate();
+export default async function get10MinuteCachedToken(): Promise<string> {
+  const now = get10MinutesFloorNowDate();
   const expirationDate = new Date(now.getTime() + 60 * 60 * 1000);
   const response = await fetch(
-    `https://api.mapbox.com/tokens/v2/mccari?access_token=${process.env.MAPBOX_SECRET_PROD_TOKEN}`,
+    `https://api.mapbox.com/tokens/v2/${process.env.MAPBOX_USER}?access_token=${process.env.MAPBOX_TOKEN}`,
     {
       method: "POST",
       headers: {
@@ -28,12 +28,4 @@ async function getTempToken(): Promise<string> {
 
   const data = await response.json();
   return data.token;
-}
-
-export default async function getMapboxToken(): Promise<string> {
-  if (process.env.NODE_ENV === "development") {
-    return process.env.MAPBOX_TOKEN_DEV as string;
-  }
-
-  return getTempToken();
 }

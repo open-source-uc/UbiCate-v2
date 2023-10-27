@@ -3,7 +3,7 @@
 const nextConfig = {
   async redirects() {
  
-    if (process.env.NODE_ENV === "poduction") {
+    if (process.env.NODE_ENV === "production") {
       console.log("Ejecutando rewrites para producción");
       return [
         {
@@ -21,6 +21,10 @@ const nextConfig = {
       console.log("Ejecutando en un entorno que no es producción");
       return [];
     }
+  },
+
+  env: {
+    MAPBOX_TOKEN: process.env.NODE_ENV === "production" ? process.env.MAPBOX_SECRET_TOKEN_PROD : process.env.MAPBOX_SECRET_TOKEN_DEV,
   },
 };
 

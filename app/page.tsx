@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import getMapboxToken from "@/utils/getMapboxToken";
+import get10MinuteCachedToken from "@/utils/getMapboxToken";
 
 import LandingSearch from "./components/LandingSearch";
 
 export default async function Home() {
-  const mapboxToken = await getMapboxToken();
+  const mapboxToken = await get10MinuteCachedToken();
 
   return (
     <section className="flex max-h-screen flex-col items-center justify-between p-24">

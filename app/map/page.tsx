@@ -1,11 +1,11 @@
-import getMapboxToken from "@/utils/getMapboxToken";
+import get10MinuteCachedToken from "@/utils/getMapboxToken";
 
 import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
 export default async function Page() {
-  const mapboxToken = await getMapboxToken();
+  const mapboxToken = await get10MinuteCachedToken();
 
   return (
     <>
