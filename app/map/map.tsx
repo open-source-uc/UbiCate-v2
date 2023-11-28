@@ -129,45 +129,45 @@ export default function ReactMap(Places: any) {
           <Layer {...placesLayer} />
         </Source>
         {selectedPlace ? (
-  <Popup
-    longitude={hoverInfo.longitude}
-    latitude={hoverInfo.latitude}
-    closeButton={false}
-    closeOnClick={false}
-    offset={new Point(0, -10)}
-    anchor="bottom"
-    className="place rounded-s min-w-fit" 
-  >
-      <Image 
-        src="/monito-del-monte-placeholder.png" 
-        width={200} 
-        height={200}
-        alt="POI Image Placeholder" 
-        className=""
-      />
-      <h3 className="bg-dark-4 font-semibold text-white p-2"> {selectedPlace.name} </h3>
-      <h4 className="p-1 pl-2"> {selectedPlace?.information} </h4>
-  </Popup>
-) : null}
-<style>{`
-  .mapboxgl-popup-content{ /* no se puede modificar desde el tag de popup, solo cambiando directamente el css*/
-    padding: 0;
-    margin: 0;
-  }
-  .mapboxgl-popup-content img{ 
-margin: 0;                /* siempre hereda un margen a la derecha aunque lo ponga en 0 :( */
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-`}
-</style>
+          <Popup
+            longitude={hoverInfo.longitude}
+            latitude={hoverInfo.latitude}
+            closeButton={false}
+            closeOnClick={false}
+            offset={new Point(0, -10)}
+            anchor="bottom"
+            className="place rounded-s min-w-fit" 
+          >
+            <Image 
+              src="/building_placeholder.png" 
+              width={300} 
+              height={100}
+              alt="POI Image Placeholder" 
+              className=""
+            />
+            <h3 className="bg-dark-4 font-semibold text-white p-2 max-w-[300px]"> <p className="break-words"> {selectedPlace.name} </p></h3>
+            <h4 className="p-1 pl-2"> {selectedPlace?.information} </h4>
+          </Popup>
+        ) : null}
+        <style>{`
+          .mapboxgl-popup-content{ /* no se puede modificar desde el tag de popup */
+            padding: 0;
+            margin: 0;
+          }
+          .mapboxgl-popup-content img{ 
+            margin: 0;                /* siempre hereda un margen a la derecha aunque se fije en 0 */
+            align-items: center;
+            display: flex;
+            justify-content: center;
+          }
+        `}
+        </style>
         {geocoderPlace ? <Marker place={geocoderPlace} /> : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: any) => {
-              return <Marker key={place.properties.identifier} place={place} />;
-            })
-          : null}
+            return <Marker key={place.properties.identifier} place={place} />;
+          })
+        : null}
       </Map>
     </>
   );
