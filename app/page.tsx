@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+
+import LandingSearch from "./components/LandingSearch";
 
 export default function Home() {
   return (
@@ -13,6 +16,9 @@ export default function Home() {
           priority
         />
       </div>
+      <section>
+        <LandingSearch />
+      </section>
     </section>
   );
 }
