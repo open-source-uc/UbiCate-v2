@@ -1,14 +1,12 @@
 "use client";
 import { useRef, useState, useCallback, useEffect } from "react";
 
-import { Point } from "mapbox-gl";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import type { MapRef } from "react-map-gl";
 import {
   Map,
   Source,
   Layer,
-  Popup,
   GeolocateControl,
   FullscreenControl,
   NavigationControl,
@@ -22,7 +20,7 @@ import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesLayer } from "./layers";
 import Marker from "./marker";
-import Image from "next/image";
+import HoverPopup from "../components/HoverPopup";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -118,32 +116,8 @@ export default function ReactMap(Places: any) {
           <Layer {...placesLayer} />
         </Source>
         {selectedPlace ? (
-          <Popup
-            longitude={hoverInfo.longitude}
-            latitude={hoverInfo.latitude}
-            closeButton={false}
-            closeOnClick={false}
-            offset={new Point(0, -10)}
-            anchor="bottom"
-            className="place rounded-s min-w-fit" 
-          >
-            <h3 className="bg-dark-4 font-semibold text-white p-2 max-w-[300px]"> <p className="break-words"> {selectedPlace.name} </p></h3>
-            <h4 className="p-1 pl-2"> {selectedPlace?.information} </h4>
-          </Popup>
+          HoverPopup({ hoverInfo, selectedPlace })
         ) : null}
-        <style>{`
-          .mapboxgl-popup-content{ /* no se puede modificar desde el tag de popup */
-            padding: 0;
-            margin: 0;
-          }
-          .mapboxgl-popup-content img{ 
-            margin: 0;                /* siempre hereda un margen a la derecha aunque se fije en 0 */
-            align-items: center;
-            display: flex;
-            justify-content: center;
-          }
-        `}
-        </style>
         {geocoderPlaces
           ? geocoderPlaces.map((place: any) => {
             return <Marker key={place.properties.identifier} place={place} />;
