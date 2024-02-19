@@ -37,7 +37,12 @@ const HoverPopup = (props) => {
       {imageSrc ? (
         <img src={imageSrc} alt="" />
       ) : null}
-      <h4 className="bg-white text-black w-full p-2"> {selectedPlace?.information} </h4>
+      <ul className="bg-white text-black w-full p-2">
+        <li>{selectedPlace?.information}</li>
+        <li>{selectedPlace?.faculties && `Facultad de ${selectedPlace.faculties}`}</li>
+        <li>{selectedPlace?.piso && `Piso ${selectedPlace.piso}`}</li>
+      </ul>
+
     </Popup>
   );
 };
