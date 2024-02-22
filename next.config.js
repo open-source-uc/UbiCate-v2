@@ -22,6 +22,10 @@ const nextConfig = {
       return [];
     }
   },
+
+  env: {
+    MAPBOX_TOKEN: process.env.NODE_ENV === "production" ? process.env.MAPBOX_SECRET_TOKEN_PROD : process.env.MAPBOX_SECRET_TOKEN_DEV,
+  },
 };
 
 module.exports = nextConfig;

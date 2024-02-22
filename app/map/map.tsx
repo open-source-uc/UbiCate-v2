@@ -23,23 +23,21 @@ import { useSearchResultCtx } from "../context/SearchResultCtx";
 import { placesLayer } from "./layers";
 import Marker from "./marker";
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
-export default function ReactMap(Places: any) {
+export default function ReactMap({ Places, mapboxToken }: { Places: any; mapboxToken: string }) {
   const mapRef = useRef<MapRef>(null);
   const geocoder = useRef<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
   const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
-
   const customData = geojson;
   const map = mapRef.current?.getMap();
 
+  console.log("mapboxToken", mapboxToken);
+
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
-
   useEffect(() => {
-    geocoder.current = getGeocoder();
+    geocoder.current = getGeocoder(mapboxToken);
 
     geocoder.current.on("result", function (result: any) {
       const selectedPlaceId = result.result.properties.identifier;
@@ -69,7 +67,7 @@ export default function ReactMap(Places: any) {
       setGeocoderPlaces(null);
     });
     mapRef.current?.getMap().addControl(geocoder.current);
-  }, [map, customData]);
+  }, [map, customData, mapboxToken]);
 
   useEffect(() => {
     if (searchResult) {
@@ -104,7 +102,7 @@ export default function ReactMap(Places: any) {
           zoom: initialLat === -33.4983 && initialLng === -70.6109 ? 16 : 18,
         }}
         mapStyle="mapbox://styles/mapbox/dark-v11"
-        mapboxAccessToken={MAPBOX_TOKEN}
+        mapboxAccessToken={mapboxToken}
         interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
         ref={mapRef}
@@ -113,7 +111,7 @@ export default function ReactMap(Places: any) {
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
-        <Source id="places" type="geojson" data={Places.Places} cluster={false} clusterRadius={10}>
+        <Source id="places" type="geojson" data={Places} cluster={false} clusterRadius={10}>
           <Layer {...placesLayer} />
         </Source>
         {selectedPlace ? (
