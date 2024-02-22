@@ -68,7 +68,6 @@ export default function ReactMap(Places: any) {
     geocoder.current.on("clear", function () {
       setGeocoderPlaces(null);
     });
-    mapRef.current?.getMap().addControl(geocoder.current);
   }, [map, customData]);
 
   useEffect(() => {
@@ -93,6 +92,11 @@ export default function ReactMap(Places: any) {
     });
   }, []);
 
+  const addGeocoderControl = useCallback(() => {
+    const map = mapRef.current?.getMap();
+    map?.addControl(geocoder.current);
+  }, []);
+
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
 
   return (
@@ -107,6 +111,7 @@ export default function ReactMap(Places: any) {
         mapboxAccessToken={MAPBOX_TOKEN}
         interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
+        onLoad={addGeocoderControl}
         ref={mapRef}
       >
         <GeolocateControl position="top-left" />
