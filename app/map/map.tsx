@@ -1,14 +1,12 @@
 "use client";
 import { useRef, useState, useCallback, useEffect } from "react";
 
-import { Point } from "mapbox-gl";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import type { MapRef } from "react-map-gl";
 import {
   Map,
   Source,
   Layer,
-  Popup,
   GeolocateControl,
   FullscreenControl,
   NavigationControl,
@@ -22,6 +20,7 @@ import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesLayer } from "./layers";
 import Marker from "./marker";
+import HoverPopup from "../components/HoverPopup";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -88,7 +87,7 @@ export default function ReactMap(Places: any) {
     setHoverInfo({
       longitude: place?.geometry.coordinates[0],
       latitude: place?.geometry.coordinates[1],
-      place: place ? place.properties.name : null,
+      place: place ? place.properties: null,
     });
   }, []);
 
@@ -122,22 +121,13 @@ export default function ReactMap(Places: any) {
           <Layer {...placesLayer} />
         </Source>
         {selectedPlace ? (
-          <Popup
-            longitude={hoverInfo.longitude}
-            latitude={hoverInfo.latitude}
-            closeButton={false}
-            closeOnClick={false}
-            className="place"
-            offset={new Point(0, -10)}
-          >
-            {selectedPlace}
-          </Popup>
+          HoverPopup({ hoverInfo, selectedPlace })
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: any) => {
-              return <Marker key={place.properties.identifier} place={place} />;
-            })
-          : null}
+            return <Marker key={place.properties.identifier} place={place} />;
+          })
+        : null}
       </Map>
     </>
   );
