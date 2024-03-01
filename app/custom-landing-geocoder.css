@@ -46,9 +46,10 @@
   color: rgba(0, 0, 0, 0.75);
   outline: 0;
   border-radius: 25px;
-  box-shadow: 0 0 0 2px #00a6ff;
+  outline: 2px solid #00a6ff;
+  outline-offset: -1px;
   outline-style: solid;
-  transition: box-shadow .2s;
+  transition: outline .1s ease-in;
 }
 
 .mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--pin-right>* {
