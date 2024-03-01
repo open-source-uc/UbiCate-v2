@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 import { useRef, useEffect } from "react";
 
-import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import "../custom-geocoder.css";
 
 import getGeocoder from "@/utils/getGeocoder";
 
