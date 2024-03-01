@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 import { useRef, useEffect } from "react";
 
-import "../custom-geocoder.css";
+import "../custom-landing-geocoder.css";
 
 import getGeocoder from "@/utils/getGeocoder";
 
@@ -43,5 +43,5 @@ export default function LandingSearch() {
     geocoderContainer.current?.appendChild(geocoder.current.onAdd());
   }, [customData, router, setInitialLat, setInitialLng, setSearchResult]);
 
-  return <section ref={geocoderContainer} style={{ position: "relative" }} />;
+  return <section ref={geocoderContainer} className="flex justify-center align-middle" />;
 }

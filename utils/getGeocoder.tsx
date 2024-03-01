@@ -29,7 +29,7 @@ export default function getGeocoder(): MapboxGeocoder {
     localGeocoder: forwardGeocoder,
     localGeocoderOnly: true,
     mapboxgl: Mapbox,
-    placeholder: "e.g. Sala de Estudio",
+    placeholder: "Salas, Bibliotecas, Laboratorios...",
     limit: 10,
     zoom: 18,
     marker: false,

@@ -2,8 +2,7 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Point } from "mapbox-gl";
-// import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import "../custom-geocoder.css";
+import "../custom-landing-geocoder.css";
 import type { MapRef } from "react-map-gl";
 import {
   Map,
