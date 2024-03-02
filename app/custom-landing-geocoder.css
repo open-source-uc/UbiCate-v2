@@ -193,6 +193,13 @@
   text-decoration: none;
 }
 
+.mapbox-gl-geocoder--error {
+  color: #909090;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-align: center;
+}
+
 /* Animation */
 @-webkit-keyframes rotate {
   from {
