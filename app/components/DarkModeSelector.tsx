@@ -1,14 +1,16 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 export default function DarkModeSelector() {
+  const [isDark, setIsDark] = useState(false);
+
   const switchTheme = (theme: string) => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.classList.toggle("dark", isDark);
+    setIsDark(!isDark);
   };
   return (
     <>
-      <button onClick={() => switchTheme("light")}>Light Mode</button>
-      <button onClick={() => switchTheme("dark")}>Dark Mode</button>
+      <button onClick={() => switchTheme("light")}>{isDark ? "🌙 Dark Mode" : "🌞 Light Mode"}</button>
     </>
   );
 }
