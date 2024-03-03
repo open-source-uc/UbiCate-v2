@@ -43,5 +43,7 @@ export default function LandingSearch() {
     geocoderContainer.current?.appendChild(geocoder.current.onAdd());
   }, [customData, router, setInitialLat, setInitialLng, setSearchResult]);
 
-  return <section ref={geocoderContainer} className="flex justify-center align-middle" />;
+  return (
+    <section ref={geocoderContainer} className="flex justify-center align-middle mapbox-gl-geocoder-theme-borderless" />
+  );
 }

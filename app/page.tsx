@@ -11,17 +11,11 @@ export default function Home() {
   return (
     <section className="flex max-h-screen flex-col items-center justify-between p-10">
       <div className="relative flex place-items-center">
-        <Image
-          className="relative dark:invert"
-          src="/logo-white.svg"
-          alt="ubicate uc"
-          width={180}
-          height={37}
-          priority
-        />
+        <Image className="relative invert" src="/logo-white.svg" alt="ubicate uc" width={180} height={37} priority />
       </div>
       <span className="text-6xl font-bold text-center text-white mt-10 pb-10">
         <TypeAnimation
+          className="text-black dark:text-white select-none"
           style={{
             width: "10rem",
           }}
