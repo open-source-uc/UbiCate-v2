@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useState, useEffect } from "react";
 
@@ -5,17 +6,20 @@ export default function DarkModeSelector() {
   const [isDark, setIsDark] = useState(false);
 
   const switchTheme = () => {
-    const newIsDark = !isDark;
-    document.documentElement.classList.toggle("dark", newIsDark);
-    setIsDark(newIsDark);
-    localStorage.theme = newIsDark ? "dark" : "light";
+    document.documentElement.classList.toggle("dark", !isDark);
+    setIsDark(!isDark);
+    localStorage.theme = !isDark ? "dark" : "light";
   };
 
-  useEffect(() => {
+  const setSystemTheme = () => {
     const savedTheme = localStorage.theme;
     if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
       switchTheme();
     }
+  };
+
+  useEffect(() => {
+    setSystemTheme();
   }, []);
 
   return (
