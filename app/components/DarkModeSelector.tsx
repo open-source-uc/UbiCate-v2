@@ -10,7 +10,7 @@ export default function DarkModeSelector() {
   };
   return (
     <>
-      <button onClick={() => switchTheme("light")}>{isDark ? "🌙 Dark Mode" : "🌞 Light Mode"}</button>
+      <button onClick={() => switchTheme("light")}>{isDark ? "🌞" : "🌙"}</button>
     </>
   );
 }
