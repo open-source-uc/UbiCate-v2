@@ -1,16 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function DarkModeSelector() {
   const [isDark, setIsDark] = useState(false);
 
-  const switchTheme = (theme: string) => {
-    document.documentElement.classList.toggle("dark", isDark);
-    setIsDark(!isDark);
+  const switchTheme = () => {
+    const newIsDark = !isDark;
+    document.documentElement.classList.toggle("dark", newIsDark);
+    setIsDark(newIsDark);
+    localStorage.theme = newIsDark ? "dark" : "light";
   };
+
+  useEffect(() => {
+    const savedTheme = localStorage.theme;
+    if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      switchTheme();
+    }
+  }, []);
+
   return (
     <>
-      <button onClick={() => switchTheme("light")}>{isDark ? "🌞" : "🌙"}</button>
+      <button onClick={() => switchTheme()}>{isDark ? "🌙" : "🌞"}</button>
     </>
   );
 }

@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className="dark" lang="es">
+    <html lang="es">
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
