@@ -1,22 +1,30 @@
 "use client";
 import Image from "next/image";
 
+import { TypeAnimation } from "react-type-animation";
+
 import LandingSearch from "./components/LandingSearch";
 
 export default function Home() {
+  const phrases = ["Salas", 800, "Bibliotecas", 800, "Laboratorios", 800];
+
   return (
-    <section className="flex max-h-screen flex-col items-center justify-between p-24">
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:from-white before:to-transparent before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:invert"
-          src="/logo-white.svg"
-          alt="ubicate uc"
-          width={180}
-          height={37}
-          priority
-        />
+    <section className="flex max-h-screen flex-col items-center justify-between p-10">
+      <div className="relative flex place-items-center">
+        <Image className="relative invert" src="/logo-white.svg" alt="ubicate uc" width={180} height={37} priority />
       </div>
-      <section>
+      <span className="text-6xl font-bold text-center text-white mt-10 pb-10">
+        <TypeAnimation
+          className="text-black dark:text-white select-none"
+          style={{
+            width: "10rem",
+          }}
+          sequence={phrases}
+          repeat={Infinity}
+          speed={3}
+        />
+      </span>
+      <section className="justify-center w-full align-middle items-center">
         <LandingSearch />
       </section>
     </section>

@@ -5,7 +5,7 @@ import MapComponent from "./map";
 export default async function Page() {
   return (
     <>
-      <main className="h-full w-full">
+      <main spellCheck="false" className="h-full w-full">
         <MapComponent Places={PlacesJSON} />
       </main>
     </>
