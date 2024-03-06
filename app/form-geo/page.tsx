@@ -135,50 +135,62 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="flex min-h-full w-full items-center justify-center bg-dark-1">
-      <div className="flex flex-col px-4 w-5/6 h-5/6 my-2 py-1 items-center justify-center rounded bg-dark-2 space-y-6">
+    <main className="flex min-h-full w-full items-center justify-center dark:bg-dark-1">
+      <div className="flex flex-col px-4 w-5/6 h-5/6 my-2 py-1 items-center justify-center rounded dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
-              <h1 className="text-3xl lg:text-6xl text-light-2">Nueva localización</h1>
-              <h2 className="mb-16 pb-16 text-base lg:text-lg text-light-4 text-center">
+              <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">Nueva localización</h1>
+              <h2 className="mb-16 pb-16 text-base lg:text-lg text-black dark:text-light-4 select-none text-center">
                 Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
               </h2>
 
-              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
+              <label
+                className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
+                htmlFor="placeName"
+              >
                 Sala
               </label>
               <Field
-                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="placeName"
                 id="placeName"
                 type="text"
               />
               <ErrorMessage className="text-error text-sm w-full text-left" name="placeName" component="div" />
-              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
+              <label
+                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
+                htmlFor="placeName"
+              >
                 Piso
               </label>
               <Field
-                className="block p-3 w-full text-lg rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="floor"
                 id="floor"
                 type="number"
               />
               <ErrorMessage className="text-error text-sm w-full text-left" name="floor" component="div" />
-              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
+              <label
+                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
+                htmlFor="placeName"
+              >
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
                 type="text"
               />
 
-              <label className="my-2 flex items-center justify-center text-light-4 lg:text-2xl" htmlFor="placeName">
+              <label
+                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
+                htmlFor="placeName"
+              >
                 Selecciona tu ubicación en el mapa
               </label>
-              <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border bg-dark-3 border-dark-4 text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <FormMap
                   markerPosition={{
                     longitude: longitude,
@@ -191,11 +203,11 @@ export default function Page() {
               <ErrorMessage className="text-error text-sm w-full text-center" name="longitude" component="div" />
               <ErrorMessage className="text-error text-sm w-full text-left" name="latitude" component="div" />
               <button
-                className="my-2 w-48 h-12 flex items-center justify-center text-light-4 bg-dark-3 enabled:hover:bg-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="my-2 w-48 h-12 flex items-center justify-center dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
                 disabled={isSubmitting}
               >
-                Submit
+                Enviar
               </button>
             </Form>
           )}
