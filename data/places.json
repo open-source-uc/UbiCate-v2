@@ -12455,41 +12455,7 @@
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": []
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ED209",
-                "name": "ED209",
-                "information": "",
-                "categories": "",
-                "campus": "SJ",
-                "faculties": "",
-                "piso": 2.0,
-                "category": "classroom"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": []
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "S1",
-                "name": "S1",
-                "information": "",
-                "categories": "",
-                "campus": "SJ",
-                "faculties": "",
-                "piso": 1.0,
-                "category": "classroom"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": []
+                "coordinates": [-70.61300, -33.50048]
             }
         },
         {
@@ -12726,7 +12692,7 @@
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": []
+                "coordinates": [-70.61183, -33.50044]
             }
         },
         {
