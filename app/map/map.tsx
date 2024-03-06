@@ -18,6 +18,7 @@ import {
 import getGeocoder from "@/utils/getGeocoder";
 
 import geojson from "../../data/places.json";
+import { useThemeObserver } from "../../utils/themeObserver";
 import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesLayer } from "./layers";
@@ -30,6 +31,9 @@ export default function ReactMap(Places: any) {
   const geocoder = useRef<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
+  );
   const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
 
   const customData = geojson;
@@ -37,6 +41,13 @@ export default function ReactMap(Places: any) {
 
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
+
+  const onThemeChange = (isDark: boolean) => {
+    setTheme(isDark ? "dark-v11" : "streets-v11");
+    mapRef.current?.getMap().setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v11"}`);
+  };
+
+  useThemeObserver(onThemeChange);
 
   useEffect(() => {
     geocoder.current = getGeocoder();
@@ -107,7 +118,7 @@ export default function ReactMap(Places: any) {
           latitude: initialLat,
           zoom: initialLat === -33.4983 && initialLng === -70.6109 ? 16 : 18,
         }}
-        mapStyle="mapbox://styles/mapbox/dark-v11"
+        mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={MAPBOX_TOKEN}
         interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
