@@ -17,7 +17,7 @@ export const placesLayer: LayerProps = {
       "#0ef305",
       "other",
       "#e55e5e",
-      "#ccc",
+      "#808080",
     ],
     "circle-radius": 5,
   },
