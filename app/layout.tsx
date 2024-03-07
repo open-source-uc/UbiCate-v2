@@ -35,10 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <DarkModeSelector />
               </li>
               <li>
-                <Link href="/map">Map</Link>
+                <Link href="/map">Mapa</Link>
               </li>
               <li>
-                <Link href="/form-geo">Form</Link>
+                <Link href="/form-geo">➕ Agrega una nueva ubicación </Link>
               </li>
             </ul>
           </nav>
