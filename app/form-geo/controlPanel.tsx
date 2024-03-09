@@ -15,7 +15,7 @@ function ControlPanel(props: { events: Record<string, LngLat> }) {
         {eventNames.map((eventName) => {
           const { events = {} } = props;
           const lngLat = events[eventName];
-          const initialMsg = `Arrastra el marcador blanco para obtener las coordenadas`;
+          const initialMsg = `Arrastra el marcador para obtener las coordenadas`;
           return (
             <div key={eventName} className="pb-5">
               {lngLat ? <strong>Coordenadas:</strong> : initialMsg}{" "}

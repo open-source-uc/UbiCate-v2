@@ -17,7 +17,6 @@ import {
 
 import getGeocoder from "@/utils/getGeocoder";
 
-import geojson from "../../data/places.json";
 import { useThemeObserver } from "../../utils/themeObserver";
 import { useSearchResultCtx } from "../context/SearchResultCtx";
 
@@ -26,35 +25,27 @@ import Marker from "./marker";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-export default function ReactMap(Places: any) {
+export default function MapComponent({ Places }: any) {
   const mapRef = useRef<MapRef>(null);
+  const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
   );
+  useThemeObserver(setTheme, map);
+
   const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
-
-  const customData = geojson;
-  const map = mapRef.current?.getMap();
-
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
-
-  const onThemeChange = (isDark: boolean) => {
-    setTheme(isDark ? "dark-v11" : "streets-v11");
-    mapRef.current?.getMap().setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v11"}`);
-  };
-
-  useThemeObserver(onThemeChange);
 
   useEffect(() => {
     geocoder.current = getGeocoder();
 
     geocoder.current.on("result", function (result: any) {
       const selectedPlaceId = result.result.properties.identifier;
-      for (const place of customData.features) {
+      for (const place of Places.features) {
         if (place.properties.identifier === selectedPlaceId) {
           setGeocoderPlaces([place]);
           break;
@@ -63,27 +54,27 @@ export default function ReactMap(Places: any) {
     });
 
     geocoder.current.on("results", function (results: any) {
-      const places = [];
+      const resultPlaces = [];
       for (const result of results.features) {
         const selectedPlaceId = result.properties.identifier;
-        for (const place of customData.features) {
+        for (const place of Places.features) {
           if (place.properties.identifier === selectedPlaceId) {
-            places.push(place);
+            resultPlaces.push(place);
             break;
           }
         }
       }
-      setGeocoderPlaces(places);
+      setGeocoderPlaces(resultPlaces);
     });
 
     geocoder.current.on("clear", function () {
       setGeocoderPlaces(null);
     });
-  }, [map, customData]);
+  }, [Places]);
 
   useEffect(() => {
     if (searchResult) {
-      for (const place of customData.features) {
+      for (const place of Places.features) {
         if (place.properties.identifier === searchResult) {
           setGeocoderPlaces([place]);
           setSearchResultRef.current("");
@@ -92,7 +83,7 @@ export default function ReactMap(Places: any) {
         }
       }
     }
-  }, [customData.features, searchResult, setInitialLat, setInitialLng]);
+  }, [Places, searchResult, setInitialLat, setInitialLng]);
 
   const onHover = useCallback((event: any) => {
     const place = event.features && event.features[0];
@@ -104,12 +95,10 @@ export default function ReactMap(Places: any) {
   }, []);
 
   const addGeocoderControl = useCallback(() => {
-    const map = mapRef.current?.getMap();
     map?.addControl(geocoder.current);
-  }, []);
+  }, [map]);
 
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
-
   return (
     <>
       <Map
@@ -125,11 +114,11 @@ export default function ReactMap(Places: any) {
         onLoad={addGeocoderControl}
         ref={mapRef}
       >
-        <GeolocateControl position="top-left" />
+        <GeolocateControl position="top-left" showUserHeading={true} />
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
-        <Source id="places" type="geojson" data={Places.Places} cluster={false} clusterRadius={10}>
+        <Source id="places" type="geojson" data={Places} cluster={false} clusterRadius={10}>
           <Layer {...placesLayer} />
         </Source>
         {selectedPlace ? (

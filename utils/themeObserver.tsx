@@ -1,15 +1,17 @@
-// themeObserver.ts
 import { useCallback, useEffect, useRef } from "react";
 
-export const useThemeObserver = (onThemeChange: (isDark: boolean) => void) => {
+import mapboxgl from "mapbox-gl";
+
+export const useThemeObserver = (setTheme: (theme: string) => void, map: mapboxgl.Map | undefined) => {
   const observer = useRef<MutationObserver | null>(null);
 
   const onClassChange = useCallback(() => {
     if (typeof window !== "undefined") {
       const isDark = document.documentElement.classList.contains("dark");
-      onThemeChange(isDark);
+      setTheme(isDark ? "dark-v11" : "streets-v11");
+      map?.setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v11"}`);
     }
-  }, [onThemeChange]);
+  }, [map, setTheme]);
 
   useEffect(() => {
     observer.current = new MutationObserver(onClassChange);

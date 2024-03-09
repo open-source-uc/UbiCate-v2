@@ -1,19 +1,25 @@
 import Image from "next/image";
 
-import { useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 
-import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
-import type { LngLat, MarkerDragEvent } from "react-map-gl";
+import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
+import type { LngLat, MarkerDragEvent, MapRef } from "react-map-gl";
 
-import ControlPanel from "./control-panel";
+import { useThemeObserver } from "../../utils/themeObserver";
+
+import ControlPanel from "./controlPanel";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-export default function FormMap(props: any) {
+export default function MapComponent(props: any) {
+  const mapRef = useRef<MapRef>(null);
+  const map = mapRef.current?.getMap();
   const [marker, setMarker] = useState({ ...props.markerPosition });
-
   const [events, setEvents] = useState<Record<string, LngLat>>({});
-
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
+  );
+  useThemeObserver(setTheme, map);
   const onMarkerDragStart = useCallback((event: MarkerDragEvent) => {
     setEvents((_events) => ({ ..._events, onDragStart: event.lngLat }));
   }, []);
@@ -34,18 +40,25 @@ export default function FormMap(props: any) {
     },
     [props],
   );
-
   useEffect(() => {
     setMarker({ ...props.markerPosition });
   }, [props]);
+
   return (
     <>
       <div className="flex flex-col h-96 w-full justify-center place-content-center justify-items-center">
         <Map
-          initialViewState={{ bounds: props.mapBounds }}
-          mapStyle="mapbox://styles/mapbox/dark-v11"
+          initialViewState={{
+            bounds: props.mapBounds,
+          }}
+          mapStyle={`mapbox://styles/mapbox/${theme}`}
           mapboxAccessToken={MAPBOX_TOKEN}
+          ref={mapRef}
         >
+          <GeolocateControl position="top-left" showAccuracyCircle={false} showUserHeading={true} />
+          <FullscreenControl position="top-left" />
+          <NavigationControl position="top-left" />
+
           <Marker
             longitude={marker.longitude}
             latitude={marker.latitude}
@@ -56,11 +69,8 @@ export default function FormMap(props: any) {
             onDragEnd={onMarkerDragEnd}
             style={{ zIndex: 1 }}
           >
-            <Image className="" src="/logo-white.svg" alt="Logo" width={20} height={20} />
+            <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
           </Marker>
-
-          <NavigationControl />
-          <GeolocateControl showAccuracyCircle={false} />
         </Map>
         <ControlPanel events={events} />
       </div>
