@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
-import type { LngLat, MarkerDragEvent, MapRef } from "react-map-gl";
+import type { LngLat, MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
 import { useThemeObserver } from "../../utils/themeObserver";
 
@@ -25,8 +25,7 @@ export default function MapComponent(props: any) {
   }, []);
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
-    setEvents((_events) => ({ ..._events, onDrag: event.lngLat }));
-
+    setEvents((_events) => ({ ..._events, onMarkerMove: event.lngLat }));
     setMarker({
       longitude: event.lngLat.lng,
       latitude: event.lngLat.lat,
@@ -36,7 +35,20 @@ export default function MapComponent(props: any) {
   const onMarkerDragEnd = useCallback(
     (event: MarkerDragEvent) => {
       setEvents((_events) => ({ ..._events, onDragEnd: event.lngLat }));
-      props.onDrag(event);
+      props.onMarkerMove(event);
+    },
+    [props],
+  );
+
+  const onClickMap = useCallback(
+    (event: MapLayerMouseEvent) => {
+      setEvents((_events) => ({ ..._events, onMarkerMove: event.lngLat }));
+
+      props.onMarkerMove(event);
+      setMarker({
+        longitude: event.lngLat.lng,
+        latitude: event.lngLat.lat,
+      });
     },
     [props],
   );
@@ -54,6 +66,7 @@ export default function MapComponent(props: any) {
           mapStyle={`mapbox://styles/mapbox/${theme}`}
           mapboxAccessToken={MAPBOX_TOKEN}
           ref={mapRef}
+          onClick={onClickMap}
         >
           <GeolocateControl position="top-left" showAccuracyCircle={false} showUserHeading={true} />
           <FullscreenControl position="top-left" />

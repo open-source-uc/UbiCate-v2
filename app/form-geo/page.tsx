@@ -200,7 +200,7 @@ export default function Page() {
                     latitude: latitude,
                   }}
                   mapBounds={campusMapBounds}
-                  onDrag={dragLocUpdate}
+                  onMarkerMove={dragLocUpdate}
                 />
               </div>
               <ErrorMessage
