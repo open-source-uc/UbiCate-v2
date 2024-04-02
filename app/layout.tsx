@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/map">Mapa</Link>
               </li>
               <li>
-                <Link href="/form-geo">➕ Agrega una nueva ubicación </Link>
+                <Link href="/form-geo">➕ Agrega nueva ubicación </Link>
               </li>
             </ul>
           </nav>
