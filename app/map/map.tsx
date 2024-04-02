@@ -95,8 +95,8 @@ export default function MapComponent({ Places }: any) {
   }, []);
 
   const addGeocoderControl = useCallback(() => {
-    map?.addControl(geocoder.current);
-  }, [map]);
+    mapRef.current?.addControl(geocoder.current);
+  }, []);
 
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
