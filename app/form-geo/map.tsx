@@ -1,0 +1,79 @@
+import Image from "next/image";
+
+import { useRef, useState, useCallback, useEffect } from "react";
+
+import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
+import type { LngLat, MarkerDragEvent, MapRef } from "react-map-gl";
+
+import { useThemeObserver } from "../../utils/themeObserver";
+
+import ControlPanel from "./controlPanel";
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
+export default function MapComponent(props: any) {
+  const mapRef = useRef<MapRef>(null);
+  const map = mapRef.current?.getMap();
+  const [marker, setMarker] = useState({ ...props.markerPosition });
+  const [events, setEvents] = useState<Record<string, LngLat>>({});
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
+  );
+  useThemeObserver(setTheme, map);
+  const onMarkerDragStart = useCallback((event: MarkerDragEvent) => {
+    setEvents((_events) => ({ ..._events, onDragStart: event.lngLat }));
+  }, []);
+
+  const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
+    setEvents((_events) => ({ ..._events, onDrag: event.lngLat }));
+
+    setMarker({
+      longitude: event.lngLat.lng,
+      latitude: event.lngLat.lat,
+    });
+  }, []);
+
+  const onMarkerDragEnd = useCallback(
+    (event: MarkerDragEvent) => {
+      setEvents((_events) => ({ ..._events, onDragEnd: event.lngLat }));
+      props.onDrag(event);
+    },
+    [props],
+  );
+  useEffect(() => {
+    setMarker({ ...props.markerPosition });
+  }, [props]);
+
+  return (
+    <>
+      <div className="flex flex-col h-96 w-full justify-center place-content-center justify-items-center">
+        <Map
+          initialViewState={{
+            bounds: props.mapBounds,
+          }}
+          mapStyle={`mapbox://styles/mapbox/${theme}`}
+          mapboxAccessToken={MAPBOX_TOKEN}
+          ref={mapRef}
+        >
+          <GeolocateControl position="top-left" showAccuracyCircle={false} showUserHeading={true} />
+          <FullscreenControl position="top-left" />
+          <NavigationControl position="top-left" />
+
+          <Marker
+            longitude={marker.longitude}
+            latitude={marker.latitude}
+            anchor="bottom"
+            draggable
+            onDragStart={onMarkerDragStart}
+            onDrag={onMarkerDrag}
+            onDragEnd={onMarkerDragEnd}
+            style={{ zIndex: 1 }}
+          >
+            <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
+          </Marker>
+        </Map>
+        <ControlPanel events={events} />
+      </div>
+    </>
+  );
+}

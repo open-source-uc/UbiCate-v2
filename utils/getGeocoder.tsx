@@ -3,7 +3,7 @@ import Mapbox from "mapbox-gl";
 
 import geojson from "../data/places.json";
 export default function getGeocoder(): MapboxGeocoder {
-  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Set your mapbox token here
+  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
   function forwardGeocoder(query: any) {
     const matchingFeatures = [];
@@ -29,7 +29,7 @@ export default function getGeocoder(): MapboxGeocoder {
     localGeocoder: forwardGeocoder,
     localGeocoderOnly: true,
     mapboxgl: Mapbox,
-    placeholder: "e.g. Sala de Estudio",
+    placeholder: "Salas, Bibliotecas, Laboratorios...",
     limit: 10,
     zoom: 18,
     marker: false,
