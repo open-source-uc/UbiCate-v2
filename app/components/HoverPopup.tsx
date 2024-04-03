@@ -1,8 +1,8 @@
-import {Popup} from "react-map-gl";
-import {Point} from "mapbox-gl";
+import { Point } from "mapbox-gl";
+import { Popup } from "react-map-gl";
 
-const HoverPopup = (props) => {
-  const {hoverInfo, selectedPlace, imageSrc} = props;
+function HoverPopup(props: any) {
+  const { hoverInfo, selectedPlace, imageSrc } = props;
   return (
     <Popup
       longitude={hoverInfo.longitude}
@@ -11,14 +11,15 @@ const HoverPopup = (props) => {
       closeOnClick={false}
       offset={new Point(0, -10)}
       anchor="bottom"
-      className="place" 
+      className="place"
       style={{
         backgroundColor: "transparent",
         padding: "0",
         margin: "0",
       }}
     >
-      <style>{`
+      <style>
+        {`
         .mapboxgl-popup-content{ /* no se puede modificar desde el tag de popup */
           padding: 0;
           margin: 0;
@@ -32,19 +33,16 @@ const HoverPopup = (props) => {
       `}
       </style>
       <div className="bg-dark-4 w-full p-2">
-      <h3 className="font-semibold text-white break-words text-center"> {selectedPlace.name} </h3>
+        <h3 className="font-semibold text-white break-words text-center"> {selectedPlace.name} </h3>
       </div>
-      {imageSrc ? (
-        <img src={imageSrc} alt="" />
-      ) : null}
+      {imageSrc ? <img src={imageSrc} alt="" /> : null}
       <ul className="bg-white text-black w-full p-2">
         <li>{selectedPlace?.information}</li>
-        <li>{selectedPlace?.faculties && `Facultad de ${selectedPlace.faculties}`}</li>
-        <li>{selectedPlace?.piso && `Piso ${selectedPlace.piso}`}</li>
+        <li>{selectedPlace?.faculties ? `Facultad de ${selectedPlace.faculties}` : null}</li>
+        <li>{selectedPlace?.piso ? `Piso ${selectedPlace.piso}` : null}</li>
       </ul>
-
     </Popup>
   );
-};
+}
 
 export default HoverPopup;
