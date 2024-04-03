@@ -46,7 +46,17 @@ npm install
 npm run dev
 ```
 
+## Linter
+
+Es necesario resolver los errores y warnings de linter en cada pull request, estos errores se muestran (y se resuelven la mayoría de errores) ejecutando:
+
+```
+npm run lint -- --fix
+```
+
 ## Building
+
+Es necesario que el proyecto pueda realizar correctamente un `build` para poder ser desplegado en Cloudflare
 
 ```shell
 npm run build
