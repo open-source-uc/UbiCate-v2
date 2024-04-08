@@ -3592,86 +3592,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bano41",
-                "name": "Ba\u00f1o",
-                "information": "",
-                "categories": "bath",
-                "campus": "OR",
-                "faculties": "",
-                "floors": [0],
-                "category": ""
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.594468,
-                    -33.445844
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bano42",
-                "name": "Ba\u00f1o",
-                "information": "",
-                "categories": "bath",
-                "campus": "OR",
-                "faculties": "",
-                "floors": [0],
-                "category": ""
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593557,
-                    -33.445003
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bano43",
-                "name": "Ba\u00f1o",
-                "information": "",
-                "categories": "bath",
-                "campus": "OR",
-                "faculties": "",
-                "floors": [0],
-                "category": ""
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593734,
-                    -33.446249
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bano44",
-                "name": "Ba\u00f1o",
-                "information": "",
-                "categories": "bath",
-                "campus": "OR",
-                "faculties": "",
-                "floors": [0],
-                "category": ""
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59441,
-                    -33.445881
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bano45",
                 "name": "Ba\u00f1o",
                 "information": "",
@@ -13243,6 +13163,148 @@
                 ]
             }
         },
+        {
+            "type": "Feature",
+            "properties": {
+              "identifier": "bano01or",
+              "name": "Baño Mujeres 01",
+              "information": "Con Mudador",
+              "categories": [
+                "bath"
+              ],
+              "campus": "OR",
+              "faculties": "",
+              "floors": [
+                1,
+                2
+              ]
+            },
+            "geometry": {
+              "coordinates": [
+                -70.59444587805379,
+                -33.44585414123193
+              ],
+              "type": "Point"
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "identifier": "bano02or",
+              "name": "Baño Hombres 02",
+              "information": "",
+              "categories": [
+                "bath"
+              ],
+              "campus": "OR",
+              "faculties": "",
+              "floors": [
+                1,
+                2
+              ]
+            },
+            "geometry": {
+              "coordinates": [
+                -70.59417580348934,
+                -33.4454710751953
+              ],
+              "type": "Point"
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "identifier": "bano03or",
+              "name": "Baño Universal 03",
+              "information": "",
+              "categories": [
+                "bath",
+                "universal bath"
+              ],
+              "campus": "OR",
+              "faculties": "",
+              "floors": [
+                1
+              ]
+            },
+            "geometry": {
+              "coordinates": [
+                -70.5937331462675,
+                -33.44621981839892
+              ],
+              "type": "Point"
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "identifier": "bano04or",
+              "name": "Baño Universal 04",
+              "information": "Con Mudador",
+              "categories": [
+                "bath",
+                "universal bath"
+              ],
+              "campus": "OR",
+              "faculties": "",
+              "floors": [
+                2
+              ]
+            },
+            "geometry": {
+              "coordinates": [
+                -70.5934498346797,
+                -33.4458314231889
+              ],
+              "type": "Point"
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "identifier": "bano05or",
+              "name": "Baño Hombres 05",
+              "information": "",
+              "categories": [
+                "bath"
+              ],
+              "campus": "OR",
+              "faculties": "",
+              "floors": [
+                2
+              ]
+            },
+            "geometry": {
+              "coordinates": [
+                -70.59324243493383,
+                -33.445565014739884
+              ],
+              "type": "Point"
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "identifier": "bano06or",
+              "name": "Baño 06",
+              "information": "",
+              "categories": [
+                "bath"
+              ],
+              "campus": "OR",
+              "faculties": "",
+              "floors": [
+                1
+              ]
+            },
+            "geometry": {
+              "coordinates": [
+                -70.59383426779587,
+                -33.4448731702526
+              ],
+              "type": "Point"
+            }
+          },
         {
             "type": "Feature",
             "properties": {
