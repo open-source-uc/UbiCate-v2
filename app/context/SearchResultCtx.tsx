@@ -8,18 +8,18 @@ interface SearchResultProviderProps {
 interface SearchResultContextValue {
   searchResult: string;
   setSearchResult: (value: string) => void;
-  initialLat: number;
-  setInitialLat: (value: number) => void;
-  initialLng: number;
-  setInitialLng: (value: number) => void;
+  initialLat: number | null;
+  setInitialLat: (value: number | null) => void;
+  initialLng: number | null;
+  setInitialLng: (value: number | null) => void;
 }
 
 const SearchResultCtx = createContext<SearchResultContextValue | undefined>(undefined);
 
 export function SearchResultProvider({ children }: SearchResultProviderProps) {
   const [searchResult, setSearchResult] = useState<string>("");
-  const [initialLng, setInitialLng] = useState(-70.6109);
-  const [initialLat, setInitialLat] = useState(-33.4983);
+  const [initialLng, setInitialLng] = useState<number | null>(null);
+  const [initialLat, setInitialLat] = useState<number | null>(null);
 
   return (
     <SearchResultCtx.Provider

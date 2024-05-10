@@ -24,6 +24,22 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
+## Centrado del mapa en base a parámetros en links
+
+Para centrar el mapa o la ubicación en el formulario en un campus específico, se puede agregar un parámetro en la URL con el nombre del campus:
+
+```
+https://v2.ubicate.osuc.dev/map?campus={Nombre campus}
+https://v2.ubicate.osuc.dev/form-geo?campus={Nombre campus}
+```
+
+Donde `{Nombre campus}` puede ser:
+- SanJoaquin
+- CasaCentral
+- Oriente
+- LoContador
+- Villarrica
+
 ## Developing
 
 ### Instalación
