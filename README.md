@@ -40,6 +40,16 @@ Donde `{Nombre campus}` puede ser:
 - LoContador
 - Villarrica
 
+
+Además se puede centrar el mapa en la ubicación de una sala dado su identificador
+
+```
+https://v2.ubicate.osuc.dev/map?place={Id sala}
+```
+
+Donde `{Id sala}` puede ser:
+- B12
+
 ## Developing
 
 ### Instalación

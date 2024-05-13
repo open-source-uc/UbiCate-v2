@@ -1,5 +1,3 @@
-import { ReadonlyURLSearchParams } from "next/navigation";
-
 import type { LngLatBoundsLike } from "react-map-gl";
 
 interface CampusBounds {
