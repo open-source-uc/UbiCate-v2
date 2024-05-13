@@ -85,7 +85,7 @@ npm run lint:fix
 Es necesario que el proyecto pueda realizar correctamente un `build` para poder ser desplegado en Cloudflare
 
 ```shell
-npm run build
+npm run build:cloudflare
 ```
 
 

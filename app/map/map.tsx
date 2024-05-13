@@ -75,7 +75,7 @@ export default function MapComponent({
   );
   useThemeObserver(setTheme, map);
 
-  const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
+  const { searchResult, setSearchResult, initialLat, initialLng } = useSearchResultCtx();
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
 
@@ -124,12 +124,17 @@ export default function MapComponent({
         if (place.properties.identifier === searchResult) {
           setGeocoderPlaces([place]);
           setSearchResultRef.current("");
-          setInitialLng(-70.6109);
-          setInitialLat(-33.4983);
         }
       }
     }
-  }, [Places, searchResult, setInitialLat, setInitialLng]);
+  }, [Places, searchResult]);
+
+  useEffect(() => {
+    if (paramPlace) {
+      setGeocoderPlaces([paramPlace]);
+      setSearchResultRef.current("");
+    }
+  }, [paramPlace]);
 
   const onHover = useCallback((event: any) => {
     const place = event.features && event.features[0];
