@@ -23,3 +23,5 @@ export default async function Page({ searchParams }: { searchParams: { campus?: 
     </>
   );
 }
+
+export const runtime = "edge";
