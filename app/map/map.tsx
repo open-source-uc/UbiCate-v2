@@ -1,6 +1,4 @@
 "use client";
-import { useSearchParams } from "next/navigation";
-
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Point } from "mapbox-gl";
@@ -18,7 +16,6 @@ import {
 } from "react-map-gl";
 
 import getGeocoder from "@/utils/getGeocoder";
-import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import { useSearchResultCtx } from "../context/SearchResultCtx";
@@ -36,19 +33,21 @@ interface InitialViewState extends Partial<ViewState> {
   };
 }
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
 function createInitialViewState(
   longitude: number | null,
   latitude: number | null,
-  campusBounds: LngLatBoundsLike,
+  paramCampusBounds: LngLatBoundsLike,
+  paramPlace: any,
 ): InitialViewState {
   const initialViewState: InitialViewState = {
-    zoom: 16,
+    zoom: 18,
   };
 
-  if (longitude === null || latitude === null) {
-    initialViewState.bounds = campusBounds;
+  if (paramPlace) {
+    initialViewState.longitude = paramPlace.geometry.coordinates[0];
+    initialViewState.latitude = paramPlace.geometry.coordinates[1];
+  } else if (longitude === null || latitude === null) {
+    initialViewState.bounds = paramCampusBounds;
   } else {
     initialViewState.longitude = longitude;
     initialViewState.latitude = latitude;
@@ -57,10 +56,15 @@ function createInitialViewState(
   return initialViewState;
 }
 
-export default function MapComponent({ Places }: any) {
-  const searchParams = useSearchParams();
-  const campusMapBounds = getParamCampusBounds(searchParams);
-
+export default function MapComponent({
+  Places,
+  paramCampusBounds,
+  paramPlace,
+}: {
+  Places: any;
+  paramCampusBounds: LngLatBoundsLike;
+  paramPlace: any;
+}) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
@@ -75,7 +79,12 @@ export default function MapComponent({ Places }: any) {
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
 
-  const initialViewState: InitialViewState = createInitialViewState(initialLng, initialLat, campusMapBounds);
+  const initialViewState: InitialViewState = createInitialViewState(
+    initialLng,
+    initialLat,
+    paramCampusBounds,
+    paramPlace,
+  );
 
   useEffect(() => {
     geocoder.current = getGeocoder();
@@ -141,7 +150,7 @@ export default function MapComponent({ Places }: any) {
       <Map
         initialViewState={initialViewState}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
-        mapboxAccessToken={MAPBOX_TOKEN}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
         onLoad={addGeocoderControl}

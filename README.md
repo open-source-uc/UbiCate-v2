@@ -67,7 +67,7 @@ npm run dev
 Es necesario resolver los errores y warnings de linter en cada pull request, estos errores se muestran (y se resuelven la mayoría de errores) ejecutando:
 
 ```
-npm run lint -- --fix
+npm run lint:fix
 ```
 
 ## Building
@@ -103,8 +103,11 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 ### Mantenedores
 
-- [USERNAME](https://www.github.com/USERNAME)
-
+- [MrBased](https://github.com/MrBased)
+- [mc-cari](https://github.com/mc-cari)
+- [ooscarr](https://github.com/ooscarr)
+- [vlermandac](https://github.com/vlermandac)
+- [dvictorerol](https://github.com/dvictorerol)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 ## Licencia

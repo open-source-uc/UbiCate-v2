@@ -15,13 +15,10 @@ export const campusBounds: Record<string, CampusBounds> = {
   Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
 };
 
-export function getParamCampusBounds(searchParams: ReadonlyURLSearchParams): LngLatBoundsLike {
-  let paramCampus: string | null = searchParams.get("campus");
-
+export function getParamCampusBounds(paramCampus: string | null): LngLatBoundsLike {
   if (!paramCampus || !Object.keys(campusBounds).includes(paramCampus)) {
     paramCampus = "SanJoaquin";
   }
-
   const campusMapBounds: [number, number, number, number] = [
     campusBounds[paramCampus].longitudeRange[0],
     campusBounds[paramCampus].latitudeRange[0],

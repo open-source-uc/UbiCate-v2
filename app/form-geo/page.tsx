@@ -31,7 +31,7 @@ const initialValues = { placeName: "", information: "", floor: 1, latitude: null
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const campusMapBounds = getParamCampusBounds(searchParams);
+  const campusMapBounds = getParamCampusBounds(searchParams.get("campus"));
 
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
