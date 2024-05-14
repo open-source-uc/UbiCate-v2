@@ -1,12 +1,13 @@
 "use client";
 
-import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import { useEffect, useState, useCallback } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
+import { campusBounds, getParamCampusBounds } from "@/utils/getParamCampusBounds";
 
 import MapComponent from "./map";
 
@@ -26,36 +27,11 @@ interface errors {
   floor?: string;
 }
 
-interface CampusBounds {
-  longitudeRange: [number, number];
-  latitudeRange: [number, number];
-}
-
-const campusBounds: Record<string, CampusBounds> = {
-  "San Joaquin": { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
-  "Lo Contador": { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
-  Villarrica: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
-  "Casa Central": { longitudeRange: [-70.6424, -70.6386], latitudeRange: [-33.4427, -33.4403] },
-  Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
-};
-
 const initialValues = { placeName: "", information: "", floor: 1, latitude: null };
-
-function getParamCampus(searchParams: ReadonlyURLSearchParams): number[][] {
-  let paramCampus: string | null = searchParams.get("campus");
-
-  if (!paramCampus || !Object.keys(campusBounds).includes(paramCampus)) paramCampus = "San Joaquin";
-
-  const campusMapBounds = [
-    [campusBounds[paramCampus].longitudeRange[0], campusBounds[paramCampus].latitudeRange[0]],
-    [campusBounds[paramCampus].longitudeRange[1], campusBounds[paramCampus].latitudeRange[1]],
-  ];
-  return campusMapBounds;
-}
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const campusMapBounds = getParamCampus(searchParams);
+  const campusMapBounds = getParamCampusBounds(searchParams.get("campus"));
 
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);

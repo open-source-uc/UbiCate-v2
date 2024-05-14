@@ -24,6 +24,32 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
+## Centrado del mapa en base a parámetros en links
+
+Para centrar el mapa o la ubicación en el formulario en un campus específico, se puede agregar un parámetro en la URL con el nombre del campus:
+
+```
+https://v2.ubicate.osuc.dev/map?campus={Nombre campus}
+https://v2.ubicate.osuc.dev/form-geo?campus={Nombre campus}
+```
+
+Donde `{Nombre campus}` puede ser:
+- SanJoaquin
+- CasaCentral
+- Oriente
+- LoContador
+- Villarrica
+
+
+Además se puede centrar el mapa en la ubicación de una sala dado su identificador
+
+```
+https://v2.ubicate.osuc.dev/map?place={Id sala}
+```
+
+Donde `{Id sala}` puede ser:
+- B12
+
 ## Developing
 
 ### Instalación
@@ -51,7 +77,7 @@ npm run dev
 Es necesario resolver los errores y warnings de linter en cada pull request, estos errores se muestran (y se resuelven la mayoría de errores) ejecutando:
 
 ```
-npm run lint -- --fix
+npm run lint:fix
 ```
 
 ## Building
@@ -59,7 +85,7 @@ npm run lint -- --fix
 Es necesario que el proyecto pueda realizar correctamente un `build` para poder ser desplegado en Cloudflare
 
 ```shell
-npm run build
+npm run build:cloudflare
 ```
 
 
@@ -87,8 +113,11 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 ### Mantenedores
 
-- [USERNAME](https://www.github.com/USERNAME)
-
+- [MrBased](https://github.com/MrBased)
+- [mc-cari](https://github.com/mc-cari)
+- [ooscarr](https://github.com/ooscarr)
+- [vlermandac](https://github.com/vlermandac)
+- [dvictorerol](https://github.com/dvictorerol)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 ## Licencia

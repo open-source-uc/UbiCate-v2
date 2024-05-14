@@ -3,7 +3,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
-import type { MapRef } from "react-map-gl";
+import type { MapRef, ViewState, LngLatBoundsLike, PointLike, PaddingOptions } from "react-map-gl";
 import {
   Map,
   Source,
@@ -16,16 +16,55 @@ import {
 } from "react-map-gl";
 
 import getGeocoder from "@/utils/getGeocoder";
+import { useThemeObserver } from "@/utils/themeObserver";
 
-import { useThemeObserver } from "../../utils/themeObserver";
 import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesLayer } from "./layers";
 import Marker from "./marker";
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+interface InitialViewState extends Partial<ViewState> {
+  bounds?: LngLatBoundsLike;
+  fitBoundsOptions?: {
+    offset?: PointLike;
+    minZoom?: number;
+    maxZoom?: number;
+    padding?: number | PaddingOptions;
+  };
+}
 
-export default function MapComponent({ Places }: any) {
+function createInitialViewState(
+  longitude: number | null,
+  latitude: number | null,
+  paramCampusBounds: LngLatBoundsLike,
+  paramPlace: any,
+): InitialViewState {
+  const initialViewState: InitialViewState = {
+    zoom: 18,
+  };
+
+  if (paramPlace) {
+    initialViewState.longitude = paramPlace.geometry.coordinates[0];
+    initialViewState.latitude = paramPlace.geometry.coordinates[1];
+  } else if (longitude === null || latitude === null) {
+    initialViewState.bounds = paramCampusBounds;
+  } else {
+    initialViewState.longitude = longitude;
+    initialViewState.latitude = latitude;
+  }
+
+  return initialViewState;
+}
+
+export default function MapComponent({
+  Places,
+  paramCampusBounds,
+  paramPlace,
+}: {
+  Places: any;
+  paramCampusBounds: LngLatBoundsLike;
+  paramPlace: any;
+}) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
@@ -36,9 +75,16 @@ export default function MapComponent({ Places }: any) {
   );
   useThemeObserver(setTheme, map);
 
-  const { searchResult, setSearchResult, initialLat, setInitialLat, initialLng, setInitialLng } = useSearchResultCtx();
+  const { searchResult, setSearchResult, initialLat, initialLng } = useSearchResultCtx();
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
+
+  const initialViewState: InitialViewState = createInitialViewState(
+    initialLng,
+    initialLat,
+    paramCampusBounds,
+    paramPlace,
+  );
 
   useEffect(() => {
     geocoder.current = getGeocoder();
@@ -78,12 +124,17 @@ export default function MapComponent({ Places }: any) {
         if (place.properties.identifier === searchResult) {
           setGeocoderPlaces([place]);
           setSearchResultRef.current("");
-          setInitialLng(-70.6109);
-          setInitialLat(-33.4983);
         }
       }
     }
-  }, [Places, searchResult, setInitialLat, setInitialLng]);
+  }, [Places, searchResult]);
+
+  useEffect(() => {
+    if (paramPlace) {
+      setGeocoderPlaces([paramPlace]);
+      setSearchResultRef.current("");
+    }
+  }, [paramPlace]);
 
   const onHover = useCallback((event: any) => {
     const place = event.features && event.features[0];
@@ -102,13 +153,9 @@ export default function MapComponent({ Places }: any) {
   return (
     <>
       <Map
-        initialViewState={{
-          longitude: initialLng,
-          latitude: initialLat,
-          zoom: initialLat === -33.4983 && initialLng === -70.6109 ? 16 : 18,
-        }}
+        initialViewState={initialViewState}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
-        mapboxAccessToken={MAPBOX_TOKEN}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesLayer.id as string]}
         onMouseMove={onHover}
         onLoad={addGeocoderControl}
