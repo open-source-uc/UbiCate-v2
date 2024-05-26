@@ -15,12 +15,13 @@ import {
   ScaleControl,
 } from "react-map-gl";
 
+import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import getGeocoder from "@/utils/getGeocoder";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import { useSearchResultCtx } from "../context/SearchResultCtx";
 
-import { placesLayer } from "./layers";
+import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -148,7 +149,6 @@ export default function MapComponent({
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
   }, []);
-
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
     <>
@@ -156,7 +156,7 @@ export default function MapComponent({
         initialViewState={initialViewState}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        interactiveLayerIds={[placesLayer.id as string]}
+        interactiveLayerIds={[placesTextLayer.id as string]}
         onMouseMove={onHover}
         onLoad={addGeocoderControl}
         ref={mapRef}
@@ -165,9 +165,10 @@ export default function MapComponent({
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
-        <Source id="places" type="geojson" data={Places} cluster={false} clusterRadius={10}>
-          <Layer {...placesLayer} />
+        <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+          {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
+
         {selectedPlace ? (
           <Popup
             longitude={hoverInfo.longitude}

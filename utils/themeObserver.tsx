@@ -9,7 +9,7 @@ export const useThemeObserver = (setTheme: (theme: string) => void, map: mapboxg
     if (typeof window !== "undefined") {
       const isDark = document.documentElement.classList.contains("dark");
       setTheme(isDark ? "dark-v11" : "streets-v11");
-      map?.setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v11"}`);
+      map?.setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v11"}?optimize=true`);
     }
   }, [map, setTheme]);
 
