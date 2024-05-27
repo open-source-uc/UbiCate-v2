@@ -4,5 +4,8 @@ export function featuresToGeoJSON(features: any): any {
         type: "FeatureCollection",
         features: features,
       }
-    : null;
+    : {
+        type: "FeatureCollection",
+        features: [],
+      };
 }
