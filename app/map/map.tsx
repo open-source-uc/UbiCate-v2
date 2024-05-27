@@ -80,13 +80,6 @@ export default function MapComponent({
   const setSearchResultRef = useRef(setSearchResult);
   setSearchResultRef.current = setSearchResult;
 
-  const initialViewState: InitialViewState = createInitialViewState(
-    initialLng,
-    initialLat,
-    paramCampusBounds,
-    paramPlace,
-  );
-
   useEffect(() => {
     geocoder.current = getGeocoder();
 
@@ -153,7 +146,7 @@ export default function MapComponent({
   return (
     <>
       <Map
-        initialViewState={initialViewState}
+        initialViewState={createInitialViewState(initialLng, initialLat, paramCampusBounds, paramPlace)}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesTextLayer.id as string]}
