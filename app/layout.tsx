@@ -1,3 +1,4 @@
+import { Inter } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -5,6 +6,8 @@ import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import DarkModeSelector from "./components/DarkModeSelector";
 import { SearchResultProvider } from "./context/SearchResultCtx";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "UbiCate UC",
@@ -27,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="author" content={metadata.author} />
         <meta name="keywords" content={metadata.keywords} />
       </Head>
-      <body className="h-full pb-[-12px] dark:bg-dark-1">
+      <body className={`h-full m-[-12px] dark:bg-dark-1 ${inter.className}`}>
         <main className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
           <nav className="w-full select-none text-white h-12 flex items-center justify-between px-4 bg-dark-4">
             <div className="text-xl font-bold font-heading">
