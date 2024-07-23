@@ -1,19 +1,25 @@
+import { Metadata } from "next";
+
 import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
 
 import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
-export default async function Page({ searchParams }: { searchParams: { campus?: string; place?: string } }) {
+type SearchParams = { campus?: string; place?: string };
+
+export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
+  let paramPlaceId: string | undefined = searchParams?.campus;
+  return {
+    title: paramPlaceId ? `UbiCate UC - ${paramPlaceId}` : "UbiCate UC - Mapa",
+  };
+}
+
+export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
   let paramPlaceId: string | undefined = searchParams?.place;
-  let paramPlace = null;
 
-  for (const place of PlacesJSON.features) {
-    if (place.properties.identifier === paramPlaceId) {
-      paramPlace = place;
-    }
-  }
+  const paramPlace = PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId);
 
   return (
     <>

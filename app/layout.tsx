@@ -7,10 +7,13 @@ import DarkModeSelector from "./components/DarkModeSelector";
 import { SearchResultProvider } from "./context/SearchResultCtx";
 
 export const metadata = {
-  title: "Ubicate UC",
+  title: "UbiCate UC",
   description:
-    "Buscador de salas en campus de la Pontificia Universidad Católica de Chile, con mapa dinámico. Proyecto Open Source.",
-  author: "OSUC",
+    "Buscador de salas y otro lugares de interés en campus de la Pontificia Universidad Católica de Chile, con mapa dinámico.",
+  author: "Open Source UC",
+  twitter: {
+    card: "summary_large_image",
+  },
   keywords:
     "Pontificia Universidad Católica de Chile, salas, campus, mapa, uc, ubicación, estudiantes, Open Source, san Joaquin, casa central, lo contador",
 };
