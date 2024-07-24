@@ -11,8 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "UbiCate UC",
-  description:
-    "Buscador de salas y otro lugares de interés en campus de la Pontificia Universidad Católica de Chile, con mapa dinámico.",
+  description: "Buscador de salas ylugares de interés en campus de la Pontificia Universidad Católica de Chile.",
   author: "Open Source UC",
   twitter: {
     card: "summary_large_image",
@@ -31,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="author" content={metadata.author} />
         <meta name="keywords" content={metadata.keywords} />
       </Head>
+
       <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
         <main className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
           <nav className="w-full select-none text-white h-12 flex items-center justify-between px-4 bg-dark-4">
