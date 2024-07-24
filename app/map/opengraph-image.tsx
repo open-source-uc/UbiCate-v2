@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/og";
+import { ImageResponse } from "next/server";
 
 export const alt = "UbiCate UC - Mapa";
 export const size = {
