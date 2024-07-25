@@ -6,14 +6,12 @@ import { useRef, useEffect } from "react";
 import "../custom-landing-geocoder.css";
 
 import geojson from "../../data/places.json";
-import { useSearchResultCtx } from "../context/searchResultCtx";
 
 const loadGeocoder = () => import("@/utils/getGeocoder");
 
 export default function LandingSearch() {
   const geocoderContainer = useRef<HTMLDivElement>(null);
   const geocoder = useRef<any>(null);
-  const { setSearchResult, setInitialLat, setInitialLng } = useSearchResultCtx();
 
   const router = useRouter();
 
@@ -26,8 +24,8 @@ export default function LandingSearch() {
       if (!mounted) return;
       geocoder.current = getGeocoder();
 
-      const redirectToMap = () => {
-        router.push("/map");
+      const redirectToMap = (selectedPlaceId: string) => {
+        router.push("/map?place=" + selectedPlaceId);
       };
 
       geocoder.current.on("result", function (result: any) {
@@ -36,10 +34,7 @@ export default function LandingSearch() {
 
         for (const place of geojson.features) {
           if (place.properties.identifier === selectedPlaceId) {
-            setSearchResult(result.result.properties.identifier);
-            setInitialLng(result.result.geometry.coordinates[0]);
-            setInitialLat(result.result.geometry.coordinates[1]);
-            redirectToMap();
+            redirectToMap(selectedPlaceId);
             break;
           }
         }
@@ -53,7 +48,7 @@ export default function LandingSearch() {
     return () => {
       mounted = false;
     };
-  }, [router, setInitialLat, setInitialLng, setSearchResult]);
+  }, [router]);
 
   return (
     <section ref={geocoderContainer} className="flex justify-center align-middle mapbox-gl-geocoder-theme-borderless" />
