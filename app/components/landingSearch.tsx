@@ -8,7 +8,7 @@ import "../custom-landing-geocoder.css";
 import getGeocoder from "@/utils/getGeocoder";
 
 import geojson from "../../data/places.json";
-import { useSearchResultCtx } from "../context/SearchResultCtx";
+import { useSearchResultCtx } from "../context/searchResultCtx";
 
 export default function LandingSearch() {
   const geocoderContainer = useRef<HTMLDivElement>(null);

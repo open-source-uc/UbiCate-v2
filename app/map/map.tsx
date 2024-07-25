@@ -19,7 +19,7 @@ import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import getGeocoder from "@/utils/getGeocoder";
 import { useThemeObserver } from "@/utils/themeObserver";
 
-import { useSearchResultCtx } from "../context/SearchResultCtx";
+import { useSearchResultCtx } from "../context/searchResultCtx";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";

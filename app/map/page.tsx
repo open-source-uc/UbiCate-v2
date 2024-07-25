@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 import { Metadata } from "next";
 
 import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
@@ -9,16 +11,33 @@ import MapComponent from "./map";
 type SearchParams = { campus?: string; place?: string };
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
-  let paramPlaceId: string | undefined = searchParams?.campus;
+  const paramCampus: string | undefined = searchParams?.campus;
+  const paramPlaceId: string | undefined = searchParams?.place;
+
+  const params = new URLSearchParams();
+  if (paramCampus) params.append("campus", paramCampus);
+  if (paramPlaceId) params.append("place", paramPlaceId);
+
+  const headersList = headers();
+  const baseUrl = headersList.get("host") || "";
+
   return {
-    title: paramPlaceId ? `UbiCate UC - ${paramPlaceId}` : "UbiCate UC - Mapa",
+    title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
+    openGraph: {
+      images: [
+        {
+          url: `${baseUrl}/api/og-image?${params.toString()}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
   };
 }
 
 export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
-  let paramPlaceId: string | undefined = searchParams?.place;
-
+  const paramPlaceId: string | undefined = searchParams?.place;
   const paramPlace = PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId);
 
   return (

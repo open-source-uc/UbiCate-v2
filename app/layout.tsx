@@ -4,8 +4,8 @@ import Link from "next/link";
 
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
-import DarkModeSelector from "./components/DarkModeSelector";
-import { SearchResultProvider } from "./context/SearchResultCtx";
+import DarkModeSelector from "./components/darkModeSelector";
+import { SearchResultProvider } from "./context/searchResultCtx";
 
 const inter = Inter({ subsets: ["latin"] });
 
