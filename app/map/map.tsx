@@ -16,13 +16,14 @@ import {
 } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import getGeocoder from "@/utils/getGeocoder";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import { useSearchResultCtx } from "../context/searchResultCtx";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
+
+const loadGeocoder = () => import("@/utils/getGeocoder");
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -81,35 +82,48 @@ export default function MapComponent({
   setSearchResultRef.current = setSearchResult;
 
   useEffect(() => {
-    geocoder.current = getGeocoder();
+    let mounted = true;
+    const initializeGeocoder = async () => {
+      const { default: getGeocoder } = await loadGeocoder();
+      if (!mounted) return;
 
-    geocoder.current.on("result", function (result: any) {
-      const selectedPlaceId = result.result.properties.identifier;
-      for (const place of Places.features) {
-        if (place.properties.identifier === selectedPlaceId) {
-          setGeocoderPlaces([place]);
-          break;
-        }
-      }
-    });
+      geocoder.current = getGeocoder();
 
-    geocoder.current.on("results", function (results: any) {
-      const resultPlaces = [];
-      for (const result of results.features) {
-        const selectedPlaceId = result.properties.identifier;
+      geocoder.current.on("result", function (result: any) {
+        const selectedPlaceId = result.result.properties.identifier;
         for (const place of Places.features) {
           if (place.properties.identifier === selectedPlaceId) {
-            resultPlaces.push(place);
+            setGeocoderPlaces([place]);
             break;
           }
         }
-      }
-      setGeocoderPlaces(resultPlaces);
-    });
+      });
 
-    geocoder.current.on("clear", function () {
-      setGeocoderPlaces(null);
-    });
+      geocoder.current.on("results", function (results: any) {
+        if (!mounted) return;
+        const resultPlaces = [];
+        for (const result of results.features) {
+          const selectedPlaceId = result.properties.identifier;
+          for (const place of Places.features) {
+            if (place.properties.identifier === selectedPlaceId) {
+              resultPlaces.push(place);
+              break;
+            }
+          }
+        }
+        setGeocoderPlaces(resultPlaces);
+      });
+
+      geocoder.current.on("clear", function () {
+        setGeocoderPlaces(null);
+      });
+    };
+
+    initializeGeocoder();
+
+    return () => {
+      mounted = false;
+    };
   }, [Places]);
 
   useEffect(() => {
