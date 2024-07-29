@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
 
-import LandingSearch from "./components/LandingSearch";
+import LandingSearch from "./components/landingSearch";
 
 export default function Home() {
   const phrases = ["Salas", 800, "Bibliotecas", 800, "Laboratorios", 800];
