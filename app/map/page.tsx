@@ -23,6 +23,18 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
 
   return {
     title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
+    openGraph: {
+      images: [
+        {
+          url: `https://marketing4ecommerce.net/wp-content/uploads/2024/02/imagen-generada-con-midjourney-e1708680957351.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `${baseUrl}/`,
+    },
   };
 }
 
