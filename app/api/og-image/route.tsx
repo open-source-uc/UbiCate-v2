@@ -14,7 +14,6 @@ export async function GET(request: NextRequest) {
     (
       <div tw="relative flex w-full h-full flex items-center justify-center">
         <div tw="absolute flex inset-0">
-          <img src={imageUrl} alt="UbiCate UC - Mapa" width={1200} height={630} />
           <div tw="absolute flex inset-0 bg-black bg-opacity-0" />
         </div>
         <div tw="flex flex-col h-full flex-col-reverse">
