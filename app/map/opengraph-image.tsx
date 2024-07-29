@@ -2,8 +2,8 @@ import { ImageResponse } from "next/server";
 
 export const alt = "UbiCate UC - Mapa";
 export const size = {
-  width: 1200,
-  height: 630,
+  width: 10,
+  height: 10,
 };
 
 export const contentType = "image/png";
