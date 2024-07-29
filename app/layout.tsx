@@ -16,7 +16,6 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
   },
-  metadataBase: new URL("https://feat-metadata.ubicate-v2.pages.dev/"),
   keywords:
     "Pontificia Universidad Católica de Chile, salas, campus, mapa, uc, ubicación, estudiantes, Open Source, san Joaquin, casa central, lo contador",
 };
