@@ -23,17 +23,8 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
 
   return {
     title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
-    openGraph: {
-      images: [
-        {
-          url: `${baseUrl}/api/og-image?${params.toString()}`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+      canonical: `${baseUrl}/`,
     },
   };
 }

@@ -55,9 +55,11 @@ Donde `{Id sala}` puede ser:
 ### Instalación
 
 Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local``
+Agregar la URL base del proyecto, actualmente es `https://v2.ubicate.osuc.dev/`
 
 ```shell
 NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
+NEXT_PUBLIC_BASE_URL = <BASE_URL>
 ```
 
 ### Instalar dependencias
