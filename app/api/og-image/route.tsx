@@ -1,8 +1,8 @@
-import { ImageResponse, NextRequest } from "next/server";
+import { ImageResponse } from "next/og";
 
 import React from "react";
 
-export async function GET(request: NextRequest) {
+export async function GET(request: any) {
   const paramCampus: string | null = request.nextUrl.searchParams.get("campus");
   const paramPlaceId: string | null = request.nextUrl.searchParams.get("place");
 

@@ -1,13 +1,11 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, Suspense } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
-import { campusBounds, getParamCampusBounds } from "@/utils/getParamCampusBounds";
+import { campusBounds } from "@/utils/getParamCampusBounds";
 
 import MapComponent from "./map";
 
@@ -30,9 +28,6 @@ interface errors {
 const initialValues = { placeName: "", information: "", floor: 1, latitude: null };
 
 export default function Page() {
-  const searchParams = useSearchParams();
-  const campusMapBounds = getParamCampusBounds(searchParams.get("campus"));
-
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
@@ -170,14 +165,15 @@ export default function Page() {
                 Arrastra el marcador a la ubicación deseada
               </label>
               <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <MapComponent
-                  markerPosition={{
-                    longitude: longitude,
-                    latitude: latitude,
-                  }}
-                  mapBounds={campusMapBounds}
-                  onMarkerMove={dragLocUpdate}
-                />
+                <Suspense>
+                  <MapComponent
+                    markerPosition={{
+                      longitude: longitude,
+                      latitude: latitude,
+                    }}
+                    onMarkerMove={dragLocUpdate}
+                  />
+                </Suspense>
               </div>
               <ErrorMessage
                 className="text-error font-bold text-sm w-full text-center"
