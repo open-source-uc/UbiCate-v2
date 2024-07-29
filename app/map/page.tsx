@@ -32,6 +32,9 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
         },
       ],
     },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+    },
   };
 }
 
