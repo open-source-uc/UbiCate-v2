@@ -16,8 +16,13 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   if (paramCampus) params.append("campus", paramCampus);
   if (paramPlaceId) params.append("place", paramPlaceId);
 
+  const title = paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa";
+
   return {
-    title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
+    title: title,
+    openGraph: {
+      title: title,
+    },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/map${params.toString() ? `?${params.toString()}` : ""}`,
     },
