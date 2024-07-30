@@ -11,8 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "UbiCate UC",
-  description:
-    "Encuentra salas, baños y lugares de interés en los campus de la Pontificia Universidad Católica de Chile (UC).",
+  description: "Explora y encuentra fácilmente salas, baños y puntos de interés en los distintos campus de la UC",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
   },

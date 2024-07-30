@@ -3,11 +3,22 @@
 import { useEffect, useState, useCallback, Suspense } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Metadata } from "next";
 
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
 
 import MapComponent from "./map";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "UbiCate UC - Agregar nueva ubicación",
+    description: "Ayúdanos registrando una nueva sala o cualquier otra ubicación.",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+    },
+  };
+}
 
 interface newPlace {
   longitude: number | null;

@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-
 import { Metadata } from "next";
 
 import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
@@ -18,13 +16,10 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   if (paramCampus) params.append("campus", paramCampus);
   if (paramPlaceId) params.append("place", paramPlaceId);
 
-  const headersList = headers();
-  const baseUrl = headersList.get("host") || "";
-
   return {
     title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
     alternates: {
-      canonical: `${baseUrl}/`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/map${params.toString() ? `?${params.toString()}` : ""}`,
     },
   };
 }
