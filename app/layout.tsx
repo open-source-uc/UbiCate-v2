@@ -19,10 +19,6 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
-  openGraph: {
-    title: "UbiCate UC",
-    description: "Explora y encuentra fácilmente salas, baños y puntos de interés en los distintos campus de la UC",
-  },
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
   keywords: [
     "Salas UC",

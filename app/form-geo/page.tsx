@@ -3,17 +3,9 @@ import { Metadata } from "next";
 import FormComponent from "./form";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "UbiCate UC - Agregar nueva ubicación";
-  const description = "Ayúdanos registrando una nueva sala o cualquier otra ubicación.";
-
   return {
-    title: title,
-    description: description,
-
-    openGraph: {
-      title: title,
-      description: description,
-    },
+    title: "UbiCate UC - Agregar nueva ubicación",
+    description: "Ayúdanos registrando una nueva sala o cualquier otra ubicación.",
 
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
