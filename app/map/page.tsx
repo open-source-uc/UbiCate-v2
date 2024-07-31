@@ -16,10 +16,21 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   if (paramCampus) params.append("campus", paramCampus);
   if (paramPlaceId) params.append("place", paramPlaceId);
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   return {
     title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
+    openGraph: {
+      images: [
+        {
+          url: `${baseUrl}/api/og-image?${params.toString()}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/map${params.toString() ? `?${params.toString()}` : ""}`,
+      canonical: `${baseUrl}/map${params.toString() ? `?${params.toString()}` : ""}`,
     },
   };
 }
