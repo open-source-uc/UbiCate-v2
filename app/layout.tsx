@@ -1,30 +1,40 @@
-import Head from "next/head";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
-import DarkModeSelector from "./components/DarkModeSelector";
-import { SearchResultProvider } from "./context/SearchResultCtx";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Ubicate UC",
-  description:
-    "Buscador de salas en campus de la Pontificia Universidad Católica de Chile, con mapa dinámico. Proyecto Open Source.",
-  author: "OSUC",
-  keywords:
-    "Pontificia Universidad Católica de Chile, salas, campus, mapa, uc, ubicación, estudiantes, Open Source, san Joaquin, casa central, lo contador",
+import DarkModeSelector from "./components/darkModeSelector";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "UbiCate UC",
+  description: "Explora y encuentra fácilmente salas, baños y puntos de interés en los distintos campus de la UC",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+  },
+  authors: [{ name: "Open Source UC" }],
+  twitter: {
+    card: "summary_large_image",
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
+  keywords: [
+    "Salas UC",
+    "Campus UC",
+    "Pontificia Universidad Católica de Chile",
+    "Mapa UC",
+    "Ubícate UC",
+    "San Joaquín",
+    "Open Source",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="author" content={metadata.author} />
-        <meta name="keywords" content={metadata.keywords} />
-      </Head>
-      <body className="h-full pb-[-12px] dark:bg-dark-1">
+      <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
         <main className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
           <nav className="w-full select-none text-white h-12 flex items-center justify-between px-4 bg-dark-4">
             <div className="text-xl font-bold font-heading">
@@ -42,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </li>
             </ul>
           </nav>
-          <SearchResultProvider>{children}</SearchResultProvider>
+          {children}
         </main>
       </body>
     </html>

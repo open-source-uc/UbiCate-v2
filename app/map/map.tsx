@@ -16,13 +16,12 @@ import {
 } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import getGeocoder from "@/utils/getGeocoder";
 import { useThemeObserver } from "@/utils/themeObserver";
-
-import { useSearchResultCtx } from "../context/SearchResultCtx";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
+
+const loadGeocoder = () => import("@/utils/getGeocoder");
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -34,12 +33,7 @@ interface InitialViewState extends Partial<ViewState> {
   };
 }
 
-function createInitialViewState(
-  longitude: number | null,
-  latitude: number | null,
-  paramCampusBounds: LngLatBoundsLike,
-  paramPlace: any,
-): InitialViewState {
+function createInitialViewState(paramCampusBounds: LngLatBoundsLike, paramPlace: any): InitialViewState {
   const initialViewState: InitialViewState = {
     zoom: 18,
   };
@@ -47,11 +41,8 @@ function createInitialViewState(
   if (paramPlace) {
     initialViewState.longitude = paramPlace.geometry.coordinates[0];
     initialViewState.latitude = paramPlace.geometry.coordinates[1];
-  } else if (longitude === null || latitude === null) {
-    initialViewState.bounds = paramCampusBounds;
   } else {
-    initialViewState.longitude = longitude;
-    initialViewState.latitude = latitude;
+    initialViewState.bounds = paramCampusBounds;
   }
 
   return initialViewState;
@@ -76,57 +67,54 @@ export default function MapComponent({
   );
   useThemeObserver(setTheme, map);
 
-  const { searchResult, setSearchResult, initialLat, initialLng } = useSearchResultCtx();
-  const setSearchResultRef = useRef(setSearchResult);
-  setSearchResultRef.current = setSearchResult;
-
   useEffect(() => {
-    geocoder.current = getGeocoder();
+    let mounted = true;
+    const initializeGeocoder = async () => {
+      const { default: getGeocoder } = await loadGeocoder();
+      if (!mounted) return;
 
-    geocoder.current.on("result", function (result: any) {
-      const selectedPlaceId = result.result.properties.identifier;
-      for (const place of Places.features) {
-        if (place.properties.identifier === selectedPlaceId) {
-          setGeocoderPlaces([place]);
-          break;
-        }
-      }
-    });
+      geocoder.current = getGeocoder();
 
-    geocoder.current.on("results", function (results: any) {
-      const resultPlaces = [];
-      for (const result of results.features) {
-        const selectedPlaceId = result.properties.identifier;
+      geocoder.current.on("result", function (result: any) {
+        const selectedPlaceId = result.result.properties.identifier;
         for (const place of Places.features) {
           if (place.properties.identifier === selectedPlaceId) {
-            resultPlaces.push(place);
+            setGeocoderPlaces([place]);
             break;
           }
         }
-      }
-      setGeocoderPlaces(resultPlaces);
-    });
+      });
 
-    geocoder.current.on("clear", function () {
-      setGeocoderPlaces(null);
-    });
-  }, [Places]);
-
-  useEffect(() => {
-    if (searchResult) {
-      for (const place of Places.features) {
-        if (place.properties.identifier === searchResult) {
-          setGeocoderPlaces([place]);
-          setSearchResultRef.current("");
+      geocoder.current.on("results", function (results: any) {
+        if (!mounted) return;
+        const resultPlaces = [];
+        for (const result of results.features) {
+          const selectedPlaceId = result.properties.identifier;
+          for (const place of Places.features) {
+            if (place.properties.identifier === selectedPlaceId) {
+              resultPlaces.push(place);
+              break;
+            }
+          }
         }
-      }
-    }
-  }, [Places, searchResult]);
+        setGeocoderPlaces(resultPlaces);
+      });
+
+      geocoder.current.on("clear", function () {
+        setGeocoderPlaces(null);
+      });
+    };
+
+    initializeGeocoder();
+
+    return () => {
+      mounted = false;
+    };
+  }, [Places]);
 
   useEffect(() => {
     if (paramPlace) {
       setGeocoderPlaces([paramPlace]);
-      setSearchResultRef.current("");
     }
   }, [paramPlace]);
 
@@ -146,7 +134,7 @@ export default function MapComponent({
   return (
     <>
       <Map
-        initialViewState={createInitialViewState(initialLng, initialLat, paramCampusBounds, paramPlace)}
+        initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesTextLayer.id as string]}

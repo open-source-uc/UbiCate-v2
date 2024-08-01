@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
 import type { LngLat, MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
+
+import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
 
 import { useThemeObserver } from "../../utils/themeObserver";
 
@@ -19,6 +22,10 @@ export default function MapComponent(props: any) {
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
   );
+
+  const searchParams = useSearchParams();
+  const campusMapBounds = getParamCampusBounds(searchParams.get("campus"));
+
   useThemeObserver(setTheme, map);
   const onMarkerDragStart = useCallback((event: MarkerDragEvent) => {
     setEvents((_events) => ({ ..._events, onDragStart: event.lngLat }));
@@ -61,7 +68,7 @@ export default function MapComponent(props: any) {
       <div className="flex flex-col h-96 w-full justify-center place-content-center justify-items-center">
         <Map
           initialViewState={{
-            bounds: props.mapBounds,
+            bounds: campusMapBounds,
           }}
           mapStyle={`mapbox://styles/mapbox/${theme}`}
           mapboxAccessToken={MAPBOX_TOKEN}

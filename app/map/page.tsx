@@ -1,19 +1,44 @@
+import { Metadata } from "next";
+
 import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
 
 import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
-export default async function Page({ searchParams }: { searchParams: { campus?: string; place?: string } }) {
-  const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
-  let paramPlaceId: string | undefined = searchParams?.place;
-  let paramPlace = null;
+type SearchParams = { campus?: string; place?: string };
 
-  for (const place of PlacesJSON.features) {
-    if (place.properties.identifier === paramPlaceId) {
-      paramPlace = place;
-    }
-  }
+export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
+  const paramCampus: string | undefined = searchParams?.campus;
+  const paramPlaceId: string | undefined = searchParams?.place;
+
+  const params = new URLSearchParams();
+  if (paramCampus) params.append("campus", paramCampus);
+  if (paramPlaceId) params.append("place", paramPlaceId);
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  return {
+    title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
+    openGraph: {
+      images: [
+        {
+          url: `${baseUrl}/api/og-image?${params.toString()}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `${baseUrl}/map${params.toString() ? `?${params.toString()}` : ""}`,
+    },
+  };
+}
+
+export default async function Page({ searchParams }: { searchParams: SearchParams }) {
+  const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
+  const paramPlaceId: string | undefined = searchParams?.place;
+  const paramPlace = PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId);
 
   return (
     <>
