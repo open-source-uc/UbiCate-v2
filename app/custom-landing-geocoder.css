@@ -34,7 +34,7 @@
   height: 50px;
   color: #404040;
   /* fallback */
-  padding: 6px 45px;
+  padding: 3px 45px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -58,6 +58,10 @@
   outline: 2px solid #00a6ff;
   outline-offset: -1px;
   box-shadow: 0 0 0 2.5px #00a6ff;
+  transition: .15s;
+}
+
+.mapboxgl-ctrl-geocoder--input:not(:focus) {
   transition: .15s;
 }
 
@@ -244,7 +248,7 @@
 
   .mapboxgl-ctrl-geocoder {
     width: 100%;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 20px;
     max-width: 360px;
   }
@@ -280,6 +284,7 @@
   .mapboxgl-ctrl-geocoder--input {
     height: 36px;
     padding: 6px 35px;
+    padding-bottom: 3px;
   }
 
   .mapboxgl-ctrl-geocoder--icon-loading {
