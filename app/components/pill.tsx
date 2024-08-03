@@ -8,8 +8,6 @@ interface PillProps {
 
 const inter = Inter({ subsets: ["latin"] });
 
-// {`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}
-
 function Pill({ title }: PillProps) {
   return (
     <main className="px-2">
