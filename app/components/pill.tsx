@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 function Pill({ title }: PillProps) {
   return (
-    <main className="px-2">
+    <main className="md:px-2 px-1">
       <section
-        className={`bg-white w-24 h-6 rounded-xl flex justify-center items-center font-bold ${inter.className} `}
+        className={`bg-white max-[800px]:w-10 w-24 h-6 shadow-lg  rounded-xl flex justify-center items-center font-bold ${inter.className} `}
       >
         {title}
       </section>
