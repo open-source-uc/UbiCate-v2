@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import { ChevronLeft, Plus } from "lucide-react";
 
@@ -12,13 +12,6 @@ import { useSidebar } from "../context/sidebarCtx";
 export default function Sidebar() {
   const { isOpen, toggleSidebar } = useSidebar();
   const searchParams = useSearchParams();
-  const router = useRouter();
-
-  const handleLinkClick = (href: string) => {
-    
-      toggleSidebar();
-    
-  };
 
   return (
     <aside
@@ -43,7 +36,7 @@ export default function Sidebar() {
                     href={`/map?campus=${campus.properties.shortName}`}
                     passHref
                     className="block px-4 py-2 rounded-lg hover:bg-sky-700 transition-colors"
-                    onClick={() => handleLinkClick(`/map?campus=${campus.properties.shortName}`)}
+                    onClick={toggleSidebar}
                   >
                     {campus.properties.name}
                   </Link>
