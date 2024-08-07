@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import { ChevronLeft, Plus } from "lucide-react";
 
@@ -16,9 +15,9 @@ export default function Sidebar() {
   const router = useRouter();
 
   const handleLinkClick = (href: string) => {
-    if (router.asPath !== href) {
+    
       toggleSidebar();
-    }
+    
   };
 
   return (

@@ -1,4 +1,4 @@
-import type { LngLatBoundsLike } from "react-map-gl";
+import type { LngLatBoundsLike } from "mapbox-gl";
 
 interface CampusBounds {
   longitudeRange: [number, number];

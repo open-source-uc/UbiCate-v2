@@ -1,9 +1,12 @@
 "use client";
+import { useSearchParams } from "next/navigation";
+
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
-import type { MapRef, ViewState, LngLatBoundsLike, PointLike, PaddingOptions } from "react-map-gl";
+import type { LngLatBoundsLike } from "mapbox-gl";
+import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
 import {
   Map,
   Source,
@@ -57,6 +60,7 @@ export default function MapComponent({
   paramCampusBounds: LngLatBoundsLike;
   paramPlace: any;
 }) {
+  const searchParams = useSearchParams();
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
@@ -126,6 +130,10 @@ export default function MapComponent({
       place: place ? place.properties.name : null,
     });
   }, []);
+
+  useEffect(() => {
+    mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
+  }, [paramCampusBounds]);
 
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
