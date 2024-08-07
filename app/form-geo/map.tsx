@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
-import type { LngLat, MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
+import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
 import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
 
@@ -18,7 +18,6 @@ export default function MapComponent(props: any) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const [marker, setMarker] = useState({ ...props.markerPosition });
-  const [events, setEvents] = useState<Record<string, LngLat>>({});
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
   );
@@ -27,12 +26,8 @@ export default function MapComponent(props: any) {
   const campusMapBounds = getParamCampusBounds(searchParams.get("campus"));
 
   useThemeObserver(setTheme, map);
-  const onMarkerDragStart = useCallback((event: MarkerDragEvent) => {
-    setEvents((_events) => ({ ..._events, onDragStart: event.lngLat }));
-  }, []);
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
-    setEvents((_events) => ({ ..._events, onMarkerMove: event.lngLat }));
     setMarker({
       longitude: event.lngLat.lng,
       latitude: event.lngLat.lat,
@@ -41,7 +36,6 @@ export default function MapComponent(props: any) {
 
   const onMarkerDragEnd = useCallback(
     (event: MarkerDragEvent) => {
-      setEvents((_events) => ({ ..._events, onDragEnd: event.lngLat }));
       props.onMarkerMove(event);
     },
     [props],
@@ -49,8 +43,6 @@ export default function MapComponent(props: any) {
 
   const onClickMap = useCallback(
     (event: MapLayerMouseEvent) => {
-      setEvents((_events) => ({ ..._events, onMarkerMove: event.lngLat }));
-
       props.onMarkerMove(event);
       setMarker({
         longitude: event.lngLat.lng,
@@ -84,7 +76,6 @@ export default function MapComponent(props: any) {
             latitude={marker.latitude}
             anchor="bottom"
             draggable
-            onDragStart={onMarkerDragStart}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
             style={{ zIndex: 1 }}
@@ -92,7 +83,7 @@ export default function MapComponent(props: any) {
             <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
           </Marker>
         </Map>
-        <ControlPanel events={events} />
+        <ControlPanel />
       </div>
     </>
   );

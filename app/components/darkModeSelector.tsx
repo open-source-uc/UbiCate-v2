@@ -23,8 +23,10 @@ export default function DarkModeSelector() {
   }, []);
 
   return (
-    <>
-      <button onClick={() => switchTheme()}>{isDark ? "🌙" : "🌞"}</button>
-    </>
+    <div className="flex items-center">
+      <button className="rounded-lg hover:bg-sky-700 p-1.5" onClick={() => switchTheme()}>
+        {isDark ? "🌙" : "🌞"}
+      </button>
+    </div>
   );
 }
