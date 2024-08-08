@@ -19,7 +19,7 @@ export default function MapComponent(props: any) {
   const map = mapRef.current?.getMap();
   const [marker, setMarker] = useState({ ...props.markerPosition });
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
 
   const searchParams = useSearchParams();

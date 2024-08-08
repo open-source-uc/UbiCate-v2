@@ -1,5 +1,4 @@
 "use client";
-import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 
@@ -60,14 +59,13 @@ export default function MapComponent({
   paramCampusBounds: LngLatBoundsLike;
   paramPlace: any;
 }) {
-  const searchParams = useSearchParams();
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
   useThemeObserver(setTheme, map);
 
