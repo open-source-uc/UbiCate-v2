@@ -162,7 +162,7 @@ export default function FormComponent() {
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
               >
-                Arrastra el marcador a la ubicación deseada
+                Ubicación
               </label>
               <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <Suspense>

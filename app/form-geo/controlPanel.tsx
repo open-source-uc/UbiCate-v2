@@ -1,26 +1,16 @@
 import * as React from "react";
 
-import type { LngLat } from "react-map-gl";
-
 const eventNames = ["onMarkerMove"];
 
-function round5(value: any) {
-  return (Math.round(value * 1e5) / 1e5).toFixed(5);
-}
-
-function ControlPanel(props: { events: Record<string, LngLat> }) {
+function ControlPanel() {
   return (
     <div className="control-panel flex flex-col place-content-center">
       <div className="flex place-content-center">
         {eventNames.map((eventName) => {
-          const { events = {} } = props;
-          const lngLat = events[eventName];
-          const initialMsg = `Haz click o arrastra el marcador para obtener las coordenadas`;
           return (
-            <div key={eventName} className="pb-5">
-              {lngLat ? <strong>Coordenadas:</strong> : initialMsg}{" "}
-              {lngLat ? `${round5(lngLat.lng)}, ${round5(lngLat.lat)}` : null}
-            </div>
+            <p key={eventName} className="pb-5">
+              Haz click o arrastra el marcador para indicar ubicación.
+            </p>
           );
         })}
       </div>

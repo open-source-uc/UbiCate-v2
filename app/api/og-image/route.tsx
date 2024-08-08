@@ -6,7 +6,7 @@ function Template({ text, url }: { text: string; url: string }) {
   return (
     <div tw="relative flex w-full h-full flex items-center justify-center">
       <div tw="absolute flex inset-0">
-        <img src={url} alt="UbiCate UC - Mapa" width={1200} height={630} />
+        <img src={url} alt="UbíCate UC - Mapa" width={1200} height={630} />
         <div tw="absolute flex inset-0 bg-black bg-opacity-0" />
       </div>
       <div tw="flex flex-col h-full flex-col-reverse">

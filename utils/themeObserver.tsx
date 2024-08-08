@@ -8,8 +8,8 @@ export const useThemeObserver = (setTheme: (theme: string) => void, map: mapboxg
   const onClassChange = useCallback(() => {
     if (typeof window !== "undefined") {
       const isDark = document.documentElement.classList.contains("dark");
-      setTheme(isDark ? "dark-v11" : "streets-v11");
-      map?.setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v11"}?optimize=true`);
+      setTheme(isDark ? "dark-v11" : "streets-v12");
+      map?.setStyle(`mapbox://styles/mapbox/${isDark ? "dark-v11" : "streets-v12"}?optimize=true`);
     }
   }, [map, setTheme]);
 
