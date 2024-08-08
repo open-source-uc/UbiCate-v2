@@ -18,7 +18,7 @@ import {
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
-import Pill from "../components/pillFilter";
+import PillFilter from "../components/pillFilter";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
@@ -169,7 +169,7 @@ export default function MapComponent({
               return <Marker key={place.properties.identifier} place={place} />;
             })
           : null}
-        <Pill />
+        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
       </Map>
     </>
   );
