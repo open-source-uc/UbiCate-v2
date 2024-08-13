@@ -5,6 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Metadata } from "next";
 
 import Header from "./components/header";
+import Overlay from "./components/overlay";
 import Sidebar from "./components/sidebar";
 import { SidebarProvider } from "./context/sidebarCtx";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
         <SidebarProvider>
+          <Overlay />
           <main className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
             <Header />
             <Sidebar />
