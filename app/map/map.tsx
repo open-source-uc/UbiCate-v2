@@ -1,9 +1,11 @@
 "use client";
+
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
-import type { MapRef, ViewState, LngLatBoundsLike, PointLike, PaddingOptions } from "react-map-gl";
+import type { LngLatBoundsLike } from "mapbox-gl";
+import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
 import {
   Map,
   Source,
@@ -63,7 +65,7 @@ export default function MapComponent({
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
   const [hoverInfo, setHoverInfo] = useState<any>(null);
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v11",
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
   useThemeObserver(setTheme, map);
 
@@ -126,6 +128,10 @@ export default function MapComponent({
       place: place ? place.properties.name : null,
     });
   }, []);
+
+  useEffect(() => {
+    mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
+  }, [paramCampusBounds]);
 
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);

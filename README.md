@@ -24,13 +24,13 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Centrado del mapa en base a parámetros en links
+## Query Params
 
 Para centrar el mapa o la ubicación en el formulario en un campus específico, se puede agregar un parámetro en la URL con el nombre del campus:
 
 ```
-https://v2.ubicate.osuc.dev/map?campus={Nombre campus}
-https://v2.ubicate.osuc.dev/form-geo?campus={Nombre campus}
+https://ubicate.osuc.dev/map?campus={Nombre campus}
+https://ubicate.osuc.dev/form-geo?campus={Nombre campus}
 ```
 
 Donde `{Nombre campus}` puede ser:
@@ -44,7 +44,7 @@ Donde `{Nombre campus}` puede ser:
 Además se puede centrar el mapa en la ubicación de una sala dado su identificador
 
 ```
-https://v2.ubicate.osuc.dev/map?place={Id sala}
+https://ubicate.osuc.dev/map?place={Id sala}
 ```
 
 Donde `{Id sala}` puede ser:
@@ -55,7 +55,7 @@ Donde `{Id sala}` puede ser:
 ### Instalación
 
 Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local``
-Agregar la URL base del proyecto, actualmente es `https://v2.ubicate.osuc.dev/`
+Agregar la URL base del proyecto, actualmente es `https://ubicate.osuc.dev/`
 
 ```shell
 NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>

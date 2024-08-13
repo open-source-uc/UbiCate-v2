@@ -19,7 +19,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   return {
-    title: paramCampus ? `UbiCate UC - ${paramCampus}` : "UbiCate UC - Mapa",
+    title: paramCampus ? `UbíCate UC - ${paramCampus}` : "UbíCate UC - Mapa",
     openGraph: {
       images: [
         {

@@ -7,7 +7,7 @@
         "identifier": "SJ",
         "campus": "SJ",
         "name": "San Joaquín",
-        "shortName": "San Joaquín",
+        "shortName": "SanJoaquin",
         "address": "Av. Vicuña Mackenna 4860, Macul, Chile",
         "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaquín) con 82 hás., el actual campus San Joaquín de la Universidad comenzó su implementación como ciudad universitaria en los sesenta y continúa en desarrollo.",
         "categories": "campus"
@@ -33,7 +33,7 @@
         "identifier": "CC",
         "campus": "CC",
         "name": "Casa Central",
-        "shortName": "Casa Central",
+        "shortName": "CasaCentral",
         "address": "Av. Alameda 340, Santiago, Chile",
         "information": "El edificio principal y fundacional de la Universidad se terminó de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su discípulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Dirección Superior y a varias facultades.",
         "categories": "campus"
@@ -57,7 +57,7 @@
         "identifier": "LC",
         "campus": "LC",
         "name": "Lo Contador",
-        "shortName": "Lo Contador",
+        "shortName": "LoContador",
         "address": "El Comendador 1916, Providencia, Chile",
         "information": "Antigua hacienda del siglo XVIII contemporánea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitectónico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Diseño y Estudios Urbanos de la Universidad.",
         "categories": "campus"
