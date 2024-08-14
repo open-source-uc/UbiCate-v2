@@ -10,7 +10,7 @@ interface PillFilterProps {
   geocoder: MapboxGeocoder;
 }
 
-function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
+function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilterProps) {
   const [geoJsonData, setGeoJsonData] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [filteredResults, setFilteredResults] = useState<{ [key: string]: any[] }>({});
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -37,14 +37,17 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
     if (geocoder) {
       geocoder.clear();
       const input = document.querySelector(".mapboxgl-ctrl-geocoder input") as HTMLInputElement;
-      if (input) input.blur();
+      if (input) {
+        input.blur();
+      }
     }
   }, [geocoder]);
 
   const resetFilters = useCallback(() => {
-    setFilteredPlaces([]);
-    setActiveFilter(null);
-  }, [setFilteredPlaces]);
+    if (activeFilter) {
+      setActiveFilter(null);
+    }
+  }, [activeFilter]);
 
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
@@ -52,18 +55,18 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
       if (!geoJsonData) return;
 
       if (filteredResults[category]) {
-        setFilteredPlaces(filteredResults[category]);
+        setGeocoderPlaces(filteredResults[category]);
       } else {
         const filtered = filter(geoJsonData, category);
         setFilteredResults((prev) => ({ ...prev, [category]: filtered }));
-        setFilteredPlaces(filtered);
+        setGeocoderPlaces(filtered);
       }
       setActiveFilter((prevCategory) => (prevCategory === category ? null : category));
       if (activeFilter !== null && filteredResults[category] === filteredResults[activeFilter]) {
-        setFilteredPlaces([]);
+        setGeocoderPlaces([]);
       }
     },
-    [clearGeocoder, geoJsonData, filteredResults, activeFilter, setFilteredPlaces],
+    [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces],
   );
 
   useEffect(() => {
