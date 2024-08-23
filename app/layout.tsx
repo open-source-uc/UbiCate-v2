@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://localhost"),
   keywords: [
     "Salas UC",
     "Campus UC",
