@@ -90,6 +90,9 @@ Es necesario que el proyecto pueda realizar correctamente un `build` para poder 
 npm run build:cloudflare
 ```
 
+## Agregar nuevas salas
+
+Las salas subidas en el formulario de la página se suben a una base de datos. Estas salas se tienen que añadir a `data/places.json`  para que sean agregadas a la página.
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
