@@ -17,7 +17,7 @@ function Pill({ title, iconPath, onClick, active }: PillProps) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 760);
+      setIsSmallScreen(window.innerWidth < 800);
     };
 
     window.addEventListener("resize", handleResize);

@@ -8,7 +8,7 @@ module.exports = {
   darkMode: 'selector',
   theme: {
     screens: {
-      'map-sm': '760px',
+      'map-sm': '800px',
     },
     extend: {
       colors: {

@@ -96,6 +96,12 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
         onClick={() => applyFilter(categoryFilter, "bath")}
         active={activeFilter === "bath"}
       />
+      <Pill
+        title="Salas"
+        iconPath="/classroom.svg"
+        onClick={() => applyFilter(categoryFilter, "classroom")}
+        active={activeFilter === "classroom"}
+      />
     </section>
   );
 }
