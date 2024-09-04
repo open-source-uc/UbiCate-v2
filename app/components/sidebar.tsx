@@ -15,7 +15,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 bg-white dark:bg-dark-1 dark:text-white text-white transform transition-transform duration-300 z-40 ${
+      className={`fixed inset-y-0 left-0 bg-white dark:bg-dark-1 dark:text-white text-white transform transition-transform duration-300 z-50 ${
         isOpen ? "translate-x-0 w-full map-sm:w-72" : "-translate-x-full"
       }`}
     >
