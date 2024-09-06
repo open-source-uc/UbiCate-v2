@@ -24,6 +24,7 @@ import PillFilter from "../components/pillFilter";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
+import { handleResult, handleResults, handleClear } from "./placeHandlers";
 
 const loadGeocoder = () => import("@/utils/getGeocoder");
 
@@ -73,40 +74,16 @@ export default function MapComponent({
 
   useEffect(() => {
     let mounted = true;
+
     const initializeGeocoder = async () => {
       const { default: getGeocoder } = await loadGeocoder();
       if (!mounted) return;
 
-      geocoder.current = getGeocoder();
-
-      geocoder.current.on("result", function (result: any) {
-        const selectedPlaceId = result.result.properties.identifier;
-        for (const place of Places.features) {
-          if (place.properties.identifier === selectedPlaceId) {
-            setGeocoderPlaces([place]);
-            break;
-          }
-        }
-      });
-
-      geocoder.current.on("results", function (results: any) {
-        if (!mounted) return;
-        const resultPlaces = [];
-        for (const result of results.features) {
-          const selectedPlaceId = result.properties.identifier;
-          for (const place of Places.features) {
-            if (place.properties.identifier === selectedPlaceId) {
-              resultPlaces.push(place);
-              break;
-            }
-          }
-        }
-        setGeocoderPlaces(resultPlaces);
-      });
-
-      geocoder.current.on("clear", function () {
-        setGeocoderPlaces(null);
-      });
+      geocoder.current = getGeocoder(
+        (result: any) => handleResult(result, setGeocoderPlaces, Places),
+        (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
+        () => handleClear(setGeocoderPlaces),
+      );
     };
 
     initializeGeocoder();
@@ -114,7 +91,8 @@ export default function MapComponent({
     return () => {
       mounted = false;
     };
-  }, [Places]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (paramPlace) {
@@ -137,7 +115,7 @@ export default function MapComponent({
 
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
-  }, []);
+  }, [geocoder]);
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
     <>

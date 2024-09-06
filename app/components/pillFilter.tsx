@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-import { attachGeocoderListener } from "@/utils/geocoderEvents";
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
 
 import Pill from "./pill";
@@ -35,6 +34,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
 
   const clearGeocoder = useCallback(() => {
     if (geocoder) {
+      console.log("geocoder: ", geocoder);
       geocoder.clear();
       const input = document.querySelector(".mapboxgl-ctrl-geocoder input") as HTMLInputElement;
       if (input) {
@@ -68,13 +68,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
     },
     [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces],
   );
-
-  useEffect(() => {
-    if (geocoder) {
-      const cleanup = attachGeocoderListener(geocoder, "results", resetFilters);
-      return cleanup;
-    }
-  }, [geocoder, resetFilters]);
 
   return (
     <section className="pointer-events-none relative pe-64 max-map-sm:pe-2 max-map-sm:top-36 h-6 z-30 top-4 flex justify-items-center align-middle justify-center max-map-sm:flex-col">
