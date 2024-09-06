@@ -2,7 +2,11 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Mapbox from "mapbox-gl";
 
 import geojson from "../data/places.json";
-export default function getGeocoder(): MapboxGeocoder {
+export default function getGeocoder(
+  onResult: (result: any) => void = () => {},
+  onResults: (results: any) => void = () => {},
+  onClear: () => void = () => {},
+): MapboxGeocoder {
   const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
   function forwardGeocoder(query: any) {
@@ -24,7 +28,7 @@ export default function getGeocoder(): MapboxGeocoder {
     return matchingFeatures;
   }
 
-  return new MapboxGeocoder({
+  const geocoder = new MapboxGeocoder({
     accessToken: MAPBOX_TOKEN as string,
     localGeocoder: forwardGeocoder,
     localGeocoderOnly: true,
@@ -35,4 +39,10 @@ export default function getGeocoder(): MapboxGeocoder {
     marker: false,
     types: "poi",
   });
+
+  geocoder.on("result", onResult);
+  geocoder.on("results", onResults);
+  geocoder.on("clear", onClear);
+
+  return geocoder;
 }
