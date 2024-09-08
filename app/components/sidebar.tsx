@@ -15,8 +15,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 bg-white dark:bg-dark-1 dark:text-white text-white transform transition-transform duration-300 z-40 ${
-        isOpen ? "translate-x-0 w-full sm:w-72" : "-translate-x-full"
+      className={`fixed inset-y-0 left-0 bg-white dark:bg-dark-1 dark:text-white text-white transform transition-transform duration-300 z-50 ${
+        isOpen ? "translate-x-0 w-full map-sm:w-72" : "-translate-x-full"
       }`}
     >
       <div className="flex flex-col h-full">
@@ -38,7 +38,7 @@ export default function Sidebar() {
                     <Link
                       href={`/map?campus=${campus.properties.shortName}`}
                       passHref
-                      className={`block px-4 py- rounded-lg  transition-all hover:text-sky-600 dark:hover:text-sky-300 ${
+                      className={`block px-4 rounded-lg transition-all hover:text-sky-600 dark:hover:text-sky-300 ${
                         searchParams.get("campus") === campus.properties.shortName
                           ? "text-sky-600 dark:text-sky-300"
                           : "text-gray-700 dark:text-white"
@@ -56,7 +56,7 @@ export default function Sidebar() {
               <Link
                 onClick={toggleSidebar}
                 href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
-                className="flex items-center space-x-2 px-4 py-2 text-sky-600 dark:text-sky-300 rounded-full border border-sky-600 dark:border-sky-300 hover:bg-sky-300 dark:hover:bg-sky-700 transition-all"
+                className="flex items-center justify-center space-x-2 px-4 py-2 text-sky-600 dark:text-sky-300 rounded-full border border-sky-600 dark:border-sky-300 hover:bg-sky-300 dark:hover:bg-sky-700 transition-all"
               >
                 <Plus />
                 <p>Agrega nueva ubicación</p>
