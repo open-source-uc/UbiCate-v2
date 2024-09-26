@@ -133,3 +133,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
     });
 }
+
+export const runtime = "edge";
+
