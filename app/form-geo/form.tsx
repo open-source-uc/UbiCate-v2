@@ -92,8 +92,9 @@ export default function FormComponent() {
     fetch("/api/data", requestOptions)
       .then(data => data.json())
       .then(data => {
-        alert("Tu sala ha sido registrada.");
+        setSubmitting(false);
         console.log(data)
+        alert("Tu sala ha sido registrada.");
       })
       .catch((error) => {
         setSubmitting(false);
