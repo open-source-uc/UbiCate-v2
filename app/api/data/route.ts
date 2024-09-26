@@ -111,47 +111,25 @@ export async function POST(request: NextRequest) {
             const json = Buffer.from(file_data.content, "base64").toString();
             const file_places: Places = JSON.parse(json);
             file_places.features.push(nuevo_punto)
-            console.log(file_sha)
-            // await fetch(url, {
-            //     method: "PUT",
-            //     headers: {
-            //         Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-            //         Accept: 'application/vnd.github+json',
-            //     },
-            //     body: JSON.stringify({
-            //         message: `Lugar nuevo ${nuevo_punto.properties.name}`,
-            //         committer: {
-            //             name: "BOT-PLACES",
-            //             email: GITHUB_USER_EMAIL
-            //         },
-            //         content: Buffer.from(JSON.stringify(file_places)).toString("base64"),
-            //         sha: file_sha
-            //     })
-            // })
+            const r = await fetch(url, {
+                method: "PUT",
+                headers: {
+                    Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
+                    Accept: 'application/vnd.github+json',
+                },
+                body: JSON.stringify({
+                    message: `Lugar nuevo ${nuevo_punto.properties.name}`,
+                    committer: {
+                        name: "BOT-PLACES",
+                        email: GITHUB_USER_EMAIL
+                    },
+                    content: Buffer.from(JSON.stringify(file_places)).toString("base64"),
+                    sha: file_sha,
+                    branch: BRANCH_NAME
+                })
+            })
 
-
-
-
-            // const places = all_data.features;
-            // places.push(nuevo_punto);
-            // all_data.features = places;
-
-
-
-            // const updateResponse = await fetch(url, {
-            //     method: 'PUT',
-            //     headers: {
-            //         'Authorization': `token ${GITHUB_TOKEN_USER}`,
-            //         'Accept': 'application/vnd.github.v3+json',
-            //     },
-            //     body: JSON.stringify({
-            //         message: 'Actualizar el archivo places.json',
-            //         content: updatedContent,
-            //         sha: sha,
-            //     }),
-            // });
-
-            return NextResponse.json({ message: 'exist', data: body });
+            return NextResponse.json({ message: 'GG', data: body });
         })
         .catch(error => {
             return NextResponse.json({ error: 'Error al procesar el JSON' }, { status: 400 });
