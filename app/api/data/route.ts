@@ -127,9 +127,10 @@ export async function POST(request: NextRequest) {
         }),
       });
       // No se que poner es tmp
-      return NextResponse.json({ message: "GG", data: body });
+      const r2 = await r.json();
+      return NextResponse.json({ message: r2, data: body });
     })
-    .catch((error) => {
+    .catch(() => {
       return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
     });
 }

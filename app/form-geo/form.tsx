@@ -90,7 +90,9 @@ export default function FormComponent() {
     };
 
     fetch("/api/data", requestOptions)
-      .then((data) => {
+      .then(async (data) => {
+        const salida = await data.json();
+        console.log(salida);
         setSubmitting(false);
         alert("Tu sala ha sido registrada.");
       })
