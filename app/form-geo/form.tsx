@@ -89,7 +89,7 @@ export default function FormComponent() {
       body: JSON.stringify(transformedValues),
     };
 
-    fetch("https://ubicate-uc.fly.dev/api/collections/coordinates/records", requestOptions)
+    fetch("/api/data", requestOptions)
       .then((data) => {
         setSubmitting(false);
         alert("Tu sala ha sido registrada.");
