@@ -111,27 +111,25 @@ export async function POST(request: NextRequest) {
             const json = Buffer.from(file_data.content, "base64").toString();
             const file_places: Places = JSON.parse(json);
             file_places.features.push(nuevo_punto)
-            console.log(file_places.features.at(-1))
+            console.log(file_sha)
+            // await fetch(url, {
+            //     method: "PUT",
+            //     headers: {
+            //         Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
+            //         Accept: 'application/vnd.github+json',
+            //     },
+            //     body: JSON.stringify({
+            //         message: `Lugar nuevo ${nuevo_punto.properties.name}`,
+            //         committer: {
+            //             name: "BOT-PLACES",
+            //             email: GITHUB_USER_EMAIL
+            //         },
+            //         content: Buffer.from(JSON.stringify(file_places)).toString("base64"),
+            //         sha: file_sha
+            //     })
+            // })
 
-            const subida = await fetch(url, {
-                method: "PUT",
-                headers: {
-                    Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-                    Accept: 'application/vnd.github+json',
-                },
-                body: JSON.stringify({
-                    message: `Lugar nuevo ${nuevo_punto.properties.name}`,
-                    committer: {
-                        name: "BOT-PLACES",
-                        email: GITHUB_USER_EMAIL
-                    },
-                    content: Buffer.from(JSON.stringify(file_places)).toString("base64"),
-                    sha: file_sha
-                })
-            })
 
-            const r = await subida.json()
-            console.log(r)
 
 
             // const places = all_data.features;
