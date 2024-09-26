@@ -105,13 +105,13 @@ async function update_places(url: string, name: string, file_places: Places, fil
       branch: BRANCH_NAME,
     }),
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data;
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const body: Place = await request.json()
+    const body: Place = await request.json();
     const nuevo_punto = {
       type: "Feature",
       properties: {
@@ -150,12 +150,11 @@ export async function POST(request: NextRequest) {
     const file_places: Places = JSON.parse(Buffer.from(file_data.content, "base64").toString());
     file_places.features.push(nuevo_punto);
 
-    await update_places(url, nuevo_punto.properties.name, file_places, file_sha)
+    await update_places(url, nuevo_punto.properties.name, file_places, file_sha);
 
     return NextResponse.json({ message: "GG", data: file_places.features.at(-1) });
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
   }
 }
