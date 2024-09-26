@@ -90,14 +90,14 @@ export default function FormComponent() {
     };
 
     fetch("/api/data", requestOptions)
-      .then(async (data) => {
-        const salida = await data.json();
-        console.log(salida);
-        setSubmitting(false);
+      .then(data => data.json())
+      .then(data => {
         alert("Tu sala ha sido registrada.");
+        console.log(data)
       })
       .catch((error) => {
         setSubmitting(false);
+        alert("Error al registrar la sala");
         console.error("Error al registrar la sala:", error);
       });
   }
