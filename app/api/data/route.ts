@@ -229,7 +229,7 @@ export async function POST(request: NextRequest) {
       }
       file_places.features.unshift(nuevo_punto);
       await create_place(url, getID(nuevo_punto), file_places, file_sha);
-      return NextResponse.json({ message: "¡El lugar fue creado!" });
+      return NextResponse.json({ message: "¡El lugar fue creado! Ahora debe esperar a que sea aprobado (máximo 1 semana)." });
     }
   } catch (error) {
     console.log(error);
