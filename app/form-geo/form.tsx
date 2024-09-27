@@ -60,6 +60,7 @@ export default function FormComponent() {
   const [latitude, setLatitude] = useState<number>(-33.4983);
   const [campus, setCampus] = useState<string>("");
   const [identifier, setIdentifier] = useState<string>("");
+
   const dragLocUpdate = useCallback((event: any) => {
     setLongitude(event.lngLat.lng);
     setLatitude(event.lngLat.lat);
@@ -143,7 +144,7 @@ export default function FormComponent() {
   interface FormObserverProps {
     setLatitude: (lat: number) => void;
     setLongitude: (lon: number) => void;
-    setIdentifier: (lon: number) => void;
+    setIdentifier: (lon: string) => void;
 
   }
   function FormObserver({ setLatitude, setLongitude, setIdentifier }: FormObserverProps) {
@@ -184,6 +185,8 @@ export default function FormComponent() {
                   setFieldValue("placeName", suggestion.properties.name || "");
                   setFieldValue("floor", suggestion.properties.floor || 1);
                   setFieldValue("information", suggestion.properties.information || "");
+
+                  setIdentifier(suggestion.properties.identifier)
                 }}
               >
                 {index + 1}. {suggestion.properties.name}

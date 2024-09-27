@@ -211,6 +211,7 @@ export async function POST(request: NextRequest) {
       /*
       Sistema de crear un nuevo lugar
       */
+      nuevo_punto.properties.identifier = today.toString()
       file_places.features.unshift(nuevo_punto);
       await create_place(url, nuevo_punto.properties.identifier, file_places, file_sha);
       return NextResponse.json({ message: "¡El lugar fue creado!" });
