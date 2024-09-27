@@ -53,7 +53,14 @@ const nameToSigla = new Map<string, string>([
   ["Oriente", "OR"],
 ]);
 
-const initialValues = { placeName: "", information: "", floor: 1, latitude: null, longitude: null, categories: "Seleccionar" };
+const initialValues = {
+  placeName: "",
+  information: "",
+  floor: 1,
+  latitude: null,
+  longitude: null,
+  categories: "Seleccionar",
+};
 
 export default function FormComponent() {
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -147,7 +154,6 @@ export default function FormComponent() {
     setLatitude: (lat: number) => void;
     setLongitude: (lon: number) => void;
     setIdentifier: (lon: string) => void;
-
   }
   function FormObserver({ setLatitude, setLongitude, setIdentifier }: FormObserverProps) {
     const { values, setFieldValue } = useFormikContext();
@@ -187,8 +193,8 @@ export default function FormComponent() {
                   setFieldValue("placeName", suggestion.properties.name || "");
                   setFieldValue("floor", suggestion.properties.floor || 1);
                   setFieldValue("information", suggestion.properties.information || "");
-                  setFieldValue("categories", suggestion.properties.categories || "other")
-                  setIdentifier(suggestion.properties.identifier)
+                  setFieldValue("categories", suggestion.properties.categories || "other");
+                  setIdentifier(suggestion.properties.identifier);
                 }}
               >
                 {index + 1}. {suggestion.properties.name}
@@ -252,7 +258,11 @@ export default function FormComponent() {
                 <option value="studyroom">Sala de estudio</option>
                 <option value="other">Otro</option>
               </Field>
-              <ErrorMessage className="text-error font-bold text-sm w-full text-left" name="categories" component="div" />
+              <ErrorMessage
+                className="text-error font-bold text-sm w-full text-left"
+                name="categories"
+                component="div"
+              />
               <label
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
