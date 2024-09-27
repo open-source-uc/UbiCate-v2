@@ -157,7 +157,7 @@ export async function POST(request: NextRequest) {
         campus: body.campus,
         faculties: "",
         floor: body.floor,
-        category: "classroom",
+        category: "",
       },
       geometry: {
         type: "Point",
@@ -198,7 +198,7 @@ export async function POST(request: NextRequest) {
       place.geometry.coordinates[1] = nuevo_punto.geometry.coordinates[1];
       place.properties.campus = nuevo_punto.properties.campus;
       place.properties.categories = nuevo_punto.properties.categories;
-      place.properties.category = nuevo_punto.properties.category;
+      place.properties.category = nuevo_punto.properties.categories;
       place.properties.faculties = nuevo_punto.properties.faculties;
       place.properties.floor = nuevo_punto.properties.floor;
       // place.properties.identifier NO SE PUEDE EDITAR PUES ES LA ID UNICA
@@ -216,7 +216,16 @@ export async function POST(request: NextRequest) {
       /*
       Sistema de crear un nuevo lugar
       */
-      nuevo_punto.properties.identifier = today.toString();
+      if (nuevo_punto.properties.categories === "classroom") {
+        nuevo_punto.properties.identifier = nuevo_punto.properties.name.trim().replaceAll(" ", "_");
+      } else {
+        const fecha = new Date("2000-01-01T00:00:00Z");
+        const ahora = Date.now();
+        const diff = ahora - fecha.getTime();
+        nuevo_punto.properties.identifier =
+          nuevo_punto.properties.name.trim().replaceAll(" ", "_") + "-" + diff.toString();
+      }
+
       file_places.features.unshift(nuevo_punto);
       await create_place(url, getID(nuevo_punto), file_places, file_sha);
       return NextResponse.json({ message: "¡El lugar fue creado!" });
