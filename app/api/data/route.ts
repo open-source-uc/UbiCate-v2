@@ -225,7 +225,7 @@ export async function POST(request: NextRequest) {
 
         const diffInMilliseconds = now - startOfYear2024.getTime();
         const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
-        nuevo_punto.properties.identifier = nuevo_punto.properties.category + "-" + diffInSeconds.toString();
+        nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
       }
       file_places.features.unshift(nuevo_punto);
       await create_place(url, getID(nuevo_punto), file_places, file_sha);
