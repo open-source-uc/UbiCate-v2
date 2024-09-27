@@ -197,7 +197,7 @@ export default function FormComponent() {
                   setIdentifier(suggestion.properties.identifier);
                 }}
               >
-                {index + 1}. {suggestion.properties.name}
+                {index + 1}. {suggestion.properties.name} | {suggestion.properties.campus}
               </li>
             ))}
           </ul>
