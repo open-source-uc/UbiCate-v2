@@ -17,6 +17,7 @@ interface newPlace {
   placeName: string;
   information: string;
   floor: number;
+  categories: string | string[];
 }
 
 interface errors {
@@ -52,7 +53,7 @@ const nameToSigla = new Map<string, string>([
   ["Oriente", "OR"],
 ]);
 
-const initialValues = { placeName: "", information: "", floor: 1, latitude: null, longitude: null };
+const initialValues = { placeName: "", information: "", floor: 1, latitude: null, longitude: null, categories: "Seleccionar" };
 
 export default function FormComponent() {
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -131,7 +132,8 @@ export default function FormComponent() {
         if (!res.ok) {
           return Promise.reject(data.message || "Error: " + res.statusText);
         }
-        alert("Tu sala ha sido registrada.");
+        alert(data.message);
+        setIdentifier("");
         setSubmitting(false);
       })
       .catch((error) => {
@@ -185,7 +187,7 @@ export default function FormComponent() {
                   setFieldValue("placeName", suggestion.properties.name || "");
                   setFieldValue("floor", suggestion.properties.floor || 1);
                   setFieldValue("information", suggestion.properties.information || "");
-
+                  setFieldValue("categories", suggestion.properties.categories || "other")
                   setIdentifier(suggestion.properties.identifier)
                 }}
               >
@@ -232,6 +234,25 @@ export default function FormComponent() {
                 name="placeName"
                 component="div"
               />
+              <label
+                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
+                htmlFor="categories"
+              >
+                Categoria
+              </label>
+              <Field
+                name="categories"
+                as="select"
+                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="classroom">Sala</option>
+                <option value="bath">Baño</option>
+                <option value="food_lunch">Comida</option>
+                <option value="park_bicycle">Bicicletero</option>
+                <option value="studyroom">Sala de estudio</option>
+                <option value="other">Otro</option>
+              </Field>
+              <ErrorMessage className="text-error font-bold text-sm w-full text-left" name="categories" component="div" />
               <label
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"

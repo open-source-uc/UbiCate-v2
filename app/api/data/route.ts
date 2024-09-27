@@ -38,6 +38,7 @@ interface Place {
   longitude: number;
   name: string;
   campus: string;
+  categories: string;
 }
 
 interface Places {
@@ -138,6 +139,10 @@ async function update_place(url: string, identifier: string, file_places: Places
   return data;
 }
 
+function getID(place: Feature) {
+  return place.properties.name + "-" + place.properties.categories + "-" + place.properties.campus
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: Place = await request.json();
@@ -148,7 +153,7 @@ export async function POST(request: NextRequest) {
         identifier: body.identifier, //Esto se hizo pues debe ser unico y si se usara el "body.name" podria pasar que identifier se duplicara por ejemplo el caso de los baños
         name: body.name,
         information: body.information,
-        categories: "",
+        categories: body.categories,
         campus: body.campus,
         faculties: "",
         floor: body.floor,
@@ -199,7 +204,7 @@ export async function POST(request: NextRequest) {
       // place.properties.identifier NO SE PUEDE EDITAR PUES ES LA ID UNICA
       place.properties.information = nuevo_punto.properties.information;
       place.properties.name = nuevo_punto.properties.name;
-      await update_place(url, place.properties.identifier, file_places, file_sha);
+      await update_place(url, getID(place), file_places, file_sha);
 
       return NextResponse.json(
         { message: "¡El lugar fue actualizado!" },
@@ -213,7 +218,7 @@ export async function POST(request: NextRequest) {
       */
       nuevo_punto.properties.identifier = today.toString()
       file_places.features.unshift(nuevo_punto);
-      await create_place(url, nuevo_punto.properties.identifier, file_places, file_sha);
+      await create_place(url, getID(nuevo_punto), file_places, file_sha);
       return NextResponse.json({ message: "¡El lugar fue creado!" });
     }
   } catch (error) {
