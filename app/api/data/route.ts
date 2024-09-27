@@ -198,12 +198,12 @@ export async function POST(request: NextRequest) {
       place.geometry.coordinates[1] = nuevo_punto.geometry.coordinates[1];
       place.properties.campus = nuevo_punto.properties.campus;
       place.properties.categories = nuevo_punto.properties.categories;
-      // place.properties.category = nuevo_punto.properties.category; // Esta vacia
-      place.properties.faculties = nuevo_punto.properties.faculties;
       place.properties.floor = nuevo_punto.properties.floor;
-      // place.properties.identifier NO SE PUEDE EDITAR PUES ES LA ID UNICA
       place.properties.information = nuevo_punto.properties.information;
       place.properties.name = nuevo_punto.properties.name;
+      // place.properties.category = nuevo_punto.properties.category; // Esta vacia
+      // place.properties.faculties = nuevo_punto.properties.faculties; // Generaba que se borraran
+      // place.properties.identifier NO SE PUEDE EDITAR PUES ES LA ID UNICA
       await update_place(url, getID(place), file_places, file_sha);
 
       return NextResponse.json(
