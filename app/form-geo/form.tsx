@@ -169,11 +169,7 @@ export default function FormComponent() {
       if (placeValues.placeName.length < 1) return;
 
       const filtered = PlacesJSON.features
-        .filter(
-          (suggestion) =>
-            suggestion.properties.name.toLowerCase().includes(placeValues.placeName.toLowerCase()) &&
-            placeValues.placeName.toLowerCase() !== suggestion.properties.name.toLowerCase(),
-        )
+        .filter((suggestion) => suggestion.properties.name.toLowerCase().includes(placeValues.placeName.toLowerCase()))
         .slice(0, 5);
 
       setSuggestions(filtered);
