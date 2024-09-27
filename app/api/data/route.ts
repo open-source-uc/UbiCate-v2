@@ -18,8 +18,7 @@ interface Places {
   features: Object[];
 }
 
-
-async function exist_rama_edit_data() {
+async function exist_branch() {
   try {
     const response = await fetch(`https://api.github.com/repos/open-source-uc/UbiCate-v2/branches/${BRANCH_NAME}`, {
       method: "GET",
@@ -68,7 +67,7 @@ async function create_branch() {
   });
 }
 
-async function update_places(url: string, name: string, file_places: Places, file_sha: string) {
+async function update_branch(url: string, name: string, file_places: Places, file_sha: string) {
   const response = await fetch(url, {
     method: "PUT",
     headers: {
@@ -111,7 +110,7 @@ export async function POST(request: NextRequest) {
       },
     };
 
-    const exist = await exist_rama_edit_data();
+    const exist = await exist_branch();
     if (exist === false) {
       await create_branch();
     }
@@ -131,7 +130,7 @@ export async function POST(request: NextRequest) {
     const file_places: Places = JSON.parse(Buffer.from(file_data.content, "base64").toString());
     file_places.features.push(nuevo_punto);
 
-    await update_places(url, nuevo_punto.properties.name, file_places, file_sha);
+    await update_branch(url, nuevo_punto.properties.name, file_places, file_sha);
 
     return NextResponse.json({ message: "GG", data: file_places.features.at(-1) });
   } catch (error) {
