@@ -217,7 +217,10 @@ export async function POST(request: NextRequest) {
       Sistema de crear un nuevo lugar
       */
       if (nuevo_punto.properties.categories === "classroom") {
-        nuevo_punto.properties.identifier = nuevo_punto.properties.name.trim().toUpperCase().replaceAll(" ", "_");
+        nuevo_punto.properties.identifier =
+          nuevo_punto.properties.name.trim().toUpperCase().replaceAll(" ", "_") +
+          "-" +
+          nuevo_punto.properties.campus.toUpperCase();
       } else {
         const startOfYear2024 = new Date("2024-01-01T00:00:00");
 
