@@ -60,7 +60,7 @@ const initialValues = {
   floor: 1,
   latitude: null,
   longitude: null,
-  categories: "Seleccionar",
+  categories: "",
 };
 
 export default function FormComponent() {
@@ -102,7 +102,6 @@ export default function FormComponent() {
     } else if (newPlace.placeName.length > 60) {
       errors.placeName = "Nombre demasiado largo";
     }
-
     if (newPlace.categories == "") {
       errors.categories = "Debe seleccionar un categoria.";
     }
@@ -256,8 +255,8 @@ export default function FormComponent() {
                 as="select"
                 className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Seleccionar</option>
                 <option value="classroom">Sala</option>
+                <option value="">Seleccionar</option>
                 <option value="bath">Baño</option>
                 <option value="food_lunch">Comida</option>
                 <option value="park_bicycle">Bicicletero</option>
