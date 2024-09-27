@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
     const nuevo_punto: Feature = {
       type: "Feature",
       properties: {
-        identifier: today.toString(), //Esto se hizo pues debe ser unico y si se usara el "body.name" podria pasar que identifier se duplicara por ejemplo el caso de los baños
+        identifier: body.identifier, //Esto se hizo pues debe ser unico y si se usara el "body.name" podria pasar que identifier se duplicara por ejemplo el caso de los baños
         name: body.name,
         information: body.information,
         categories: "",

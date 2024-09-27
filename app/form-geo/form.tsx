@@ -59,7 +59,7 @@ export default function FormComponent() {
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
   const [campus, setCampus] = useState<string>("");
-
+  const [identifier, setIdentifier] = useState<string>("");
   const dragLocUpdate = useCallback((event: any) => {
     setLongitude(event.lngLat.lng);
     setLatitude(event.lngLat.lat);
@@ -112,6 +112,7 @@ export default function FormComponent() {
       longitude,
       latitude,
       campus,
+      identifier,
       name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
@@ -142,8 +143,10 @@ export default function FormComponent() {
   interface FormObserverProps {
     setLatitude: (lat: number) => void;
     setLongitude: (lon: number) => void;
+    setIdentifier: (lon: number) => void;
+
   }
-  function FormObserver({ setLatitude, setLongitude }: FormObserverProps) {
+  function FormObserver({ setLatitude, setLongitude, setIdentifier }: FormObserverProps) {
     const { values, setFieldValue } = useFormikContext();
 
     const [suggestions, setSuggestions] = useState<any[]>([]);
@@ -158,7 +161,7 @@ export default function FormComponent() {
             suggestion.properties.name.toLowerCase().includes(placeValues.placeName.toLowerCase()) &&
             placeValues.placeName.toLowerCase() !== suggestion.properties.name.toLowerCase(),
         )
-        .slice(0, 3);
+        .slice(0, 5);
 
       setSuggestions(filtered);
     }, [values]);
@@ -170,7 +173,7 @@ export default function FormComponent() {
             {suggestions.map((suggestion: Feature, index) => (
               <li
                 key={index}
-                className="underline dark:bg-dark-3 cursor-pointer w-full text-left"
+                className="underline dark:bg-dark-2 cursor-pointer w-full text-left border rounded-lg my-1 px-1 border-dark-4"
                 onClick={() => {
                   setFieldValue("longitude", suggestion.geometry.coordinates[1] || null);
                   setLongitude(suggestion.geometry.coordinates[0]);
@@ -219,7 +222,7 @@ export default function FormComponent() {
                 id="placeName"
                 type="text"
               />
-              <FormObserver setLatitude={setLatitude} setLongitude={setLongitude} />
+              <FormObserver setLatitude={setLatitude} setLongitude={setLongitude} setIdentifier={setIdentifier} />
 
               <ErrorMessage
                 className="text-error font-bold text-sm w-full text-left"
