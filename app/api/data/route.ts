@@ -10,33 +10,14 @@ interface Place {
   latitude: number;
   longitude: number;
   name: string;
+  campus: string;
 }
 
 interface Places {
   type: string;
   features: Object[];
 }
-interface PointGeometry {
-  type: "Point";
-  coordinates: [number, number];
-}
 
-interface Properties {
-  identifier: string;
-  name: string;
-  information: string;
-  categories: string;
-  campus: string;
-  faculties: string;
-  floor: string;
-  category: string;
-}
-
-interface Feature {
-  type: "Feature";
-  properties: Properties;
-  geometry: PointGeometry;
-}
 
 async function exist_rama_edit_data() {
   try {
@@ -119,7 +100,7 @@ export async function POST(request: NextRequest) {
         name: body.name,
         information: body.information,
         categories: "",
-        campus: "SJ",
+        campus: body.campus,
         faculties: "",
         floor: body.floor,
         category: "classroom",
