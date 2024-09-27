@@ -60,7 +60,7 @@ const initialValues = {
   floor: 1,
   latitude: null,
   longitude: null,
-  categories: "",
+  categories: "Seleccionar",
 };
 
 export default function FormComponent() {

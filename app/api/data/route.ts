@@ -216,16 +216,7 @@ export async function POST(request: NextRequest) {
       /*
       Sistema de crear un nuevo lugar
       */
-      if (nuevo_punto.properties.categories === "classroom") {
-        nuevo_punto.properties.identifier = nuevo_punto.properties.name.trim().replaceAll(" ", "_");
-      } else {
-        const fecha = new Date("2000-01-01T00:00:00Z");
-        const ahora = Date.now();
-        const diff = ahora - fecha.getTime();
-        nuevo_punto.properties.identifier =
-          nuevo_punto.properties.name.trim().replaceAll(" ", "_") + "-" + diff.toString();
-      }
-
+      nuevo_punto.properties.identifier = today.toString();
       file_places.features.unshift(nuevo_punto);
       await create_place(url, getID(nuevo_punto), file_places, file_sha);
       return NextResponse.json({ message: "¡El lugar fue creado!" });
