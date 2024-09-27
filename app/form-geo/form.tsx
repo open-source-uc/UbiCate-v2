@@ -2,10 +2,12 @@
 
 import { useEffect, useState, useCallback, Suspense } from "react";
 
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form, ErrorMessage, useFormikContext } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
+
+import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
@@ -24,13 +26,39 @@ interface errors {
   information?: string;
   floor?: string;
 }
+interface Feature {
+  type: "Feature";
+  properties: {
+    identifier: string;
+    name: string;
+    information: string;
+    categories: string;
+    campus: string;
+    faculties: string;
+    floor: number;
+    category: string;
+  };
+  geometry: {
+    type: "Point";
+    coordinates: [number, number];
+  };
+}
 
-const initialValues = { placeName: "", information: "", floor: 1, latitude: null };
+const nameToSigla = new Map<string, string>([
+  ["SanJoaquin", "SJ"],
+  ["LoContador", "LC"],
+  ["Villarrica", "VR"],
+  ["CasaCentral", "CC"],
+  ["Oriente", "OR"],
+]);
+
+const initialValues = { placeName: "", information: "", floor: 1, latitude: null, longitude: null };
 
 export default function FormComponent() {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
+  const [campus, setCampus] = useState<string>("");
 
   const dragLocUpdate = useCallback((event: any) => {
     setLongitude(event.lngLat.lng);
@@ -49,11 +77,15 @@ export default function FormComponent() {
         latitude >= boundary.latitudeRange[0] &&
         latitude <= boundary.latitudeRange[1]
       ) {
-        campus = boundaryCampus;
+        campus = nameToSigla.get(boundaryCampus) || null;
         break;
       }
     }
-    if (!campus) errors.latitude = "Ubicación fuera de algún campus";
+    if (!campus) {
+      errors.latitude = "Ubicación fuera de algún campus";
+    } else {
+      setCampus(campus);
+    }
 
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
@@ -79,10 +111,10 @@ export default function FormComponent() {
       ...values,
       longitude,
       latitude,
+      campus,
       name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
-
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -97,7 +129,7 @@ export default function FormComponent() {
         if (!res.ok) {
           return Promise.reject(data.message || "Error: " + res.statusText);
         }
-
+        console.log(data.message);
         alert("Tu sala ha sido registrada.");
         setSubmitting(false);
       })
@@ -107,6 +139,59 @@ export default function FormComponent() {
         setSubmitting(false);
       });
   }
+
+  interface FormObserverProps {
+    setLatitude: (lat: number) => void;
+    setLongitude: (lon: number) => void;
+  }
+  const FormObserver: React.FC<FormObserverProps> = ({ setLatitude, setLongitude }) => {
+    const { values, setFieldValue } = useFormikContext();
+
+    const [suggestions, setSuggestions] = useState<any[]>([]);
+    useEffect(() => {
+      const placeValues = values as newPlace;
+
+      if (placeValues.placeName.length < 3) return;
+
+      const filtered = PlacesJSON.features
+        .filter(
+          (suggestion) =>
+            suggestion.properties.name.toLowerCase().includes(placeValues.placeName.toLowerCase()) &&
+            placeValues.placeName.toLowerCase() !== suggestion.properties.name.toLowerCase(),
+        )
+        .slice(0, 3);
+
+      setSuggestions(filtered);
+    }, [values]);
+
+    return (
+      <>
+        {suggestions.length > 0 && (
+          <ul className="flex flex-col justify-start w-full">
+            {suggestions.map((suggestion: Feature, index) => (
+              <li
+                key={index}
+                className="underline dark:bg-dark-3 cursor-pointer w-full text-left"
+                onClick={() => {
+                  setFieldValue("longitude", suggestion.geometry.coordinates[1] || null);
+                  setLongitude(suggestion.geometry.coordinates[0]);
+
+                  setFieldValue("latitude", suggestion.geometry.coordinates[0] || null);
+                  setLatitude(suggestion.geometry.coordinates[1]);
+
+                  setFieldValue("placeName", suggestion.properties.name || "");
+                  setFieldValue("floor", suggestion.properties.floor || 1);
+                  setFieldValue("information", suggestion.properties.information || "");
+                }}
+              >
+                {index + 1}. {suggestion.properties.name}
+              </li>
+            ))}
+          </ul>
+        )}
+      </>
+    );
+  };
 
   useEffect(() => {
     getGeolocation(setLatitude, setLongitude);
@@ -127,7 +212,7 @@ export default function FormComponent() {
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
               >
-                Sala
+                Nombre (Ej: Departamento de Asistencia Económica, K203, ... )
               </label>
               <Field
                 className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -135,6 +220,8 @@ export default function FormComponent() {
                 id="placeName"
                 type="text"
               />
+              <FormObserver setLatitude={setLatitude} setLongitude={setLongitude} />
+
               <ErrorMessage
                 className="text-error font-bold text-sm w-full text-left"
                 name="placeName"
