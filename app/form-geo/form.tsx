@@ -166,7 +166,7 @@ export default function FormComponent() {
     useEffect(() => {
       const placeValues = values as newPlace;
 
-      if (placeValues.placeName.length < 3) return;
+      if (placeValues.placeName.length < 1) return;
 
       const filtered = PlacesJSON.features
         .filter(
