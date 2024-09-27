@@ -144,7 +144,7 @@ export default function FormComponent() {
     setLatitude: (lat: number) => void;
     setLongitude: (lon: number) => void;
   }
-  const FormObserver: React.FC<FormObserverProps> = ({ setLatitude, setLongitude }) => {
+  function FormObserver({ setLatitude, setLongitude }: FormObserverProps) {
     const { values, setFieldValue } = useFormikContext();
 
     const [suggestions, setSuggestions] = useState<any[]>([]);
@@ -191,7 +191,7 @@ export default function FormComponent() {
         )}
       </>
     );
-  };
+  }
 
   useEffect(() => {
     getGeolocation(setLatitude, setLongitude);

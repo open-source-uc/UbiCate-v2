@@ -141,11 +141,11 @@ async function update_place(url: string, identifier: string, file_places: Places
 export async function POST(request: NextRequest) {
   try {
     const body: Place = await request.json();
-    const today = new Date()
+    const today = new Date();
     const nuevo_punto: Feature = {
       type: "Feature",
       properties: {
-        identifier: today.toString(),
+        identifier: today.toString(), //Esto se hizo pues debe ser unico y si se usara el "body.name" podria pasar que identifier se duplicara por ejemplo el caso de los baños
         name: body.name,
         information: body.information,
         categories: "",
