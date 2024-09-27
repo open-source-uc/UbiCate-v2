@@ -129,7 +129,6 @@ export default function FormComponent() {
         if (!res.ok) {
           return Promise.reject(data.message || "Error: " + res.statusText);
         }
-        console.log(data.message);
         alert("Tu sala ha sido registrada.");
         setSubmitting(false);
       })
