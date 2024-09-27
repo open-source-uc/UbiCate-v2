@@ -4,6 +4,24 @@ const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const BRANCH_NAME = "bot-data-ABCD12";
 const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
 
+interface Feature {
+  type: "Feature";
+  properties: {
+    identifier: string;
+    name: string;
+    information: string;
+    categories: string;
+    campus: string;
+    faculties: string;
+    floor: number;
+    category: string;
+  };
+  geometry: {
+    type: "Point";
+    coordinates: [number, number];
+  };
+}
+
 interface Place {
   information: string;
   floor: number;
@@ -15,7 +33,7 @@ interface Place {
 
 interface Places {
   type: string;
-  features: Object[];
+  features: Feature[];
 }
 
 async function exist_branch() {
@@ -92,7 +110,7 @@ async function update_branch(url: string, name: string, file_places: Places, fil
 export async function POST(request: NextRequest) {
   try {
     const body: Place = await request.json();
-    const nuevo_punto = {
+    const nuevo_punto: Feature = {
       type: "Feature",
       properties: {
         identifier: body.name,
@@ -128,10 +146,29 @@ export async function POST(request: NextRequest) {
     const file_data = await response.json();
     const file_sha = file_data.sha;
     const file_places: Places = JSON.parse(Buffer.from(file_data.content, "base64").toString());
+
+    const hasSameIdentifier = file_places.features.some(
+      (feature: Feature) =>
+        feature.properties.identifier.toUpperCase() === nuevo_punto.properties.identifier.toUpperCase(),
+    );
+
+    if (hasSameIdentifier) {
+      /*
+      Futuro sistema para actualizar un lugar
+      */
+      return NextResponse.json(
+        { message: "El lugar ya existe" },
+        {
+          status: 400,
+        },
+      );
+    }
+    /*
+    Sistema de crear un nuevo lugar
+    */
+
     file_places.features.push(nuevo_punto);
-
     await update_branch(url, nuevo_punto.properties.name, file_places, file_sha);
-
     return NextResponse.json({ message: "GG", data: file_places.features.at(-1) });
   } catch (error) {
     console.log(error);

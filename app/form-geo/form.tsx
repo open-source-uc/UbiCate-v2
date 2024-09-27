@@ -79,7 +79,7 @@ export default function FormComponent() {
       ...values,
       longitude,
       latitude,
-      name: values.placeName,
+      name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
 
@@ -90,16 +90,21 @@ export default function FormComponent() {
     };
 
     fetch("/api/data", requestOptions)
-      .then((data) => data.json())
-      .then((data) => {
-        setSubmitting(false);
-        console.log(data);
+      .then((res) => {
+        return Promise.all([res.json(), res]);
+      })
+      .then(([data, res]) => {
+        if (!res.ok) {
+          return Promise.reject(data.message || "Error: " + res.statusText);
+        }
+
         alert("Tu sala ha sido registrada.");
+        setSubmitting(false);
       })
       .catch((error) => {
-        setSubmitting(false);
-        alert("Error al registrar la sala");
+        alert(`Error al registrar la sala: ${error}`);
         console.error("Error al registrar la sala:", error);
+        setSubmitting(false);
       });
   }
 
