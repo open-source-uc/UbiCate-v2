@@ -255,8 +255,8 @@ export default function FormComponent() {
                 as="select"
                 className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="classroom">Sala</option>
                 <option value="">Seleccionar</option>
+                <option value="classroom">Sala</option>
                 <option value="bath">Baño</option>
                 <option value="food_lunch">Comida</option>
                 <option value="park_bicycle">Bicicletero</option>
