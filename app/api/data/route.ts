@@ -153,7 +153,7 @@ export async function POST(request: NextRequest) {
       await update_place(url, getID(place), file_places, file_sha);
 
       return NextResponse.json(
-        { message: "¡El lugar fue actualizado!" },
+        { message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana)." },
         {
           status: 200,
         },
