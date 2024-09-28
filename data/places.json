@@ -8410,29 +8410,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Imprimircl",
-                "name": "Local Vacío",
-                "information": "",
-                "categories": "other",
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    0
-                ],
-                "category": "",
-                "floor": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61347842406697,
-                    -33.4981151395007
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "informaciones_cc",
                 "name": "Informaciones",
                 "information": "",
