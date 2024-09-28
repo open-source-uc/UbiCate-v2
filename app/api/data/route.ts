@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
-const BRANCH_NAME = "bot-data-ABCD12";
+const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
 const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
 
 interface Feature {
@@ -46,55 +46,6 @@ interface Places {
   features: Feature[];
 }
 
-async function exist_branch() {
-  try {
-    const response = await fetch(`https://api.github.com/repos/open-source-uc/UbiCate-v2/branches/${BRANCH_NAME}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-        Accept: "application/vnd.github.v3+json",
-      },
-    });
-
-    if (response.ok) {
-      return true;
-    } else {
-      return false;
-    }
-  } catch (error) {
-    console.error("Error en la solicitud:", error);
-    return false;
-  }
-}
-
-async function create_branch() {
-  const baseBranchResponse = await fetch("https://api.github.com/repos/open-source-uc/UbiCate-v2/git/refs/heads/main", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-      Accept: "application/vnd.github.v3+json",
-    },
-  });
-
-  const baseBranchData = await baseBranchResponse.json();
-  const baseBranchSHA = baseBranchData.object.sha;
-
-  const branchData = {
-    ref: `refs/heads/${BRANCH_NAME}`,
-    sha: baseBranchSHA,
-  };
-
-  await fetch("https://api.github.com/repos/open-source-uc/UbiCate-v2/git/refs", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-      Accept: "application/vnd.github.v3+json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(branchData),
-  });
-}
-
 async function create_place(url: string, identifier: string, file_places: Places, file_sha: string) {
   const response = await fetch(url, {
     method: "PUT",
@@ -110,7 +61,7 @@ async function create_place(url: string, identifier: string, file_places: Places
       },
       content: Buffer.from(JSON.stringify(file_places)).toString("base64"),
       sha: file_sha,
-      branch: BRANCH_NAME,
+      branch: GITHUB_BRANCH_NAME,
     }),
   });
   const data = await response.json();
@@ -132,7 +83,7 @@ async function update_place(url: string, identifier: string, file_places: Places
       },
       content: Buffer.from(JSON.stringify(file_places)).toString("base64"),
       sha: file_sha,
-      branch: BRANCH_NAME,
+      branch: GITHUB_BRANCH_NAME,
     }),
   });
   const data = await response.json();
@@ -165,13 +116,8 @@ export async function POST(request: NextRequest) {
       },
     };
 
-    const exist = await exist_branch();
-    if (exist === false) {
-      await create_branch();
-    }
-
     const path = "data/places.json";
-    const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${BRANCH_NAME}`;
+    const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
 
     const response = await fetch(url, {
       headers: {
