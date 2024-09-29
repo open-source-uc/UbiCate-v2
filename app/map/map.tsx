@@ -20,12 +20,13 @@ import {
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
+import { Feature } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
+import MenuInformation from "./menuInformation";
 import { handleResult, handleResults, handleClear } from "./placeHandlers";
-
 const loadGeocoder = () => import("@/utils/getGeocoder");
 
 interface InitialViewState extends Partial<ViewState> {
@@ -70,6 +71,8 @@ export default function MapComponent({
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
+  const [place, setPlace] = useState<Feature | null>(null);
+
   useThemeObserver(setTheme, map);
 
   useEffect(() => {
@@ -109,6 +112,10 @@ export default function MapComponent({
     });
   }, []);
 
+  function onClickMap() {
+    setPlace(null);
+  }
+
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
   }, [paramCampusBounds]);
@@ -119,12 +126,17 @@ export default function MapComponent({
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
     <>
+      <div className="absolute w-full h-full">
+        <MenuInformation place={place} />
+      </div>
+
       <Map
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onMouseMove={onHover}
+        onClick={onClickMap}
         onLoad={addGeocoderControl}
         ref={mapRef}
       >
@@ -150,8 +162,8 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: any) => {
-              return <Marker key={place.properties.identifier} place={place} />;
-            })
+            return <Marker key={place.properties.identifier} place={place} onClick={setPlace} />;
+          })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
       </Map>
