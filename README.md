@@ -60,6 +60,9 @@ Agregar la URL base del proyecto, actualmente es `https://ubicate.osuc.dev/`
 ```shell
 NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
 NEXT_PUBLIC_BASE_URL = <BASE_URL>
+GITHUB_TOKEN_USER = <TOKEN_USER>
+GITHUB_USER_EMAIL = <EMAIL>
+GITHUB_BRANCH_NAME = <EXISTING_BRANCH>
 ```
 
 ### Instalar dependencias

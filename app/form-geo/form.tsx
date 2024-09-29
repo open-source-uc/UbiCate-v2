@@ -15,6 +15,7 @@ interface newPlace {
   placeName: string;
   information: string;
   floor: number;
+  categories: string | string[];
 }
 
 interface errors {
@@ -23,14 +24,49 @@ interface errors {
   placeName?: string;
   information?: string;
   floor?: string;
+  categories?: string;
+}
+interface Feature {
+  type: "Feature";
+  properties: {
+    identifier: string;
+    name: string;
+    information: string;
+    categories: string;
+    campus: string;
+    faculties: string;
+    floor: number;
+    category: string;
+  };
+  geometry: {
+    type: "Point";
+    coordinates: [number, number];
+  };
 }
 
-const initialValues = { placeName: "", information: "", floor: 1, latitude: null };
+const nameToSigla = new Map<string, string>([
+  ["SanJoaquin", "SJ"],
+  ["LoContador", "LC"],
+  ["Villarrica", "VR"],
+  ["CasaCentral", "CC"],
+  ["Oriente", "OR"],
+]);
+
+const initialValues = {
+  placeName: "",
+  information: "",
+  floor: 1,
+  latitude: null,
+  longitude: null,
+  categories: "",
+};
 
 export default function FormComponent() {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
+  const [campus, setCampus] = useState<string>("");
+  const [identifier, setIdentifier] = useState<string>("");
 
   const dragLocUpdate = useCallback((event: any) => {
     setLongitude(event.lngLat.lng);
@@ -49,16 +85,23 @@ export default function FormComponent() {
         latitude >= boundary.latitudeRange[0] &&
         latitude <= boundary.latitudeRange[1]
       ) {
-        campus = boundaryCampus;
+        campus = nameToSigla.get(boundaryCampus) || null;
         break;
       }
     }
-    if (!campus) errors.latitude = "Ubicación fuera de algún campus";
+    if (!campus) {
+      errors.latitude = "Ubicación fuera de algún campus";
+    } else {
+      setCampus(campus);
+    }
 
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
-    } else if (newPlace.placeName.length > 50) {
+    } else if (newPlace.placeName.length > 60) {
       errors.placeName = "Nombre demasiado largo";
+    }
+    if (newPlace.categories == "") {
+      errors.categories = "Debe seleccionar una categoria.";
     }
 
     if (newPlace.information && newPlace.information.length > 200) {
@@ -79,24 +122,33 @@ export default function FormComponent() {
       ...values,
       longitude,
       latitude,
-      name: values.placeName,
+      campus,
+      identifier,
+      name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
-
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(transformedValues),
     };
 
-    fetch("https://ubicate-uc.fly.dev/api/collections/coordinates/records", requestOptions)
-      .then((data) => {
+    fetch("/api/data", requestOptions)
+      .then((res) => {
+        return Promise.all([res.json(), res]);
+      })
+      .then(([data, res]) => {
+        if (!res.ok) {
+          return Promise.reject(data.message || "Error: " + res.statusText);
+        }
+        alert(data.message);
+        setIdentifier("");
         setSubmitting(false);
-        alert("Tu sala ha sido registrada.");
       })
       .catch((error) => {
-        setSubmitting(false);
+        alert(`Error al registrar la sala: ${error}`);
         console.error("Error al registrar la sala:", error);
+        setSubmitting(false);
       });
   }
 
@@ -119,7 +171,7 @@ export default function FormComponent() {
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
               >
-                Sala
+                Nombre (Ej: Departamento de Asistencia Económica, K203, ... )
               </label>
               <Field
                 className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -127,9 +179,35 @@ export default function FormComponent() {
                 id="placeName"
                 type="text"
               />
+
               <ErrorMessage
                 className="text-error font-bold text-sm w-full text-left"
                 name="placeName"
+                component="div"
+              />
+              <label
+                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
+                htmlFor="categories"
+              >
+                Categoria
+              </label>
+              <Field
+                name="categories"
+                as="select"
+                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Seleccionar</option>
+                <option value="classroom">Sala</option>
+                <option value="bath">Baño</option>
+                <option value="food_lunch">Comida</option>
+                <option value="park_bicycle">Bicicletero</option>
+                <option value="studyroom">Sala de estudio</option>
+                <option value="cash_machine">Cajero automático</option>
+                <option value="other">Otro</option>
+              </Field>
+              <ErrorMessage
+                className="text-error font-bold text-sm w-full text-left"
+                name="categories"
                 component="div"
               />
               <label
