@@ -2,12 +2,10 @@
 
 import { useEffect, useState, useCallback, Suspense } from "react";
 
-import { Formik, Field, Form, ErrorMessage, useFormikContext } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
-
-import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
@@ -154,58 +152,6 @@ export default function FormComponent() {
       });
   }
 
-  interface FormObserverProps {
-    setLatitude: (lat: number) => void;
-    setLongitude: (lon: number) => void;
-    setIdentifier: (lon: string) => void;
-  }
-  function FormObserver({ setLatitude, setLongitude, setIdentifier }: FormObserverProps) {
-    const { values, setFieldValue } = useFormikContext();
-
-    const [suggestions, setSuggestions] = useState<any[]>([]);
-    useEffect(() => {
-      const placeValues = values as newPlace;
-
-      if (placeValues.placeName.length < 1) return;
-
-      const filtered = PlacesJSON.features
-        .filter((suggestion) => suggestion.properties.name.toLowerCase().includes(placeValues.placeName.toLowerCase()))
-        .slice(0, 5);
-
-      setSuggestions(filtered);
-    }, [values]);
-
-    return (
-      <>
-        {suggestions.length > 0 && (
-          <ul className="flex flex-col justify-start w-full">
-            {suggestions.map((suggestion: Feature, index) => (
-              <li
-                key={index}
-                className="underline dark:bg-dark-2 cursor-pointer w-full text-left border rounded-lg my-1 px-1 border-dark-4"
-                onClick={() => {
-                  setFieldValue("longitude", suggestion.geometry.coordinates[1] || null);
-                  setLongitude(suggestion.geometry.coordinates[0]);
-
-                  setFieldValue("latitude", suggestion.geometry.coordinates[0] || null);
-                  setLatitude(suggestion.geometry.coordinates[1]);
-
-                  setFieldValue("placeName", suggestion.properties.name || "");
-                  setFieldValue("floor", suggestion.properties.floor || 1);
-                  setFieldValue("information", suggestion.properties.information || "");
-                  setFieldValue("categories", suggestion.properties.categories || "other");
-                  setIdentifier(suggestion.properties.identifier);
-                }}
-              >
-                {index + 1}. {suggestion.properties.name} | {suggestion.properties.campus}
-              </li>
-            ))}
-          </ul>
-        )}
-      </>
-    );
-  }
-
   useEffect(() => {
     getGeolocation(setLatitude, setLongitude);
   }, []);
@@ -233,7 +179,6 @@ export default function FormComponent() {
                 id="placeName"
                 type="text"
               />
-              <FormObserver setLatitude={setLatitude} setLongitude={setLongitude} setIdentifier={setIdentifier} />
 
               <ErrorMessage
                 className="text-error font-bold text-sm w-full text-left"
