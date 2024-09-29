@@ -4,6 +4,266 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "bath-23514256",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 4,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61483676263961,
+                    -33.497660245377915
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23514211",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 4,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61512273631321,
+                    -33.49896476337244
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23514133",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61159334988385,
+                    -33.49881787120928
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23514122",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61105245947793,
+                    -33.49902486123764
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23513979",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189227657486,
+                    -33.496561022050265
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23513876",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60760381908186,
+                    -33.49836721656084
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23513794",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60760603833337,
+                    -33.50120168331837
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23513480",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "LC",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61824502478012,
+                    -33.41902220501039
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23513463",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "LC",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61803661445111,
+                    -33.41901827608245
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "bath-23513027",
+                "name": "Baño",
+                "information": "",
+                "categories": "bath",
+                "campus": "LC",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61815759635395,
+                    -33.41997620163368
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "cash_machine-23511770",
+                "name": "Banco Chile",
+                "information": "",
+                "categories": "cash_machine",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61532501805132,
+                    -33.4977717290185
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "sports_place-23510688",
+                "name": "Piscina",
+                "information": "",
+                "categories": "sports_place",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6074815282653,
+                    -33.49837112049183
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-23507711",
+                "name": "Little Caesars",
+                "information": "",
+                "categories": "food_lunch",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61605113112932,
+                    -33.50045635960935
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "food_lunch-23408391",
                 "name": "Subway",
                 "information": "",
@@ -3880,32 +4140,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bano04cc",
-                "name": "Baño 04",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1,
-                    3,
-                    4,
-                    5
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64054580715012,
-                    -33.441619138864205
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bano05cc",
                 "name": "Baño 05",
                 "information": "",
@@ -4046,35 +4280,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bano10cc",
-                "name": "Baño 10",
-                "information": "",
-                "categories": [
-                    "bath",
-                    ""
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    3,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64228080350071,
-                    -33.44194492126789
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bano45",
                 "name": "Baño",
                 "information": "",
@@ -4084,13 +4289,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.618642,
-                    -33.419679
+                    -70.61866824152727,
+                    -33.41959014826253
                 ]
             }
         },
@@ -4106,13 +4312,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.617769,
-                    -33.41924
+                    -70.6177462558126,
+                    -33.41920036573807
                 ]
             }
         },
@@ -4120,7 +4327,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano47",
-                "name": "Baño",
+                "name": "Baño Universal",
                 "information": "",
                 "categories": "bath",
                 "campus": "LC",
@@ -4128,7 +4335,8 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -4142,7 +4350,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano48",
-                "name": "Baño",
+                "name": "Baño Universal",
                 "information": "",
                 "categories": "bath",
                 "campus": "LC",
@@ -4150,13 +4358,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.618588,
-                    -33.419443
+                    -70.61845992196835,
+                    -33.41938865432197
                 ]
             }
         },
@@ -4172,13 +4381,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.618183,
-                    -33.420053
+                    -70.61805473465989,
+                    -33.42002842296445
                 ]
             }
         },
@@ -8410,28 +8620,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Imprimircl",
-                "name": "Imprimir.cl",
-                "information": "",
-                "categories": "printer",
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    0
-                ],
-                "category": ""
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613398,
-                    -33.498135
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "informaciones_cc",
                 "name": "Informaciones",
                 "information": "",
@@ -10897,7 +11085,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto15",
-                "name": "Puesto de comida",
+                "name": "Feria",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -10905,13 +11093,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.615933,
-                    -33.498673
+                    -70.61559549100053,
+                    -33.49866617266226
                 ]
             }
         },
@@ -11029,7 +11218,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto4",
-                "name": "Puesto de comida",
+                "name": "Achoclonados",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11037,13 +11226,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.612645,
-                    -33.500001
+                    -70.61330645455764,
+                    -33.49961423373642
                 ]
             }
         },
@@ -11073,7 +11263,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto6",
-                "name": "Puesto de comida",
+                "name": "La Roca",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11081,13 +11271,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613177,
-                    -33.500081
+                    -70.61316637666317,
+                    -33.500130348343866
                 ]
             }
         },
@@ -11139,7 +11330,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto9",
-                "name": "Puesto de comida",
+                "name": "Castaño",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11147,13 +11338,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610926,
-                    -33.500629
+                    -70.61092245144631,
+                    -33.50056903995703
                 ]
             }
         },
@@ -11521,13 +11713,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613156,
-                    -33.496864
+                    -70.61327587430681,
+                    -33.496831907739924
                 ]
             }
         },
