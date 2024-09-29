@@ -258,6 +258,7 @@ export default function FormComponent() {
                 <option value="park_bicycle">Bicicletero</option>
                 <option value="studyroom">Sala de estudio</option>
                 <option value="cash_machine">Cajero automático</option>
+                <option value="sports_place">Deportes</option>
                 <option value="other">Otro</option>
               </Field>
               <ErrorMessage
