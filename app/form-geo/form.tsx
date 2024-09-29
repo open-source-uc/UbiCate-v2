@@ -181,6 +181,9 @@ export default function FormComponent() {
           <ul className="flex flex-col justify-start w-full max-h-52 overflow-y-auto">
             {suggestions.map((suggestion: Feature, index) => (
               <li
+                /*
+                Esto deberia pasar en el mapa
+                */
                 key={index}
                 className="underline dark:bg-dark-2 cursor-pointer w-full text-left border rounded-lg my-1 px-1 border-dark-4"
                 onClick={() => {
