@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, Suspense } from "react";
 
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
@@ -66,7 +66,6 @@ export default function FormComponent() {
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
   const [campus, setCampus] = useState<string>("");
-  const [identifier, setIdentifier] = useState<string>("");
 
   const dragLocUpdate = useCallback((event: any) => {
     setLongitude(event.lngLat.lng);
@@ -115,7 +114,7 @@ export default function FormComponent() {
     return errors;
   };
 
-  async function handleSubmit(values: any) {
+  async function handleSubmit(values: any, { resetForm }: FormikHelpers<any>) {
     setSubmitting(true);
 
     const transformedValues = {
@@ -123,7 +122,7 @@ export default function FormComponent() {
       longitude,
       latitude,
       campus,
-      identifier,
+      identifier: "",
       name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
@@ -142,7 +141,7 @@ export default function FormComponent() {
           return Promise.reject(data.message || "Error: " + res.statusText);
         }
         alert(data.message);
-        setIdentifier("");
+        resetForm();
         setSubmitting(false);
       })
       .catch((error) => {
