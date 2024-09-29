@@ -170,7 +170,6 @@ export default function FormComponent() {
 
       const filtered = PlacesJSON.features
         .filter((suggestion) => suggestion.properties.name.toLowerCase().includes(placeValues.placeName.toLowerCase()))
-        .slice(0, 5);
 
       setSuggestions(filtered);
     }, [values]);
@@ -178,7 +177,7 @@ export default function FormComponent() {
     return (
       <>
         {suggestions.length > 0 && (
-          <ul className="flex flex-col justify-start w-full">
+          <ul className="flex flex-col justify-start w-full max-h-52 overflow-y-auto">
             {suggestions.map((suggestion: Feature, index) => (
               <li
                 key={index}
