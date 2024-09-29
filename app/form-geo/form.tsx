@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, Suspense } from "react";
 
-import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
@@ -114,7 +114,7 @@ export default function FormComponent() {
     return errors;
   };
 
-  async function handleSubmit(values: any, { resetForm }: FormikHelpers<any>) {
+  async function handleSubmit(values: any, { resetForm }: any) {
     setSubmitting(true);
 
     const transformedValues = {
