@@ -4,6 +4,106 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "food_lunch-23546931",
+                "name": "Casino Edificio K",
+                "information": "",
+                "categories": "food_lunch",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61187019177152,
+                    -33.50009142926184
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-23546836",
+                "name": "Food Garden",
+                "information": "",
+                "categories": "food_lunch",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61363276621337,
+                    -33.49714374488435
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-23546766",
+                "name": "Copper",
+                "information": "",
+                "categories": "food_lunch",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-23546703",
+                "name": "Pronto Copec",
+                "information": "",
+                "categories": "food_lunch",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61511549840723,
+                    -33.4979081346675
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-23525482",
+                "name": "TEST PRODUCTION",
+                "information": "",
+                "categories": "other",
+                "campus": "SJ",
+                "faculties": "",
+                "floor": 1,
+                "category": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60693777999894,
+                    -33.50100890181019
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "bath-23514256",
                 "name": "Baño",
                 "information": "",
@@ -10953,7 +11053,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto1",
-                "name": "Puesto de comida",
+                "name": "Bon Appetit UC",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -10961,7 +11061,8 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -10975,7 +11076,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto10",
-                "name": "Puesto de comida",
+                "name": "Quiosco",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -10983,13 +11084,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.609947,
-                    -33.500714
+                    -70.61002191969271,
+                    -33.500622392941494
                 ]
             }
         },
@@ -10997,7 +11099,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto11",
-                "name": "Puesto de comida",
+                "name": "Quiosco",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11005,7 +11107,8 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -11019,7 +11122,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto12",
-                "name": "Puesto de comida",
+                "name": "quiosco",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11027,13 +11130,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613468,
-                    -33.498024
+                    -70.61333985821348,
+                    -33.4981220546526
                 ]
             }
         },
@@ -11041,7 +11145,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto13",
-                "name": "Puesto de comida",
+                "name": "Maholo Sushi & Gohan",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11049,13 +11153,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613326,
-                    -33.498133
+                    -70.61365832769172,
+                    -33.49816677301593
                 ]
             }
         },
@@ -11063,7 +11168,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto14",
-                "name": "Puesto de comida",
+                "name": "Papa John's",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11071,13 +11176,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.616321,
-                    -33.498422
+                    -70.61642847282225,
+                    -33.49840719141856
                 ]
             }
         },
@@ -11111,18 +11217,19 @@
                 "name": "Puesto de comida",
                 "information": "",
                 "categories": "food_lunch",
-                "campus": "SJ",
+                "campus": "CC",
                 "faculties": "",
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.640445,
-                    -33.441339
+                    -70.64043890949523,
+                    -33.441285287654516
                 ]
             }
         },
@@ -11133,12 +11240,13 @@
                 "name": "Puesto de comida",
                 "information": "",
                 "categories": "food_lunch",
-                "campus": "SJ",
+                "campus": "OR",
                 "faculties": "",
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -11155,12 +11263,13 @@
                 "name": "Puesto de comida",
                 "information": "",
                 "categories": "food_lunch",
-                "campus": "SJ",
+                "campus": "LC",
                 "faculties": "",
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -11174,7 +11283,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto2",
-                "name": "Puesto de comida",
+                "name": "Work Café",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11182,13 +11291,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613326,
-                    -33.498133
+                    -70.61324086368903,
+                    -33.498194397002706
                 ]
             }
         },
@@ -11196,7 +11306,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto3",
-                "name": "Puesto de comida",
+                "name": "Castaño",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11204,13 +11314,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610109,
-                    -33.498131
+                    -70.6100905471083,
+                    -33.4981728556355
                 ]
             }
         },
@@ -11286,7 +11397,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto7",
-                "name": "Puesto de comida",
+                "name": "Starbucks",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11294,13 +11405,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610312,
-                    -33.498104
+                    -70.61041920588633,
+                    -33.49817022635345
                 ]
             }
         },
@@ -11308,7 +11420,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto8",
-                "name": "Puesto de comida",
+                "name": "Caprioli",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -11316,13 +11428,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610032,
-                    -33.498191
+                    -70.60981610716888,
+                    -33.4980467977922
                 ]
             }
         },
@@ -13532,7 +13645,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "Sodexo_hall",
-                "name": "Sodexo",
+                "name": "Casino Rock & Rolla",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -13540,13 +13653,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 2
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613483,
-                    -33.498054
+                    -70.61350389900275,
+                    -33.497966992312044
                 ]
             }
         },
@@ -13554,7 +13668,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo1",
-                "name": "Sodexo",
+                "name": "Casino Comercial",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -13562,7 +13676,8 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -13598,7 +13713,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo2",
-                "name": "Sodexo",
+                "name": "Casino Humanidades",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -13606,7 +13721,8 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -13620,7 +13736,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo3",
-                "name": "Sodexo",
+                "name": "Caprioli",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -13628,13 +13744,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613693,
-                    -33.499087
+                    -70.61363115297183,
+                    -33.49906778344256
                 ]
             }
         },
@@ -13665,7 +13782,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo5",
-                "name": "Sodexo",
+                "name": "Casino Matemáticas",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -13673,13 +13790,14 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.609654,
-                    -33.499729
+                    -70.60960847618212,
+                    -33.49971790558978
                 ]
             }
         },
@@ -13687,7 +13805,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo6",
-                "name": "Sodexo",
+                "name": "Casino Agronomía",
                 "information": "",
                 "categories": "food_lunch",
                 "campus": "SJ",
@@ -13695,7 +13813,8 @@
                 "floors": [
                     0
                 ],
-                "category": ""
+                "category": "",
+                "floor": 1
             },
             "geometry": {
                 "type": "Point",
@@ -13746,28 +13865,6 @@
                 "coordinates": [
                     -70.640093,
                     -33.441281
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "starbucks_sociales",
-                "name": "Starbucks",
-                "information": "",
-                "categories": "food_lunch",
-                "campus": "SJ",
-                "faculties": "SOC",
-                "floors": [
-                    0
-                ],
-                "category": ""
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610312,
-                    -33.498104
                 ]
             }
         },
