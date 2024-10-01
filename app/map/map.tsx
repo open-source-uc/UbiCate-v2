@@ -126,9 +126,6 @@ export default function MapComponent({
   const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
     <>
-      <div className="absolute w-full h-full">
-        <MenuInformation place={place} />
-      </div>
 
       <Map
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
@@ -166,6 +163,8 @@ export default function MapComponent({
           })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
+        <MenuInformation place={place} />
+
       </Map>
     </>
   );
