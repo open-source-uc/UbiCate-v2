@@ -118,7 +118,7 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Créditos
+## Créditos.
 
 ### Mantenedores
 
