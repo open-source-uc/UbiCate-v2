@@ -13,7 +13,7 @@ interface Feature {
     categories: string;
     campus: string;
     faculties: string;
-    floors: [number];
+    floors: number[];
     category: string;
   };
   geometry: {
