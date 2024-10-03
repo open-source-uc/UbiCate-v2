@@ -67,11 +67,12 @@ export default function MapComponent({
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
-  const [hoverInfo, setHoverInfo] = useState<any>(null);
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
+
   const [place, setPlace] = useState<Feature | null>(null);
+  const [hover, setHover] = useState<Feature | null>(null);
 
   useThemeObserver(setTheme, map);
 
@@ -103,15 +104,6 @@ export default function MapComponent({
     }
   }, [paramPlace]);
 
-  const onHover = useCallback((event: any) => {
-    const place = event.features && event.features[0];
-    setHoverInfo({
-      longitude: place?.geometry.coordinates[0],
-      latitude: place?.geometry.coordinates[1],
-      place: place ? place.properties.name : null,
-    });
-  }, []);
-
   function onClickMap() {
     setPlace(null);
   }
@@ -123,16 +115,13 @@ export default function MapComponent({
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
   }, [geocoder]);
-  const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
     <>
-
       <Map
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesTextLayer.id as string]}
-        onMouseMove={onHover}
         onClick={onClickMap}
         onLoad={addGeocoderControl}
         ref={mapRef}
@@ -145,26 +134,25 @@ export default function MapComponent({
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
 
-        {selectedPlace ? (
+        {hover ? (
           <Popup
-            longitude={hoverInfo.longitude}
-            latitude={hoverInfo.latitude}
+            longitude={hover.geometry.coordinates[0]}
+            latitude={hover.geometry.coordinates[1]}
             closeButton={false}
             closeOnClick={false}
             className="place"
             offset={new Point(0, -10)}
           >
-            {selectedPlace}
+            {hover.properties.name}
           </Popup>
         ) : null}
         {geocoderPlaces
-          ? geocoderPlaces.map((place: any) => {
-            return <Marker key={place.properties.identifier} place={place} onClick={setPlace} />;
-          })
+          ? geocoderPlaces.map((place: Feature) => {
+              return <Marker key={place.properties.name} place={place} onClick={setPlace} onMouseEnter={setHover} />;
+            })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         <MenuInformation place={place} />
-
       </Map>
     </>
   );

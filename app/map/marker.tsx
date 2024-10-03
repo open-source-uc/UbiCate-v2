@@ -2,12 +2,15 @@ import Image from "next/image";
 
 import { Marker as MapboxMarker } from "react-map-gl";
 
+import { Feature } from "../../utils/types";
+
 interface MarkerProps {
-  place: any;
+  place: Feature;
   onClick: (place: any) => void;
+  onMouseEnter: (place: any) => void;
 }
 
-export default function Marker({ place, onClick }: MarkerProps) {
+export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
   return (
     <MapboxMarker
       latitude={place.geometry.coordinates[1]}
@@ -15,11 +18,19 @@ export default function Marker({ place, onClick }: MarkerProps) {
       offset={[0, -18]}
       onClick={(e) => {
         e.originalEvent.stopPropagation();
-        e.originalEvent.preventDefault();
         onClick(place);
       }}
     >
-      <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
+      <div
+        onMouseEnter={() => {
+          onMouseEnter(place);
+        }}
+        onMouseLeave={() => {
+          onMouseEnter(null);
+        }}
+      >
+        <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
+      </div>
     </MapboxMarker>
   );
 }
