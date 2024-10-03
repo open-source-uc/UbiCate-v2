@@ -148,8 +148,8 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-            return <Marker key={place.properties.name} place={place} onClick={setPlace} onMouseEnter={setHover} />;
-          })
+              return <Marker key={place.properties.name} place={place} onClick={setPlace} onMouseEnter={setHover} />;
+            })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
       </Map>
