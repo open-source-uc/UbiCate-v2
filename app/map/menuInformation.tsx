@@ -18,7 +18,7 @@ export default function Menu({ place }: MenuProps) {
 
           <div className="flex justify-between">
             <span className="font-semibold">Piso/s:</span>
-            <span>{place ? place.properties.floor : "N/A"}</span>
+            <span>{place ? place.properties?.floors[0] : "N/A"}</span>
           </div>
 
           <div className="flex justify-between">

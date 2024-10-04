@@ -7,7 +7,7 @@ export interface Feature {
         categories: string;
         campus: string;
         faculties: string;
-        floor: number;
+        floors: number[];
         category: string;
     };
     geometry: {
