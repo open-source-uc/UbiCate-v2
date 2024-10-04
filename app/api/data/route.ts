@@ -13,7 +13,7 @@ interface Feature {
     categories: string;
     campus: string;
     faculties: string;
-    floor: number;
+    floors: number[];
     category: string;
   };
   geometry: {
@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
         categories: body.categories,
         campus: body.campus,
         faculties: "",
-        floor: body.floor,
+        floors: [body.floor],
         category: "",
       },
       geometry: {
