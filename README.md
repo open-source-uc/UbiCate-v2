@@ -107,6 +107,7 @@ Utilice las **issues** para informar cualquier bug o solicitud.
 
 ### Workflow
 
+
 > PR a development -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a development
 
 La información detallada sobre cómo contribuir se puede encontrar en [contributing.md](contributing.md).
@@ -117,7 +118,7 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Créditos
+## Créditos.
 
 ### Mantenedores
 

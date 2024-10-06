@@ -26,23 +26,6 @@ interface errors {
   floor?: string;
   categories?: string;
 }
-interface Feature {
-  type: "Feature";
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string;
-    campus: string;
-    faculties: string;
-    floor: number;
-    category: string;
-  };
-  geometry: {
-    type: "Point";
-    coordinates: [number, number];
-  };
-}
 
 const nameToSigla = new Map<string, string>([
   ["SanJoaquin", "SJ"],
@@ -201,7 +184,7 @@ export default function FormComponent() {
                 <option value="food_lunch">Comida</option>
                 <option value="park_bicycle">Bicicletero</option>
                 <option value="studyroom">Sala de estudio</option>
-                <option value="cash_machine">Cajero automático</option>
+                <option value="cash_machine">Banco / Cajero automático</option>
                 <option value="other">Otro</option>
               </Field>
               <ErrorMessage

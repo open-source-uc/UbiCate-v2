@@ -20,12 +20,13 @@ import {
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
+import { Feature } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
 
 import { placesTextLayer, placesDarkTextLayer } from "./layers";
 import Marker from "./marker";
+import MenuInformation from "./menuInformation";
 import { handleResult, handleResults, handleClear } from "./placeHandlers";
-
 const loadGeocoder = () => import("@/utils/getGeocoder");
 
 interface InitialViewState extends Partial<ViewState> {
@@ -66,10 +67,13 @@ export default function MapComponent({
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
   const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
-  const [hoverInfo, setHoverInfo] = useState<any>(null);
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
+
+  const [place, setPlace] = useState<Feature | null>(null);
+  const [hover, setHover] = useState<Feature | null>(null);
+
   useThemeObserver(setTheme, map);
 
   useEffect(() => {
@@ -100,14 +104,9 @@ export default function MapComponent({
     }
   }, [paramPlace]);
 
-  const onHover = useCallback((event: any) => {
-    const place = event.features && event.features[0];
-    setHoverInfo({
-      longitude: place?.geometry.coordinates[0],
-      latitude: place?.geometry.coordinates[1],
-      place: place ? place.properties.name : null,
-    });
-  }, []);
+  function onClickMap() {
+    setPlace(null);
+  }
 
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
@@ -116,7 +115,6 @@ export default function MapComponent({
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
   }, [geocoder]);
-  const selectedPlace = (hoverInfo && hoverInfo.place) || null;
   return (
     <>
       <Map
@@ -124,7 +122,7 @@ export default function MapComponent({
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         interactiveLayerIds={[placesTextLayer.id as string]}
-        onMouseMove={onHover}
+        onClick={onClickMap}
         onLoad={addGeocoderControl}
         ref={mapRef}
       >
@@ -136,25 +134,28 @@ export default function MapComponent({
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
 
-        {selectedPlace ? (
+        {hover ? (
           <Popup
-            longitude={hoverInfo.longitude}
-            latitude={hoverInfo.latitude}
+            longitude={hover.geometry.coordinates[0]}
+            latitude={hover.geometry.coordinates[1]}
             closeButton={false}
             closeOnClick={false}
             className="place"
             offset={new Point(0, -10)}
           >
-            {selectedPlace}
+            {hover.properties.name}
           </Popup>
         ) : null}
         {geocoderPlaces
-          ? geocoderPlaces.map((place: any) => {
-              return <Marker key={place.properties.identifier} place={place} />;
+          ? geocoderPlaces.map((place: Feature) => {
+              return (
+                <Marker key={place.properties.identifier} place={place} onClick={setPlace} onMouseEnter={setHover} />
+              );
             })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
       </Map>
+      <MenuInformation place={place} />
     </>
   );
 }
