@@ -4,11 +4,10 @@ export interface Feature {
         identifier: string;
         name: string;
         information: string;
-        categories: string;
+        categories: string[];
         campus: string;
         faculties: string;
         floors: number[];
-        category: string;
     };
     geometry: {
         type: "Point";
