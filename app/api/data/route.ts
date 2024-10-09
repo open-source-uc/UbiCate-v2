@@ -4,8 +4,7 @@ const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
 const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
 
-import { Feature, siglas as MapSiglas } from "../../../utils/types";
-
+import { Feature } from "../../../utils/types";
 
 interface Places {
   type: string;

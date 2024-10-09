@@ -6,7 +6,9 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
+
 import { siglas as MapSiglas } from "../../utils/types";
+
 import MapComponent from "./map";
 
 interface newPlace {
