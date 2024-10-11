@@ -168,6 +168,7 @@ export async function POST(request: NextRequest) {
     }
   } catch (error) {
     console.log(error);
+    console.log("ayudantia 1010100")
     return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
   }
 }
