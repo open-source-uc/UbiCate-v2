@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-
+import Campus from "../../data/campuses.json";
 import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
@@ -23,7 +23,7 @@ import { useThemeObserver } from "@/utils/themeObserver";
 import { Feature } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
 
-import { placesTextLayer, placesDarkTextLayer } from "./layers";
+import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import { handleResult, handleResults, handleClear } from "./placeHandlers";
@@ -54,6 +54,8 @@ function createInitialViewState(paramCampusBounds: LngLatBoundsLike, paramPlace:
   return initialViewState;
 }
 
+
+
 export default function MapComponent({
   Places,
   paramCampusBounds,
@@ -73,6 +75,7 @@ export default function MapComponent({
 
   const [place, setPlace] = useState<Feature | null>(null);
   const [hover, setHover] = useState<Feature | null>(null);
+
 
   useThemeObserver(setTheme, map);
 
@@ -95,8 +98,10 @@ export default function MapComponent({
     return () => {
       mounted = false;
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   useEffect(() => {
     if (paramPlace) {
@@ -108,12 +113,15 @@ export default function MapComponent({
     setPlace(null);
   }
 
+
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
   }, [paramCampusBounds]);
 
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
+
+
   }, [geocoder]);
   return (
     <>
@@ -130,6 +138,9 @@ export default function MapComponent({
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
+        <Source id="campus" type="geojson" data={Campus}>
+          {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
+        </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
@@ -148,13 +159,13 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-              return (
-                <Marker key={place.properties.identifier} place={place} onClick={setPlace} onMouseEnter={setHover} />
-              );
-            })
+            return (
+              <Marker key={place.properties.identifier} place={place} onClick={setPlace} onMouseEnter={setHover} />
+            );
+          })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
-      </Map>
+      </Map >
       <MenuInformation place={place} />
     </>
   );

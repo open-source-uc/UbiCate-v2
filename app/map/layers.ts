@@ -77,3 +77,22 @@ export const placesLibraryLayer: LayerProps = {
     "text-color": "#000",
   },
 };
+
+
+export const campusBorderLayer: LayerProps = {
+  id: "campus-fill",
+  type: "fill",
+  paint: {
+    "fill-opacity": 0.2,
+    "fill-color": "#716ADB"
+  },
+};
+
+export const darkCampusBorderLayer: LayerProps = {
+  id: "campus-fill",
+  type: "fill",
+  paint: {
+    "fill-opacity": 0.2,
+    "fill-color": "#FFA500"
+  },
+};
