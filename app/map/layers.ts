@@ -78,13 +78,12 @@ export const placesLibraryLayer: LayerProps = {
   },
 };
 
-
 export const campusBorderLayer: LayerProps = {
   id: "campus-fill",
   type: "fill",
   paint: {
     "fill-opacity": 0.2,
-    "fill-color": "#716ADB"
+    "fill-color": "#716ADB",
   },
 };
 
@@ -93,6 +92,6 @@ export const darkCampusBorderLayer: LayerProps = {
   type: "fill",
   paint: {
     "fill-opacity": 0.2,
-    "fill-color": "#FFA500"
+    "fill-color": "#FFA500",
   },
 };
