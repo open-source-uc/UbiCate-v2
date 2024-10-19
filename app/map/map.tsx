@@ -20,10 +20,11 @@ import {
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
+import Campus from "../../data/campuses.json";
 import { Feature } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
 
-import { placesTextLayer, placesDarkTextLayer } from "./layers";
+import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import { handleResult, handleResults, handleClear } from "./placeHandlers";
@@ -95,6 +96,7 @@ export default function MapComponent({
     return () => {
       mounted = false;
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -130,6 +132,10 @@ export default function MapComponent({
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
+        <Source id="campusSmall" type="geojson" data={Campus}>
+          {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
+        </Source>
+
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
