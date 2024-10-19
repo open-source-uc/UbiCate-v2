@@ -79,19 +79,37 @@ export const placesLibraryLayer: LayerProps = {
 };
 
 export const campusBorderLayer: LayerProps = {
-  id: "campus-fill",
+  id: "campus-fill-small",
   type: "fill",
   paint: {
     "fill-color": "#716ADB",
-    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 16, 0.0],
+    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 17, 0.3, 18.5, 0.0],
   },
 };
 
 export const darkCampusBorderLayer: LayerProps = {
-  id: "campus-fill",
+  id: "campus-fill-small",
   type: "fill",
   paint: {
     "fill-color": "#FFA500",
-    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 16, 0.0],
+    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 18.5, 0.0],
+  },
+};
+
+export const campusBorderLayerBig: LayerProps = {
+  id: "campus-fill-big",
+  type: "fill",
+  paint: {
+    "fill-color": "#716ADB",
+    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 15.5, 0.3, 17, 0.0],
+  },
+};
+
+export const darkCampusBorderLayerBig: LayerProps = {
+  id: "campus-fill-big",
+  type: "fill",
+  paint: {
+    "fill-color": "#FFA500",
+    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 17, 0.0],
   },
 };

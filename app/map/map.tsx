@@ -24,7 +24,14 @@ import Campus from "../../data/campuses.json";
 import { Feature } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
 
-import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
+import {
+  placesTextLayer,
+  placesDarkTextLayer,
+  campusBorderLayer,
+  darkCampusBorderLayer,
+  campusBorderLayerBig,
+  darkCampusBorderLayerBig,
+} from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import { handleResult, handleResults, handleClear } from "./placeHandlers";
@@ -74,6 +81,8 @@ export default function MapComponent({
 
   const [place, setPlace] = useState<Feature | null>(null);
   const [hover, setHover] = useState<Feature | null>(null);
+  const [campusSmall, setCampusSmall] = useState<any>(null);
+  const [campusBig, setCampusBig] = useState<any>(null);
 
   useThemeObserver(setTheme, map);
 
@@ -92,6 +101,15 @@ export default function MapComponent({
     };
 
     initializeGeocoder();
+
+    setCampusSmall({
+      type: "FeatureCollection",
+      features: Campus.features.filter((feature) => feature.properties.campus !== "SJ"),
+    });
+    setCampusBig({
+      type: "FeatureCollection",
+      features: Campus.features.filter((feature) => feature.properties.campus == "SJ"),
+    });
 
     return () => {
       mounted = false;
@@ -132,9 +150,18 @@ export default function MapComponent({
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
-        <Source id="campus" type="geojson" data={Campus}>
+        <Source id="campusSmall" type="geojson" data={campusSmall}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
         </Source>
+
+        <Source id="campusBig" type="geojson" data={campusBig}>
+          {theme && theme === "dark-v11" ? (
+            <Layer {...darkCampusBorderLayerBig} />
+          ) : (
+            <Layer {...campusBorderLayerBig} />
+          )}
+        </Source>
+
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
