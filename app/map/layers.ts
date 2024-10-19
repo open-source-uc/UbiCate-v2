@@ -83,13 +83,7 @@ export const campusBorderLayer: LayerProps = {
   type: "fill",
   paint: {
     "fill-color": "#716ADB",
-    "fill-opacity": [
-      "interpolate",
-      ["linear"],
-      ["zoom"],
-      14, 0.3,
-      18, 0
-    ],
+    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0.3, 18, 0],
   },
 };
 
@@ -98,12 +92,6 @@ export const darkCampusBorderLayer: LayerProps = {
   type: "fill",
   paint: {
     "fill-color": "#FFA500",
-    "fill-opacity": [
-      "interpolate",
-      ["linear"],
-      ["zoom"],
-      14, 0.3,
-      18, 0
-    ],
+    "fill-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0.3, 18, 0],
   },
 };
