@@ -84,7 +84,7 @@ export const campusBorderLayer: LayerProps = {
   paint: {
     "line-color": "#716ADB",
     "line-width": 3,
-    "line-dasharray": [2, 2],
+    "line-dasharray": [1, 1],
   },
 };
 
@@ -94,6 +94,6 @@ export const darkCampusBorderLayer: LayerProps = {
   paint: {
     "line-color": "#FFA500",
     "line-width": 3,
-    "line-dasharray": [2, 2],
+    "line-dasharray": [1, 1],
   },
 };
