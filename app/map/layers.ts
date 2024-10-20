@@ -77,3 +77,23 @@ export const placesLibraryLayer: LayerProps = {
     "text-color": "#000",
   },
 };
+
+export const campusBorderLayer: LayerProps = {
+  id: "campus-border",
+  type: "line",
+  paint: {
+    "line-color": "#716ADB",
+    "line-width": 3,
+    "line-dasharray": [1, 1],
+  },
+};
+
+export const darkCampusBorderLayer: LayerProps = {
+  id: "dark-campus-border",
+  type: "line",
+  paint: {
+    "line-color": "#FFA500",
+    "line-width": 3,
+    "line-dasharray": [1, 1],
+  },
+};
