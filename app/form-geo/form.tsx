@@ -29,7 +29,16 @@ interface errors {
   categories?: string;
 }
 
-const initialValues = {
+interface InitialValues {
+  placeName: string;
+  information: string;
+  floor: number;
+  latitude: number | null;
+  longitude: number | null;
+  categories: string;
+}
+
+const defaultValues: InitialValues = {
   placeName: "",
   information: "",
   floor: 1,
@@ -38,7 +47,9 @@ const initialValues = {
   categories: "",
 };
 
-export default function FormComponent() {
+export default function FormComponent({ values }: { values: InitialValues | null }) {
+  const initialValues = values || defaultValues;
+
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
@@ -129,20 +140,20 @@ export default function FormComponent() {
   }
 
   useEffect(() => {
-    getGeolocation(setLatitude, setLongitude);
+    if (initialValues.longitude && initialValues.latitude) {
+      setLatitude(initialValues.latitude);
+      setLongitude(initialValues.longitude);
+    } else {
+      getGeolocation(setLatitude, setLongitude);
+    }
   }, []);
 
   return (
-    <main className="flex min-h-full w-full items-center justify-center dark:bg-dark-1">
+    <section className="flex min-h-full w-full items-center justify-center dark:bg-dark-1">
       <div className="flex flex-col px-4 w-5/6 h-5/6 my-2 py-1 items-center justify-center rounded dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
-              <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">Nueva ubicación</h1>
-              <h2 className="mb-16 pb-16 text-base lg:text-lg text-black dark:text-light-4 select-none text-center">
-                Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
-              </h2>
-
               <label
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
@@ -249,6 +260,6 @@ export default function FormComponent() {
           )}
         </Formik>
       </div>
-    </main>
+    </section>
   );
 }
