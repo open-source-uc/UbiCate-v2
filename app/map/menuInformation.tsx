@@ -13,8 +13,9 @@ export default function Menu({ place }: MenuProps) {
     <>
       {!edit ? (
         <menu
-          className={`absolute | sm:h-2 h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${place ? "translate-x-0" : "-translate-x-full"
-            } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
+          className={`absolute | sm:h-2 h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${
+            place ? "translate-x-0" : "-translate-x-full"
+          } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
         >
           <div className="p-4 dark:text-white text-gray-700">
             <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
@@ -57,7 +58,9 @@ export default function Menu({ place }: MenuProps) {
           </div>
         </menu>
       ) : (
-        <menu className={`absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg bg-white`}>
+        <menu
+          className={`absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg bg-white`}
+        >
           <div className="w-full text-center my-6">
             <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">
               Edicion de {place?.properties.name}
