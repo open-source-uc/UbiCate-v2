@@ -149,8 +149,8 @@ export default function FormComponent({ values }: { values: InitialValues | null
   }, []);
 
   return (
-    <section className="flex min-h-full w-full items-center justify-center dark:bg-dark-1">
-      <div className="flex flex-col px-4 w-5/6 h-5/6 my-2 py-1 items-center justify-center rounded dark:bg-dark-1 space-y-6">
+    <section className="flex w-full items-center justify-center dark:bg-dark-1">
+      <div className="flex flex-col px-4 w-5/6 max-w-md h-5/6 my-2 py-1 items-center justify-center rounded dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">

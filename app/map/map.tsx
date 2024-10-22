@@ -159,7 +159,7 @@ export default function MapComponent({
               );
             })
           : null}
-        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
+        {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>
       <MenuInformation place={place} />
     </>
