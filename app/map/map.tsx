@@ -6,16 +6,7 @@ import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
-import {
-  Map,
-  Source,
-  Layer,
-  Popup,
-  GeolocateControl,
-  FullscreenControl,
-  NavigationControl,
-  ScaleControl,
-} from "react-map-gl";
+import { Map, Source, Layer, Popup, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
@@ -128,9 +119,9 @@ export default function MapComponent({
         onLoad={addGeocoderControl}
         ref={mapRef}
       >
-        <GeolocateControl position="top-left" showUserHeading={true} />
-        <FullscreenControl position="top-left" />
-        <NavigationControl position="top-left" />
+        <GeolocateControl position="bottom-right" showUserHeading={true} />
+        {/* <FullscreenControl position="top-left" /> */}
+        <NavigationControl position="bottom-right" />
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}

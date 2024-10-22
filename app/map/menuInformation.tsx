@@ -35,14 +35,6 @@ export default function Menu({ place }: MenuProps) {
               <span>{place ? MapSiglas.get(place.properties.campus) : "N/A"}</span>
             </div>
 
-            <div className="flex justify-between">
-              <span className="font-semibold">Longitud, Latitud:</span>
-              <span>
-                {place ? place.geometry.coordinates[0].toFixed(2) : "N/A"},{" "}
-                {place ? place.geometry.coordinates[1].toFixed(2) : "N/A"}
-              </span>
-            </div>
-
             <h3 className="text-xl font-semibold mt-4">Información</h3>
             <p className="mt-2 min-h-16">
               {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
