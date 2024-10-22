@@ -3,9 +3,9 @@ import Mapbox from "mapbox-gl";
 
 import geojson from "../data/places.json";
 export default function getGeocoder(
-  onResult: (result: any) => void = () => {},
-  onResults: (results: any) => void = () => {},
-  onClear: () => void = () => {},
+  onResult: (result: any) => void = () => { },
+  onResults: (results: any) => void = () => { },
+  onClear: () => void = () => { },
 ): MapboxGeocoder {
   const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -13,7 +13,7 @@ export default function getGeocoder(
     const matchingFeatures = [];
     for (const feature of geojson.features) {
       if (feature.properties.name.toLowerCase().includes(query.toLowerCase())) {
-        let faculty = feature.properties.faculties ? ` | Facultad: ${feature.properties.faculties}` : "";
+        let faculty = feature.properties.campus ? ` | Campus: ${feature.properties.campus}` : "";
 
         const matchedFeatures: any = {
           ...feature,
