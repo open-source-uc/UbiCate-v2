@@ -58,9 +58,7 @@ export default function Menu({ place }: MenuProps) {
           </div>
         </menu>
       ) : (
-        <menu
-          className={`absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 bg-light-1 z-20 shadow-lg font-normal text-lg`}
-        >
+        <menu className={`absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg`}>
           <div className="w-full text-center my-6">
             <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">
               Edicion de {place?.properties.name}
