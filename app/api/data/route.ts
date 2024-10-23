@@ -210,6 +210,14 @@ export async function PUT(request: NextRequest) {
     file_places.features.unshift(place);
 
     update_place(url, place.properties.identifier, file_places, file_sha);
+
+    return NextResponse.json(
+      { message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana)." },
+      {
+        status: 200,
+      },
+    );
+
   } catch (error) {
     return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
   }
