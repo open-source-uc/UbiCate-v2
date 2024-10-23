@@ -146,23 +146,24 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={(place) => {
-                    setPlace(place);
-                    map?.flyTo({
-                      center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
-                      essential: true,
-                      zoom: 17,
-                      duration: 400,
-                    });
-                  }}
-                  onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={(place) => {
+                  setPlace(place);
+                  // Queda mal
+                  // map?.flyTo({
+                  //   center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+                  //   essential: true,
+                  //   zoom: 17,
+                  //   duration: 400,
+                  // });
+                }}
+                onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>
