@@ -40,7 +40,15 @@ const defaultValues: newPlace = {
   identifier: null,
 };
 
-export default function FormComponent({ values, mode, fun }: { values: newPlace | null; mode: METHOD, fun: (() => void) | null }) {
+export default function FormComponent({
+  values,
+  mode,
+  fun,
+}: {
+  values: newPlace | null;
+  mode: METHOD;
+  fun: (() => void) | null;
+}) {
   const initialValues = values || defaultValues;
 
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -123,7 +131,9 @@ export default function FormComponent({ values, mode, fun }: { values: newPlace 
         }
         alert(data.message);
         resetForm();
-        if (fun != null) { fun() };
+        if (fun != null) {
+          fun();
+        }
         setSubmitting(false);
       })
       .catch((error) => {

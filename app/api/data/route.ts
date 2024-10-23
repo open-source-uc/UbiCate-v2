@@ -217,7 +217,6 @@ export async function PUT(request: NextRequest) {
         status: 200,
       },
     );
-
   } catch (error) {
     return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
   }
