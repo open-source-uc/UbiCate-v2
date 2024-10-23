@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Image from "next/image";
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 interface MenuProps {
   place: Feature | null;
@@ -13,9 +13,8 @@ export default function Menu({ place }: MenuProps) {
     <>
       {!edit ? (
         <menu
-          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${
-            place ? "translate-x-0" : "-translate-x-full"
-          } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
+          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${place ? "translate-x-0" : "-translate-x-full"
+            } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
         >
           <div className="p-4 dark:text-white text-gray-700">
             <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
@@ -39,14 +38,18 @@ export default function Menu({ place }: MenuProps) {
             <p className="mt-2 min-h-16">
               {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
             </p>
+            <button className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed">
+              Compartir
+            </button>
             <button
-              className="my-2 w-52  h-12 flex items-center justify-center dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={(e) => {
                 setEdit(true);
               }}
             >
               Sugerir Edición
             </button>
+
           </div>
         </menu>
       ) : (
@@ -67,6 +70,7 @@ export default function Menu({ place }: MenuProps) {
               identifier: place?.properties.identifier as string,
             }}
             mode={METHOD.UPDATE}
+            fun={() => setEdit(false)}
           />
           <button
             className="fixed bottom-2 right-2 w-12 h-12 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed z-30"

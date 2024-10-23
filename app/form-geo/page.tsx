@@ -25,7 +25,7 @@ export default async function Page() {
             Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
           </h2>
         </div>
-        <FormComponent values={null} mode={METHOD.CREATE} />
+        <FormComponent values={null} mode={METHOD.CREATE} fun={null} />
       </main>
     </>
   );
