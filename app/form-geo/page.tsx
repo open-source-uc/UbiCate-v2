@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 
+import { METHOD } from "@/utils/types";
+
 import FormComponent from "./form";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,7 +25,7 @@ export default async function Page() {
             Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
           </h2>
         </div>
-        <FormComponent values={null} />
+        <FormComponent values={null} mode={METHOD.CREATE} />
       </main>
     </>
   );

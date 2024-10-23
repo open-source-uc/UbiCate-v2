@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Feature, siglas as MapSiglas } from "../../utils/types";
+import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 interface MenuProps {
   place: Feature | null;
 }
@@ -40,12 +40,12 @@ export default function Menu({ place }: MenuProps) {
               {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
             </p>
             <button
-              className="my-2 w-44 h-12 flex items-center justify-center dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="my-2 w-52  h-12 flex items-center justify-center dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={(e) => {
                 setEdit(true);
               }}
             >
-              Sugerir edicion
+              Sugerir Edición
             </button>
           </div>
         </menu>
@@ -53,7 +53,7 @@ export default function Menu({ place }: MenuProps) {
         <menu className="absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg bg-white overflow-y-auto">
           <div className="w-full text-center my-6">
             <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">
-              Edicion de {place?.properties.name}
+              Edición de {place?.properties.name}
             </h1>
           </div>
           <FormGeo
@@ -64,7 +64,9 @@ export default function Menu({ place }: MenuProps) {
               longitude: place?.geometry.coordinates[0] as number,
               latitude: place?.geometry.coordinates[1] as number,
               categories: place?.properties.categories.at(0) as string,
+              identifier: place?.properties.identifier as string,
             }}
+            mode={METHOD.UPDATE}
           />
           <button
             className="fixed bottom-2 right-2 w-12 h-12 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed z-30"

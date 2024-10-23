@@ -7,18 +7,9 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
 
-import { siglas as MapSiglas } from "../../utils/types";
+import { siglas as MapSiglas, METHOD } from "../../utils/types";
 
 import MapComponent from "./map";
-
-interface newPlace {
-  longitude: number | null;
-  latitude: number | null;
-  placeName: string;
-  information: string;
-  floor: number;
-  categories: string;
-}
 
 interface errors {
   longitude?: number | string | null;
@@ -29,25 +20,27 @@ interface errors {
   categories?: string;
 }
 
-interface InitialValues {
+interface newPlace {
+  longitude: number | null;
+  latitude: number | null;
   placeName: string;
   information: string;
   floor: number;
-  latitude: number | null;
-  longitude: number | null;
   categories: string;
+  identifier: string | null;
 }
 
-const defaultValues: InitialValues = {
+const defaultValues: newPlace = {
   placeName: "",
   information: "",
   floor: 1,
   latitude: null,
   longitude: null,
   categories: "",
+  identifier: null,
 };
 
-export default function FormComponent({ values }: { values: InitialValues | null }) {
+export default function FormComponent({ values, mode }: { values: newPlace | null; mode: METHOD }) {
   const initialValues = values || defaultValues;
 
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -60,7 +53,7 @@ export default function FormComponent({ values }: { values: InitialValues | null
     setLatitude(event.lngLat.lat);
   }, []);
 
-  const validate = (newPlace: Omit<newPlace, "longitude" | "latitude">) => {
+  const validate = (newPlace: Omit<newPlace, "longitude" | "latitude" | "identifier">) => {
     const errors: errors = {};
 
     var campus: string | null = null;
@@ -110,12 +103,12 @@ export default function FormComponent({ values }: { values: InitialValues | null
       longitude,
       latitude,
       campus,
-      identifier: "",
+      identifier: initialValues.identifier,
       name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
     const requestOptions = {
-      method: "POST",
+      method: METHOD.CREATE == mode ? "POST" : "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(transformedValues),
     };
@@ -221,9 +214,10 @@ export default function FormComponent({ values }: { values: InitialValues | null
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full h-36 | text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
+                as="textarea"
                 type="text"
               />
 

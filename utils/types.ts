@@ -36,3 +36,8 @@ export const siglas = new Map<string, string>([
     ["other", "Otro"]
 
 ]);
+
+export enum METHOD {
+    CREATE = "create",
+    UPDATE = "update",
+}
