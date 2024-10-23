@@ -85,13 +85,111 @@ Es necesario resolver los errores y warnings de linter en cada pull request, est
 npm run lint:fix
 ```
 
-## Building
+## Deployment
+
+### Cloudflare (automatic)
 
 Es necesario que el proyecto pueda realizar correctamente un `build` para poder ser desplegado en Cloudflare
 
 ```shell
 npm run build:cloudflare
 ```
+
+### Linux VM (manual)
+
+1. Crear un usuario dedicado.
+
+```
+useradd ubicate
+```
+
+2. Clonar el repositorio.
+
+```
+git clone https://github.com/open-source-uc/UbiCate-v2 /usr/local/ubicate
+```
+
+3. Entrar al directorio
+
+```
+cd /usr/local/ubicate
+```
+
+4. [Agregar Environmental Variables](#instalación)
+
+5. [Install npm dependencies](#instalar-dependencias)
+
+6. [Ejecutar Linter](#linter)
+
+7. Hacer una build.
+
+```
+npm run build
+```
+
+8. Crear la Systemd Unit
+
+```
+touch /etc/systemd/system/ubicate.service
+```
+
+```
+[Unit]
+Description=Ubicate
+After=multi-user.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/npm --prefix /usr/local/ubicate run start
+User=ubicate
+Group=ubicate
+Type=idle
+Restart=on-abnormal
+RestartSec=15
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+9. Reload Units
+
+```
+systemctl daemon-reload
+```
+
+10. Start y enable el servicio
+
+```
+systemctl enable --now ubicate.service
+```
+
+11. Reverse proxy con Apache
+
+> Reemplazar `domain.tld` con su dominio.
+
+```
+<VirtualHost *:80>
+    ServerAdmin webmaster@domain.tld
+    ServerName ubicate.domain.tld
+    ErrorLog "/var/log/httpd/ubicate.domain.tld-error_log"
+    CustomLog "/var/log/httpd/ubicate.domain.tld-access_log" common
+
+
+    <Location / >
+        RequestHeader set X-SCRIPT-NAME /
+        RequestHeader set X-SCHEME https
+        ProxyPass http://localhost:3000/
+        ProxyPassReverse http://localhost:3000/
+        ProxyPassReverseCookiePath  /  /
+    </Location>
+
+</VirtualHost>
+```
+
+####
+
 
 ## Agregar nuevas salas
 
@@ -107,6 +205,7 @@ Utilice las **issues** para informar cualquier bug o solicitud.
 
 ### Workflow
 
+
 > PR a development -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a development
 
 La información detallada sobre cómo contribuir se puede encontrar en [contributing.md](contributing.md).
@@ -117,7 +216,7 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Créditos
+## Créditos.
 
 ### Mantenedores
 

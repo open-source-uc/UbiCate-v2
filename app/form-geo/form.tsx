@@ -7,6 +7,8 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
 
+import { siglas as MapSiglas } from "../../utils/types";
+
 import MapComponent from "./map";
 
 interface newPlace {
@@ -15,7 +17,7 @@ interface newPlace {
   placeName: string;
   information: string;
   floor: number;
-  categories: string | string[];
+  categories: string;
 }
 
 interface errors {
@@ -26,31 +28,6 @@ interface errors {
   floor?: string;
   categories?: string;
 }
-interface Feature {
-  type: "Feature";
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string;
-    campus: string;
-    faculties: string;
-    floor: number;
-    category: string;
-  };
-  geometry: {
-    type: "Point";
-    coordinates: [number, number];
-  };
-}
-
-const nameToSigla = new Map<string, string>([
-  ["SanJoaquin", "SJ"],
-  ["LoContador", "LC"],
-  ["Villarrica", "VR"],
-  ["CasaCentral", "CC"],
-  ["Oriente", "OR"],
-]);
 
 const initialValues = {
   placeName: "",
@@ -84,7 +61,7 @@ export default function FormComponent() {
         latitude >= boundary.latitudeRange[0] &&
         latitude <= boundary.latitudeRange[1]
       ) {
-        campus = nameToSigla.get(boundaryCampus) || null;
+        campus = MapSiglas.get(boundaryCampus) || null;
         break;
       }
     }
@@ -199,9 +176,12 @@ export default function FormComponent() {
                 <option value="classroom">Sala</option>
                 <option value="bath">Baño</option>
                 <option value="food_lunch">Comida</option>
-                <option value="park_bicycle">Bicicletero</option>
                 <option value="studyroom">Sala de estudio</option>
-                <option value="cash_machine">Cajero automático</option>
+                <option value="trash">Basurero</option>
+                <option value="photocopy">Fotocopias</option>
+                <option value="park_bicycle">Bicicletero</option>
+                <option value="financial">Banco / Cajero automático</option>
+                <option value="laboratory">Laboratorio</option>
                 <option value="other">Otro</option>
               </Field>
               <ErrorMessage

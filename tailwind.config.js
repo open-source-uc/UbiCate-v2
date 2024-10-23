@@ -9,6 +9,11 @@ module.exports = {
   theme: {
     screens: {
       'map-sm': '800px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
     },
     extend: {
       colors: {
@@ -32,6 +37,9 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      borderRadius: {
+        'menu': '2.1rem',
+      }
     },
   },
   plugins: [],

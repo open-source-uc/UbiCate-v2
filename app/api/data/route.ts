@@ -4,31 +4,12 @@ const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
 const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
 
-interface Feature {
-  type: "Feature";
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string;
-    campus: string;
-    faculties: string;
-    floor: number;
-    category: string;
-  };
-  geometry: {
-    type: "Point";
-    coordinates: [number, number];
-  };
-}
+import { Feature } from "../../../utils/types";
 
-const name_to_sigla = {
-  SanJoaquin: "SJ",
-  LoContador: "LC",
-  Villarrica: "VR",
-  CasaCentral: "CC",
-  Oriente: "OR",
-};
+interface Places {
+  type: string;
+  features: Feature[];
+}
 
 interface Place {
   information: string;
@@ -39,11 +20,6 @@ interface Place {
   name: string;
   campus: string;
   categories: string;
-}
-
-interface Places {
-  type: string;
-  features: Feature[];
 }
 
 async function create_place(url: string, identifier: string, file_places: Places, file_sha: string) {
@@ -104,11 +80,10 @@ export async function POST(request: NextRequest) {
         identifier: body.identifier, //Esto se hizo pues debe ser unico y si se usara el "body.name" podria pasar que identifier se duplicara por ejemplo el caso de los baños
         name: body.name,
         information: body.information,
-        categories: body.categories,
+        categories: [body.categories],
         campus: body.campus,
         faculties: "",
-        floor: body.floor,
-        category: "",
+        floors: [body.floor],
       },
       geometry: {
         type: "Point",
@@ -146,7 +121,7 @@ export async function POST(request: NextRequest) {
       /*
       Sistema de crear un nuevo lugar
       */
-      if (nuevo_punto.properties.categories === "classroom") {
+      if (nuevo_punto.properties.categories.includes("classroom")) {
         nuevo_punto.properties.identifier =
           nuevo_punto.properties.name.trim().toUpperCase().replaceAll(" ", "_") +
           "-" +
