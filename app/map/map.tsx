@@ -7,11 +7,14 @@ import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
 import { Map, Source, Layer, Popup, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
+
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
+
 import Campus from "../../data/campuses.json";
 import { Feature } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
+
 import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
@@ -106,7 +109,6 @@ export default function MapComponent({
     mapRef.current?.addControl(geocoder.current);
   }, [geocoder]);
 
-
   return (
     <>
       <Map
@@ -144,22 +146,23 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-            return (
-              <Marker key={place.properties.identifier}
-                place={place}
-                onClick={(place) => {
-                  setPlace(place)
-                  map?.flyTo({
-                    center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
-                    essential: true,
-                    zoom: 17,
-                    duration: 400
-                  });
-                }}
-                onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={(place) => {
+                    setPlace(place);
+                    map?.flyTo({
+                      center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+                      essential: true,
+                      zoom: 17,
+                      duration: 400,
+                    });
+                  }}
+                  onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>

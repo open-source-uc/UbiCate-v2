@@ -18,7 +18,7 @@ export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
       offset={[0, -18]}
       onClick={(e) => {
         e.originalEvent.stopPropagation();
-        window.history.replaceState(null, "", `?place=${place.properties.identifier}`)
+        window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
         onClick(place);
       }}
     >
