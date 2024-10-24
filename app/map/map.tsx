@@ -65,7 +65,6 @@ export default function MapComponent({
 
   const [place, setPlace] = useState<Feature | null>(null);
   const [hover, setHover] = useState<Feature | null>(null);
-  const [viewState, setViewState] = useState<any>(createInitialViewState(paramCampusBounds, paramPlace));
 
   useThemeObserver(setTheme, map);
 
@@ -113,9 +112,9 @@ export default function MapComponent({
   return (
     <>
       <Map
-        viewState={{ ...viewState }}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+        initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={onClickMap}
         onLoad={addGeocoderControl}
@@ -153,13 +152,26 @@ export default function MapComponent({
                   place={place}
                   onClick={(place) => {
                     setPlace(place);
-                    // Queda mal
-                    // map?.flyTo({
-                    //   center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
-                    //   essential: true,
-                    //   zoom: 17,
-                    //   duration: 400,
-                    // });
+                    if (!map) return;
+
+                    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
+                    const bounds = map.getBounds();
+                    const margin = 0.001;
+
+                    const isOutside = !(
+                      coordinates[0] >= bounds.getWest() + margin &&
+                      coordinates[0] <= bounds.getEast() - margin &&
+                      coordinates[1] >= bounds.getSouth() + margin &&
+                      coordinates[1] <= bounds.getNorth() - margin
+                    );
+
+                    if (isOutside) {
+                      map.flyTo({
+                        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+                        essential: true,
+                        duration: 400,
+                      });
+                    }
                   }}
                   onMouseEnter={setHover}
                 />
