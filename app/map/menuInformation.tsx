@@ -9,6 +9,22 @@ import FormGeo from "../form-geo/form";
 export default function Menu({ place }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: place?.properties.name,
+          url: window.location.href,
+        });
+        console.log("Contenido compartido con éxito");
+      } catch (error) {
+        console.error("Error al compartir:", error);
+      }
+    } else {
+      console.warn("La API de compartir no está soportada en este navegador.");
+    }
+  };
+
   return (
     <>
       {!edit ? (
@@ -39,7 +55,10 @@ export default function Menu({ place }: MenuProps) {
             <p className="mt-2 min-h-16">
               {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
             </p>
-            <button className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed">
+            <button
+              className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={handleShare}
+            >
               Compartir
             </button>
             <button
