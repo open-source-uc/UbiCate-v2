@@ -53,7 +53,7 @@ export default function MapComponent({
 }: {
   Places: any;
   paramCampusBounds: LngLatBoundsLike;
-  paramPlace: any;
+  paramPlace: Feature | null;
 }) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
@@ -83,7 +83,7 @@ export default function MapComponent({
     };
 
     initializeGeocoder();
-
+    setPlace(paramPlace);
     return () => {
       mounted = false;
     };
