@@ -42,9 +42,9 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
 
   return (
     <>
-      <section spellCheck="false" className="h-full w-full relative">
+      <main spellCheck="false" className="h-full w-full relative">
         <MapComponent Places={PlacesJSON} paramCampusBounds={campusBounds} paramPlace={paramPlace} />
-      </section>
+      </main>
     </>
   );
 }

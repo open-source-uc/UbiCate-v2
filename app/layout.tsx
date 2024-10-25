@@ -40,9 +40,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
         <SidebarProvider>
           <Overlay />
-          <Header />
-          <Sidebar />
-          <main className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">{children}</main>
+          <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
+            <Header />
+            <Sidebar />
+            {children}
+          </div>
         </SidebarProvider>
       </body>
     </html>
