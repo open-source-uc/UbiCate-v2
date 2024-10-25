@@ -33,6 +33,7 @@ export default function getGeocoder(
     localGeocoder: forwardGeocoder,
     localGeocoderOnly: true,
     mapboxgl: Mapbox,
+    fuzzyMatch: true,
     placeholder: "Salas, Bibliotecas, Laboratorios...",
     limit: 10,
     zoom: 18,
