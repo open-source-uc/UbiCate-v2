@@ -42,7 +42,7 @@ async function create_place(url: string, identifier: string, file_places: Places
   });
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data.message)
+    throw new Error(data.message);
   }
   return data;
 }
@@ -67,7 +67,7 @@ async function update_place(url: string, identifier: string, file_places: Places
   });
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data.message)
+    throw new Error(data.message);
   }
 
   return data;
