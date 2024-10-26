@@ -4,6 +4,29 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "Salon Verde",
+                "name": "Salon Verde",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61443061535283,
+                    -33.49997459719161
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "food_lunch-23546931",
                 "name": "Casino Edificio K",
                 "information": "",
@@ -96,31 +119,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "other-23525482",
-                "name": "TEST PRODUCTION",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60693777999894,
-                    -33.50100890181019
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bath-23514256",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -143,7 +143,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23514211",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -166,7 +166,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23514133",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -189,7 +189,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23514122",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -212,7 +212,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23513979",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -235,7 +235,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23513876",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -258,7 +258,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23513794",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -281,7 +281,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23513480",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -304,7 +304,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23513463",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -327,7 +327,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bath-23513027",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -535,7 +535,7 @@
             "properties": {
                 "identifier": "ENF_118",
                 "name": "118",
-                "information": "Centro de Simulaci\u00f3n",
+                "information": "Centro de Simulación",
                 "categories": [
                     "classroom"
                 ],
@@ -1362,7 +1362,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almacen_uc_cc",
-                "name": "ALMAC\u00c9N UC",
+                "name": "ALMACÉN UC",
                 "information": "",
                 "categories": [
                     "other"
@@ -1385,7 +1385,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almacenuc_sociales",
-                "name": "ALMAC\u00c9N UC",
+                "name": "ALMACÉN UC",
                 "information": "",
                 "categories": [
                     "other"
@@ -1500,7 +1500,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "administracion_cc",
-                "name": "Administraci\u00f3n",
+                "name": "Administración",
                 "information": "",
                 "categories": [
                     "other"
@@ -2121,7 +2121,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "auditorio_joaco_luco",
-                "name": "Auditorio Dr. Joaqu\u00edn Luco",
+                "name": "Auditorio Dr. Joaquín Luco",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -2259,7 +2259,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "auditorio_qim",
-                "name": "Auditorio Victor Pill\u00f3n",
+                "name": "Auditorio Victor Pillón",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -3708,7 +3708,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano1",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3731,7 +3731,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano10",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3754,7 +3754,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano12",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3777,7 +3777,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano13",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3800,7 +3800,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano14",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3823,7 +3823,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano15",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3846,7 +3846,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano16",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3869,7 +3869,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano17",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3892,7 +3892,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano18",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3915,7 +3915,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano19",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3938,7 +3938,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano2",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3961,7 +3961,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano20",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3984,7 +3984,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano21",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4007,7 +4007,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano22",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4030,7 +4030,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano23",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4053,7 +4053,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano24",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4076,7 +4076,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano25",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4099,7 +4099,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano26",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4122,7 +4122,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano27",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4145,7 +4145,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano28",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4168,7 +4168,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano29",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4191,7 +4191,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano3",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4214,7 +4214,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano30",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4237,7 +4237,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano31",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4260,7 +4260,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano32",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4283,7 +4283,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano33",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4306,7 +4306,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano34",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4329,7 +4329,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano35",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4352,7 +4352,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano4",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4375,7 +4375,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano01cc",
-                "name": "Ba\u00f1o 01",
+                "name": "Baño 01",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4398,7 +4398,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano02cc",
-                "name": "Ba\u00f1o 02",
+                "name": "Baño 02",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
@@ -4421,7 +4421,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano03cc",
-                "name": "Ba\u00f1o 03",
+                "name": "Baño 03",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4446,7 +4446,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "banou04cc",
-                "name": "Ba\u00f1o Universal 04",
+                "name": "Baño Universal 04",
                 "information": "",
                 "categories": [
                     "bath",
@@ -4471,7 +4471,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano05cc",
-                "name": "Ba\u00f1o 05",
+                "name": "Baño 05",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4494,7 +4494,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano06cc",
-                "name": "Ba\u00f1o Hombres 06",
+                "name": "Baño Hombres 06",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4517,7 +4517,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano07cc",
-                "name": "Ba\u00f1o Mujeres 07",
+                "name": "Baño Mujeres 07",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4540,7 +4540,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano08cc",
-                "name": "Ba\u00f1o 08",
+                "name": "Baño 08",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4563,7 +4563,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "banou09cc",
-                "name": "Ba\u00f1o Universal 09",
+                "name": "Baño Universal 09",
                 "information": "Con Mudador",
                 "categories": [
                     "bath",
@@ -4587,7 +4587,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "banou10cc",
-                "name": "Ba\u00f1o Universal 10",
+                "name": "Baño Universal 10",
                 "information": "",
                 "categories": [
                     "bath",
@@ -4611,7 +4611,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano45",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4634,7 +4634,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano46",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4657,7 +4657,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano47",
-                "name": "Ba\u00f1o Universal",
+                "name": "Baño Universal",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4680,7 +4680,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano48",
-                "name": "Ba\u00f1o Universal",
+                "name": "Baño Universal",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4703,7 +4703,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano49",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4726,7 +4726,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano5",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4749,7 +4749,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano6",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4772,7 +4772,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano7",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4795,7 +4795,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano8",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4818,7 +4818,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano9",
-                "name": "Ba\u00f1o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4841,7 +4841,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "biblio_biomed",
-                "name": "Biblioteca Biom\u00e9dica",
+                "name": "Biblioteca Biomédica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -4979,7 +4979,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "biblio_mat",
-                "name": "Biblioteca de Matem\u00e1tica",
+                "name": "Biblioteca de Matemática",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -5002,7 +5002,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "biblio_teo",
-                "name": "Biblioteca de Teolog\u00eda",
+                "name": "Biblioteca de Teología",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -5095,7 +5095,7 @@
             "properties": {
                 "identifier": "cauc",
                 "name": "CAUC",
-                "information": "Comisi\u00f3n de Acogida",
+                "information": "Comisión de Acogida",
                 "categories": [
                     "classroom"
                 ],
@@ -6244,7 +6244,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "capellan_cc",
-                "name": "Capell\u00e1n",
+                "name": "Capellán",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -6291,7 +6291,7 @@
             "properties": {
                 "identifier": "CAPILLA",
                 "name": "Capilla (Sala)",
-                "information": "Aqu\u00ed hacen clases",
+                "information": "Aquí hacen clases",
                 "categories": [
                     "classroom"
                 ],
@@ -6405,7 +6405,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "cai",
-                "name": "Centro de Alumnos de Ingenier\u00eda (CAI)",
+                "name": "Centro de Alumnos de Ingeniería (CAI)",
                 "information": "",
                 "categories": [
                     "other"
@@ -6451,7 +6451,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ca_teo",
-                "name": "Centro de Alumnos de Teolog\u00eda",
+                "name": "Centro de Alumnos de Teología",
                 "information": "",
                 "categories": [
                     "other"
@@ -6497,7 +6497,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CEEP",
-                "name": "Centro de Estudiantes de Educaci\u00f3n de P\u00e1rvulos",
+                "name": "Centro de Estudiantes de Educación de Párvulos",
                 "information": "CEEP",
                 "categories": [
                     "other"
@@ -6520,7 +6520,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "centro_prev_cancer_diges",
-                "name": "Centro de Prevenci\u00f3n de C\u00e1ncer Digistivo",
+                "name": "Centro de Prevención de Cáncer Digistivo",
                 "information": "",
                 "categories": [
                     "other"
@@ -6566,7 +6566,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "Computacion_SA",
-                "name": "Computaci\u00f3n",
+                "name": "Computación",
                 "information": "",
                 "categories": [
                     "other"
@@ -7302,7 +7302,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "def_solidos",
-                "name": "Defectos en S\u00f3lidos",
+                "name": "Defectos en Sólidos",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -7325,7 +7325,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DCC",
-                "name": "Departamento de Ciencias de la Computaci\u00f3n - DCC",
+                "name": "Departamento de Ciencias de la Computación - DCC",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7348,7 +7348,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_asist_eco_cc",
-                "name": "Departamento de Asistencia Econ\u00f3mica",
+                "name": "Departamento de Asistencia Económica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7394,7 +7394,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dpto_fisico_qim",
-                "name": "Departamento de F\u00edsico-Qu\u00edmica",
+                "name": "Departamento de Físico-Química",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7417,7 +7417,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dpto_matricula_cc",
-                "name": "Departamento de Matr\u00edcula",
+                "name": "Departamento de Matrícula",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7440,7 +7440,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dpto_qim_inorganica",
-                "name": "Departamento de Qu\u00edmica Inorg\u00e1nica",
+                "name": "Departamento de Química Inorgánica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7486,7 +7486,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_ENF",
-                "name": "Direcci\u00f3n",
+                "name": "Dirección",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7509,7 +7509,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_cc",
-                "name": "Direcci\u00f3n",
+                "name": "Dirección",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7532,7 +7532,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_academica_qim",
-                "name": "Direcci\u00f3n Acad\u00e9mica",
+                "name": "Dirección Académica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7555,7 +7555,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_sist_bibliotecas",
-                "name": "Direcci\u00f3n Sistema de Bibliotecas",
+                "name": "Dirección Sistema de Bibliotecas",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7578,7 +7578,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_docencia_fis",
-                "name": "Direcci\u00f3n de Docencia",
+                "name": "Dirección de Docencia",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7601,7 +7601,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_informatica",
-                "name": "Direcci\u00f3n de Inform\u00e1tica",
+                "name": "Dirección de Informática",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7624,7 +7624,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "Direc_pregrado_ing",
-                "name": "Direcci\u00f3n de Pregrado",
+                "name": "Dirección de Pregrado",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7647,7 +7647,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_pregrado_cc",
-                "name": "Direcci\u00f3n de Pregrado",
+                "name": "Dirección de Pregrado",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -7670,7 +7670,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "dir_postgrado",
-                "name": "Direcci\u00f3n de Prosgrado",
+                "name": "Dirección de Prosgrado",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -8176,7 +8176,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "eletro_qim",
-                "name": "Eletroqu\u00edmica",
+                "name": "Eletroquímica",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -8406,7 +8406,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "extension_cc",
-                "name": "Extensi\u00f3n",
+                "name": "Extensión",
                 "information": "",
                 "categories": [
                     "other"
@@ -9027,7 +9027,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "galeria_macchina",
-                "name": "Galer\u00eda Macchina",
+                "name": "Galería Macchina",
                 "information": "",
                 "categories": [
                     "other"
@@ -9188,7 +9188,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "EST",
-                "name": "Instituto de Est\u00e9tica",
+                "name": "Instituto de Estética",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -9211,7 +9211,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ins_sociologia",
-                "name": "Instituto de Sociolog\u00eda",
+                "name": "Instituto de Sociología",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -9648,7 +9648,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_analisis_mov",
-                "name": "Laboratorio An\u00e1lisis del Movimiento",
+                "name": "Laboratorio Análisis del Movimiento",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9671,7 +9671,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_ciclo_basico",
-                "name": "Laboratorio Ciclo B\u00e1sico",
+                "name": "Laboratorio Ciclo Básico",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9694,7 +9694,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_fis_ejercicio",
-                "name": "Laboratorio Fisiolog\u00eda del Ejercicio",
+                "name": "Laboratorio Fisiología del Ejercicio",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9717,7 +9717,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_fisico_qim",
-                "name": "Laboratorio F\u00edsico-Qu\u00edmico",
+                "name": "Laboratorio Físico-Químico",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9763,7 +9763,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "Quim Alime",
-                "name": "Laboratorio Qu\u00edmica de Alimentos",
+                "name": "Laboratorio Química de Alimentos",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9786,7 +9786,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_tec_alimen",
-                "name": "Laboratorio T\u00e9cnicas Alimenticias",
+                "name": "Laboratorio Técnicas Alimenticias",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9809,7 +9809,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_fonetica_h",
-                "name": "Laboratorio de Fon\u00e9tica",
+                "name": "Laboratorio de Fonética",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9832,7 +9832,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_geomatica",
-                "name": "Laboratorio de Geom\u00e1tica",
+                "name": "Laboratorio de Geomática",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9878,7 +9878,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_qim",
-                "name": "Laboratorio de Qu\u00edmica",
+                "name": "Laboratorio de Química",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9901,7 +9901,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_qim_organica",
-                "name": "Laboratorio de Qu\u00edmica Org\u00e1nica",
+                "name": "Laboratorio de Química Orgánica",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -9924,7 +9924,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lab_nutri",
-                "name": "Laboratorio de evaluaci\u00f3n nutricional",
+                "name": "Laboratorio de evaluación nutricional",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -10016,7 +10016,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "libreriauc_sociales",
-                "name": "Librer\u00eda UC",
+                "name": "Librería UC",
                 "information": "",
                 "categories": [
                     "other"
@@ -10039,7 +10039,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "lib_tala_or",
-                "name": "Librer\u00eda la Tala",
+                "name": "Librería la Tala",
                 "information": "",
                 "categories": [
                     "other"
@@ -10062,7 +10062,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAMPARA",
-                "name": "L\u00c1MPARA",
+                "name": "LÁMPARA",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10177,7 +10177,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "micro_electro_cc",
-                "name": "Microscop\u00eda Electr\u00f3nica",
+                "name": "Microscopía Electrónica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10246,7 +10246,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina1",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10269,7 +10269,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina10",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10292,7 +10292,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina11",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10315,7 +10315,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina12",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10338,7 +10338,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina13",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10361,7 +10361,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina14",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10384,7 +10384,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina15",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10407,7 +10407,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina16",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10430,7 +10430,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina17",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10453,7 +10453,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina18",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10476,7 +10476,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina2",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10499,7 +10499,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina3",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10522,7 +10522,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina4",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10545,7 +10545,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina5",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10568,7 +10568,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina6",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10591,7 +10591,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina7",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10614,7 +10614,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina8",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -10637,7 +10637,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "maquina9",
-                "name": "M\u00e1quina",
+                "name": "Máquina",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -11350,7 +11350,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "nutri_human",
-                "name": "Nutrici\u00f3n Humana",
+                "name": "Nutrición Humana",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -11488,7 +11488,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "politiic_pub_lc",
-                "name": "Pol\u00edticas P\u00fablicas UC",
+                "name": "Políticas Públicas UC",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -11534,7 +11534,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "prac_cs_1",
-                "name": "Pr\u00e1cticos 1",
+                "name": "Prácticos 1",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -11557,7 +11557,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "prac_cs_2",
-                "name": "Pr\u00e1cticos 2",
+                "name": "Prácticos 2",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -11810,7 +11810,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto2",
-                "name": "Work Caf\u00e9",
+                "name": "Work Café",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -11833,7 +11833,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto3",
-                "name": "Casta\u00f1o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -11971,7 +11971,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "puesto9",
-                "name": "Casta\u00f1o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -12040,7 +12040,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "qim_biologica",
-                "name": "Qu\u00edmica Biol\u00f3gica",
+                "name": "Química Biológica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -12063,7 +12063,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "qim_computacional",
-                "name": "Qu\u00edmica Te\u00f3rica Computacional",
+                "name": "Química Teórica Computacional",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -12247,7 +12247,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "recepcion_ccl",
-                "name": "Recepci\u00f3n",
+                "name": "Recepción",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -12270,7 +12270,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "recepcion_edu",
-                "name": "Recepci\u00f3n",
+                "name": "Recepción",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -12293,7 +12293,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "rectoria_cc",
-                "name": "Rector\u00eda",
+                "name": "Rectoría",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -13397,7 +13397,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "sala_a_neco",
-                "name": "Sala Andr\u00e9s Necochea",
+                "name": "Sala Andrés Necochea",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -13466,7 +13466,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "JGUZMAN1",
-                "name": "Sala Jaime Guzm\u00e1n 1",
+                "name": "Sala Jaime Guzmán 1",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -13489,7 +13489,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "JGUZMAN2",
-                "name": "Sala Jaime Guzm\u00e1n 2",
+                "name": "Sala Jaime Guzmán 2",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -13949,7 +13949,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "sala_trab_prac_cc_bio",
-                "name": "Sala de Trabajos Pr\u00e1cticos",
+                "name": "Sala de Trabajos Prácticos",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14087,7 +14087,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "multisala_ing",
-                "name": "Sala de usos m\u00faltiples",
+                "name": "Sala de usos múltiples",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14110,7 +14110,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "multisala_sociales",
-                "name": "Sala de usos m\u00faltiples",
+                "name": "Sala de usos múltiples",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14202,7 +14202,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "secret_academica",
-                "name": "Secretar\u00eda Acad\u00e9mica",
+                "name": "Secretaría Académica",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14248,7 +14248,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "simulacion_h",
-                "name": "Simulaci\u00f3n",
+                "name": "Simulación",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14386,7 +14386,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo4",
-                "name": "Casta\u00f1o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -14409,7 +14409,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo5",
-                "name": "Casino Matem\u00e1ticas",
+                "name": "Casino Matemáticas",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -14432,7 +14432,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "almuerzo6",
-                "name": "Casino Agronom\u00eda",
+                "name": "Casino Agronomía",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -14501,7 +14501,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "sub_dir_admin",
-                "name": "Subdirecci\u00f3n Administrativo",
+                "name": "Subdirección Administrativo",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14524,7 +14524,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "sub_dir_asuntos_estudiantiles",
-                "name": "Subdirecci\u00f3n de Asuntos Estudiantiles",
+                "name": "Subdirección de Asuntos Estudiantiles",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -14547,7 +14547,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "subdir_pregrado_sociales",
-                "name": "Subdirecci\u00f3n de Pregrado",
+                "name": "Subdirección de Pregrado",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -15191,7 +15191,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "studyroomMauricioLopez",
-                "name": "Mauricio L\u00f3pez Casanova",
+                "name": "Mauricio López Casanova",
                 "information": "",
                 "categories": [
                     "studyroom"
@@ -15213,8 +15213,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio Qu\u00edmica",
-                "name": "Laboratorio Qu\u00edmica",
+                "identifier": "Laboratorio Química",
+                "name": "Laboratorio Química",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15260,7 +15260,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SAI",
-                "name": "Sala ayudantes ingenier\u00eda",
+                "name": "Sala ayudantes ingeniería",
                 "information": "",
                 "categories": [
                     "studyroom"
@@ -15282,8 +15282,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio de f\u00edsica",
-                "name": "Laboratorio de f\u00edsica",
+                "identifier": "Laboratorio de física",
+                "name": "Laboratorio de física",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15328,8 +15328,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio ingenier\u00eda de materiales",
-                "name": "Laboratorio ingenier\u00eda de materiales",
+                "identifier": "Laboratorio ingeniería de materiales",
+                "name": "Laboratorio ingeniería de materiales",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15466,8 +15466,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Instituto biolog\u00eda de ingenier\u00eda biol\u00f3gica y m\u00e9dica",
-                "name": "Instituto biolog\u00eda de ingenier\u00eda biol\u00f3gica y m\u00e9dica",
+                "identifier": "Instituto biología de ingeniería biológica y médica",
+                "name": "Instituto biología de ingeniería biológica y médica",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15489,8 +15489,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio Electr\u00f3nica y Rob\u00f3tica",
-                "name": "Laboratorio Electr\u00f3nica y Rob\u00f3tica",
+                "identifier": "Laboratorio Electrónica y Robótica",
+                "name": "Laboratorio Electrónica y Robótica",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15512,8 +15512,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Ba\u00f1o",
-                "name": "Ba\u00f1o",
+                "identifier": "Baño",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -15535,8 +15535,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio Sustentabilidad y Recursos Cr\u00edticos",
-                "name": "Laboratorio Sustentabilidad y Recursos Cr\u00edticos",
+                "identifier": "Laboratorio Sustentabilidad y Recursos Críticos",
+                "name": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15582,7 +15582,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano01or",
-                "name": "Ba\u00f1o Mujeres 01",
+                "name": "Baño Mujeres 01",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
@@ -15606,7 +15606,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano02or",
-                "name": "Ba\u00f1o Hombres 02",
+                "name": "Baño Hombres 02",
                 "information": "",
                 "categories": [
                     "bath"
@@ -15630,7 +15630,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano03or",
-                "name": "Ba\u00f1o Universal 03",
+                "name": "Baño Universal 03",
                 "information": "",
                 "categories": [
                     "bath",
@@ -15654,7 +15654,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano04or",
-                "name": "Ba\u00f1o Universal 04",
+                "name": "Baño Universal 04",
                 "information": "Con Mudador",
                 "categories": [
                     "bath",
@@ -15678,7 +15678,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano05or",
-                "name": "Ba\u00f1o Hombres 05",
+                "name": "Baño Hombres 05",
                 "information": "",
                 "categories": [
                     "bath"
@@ -15701,7 +15701,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "bano06or",
-                "name": "Ba\u00f1o 06",
+                "name": "Baño 06",
                 "information": "",
                 "categories": [
                     "bath"
@@ -15723,8 +15723,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio Fluidodin\u00e1mica",
-                "name": "Laboratorio Fluidodin\u00e1mica",
+                "identifier": "Laboratorio Fluidodinámica",
+                "name": "Laboratorio Fluidodinámica",
                 "information": "",
                 "categories": [
                     "laboratory"
@@ -15746,8 +15746,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Ba\u00f1o universal",
-                "name": "Ba\u00f1o universal",
+                "identifier": "Baño universal",
+                "name": "Baño universal",
                 "information": "",
                 "categories": [
                     "bath"
@@ -15769,31 +15769,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Salon Verde",
-                "name": "Salon Verde",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61438299,
-                    -33.5000108
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "Auditorio Centro de innovaci\u00f3n UC",
-                "name": "Auditorio Centro de innovaci\u00f3n UC, Anacleto Angelini",
+                "identifier": "Auditorio Centro de innovación UC",
+                "name": "Auditorio Centro de innovación UC, Anacleto Angelini",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -15816,7 +15793,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "IMC",
-                "name": "Instituto de Ingenier\u00eda Matem\u00e1tica y Computacional - IMC",
+                "name": "Instituto de Ingeniería Matemática y Computacional - IMC",
                 "information": "",
                 "categories": [
                     "other"

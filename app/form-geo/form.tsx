@@ -7,18 +7,9 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getParamCampusBounds";
 
-import { siglas as MapSiglas } from "../../utils/types";
+import { siglas as MapSiglas, METHOD } from "../../utils/types";
 
 import MapComponent from "./map";
-
-interface newPlace {
-  longitude: number | null;
-  latitude: number | null;
-  placeName: string;
-  information: string;
-  floor: number;
-  categories: string;
-}
 
 interface errors {
   longitude?: number | string | null;
@@ -29,16 +20,37 @@ interface errors {
   categories?: string;
 }
 
-const initialValues = {
+interface newPlace {
+  longitude: number | null;
+  latitude: number | null;
+  placeName: string;
+  information: string;
+  floor: number;
+  categories: string;
+  identifier: string | null;
+}
+
+const defaultValues: newPlace = {
   placeName: "",
   information: "",
   floor: 1,
   latitude: null,
   longitude: null,
   categories: "",
+  identifier: null,
 };
 
-export default function FormComponent() {
+export default function FormComponent({
+  values,
+  mode,
+  fun,
+}: {
+  values: newPlace | null;
+  mode: METHOD;
+  fun: (() => void) | null;
+}) {
+  const initialValues = values || defaultValues;
+
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [longitude, setLongitude] = useState<number>(-70.6109);
   const [latitude, setLatitude] = useState<number>(-33.4983);
@@ -49,7 +61,7 @@ export default function FormComponent() {
     setLatitude(event.lngLat.lat);
   }, []);
 
-  const validate = (newPlace: Omit<newPlace, "longitude" | "latitude">) => {
+  const validate = (newPlace: Omit<newPlace, "longitude" | "latitude" | "identifier">) => {
     const errors: errors = {};
 
     var campus: string | null = null;
@@ -99,12 +111,12 @@ export default function FormComponent() {
       longitude,
       latitude,
       campus,
-      identifier: "",
+      identifier: initialValues.identifier,
       name: values.placeName.trim(),
     };
     delete transformedValues.placeName;
     const requestOptions = {
-      method: "POST",
+      method: METHOD.CREATE == mode ? "POST" : "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(transformedValues),
     };
@@ -119,6 +131,9 @@ export default function FormComponent() {
         }
         alert(data.message);
         resetForm();
+        if (fun != null) {
+          fun();
+        }
         setSubmitting(false);
       })
       .catch((error) => {
@@ -129,20 +144,20 @@ export default function FormComponent() {
   }
 
   useEffect(() => {
-    getGeolocation(setLatitude, setLongitude);
+    if (initialValues.longitude && initialValues.latitude) {
+      setLatitude(initialValues.latitude);
+      setLongitude(initialValues.longitude);
+    } else {
+      getGeolocation(setLatitude, setLongitude);
+    }
   }, []);
 
   return (
-    <main className="flex min-h-full w-full items-center justify-center dark:bg-dark-1">
-      <div className="flex flex-col px-4 w-5/6 h-5/6 my-2 py-1 items-center justify-center rounded dark:bg-dark-1 space-y-6">
+    <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">
+      <div className="flex flex-col w-5/6 max-w-md h-5/6 my-2 items-center justify-center rounded dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
-              <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">Nueva ubicación</h1>
-              <h2 className="mb-16 pb-16 text-base lg:text-lg text-black dark:text-light-4 select-none text-center">
-                Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
-              </h2>
-
               <label
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
@@ -182,6 +197,7 @@ export default function FormComponent() {
                 <option value="park_bicycle">Bicicletero</option>
                 <option value="financial">Banco / Cajero automático</option>
                 <option value="laboratory">Laboratorio</option>
+                <option value="water">Punto de agua</option>
                 <option value="other">Otro</option>
               </Field>
               <ErrorMessage
@@ -209,9 +225,10 @@ export default function FormComponent() {
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full h-36 | text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
+                as="textarea"
                 type="text"
               />
 
@@ -249,6 +266,6 @@ export default function FormComponent() {
           )}
         </Formik>
       </div>
-    </main>
+    </section>
   );
 }

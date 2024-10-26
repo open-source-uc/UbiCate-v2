@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
+import { Feature } from "@/utils/types";
 
 import PlacesJSON from "../../data/places.json";
 
@@ -38,7 +39,8 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
 export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
   const paramPlaceId: string | undefined = searchParams?.place;
-  const paramPlace = PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId);
+  const paramPlace: Feature | null =
+    (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
 
   return (
     <>

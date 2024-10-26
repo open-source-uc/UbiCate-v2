@@ -6,7 +6,7 @@ import TypeAnimationWrapper from "./components/typeAnimationWrapper";
 
 export default function Home() {
   return (
-    <section className="flex max-h-screen flex-col items-center justify-between p-10">
+    <main className="flex max-h-screen flex-col items-center justify-between p-10">
       <div className="relative flex place-items-center">
         <Image className="relative invert" src="/logo-white.svg" alt="UbíCate uc" width={180} height={37} priority />
       </div>
@@ -36,6 +36,6 @@ export default function Home() {
           </svg>
         </a>
       </footer>
-    </section>
+    </main>
   );
 }

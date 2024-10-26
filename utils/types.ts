@@ -32,5 +32,12 @@ export const siglas = new Map<string, string>([
     ["park_bicycle", "Bicicletero"],
     ["studyroom", "Sala de estudio"],
     ["cash_machine", "Banco / Cajero automático"],
+    ["water", "Punto de agua"],
     ["other", "Otro"]
+
 ]);
+
+export enum METHOD {
+    CREATE = "create",
+    UPDATE = "update",
+}
