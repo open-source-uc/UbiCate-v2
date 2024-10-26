@@ -76,7 +76,10 @@ export default function MapComponent({
       if (!mounted) return;
 
       geocoder.current = getGeocoder(
-        (result: any) => handleResult(result, setGeocoderPlaces, Places),
+        (result: any) => {
+          setPlace(result.result);
+          handleResult(result, setGeocoderPlaces, Places);
+        },
         (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
         () => handleClear(setGeocoderPlaces),
       );
