@@ -41,6 +41,9 @@ async function create_place(url: string, identifier: string, file_places: Places
     }),
   });
   const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
   return data;
 }
 
@@ -63,6 +66,10 @@ async function update_place(url: string, identifier: string, file_places: Places
     }),
   });
   const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
   return data;
 }
 
@@ -208,7 +215,7 @@ export async function PUT(request: NextRequest) {
 
     file_places.features.unshift(place);
 
-    update_place(url, place.properties.identifier, file_places, file_sha);
+    await update_place(url, place.properties.identifier, file_places, file_sha);
 
     return NextResponse.json(
       { message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana)." },
@@ -217,7 +224,7 @@ export async function PUT(request: NextRequest) {
       },
     );
   } catch (error) {
-    return NextResponse.json({ error: "Error al procesar el JSON" }, { status: 400 });
+    return NextResponse.json({}, { status: 400 });
   }
 }
 
