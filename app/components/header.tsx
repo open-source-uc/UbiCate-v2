@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { AlignJustify } from "lucide-react";
+
 import { useSidebar } from "../context/sidebarCtx";
+
 import DarkModeSelector from "./darkModeSelector";
 
 export default function Header() {
@@ -22,7 +25,9 @@ export default function Header() {
         </div>
 
         <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading md:text-2xl text-lg">
-          <Link href="/"><h1>{title}</h1></Link>
+          <Link href="/">
+            <h1>{title}</h1>
+          </Link>
         </div>
 
         <DarkModeSelector />
