@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 import { AlignJustify } from "lucide-react";
-
 import { useSidebar } from "../context/sidebarCtx";
-
 import DarkModeSelector from "./darkModeSelector";
 
 export default function Header() {
   const { toggleSidebar } = useSidebar();
+  const pathname = usePathname();
+
+  const title = pathname === "/map" ? "UbiCate - Mapa UC" : "UbiCate UC";
 
   return (
     <header className="w-full select-none text-white h-12 flex items-center relative z-30">
@@ -21,7 +22,7 @@ export default function Header() {
         </div>
 
         <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading text-xl">
-          <Link href="/">UbiCate UC</Link>
+          <Link href="/"><h1>{title}</h1></Link>
         </div>
 
         <DarkModeSelector />
