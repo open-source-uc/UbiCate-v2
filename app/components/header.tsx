@@ -21,7 +21,7 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading text-xl">
+        <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading md:text-2xl text-lg">
           <Link href="/"><h1>{title}</h1></Link>
         </div>
 
