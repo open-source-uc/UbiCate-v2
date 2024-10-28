@@ -6,16 +6,7 @@ import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
-import {
-  Map,
-  Source,
-  Layer,
-  Popup,
-  GeolocateControl,
-  FullscreenControl,
-  NavigationControl,
-  ScaleControl,
-} from "react-map-gl";
+import { Map, Source, Layer, Popup, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
@@ -62,7 +53,7 @@ export default function MapComponent({
 }: {
   Places: any;
   paramCampusBounds: LngLatBoundsLike;
-  paramPlace: any;
+  paramPlace: Feature | null;
 }) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
@@ -85,14 +76,17 @@ export default function MapComponent({
       if (!mounted) return;
 
       geocoder.current = getGeocoder(
-        (result: any) => handleResult(result, setGeocoderPlaces, Places),
+        (result: any) => {
+          setPlace(result.result);
+          handleResult(result, setGeocoderPlaces, Places);
+        },
         (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
         () => handleClear(setGeocoderPlaces),
       );
     };
 
     initializeGeocoder();
-
+    setPlace(paramPlace);
     return () => {
       mounted = false;
     };
@@ -117,20 +111,21 @@ export default function MapComponent({
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
   }, [geocoder]);
+
   return (
     <>
       <Map
-        initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+        initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={onClickMap}
         onLoad={addGeocoderControl}
         ref={mapRef}
       >
-        <GeolocateControl position="top-left" showUserHeading={true} />
-        <FullscreenControl position="top-left" />
-        <NavigationControl position="top-left" />
+        <GeolocateControl position="bottom-right" showUserHeading={true} />
+        {/* <FullscreenControl position="top-left" /> */}
+        <NavigationControl position="bottom-right" />
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
@@ -155,11 +150,38 @@ export default function MapComponent({
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
               return (
-                <Marker key={place.properties.identifier} place={place} onClick={setPlace} onMouseEnter={setHover} />
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={(place) => {
+                    setPlace(place);
+                    if (!map) return;
+
+                    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
+                    const bounds = map.getBounds();
+                    const margin = 0.001;
+
+                    const isOutside = !(
+                      coordinates[0] >= bounds.getWest() + margin &&
+                      coordinates[0] <= bounds.getEast() - margin &&
+                      coordinates[1] >= bounds.getSouth() + margin &&
+                      coordinates[1] <= bounds.getNorth() - margin
+                    );
+
+                    if (isOutside) {
+                      map.flyTo({
+                        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+                        essential: true,
+                        duration: 400,
+                      });
+                    }
+                  }}
+                  onMouseEnter={setHover}
+                />
               );
             })
           : null}
-        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
+        {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>
       <MenuInformation place={place} />
     </>

@@ -39,12 +39,12 @@ function Pill({ title, iconPath, onClick, active }: PillProps) {
   }`;
 
   return (
-    <main className={mainStyle} onClick={onClick}>
+    <div className={mainStyle} onClick={onClick}>
       <section className={sectionStyle}>
         {!isSmallScreen && <p className={textStyle}>{title}</p>}
         <Image className={iconStyle} src={iconPath} alt="icon" width={16} height={16} />
       </section>
-    </main>
+    </div>
   );
 }
 

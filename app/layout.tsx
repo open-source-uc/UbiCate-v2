@@ -13,7 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "UbíCate UC",
-  description: "Explora y encuentra fácilmente salas, baños y puntos de interés en los distintos campus de la UC",
+  description:
+    "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
   },
@@ -39,11 +40,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
         <SidebarProvider>
           <Overlay />
-          <main className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
+          <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
             <Header />
             <Sidebar />
             {children}
-          </main>
+          </div>
         </SidebarProvider>
       </body>
     </html>
