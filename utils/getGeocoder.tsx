@@ -1,11 +1,7 @@
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Mapbox from "mapbox-gl";
 import Fuse from "fuse.js";
-<<<<<<< HEAD
-
-=======
 import { Feature } from "./types";
->>>>>>> main
 import geojson from "../data/places.json";
 
 export default function getGeocoder(
