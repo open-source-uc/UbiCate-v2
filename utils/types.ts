@@ -33,6 +33,7 @@ export const siglas = new Map<string, string>([
     ["studyroom", "Sala de estudio"],
     ["cash_machine", "Banco / Cajero automático"],
     ["water", "Punto de agua"],
+    ["auditorium", "Auditorio"],
     ["other", "Otro"]
 
 ]);
