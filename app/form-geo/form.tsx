@@ -100,6 +100,10 @@ export default function FormComponent({
       errors.floor = "Piso inválido";
     }
 
+    if (Math.abs(newPlace.floor) == 0) {
+      errors.floor = "Piso 0 es inválido";
+    }
+
     return errors;
   };
 
@@ -192,13 +196,16 @@ export default function FormComponent({
                 <option value="bath">Baño</option>
                 <option value="food_lunch">Comida</option>
                 <option value="studyroom">Sala de estudio</option>
-                <option value="trash">Basurero</option>
-                <option value="photocopy">Fotocopias</option>
+                <option value="trash">Reciclaje</option>
                 <option value="park_bicycle">Bicicletero</option>
                 <option value="financial">Banco / Cajero automático</option>
                 <option value="laboratory">Laboratorio</option>
                 <option value="water">Punto de agua</option>
                 <option value="auditorium">Auditorio</option>
+                <option value="sports_place">Deporte</option>
+                <option value="computers">Sala de computadores</option>
+                <option value="photocopy">Fotocopias / Impresoras</option>
+                <option value="shop">Tienda</option>
                 <option value="other">Otro</option>
               </Field>
               <ErrorMessage

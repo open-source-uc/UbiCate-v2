@@ -29,11 +29,17 @@ export const siglas = new Map<string, string>([
     ["classroom", "Sala"],
     ["bath", "Baño"],
     ["food_lunch", "Comida"],
-    ["park_bicycle", "Bicicletero"],
     ["studyroom", "Sala de estudio"],
-    ["cash_machine", "Banco / Cajero automático"],
+    ["trash", "Reciclaje"],
+    ["park_bicycle", "Bicicletero"],
+    ["financial", "Banco / Cajero automático"],
+    ["laboratory", "Laboratorio"],
     ["water", "Punto de agua"],
     ["auditorium", "Auditorio"],
+    ["sports_place", "Deporte"],
+    ["computers", "Sala de computadores"],
+    ["photocopy", "Fotocopias / Impresoras"],
+    ["shop", "Tienda"],
     ["other", "Otro"]
 
 ]);
