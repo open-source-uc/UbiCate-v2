@@ -158,7 +158,6 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
-        {/* Desactivado el hover pues no daba informacion relevante */}
         {hover ? (
           <Popup
             longitude={hover.geometry.coordinates[0]}
