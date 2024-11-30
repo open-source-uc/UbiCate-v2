@@ -12,11 +12,7 @@ interface MarkerProps {
 
 export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
   return (
-    <MapboxMarker
-      latitude={place.geometry.coordinates[1]}
-      longitude={place.geometry.coordinates[0]}
-      offset={[0, -18]}
-    >
+    <MapboxMarker latitude={place.geometry.coordinates[1]} longitude={place.geometry.coordinates[0]} offset={[0, -18]}>
       <div
         onMouseEnter={() => {
           onMouseEnter(place);

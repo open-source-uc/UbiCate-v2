@@ -126,7 +126,7 @@ export default function MapComponent({
         duration: 400,
       });
     }
-  };
+  }
 
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
@@ -172,15 +172,15 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={(place) => onClickMark(place)}
-                onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={(place) => onClickMark(place)}
+                  onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>
