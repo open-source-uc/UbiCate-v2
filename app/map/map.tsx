@@ -104,6 +104,30 @@ export default function MapComponent({
     setPlace(null);
   }
 
+  function onClickMark(place: Feature) {
+    setPlace(place);
+    if (!map) return;
+
+    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
+    const bounds = map.getBounds();
+    const margin = 0.001;
+
+    const isOutside = !(
+      coordinates[0] >= bounds.getWest() + margin &&
+      coordinates[0] <= bounds.getEast() - margin &&
+      coordinates[1] >= bounds.getSouth() + margin &&
+      coordinates[1] <= bounds.getNorth() - margin
+    );
+
+    if (isOutside) {
+      map.flyTo({
+        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+        essential: true,
+        duration: 400,
+      });
+    }
+  };
+
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
   }, [paramCampusBounds]);
@@ -134,7 +158,7 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
-
+        {/* Desactivado el hover pues no daba informacion relevante */}
         {hover ? (
           <Popup
             longitude={hover.geometry.coordinates[0]}
@@ -149,37 +173,15 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={(place) => {
-                    setPlace(place);
-                    if (!map) return;
-
-                    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
-                    const bounds = map.getBounds();
-                    const margin = 0.001;
-
-                    const isOutside = !(
-                      coordinates[0] >= bounds.getWest() + margin &&
-                      coordinates[0] <= bounds.getEast() - margin &&
-                      coordinates[1] >= bounds.getSouth() + margin &&
-                      coordinates[1] <= bounds.getNorth() - margin
-                    );
-
-                    if (isOutside) {
-                      map.flyTo({
-                        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
-                        essential: true,
-                        duration: 400,
-                      });
-                    }
-                  }}
-                  onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={(place) => onClickMark(place)}
+                onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>

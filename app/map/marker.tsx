@@ -16,11 +16,6 @@ export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
       latitude={place.geometry.coordinates[1]}
       longitude={place.geometry.coordinates[0]}
       offset={[0, -18]}
-      onClick={(e) => {
-        e.originalEvent.stopPropagation();
-        window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-        onClick(place);
-      }}
     >
       <div
         onMouseEnter={() => {
@@ -28,6 +23,16 @@ export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
         }}
         onMouseLeave={() => {
           onMouseEnter(null);
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
+          window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+          onClick(place);
+        }}
+        onTouchStart={(e) => {
+          e.stopPropagation();
+          window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+          onClick(place);
         }}
       >
         <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
