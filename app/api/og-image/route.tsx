@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, ImageResponse } from "next/server";
 
 import satori from "satori";
 
@@ -40,11 +40,20 @@ export async function GET(request: NextRequest) {
     ],
   });
 
-  return new NextResponse(svg, {
-    headers: {
-      "Content-Type": "image/svg+xml",
+  return new ImageResponse(
+    (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: svg,
+        }}
+      />
+    ),
+    {
+      width: 1200,
+      height: 630,
+      status: 200,
     },
-  });
+  );
 }
 
 export const runtime = "edge";
