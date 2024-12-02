@@ -26,6 +26,7 @@ export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
           onClick(place);
         }}
         onTouchStart={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
           onClick(place);
