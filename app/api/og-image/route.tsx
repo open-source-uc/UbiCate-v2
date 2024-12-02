@@ -1,7 +1,5 @@
 import { NextRequest, ImageResponse } from "next/server";
 
-import satori from "satori";
-
 function Template({ text, url }: { text: string; url: string }) {
   return (
     <div tw="relative flex w-full h-full flex items-center justify-center">
@@ -23,11 +21,12 @@ export async function GET(request: NextRequest) {
   const url = new URL(request.nextUrl.href);
   const baseUrl = `${url.origin.toString()}`;
 
-  const text = paramPlaceId ? paramPlaceId : paramCampus || "Mapa";
+  const text = paramCampus || "Mapa";
   const textTruncated: string = text && text.length > 20 ? `${text.slice(0, 20)}...` : text;
 
   const fontResponse = await fetch(`${baseUrl}/fonts/Lato-Bold.ttf`);
-  const svg = await satori(<Template text={textTruncated} url={baseUrl + "/opengraph-image.png"} />, {
+
+  return new ImageResponse(<Template text={textTruncated} url={baseUrl + "/opengraph-image.png"} />, {
     width: 1200,
     height: 630,
     fonts: [
@@ -38,22 +37,8 @@ export async function GET(request: NextRequest) {
         style: "normal",
       },
     ],
+    status: 200,
   });
-
-  return new ImageResponse(
-    (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: svg,
-        }}
-      />
-    ),
-    {
-      width: 1200,
-      height: 630,
-      status: 200,
-    },
-  );
 }
 
 export const runtime = "edge";
