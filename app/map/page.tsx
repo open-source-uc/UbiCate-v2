@@ -17,14 +17,13 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   if (paramCampus) params.append("campus", paramCampus);
   if (paramPlaceId) params.append("place", paramPlaceId);
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
   return {
     title: paramCampus ? `UbíCate UC - ${paramCampus}` : "UbíCate UC - Mapa",
     openGraph: {
       images: [
         {
-          url: `${baseUrl}/api/og-image?${params.toString()}`,
+          url: `${baseUrl}/api/og-image`,
           width: 1200,
           height: 630,
         },
