@@ -20,11 +20,11 @@ export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
         onMouseLeave={() => {
           onMouseEnter(null);
         }}
-        onClick={(e) => {
-          e.stopPropagation();
-          window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-          onClick(place);
-        }}
+        // onClick={(e) => {
+        //   e.stopPropagation();
+        //   window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+        //   onClick(place);
+        // }}
         onTouchStart={(e) => {
           e.preventDefault();
           e.stopPropagation();
