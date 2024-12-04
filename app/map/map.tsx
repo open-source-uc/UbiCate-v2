@@ -58,13 +58,14 @@ export default function MapComponent({
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const geocoder = useRef<any>(null);
-  const [geocoderPlaces, setGeocoderPlaces] = useState<any>(null);
+  const [geocoderPlaces, setGeocoderPlaces] = useState<Feature[] | null>(null);
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
 
   const [place, setPlace] = useState<Feature | null>(null);
   const [hover, setHover] = useState<Feature | null>(null);
+  const [tmpMark, setTmpMark] = useState<Feature | null>(null);
 
   useThemeObserver(setTheme, map);
 
@@ -145,6 +146,26 @@ export default function MapComponent({
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={onClickMap}
         onLoad={addGeocoderControl}
+        onDblClick={(e) => {
+          e.preventDefault();
+          const newMark: Feature = {
+            type: "Feature",
+            properties: {
+              identifier: "NUEVO-LUGAR-CD",
+              name: `Lat: ${e.lngLat.lng}, Lon ${e.lngLat.lat}`,
+              information: "",
+              categories: [],
+              campus: "",
+              faculties: "",
+              floors: [],
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [e.lngLat.lng, e.lngLat.lat],
+            },
+          };
+          setTmpMark(newMark);
+        }}
         ref={mapRef}
       >
         <GeolocateControl position="bottom-right" showUserHeading={true} />
@@ -171,18 +192,26 @@ export default function MapComponent({
           </Popup>
         ) : null}
         {geocoderPlaces
-          ? geocoderPlaces.map((place: Feature) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={(place) => onClickMark(place)}
-                onMouseEnter={setHover}
-              />
-            );
-          })
+          ? geocoderPlaces.map((place) => {
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={(place) => onClickMark(place)}
+                  onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
+        {!tmpMark ? null : (
+          <Marker
+            key={tmpMark.properties.identifier}
+            place={tmpMark}
+            onClick={(tmpMark) => onClickMark(tmpMark)}
+            onMouseEnter={setHover}
+          />
+        )}
       </Map>
       <MenuInformation place={place} />
     </>
