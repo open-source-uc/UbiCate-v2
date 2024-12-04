@@ -24,7 +24,7 @@ export default function LandingSearch() {
       if (!mounted) return;
       geocoder.current = getGeocoder();
 
-      const redirectToMap = (selectedPlaceId: string, placeName: string) => {
+      const redirectToMap = (selectedPlaceId: string) => {
         router.push("/map?place=" + selectedPlaceId);
       };
 
@@ -34,7 +34,7 @@ export default function LandingSearch() {
 
         for (const place of geojson.features) {
           if (place.properties.identifier === selectedPlaceId) {
-            redirectToMap(selectedPlaceId, place.properties.name);
+            redirectToMap(selectedPlaceId);
             break;
           }
         }
