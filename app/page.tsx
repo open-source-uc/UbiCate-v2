@@ -1,8 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Metadata } from "next";
+
 import LandingSearch from "./components/landingSearch";
 import TypeAnimationWrapper from "./components/typeAnimationWrapper";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "UbíCate UC",
+    description:
+      "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+    },
+    authors: [{ name: "Open Source UC" }],
+    twitter: {
+      card: "summary_large_image",
+    },
+    openGraph: {
+      images: [
+        {
+          url: new URL(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/opengraph-image.png`),
+        },
+      ],
+    },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
+    keywords: [
+      "Salas UC",
+      "Campus UC",
+      "Pontificia Universidad Católica de Chile",
+      "Mapa UC",
+      "Ubícate UC",
+      "San Joaquín",
+      "Open Source",
+    ],
+  };
+}
 
 export default function Home() {
   return (

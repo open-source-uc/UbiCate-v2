@@ -77,7 +77,7 @@ export default function MapComponent({
 
       geocoder.current = getGeocoder(
         (result: any) => {
-          setPlace(result.result);
+          // setPlace(result.result);
           handleResult(result, setGeocoderPlaces, Places);
         },
         (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
@@ -86,7 +86,7 @@ export default function MapComponent({
     };
 
     initializeGeocoder();
-    setPlace(paramPlace);
+    // setPlace(paramPlace);
     return () => {
       mounted = false;
     };

@@ -1,6 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
-
-import satori from "satori";
+import { NextRequest, ImageResponse } from "next/server";
 
 function Template({ text, url }: { text: string; url: string }) {
   return (
@@ -17,17 +15,16 @@ function Template({ text, url }: { text: string; url: string }) {
 }
 
 export async function GET(request: NextRequest) {
-  const paramCampus: string | null = request.nextUrl.searchParams.get("campus");
-  const paramPlaceId: string | null = request.nextUrl.searchParams.get("place");
-
+  const placeName: string | null = request.nextUrl.searchParams.get("n");
   const url = new URL(request.nextUrl.href);
   const baseUrl = `${url.origin.toString()}`;
 
-  const text = paramPlaceId ? paramPlaceId : paramCampus || "Mapa";
-  const textTruncated: string = text && text.length > 20 ? `${text.slice(0, 20)}...` : text;
+  const text = placeName || "UbíCate UC - Mapa";
+  const textTruncated: string = text && text.length > 24 ? `${text.slice(0, 24)}...` : text;
 
   const fontResponse = await fetch(`${baseUrl}/fonts/Lato-Bold.ttf`);
-  const svg = await satori(<Template text={textTruncated} url={baseUrl + "/opengraph-image.png"} />, {
+
+  return new ImageResponse(<Template text={textTruncated} url={baseUrl + "/opengraph-image.png"} />, {
     width: 1200,
     height: 630,
     fonts: [
@@ -38,12 +35,7 @@ export async function GET(request: NextRequest) {
         style: "normal",
       },
     ],
-  });
-
-  return new NextResponse(svg, {
-    headers: {
-      "Content-Type": "image/svg+xml",
-    },
+    status: 200,
   });
 }
 
