@@ -12,7 +12,7 @@ import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import Campus from "../../data/campuses.json";
-import { Feature } from "../../utils/types";
+import { Feature, JSONFeatures } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
 
 import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
@@ -51,7 +51,7 @@ export default function MapComponent({
   paramCampusBounds,
   paramPlace,
 }: {
-  Places: any;
+  Places: JSONFeatures;
   paramCampusBounds: LngLatBoundsLike;
   paramPlace: Feature | null;
 }) {
@@ -172,15 +172,15 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place: Feature) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={(place) => onClickMark(place)}
-                  onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={(place) => onClickMark(place)}
+                onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
       </Map>

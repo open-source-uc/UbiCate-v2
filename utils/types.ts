@@ -1,3 +1,5 @@
+
+
 export interface Feature {
     type: "Feature";
     properties: {
@@ -14,6 +16,28 @@ export interface Feature {
         coordinates: [number, number];
     };
 }
+export interface Feature2 {
+    type: string;
+    properties: {
+        identifier: string;
+        name: string;
+        information: string;
+        categories: string[];
+        campus: string;
+        faculties: string;
+        floors: number[];
+    };
+    geometry: {
+        type: string;
+        coordinates: number[];
+    };
+}
+
+export interface JSONFeatures {
+    type: string;
+    features: Feature2[];
+}
+
 
 export const siglas = new Map<string, string>([
     ["SanJoaquin", "SJ"],

@@ -1,4 +1,6 @@
-export const handleResult = (result: any, setGeocoderPlaces: (places: any[]) => void, Places: any) => {
+import { JSONFeatures } from "@/utils/types";
+
+export const handleResult = (result: any, setGeocoderPlaces: (places: any[]) => void, Places: JSONFeatures) => {
   const selectedPlaceId = result.result.properties.identifier;
   for (const place of Places.features) {
     if (place.properties.identifier === selectedPlaceId) {
