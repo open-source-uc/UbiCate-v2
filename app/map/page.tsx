@@ -24,6 +24,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
           url: `${baseUrl}/api/og-image?n=${placeName}`,
           width: 1200,
           height: 630,
+          type: "image/png",
         },
       ],
     },

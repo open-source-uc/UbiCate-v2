@@ -13,7 +13,6 @@ export default function Menu({ place }: MenuProps) {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: place?.properties.name,
           url: window.location.href,
         });
         console.log("Contenido compartido con éxito");
