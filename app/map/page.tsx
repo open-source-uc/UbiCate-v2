@@ -14,7 +14,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
   const paramPlaceId: string | undefined = searchParams?.place;
   const paramPlace: Feature | null = (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
-  const placeName = paramPlace?.properties?.name || null;
+  const placeName = paramPlace?.properties?.name || "";
 
   return {
     title: placeName ? `UbíCate UC - ${placeName}` : "UbíCate UC - Mapa",
