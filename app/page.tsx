@@ -8,7 +8,7 @@ import TypeAnimationWrapper from "./components/typeAnimationWrapper";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "UbíCate UC - Mapas UC",
+    title: "UbíCate UC",
     description:
       "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
     alternates: {
@@ -21,11 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_BASE_URL}/opengraph-image.png`,
+          url: new URL(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/opengraph-image.png`),
         },
       ],
     },
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://localhost"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
     keywords: [
       "Salas UC",
       "Campus UC",

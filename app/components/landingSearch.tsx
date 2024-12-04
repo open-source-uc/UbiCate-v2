@@ -25,7 +25,7 @@ export default function LandingSearch() {
       geocoder.current = getGeocoder();
 
       const redirectToMap = (selectedPlaceId: string, placeName: string) => {
-        router.push("/map?place=" + selectedPlaceId + "&n=" + placeName);
+        router.push("/map?place=" + selectedPlaceId);
       };
 
       geocoder.current.on("result", function (result: any) {
