@@ -10,28 +10,23 @@ import MapComponent from "./map";
 type SearchParams = { campus?: string; place?: string };
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
-  const paramCampus: string | undefined = searchParams?.campus;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
   const paramPlaceId: string | undefined = searchParams?.place;
-
-  const params = new URLSearchParams();
-  if (paramCampus) params.append("campus", paramCampus);
-  if (paramPlaceId) params.append("place", paramPlaceId);
-
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const paramPlace: Feature | null =
+    (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
+  const placeName = paramPlace?.properties?.name || "";
 
   return {
-    title: paramCampus ? `UbíCate UC - ${paramCampus}` : "UbíCate UC - Mapa",
+    title: placeName ? `UbíCate UC - ${placeName}` : "UbíCate UC - Mapa",
     openGraph: {
       images: [
         {
-          url: `${baseUrl}/api/og-image?${params.toString()}`,
+          url: new URL(`${baseUrl}/api/og-image?n=${placeName}`),
           width: 1200,
           height: 630,
+          type: "image/png",
         },
       ],
-    },
-    alternates: {
-      canonical: `${baseUrl}/map${params.toString() ? `?${params.toString()}` : ""}`,
     },
   };
 }
