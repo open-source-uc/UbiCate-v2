@@ -7,13 +7,13 @@ import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
-type SearchParams = { campus?: string; place?: string; };
+type SearchParams = { campus?: string; place?: string };
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
-
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
   const paramPlaceId: string | undefined = searchParams?.place;
-  const paramPlace: Feature | null = (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
+  const paramPlace: Feature | null =
+    (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
   const placeName = paramPlace?.properties?.name || "";
 
   return {
