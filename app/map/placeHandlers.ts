@@ -6,7 +6,7 @@ export const handleResult = (result: any, setGeocoderPlaces: (places: any[]) => 
       break;
     }
   }
-  window.history.replaceState(null, "", `?place=${selectedPlaceId}`);
+  window.history.replaceState(null, "", `?place=${selectedPlaceId}&n=${result?.result?.properties?.name}`);
 };
 
 export const handleResults = (results: any, setGeocoderPlaces: (places: any[]) => void, Places: any) => {

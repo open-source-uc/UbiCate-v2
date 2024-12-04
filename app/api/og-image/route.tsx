@@ -15,14 +15,13 @@ function Template({ text, url }: { text: string; url: string }) {
 }
 
 export async function GET(request: NextRequest) {
-  const paramCampus: string | null = request.nextUrl.searchParams.get("campus");
-  const paramPlaceId: string | null = request.nextUrl.searchParams.get("place");
+  const placeName: string | null = request.nextUrl.searchParams.get("n");
 
   const url = new URL(request.nextUrl.href);
   const baseUrl = `${url.origin.toString()}`;
 
-  const text = paramCampus || "Mapa";
-  const textTruncated: string = text && text.length > 20 ? `${text.slice(0, 20)}...` : text;
+  const text = placeName || "Ubicate UC - Mapa";
+  const textTruncated: string = text && text.length > 24 ? `${text.slice(0, 24)}...` : text;
 
   const fontResponse = await fetch(`${baseUrl}/fonts/Lato-Bold.ttf`);
 

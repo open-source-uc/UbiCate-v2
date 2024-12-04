@@ -7,23 +7,21 @@ import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
-type SearchParams = { campus?: string; place?: string };
+type SearchParams = { campus?: string; place?: string; n?: string };
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
-  const paramCampus: string | undefined = searchParams?.campus;
-  const paramPlaceId: string | undefined = searchParams?.place;
+  const placeName: string | undefined = searchParams?.n;
 
   const params = new URLSearchParams();
-  if (paramCampus) params.append("campus", paramCampus);
-  if (paramPlaceId) params.append("place", paramPlaceId);
+  if (placeName) params.append("n", placeName);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
   return {
-    title: paramCampus ? `UbíCate UC - ${paramCampus}` : "UbíCate UC - Mapa",
+    title: placeName ? `UbíCate UC - ${placeName}` : "UbíCate UC - Mapa",
     openGraph: {
       images: [
         {
-          url: `${baseUrl}/api/og-image`,
+          url: `${baseUrl}/api/og-image?n=${placeName}`,
           width: 1200,
           height: 630,
         },
