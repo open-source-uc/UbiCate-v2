@@ -98,6 +98,21 @@ export async function POST(request: NextRequest) {
       },
     };
 
+    if (nuevo_punto.properties.categories.includes("classroom")) {
+      nuevo_punto.properties.identifier =
+        nuevo_punto.properties.name.trim().toUpperCase().replaceAll(" ", "_") +
+        "-" +
+        nuevo_punto.properties.campus.toUpperCase();
+    } else {
+      const startOfYear2024 = new Date("2024-01-01T00:00:00");
+
+      const now = new Date().getTime();
+      const diffInMilliseconds = now - startOfYear2024.getTime();
+      const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
+
+      nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
+    }
+
     const path = "data/places.json";
     const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
 
@@ -111,7 +126,6 @@ export async function POST(request: NextRequest) {
     const file_data = await response.json();
     const file_sha = file_data.sha;
     const file_places: Places = JSON.parse(Buffer.from(file_data.content, "base64").toString());
-
     const index = file_places.features.findIndex(
       (feature: Feature) =>
         feature.properties.identifier.toUpperCase() === nuevo_punto.properties.identifier.toUpperCase(),
@@ -128,20 +142,6 @@ export async function POST(request: NextRequest) {
     /*
     Sistema de crear un nuevo lugar
     */
-    if (nuevo_punto.properties.categories.includes("classroom")) {
-      nuevo_punto.properties.identifier =
-        nuevo_punto.properties.name.trim().toUpperCase().replaceAll(" ", "_") +
-        "-" +
-        nuevo_punto.properties.campus.toUpperCase();
-    } else {
-      const startOfYear2024 = new Date("2024-01-01T00:00:00");
-
-      const now = new Date().getTime();
-      const diffInMilliseconds = now - startOfYear2024.getTime();
-      const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
-
-      nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
-    }
 
     file_places.features.unshift(nuevo_punto);
     await create_place(url, getID(nuevo_punto), file_places, file_sha);
