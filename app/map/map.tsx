@@ -196,15 +196,15 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={(place) => onClickMark(place)}
-                onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={(place) => onClickMark(place)}
+                  onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
