@@ -153,7 +153,7 @@ export default function MapComponent({
           const newMark: Feature = {
             type: "Feature",
             properties: {
-              identifier: "42-ALL",
+              identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
               name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
               information: "",
               categories: [],
@@ -208,11 +208,7 @@ export default function MapComponent({
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
-          <Marker
-            key={tmpMark.properties.identifier}
-            place={tmpMark}
-            onClick={() => console.log("H")}
-          />
+          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => console.log("H")} />
         )}
       </Map>
       <MenuInformation place={place} />
