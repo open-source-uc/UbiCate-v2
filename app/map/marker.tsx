@@ -7,7 +7,7 @@ import { Feature } from "../../utils/types";
 interface MarkerProps {
   place: Feature;
   onClick: (place: Feature) => void;
-  onMouseEnter: (place: Feature | null) => void;
+  onMouseEnter?: (place: Feature | null) => void;
 }
 
 export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
@@ -15,10 +15,10 @@ export default function Marker({ place, onClick, onMouseEnter }: MarkerProps) {
     <MapboxMarker latitude={place.geometry.coordinates[1]} longitude={place.geometry.coordinates[0]} offset={[0, -18]}>
       <div
         onMouseEnter={() => {
-          onMouseEnter(place);
+          if (onMouseEnter) onMouseEnter(place);
         }}
         onMouseLeave={() => {
-          onMouseEnter(null);
+          if (onMouseEnter) onMouseEnter(null);
         }}
         onClick={(e) => {
           e.preventDefault();

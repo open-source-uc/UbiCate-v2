@@ -28,38 +28,38 @@ export default function Menu({ place }: MenuProps) {
     <>
       {!edit ? (
         <menu
-          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${
-            place ? "translate-x-0" : "-translate-x-full"
-          } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
+          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${place ? "translate-x-0" : "-translate-x-full"
+            } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
         >
           <div className="p-4 dark:text-white text-gray-700">
             <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
+            <section>
+              {place && place.properties?.floors && place.properties.floors.length > 0 && (
+                <div className="flex justify-between">
+                  <span className="font-semibold">Piso/s:</span>
+                  <span className="flex gap-2">{place.properties.floors.join(", ")}</span>
+                </div>
+              )}
 
-            <div className="flex justify-between">
-              <span className="font-semibold">Piso/s:</span>
-              <span>
-                {place && place.properties?.floors && place.properties.floors.length > 0 ? (
-                  <div className="flex gap-2">{place.properties.floors.join(", ")}</div>
-                ) : (
-                  "N/A"
-                )}
-              </span>
-            </div>
+              {place && place.properties?.categories?.[0] && (
+                <div className="flex justify-between">
+                  <span className="font-semibold">Categoría:</span>
+                  <span>{MapSiglas.get(place.properties.categories[0]) || "N/A"}</span>
+                </div>
+              )}
 
-            <div className="flex justify-between">
-              <span className="font-semibold">Categoría:</span>
-              <span>{place ? MapSiglas.get(place.properties.categories[0]) || "N/A" : "N/A"}</span>
-            </div>
+              {place && place.properties?.campus && (
+                <div className="flex justify-between">
+                  <span className="font-semibold">Campus:</span>
+                  <span>{MapSiglas.get(place.properties.campus) || "N/A"}</span>
+                </div>
+              )}
 
-            <div className="flex justify-between">
-              <span className="font-semibold">Campus:</span>
-              <span>{place ? MapSiglas.get(place.properties.campus) : "N/A"}</span>
-            </div>
-
-            <h3 className="text-xl font-semibold mt-4">Información</h3>
-            <p className="mt-2 min-h-16">
-              {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
-            </p>
+              <h3 className="text-xl font-semibold mt-4">Información</h3>
+              <p className="mt-2 min-h-16">
+                {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
+              </p>
+            </section>
             <button
               className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleShare}

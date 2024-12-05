@@ -103,10 +103,12 @@ export default function MapComponent({
 
   function onClickMap() {
     setPlace(null);
+    setTmpMark(null);
   }
 
   function onClickMark(place: Feature) {
     setPlace(place);
+    setTmpMark(null);
     if (!map) return;
 
     const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
@@ -151,8 +153,8 @@ export default function MapComponent({
           const newMark: Feature = {
             type: "Feature",
             properties: {
-              identifier: "NUEVO-LUGAR-CD",
-              name: `Lat: ${e.lngLat.lng}, Lon ${e.lngLat.lat}`,
+              identifier: "42-ALL",
+              name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
               information: "",
               categories: [],
               campus: "",
@@ -165,6 +167,7 @@ export default function MapComponent({
             },
           };
           setTmpMark(newMark);
+          setPlace(newMark);
         }}
         ref={mapRef}
       >
@@ -193,23 +196,22 @@ export default function MapComponent({
         ) : null}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={(place) => onClickMark(place)}
-                  onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={(place) => onClickMark(place)}
+                onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
           <Marker
             key={tmpMark.properties.identifier}
             place={tmpMark}
-            onClick={(tmpMark) => onClickMark(tmpMark)}
-            onMouseEnter={setHover}
+            onClick={() => console.log("H")}
           />
         )}
       </Map>
