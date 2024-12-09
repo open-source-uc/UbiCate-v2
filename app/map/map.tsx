@@ -102,6 +102,7 @@ export default function MapComponent({
   }, [paramPlace]);
 
   function onClickMap() {
+    window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
     setTmpMark(null);
   }
@@ -110,7 +111,7 @@ export default function MapComponent({
     setPlace(place);
     setTmpMark(null);
     if (!map) return;
-
+    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
     const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
     const bounds = map.getBounds();
     const margin = 0.001;
@@ -168,6 +169,11 @@ export default function MapComponent({
           };
           setTmpMark(newMark);
           setPlace(newMark);
+          window.history.replaceState(
+            null,
+            "",
+            `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
+          );
         }}
         ref={mapRef}
       >
@@ -208,7 +214,7 @@ export default function MapComponent({
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
-          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => console.log("H")} />
+          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => console.log("hOLA")} />
         )}
       </Map>
       <MenuInformation place={place} />

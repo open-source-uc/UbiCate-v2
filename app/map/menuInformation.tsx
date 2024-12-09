@@ -75,7 +75,7 @@ export default function Menu({ place }: MenuProps) {
               }}
               type="button"
             >
-              Sugerir Edición
+              {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
             </button>
           </div>
         </menu>
