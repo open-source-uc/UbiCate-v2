@@ -83,12 +83,12 @@ export default function Menu({ place }: MenuProps) {
         <menu className="absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg bg-white overflow-y-auto">
           <div className="w-full text-center my-6">
             <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">
-              Edición de {place?.properties.name}
+              {place?.properties.identifier === "42-ALL" ? "Nueva ubicación" : `Edición de ${place?.properties.name}`}
             </h1>
           </div>
           <FormGeo
             values={{
-              placeName: place?.properties.name as string,
+              placeName: place?.properties.identifier === "42-ALL" ? "" : (place?.properties.name as string),
               information: place?.properties.information as string,
               floor: place?.properties.floors[0] as number,
               longitude: place?.geometry.coordinates[0] as number,
@@ -96,7 +96,7 @@ export default function Menu({ place }: MenuProps) {
               categories: place?.properties.categories.at(0) as string,
               identifier: place?.properties.identifier as string,
             }}
-            mode={METHOD.UPDATE}
+            mode={place?.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
             fun={() => setEdit(false)}
           />
           <button
