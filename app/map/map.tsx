@@ -78,7 +78,6 @@ export default function MapComponent({
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   // const [hover, setHover] = useState<Feature | null>(null);
 
-  console.log(map?.doubleClickZoom.isEnabled());
   useThemeObserver(setTheme, map);
 
   useEffect(() => {
