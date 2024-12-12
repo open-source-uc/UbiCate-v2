@@ -30,7 +30,12 @@ interface InitialViewState extends Partial<ViewState> {
   };
 }
 
-function createInitialViewState(paramCampusBounds: LngLatBoundsLike, paramPlace: any): InitialViewState {
+function createInitialViewState(
+  paramCampusBounds: LngLatBoundsLike,
+  paramPlace: any,
+  paramLng: number | null | undefined,
+  paramLat: number | null | undefined,
+): InitialViewState {
   const initialViewState: InitialViewState = {
     zoom: 18,
   };
@@ -38,6 +43,9 @@ function createInitialViewState(paramCampusBounds: LngLatBoundsLike, paramPlace:
   if (paramPlace) {
     initialViewState.longitude = paramPlace.geometry.coordinates[0];
     initialViewState.latitude = paramPlace.geometry.coordinates[1];
+  } else if (paramLng && paramLat) {
+    initialViewState.longitude = paramLng;
+    initialViewState.latitude = paramLat;
   } else {
     initialViewState.bounds = paramCampusBounds;
   }
@@ -130,7 +138,7 @@ export default function MapComponent({
     }
   }
 
-  function onDblClick(lng: number, lat: number) {
+  function setCustomMark(lng: number, lat: number) {
     lng = +lng;
     lat = +lat;
     const newMark: Feature = {
@@ -167,7 +175,7 @@ export default function MapComponent({
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
+        initialViewState={createInitialViewState(paramCampusBounds, paramPlace, paramLng, paramLat)}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={onClickMap}
         onLoad={(e) => {
@@ -177,7 +185,7 @@ export default function MapComponent({
             setGeocoderPlaces([paramPlace]);
           }
           if (paramLng && paramLat) {
-            onDblClick(paramLng, paramLat);
+            setCustomMark(paramLng, paramLat);
           }
         }}
         onDblClick={(e) => {
@@ -189,7 +197,7 @@ export default function MapComponent({
           En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
           Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
           */
-          onDblClick(e.lngLat.lng, e.lngLat.lat);
+          setCustomMark(e.lngLat.lng, e.lngLat.lat);
         }}
         ref={mapRef}
       >
