@@ -46,6 +46,7 @@ function createInitialViewState(
   } else if (paramLng && paramLat) {
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
+    initialViewState.zoom = 17;
   } else {
     initialViewState.bounds = paramCampusBounds;
   }
@@ -114,7 +115,6 @@ export default function MapComponent({
 
   function onClickMark(place: Feature) {
     setPlace(place);
-    setTmpMark(null);
     if (!map) return;
     window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
     const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
@@ -137,7 +137,7 @@ export default function MapComponent({
     }
   }
 
-  function setCustomMark(lng: number, lat: number) {
+  function setCustomMark(lng: number, lat: number, showMenu: boolean) {
     lng = +lng;
     lat = +lat;
     const newMark: Feature = {
@@ -157,7 +157,8 @@ export default function MapComponent({
       },
     };
     setTmpMark(newMark);
-    setPlace(newMark);
+    if (showMenu) setPlace(newMark);
+
     window.history.replaceState(
       null,
       "",
@@ -184,7 +185,7 @@ export default function MapComponent({
             setGeocoderPlaces([paramPlace]);
           }
           if (paramLng && paramLat) {
-            setCustomMark(paramLng, paramLat);
+            setCustomMark(paramLng, paramLat, false);
           }
         }}
         onDblClick={(e) => {
@@ -196,7 +197,7 @@ export default function MapComponent({
           En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
           Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
           */
-          setCustomMark(e.lngLat.lng, e.lngLat.lat);
+          setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
         }}
         ref={mapRef}
       >
@@ -234,14 +235,19 @@ export default function MapComponent({
                 <Marker
                   key={place.properties.identifier}
                   place={place}
-                  onClick={(place) => onClickMark(place)}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
                   // onMouseEnter={setHover}
                 />
               );
             })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
-        {!tmpMark ? null : <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => null} />}
+        {!tmpMark ? null : (
+          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => onClickMark(tmpMark)} />
+        )}
       </Map>
       <MenuInformation place={place} />
     </>
