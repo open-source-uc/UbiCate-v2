@@ -2,11 +2,10 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 
-import { Point } from "mapbox-gl";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
-import { Map, Source, Layer, Popup, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
+import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
@@ -50,10 +49,14 @@ export default function MapComponent({
   Places,
   paramCampusBounds,
   paramPlace,
+  paramLng,
+  paramLat,
 }: {
   Places: JSONFeatures;
   paramCampusBounds: LngLatBoundsLike;
   paramPlace: Feature | null;
+  paramLng?: number | null;
+  paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
@@ -62,12 +65,10 @@ export default function MapComponent({
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
-
   const [place, setPlace] = useState<Feature | null>(null);
-  // const [hover, setHover] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
+  // const [hover, setHover] = useState<Feature | null>(null);
 
-  console.log(map?.doubleClickZoom.isEnabled());
   useThemeObserver(setTheme, map);
 
   useEffect(() => {
@@ -79,7 +80,6 @@ export default function MapComponent({
 
       geocoder.current = getGeocoder(
         (result: any) => {
-          // setPlace(result.result);
           handleResult(result, setGeocoderPlaces, Places);
         },
         (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
@@ -88,19 +88,12 @@ export default function MapComponent({
     };
 
     initializeGeocoder();
-    // setPlace(paramPlace);
     return () => {
       mounted = false;
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    if (paramPlace) {
-      setGeocoderPlaces([paramPlace]);
-    }
-  }, [paramPlace]);
 
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
@@ -137,6 +130,34 @@ export default function MapComponent({
     }
   }
 
+  function onDblClick(lng: number, lat: number) {
+    lng = +lng;
+    lat = +lat;
+    const newMark: Feature = {
+      type: "Feature",
+      properties: {
+        identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
+        name: `Lon: ${lng.toFixed(2)}, Lat ${lat.toFixed(2)}`,
+        information: "",
+        categories: [],
+        campus: "",
+        faculties: "",
+        floors: [],
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [lng, lat],
+      },
+    };
+    setTmpMark(newMark);
+    setPlace(newMark);
+    window.history.replaceState(
+      null,
+      "",
+      `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
+    );
+  }
+
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
   }, [geocoder]);
@@ -152,6 +173,12 @@ export default function MapComponent({
         onLoad={(e) => {
           e.target.doubleClickZoom.disable();
           addGeocoderControl();
+          if (paramPlace) {
+            setGeocoderPlaces([paramPlace]);
+          }
+          if (paramLng && paramLat) {
+            onDblClick(paramLng, paramLat);
+          }
         }}
         onDblClick={(e) => {
           /*
@@ -162,29 +189,7 @@ export default function MapComponent({
           En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
           Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
           */
-          const newMark: Feature = {
-            type: "Feature",
-            properties: {
-              identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-              name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
-              information: "",
-              categories: [],
-              campus: "",
-              faculties: "",
-              floors: [],
-            },
-            geometry: {
-              type: "Point",
-              coordinates: [e.lngLat.lng, e.lngLat.lat],
-            },
-          };
-          setTmpMark(newMark);
-          setPlace(newMark);
-          window.history.replaceState(
-            null,
-            "",
-            `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
-          );
+          onDblClick(e.lngLat.lng, e.lngLat.lat);
         }}
         ref={mapRef}
       >
@@ -199,6 +204,11 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
+        {/*
+        El hover fue desactivado pues al clikear en telefonos 
+        se producia un mensaje pulsante, que molestaba
+        y no encontre la forma de desactivarlo en telefonos.             
+        */}
         {/* {hover ? (
           <Popup
             longitude={hover.geometry.coordinates[0]}
@@ -213,20 +223,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={(place) => onClickMark(place)}
-              // onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={(place) => onClickMark(place)}
+                  // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
-        {!tmpMark ? null : (
-          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => console.log("hOLA")} />
-        )}
+        {!tmpMark ? null : <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => null} />}
       </Map>
       <MenuInformation place={place} />
     </>
