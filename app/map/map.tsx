@@ -76,7 +76,6 @@ export default function MapComponent({
     const initializeGeocoder = async () => {
       const { default: getGeocoder } = await loadGeocoder();
       if (!mounted) return;
-
       geocoder.current = getGeocoder(
         (result: any) => {
           // setPlace(result.result);
@@ -179,7 +178,10 @@ export default function MapComponent({
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={(e) => onClickMap(e)}
-        onDblClick={(e) => e.preventDefault()}
+        onTouchStart={(e) => {
+          e.preventDefault();
+          onClickMap(e);
+        }}
         onLoad={addGeocoderControl}
         ref={mapRef}
       >
@@ -219,9 +221,7 @@ export default function MapComponent({
             })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
-        {!tmpMark ? null : (
-          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => console.log("hOLA")} />
-        )}
+        {!tmpMark ? null : <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => null} />}
       </Map>
       <MenuInformation place={place} />
     </>
