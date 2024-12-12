@@ -116,7 +116,15 @@ export default function MapComponent({
   function onClickMark(place: Feature) {
     setPlace(place);
     if (!map) return;
-    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+    if (place.properties.identifier === "42-ALL") {
+      window.history.replaceState(
+        null,
+        "",
+        `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
+      );
+    } else {
+      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+    }
     const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
     const bounds = map.getBounds();
     const margin = 0.001;
