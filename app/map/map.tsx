@@ -66,6 +66,7 @@ export default function MapComponent({
   const [place, setPlace] = useState<Feature | null>(null);
   const [hover, setHover] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
+  const [lastClickTime, setLastClickTime] = useState(0);
 
   useThemeObserver(setTheme, map);
 
@@ -101,10 +102,40 @@ export default function MapComponent({
     }
   }, [paramPlace]);
 
-  function onClickMap() {
+  function onClickMap(e: any) {
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
     setTmpMark(null);
+
+    const now = Date.now();
+    const DOUBLE_CLICK_DELAY = 300;
+    if (now - lastClickTime < DOUBLE_CLICK_DELAY) {
+      const newMark: Feature = {
+        type: "Feature",
+        properties: {
+          identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
+          name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
+          information: "",
+          categories: [],
+          campus: "",
+          faculties: "",
+          floors: [],
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [e.lngLat.lng, e.lngLat.lat],
+        },
+      };
+
+      setTmpMark(newMark);
+      setPlace(newMark);
+      window.history.replaceState(
+        null,
+        "",
+        `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
+      );
+    }
+    setLastClickTime(now);
   }
 
   function onClickMark(place: Feature) {
@@ -147,34 +178,9 @@ export default function MapComponent({
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         interactiveLayerIds={[placesTextLayer.id as string]}
-        onClick={onClickMap}
+        onClick={(e) => onClickMap(e)}
+        onDblClick={(e) => e.preventDefault()}
         onLoad={addGeocoderControl}
-        onDblClick={(e) => {
-          e.preventDefault();
-          const newMark: Feature = {
-            type: "Feature",
-            properties: {
-              identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-              name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
-              information: "",
-              categories: [],
-              campus: "",
-              faculties: "",
-              floors: [],
-            },
-            geometry: {
-              type: "Point",
-              coordinates: [e.lngLat.lng, e.lngLat.lat],
-            },
-          };
-          setTmpMark(newMark);
-          setPlace(newMark);
-          window.history.replaceState(
-            null,
-            "",
-            `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
-          );
-        }}
         ref={mapRef}
       >
         <GeolocateControl position="bottom-right" showUserHeading={true} />
