@@ -66,8 +66,8 @@ export default function MapComponent({
   const [place, setPlace] = useState<Feature | null>(null);
   const [hover, setHover] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
-  const [lastClickTime, setLastClickTime] = useState(0);
 
+  console.log(map?.doubleClickZoom.isEnabled());
   useThemeObserver(setTheme, map);
 
   useEffect(() => {
@@ -102,17 +102,11 @@ export default function MapComponent({
     }
   }, [paramPlace]);
 
+  useEffect(() => {
+    mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
+  }, [paramCampusBounds]);
+
   function onClickMap() {
-    const now = Date.now();
-    const DOUBLE_CLICK_DELAY = 300;
-
-    if (now - lastClickTime < DOUBLE_CLICK_DELAY) {
-      alert("¡Doble clic detectado!");
-    } else {
-      // alert('Clic simple detectado');
-    }
-
-    setLastClickTime(now);
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
     setTmpMark(null);
@@ -143,10 +137,6 @@ export default function MapComponent({
     }
   }
 
-  useEffect(() => {
-    mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
-  }, [paramCampusBounds]);
-
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current);
   }, [geocoder]);
@@ -159,9 +149,13 @@ export default function MapComponent({
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={onClickMap}
-        onLoad={addGeocoderControl}
+        onLoad={(e) => {
+          e.target.doubleClickZoom.disable();
+
+          addGeocoderControl();
+        }}
         onDblClick={(e) => {
-          alert("doble");
+          alert("hola");
           // const newMark: Feature = {
           //   type: "Feature",
           //   properties: {
