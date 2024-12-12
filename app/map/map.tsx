@@ -78,6 +78,7 @@ export default function MapComponent({
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   // const [hover, setHover] = useState<Feature | null>(null);
 
+  console.log(map?.doubleClickZoom.isEnabled());
   useThemeObserver(setTheme, map);
 
   useEffect(() => {
@@ -239,18 +240,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                  // onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={() => {
+                  setTmpMark(null);
+                  onClickMark(place);
+                }}
+              // onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
