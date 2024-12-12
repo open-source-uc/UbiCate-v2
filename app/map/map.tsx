@@ -76,6 +76,7 @@ export default function MapComponent({
     const initializeGeocoder = async () => {
       const { default: getGeocoder } = await loadGeocoder();
       if (!mounted) return;
+
       geocoder.current = getGeocoder(
         (result: any) => {
           // setPlace(result.result);
@@ -101,40 +102,20 @@ export default function MapComponent({
     }
   }, [paramPlace]);
 
-  function onClickMap(e: any) {
+  function onClickMap() {
+    const now = Date.now();
+    const DOUBLE_CLICK_DELAY = 300;
+
+    if (now - lastClickTime < DOUBLE_CLICK_DELAY) {
+      alert("¡Doble clic detectado!");
+    } else {
+      // alert('Clic simple detectado');
+    }
+
+    setLastClickTime(now);
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
     setTmpMark(null);
-
-    const now = Date.now();
-    const DOUBLE_CLICK_DELAY = 300;
-    if (now - lastClickTime < DOUBLE_CLICK_DELAY) {
-      const newMark: Feature = {
-        type: "Feature",
-        properties: {
-          identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
-          information: "",
-          categories: [],
-          campus: "",
-          faculties: "",
-          floors: [],
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [e.lngLat.lng, e.lngLat.lat],
-        },
-      };
-
-      setTmpMark(newMark);
-      setPlace(newMark);
-      window.history.replaceState(
-        null,
-        "",
-        `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
-      );
-    }
-    setLastClickTime(now);
   }
 
   function onClickMark(place: Feature) {
@@ -177,12 +158,34 @@ export default function MapComponent({
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace)}
         interactiveLayerIds={[placesTextLayer.id as string]}
-        onClick={(e) => onClickMap(e)}
-        onTouchStart={(e) => {
-          e.preventDefault();
-          onClickMap(e);
-        }}
+        onClick={onClickMap}
         onLoad={addGeocoderControl}
+        onDblClick={(e) => {
+          alert("doble");
+          // const newMark: Feature = {
+          //   type: "Feature",
+          //   properties: {
+          //     identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
+          //     name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
+          //     information: "",
+          //     categories: [],
+          //     campus: "",
+          //     faculties: "",
+          //     floors: [],
+          //   },
+          //   geometry: {
+          //     type: "Point",
+          //     coordinates: [e.lngLat.lng, e.lngLat.lat],
+          //   },
+          // };
+          // setTmpMark(newMark);
+          // setPlace(newMark);
+          // window.history.replaceState(
+          //   null,
+          //   "",
+          //   `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
+          // );
+        }}
         ref={mapRef}
       >
         <GeolocateControl position="bottom-right" showUserHeading={true} />
@@ -221,7 +224,9 @@ export default function MapComponent({
             })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
-        {!tmpMark ? null : <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => null} />}
+        {!tmpMark ? null : (
+          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => console.log("hOLA")} />
+        )}
       </Map>
       <MenuInformation place={place} />
     </>
