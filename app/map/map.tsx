@@ -64,7 +64,7 @@ export default function MapComponent({
   );
 
   const [place, setPlace] = useState<Feature | null>(null);
-  const [hover, setHover] = useState<Feature | null>(null);
+  // const [hover, setHover] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
 
   console.log(map?.doubleClickZoom.isEnabled());
@@ -199,7 +199,7 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
-        {hover ? (
+        {/* {hover ? (
           <Popup
             longitude={hover.geometry.coordinates[0]}
             latitude={hover.geometry.coordinates[1]}
@@ -210,18 +210,18 @@ export default function MapComponent({
           >
             {hover.properties.name}
           </Popup>
-        ) : null}
+        ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={(place) => onClickMark(place)}
-                  onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={(place) => onClickMark(place)}
+              // onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
