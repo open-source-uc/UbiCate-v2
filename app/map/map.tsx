@@ -151,34 +151,40 @@ export default function MapComponent({
         onClick={onClickMap}
         onLoad={(e) => {
           e.target.doubleClickZoom.disable();
-
           addGeocoderControl();
         }}
         onDblClick={(e) => {
-          alert("hola");
-          // const newMark: Feature = {
-          //   type: "Feature",
-          //   properties: {
-          //     identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          //     name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
-          //     information: "",
-          //     categories: [],
-          //     campus: "",
-          //     faculties: "",
-          //     floors: [],
-          //   },
-          //   geometry: {
-          //     type: "Point",
-          //     coordinates: [e.lngLat.lng, e.lngLat.lat],
-          //   },
-          // };
-          // setTmpMark(newMark);
-          // setPlace(newMark);
-          // window.history.replaceState(
-          //   null,
-          //   "",
-          //   `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
-          // );
+          /*
+          IMPORTANTE
+          En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
+
+          En PC: Este problema no ocurre.
+          En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
+          Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
+          */
+          const newMark: Feature = {
+            type: "Feature",
+            properties: {
+              identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
+              name: `Lon: ${e.lngLat.lng.toFixed(2)}, Lat ${e.lngLat.lat.toFixed(2)}`,
+              information: "",
+              categories: [],
+              campus: "",
+              faculties: "",
+              floors: [],
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [e.lngLat.lng, e.lngLat.lat],
+            },
+          };
+          setTmpMark(newMark);
+          setPlace(newMark);
+          window.history.replaceState(
+            null,
+            "",
+            `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
+          );
         }}
         ref={mapRef}
       >
