@@ -110,7 +110,6 @@ export default function MapComponent({
   function onClickMap() {
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
-    setTmpMark(null);
   }
 
   function onClickMark(place: Feature) {
