@@ -70,12 +70,12 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   );
 
   return (
-    <section className="pointer-events-none relative pe-64 max-map-sm:pe-2 max-map-sm:top-36 h-6 top-4 flex justify-items-center align-middle justify-center max-map-sm:flex-col">
+    <section className="pointer-events-none relative flex mt-16 overflow-y-auto">
       <Pill
-        title="Comida"
-        iconPath="/food.svg"
-        onClick={() => applyFilter(categoryFilter, "food_lunch")}
-        active={activeFilter === "food_lunch"}
+        title="Salas"
+        iconPath="/classroom.svg"
+        onClick={() => applyFilter(categoryFilter, "classroom")}
+        active={activeFilter === "classroom"}
       />
       <Pill
         title="Bibliotecas"
@@ -84,16 +84,28 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
         active={activeFilter === "biblioteca"}
       />
       <Pill
+        title="Auditorio"
+        iconPath="/auditorium.svg"
+        onClick={() => applyFilter(categoryFilter, "auditorium")}
+        active={activeFilter === "auditorium"}
+      />
+      <Pill
+        title="Comida"
+        iconPath="/food.svg"
+        onClick={() => applyFilter(categoryFilter, "food_lunch")}
+        active={activeFilter === "food_lunch"}
+      />
+      <Pill
+        title="Agua"
+        iconPath="/water.svg"
+        onClick={() => applyFilter(categoryFilter, "water")}
+        active={activeFilter === "water"}
+      />
+      <Pill
         title="Baños"
         iconPath="/toilet.svg"
         onClick={() => applyFilter(categoryFilter, "bath")}
         active={activeFilter === "bath"}
-      />
-      <Pill
-        title="Salas"
-        iconPath="/classroom.svg"
-        onClick={() => applyFilter(categoryFilter, "classroom")}
-        active={activeFilter === "classroom"}
       />
     </section>
   );
