@@ -175,7 +175,7 @@ export default function MapComponent({
   }
 
   const addGeocoderControl = useCallback(() => {
-    mapRef.current?.addControl(geocoder.current);
+    mapRef.current?.addControl(geocoder.current, "top-left");
   }, [geocoder]);
 
   return (
