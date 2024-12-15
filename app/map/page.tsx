@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
-import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
-import { Feature } from "@/utils/types";
+import { getParamCampusBounds } from "@/utils/getCampusBounds";
+import { Feature, JSONFeatures } from "@/utils/types";
 
 import PlacesJSON from "../../data/places.json";
 
 import MapComponent from "./map";
 
-type SearchParams = { campus?: string; place?: string };
+type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
@@ -34,13 +34,22 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
 export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
   const paramPlaceId: string | undefined = searchParams?.place;
+  const paramLng: number | undefined = searchParams?.lng;
+  const paramLat: number | undefined = searchParams?.lat;
+
   const paramPlace: Feature | null =
     (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
 
   return (
     <>
       <main spellCheck="false" className="h-full w-full relative">
-        <MapComponent Places={PlacesJSON} paramCampusBounds={campusBounds} paramPlace={paramPlace} />
+        <MapComponent
+          Places={PlacesJSON as JSONFeatures}
+          paramCampusBounds={campusBounds}
+          paramPlace={paramPlace}
+          paramLat={paramLat}
+          paramLng={paramLng}
+        />
       </main>
     </>
   );

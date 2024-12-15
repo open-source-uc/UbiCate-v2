@@ -4,8 +4,8 @@ import { useEffect, useState, useCallback, Suspense } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
+import { campusBounds } from "@/utils/getCampusBounds";
 import getGeolocation from "@/utils/getGeolocation";
-import { campusBounds } from "@/utils/getParamCampusBounds";
 
 import { siglas as MapSiglas, METHOD } from "../../utils/types";
 
@@ -52,8 +52,8 @@ export default function FormComponent({
   const initialValues = values || defaultValues;
 
   const [submitting, setSubmitting] = useState<boolean>(false);
-  const [longitude, setLongitude] = useState<number>(-70.6109);
-  const [latitude, setLatitude] = useState<number>(-33.4983);
+  const [longitude, setLongitude] = useState<number>(values?.longitude ?? -70.6109);
+  const [latitude, setLatitude] = useState<number>(values?.latitude ?? -33.4983);
   const [campus, setCampus] = useState<string>("");
 
   const dragLocUpdate = useCallback((event: any) => {
