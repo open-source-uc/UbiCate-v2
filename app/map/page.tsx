@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
+import { getParamCampusBounds } from "@/utils/getCampusBounds";
 import { Feature, JSONFeatures } from "@/utils/types";
 
 import PlacesJSON from "../../data/places.json";

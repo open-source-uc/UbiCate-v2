@@ -1,4 +1,5 @@
 import type { LngLatBoundsLike } from "mapbox-gl";
+import { siglas as MapSiglas } from "@/utils/types";
 
 interface CampusBounds {
   longitudeRange: [number, number];
@@ -24,4 +25,24 @@ export function getParamCampusBounds(paramCampus: string | null): LngLatBoundsLi
     campusBounds[paramCampus].latitudeRange[1],
   ];
   return campusMapBounds;
+}
+export function getCampusBoundsFromPoint(longitude: number, latitude: number): LngLatBoundsLike | null {
+  for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
+    if (
+      longitude >= boundary.longitudeRange[0] &&
+      longitude <= boundary.longitudeRange[1] &&
+      latitude >= boundary.latitudeRange[0] &&
+      latitude <= boundary.latitudeRange[1]
+    ) {
+      return [
+        campusBounds[boundaryCampus].longitudeRange[0],
+        campusBounds[boundaryCampus].latitudeRange[0],
+        campusBounds[boundaryCampus].longitudeRange[1],
+        campusBounds[boundaryCampus].latitudeRange[1],
+      ];
+    }
+  }
+
+  return null
+
 }

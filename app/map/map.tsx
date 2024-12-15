@@ -4,12 +4,11 @@ import { useRef, useState, useCallback, useEffect } from "react";
 
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type { MapRef, ViewState, PointLike, PaddingOptions } from "react-map-gl";
+import type { MapRef, ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent } from "react-map-gl";
 import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
-
 import Campus from "../../data/campuses.json";
 import { Feature, JSONFeatures } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
@@ -174,6 +173,30 @@ export default function MapComponent({
     );
   }
 
+  function onLoad(e: MapEvent) {
+    e.target.doubleClickZoom.disable();
+    addGeocoderControl();
+    if (paramPlace) {
+      setGeocoderPlaces([paramPlace]);
+    }
+    if (paramLng && paramLat) {
+      setCustomMark(paramLng, paramLat, false);
+    }
+  }
+
+  const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
+    setPlace(null)
+    setCustomMark(event.lngLat.lng, event.lngLat.lat, false)
+  }, []);
+
+  const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
+    setPlace(null)
+    setCustomMark(event.lngLat.lng, event.lngLat.lat, false)
+    mapRef.current?.flyTo({
+      center: [event.lngLat.lng, event.lngLat.lat],
+    })
+  }, []);
+
   const addGeocoderControl = useCallback(() => {
     mapRef.current?.addControl(geocoder.current, "top-left");
   }, [geocoder]);
@@ -186,16 +209,7 @@ export default function MapComponent({
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace, paramLng, paramLat)}
         interactiveLayerIds={[placesTextLayer.id as string]}
         onClick={onClickMap}
-        onLoad={(e) => {
-          e.target.doubleClickZoom.disable();
-          addGeocoderControl();
-          if (paramPlace) {
-            setGeocoderPlaces([paramPlace]);
-          }
-          if (paramLng && paramLat) {
-            setCustomMark(paramLng, paramLat, false);
-          }
-        }}
+        onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
           /*
           IMPORTANTE
@@ -216,7 +230,6 @@ export default function MapComponent({
         <Source id="campusSmall" type="geojson" data={Campus}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
         </Source>
-
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
@@ -254,7 +267,14 @@ export default function MapComponent({
           : null}
         {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
         {!tmpMark ? null : (
-          <Marker key={tmpMark.properties.identifier} place={tmpMark} onClick={() => onClickMark(tmpMark)} />
+          <Marker
+            draggable={true}
+            key={tmpMark.properties.identifier}
+            place={tmpMark}
+            onClick={() => onClickMark(tmpMark)}
+            onDrag={onMarkerDrag}
+            onDragEnd={onMarkerDragEnd}
+          />
         )}
       </Map>
       <MenuInformation place={place} />
