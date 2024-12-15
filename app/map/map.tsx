@@ -265,7 +265,7 @@ export default function MapComponent({
             );
           })
           : null}
-        {place ? null : <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />}
+        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         {!tmpMark ? null : (
           <Marker
             draggable={true}
