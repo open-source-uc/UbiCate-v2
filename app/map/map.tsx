@@ -4,7 +4,15 @@ import { useRef, useState, useCallback, useEffect } from "react";
 
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type { MapRef, ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent, MapLayerMouseEvent } from "react-map-gl";
+import type {
+  MapRef,
+  ViewState,
+  PointLike,
+  PaddingOptions,
+  MarkerDragEvent,
+  MapEvent,
+  MapLayerMouseEvent,
+} from "react-map-gl";
 import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
@@ -253,18 +261,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={() => {
-                  setTmpMark(null);
-                  onClickMark(place);
-                }}
-              // onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                  // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         {!tmpMark ? null : (

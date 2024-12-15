@@ -24,8 +24,8 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
       onDrag={(e) => onDrag?.(e)}
       onDragEnd={(e) => onDragEnd?.(e)}
       onClick={(e) => {
-        e.originalEvent.stopPropagation()
-        onClick(place)
+        e.originalEvent.stopPropagation();
+        onClick(place);
       }}
     >
       <div
