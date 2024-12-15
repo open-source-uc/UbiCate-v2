@@ -23,6 +23,10 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
       draggable={draggable}
       onDrag={(e) => onDrag?.(e)}
       onDragEnd={(e) => onDragEnd?.(e)}
+      onClick={(e) => {
+        e.originalEvent.stopPropagation()
+        onClick(place)
+      }}
     >
       <div
         onMouseEnter={() => {
@@ -30,16 +34,6 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
         }}
         onMouseLeave={() => {
           if (onMouseEnter) onMouseEnter(null);
-        }}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          onClick(place);
-        }}
-        onTouchStart={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          onClick(place);
         }}
       >
         <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />

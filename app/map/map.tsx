@@ -4,7 +4,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type { MapRef, ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent } from "react-map-gl";
+import type { MapRef, ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent, MapLayerMouseEvent } from "react-map-gl";
 import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
@@ -108,7 +108,7 @@ export default function MapComponent({
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
   }, [paramCampusBounds]);
 
-  function onClickMap() {
+  function onClickMap(e: MapLayerMouseEvent) {
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
   }
@@ -209,7 +209,7 @@ export default function MapComponent({
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(paramCampusBounds, paramPlace, paramLng, paramLat)}
         interactiveLayerIds={[placesTextLayer.id as string]}
-        onClick={onClickMap}
+        onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
           /*
@@ -253,18 +253,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                  // onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={() => {
+                  setTmpMark(null);
+                  onClickMark(place);
+                }}
+              // onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         {!tmpMark ? null : (
