@@ -4,8 +4,8 @@ import { useEffect, useState, useCallback, Suspense } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
-import getGeolocation from "@/utils/getGeolocation";
 import { campusBounds } from "@/utils/getCampusBounds";
+import getGeolocation from "@/utils/getGeolocation";
 
 import { siglas as MapSiglas, METHOD } from "../../utils/types";
 

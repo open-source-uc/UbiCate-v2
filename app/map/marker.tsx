@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
+
 import { Feature } from "../../utils/types";
 
 interface MarkerProps {

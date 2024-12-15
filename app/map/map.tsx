@@ -9,6 +9,7 @@ import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl }
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
+
 import Campus from "../../data/campuses.json";
 import { Feature, JSONFeatures } from "../../utils/types";
 import PillFilter from "../components/pillFilter";
@@ -185,16 +186,16 @@ export default function MapComponent({
   }
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
-    setPlace(null)
-    setCustomMark(event.lngLat.lng, event.lngLat.lat, false)
+    setPlace(null);
+    setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
   }, []);
 
   const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
-    setPlace(null)
-    setCustomMark(event.lngLat.lng, event.lngLat.lat, false)
+    setPlace(null);
+    setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
     mapRef.current?.flyTo({
       center: [event.lngLat.lng, event.lngLat.lat],
-    })
+    });
   }, []);
 
   const addGeocoderControl = useCallback(() => {
@@ -252,18 +253,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={() => {
-                  setTmpMark(null);
-                  onClickMark(place);
-                }}
-              // onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                  // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         {!tmpMark ? null : (

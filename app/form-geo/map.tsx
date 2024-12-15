@@ -1,22 +1,20 @@
 import Image from "next/image";
-import Campus from "../../data/campuses.json";
-
 import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
 
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Layer, Source } from "react-map-gl";
 import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
+import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
 import { getCampusBoundsFromPoint, getParamCampusBounds } from "@/utils/getCampusBounds";
 
+import Campus from "../../data/campuses.json";
 import { useThemeObserver } from "../../utils/themeObserver";
 
 import ControlPanel from "./controlPanel";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
 
 interface MapProps {
   markerPosition: {
@@ -34,8 +32,10 @@ export default function MapComponent(props: MapProps) {
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
   const searchParams = useSearchParams();
-  console.log({ l: props.markerPosition.longitude, l2: props.markerPosition.latitude })
-  const campusMapBounds = getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ?? getParamCampusBounds(searchParams.get("campus"));
+  console.log({ l: props.markerPosition.longitude, l2: props.markerPosition.latitude });
+  const campusMapBounds =
+    getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ??
+    getParamCampusBounds(searchParams.get("campus"));
 
   useThemeObserver(setTheme, map);
 
