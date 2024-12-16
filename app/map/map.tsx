@@ -232,6 +232,9 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
+        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
+        <MenuInformation place={place} />
+
         <GeolocateControl position="bottom-right" showUserHeading={true} />
         {/* <FullscreenControl position="top-left" /> */}
         <NavigationControl position="bottom-right" />
@@ -274,7 +277,6 @@ export default function MapComponent({
               );
             })
           : null}
-        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         {!tmpMark ? null : (
           <Marker
             draggable={true}
@@ -286,7 +288,6 @@ export default function MapComponent({
           />
         )}
       </Map>
-      <MenuInformation place={place} />
     </>
   );
 }
