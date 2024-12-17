@@ -70,7 +70,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   );
 
   return (
-    <section className="pointer-events-none relative flex mt-16 overflow-y-auto">
+    <section className="pointer-events-none fixed flex mt-16 overflow-y-auto w-full">
       <Pill
         title="Salas"
         iconPath="/classroom.svg"

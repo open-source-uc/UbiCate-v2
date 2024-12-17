@@ -3,27 +3,39 @@ import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 
-import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
+import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Layer, Source } from "react-map-gl";
 import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
-import { getParamCampusBounds } from "@/utils/getParamCampusBounds";
+import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
+import { getCampusBoundsFromPoint, getParamCampusBounds } from "@/utils/getCampusBounds";
 
+import Campus from "../../data/campuses.json";
 import { useThemeObserver } from "../../utils/themeObserver";
 
 import ControlPanel from "./controlPanel";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-export default function MapComponent(props: any) {
+interface MapProps {
+  markerPosition: {
+    longitude: number;
+    latitude: number;
+  };
+  onMarkerMove: (event: MapLayerMouseEvent | MarkerDragEvent) => void;
+}
+
+export default function MapComponent(props: MapProps) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const [marker, setMarker] = useState({ ...props.markerPosition });
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
-
   const searchParams = useSearchParams();
-  const campusMapBounds = getParamCampusBounds(searchParams.get("campus"));
+  console.log({ l: props.markerPosition.longitude, l2: props.markerPosition.latitude });
+  const campusMapBounds =
+    getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ??
+    getParamCampusBounds(searchParams.get("campus"));
 
   useThemeObserver(setTheme, map);
 
@@ -70,7 +82,9 @@ export default function MapComponent(props: any) {
           <GeolocateControl position="top-left" showAccuracyCircle={false} showUserHeading={true} />
           <FullscreenControl position="top-left" />
           <NavigationControl position="top-left" />
-
+          <Source id="campusSmall" type="geojson" data={Campus}>
+            {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
+          </Source>
           <Marker
             longitude={marker.longitude}
             latitude={marker.latitude}
