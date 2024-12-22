@@ -62,6 +62,15 @@ export default function Sidebar() {
                 <p>Agrega nueva ubicación</p>
               </Link>
             </li>
+            <li>
+              <Link
+                onClick={toggleSidebar}
+                href="/creditos"
+                className="flex items-center justify-center space-x-2 px-4 py-2 text-sky-600 dark:text-sky-300 rounded-full border border-sky-600 dark:border-sky-300 hover:bg-sky-300 dark:hover:bg-sky-700 transition-all"
+              >
+                <p>Ver créditos</p>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

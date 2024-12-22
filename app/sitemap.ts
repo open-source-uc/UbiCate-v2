@@ -14,5 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/form-geo`,
       lastModified: new Date(),
     },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/creditos`,
+      lastModified: new Date(),
+    },
   ] as unknown as MetadataRoute.Sitemap;
 }
