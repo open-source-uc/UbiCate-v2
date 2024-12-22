@@ -1,6 +1,5 @@
 import Image from "next/image";
-
-import Contribuir from "@/app/creditos/contributor"; // Importa el componente Contribuir
+import Contribuir from "@/app/creditos/contributor"; 
 
 async function fetchContributors() {
   try {
@@ -22,7 +21,6 @@ export default async function Page() {
       className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200"
     >
       <div className="w-full text-center py-10 px-4">
-        {/* Logo de Open Source UC */}
         <div className="my-8">
           <Image
             src="/logo-osuc.svg"
@@ -33,7 +31,6 @@ export default async function Page() {
           />
         </div>
 
-        {/* Texto debajo del logo */}
         <p className="text-lg max-w-2xl mx-auto leading-relaxed">
           Desarrollado por{" "}
           <a

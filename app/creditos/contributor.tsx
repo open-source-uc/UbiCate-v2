@@ -13,10 +13,9 @@ function Contribuir({ login, avatar_url, html_url }: ContributorProps) {
         <img
           src={avatar_url}
           alt={login}
-          className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-gray-300 dark:border-gray-700 shadow-lg" // Aquí agregamos una sombra y un borde más definido
+          className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-gray-300 dark:border-gray-700 shadow-lg"
         />
         <p className="text-lg font-medium text-gray-800 dark:text-blue-400">{login}</p>{" "}
-        {/* Cambié el color del texto para que se vea mejor en blanco */}
       </a>
     </li>
   );
