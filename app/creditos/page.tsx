@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Contribuir from "@/app/creditos/contributor"; 
+
+import Contribuir from "@/app/creditos/contributor";
 
 async function fetchContributors() {
   try {
@@ -50,7 +51,7 @@ export default async function Page() {
           {contributors.length > 0 ? (
             <ul className="list-none p-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
               {contributors
-                .filter((contributor: any) => !contributor.login.toLowerCase().includes("bot")) // Filtra los que no contienen "bot"
+                .filter((contributor: any) => !contributor.login.toLowerCase().includes("bot"))
                 .map((contributor: any) => (
                   <Contribuir
                     key={contributor.id}
