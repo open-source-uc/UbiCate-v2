@@ -305,3 +305,19 @@
     font-size: 11px !important;
   }
 }
+
+@media (max-width: 640px) {
+  .mapboxgl-ctrl-top-left {
+    display: flex;
+    width: 100%;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+    margin: 5px;
+    width: 90%; /* Mantener el input un poco más pequeño que el 100% */
+  }
+}
+
+

@@ -13,20 +13,11 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   const [geoJsonData, setGeoJsonData] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [filteredResults, setFilteredResults] = useState<{ [key: string]: any[] }>({});
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const loadGeoJson = async () => {
-      setIsLoading(true);
-      try {
         const { default: data } = await import("../../data/places.json");
         setGeoJsonData(data);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setIsLoading(false);
-      }
     };
 
     loadGeoJson();
@@ -34,7 +25,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
 
   const clearGeocoder = useCallback(() => {
     if (geocoder) {
-      console.log("geocoder: ", geocoder);
       geocoder.clear();
       const input = document.querySelector(".mapboxgl-ctrl-geocoder input") as HTMLInputElement;
       if (input) {
@@ -43,11 +33,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
     }
   }, [geocoder]);
 
-  const resetFilters = useCallback(() => {
-    if (activeFilter) {
-      setActiveFilter(null);
-    }
-  }, [activeFilter]);
 
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
@@ -70,7 +55,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   );
 
   return (
-    <section className="pointer-events-none fixed flex mt-16 overflow-y-auto w-full">
+    <section className="pointer-events-none fixed flex mt-16 overflow-y-auto overflow-hidden min-h-10 justify-center sm:justify-start">
       <Pill
         title="Salas"
         iconPath="/classroom.svg"
