@@ -317,6 +317,7 @@
   .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
     max-width: 360px;
     margin: 0;
+    max-height: 36px;
   }
 }
 
