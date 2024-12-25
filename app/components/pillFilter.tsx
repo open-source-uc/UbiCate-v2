@@ -16,8 +16,8 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
 
   useEffect(() => {
     const loadGeoJson = async () => {
-        const { default: data } = await import("../../data/places.json");
-        setGeoJsonData(data);
+      const { default: data } = await import("../../data/places.json");
+      setGeoJsonData(data);
     };
 
     loadGeoJson();
@@ -32,7 +32,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
       }
     }
   }, [geocoder]);
-
 
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
