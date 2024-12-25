@@ -24,9 +24,9 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading md:text-2xl text-lg">
+        <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading md:text-2xl text-lg text-center tracking-wide ">
           <Link href="/">
-            <h1>{title}</h1>
+            <h1 className="hover:text-blue-600 transition duration-300 ease-in-out">{title}</h1>
           </Link>
         </div>
 
