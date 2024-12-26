@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-
-import ReactDOM from "react-dom";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom/client";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
 
@@ -15,6 +14,9 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   const [geoJsonData, setGeoJsonData] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [filteredResults, setFilteredResults] = useState<{ [key: string]: any[] }>({});
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+  const pillsRootRef = useRef<ReactDOM.Root | null>(null);
+  const pillsContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Cargar datos GeoJSON
@@ -53,20 +55,39 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
         setGeocoderPlaces([]);
       }
     },
-    [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces],
+    [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces]
   );
 
   useEffect(() => {
-    // Insertar el componente en el contenedor de Mapbox
     const mapboxContainer = document.querySelector(".mapboxgl-ctrl-top-left");
 
-    if (mapboxContainer) {
+    if (mapboxContainer && !pillsContainerRef.current) {
       const pillsContainer = document.createElement("div");
       pillsContainer.className =
-        "overflow-y-auto overflow-hidden min-h-14 h-14 | flex justify-center sm:justify-start items-start order-2 pt-3 sm:pt-0 | gap-3 px-5";
+        "pills-container overflow-y-auto min-h-14 h-14 | flex justify-center sm:justify-start items-start order-2 pt-3 sm:pt-0 | gap-3 px-5";
       mapboxContainer.appendChild(pillsContainer);
 
-      ReactDOM.render(
+      const root = ReactDOM.createRoot(pillsContainer);
+      pillsRootRef.current = root;
+      pillsContainerRef.current = pillsContainer;
+    }
+
+    return () => {
+      if (pillsRootRef.current) {
+        pillsRootRef.current.unmount();
+        pillsRootRef.current = null;
+      }
+      if (pillsContainerRef.current && pillsContainerRef.current.parentElement) {
+        pillsContainerRef.current.parentElement.removeChild(pillsContainerRef.current);
+        pillsContainerRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    // Renderizar las pills
+    if (pillsRootRef.current) {
+      pillsRootRef.current.render(
         <>
           <Pill
             title="Salas"
@@ -104,14 +125,8 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
             onClick={() => applyFilter(categoryFilter, "bath")}
             active={activeFilter === "bath"}
           />
-        </>,
-        pillsContainer,
+        </>
       );
-
-      return () => {
-        ReactDOM.unmountComponentAtNode(pillsContainer);
-        mapboxContainer.removeChild(pillsContainer);
-      };
     }
   }, [applyFilter, activeFilter]);
 
