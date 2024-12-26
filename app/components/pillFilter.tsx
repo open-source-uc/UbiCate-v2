@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+
 import ReactDOM from "react-dom/client";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
@@ -55,7 +56,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
         setGeocoderPlaces([]);
       }
     },
-    [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces]
+    [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces],
   );
 
   const moveLeft = () => {
@@ -143,7 +144,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
             onClick={() => applyFilter(categoryFilter, "bath")}
             active={activeFilter === "bath"}
           />
-        </>
+        </>,
       );
     }
   }, [applyFilter, activeFilter]);
