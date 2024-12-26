@@ -13,7 +13,7 @@ export default function Header() {
   const { toggleSidebar } = useSidebar();
   const pathname = usePathname();
 
-  const title = pathname === "/map" ? "UbiCate - Mapa UC" : "UbiCate UC";
+  const title = pathname === "/map" ? "UbíCate - Mapa UC" : "UbíCate UC";
 
   return (
     <header className="w-full select-none text-white h-12 flex items-center relative z-30">
@@ -24,9 +24,9 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading md:text-2xl text-lg text-center tracking-wide ">
+        <div className="absolute left-1/2 transform -translate-x-1/2 font-bold font-heading md:text-2xl text-lg">
           <Link href="/">
-            <h1 className="hover:text-blue-600 transition duration-300 ease-in-out">{title}</h1>
+            <h1>{title}</h1>
           </Link>
         </div>
 
