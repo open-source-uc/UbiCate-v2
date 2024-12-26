@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 function Pill({ title, iconPath, onClick, active }: PillProps) {
   const sectionStyle = `
-  ${active ? "bg-blue-500 text-white scale-110" : "bg-white"}
+  ${active ? "bg-blue-500 text-white" : "bg-white"}
   border border-gray-300 pointer-events-auto cursor-pointer
   max-map-sm:w-9 max-map-sm:h-9 h-6 rounded-full
   flex justify-center items-center font-bold py-4 px-2 min-w-5
