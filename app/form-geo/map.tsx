@@ -79,9 +79,12 @@ export default function MapComponent(props: MapProps) {
           ref={mapRef}
           onClick={onClickMap}
         >
-          <GeolocateControl position="top-left" showAccuracyCircle={false} showUserHeading={true} />
-          <FullscreenControl position="top-left" />
-          <NavigationControl position="top-left" />
+          {/*
+          El CSS de mapbox fue ajustado para que los pills estén junto al Search Box. Cambiar la propiedad position puede generar problemas, por lo que se recomienda dedicar tiempo suficiente y tener conocimientos sólidos de CSS puro (vanilla CSS) si se desea modificar su posición.
+          */}
+          <GeolocateControl position="bottom-right" showAccuracyCircle={false} showUserHeading={true} />
+          <FullscreenControl position="bottom-right" />
+          <NavigationControl position="bottom-right" />
           <Source id="campusSmall" type="geojson" data={Campus}>
             {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
           </Source>
