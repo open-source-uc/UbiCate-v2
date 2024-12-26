@@ -16,7 +16,7 @@ function Pill({ title, iconPath, onClick, active }: PillProps) {
   const sectionStyle = `
   ${active ? "bg-blue-500 text-white" : "bg-white"}
   border border-gray-300 pointer-events-auto cursor-pointer
-  max-map-sm:w-9 max-map-sm:h-9 h-6 rounded-full
+  max-map-sm:w-11 max-map-sm:h-11 h-6 rounded-full
   flex justify-center items-center font-bold py-4 px-2 min-w-5
   ${inter.className}
 `;

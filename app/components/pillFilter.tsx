@@ -83,7 +83,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
     if (mapboxContainer && !pillsContainerRef.current) {
       const pillsContainer = document.createElement("div");
       pillsContainer.className =
-        "pills-container overflow-y-auto min-h-14 h-14 | flex justify-center sm:justify-start items-start order-2 pt-3 sm:pt-0 | gap-3 px-5";
+        "pills-container overflow-y-auto | flex justify-center sm:justify-start items-start order-2 py-3 sm:pt-0 | gap-3 px-5";
       mapboxContainer.appendChild(pillsContainer);
 
       const root = ReactDOM.createRoot(pillsContainer);
