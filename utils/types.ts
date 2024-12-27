@@ -11,7 +11,6 @@ export interface Feature {
         faculties: string;
         floors: number[];
         needApproval?: boolean,
-        commit?: string
     };
     geometry: {
         type: "Point";
