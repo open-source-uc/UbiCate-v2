@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Feature } from "../../../utils/types";
 
 const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
 const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
-
-import { Feature } from "../../../utils/types";
 
 interface Places {
   type: string;
@@ -22,7 +21,11 @@ interface Place {
   categories: string;
 }
 
-async function create_place(url: string, identifier: string, file_places: Places, file_sha: string) {
+function getID(place: Feature) {
+  return place.properties.name + "-" + place.properties.categories + "-" + place.properties.campus;
+}
+
+async function createPlace(url: string, identifier: string, file_places: Places, file_sha: string) {
   const response = await fetch(url, {
     method: "PUT",
     headers: {
@@ -47,7 +50,7 @@ async function create_place(url: string, identifier: string, file_places: Places
   return data;
 }
 
-async function update_place(url: string, identifier: string, file_places: Places, file_sha: string) {
+async function updatePlace(url: string, identifier: string, file_places: Places, file_sha: string) {
   const response = await fetch(url, {
     method: "PUT",
     headers: {
@@ -73,9 +76,35 @@ async function update_place(url: string, identifier: string, file_places: Places
   return data;
 }
 
-function getID(place: Feature) {
-  return place.properties.name + "-" + place.properties.categories + "-" + place.properties.campus;
+async function fetchPlaces(): Promise<{ url: string; file_places: Places; file_sha: string }> {
+  const path = "data/places.json";
+  const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
+        Accept: "application/vnd.github+json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error fetching data: ${response.status} ${response.statusText}`);
+    }
+
+    const fileData = await response.json();
+    const file_sha = fileData.sha;
+    const file_places: Places = JSON.parse(
+      Buffer.from(fileData.content, "base64").toString()
+    );
+
+    return { url, file_places, file_sha };
+  } catch (error) {
+    console.error("Error fetching places:", error);
+    throw error;
+  }
 }
+
 
 export async function POST(request: NextRequest) {
   try {
@@ -114,19 +143,8 @@ export async function POST(request: NextRequest) {
       nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
     }
 
-    const path = "data/places.json";
-    const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
+    const {url, file_places, file_sha } = await fetchPlaces()
 
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-        Accept: "application/vnd.github+json",
-      },
-    });
-
-    const file_data = await response.json();
-    const file_sha = file_data.sha;
-    const file_places: Places = JSON.parse(Buffer.from(file_data.content, "base64").toString());
     const index = file_places.features.findIndex(
       (feature: Feature) =>
         feature.properties.identifier.toUpperCase() === nuevo_punto.properties.identifier.toUpperCase(),
@@ -145,7 +163,7 @@ export async function POST(request: NextRequest) {
     */
 
     file_places.features.unshift(nuevo_punto);
-    await create_place(url, getID(nuevo_punto), file_places, file_sha);
+    await createPlace(url, getID(nuevo_punto), file_places, file_sha);
     return NextResponse.json({
       message: "¡El lugar fue creado! Ahora debe esperar a que sea aprobado (máximo 1 semana).",
     });
@@ -176,19 +194,7 @@ export async function PUT(request: NextRequest) {
       },
     };
 
-    const path = "data/places.json";
-    const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
-
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-        Accept: "application/vnd.github+json",
-      },
-    });
-
-    const file_data = await response.json();
-    const file_sha = file_data.sha;
-    const file_places: Places = JSON.parse(Buffer.from(file_data.content, "base64").toString());
+    const {url, file_places, file_sha } = await fetchPlaces()
 
     const index = file_places.features.findIndex(
       (feature: Feature) =>
@@ -217,7 +223,7 @@ export async function PUT(request: NextRequest) {
 
     file_places.features.unshift(place);
 
-    await update_place(url, place.properties.identifier, file_places, file_sha);
+    await updatePlace(url, place.properties.identifier, file_places, file_sha);
 
     return NextResponse.json(
       { message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana)." },
@@ -231,7 +237,8 @@ export async function PUT(request: NextRequest) {
 }
 
 export async function GET() {
-  return NextResponse.json({ message: "Hello world!" }, { status: 200 });
+  const {file_places} = await fetchPlaces();
+  return NextResponse.json({ message: "Hello world!", file_places }, { status: 200 });
 }
 
 export const runtime = "edge";

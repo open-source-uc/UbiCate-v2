@@ -1,5 +1,19 @@
 import type { LayerProps } from "react-map-gl";
 
+export const approvalPointsLayer: LayerProps = {
+  id: "points-layer-2213",
+  type: "circle",
+  source: "points",
+  filter: ["==", ["get", "needApproval"], true],
+  paint: {
+    "circle-radius": 7,
+    "circle-color": "#32CD32", 
+    "circle-stroke-width": 0.4,
+    "circle-stroke-color": "#fff",
+  },
+};
+
+
 export const allPointsLayer: LayerProps = {
   id: "points-layer-2",
   type: "circle",

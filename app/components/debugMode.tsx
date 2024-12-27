@@ -1,18 +1,35 @@
 "use client";
 
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { Source, Layer } from "react-map-gl";
+import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer } from "@/app/map/layers";
 
-import { allPointsLayer, allPlacesTextLayer } from "@/app/map/layers";
-import { JSONFeatures } from "@/utils/types";
-
-function DebugMode({ Places }: { Places: JSONFeatures }) {
+function DebugMode() {
   const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
   if (!isDebugMode) {
     return null;
   }
+
+  const [json, setJson] = useState(null);
+  const [showDebug2, setShowDebug2] = useState(true); // Controla la visibilidad de debug-2
+  const [showDebug3, setShowDebug3] = useState(true); // Controla la visibilidad de debug-3
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/data");
+        if (!response.ok) {
+          throw new Error("Failed to fetch GeoJSON data");
+        }
+        setJson((await response.json())?.file_places);
+      } catch (error) {
+        console.error("Error fetching GeoJSON data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -20,7 +37,28 @@ function DebugMode({ Places }: { Places: JSONFeatures }) {
         className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto 
 resize-x border-2 border-dashed pointer-events-auto"
       >
-        <h2 className="text-xl font-bold mb-4">Colores por Categoría</h2>
+        <div className="mt-4">
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              checked={showDebug2}
+              onChange={() => setShowDebug2((prev) => !prev)}
+              className="mr-2"
+            />
+            Mostrar Debug 2
+          </label>
+          <br />
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              checked={showDebug3}
+              onChange={() => setShowDebug3((prev) => !prev)}
+              className="mr-2"
+            />
+            Mostrar Debug 3
+          </label>
+        <h2 className="text-xl font-bold mb-4">Categorías</h2>
+        </div>
         <ul className="space-y-2">
           <li className="flex items-center">
             <span className="w-6 h-6 bg-[#1E90FF] mr-2" /> Aulas - Azul
@@ -71,12 +109,22 @@ resize-x border-2 border-dashed pointer-events-auto"
             <span className="w-6 h-6 bg-[#716ADB] mr-2" /> Color por Defecto
           </li>
         </ul>
+
       </div>
 
-      <Source id="points" type="geojson" data={Places}>
+      <Source id="debug-1" type="geojson" data={json}>
         <Layer {...allPlacesTextLayer} />
-        <Layer {...allPointsLayer} />
       </Source>
+      {showDebug2 && (
+        <Source id="debug-2" type="geojson" data={json}>
+          <Layer {...allPointsLayer} />
+        </Source>
+      )}
+      {showDebug3 && (
+        <Source id="debug-3" type="geojson" data={json}>
+          <Layer {...approvalPointsLayer} />
+        </Source>
+      )}
     </>
   );
 }
