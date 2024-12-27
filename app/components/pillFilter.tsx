@@ -106,7 +106,7 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
             active={activeFilter === "biblioteca"}
           />
           <Pill
-            title="Auditorio"
+            title="Auditorios"
             iconPath="/auditorium.svg"
             onClick={() => applyFilter(categoryFilter, "auditorium")}
             active={activeFilter === "auditorium"}
