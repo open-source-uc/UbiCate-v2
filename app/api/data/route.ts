@@ -168,6 +168,7 @@ export async function PUT(request: NextRequest) {
         campus: body.campus,
         faculties: "",
         floors: [body.floor],
+        needApproval: true
       },
       geometry: {
         type: "Point",
