@@ -49,7 +49,6 @@ export const siglas = new Map<string, string>([
     ["photocopy", "Fotocopias / Impresoras"],
     ["shop", "Tienda"],
     ["other", "Otro"]
-
 ]);
 
 export enum METHOD {

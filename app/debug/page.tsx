@@ -6,7 +6,6 @@ function DebugPage() {
   const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
 
   useEffect(() => {
-    // Inicializa el estado a partir de localStorage
     const debugModeFromLocalStorage = sessionStorage.getItem("debugMode") === "true";
     setIsDebugMode(debugModeFromLocalStorage);
   }, []);
@@ -18,7 +17,7 @@ function DebugPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center space-y-4">
+    <main className="flex flex-col items-center justify-center h-full w-full text-center space-y-4">
       <h1 className="text-3xl font-semibold">Modo Debug</h1>
       <label className="flex items-center space-x-2 text-xl">
         <input
@@ -30,7 +29,7 @@ function DebugPage() {
         <span>Activar Modo Debug</span>
       </label>
       <p className="text-lg">Modo Debug: {isDebugMode ? "Activado" : "Desactivado"}</p>
-    </div>
+    </main>
   );
 }
 

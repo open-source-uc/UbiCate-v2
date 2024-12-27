@@ -192,25 +192,29 @@ export default function MapComponent({
     if (paramLng && paramLat) {
       setCustomMark(paramLng, paramLat, false);
     }
-    e.target.on("click", "points-layer-2", (e) => {
-      const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-2"] });
-      const f = todos[0];
-      if (!f) return;
+    const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
-      const ff = {
-        type: "Feature",
-        properties: f.properties,
-        geometry: f.geometry,
-      };
-      if (ff.properties) {
-        ff.properties.categories = JSON.parse(ff.properties.categories);
-        ff.properties.floors = JSON.parse(ff.properties.floors);
-      } else {
-        return;
-      }
+    if (isDebugMode) {
+      e.target.on("click", "points-layer-2", (e) => {
+        const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-2"] });
+        const f = todos[0];
+        if (!f) return;
 
-      setPlace(ff as unknown as Feature);
-    });
+        const ff = {
+          type: "Feature",
+          properties: f.properties,
+          geometry: f.geometry,
+        };
+        if (ff.properties) {
+          ff.properties.categories = JSON.parse(ff.properties.categories);
+          ff.properties.floors = JSON.parse(ff.properties.floors);
+        } else {
+          return;
+        }
+
+        setPlace(ff as unknown as Feature);
+      });
+    }
   }
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {

@@ -45,7 +45,7 @@ export default function getGeocoder(
     limit: 10,
     zoom: 18,
     marker: false,
-    types: "poi",
+    types: "poi"
   });
 
   geocoder.on("result", onResult);

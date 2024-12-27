@@ -13,7 +13,7 @@ export default function Header() {
   const { toggleSidebar } = useSidebar();
   const pathname = usePathname();
 
-  const title = pathname === "/map" ? "UbiCate - Mapa UC" : "UbiCate UC";
+  const title = pathname === "/map" ? "UbíCate - Mapa UC" : "UbíCate UC";
 
   return (
     <header className="w-full select-none text-white h-12 flex items-center relative z-30">
