@@ -91,6 +91,7 @@ export async function POST(request: NextRequest) {
         campus: body.campus,
         faculties: "",
         floors: [body.floor],
+        needApproval: true
       },
       geometry: {
         type: "Point",

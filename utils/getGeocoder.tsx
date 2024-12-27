@@ -22,10 +22,9 @@ export default function getGeocoder(
 
     const matchingFeatures = results.map(result => {
       const feature = result.item;
-      let faculty = feature.properties.campus ? ` | Campus: ${feature.properties.campus}` : "";
       const matchedFeatures: any = {
         ...feature,
-        place_name: `${feature.properties.name}` + faculty,
+        place_name: `${feature.properties.name}`,
         center: feature.geometry.coordinates,
         place_type: ["poi"],
       };
@@ -45,7 +44,22 @@ export default function getGeocoder(
     limit: 10,
     zoom: 18,
     marker: false,
-    types: "poi"
+    types: "poi",
+    render: (item) => {
+      const { name, campus } = (item as unknown as Feature).properties;
+    
+      return `
+        <div class="geocoder-item flex items-center gap-3 p-2 hover:bg-gray-100 transition max-w-[50vw]">
+          <div class="icon w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">
+            📍
+          </div>
+          <div class="">
+            <span class="text-sm font-semibold text-gray-800">${name} | ${campus}</span>
+          </div>
+        </div>
+      `;
+    },
+    
   });
 
   geocoder.on("result", onResult);
