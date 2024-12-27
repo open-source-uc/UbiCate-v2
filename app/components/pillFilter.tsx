@@ -59,24 +59,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
     [clearGeocoder, geoJsonData, filteredResults, activeFilter, setGeocoderPlaces],
   );
 
-  const moveLeft = () => {
-    if (pillsContainerRef.current) {
-      pillsContainerRef.current.scrollTo({
-        left: pillsContainerRef.current.scrollLeft - 150,
-        behavior: "smooth", // Desplazamiento suave
-      });
-    }
-  };
-
-  const moveRight = () => {
-    if (pillsContainerRef.current) {
-      pillsContainerRef.current.scrollTo({
-        left: pillsContainerRef.current.scrollLeft + 150,
-        behavior: "smooth", // Desplazamiento suave
-      });
-    }
-  };
-
   useEffect(() => {
     const mapboxContainer = document.querySelector(".mapboxgl-ctrl-top-left");
 
@@ -108,12 +90,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
     if (pillsRootRef.current) {
       pillsRootRef.current.render(
         <>
-          <Pill
-            title="Salas"
-            iconPath="/classroom.svg"
-            onClick={() => applyFilter(categoryFilter, "classroom")}
-            active={activeFilter === "classroom"}
-          />
           <Pill
             title="Bibliotecas"
             iconPath="/library.svg"
