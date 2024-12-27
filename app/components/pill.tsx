@@ -13,30 +13,34 @@ interface PillProps {
 const inter = Inter({ subsets: ["latin"] });
 
 function Pill({ title, iconPath, onClick, active }: PillProps) {
-  const sectionStyle = `
-  ${active ? "bg-blue-500 text-white" : "bg-white"}
-  border border-gray-300 pointer-events-auto cursor-pointer
-  max-map-sm:w-11 max-map-sm:h-11 h-6 rounded-full
-  flex justify-center items-center font-bold py-4 px-2 min-w-5
-  ${inter.className}
-`;
-
-  const textStyle = `max-map-sm:hidden px-3`;
-  const iconStyle = `
-  pe-2 max-map-sm:pe-0 
-  w-6 h-6 min-w-[24px] min-h-[24px]
-  ${active ? "invert" : ""}
-`;
-
   return (
-    <div onClick={onClick}>
-      <section className={sectionStyle}>
-        <span className={textStyle}>{title}</span>
+    <button onClick={onClick}>
+      <section
+        className={`
+          ${active ? "bg-blue-500 border-gray-500 transition-transform duration-300" : "bg-white"}
+          border border-gray-300 pointer-events-auto cursor-pointer
+          max-map-sm:w-10 max-map-sm:h-10 h-6 rounded-full
+          flex justify-center items-center font-bold py-4 px-2 min-w-5
+          transition-colors duration-300 ease-in-out
+          ${inter.className}
+        `}
+      >
+        <span className="max-map-sm:hidden px-3 whitespace-nowrap">{title}</span>
         <div>
-          <Image className={iconStyle} src={iconPath} alt="icon" width={16} height={16} />
+          <Image
+            className={`
+              pe-2 max-map-sm:pe-0 
+              w-3 h-3 min-w-[24px] min-h-[24px]
+              ${active ? "invert" : ""}
+            `}
+            src={iconPath}
+            alt="icon"
+            width={16}
+            height={16}
+          />
         </div>
       </section>
-    </div>
+    </button>
   );
 }
 

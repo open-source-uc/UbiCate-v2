@@ -16,7 +16,10 @@ function DebugMode({ Places }: { Places: JSONFeatures }) {
 
   return (
     <>
-      <div className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto">
+      <div
+        className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto 
+resize-x border-2 border-dashed pointer-events-auto"
+      >
         <h2 className="text-xl font-bold mb-4">Colores por Categoría</h2>
         <ul className="space-y-2">
           <li className="flex items-center">

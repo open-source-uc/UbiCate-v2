@@ -20,7 +20,6 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   const pillsContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Cargar datos GeoJSON
     const loadGeoJson = async () => {
       const { default: data } = await import("../../data/places.json");
       setGeoJsonData(data);
@@ -74,22 +73,32 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
     }
 
     return () => {
-      if (pillsRootRef.current) {
-        pillsRootRef.current.unmount();
-        pillsRootRef.current = null;
-      }
-      if (pillsContainerRef.current && pillsContainerRef.current.parentElement) {
-        pillsContainerRef.current.parentElement.removeChild(pillsContainerRef.current);
-        pillsContainerRef.current = null;
-      }
+      /*
+      Si no se usa el 'setTimeout' se genera un error en el momento de unmount, motivo desconocido xd, solo se que funciona y eso es suficiente. xd
+      */
+      setTimeout(() => {
+        if (pillsRootRef.current) {
+          pillsRootRef.current.unmount();
+          pillsRootRef.current = null;
+        }
+        if (pillsContainerRef.current && pillsContainerRef.current.parentElement) {
+          pillsContainerRef.current.parentElement.removeChild(pillsContainerRef.current);
+          pillsContainerRef.current = null;
+        }
+      }, 0);
     };
   }, []);
 
   useEffect(() => {
-    // Renderizar las pills
     if (pillsRootRef.current) {
       pillsRootRef.current.render(
         <>
+          <Pill
+            title="Salas de Estudio"
+            iconPath="/studyroom.svg"
+            onClick={() => applyFilter(categoryFilter, "studyroom")}
+            active={activeFilter === "studyroom"}
+          />
           <Pill
             title="Bibliotecas"
             iconPath="/library.svg"

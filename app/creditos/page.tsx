@@ -19,7 +19,7 @@ export default async function Page() {
   return (
     <main
       spellCheck="false"
-      className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200"
+      className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 pb-7"
     >
       <div className="w-full text-center px-4">
         <div className="py-8">
