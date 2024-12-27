@@ -72,19 +72,13 @@ function PillFilter({ setFilteredPlaces: setGeocoderPlaces, geocoder }: PillFilt
   return (
     <section className="pointer-events-none fixed flex mt-16 overflow-y-auto w-full">
       <Pill
-        title="Salas"
-        iconPath="/classroom.svg"
-        onClick={() => applyFilter(categoryFilter, "classroom")}
-        active={activeFilter === "classroom"}
-      />
-      <Pill
         title="Bibliotecas"
         iconPath="/library.svg"
         onClick={() => applyFilter(nameFilter, "biblioteca")}
         active={activeFilter === "biblioteca"}
       />
       <Pill
-        title="Auditorio"
+        title="Auditorios"
         iconPath="/auditorium.svg"
         onClick={() => applyFilter(categoryFilter, "auditorium")}
         active={activeFilter === "auditorium"}
