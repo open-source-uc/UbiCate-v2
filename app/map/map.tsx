@@ -192,7 +192,6 @@ export default function MapComponent({
     if (paramLng && paramLat) {
       setCustomMark(paramLng, paramLat, false);
     }
-<<<<<<< HEAD
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
@@ -235,27 +234,6 @@ export default function MapComponent({
         setPlace(ff as unknown as Feature);
       });
     }
-=======
-    e.target.on("click", "points-layer-2", (e) => {
-      const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-2"] });
-      const f = todos[0];
-      if (!f) return;
-
-      const ff = {
-        type: "Feature",
-        properties: f.properties,
-        geometry: f.geometry,
-      };
-      if (ff.properties) {
-        ff.properties.categories = JSON.parse(ff.properties.categories);
-        ff.properties.floors = JSON.parse(ff.properties.floors);
-      } else {
-        return;
-      }
-
-      setPlace(ff as unknown as Feature);
-    });
->>>>>>> bot-update-locations
   }
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {

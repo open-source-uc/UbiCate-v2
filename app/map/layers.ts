@@ -1,6 +1,5 @@
 import type { LayerProps } from "react-map-gl";
 
-<<<<<<< HEAD
 export const approvalPointsLayer: LayerProps = {
   id: "points-layer-3",
   type: "circle",
@@ -14,8 +13,6 @@ export const approvalPointsLayer: LayerProps = {
   },
 };
 
-=======
->>>>>>> bot-update-locations
 export const allPointsLayer: LayerProps = {
   id: "points-layer-2",
   type: "circle",
