@@ -8,10 +8,8 @@ import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
 import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
 import { getCampusBoundsFromPoint, getParamCampusBounds } from "@/utils/getCampusBounds";
-import { JSONFeatures } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import Places from "../../data/places.json";
 import { useThemeObserver } from "../../utils/themeObserver";
 import DebugMode from "../components/debugMode";
 
@@ -90,11 +88,7 @@ export default function MapComponent(props: MapProps) {
           <Source id="campusSmall" type="geojson" data={Campus}>
             {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
           </Source>
-<<<<<<< HEAD
           <DebugMode />
-=======
-          <DebugMode Places={Places as JSONFeatures} />
->>>>>>> bot-update-locations
 
           <Marker
             longitude={marker.longitude}

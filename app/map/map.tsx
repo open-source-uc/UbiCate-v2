@@ -288,11 +288,7 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
-<<<<<<< HEAD
         <DebugMode />
-=======
-        <DebugMode Places={Places} />
->>>>>>> bot-update-locations
         {/*
         El hover fue desactivado pues al clikear en telefonos 
         se producia un mensaje pulsante, que molestaba

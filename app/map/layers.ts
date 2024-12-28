@@ -63,10 +63,6 @@ export const allPlacesTextLayer: LayerProps = {
   type: "symbol",
   source: "places",
   layout: {
-<<<<<<< HEAD
-=======
-    // Combina el nombre y la categoría en el campo de texto
->>>>>>> bot-update-locations
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
     "text-font": ["Open Sans Bold"],
     "text-size": 12,
@@ -74,10 +70,6 @@ export const allPlacesTextLayer: LayerProps = {
     "text-offset": [0, 0.5],
   },
   paint: {
-<<<<<<< HEAD
-=======
-    // Color naranja para el texto
->>>>>>> bot-update-locations
     "text-color": "#FFA500",
   },
 };
