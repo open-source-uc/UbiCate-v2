@@ -122,7 +122,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
             </svg>
           </button>
           <div
-            className="overflow-auto-chrome overflow-firebox flex justify-start items-center sm:pt-0 gap-3"
+            className="overflow-x-auto overscroll-none | overflow-auto-chrome overflow-firebox | flex justify-start items-center sm:pt-0 | gap-3"
             ref={pillsContainer}
           >
             <style jsx>{`
@@ -133,7 +133,6 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
                 scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
               }
             `}</style>
-
             <Pill
               title="Baños"
               iconPath="/toilet.svg"
