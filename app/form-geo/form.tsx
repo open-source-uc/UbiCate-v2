@@ -154,7 +154,7 @@ export default function FormComponent({
     } else {
       getGeolocation(setLatitude, setLongitude);
     }
-  }, []);
+  }, [initialValues]);
 
   return (
     <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">

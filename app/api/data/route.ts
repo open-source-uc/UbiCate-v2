@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { Feature } from "../../../utils/types";
 
 const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
@@ -94,9 +95,7 @@ async function fetchPlaces(): Promise<{ url: string; file_places: Places; file_s
 
     const fileData = await response.json();
     const file_sha = fileData.sha;
-    const file_places: Places = JSON.parse(
-      Buffer.from(fileData.content, "base64").toString()
-    );
+    const file_places: Places = JSON.parse(Buffer.from(fileData.content, "base64").toString());
 
     return { url, file_places, file_sha };
   } catch (error) {
@@ -104,7 +103,6 @@ async function fetchPlaces(): Promise<{ url: string; file_places: Places; file_s
     throw error;
   }
 }
-
 
 export async function POST(request: NextRequest) {
   try {
@@ -120,7 +118,7 @@ export async function POST(request: NextRequest) {
         campus: body.campus,
         faculties: "",
         floors: [body.floor],
-        needApproval: true
+        needApproval: true,
       },
       geometry: {
         type: "Point",
@@ -143,7 +141,7 @@ export async function POST(request: NextRequest) {
       nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
     }
 
-    const {url, file_places, file_sha } = await fetchPlaces()
+    const { url, file_places, file_sha } = await fetchPlaces();
 
     const index = file_places.features.findIndex(
       (feature: Feature) =>
@@ -186,7 +184,6 @@ export async function PUT(request: NextRequest) {
         campus: body.campus,
         faculties: "",
         floors: [body.floor],
-        needApproval: true
       },
       geometry: {
         type: "Point",
@@ -194,7 +191,7 @@ export async function PUT(request: NextRequest) {
       },
     };
 
-    const {url, file_places, file_sha } = await fetchPlaces()
+    const { url, file_places, file_sha } = await fetchPlaces();
 
     const index = file_places.features.findIndex(
       (feature: Feature) =>
@@ -218,6 +215,7 @@ export async function PUT(request: NextRequest) {
     place.properties.floors = [body.floor];
     place.properties.information = body.information;
     place.properties.name = body.name;
+    place.properties.needApproval = true;
     place.geometry.coordinates[0] = body.longitude;
     place.geometry.coordinates[1] = body.latitude;
 
@@ -237,7 +235,7 @@ export async function PUT(request: NextRequest) {
 }
 
 export async function GET() {
-  const {file_places} = await fetchPlaces();
+  const { file_places } = await fetchPlaces();
   return NextResponse.json({ message: "Hello world!", file_places }, { status: 200 });
 }
 
