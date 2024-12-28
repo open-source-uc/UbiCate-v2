@@ -121,7 +121,19 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div className="overflow-hidden | flex justify-start items-center sm:pt-0 | gap-3" ref={pillsContainer}>
+          <div
+            className="overflow-auto-chrome overflow-firebox flex justify-start items-center sm:pt-0 gap-3"
+            ref={pillsContainer}
+          >
+            <style jsx>{`
+              .overflow-auto-chrome::-webkit-scrollbar {
+                display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
+              }
+              .overflow-firebox {
+                scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+              }
+            `}</style>
+
             <Pill
               title="Baños"
               iconPath="/toilet.svg"
