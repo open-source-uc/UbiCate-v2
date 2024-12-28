@@ -184,7 +184,7 @@ export default function FormComponent({
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
                 htmlFor="categories"
               >
-                Categoria
+                Categoría
               </label>
               <Field
                 name="categories"
