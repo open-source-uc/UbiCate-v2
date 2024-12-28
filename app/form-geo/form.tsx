@@ -89,7 +89,7 @@ export default function FormComponent({
       errors.placeName = "Nombre demasiado largo";
     }
     if (newPlace.categories == "") {
-      errors.categories = "Debe seleccionar una categoria.";
+      errors.categories = "Debe seleccionar una categoría.";
     }
 
     if (newPlace.information && newPlace.information.length > 200) {
