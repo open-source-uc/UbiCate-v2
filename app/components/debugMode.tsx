@@ -1,6 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 
 import { Source, Layer } from "react-map-gl";
@@ -34,17 +33,6 @@ function DebugMode() {
 
     fetchData();
   }, [isDebugMode]);
-=======
-import React from "react";
-
-import { Source, Layer } from "react-map-gl";
-
-import { allPointsLayer, allPlacesTextLayer } from "@/app/map/layers";
-import { JSONFeatures } from "@/utils/types";
-
-function DebugMode({ Places }: { Places: JSONFeatures }) {
-  const isDebugMode = sessionStorage.getItem("debugMode") === "true";
->>>>>>> bot-update-locations
 
   if (!isDebugMode) {
     return null;
@@ -52,7 +40,6 @@ function DebugMode({ Places }: { Places: JSONFeatures }) {
 
   return (
     <>
-<<<<<<< HEAD
       <div
         className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto 
 resize-x border-2 border-dashed pointer-events-auto"
@@ -69,10 +56,6 @@ resize-x border-2 border-dashed pointer-events-auto"
           </label>
           <h2 className="text-xl font-bold mb-4">Categorías</h2>
         </div>
-=======
-      <div className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto">
-        <h2 className="text-xl font-bold mb-4">Colores por Categoría</h2>
->>>>>>> bot-update-locations
         <ul className="space-y-2">
           <li className="flex items-center">
             <span className="w-6 h-6 bg-[#1E90FF] mr-2" /> Aulas - Azul
@@ -125,7 +108,6 @@ resize-x border-2 border-dashed pointer-events-auto"
         </ul>
       </div>
 
-<<<<<<< HEAD
       {debugMode === 1 && (
         <Source id="debug-2" type="geojson" data={Places}>
           <Layer {...allPointsLayer} />
@@ -139,12 +121,6 @@ resize-x border-2 border-dashed pointer-events-auto"
           <Layer {...allPlacesTextLayer} />
         </Source>
       ) : null}
-=======
-      <Source id="points" type="geojson" data={Places}>
-        <Layer {...allPlacesTextLayer} />
-        <Layer {...allPointsLayer} />
-      </Source>
->>>>>>> bot-update-locations
     </>
   );
 }

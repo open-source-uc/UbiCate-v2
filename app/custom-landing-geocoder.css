@@ -284,7 +284,11 @@
     height: 36px;
     padding: 6px 35px;
     padding-bottom: 3px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que sobrepase el tamaño del campo */
+    text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
   }
+  
 
   .mapboxgl-ctrl-geocoder--icon-loading {
     width: 26px;

@@ -40,7 +40,7 @@ export default function getGeocoder(
     fuzzyMatch: true,
     localGeocoderOnly: true,
     mapboxgl: Mapbox,
-    placeholder: "Salas, Bibliotecas, Laboratorios...",
+    placeholder: "Salas, Bibliotecas, Laboratorios y más.",
     limit: 10,
     zoom: 18,
     marker: false,
