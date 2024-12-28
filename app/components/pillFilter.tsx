@@ -79,6 +79,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
     [clearGeocoder, placesGeoJson, placesFilteredByCategory, setFilteredPlaces],
   );
 
+<<<<<<< HEAD
   const toggleActiveFilter = (category: string) => {
     setActiveFilter((prev) => (prev === category ? null : category));
   };
@@ -192,6 +193,42 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
   }, [applyFilter, activeFilter]);
 
   return null;
+=======
+  return (
+    <section className="pointer-events-none fixed flex mt-16 overflow-y-auto w-full">
+      <Pill
+        title="Bibliotecas"
+        iconPath="/library.svg"
+        onClick={() => applyFilter(nameFilter, "biblioteca")}
+        active={activeFilter === "biblioteca"}
+      />
+      <Pill
+        title="Auditorios"
+        iconPath="/auditorium.svg"
+        onClick={() => applyFilter(categoryFilter, "auditorium")}
+        active={activeFilter === "auditorium"}
+      />
+      <Pill
+        title="Comida"
+        iconPath="/food.svg"
+        onClick={() => applyFilter(categoryFilter, "food_lunch")}
+        active={activeFilter === "food_lunch"}
+      />
+      <Pill
+        title="Agua"
+        iconPath="/water.svg"
+        onClick={() => applyFilter(categoryFilter, "water")}
+        active={activeFilter === "water"}
+      />
+      <Pill
+        title="Baños"
+        iconPath="/toilet.svg"
+        onClick={() => applyFilter(categoryFilter, "bath")}
+        active={activeFilter === "bath"}
+      />
+    </section>
+  );
+>>>>>>> bot-update-locations
 }
 
 export default React.memo(PillFilter);
