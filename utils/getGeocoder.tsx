@@ -49,7 +49,7 @@ export default function getGeocoder(
       const { name, campus } = (item as unknown as Feature).properties;
     
       return `
-        <div class="geocoder-item flex items-center gap-3 p-2 hover:bg-gray-100 transition max-w-[50vw]">
+        <div class="geocoder-item flex items-center gap-2">
           <div class="icon w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">
             📍
           </div>
