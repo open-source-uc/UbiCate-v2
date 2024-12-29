@@ -1,14 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Source, Layer } from "react-map-gl";
 
-import { allPointsLayer, allPlacesTextLayer } from "@/app/map/layers";
-import { JSONFeatures } from "@/utils/types";
+import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer } from "@/app/map/layers";
+import Places from "@/data/places.json";
 
-function DebugMode({ Places }: { Places: JSONFeatures }) {
+function DebugMode() {
   const isDebugMode = sessionStorage.getItem("debugMode") === "true";
+  const [json, setJson] = useState(null);
+  const [debugMode, setDebugMode] = useState(1);
+
+  useEffect(() => {
+    const fetchData = () => {
+      if (!isDebugMode) return;
+
+      fetch("/api/data")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch GeoJSON data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setJson(data.file_places);
+        })
+        .catch((error) => {
+          console.error("Error fetching GeoJSON data:", error);
+        });
+    };
+
+    fetchData();
+  }, [isDebugMode]);
 
   if (!isDebugMode) {
     return null;
@@ -20,7 +44,18 @@ function DebugMode({ Places }: { Places: JSONFeatures }) {
         className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto 
 resize-x border-2 border-dashed pointer-events-auto"
       >
-        <h2 className="text-xl font-bold mb-4">Colores por Categoría</h2>
+        <div className="mt-4">
+          <label className="flex items-center">
+            <input type="radio" checked={debugMode === 1} onChange={() => setDebugMode(1)} className="mr-2" />
+            ALL puntos
+          </label>
+          <br />
+          <label className="flex items-center">
+            <input type="radio" checked={debugMode === 2} onChange={() => setDebugMode(2)} className="mr-2" />
+            Punto new/update
+          </label>
+          <h2 className="text-xl font-bold mb-4">Categorías</h2>
+        </div>
         <ul className="space-y-2">
           <li className="flex items-center">
             <span className="w-6 h-6 bg-[#1E90FF] mr-2" /> Aulas - Azul
@@ -73,10 +108,19 @@ resize-x border-2 border-dashed pointer-events-auto"
         </ul>
       </div>
 
-      <Source id="points" type="geojson" data={Places}>
-        <Layer {...allPlacesTextLayer} />
-        <Layer {...allPointsLayer} />
-      </Source>
+      {debugMode === 1 && (
+        <Source id="debug-2" type="geojson" data={Places}>
+          <Layer {...allPointsLayer} />
+          <Layer {...allPlacesTextLayer} />
+        </Source>
+      )}
+
+      {debugMode === 2 && json ? (
+        <Source id="debug-3" type="geojson" data={json}>
+          <Layer {...approvalPointsLayer} />
+          <Layer {...allPlacesTextLayer} />
+        </Source>
+      ) : null}
     </>
   );
 }

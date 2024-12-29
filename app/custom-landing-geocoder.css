@@ -284,7 +284,11 @@
     height: 36px;
     padding: 6px 35px;
     padding-bottom: 3px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que sobrepase el tamaño del campo */
+    text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
   }
+  
 
   .mapboxgl-ctrl-geocoder--icon-loading {
     width: 26px;
@@ -311,8 +315,8 @@
     width: 100%;
     justify-items: center;
     justify-content: start;
-    padding: 10px 15px;
-    
+    padding: 10px 5px;
+    gap: 0.4rem;
   }
   .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
     max-width: 360px;
@@ -327,7 +331,7 @@
     width: 100%;
     justify-items: center;
     justify-content: center;
-    padding: 10px 15px;
+    padding: 10px 5px;
     flex-wrap: wrap;
     gap: 5px;
   }

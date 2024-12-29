@@ -22,7 +22,7 @@ export default async function Page() {
         <div className="w-full text-center my-6">
           <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">Nueva ubicación</h1>
           <h2 className="text-base lg:text-lg text-black dark:text-light-4 select-none text-center">
-            Ayúdanos registrando una nueva sala, oficina u cualquier otro espacio que consideres pertinente.
+            Ayúdanos registrando una nueva sala, oficina o cualquier otro espacio que consideres pertinente.
           </h2>
         </div>
         <FormComponent values={null} mode={METHOD.CREATE} fun={null} />

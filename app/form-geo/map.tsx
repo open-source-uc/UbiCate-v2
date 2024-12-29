@@ -8,10 +8,8 @@ import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
 import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
 import { getCampusBoundsFromPoint, getParamCampusBounds } from "@/utils/getCampusBounds";
-import { JSONFeatures } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import Places from "../../data/places.json";
 import { useThemeObserver } from "../../utils/themeObserver";
 import DebugMode from "../components/debugMode";
 
@@ -35,7 +33,6 @@ export default function MapComponent(props: MapProps) {
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
   const searchParams = useSearchParams();
-  console.log({ l: props.markerPosition.longitude, l2: props.markerPosition.latitude });
   const campusMapBounds =
     getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ??
     getParamCampusBounds(searchParams.get("campus"));
@@ -91,7 +88,7 @@ export default function MapComponent(props: MapProps) {
           <Source id="campusSmall" type="geojson" data={Campus}>
             {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
           </Source>
-          <DebugMode Places={Places as JSONFeatures} />
+          <DebugMode />
 
           <Marker
             longitude={marker.longitude}

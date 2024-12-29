@@ -10,6 +10,7 @@ export interface Feature {
         campus: string;
         faculties: string;
         floors: number[];
+        needApproval?: boolean,
     };
     geometry: {
         type: "Point";
