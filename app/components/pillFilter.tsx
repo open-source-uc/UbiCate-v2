@@ -85,10 +85,6 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
     [clearGeocoder, placesGeoJson, placesFilteredByCategory, setFilteredPlaces, activeFilter],
   );
 
-  const toggleActiveFilter = (category: string) => {
-    setActiveFilter((prev) => (prev === category ? null : category));
-  };
-
   useEffect(() => {
     const moveLeft = () => {
       if (pillsContainer.current) {
