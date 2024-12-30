@@ -70,14 +70,21 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
     (filter: PlaceFilter, category: string) => {
       clearGeocoder();
       if (!placesGeoJson) return;
-
+  
+      if (activeFilter === category) {
+        setActiveFilter(null); 
+        setFilteredPlaces([]); 
+        return;
+      }
+  
       const results = placesFilteredByCategory[category] || filter(placesGeoJson, category);
       setPlacesFilteredByCategory((prev) => ({ ...prev, [category]: results }));
       setFilteredPlaces(results);
-      toggleActiveFilter(category);
+      setActiveFilter(category);
     },
-    [clearGeocoder, placesGeoJson, placesFilteredByCategory, setFilteredPlaces],
+    [clearGeocoder, placesGeoJson, placesFilteredByCategory, setFilteredPlaces, activeFilter]
   );
+  
 
   const toggleActiveFilter = (category: string) => {
     setActiveFilter((prev) => (prev === category ? null : category));
