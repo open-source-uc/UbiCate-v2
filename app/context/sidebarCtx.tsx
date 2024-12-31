@@ -1,6 +1,7 @@
 "use client";
-import { getCampusFromUserLocation } from "@/utils/getCampusBounds";
 import { createContext, useContext, ReactNode, useState, useEffect } from "react";
+
+import { getCampusFromUserLocation } from "@/utils/getCampusBounds";
 import useUpdateRoute from "@/utils/useUpdateRoute";
 // Define la interfaz extendida
 interface SidebarContextType {
@@ -14,7 +15,7 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [hasLoadedCampus, setHasLoadedCampus] = useState<boolean>(false);
-  const updateParams = useUpdateRoute()
+  const updateParams = useUpdateRoute();
 
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
@@ -32,12 +33,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     };
 
     loadCampus();
-  }, [hasLoadedCampus]); // Solo se ejecuta si `hasLoadedCampus` cambia
+  }, [hasLoadedCampus, updateParams]);
 
   return (
-    <SidebarContext.Provider value={{ isOpen, toggleSidebar, hasLoadedCampus }}>
-      {children}
-    </SidebarContext.Provider>
+    <SidebarContext.Provider value={{ isOpen, toggleSidebar, hasLoadedCampus }}>{children}</SidebarContext.Provider>
   );
 }
 

@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
 import { ChevronLeft, Plus } from "lucide-react";
+
 import campuses from "@/data/campuses.json";
+
 import { useSidebar } from "../context/sidebarCtx";
 
 export default function Sidebar() {
   const { isOpen, toggleSidebar } = useSidebar();
-  const searchParams = useSearchParams()
-
+  const searchParams = useSearchParams();
 
   return (
     <aside
