@@ -1,5 +1,4 @@
 import type { LngLatBoundsLike } from "mapbox-gl";
-import { siglas as MapSiglas } from "@/utils/types";
 
 interface CampusBounds {
   longitudeRange: [number, number];
@@ -44,5 +43,44 @@ export function getCampusBoundsFromPoint(longitude: number, latitude: number): L
   }
 
   return null
+}
 
+export function getCampusFromPoint(longitude: number, latitude: number): string | null {
+  for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
+    if (
+      longitude >= boundary.longitudeRange[0] &&
+      longitude <= boundary.longitudeRange[1] &&
+      latitude >= boundary.latitudeRange[0] &&
+      latitude <= boundary.latitudeRange[1]
+    ) {
+      return boundaryCampus
+    }
+  }
+
+  return null
+}
+
+
+export async function getCampusFromUserLocation(): Promise<string | null> {
+  return new Promise((resolve) => {
+    if (!navigator.geolocation) {
+      resolve(null);
+    } else {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { longitude, latitude } = position.coords;
+          const campusBounds = getCampusFromPoint(longitude, latitude);
+
+          if (campusBounds) {
+            resolve(campusBounds);
+          } else {
+            resolve(null);
+          }
+        },
+        (error) => {
+          resolve(null);
+        }
+      );
+    }
+  });
 }
