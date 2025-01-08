@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import { Source, Layer } from "react-map-gl";
 
-import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer } from "@/app/map/layers";
+import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer, allPlacesTextApprovalLayer } from "@/app/map/layers";
 import Places from "@/data/places.json";
 
 function DebugMode() {
@@ -118,7 +118,7 @@ resize-x border-2 border-dashed pointer-events-auto"
       {debugMode === 2 && json ? (
         <Source id="debug-3" type="geojson" data={json}>
           <Layer {...approvalPointsLayer} />
-          <Layer {...allPlacesTextLayer} />
+          <Layer {...allPlacesTextApprovalLayer} />
         </Source>
       ) : null}
     </>
