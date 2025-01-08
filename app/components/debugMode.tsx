@@ -41,7 +41,7 @@ function DebugMode() {
   return (
     <>
       <div
-        className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto 
+        className="fixed right-0 top-44 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/5 overflow-auto 
 resize-x border-2 border-dashed pointer-events-auto"
       >
         <div className="mt-4">
