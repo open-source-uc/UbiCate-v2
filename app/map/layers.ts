@@ -1,5 +1,18 @@
 import type { LayerProps } from "react-map-gl";
 
+export const approvalPointsLayer: LayerProps = {
+  id: "points-layer-3",
+  type: "circle",
+  source: "points",
+  filter: ["==", ["get", "needApproval"], true],
+  paint: {
+    "circle-radius": 7,
+    "circle-color": "#32CD32",
+    "circle-stroke-width": 0.4,
+    "circle-stroke-color": "#fff",
+  },
+};
+
 export const allPointsLayer: LayerProps = {
   id: "points-layer-2",
   type: "circle",
@@ -50,7 +63,6 @@ export const allPlacesTextLayer: LayerProps = {
   type: "symbol",
   source: "places",
   layout: {
-    // Combina el nombre y la categoría en el campo de texto
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
     "text-font": ["Open Sans Bold"],
     "text-size": 12,
@@ -58,7 +70,23 @@ export const allPlacesTextLayer: LayerProps = {
     "text-offset": [0, 0.5],
   },
   paint: {
-    // Color naranja para el texto
+    "text-color": "#FFA500",
+  },
+};
+
+export const allPlacesTextApprovalLayer: LayerProps = {
+  id: "places-text-127879",
+  type: "symbol",
+  source: "places",
+  filter: ["==", ["get", "needApproval"], true],
+  layout: {
+    "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
+    "text-font": ["Open Sans Bold"],
+    "text-size": 12,
+    "text-anchor": "top",
+    "text-offset": [0, 0.5],
+  },
+  paint: {
     "text-color": "#FFA500",
   },
 };
@@ -90,54 +118,6 @@ export const placesDarkTextLayer: LayerProps = {
   },
   paint: {
     "text-color": "#fff",
-  },
-};
-
-export const placesBathLayer: LayerProps = {
-  id: "places-bath",
-  type: "symbol",
-  source: "places",
-  filter: ["any", ["in", "bath", ["get", "categories"]], ["==", ["get", "category"], "bath"]],
-  layout: {
-    "text-field": ["get", "name"],
-    "text-font": ["Open Sans Bold"],
-    "text-size": 12,
-    "text-anchor": "top",
-  },
-  paint: {
-    "text-color": "#000",
-  },
-};
-
-export const placesFoodLayer: LayerProps = {
-  id: "places-food",
-  type: "symbol",
-  source: "places",
-  filter: ["any", ["in", "comida", ["downcase", ["get", "name"]]], ["==", ["get", "categories"], "food_lunch"]],
-  layout: {
-    "text-field": ["get", "name"],
-    "text-font": ["Open Sans Bold"],
-    "text-size": 12,
-    "text-anchor": "top",
-  },
-  paint: {
-    "text-color": "#000",
-  },
-};
-
-export const placesLibraryLayer: LayerProps = {
-  id: "places-library",
-  type: "symbol",
-  source: "places",
-  filter: ["in", "biblioteca", ["downcase", ["get", "name"]]],
-  layout: {
-    "text-field": ["get", "name"],
-    "text-font": ["Open Sans Bold"],
-    "text-size": 12,
-    "text-anchor": "top",
-  },
-  paint: {
-    "text-color": "#000",
   },
 };
 

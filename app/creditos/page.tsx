@@ -19,10 +19,10 @@ export default async function Page() {
   return (
     <main
       spellCheck="false"
-      className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200"
+      className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 pb-7"
     >
-      <div className="w-full text-center py-10 px-4">
-        <div className="my-8">
+      <div className="w-full text-center px-4">
+        <div className="py-8">
           <Image
             src="/logo-osuc.svg"
             alt="Open Source UC Logo"
@@ -42,7 +42,7 @@ export default async function Page() {
           >
             Open Source UC
           </a>
-          , una comunidad creando soluciones para la comunidad.
+          , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
         </p>
 
         <h2 className="text-3xl font-bold mt-10">Contribuidores de UbíCate</h2>

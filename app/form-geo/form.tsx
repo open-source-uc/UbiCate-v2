@@ -89,7 +89,7 @@ export default function FormComponent({
       errors.placeName = "Nombre demasiado largo";
     }
     if (newPlace.categories == "") {
-      errors.categories = "Debe seleccionar una categoria.";
+      errors.categories = "Debe seleccionar una categoría.";
     }
 
     if (newPlace.information && newPlace.information.length > 200) {
@@ -154,7 +154,7 @@ export default function FormComponent({
     } else {
       getGeolocation(setLatitude, setLongitude);
     }
-  }, []);
+  }, [initialValues]);
 
   return (
     <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">
@@ -184,7 +184,7 @@ export default function FormComponent({
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
                 htmlFor="categories"
               >
-                Categoria
+                Categoría
               </label>
               <Field
                 name="categories"

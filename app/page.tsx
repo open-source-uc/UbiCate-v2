@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="flex max-h-screen flex-col items-center justify-between p-10">
+    <main className="flex max-h-screen flex-col items-center justify-between py-10 px-3">
       <div className="relative flex place-items-center">
         <Image className="relative invert" src="/logo-white.svg" alt="UbíCate uc" width={180} height={37} priority />
       </div>

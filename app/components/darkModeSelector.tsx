@@ -4,11 +4,15 @@ import React, { useState, useEffect } from "react";
 
 export default function DarkModeSelector() {
   const [isDark, setIsDark] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const switchTheme = () => {
     document.documentElement.classList.toggle("dark", !isDark);
     setIsDark(!isDark);
     localStorage.theme = !isDark ? "dark" : "light";
+
+    setIsButtonDisabled(true);
+    setTimeout(() => setIsButtonDisabled(false), 700);
   };
 
   const setSystemTheme = () => {
@@ -24,7 +28,11 @@ export default function DarkModeSelector() {
 
   return (
     <div className="flex items-center ml-auto">
-      <button className="rounded-lg hover:bg-sky-700 p-1 text-xl" onClick={() => switchTheme()}>
+      <button
+        className="rounded-lg hover:bg-sky-700 p-1 text-xl"
+        onClick={() => switchTheme()}
+        disabled={isButtonDisabled} // Deshabilitar el botón
+      >
         {isDark ? "🌙" : "🌞"}
       </button>
     </div>
