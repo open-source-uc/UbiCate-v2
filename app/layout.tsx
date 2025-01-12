@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 import Header from "./components/header";
 import Overlay from "./components/overlay";
+import NavigationBar from "./components/NavigationBar";
 import Sidebar from "./components/sidebar";
 import { SidebarProvider } from "./context/sidebarCtx";
 
@@ -37,12 +38,25 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap"
+        />
+      </head>
+      <body className="h-full pb-[-12px] dark:bg-dark-1">
         <SidebarProvider>
-          <Overlay />
           <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
             <Header />
-            <Sidebar />
+            <NavigationBar />
             {children}
           </div>
         </SidebarProvider>

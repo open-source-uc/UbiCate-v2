@@ -15,9 +15,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 bg-white dark:bg-dark-1 dark:text-white text-white transform transition-transform duration-300 z-50  ${
-        isOpen ? "translate-x-0 w-full map-sm:w-72" : "-translate-x-full"
-      }`}
+      className={`fixed inset-y-0 left-0 bg-white dark:bg-dark-1 dark:text-white text-white transform transition-transform duration-300 z-50  ${isOpen ? "translate-x-0 w-full map-sm:w-72" : "-translate-x-full"
+        }`}
     >
       <div className="flex flex-col h-full">
         <header className="h-12 bg-sky-600 flex items-center">
@@ -38,11 +37,10 @@ export default function Sidebar() {
                     <Link
                       href={`/map?campus=${campus.properties.shortName}`}
                       passHref
-                      className={`block px-4 rounded-lg transition-all hover:text-sky-600 dark:hover:text-sky-300 ${
-                        searchParams.get("campus") === campus.properties.shortName
-                          ? "text-sky-600 dark:text-sky-300"
-                          : "text-gray-700 dark:text-white"
-                      }`}
+                      className={`block px-4 rounded-lg transition-all hover:text-sky-600 dark:hover:text-sky-300 ${searchParams.get("campus") === campus.properties.shortName
+                        ? "text-sky-600 dark:text-sky-300"
+                        : "text-gray-700 dark:text-white"
+                        }`}
                       onClick={toggleSidebar}
                     >
                       {campus.properties.name}
