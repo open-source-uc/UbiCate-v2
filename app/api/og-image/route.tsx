@@ -39,3 +39,5 @@ export async function GET(request: NextRequest) {
     status: 200,
   });
 }
+
+export const runtime = "edge";
