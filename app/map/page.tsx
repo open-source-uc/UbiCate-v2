@@ -57,6 +57,4 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   );
 }
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";

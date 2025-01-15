@@ -71,6 +71,4 @@ export default async function Page() {
   );
 }
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
