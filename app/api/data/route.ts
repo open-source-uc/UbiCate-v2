@@ -239,4 +239,6 @@ export async function GET() {
   return NextResponse.json({ message: "Hello world!", file_places }, { status: 200 });
 }
 
-export const runtime = "edge";
+export const config = {
+  runtime: "edge",
+};

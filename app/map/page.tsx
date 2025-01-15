@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 import { Metadata } from "next";
 
 import { getParamCampusBounds } from "@/utils/getCampusBounds";
@@ -47,18 +45,18 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   return (
     <>
       <main spellCheck="false" className="h-full w-full relative">
-        <Suspense>
-          <MapComponent
-            Places={PlacesJSON as JSONFeatures}
-            paramCampusBounds={campusBounds}
-            paramPlace={paramPlace}
-            paramLat={paramLat}
-            paramLng={paramLng}
-          />
-        </Suspense>
+        <MapComponent
+          Places={PlacesJSON as JSONFeatures}
+          paramCampusBounds={campusBounds}
+          paramPlace={paramPlace}
+          paramLat={paramLat}
+          paramLng={paramLng}
+        />
       </main>
     </>
   );
 }
 
-export const runtime = "edge";
+export const config = {
+  runtime: "edge",
+};
