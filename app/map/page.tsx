@@ -45,13 +45,15 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   return (
     <>
       <main spellCheck="false" className="h-full w-full relative">
-        <MapComponent
-          Places={PlacesJSON as JSONFeatures}
-          paramCampusBounds={campusBounds}
-          paramPlace={paramPlace}
-          paramLat={paramLat}
-          paramLng={paramLng}
-        />
+        <Suspense>
+          <MapComponent
+            Places={PlacesJSON as JSONFeatures}
+            paramCampusBounds={campusBounds}
+            paramPlace={paramPlace}
+            paramLat={paramLat}
+            paramLng={paramLng}
+          />
+        </Suspense>
       </main>
     </>
   );
