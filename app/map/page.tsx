@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { Metadata } from "next";
 
 import { getParamCampusBounds } from "@/utils/getCampusBounds";
