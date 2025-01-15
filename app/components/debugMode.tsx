@@ -109,7 +109,7 @@ resize-x border-2 border-dashed pointer-events-auto"
       </div>
 
       {debugMode === 1 && (
-        <Source id="debug-2" type="geojson" data={Places}>
+        <Source id="debug-2" type="geojson" data={Places as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...allPointsLayer} />
           <Layer {...allPlacesTextLayer} />
         </Source>
