@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { Suspense } from "react";
+
 import { Metadata } from "next";
 
 import Header from "./components/header";
@@ -48,7 +50,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Overlay />
           <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
             <Header />
-            <Sidebar />
+            <Suspense>
+              <Sidebar />
+            </Suspense>
             {children}
           </div>
         </SidebarProvider>
