@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "Ubícate UC",
     "San Joaquín",
     "Open Source",
-  ]
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -21,7 +21,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    console.log("hola")
+    console.log("hola");
     const loadGeoJson = async () => {
       const { default: data } = await import("../../data/places.json");
       setPlacesGeoJson(data);
