@@ -30,5 +30,3 @@ export default async function Page() {
     </>
   );
 }
-
-export const runtime = "edge";
