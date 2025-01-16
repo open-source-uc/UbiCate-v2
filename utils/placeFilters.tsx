@@ -14,6 +14,6 @@ export const categoryFilter: PlaceFilter = (geoJson, query) => {
 
 export const nameFilter: PlaceFilter = (geoJson, query) => {
   return geoJson.features.filter((feature: { properties: { name: string } }) =>
-    feature.properties.name.toLowerCase().includes(query.toLowerCase()),
+    feature.properties.name.toLowerCase().startsWith(query.toLowerCase()),
   );
 };

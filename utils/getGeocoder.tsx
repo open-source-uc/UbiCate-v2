@@ -23,7 +23,6 @@ export default function getGeocoder(
     const matchingFeatures = results
       .filter(result => result.item.properties.needApproval === false || result.item.properties.needApproval === undefined) // Para solo mostrar los que son needApproval: false
       .map(result => {
-        console.log(result.item.properties.needApproval)
         const feature = result.item;
         const matchedFeatures: any = {
           ...feature,

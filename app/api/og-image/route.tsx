@@ -1,4 +1,5 @@
-import { NextRequest, ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
+import { NextRequest } from "next/server";
 
 function Template({ text, url }: { text: string; url: string }) {
   return (
