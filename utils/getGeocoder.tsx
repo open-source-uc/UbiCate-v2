@@ -21,7 +21,7 @@ export default function getGeocoder(
     const results = fuse.search(query);
 
     const matchingFeatures = results
-      .filter(result => result.item.properties.needApproval === false) // Para solo mostrar los que son needApproval: false
+      .filter(result => result.item.properties.needApproval === false || result.item.properties.needApproval === undefined) // Para solo mostrar los que son needApproval: false
       .map(result => {
         const feature = result.item;
         const matchedFeatures: any = {
