@@ -20,16 +20,19 @@ export default function getGeocoder(
     const fuse = new Fuse(geojson.features, options);
     const results = fuse.search(query);
 
-    const matchingFeatures = results.map(result => {
-      const feature = result.item;
-      const matchedFeatures: any = {
-        ...feature,
-        place_name: `${feature.properties.name}`,
-        center: feature.geometry.coordinates,
-        place_type: ["poi"],
-      };
-      return matchedFeatures;
-    });
+    const matchingFeatures = results
+      .filter(result => result.item.properties.needApproval === false || result.item.properties.needApproval === undefined) // Para solo mostrar los que son needApproval: false
+      .map(result => {
+        const feature = result.item;
+        const matchedFeatures: any = {
+          ...feature,
+          place_name: `${feature.properties.name}`,
+          center: feature.geometry.coordinates,
+          place_type: ["poi"],
+        };
+        return matchedFeatures;
+      });
+
 
     return matchingFeatures;
   }
@@ -47,7 +50,7 @@ export default function getGeocoder(
     types: "poi",
     render: (item) => {
       const { name, campus } = (item as unknown as Feature).properties;
-    
+
       return `
         <div class="geocoder-item flex items-center gap-2">
           <div class="icon w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">
@@ -59,7 +62,7 @@ export default function getGeocoder(
         </div>
       `;
     },
-    
+
   });
 
   geocoder.on("result", onResult);

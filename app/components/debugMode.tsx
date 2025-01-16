@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import { Source, Layer } from "react-map-gl";
 
-import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer } from "@/app/map/layers";
+import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer, allPlacesTextApprovalLayer } from "@/app/map/layers";
 import Places from "@/data/places.json";
 
 function DebugMode() {
@@ -41,7 +41,7 @@ function DebugMode() {
   return (
     <>
       <div
-        className="fixed left-0 bottom-0 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/3 overflow-auto 
+        className="fixed right-0 top-44 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/5 overflow-auto 
 resize-x border-2 border-dashed pointer-events-auto"
       >
         <div className="mt-4">
@@ -109,7 +109,7 @@ resize-x border-2 border-dashed pointer-events-auto"
       </div>
 
       {debugMode === 1 && (
-        <Source id="debug-2" type="geojson" data={Places}>
+        <Source id="debug-2" type="geojson" data={Places as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...allPointsLayer} />
           <Layer {...allPlacesTextLayer} />
         </Source>
@@ -118,7 +118,7 @@ resize-x border-2 border-dashed pointer-events-auto"
       {debugMode === 2 && json ? (
         <Source id="debug-3" type="geojson" data={json}>
           <Layer {...approvalPointsLayer} />
-          <Layer {...allPlacesTextLayer} />
+          <Layer {...allPlacesTextApprovalLayer} />
         </Source>
       ) : null}
     </>

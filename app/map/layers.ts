@@ -74,6 +74,23 @@ export const allPlacesTextLayer: LayerProps = {
   },
 };
 
+export const allPlacesTextApprovalLayer: LayerProps = {
+  id: "places-text-127879",
+  type: "symbol",
+  source: "places",
+  filter: ["==", ["get", "needApproval"], true],
+  layout: {
+    "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
+    "text-font": ["Open Sans Bold"],
+    "text-size": 12,
+    "text-anchor": "top",
+    "text-offset": [0, 0.5],
+  },
+  paint: {
+    "text-color": "#FFA500",
+  },
+};
+
 export const placesTextLayer: LayerProps = {
   id: "places-text",
   type: "symbol",
