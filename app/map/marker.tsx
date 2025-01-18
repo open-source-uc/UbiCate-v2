@@ -16,16 +16,14 @@ interface MarkerProps {
 
 // Mapeo de nombres a archivos SVG
 const nameToSvgMap: Record<string, string> = {
-  "Acceso/Salida": "/acceso_y_salida.svg",
   Acceso: "/acceso.svg",
   Salida: "/salida.svg",
-  // Agregar más asociaciones aquí
+  "Acceso/Salida": "/acceso_y_salida.svg",
 };
 
-const defaultSvg = "/logo.svg"; // SVG predeterminado
+const defaultSvg = "/logo.svg";
 
 export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
-  // Busca un SVG basado en el nombre
   const matchedKey = Object.keys(nameToSvgMap).find((key) => place.properties.name.includes(key));
   const svgPath = matchedKey ? nameToSvgMap[matchedKey] : defaultSvg;
 

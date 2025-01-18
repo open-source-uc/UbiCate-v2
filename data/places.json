@@ -1655,7 +1655,7 @@
       "properties": {
         "identifier": "parking-9",
         "name": "Est. Subterraneo CyT",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1689,7 +1689,7 @@
       "properties": {
         "identifier": "parking-7",
         "name": "Est. Subterraneo Centro de innovación",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1706,7 +1706,7 @@
       "properties": {
         "identifier": "parking-6",
         "name": "Estacionamiento 5",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1723,7 +1723,7 @@
       "properties": {
         "identifier": "parking-5",
         "name": "Estacionamiento 4",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1740,7 +1740,7 @@
       "properties": {
         "identifier": "parking-4",
         "name": "Estacionamiento 3",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1757,7 +1757,7 @@
       "properties": {
         "identifier": "parking-3",
         "name": "Estacionamiento Deportes",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1774,7 +1774,7 @@
       "properties": {
         "identifier": "parking-2",
         "name": "Estacionamiento Ingenieria",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1791,7 +1791,7 @@
       "properties": {
         "identifier": "parking-1",
         "name": "Estacionamiento 2",
-        "information": "",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -1808,7 +1808,7 @@
       "properties": {
         "identifier": "parking-0",
         "name": "Estacionamiento 1",
-        "information": "### Tarifas de acuerdo al Cuadro de tarifas\n- [Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)",
+        "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
         "categories": ["parking"],
         "campus": "SJ",
         "faculties": "",
@@ -2164,7 +2164,7 @@
       "type": "Feature",
       "properties": {
         "identifier": "sports_place-32757508",
-        "name": "Cancha Tenis Arcilla",
+        "name": "Canchas Tenis Arcilla",
         "information": "",
         "categories": ["sports_place"],
         "campus": "SJ",
@@ -2181,7 +2181,7 @@
       "type": "Feature",
       "properties": {
         "identifier": "sports_place-32757455",
-        "name": "Cancha Tenis",
+        "name": "Canchas Tenis",
         "information": "",
         "categories": ["sports_place"],
         "campus": "SJ",
@@ -2198,7 +2198,7 @@
       "type": "Feature",
       "properties": {
         "identifier": "sports_place-32757419",
-        "name": "Cancha Futbolito",
+        "name": "Canchas Futbolito",
         "information": "",
         "categories": ["sports_place"],
         "campus": "SJ",
