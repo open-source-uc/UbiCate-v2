@@ -218,6 +218,23 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 ## Créditos.
 
+
+
+## Bugs
+
+### Error del servidor 500
+Si este error ocurre en Cloudflare, es muy probable que se deba a uno de los siguientes motivos:
+
+Versión incorrecta de Node.js: Asegúrate de que la versión de Node.js configurada sea compatible con tu aplicación.
+
+Fecha de compatibilidad obsoleta (Compatibility Date): Una fecha de compatibilidad muy antigua puede causar problemas con el entorno de ejecución de Cloudflare.
+
+![alt text](image/image.png)
+
+
+
+
+
 ### Mantenedores
 
 - [MrBased](https://github.com/MrBased)

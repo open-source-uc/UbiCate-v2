@@ -282,7 +282,7 @@ export default function MapComponent({
         {/* <FullscreenControl position="top-left" /> */}
         <NavigationControl position="bottom-right" />
         <ScaleControl />
-        <Source id="campusSmall" type="geojson" data={Campus}>
+        <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
         </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>

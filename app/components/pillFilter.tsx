@@ -21,6 +21,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    console.log("hola");
     const loadGeoJson = async () => {
       const { default: data } = await import("../../data/places.json");
       setPlacesGeoJson(data);
@@ -33,7 +34,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
     if (mapboxContainer && !buttonAndPillContainerRef.current) {
       const pillsContainerAndButton = document.createElement("div");
       pillsContainerAndButton.className =
-        "overflow-hidden h-10 | flex justify-start items-center order-2 sm:pt-0 | gap-1";
+        "overflow-hidden h-10 | flex justify-start items-center order-2 sm:pt-0 | gap-1 | rocka";
       mapboxContainer.appendChild(pillsContainerAndButton);
 
       const root = ReactDOM.createRoot(pillsContainerAndButton);
@@ -41,19 +42,19 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
       buttonAndPillContainerRef.current = pillsContainerAndButton;
     }
 
-    return () => {
-      // Solución para evitar el error en el desmontaje
-      setTimeout(() => {
-        if (pillsRootRef.current) {
-          pillsRootRef.current.unmount();
-          pillsRootRef.current = null;
-        }
-        if (buttonAndPillContainerRef.current?.parentElement) {
-          buttonAndPillContainerRef.current.parentElement.removeChild(buttonAndPillContainerRef.current);
-          buttonAndPillContainerRef.current = null;
-        }
-      }, 0);
-    };
+    // return () => {
+    //   // Solución para evitar el error en el desmontaje
+    //   setTimeout(() => {
+    //     if (pillsRootRef.current) {
+    //       pillsRootRef.current.unmount();
+    //       pillsRootRef.current = null;
+    //     }
+    //     if (buttonAndPillContainerRef.current?.parentElement) {
+    //       buttonAndPillContainerRef.current.parentElement.removeChild(buttonAndPillContainerRef.current);
+    //       buttonAndPillContainerRef.current = null;
+    //     }
+    //   }, 0);
+    // };
   }, []);
 
   const clearGeocoder = useCallback(() => {
