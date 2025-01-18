@@ -14,7 +14,19 @@ interface MarkerProps {
   onDragEnd?: (e: MarkerDragEvent) => void;
 }
 
+// Mapeo de nombres a archivos SVG
+const nameToSvgMap: Record<string, string> = {
+  Acceso: "/acceso.svg",
+  Salida: "/salida.svg",
+  "Acceso/Salida": "/acceso_y_salida.svg",
+};
+
+const defaultSvg = "/logo.svg";
+
 export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
+  const matchedKey = Object.keys(nameToSvgMap).find((key) => place.properties.name.includes(key));
+  const svgPath = matchedKey ? nameToSvgMap[matchedKey] : defaultSvg;
+
   return (
     <MapboxMarker
       latitude={place.geometry.coordinates[1]}
@@ -36,7 +48,7 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
           if (onMouseEnter) onMouseEnter(null);
         }}
       >
-        <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
+        <Image className="dark:invert" src={svgPath} alt={place.properties.name} width={20} height={29} />
       </div>
     </MapboxMarker>
   );

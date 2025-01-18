@@ -85,7 +85,7 @@ export default function MapComponent(props: MapProps) {
           <GeolocateControl position="bottom-right" showAccuracyCircle={false} showUserHeading={true} />
           <FullscreenControl position="bottom-right" />
           <NavigationControl position="bottom-right" />
-          <Source id="campusSmall" type="geojson" data={Campus}>
+          <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
             {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
           </Source>
           <DebugMode />

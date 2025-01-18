@@ -21,6 +21,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    console.log("hola");
     const loadGeoJson = async () => {
       const { default: data } = await import("../../data/places.json");
       setPlacesGeoJson(data);
@@ -33,7 +34,7 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
     if (mapboxContainer && !buttonAndPillContainerRef.current) {
       const pillsContainerAndButton = document.createElement("div");
       pillsContainerAndButton.className =
-        "overflow-hidden h-10 | flex justify-start items-center order-2 sm:pt-0 | gap-1";
+        "overflow-hidden h-10 | flex justify-start items-center order-2 sm:pt-0 | gap-1 | rocka";
       mapboxContainer.appendChild(pillsContainerAndButton);
 
       const root = ReactDOM.createRoot(pillsContainerAndButton);
@@ -41,19 +42,19 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
       buttonAndPillContainerRef.current = pillsContainerAndButton;
     }
 
-    return () => {
-      // Solución para evitar el error en el desmontaje
-      setTimeout(() => {
-        if (pillsRootRef.current) {
-          pillsRootRef.current.unmount();
-          pillsRootRef.current = null;
-        }
-        if (buttonAndPillContainerRef.current?.parentElement) {
-          buttonAndPillContainerRef.current.parentElement.removeChild(buttonAndPillContainerRef.current);
-          buttonAndPillContainerRef.current = null;
-        }
-      }, 0);
-    };
+    // return () => {
+    //   // Solución para evitar el error en el desmontaje
+    //   setTimeout(() => {
+    //     if (pillsRootRef.current) {
+    //       pillsRootRef.current.unmount();
+    //       pillsRootRef.current = null;
+    //     }
+    //     if (buttonAndPillContainerRef.current?.parentElement) {
+    //       buttonAndPillContainerRef.current.parentElement.removeChild(buttonAndPillContainerRef.current);
+    //       buttonAndPillContainerRef.current = null;
+    //     }
+    //   }, 0);
+    // };
   }, []);
 
   const clearGeocoder = useCallback(() => {
@@ -136,6 +137,24 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               }
             `}</style>
             <Pill
+              title="Bibliotecas"
+              iconPath="/library.svg"
+              onClick={() => applyFilter(nameFilter, "biblioteca")}
+              active={activeFilter === "biblioteca"}
+            />
+            <Pill
+              title="Salas de Estudio"
+              iconPath="/studyroom.svg"
+              onClick={() => applyFilter(categoryFilter, "studyroom")}
+              active={activeFilter === "studyroom"}
+            />
+            <Pill
+              title="Auditorios"
+              iconPath="/auditorium.svg"
+              onClick={() => applyFilter(categoryFilter, "auditorium")}
+              active={activeFilter === "auditorium"}
+            />
+            <Pill
               title="Baños"
               iconPath="/toilet.svg"
               onClick={() => applyFilter(categoryFilter, "bath")}
@@ -154,22 +173,16 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               active={activeFilter === "water"}
             />
             <Pill
-              title="Auditorios"
-              iconPath="/auditorium.svg"
-              onClick={() => applyFilter(categoryFilter, "auditorium")}
-              active={activeFilter === "auditorium"}
+              title="Deportes"
+              iconPath="/sports_place.svg"
+              onClick={() => applyFilter(categoryFilter, "sports_place")}
+              active={activeFilter === "sports_place"}
             />
             <Pill
-              title="Salas de Estudio"
-              iconPath="/studyroom.svg"
-              onClick={() => applyFilter(categoryFilter, "studyroom")}
-              active={activeFilter === "studyroom"}
-            />
-            <Pill
-              title="Bibliotecas"
-              iconPath="/library.svg"
-              onClick={() => applyFilter(nameFilter, "biblioteca")}
-              active={activeFilter === "biblioteca"}
+              title="Estacionamientos"
+              iconPath="/parking.svg"
+              onClick={() => applyFilter(categoryFilter, "parking")}
+              active={activeFilter === "parking"}
             />
           </div>
           <button

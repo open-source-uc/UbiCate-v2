@@ -9,7 +9,8 @@ import MapComponent from "./map";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
-export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
+export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
+  const searchParams = await props.searchParams;
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "localhost:3000";
   const paramPlaceId: string | undefined = searchParams?.place;
   const paramPlace: Feature | null =
@@ -31,7 +32,8 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   };
 }
 
-export default async function Page({ searchParams }: { searchParams: SearchParams }) {
+export default async function Page(props: { searchParams: Promise<SearchParams> }) {
+  const searchParams = await props.searchParams;
   const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
   const paramPlaceId: string | undefined = searchParams?.place;
   const paramLng: number | undefined = searchParams?.lng;
