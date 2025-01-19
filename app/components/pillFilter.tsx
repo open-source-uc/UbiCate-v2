@@ -137,6 +137,12 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               }
             `}</style>
             <Pill
+              title="Baños"
+              iconPath="/toilet.svg"
+              onClick={() => applyFilter(categoryFilter, "bath")}
+              active={activeFilter === "bath"}
+            />
+            <Pill
               title="Bibliotecas"
               iconPath="/library.svg"
               onClick={() => applyFilter(nameFilter, "biblioteca")}
@@ -153,12 +159,6 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               iconPath="/auditorium.svg"
               onClick={() => applyFilter(categoryFilter, "auditorium")}
               active={activeFilter === "auditorium"}
-            />
-            <Pill
-              title="Baños"
-              iconPath="/toilet.svg"
-              onClick={() => applyFilter(categoryFilter, "bath")}
-              active={activeFilter === "bath"}
             />
             <Pill
               title="Comida"
