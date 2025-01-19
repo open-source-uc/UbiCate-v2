@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import ReactMarkdown from "react-markdown";
+
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 interface MenuProps {
   place: Feature | null;
@@ -57,9 +59,17 @@ export default function Menu({ place }: MenuProps) {
               ) : null}
 
               <h3 className="text-xl font-semibold mt-4">Información</h3>
-              <p className="mt-2 min-h-16">
-                {place ? (place.properties.information == "" ? "N/A" : place.properties.information) : "N/A"}
-              </p>
+              <div className="mt-2 min-h-16">
+                {place ? (
+                  place.properties.information === "" ? (
+                    "N/A"
+                  ) : (
+                    <ReactMarkdown className="prose dark:prose-invert">{place.properties.information}</ReactMarkdown>
+                  )
+                ) : (
+                  "N/A"
+                )}
+              </div>
             </section>
             <button
               className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
