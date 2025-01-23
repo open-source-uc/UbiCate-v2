@@ -193,7 +193,12 @@ systemctl enable --now ubicate.service
 
 ## Agregar nuevas salas
 
-Las salas subidas en el formulario de la página se suben a una base de datos. Estas salas se tienen que añadir a `data/places.json`  para que sean agregadas a la página.
+Las salas subidas en el formulario se cargan directamente a una rama de Git definida en el archivo `.env.local`, correspondiente a `GITHUB_BRANCH_NAME`. Estas salas se añaden al archivo `data/places.json`.
+
+Además, es posible añadir ubicaciones de forma manual. 
+
+> [!CAUTION]
+> Es sumamente importante que cualquier ubicación agregada manualmente se realice en la rama correspondiente para evitar problemas.
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 

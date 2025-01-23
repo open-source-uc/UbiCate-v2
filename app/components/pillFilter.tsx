@@ -143,6 +143,24 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               active={activeFilter === "bath"}
             />
             <Pill
+              title="Bibliotecas"
+              iconPath="/library.svg"
+              onClick={() => applyFilter(nameFilter, "biblioteca")}
+              active={activeFilter === "biblioteca"}
+            />
+            <Pill
+              title="Salas de Estudio"
+              iconPath="/studyroom.svg"
+              onClick={() => applyFilter(categoryFilter, "studyroom")}
+              active={activeFilter === "studyroom"}
+            />
+            <Pill
+              title="Auditorios"
+              iconPath="/auditorium.svg"
+              onClick={() => applyFilter(categoryFilter, "auditorium")}
+              active={activeFilter === "auditorium"}
+            />
+            <Pill
               title="Comida"
               iconPath="/food.svg"
               onClick={() => applyFilter(categoryFilter, "food_lunch")}
@@ -155,22 +173,16 @@ function PillFilter({ setFilteredPlaces, geocoder }: PillFilterProps) {
               active={activeFilter === "water"}
             />
             <Pill
-              title="Auditorios"
-              iconPath="/auditorium.svg"
-              onClick={() => applyFilter(categoryFilter, "auditorium")}
-              active={activeFilter === "auditorium"}
+              title="Deportes"
+              iconPath="/sports_place.svg"
+              onClick={() => applyFilter(categoryFilter, "sports_place")}
+              active={activeFilter === "sports_place"}
             />
             <Pill
-              title="Salas de Estudio"
-              iconPath="/studyroom.svg"
-              onClick={() => applyFilter(categoryFilter, "studyroom")}
-              active={activeFilter === "studyroom"}
-            />
-            <Pill
-              title="Bibliotecas"
-              iconPath="/library.svg"
-              onClick={() => applyFilter(nameFilter, "biblioteca")}
-              active={activeFilter === "biblioteca"}
+              title="Estacionamientos"
+              iconPath="/parking.svg"
+              onClick={() => applyFilter(categoryFilter, "parking")}
+              active={activeFilter === "parking"}
             />
           </div>
           <button
