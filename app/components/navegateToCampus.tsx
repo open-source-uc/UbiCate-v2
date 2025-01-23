@@ -11,8 +11,6 @@ export default function NavegateToCampus() {
   useEffect(() => {
     const firstTime = sessionStorage.getItem("firstTime") ?? "true";
     if (firstTime === "true") {
-      alert("test");
-
       sessionStorage.setItem("firstTime", "false");
       getCampusFromUserLocation().then((campus) => {
         if (!campus) return;
