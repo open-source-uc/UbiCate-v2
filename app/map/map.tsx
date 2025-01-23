@@ -280,18 +280,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={() => {
-                  setTmpMark(null);
-                  onClickMark(place);
-                }}
-              // onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                  // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {!tmpMark ? null : (
           <Marker
