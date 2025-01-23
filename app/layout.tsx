@@ -55,7 +55,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="h-full pb-[-12px] dark:bg-dark-1">
         <SidebarProvider>
           <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
-            <Header />
             <NavigationBar />
             {children}
           </div>

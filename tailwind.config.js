@@ -5,15 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'selector',
+  darkMode: false,
   theme: {
     screens: {
-      'map-sm': '800px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      tablet: '960px',
+      desktop: '1248px',
     },
     extend: {
       colors: {
@@ -29,7 +25,12 @@ module.exports = {
         'light-2': '#e5e9f0',
         'light-3': '#d8dee9',
         'light-4': '#c1c8d7',
-        'sidebar-color': 'rgb(35, 55, 75, 90%)'
+        'sidebar-color': 'rgb(35, 55, 75, 90%)',
+        'azure': '#015FFF',
+        'snow': '#F9F8F3',
+        'light-brown': '#8A817C',
+        'dark-brown': '#39302B',
+        'licorice': '#170D09'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
