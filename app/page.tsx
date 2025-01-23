@@ -5,6 +5,7 @@ import { Metadata } from "next";
 
 import LandingSearch from "./components/landingSearch";
 import TypeAnimationWrapper from "./components/typeAnimationWrapper";
+import NavegateToCampus from "./components/navegateToCampus";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -46,7 +47,10 @@ export default function Home() {
       </div>
       <TypeAnimationWrapper />
       <section className="justify-center w-full align-middle items-center">
+        {/* En el siguiente componente se ingresa la busqueda*/}
         <LandingSearch />
+        {/* En el siguiente componente se maneja la logica de auto navete al campus la primera vez que se entra */}
+        <NavegateToCampus></NavegateToCampus>
       </section>
       <footer className="absolute inset-x-0 bottom-3 justify-center flex flex-row">
         <h3 className="dark:text-white">
