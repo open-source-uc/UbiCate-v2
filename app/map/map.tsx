@@ -226,6 +226,7 @@ export default function MapComponent({
 
   return (
     <>
+      {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
       <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
@@ -279,18 +280,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                  // onMouseEnter={setHover}
-                />
-              );
-            })
+            return (
+              <Marker
+                key={place.properties.identifier}
+                place={place}
+                onClick={() => {
+                  setTmpMark(null);
+                  onClickMark(place);
+                }}
+              // onMouseEnter={setHover}
+              />
+            );
+          })
           : null}
         {!tmpMark ? null : (
           <Marker
