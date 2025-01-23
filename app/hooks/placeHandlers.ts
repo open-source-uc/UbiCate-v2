@@ -25,6 +25,6 @@ export const handleResults = (results: any, setGeocoderPlaces: (places: Feature[
   setGeocoderPlaces(resultPlaces);
 };
 
-export const handleClear = (setGeocoderPlaces: (places: null) => void) => {
-  setGeocoderPlaces(null);
+export const handleClear = (setGeocoderPlaces: (places: Feature[]) => void) => {
+  setGeocoderPlaces([]);
 };
