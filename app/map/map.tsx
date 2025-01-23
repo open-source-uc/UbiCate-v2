@@ -21,12 +21,11 @@ import { useThemeObserver } from "@/utils/themeObserver";
 
 import Campus from "../../data/campuses.json";
 import { Feature, JSONFeatures } from "../../utils/types";
-import PillFilter from "../components/pillFilter";
+import useGeocoder from "../hooks/useGeocoder";
 
 import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
-import useGeocoder from "../hooks/useGeocoder";
 import MapNavbar from "./nabvar";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -81,7 +80,7 @@ export default function MapComponent({
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
-  const refMapNavbar = useRef<HTMLSelectElement | null>(null)
+  const refMapNavbar = useRef<HTMLSelectElement | null>(null);
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   // const [hover, setHover] = useState<Feature | null>(null);
@@ -90,11 +89,9 @@ export default function MapComponent({
 
   useThemeObserver(setTheme, map);
 
-
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
   }, [paramCampusBounds]);
-
 
   function onClickMap(e: MapLayerMouseEvent) {
     window.history.replaceState(null, "", window.location.pathname);
@@ -229,6 +226,7 @@ export default function MapComponent({
 
   return (
     <>
+      <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
@@ -249,10 +247,6 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <MapNavbar ref={refMapNavbar} />
-
-
-        {/* <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} /> */}
         <MenuInformation place={place} />
 
         <GeolocateControl position="bottom-right" showUserHeading={true} />
@@ -285,18 +279,18 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces.map((place) => {
-            return (
-              <Marker
-                key={place.properties.identifier}
-                place={place}
-                onClick={() => {
-                  setTmpMark(null);
-                  onClickMark(place);
-                }}
-              // onMouseEnter={setHover}
-              />
-            );
-          })
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                  // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {!tmpMark ? null : (
           <Marker
