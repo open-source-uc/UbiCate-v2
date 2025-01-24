@@ -9,7 +9,7 @@ type QueryParams = {
   campus?: string | null;
 };
 
-const useUpdateQueryParams = () => {
+const useUpdateRoute = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter()
@@ -32,4 +32,4 @@ const useUpdateQueryParams = () => {
   return updateQueryParams;
 };
 
-export default useUpdateQueryParams;
+export default useUpdateRoute;

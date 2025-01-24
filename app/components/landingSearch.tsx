@@ -8,6 +8,11 @@ export default function LandingSearch() {
 
 
   return (
-    <section ref={geocoderContainer} className="flex justify-center align-middle mapbox-gl-geocoder-theme-borderless" />
+    <div className="flex justify-center w-full">
+      <section
+        ref={geocoderContainer}
+        className="flex justify-center w-full sm:w-4/6 md:w-5/12 align-middle mapbox-gl-geocoder-theme-borderless"
+      />
+    </div>
   );
 }
