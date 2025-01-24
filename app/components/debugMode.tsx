@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Source, Layer } from "react-map-gl";
 
 import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer, allPlacesTextApprovalLayer } from "@/app/map/layers";
-import Places from "@/utils/PlaceAndAreas"
+import Places from "@/utils/places";
 
 function DebugMode() {
   const isDebugMode = sessionStorage.getItem("debugMode") === "true";

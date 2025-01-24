@@ -41,7 +41,7 @@ interface InitialViewState extends Partial<ViewState> {
 
 function createInitialViewState(
   paramCampusBounds: LngLatBoundsLike,
-  paramPlace: Feature | undefined,
+  paramPlace: Feature | null | undefined,
   paramLng: number | null | undefined,
   paramLat: number | null | undefined,
 ): InitialViewState {
@@ -75,7 +75,7 @@ export default function MapComponent({
   paramLat,
 }: {
   paramCampusBounds: LngLatBoundsLike;
-  paramPlace?: Feature;
+  paramPlace?: Feature | null;
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
@@ -115,11 +115,14 @@ export default function MapComponent({
   function onClickMap(e: MapLayerMouseEvent) {
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
+    setArea(null);
   }
 
   function onClickMark(place: Feature) {
-    setPlace(place);
     if (!mapRef.current?.getMap()) return;
+
+    setPlace(place);
+
     if (place.properties.identifier === "42-ALL") {
       window.history.replaceState(
         null,
@@ -236,11 +239,13 @@ export default function MapComponent({
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
     setPlace(null);
+    setArea(null)
     setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
   }, []);
 
   const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
     setPlace(null);
+    setArea(null)
     setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
     mapRef.current?.flyTo({
       center: [event.lngLat.lng, event.lngLat.lat],
@@ -284,7 +289,7 @@ export default function MapComponent({
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
 
-        <Source id="areas" type="geojson" data={featuresToGeoJSON([area])}>
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(area)}>
           <Layer {...redAreaLayer} />
         </Source>
         <DebugMode />

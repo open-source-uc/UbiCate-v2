@@ -39,10 +39,9 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   const paramLng: number | undefined = searchParams?.lng;
   const paramLat: number | undefined = searchParams?.lat;
 
-  const paramPlace: Feature | null =
-    (PlacesJSON.features.find(
-      (place) => place.properties.identifier.toUpperCase() === paramPlaceId?.toUpperCase(),
-    ) as Feature) ?? null;
+  const paramPlace: Feature | null = (PlacesJSON.features.find(
+    (place) => place.properties.identifier.toUpperCase() === paramPlaceId?.toUpperCase(),
+  ) as Feature) ?? null;
 
   return (
     <>

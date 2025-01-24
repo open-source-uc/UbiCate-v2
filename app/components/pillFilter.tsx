@@ -18,7 +18,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
 
   useEffect(() => {
     const loadGeoJson = async () => {
-      const { default: data } = await import("@/utils/PlaceAndAreas");
+      const { default: data } = await import("@/utils/places");
       setPlacesGeoJson(data);
     };
 
