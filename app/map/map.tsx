@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 
+import { bbox } from "@turf/bbox";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type {
@@ -20,10 +21,10 @@ import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import Campus from "../../data/campuses.json";
-import { Feature, JSONFeatures } from "../../utils/types";
+import { Feature, Place } from "../../utils/types";
 import useGeocoder from "../hooks/useGeocoder";
 
-import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
+import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer, redAreaLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import MapNavbar from "./nabvar";
@@ -40,17 +41,22 @@ interface InitialViewState extends Partial<ViewState> {
 
 function createInitialViewState(
   paramCampusBounds: LngLatBoundsLike,
-  paramPlace: any,
+  paramPlace: Feature | null | undefined,
   paramLng: number | null | undefined,
   paramLat: number | null | undefined,
 ): InitialViewState {
   const initialViewState: InitialViewState = {
-    zoom: 18,
+    zoom: 17,
   };
 
   if (paramPlace) {
-    initialViewState.longitude = paramPlace.geometry.coordinates[0];
-    initialViewState.latitude = paramPlace.geometry.coordinates[1];
+    if (paramPlace?.geometry.type === "Point") {
+      initialViewState.longitude = paramPlace?.geometry.coordinates[0];
+      initialViewState.latitude = paramPlace?.geometry.coordinates[1];
+    }
+    if (paramPlace?.geometry.type === "Polygon") {
+      initialViewState.bounds = bbox(paramPlace?.geometry) as LngLatBoundsLike;
+    }
   } else if (paramLng && paramLat) {
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
@@ -63,20 +69,17 @@ function createInitialViewState(
 }
 
 export default function MapComponent({
-  Places,
   paramCampusBounds,
   paramPlace,
   paramLng,
   paramLat,
 }: {
-  Places: JSONFeatures;
-  paramCampusBounds: LngLatBoundsLike;
-  paramPlace: Feature | null;
+  paramCampusBounds: [number, number, number, number];
+  paramPlace?: Feature | null;
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
-  const map = mapRef.current?.getMap();
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
@@ -85,12 +88,29 @@ export default function MapComponent({
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   // const [hover, setHover] = useState<Feature | null>(null);
 
-  const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(Places, refMapNavbar);
+  const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
+    if (place?.geometry.type === "Point") {
+      mapRef.current?.getMap().flyTo({
+        essential: true,
+        duration: 400,
+        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+      });
+    }
+    if (place?.geometry.type === "Polygon") {
+      mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+        zoom: 17,
+      });
+    }
+    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+  });
 
-  useThemeObserver(setTheme, map);
+  useThemeObserver(setTheme, mapRef.current?.getMap());
 
   useEffect(() => {
-    mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
+    mapRef.current?.getMap().setMaxBounds(undefined);
+    mapRef.current?.fitBounds(paramCampusBounds, {
+      duration: 4_000,
+    });
   }, [paramCampusBounds]);
 
   function onClickMap(e: MapLayerMouseEvent) {
@@ -99,19 +119,24 @@ export default function MapComponent({
   }
 
   function onClickMark(place: Feature) {
+    if (!mapRef.current?.getMap()) return;
+
     setPlace(place);
-    if (!map) return;
+
     if (place.properties.identifier === "42-ALL") {
       window.history.replaceState(
         null,
         "",
-        `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
+        `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
       );
     } else {
       window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
     }
-    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
-    const bounds = map.getBounds();
+
+    if (place?.geometry.type !== "Point") return;
+
+    const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
+    const bounds = mapRef.current?.getMap().getBounds();
     const margin = 0.001;
 
     const isOutside = !(
@@ -122,8 +147,8 @@ export default function MapComponent({
     );
 
     if (isOutside) {
-      map.flyTo({
-        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+      mapRef.current?.getMap().flyTo({
+        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
         essential: true,
         duration: 400,
       });
@@ -237,13 +262,13 @@ export default function MapComponent({
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
           /*
-          IMPORTANTE
-          En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
- 
-          En PC: Este problema no ocurre.
-          En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
-          Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
-          */
+                                        IMPORTANTE
+                                        En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
+                               
+                                        En PC: Este problema no ocurre.
+                                        En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
+                                        Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
+                                        */
           setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
         }}
         ref={mapRef}
@@ -259,6 +284,10 @@ export default function MapComponent({
         </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
+        </Source>
+
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+          <Layer {...redAreaLayer} />
         </Source>
         <DebugMode />
         {/*
@@ -279,30 +308,32 @@ export default function MapComponent({
           </Popup>
         ) : null} */}
         {geocoderPlaces
-          ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                  // onMouseEnter={setHover}
-                />
-              );
-            })
+          ? geocoderPlaces
+              .filter((e) => e.geometry.type === "Point")
+              .map((place) => {
+                return (
+                  <Marker
+                    key={place.properties.identifier}
+                    place={place as Place}
+                    onClick={() => {
+                      setTmpMark(null);
+                      onClickMark(place);
+                    }}
+                    // onMouseEnter={setHover}
+                  />
+                );
+              })
           : null}
-        {!tmpMark ? null : (
+        {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
             draggable={true}
             key={tmpMark.properties.identifier}
-            place={tmpMark}
+            place={tmpMark as Place}
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
           />
-        )}
+        ) : null}
       </Map>
     </>
   );

@@ -100,7 +100,7 @@ export default function Menu({ place }: MenuProps) {
             values={{
               placeName: place?.properties.identifier === "42-ALL" ? "" : (place?.properties.name as string),
               information: place?.properties.information as string,
-              floor: place?.properties.floors[0] as number,
+              floor: place?.properties.floors?.[0] ?? 1,
               longitude: place?.geometry.coordinates[0] as number,
               latitude: place?.geometry.coordinates[1] as number,
               categories: place?.properties.categories.at(0) as string,

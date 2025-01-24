@@ -3,10 +3,10 @@ import Image from "next/image";
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
-import { Feature } from "../../utils/types";
+import { Feature, Place } from "../../utils/types";
 
 interface MarkerProps {
-  place: Feature;
+  place: Place;
   draggable?: boolean;
   onClick: (place: Feature) => void;
   onMouseEnter?: (place: Feature | null) => void;
@@ -16,8 +16,8 @@ interface MarkerProps {
 
 // Mapeo de nombres a archivos SVG
 const nameToSvgMap: Record<string, string> = {
-  Acceso: "/acceso.svg",
-  Salida: "/salida.svg",
+  Acceso: "/categoryIcons/acceso.svg",
+  Salida: "/categoryIcons/salida.svg",
   "Acceso/Salida": "/acceso_y_salida.svg",
 };
 

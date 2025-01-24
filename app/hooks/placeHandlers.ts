@@ -1,14 +1,19 @@
 import { JSONFeatures, Feature } from "@/utils/types";
 
-export const handleResult = (result: any, setGeocoderPlaces: (places: Feature[]) => void, Places: JSONFeatures) => {
+export const handleResult = (
+  result: any,
+  setGeocoderPlaces: (places: Feature[]) => void,
+  Places: JSONFeatures,
+  callback: (e: Feature) => void,
+) => {
   const selectedPlaceId = result.result.properties.identifier;
   for (const place of Places.features) {
     if (place.properties.identifier === selectedPlaceId) {
       setGeocoderPlaces([place as Feature]);
+      callback(place);
       break;
     }
   }
-  window.history.replaceState(null, "", `?place=${selectedPlaceId}`);
 };
 
 export const handleResults = (results: any, setGeocoderPlaces: (places: Feature[]) => void, Places: JSONFeatures) => {
