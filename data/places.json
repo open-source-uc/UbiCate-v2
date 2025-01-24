@@ -15,7 +15,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -39,7 +39,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -63,7 +63,7 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
