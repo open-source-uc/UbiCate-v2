@@ -239,13 +239,13 @@ export default function MapComponent({
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
     setPlace(null);
-    setArea(null)
+    setArea(null);
     setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
   }, []);
 
   const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
     setPlace(null);
-    setArea(null)
+    setArea(null);
     setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
     mapRef.current?.flyTo({
       center: [event.lngLat.lng, event.lngLat.lat],
@@ -312,20 +312,20 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces
-            .filter((e) => e.geometry.type === "Point")
-            .map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                // onMouseEnter={setHover}
-                />
-              );
-            })
+              .filter((e) => e.geometry.type === "Point")
+              .map((place) => {
+                return (
+                  <Marker
+                    key={place.properties.identifier}
+                    place={place}
+                    onClick={() => {
+                      setTmpMark(null);
+                      onClickMark(place);
+                    }}
+                    // onMouseEnter={setHover}
+                  />
+                );
+              })
           : null}
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
