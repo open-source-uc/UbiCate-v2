@@ -55,7 +55,7 @@ function createInitialViewState(
       initialViewState.latitude = paramPlace?.geometry.coordinates[1];
     }
     if (paramPlace?.geometry.type === "Polygon") {
-      initialViewState.bounds = bbox(paramPlace?.geometry);
+      initialViewState.bounds = bbox(paramPlace?.geometry) as LngLatBoundsLike;
     }
   } else if (paramLng && paramLat) {
     initialViewState.longitude = paramLng;
@@ -98,7 +98,7 @@ export default function MapComponent({
       });
     }
     if (place?.geometry.type === "Polygon") {
-      mapRef.current?.fitBounds(bbox(place?.geometry), {
+      mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
         zoom: 17,
       });
       setArea(place);
@@ -312,20 +312,20 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces
-              .filter((e) => e.geometry.type === "Point")
-              .map((place) => {
-                return (
-                  <Marker
-                    key={place.properties.identifier}
-                    place={place}
-                    onClick={() => {
-                      setTmpMark(null);
-                      onClickMark(place);
-                    }}
-                    // onMouseEnter={setHover}
-                  />
-                );
-              })
+            .filter((e) => e.geometry.type === "Point")
+            .map((place) => {
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
