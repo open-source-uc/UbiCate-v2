@@ -1,6 +1,8 @@
-export function featuresToGeoJSON(features: any): any {
+import { Feature } from "./types";
+
+export function featuresToGeoJSON(features: Feature[] | Feature | null): any {
   return {
     type: "FeatureCollection",
-    features: features ? features : [],
+    features: Array.isArray(features) ? features : features === null ? [] : [features],
   };
 }

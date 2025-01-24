@@ -13,7 +13,7 @@ export const campusBounds: Record<string, CampusBounds> = {
   Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
 };
 
-export function getParamCampusBounds(paramCampus: string | null): LngLatBoundsLike {
+export function getParamCampusBounds(paramCampus: string | null): [number, number, number, number] {
   if (!paramCampus || !Object.keys(campusBounds).includes(paramCampus)) {
     paramCampus = "SanJoaquin";
   }
@@ -25,7 +25,7 @@ export function getParamCampusBounds(paramCampus: string | null): LngLatBoundsLi
   ];
   return campusMapBounds;
 }
-export function getCampusBoundsFromPoint(longitude: number, latitude: number): LngLatBoundsLike | null {
+export function getCampusBoundsFromPoint(longitude: number, latitude: number): [number, number, number, number] | null {
   for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
     if (
       longitude >= boundary.longitudeRange[0] &&

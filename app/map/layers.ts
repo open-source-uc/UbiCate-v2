@@ -140,3 +140,12 @@ export const darkCampusBorderLayer: LayerProps = {
     "line-dasharray": [1, 1],
   },
 };
+export const redAreaLayer: LayerProps = {
+  id: "red-area",
+  type: "line", // Cambiado a línea
+  paint: {
+    "line-color": "#FF0000", // Color rojo para el borde
+    "line-width": 0.7, // Grosor de la línea
+    "line-dasharray": [4, 2], // Patrón de línea punteada (4px línea, 2px espacio)
+  },
+};

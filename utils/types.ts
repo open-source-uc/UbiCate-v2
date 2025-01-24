@@ -1,19 +1,41 @@
+interface PointGeometry {
+  type: "Point";
+  coordinates: [number, number];
+}
+
+interface PolygonGeometry {
+  type: "Polygon";
+  coordinates: [number, number][][];
+}
+
 export interface Feature {
-  type: "Feature";
+  type: string;
   properties: {
     identifier: string;
     name: string;
     information: string;
     categories: string[];
     campus: string;
-    faculties: string;
-    floors: number[];
+    faculties?: string;
+    floors?: number[];
     needApproval?: boolean;
   };
-  geometry: {
-    type: "Point";
-    coordinates: [number, number];
+  geometry: PointGeometry | PolygonGeometry;
+}
+
+export interface Place {
+  type: string;
+  properties: {
+    identifier: string;
+    name: string;
+    information: string;
+    categories: string[];
+    campus: string;
+    faculties?: string;
+    floors?: number[];
+    needApproval?: boolean;
   };
+  geometry: PointGeometry;
 }
 
 export interface JSONFeatures {

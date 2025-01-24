@@ -18,7 +18,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
 
   useEffect(() => {
     const loadGeoJson = async () => {
-      const { default: data } = await import("../../data/places.json");
+      const { default: data } = await import("@/utils/places");
       setPlacesGeoJson(data);
     };
 
@@ -123,56 +123,62 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
         `}</style>
         <Pill
           title="Baños"
-          iconPath="/toilet.svg"
+          iconPath="/categoryIcons/toilet.svg"
           onClick={() => applyFilter(categoryFilter, "bath")}
           active={activeFilter === "bath"}
         />
         <Pill
-          title="Bibliotecas"
-          iconPath="/library.svg"
-          onClick={() => applyFilter(nameFilter, "biblioteca")}
-          active={activeFilter === "biblioteca"}
-        />
-        <Pill
-          title="Salas de Estudio"
-          iconPath="/studyroom.svg"
-          onClick={() => applyFilter(categoryFilter, "studyroom")}
-          active={activeFilter === "studyroom"}
-        />
-        <Pill
-          title="Auditorios"
-          iconPath="/auditorium.svg"
-          onClick={() => applyFilter(categoryFilter, "auditorium")}
-          active={activeFilter === "auditorium"}
-        />
-        <Pill
           title="Comida"
-          iconPath="/food.svg"
+          iconPath="/categoryIcons/food.svg"
           onClick={() => applyFilter(categoryFilter, "food_lunch")}
           active={activeFilter === "food_lunch"}
         />
         <Pill
           title="Agua"
-          iconPath="/water.svg"
+          iconPath="/categoryIcons/water.svg"
           onClick={() => applyFilter(categoryFilter, "water")}
           active={activeFilter === "water"}
         />
         <Pill
+          title="Facultades"
+          iconPath="/categoryIcons/faculty.svg"
+          onClick={() => applyFilter(categoryFilter, "faculty")}
+          active={activeFilter === "faculty"}
+        />
+        <Pill
+          title="Bibliotecas"
+          iconPath="/categoryIcons/library.svg"
+          onClick={() => applyFilter(nameFilter, "biblioteca")}
+          active={activeFilter === "biblioteca"}
+        />
+        <Pill
+          title="Salas de Estudio"
+          iconPath="/categoryIcons/studyroom.svg"
+          onClick={() => applyFilter(categoryFilter, "studyroom")}
+          active={activeFilter === "studyroom"}
+        />
+        <Pill
+          title="Auditorios"
+          iconPath="/categoryIcons/auditorium.svg"
+          onClick={() => applyFilter(categoryFilter, "auditorium")}
+          active={activeFilter === "auditorium"}
+        />
+        <Pill
           title="Deportes"
-          iconPath="/sports_place.svg"
+          iconPath="/categoryIcons/sports_place.svg"
           onClick={() => applyFilter(categoryFilter, "sports_place")}
           active={activeFilter === "sports_place"}
         />
         <Pill
           title="Estacionamientos"
-          iconPath="/parking.svg"
+          iconPath="/categoryIcons/parking.svg"
           onClick={() => applyFilter(categoryFilter, "parking")}
           active={activeFilter === "parking"}
         />
       </div>
       {isAtEnd || (
         <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-none w-10 h-10"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-none w-[36px] h-[36px]"
           onClick={moveRight}
           type="button"
         >
