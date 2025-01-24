@@ -21,7 +21,7 @@ import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import Campus from "../../data/campuses.json";
-import { Feature } from "../../utils/types";
+import { Feature, Place } from "../../utils/types";
 import useGeocoder from "../hooks/useGeocoder";
 
 import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer, redAreaLayer } from "./layers";
@@ -317,7 +317,7 @@ export default function MapComponent({
                 return (
                   <Marker
                     key={place.properties.identifier}
-                    place={place}
+                    place={place as Place}
                     onClick={() => {
                       setTmpMark(null);
                       onClickMark(place);
@@ -331,7 +331,7 @@ export default function MapComponent({
           <Marker
             draggable={true}
             key={tmpMark.properties.identifier}
-            place={tmpMark}
+            place={tmpMark as Place}
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}

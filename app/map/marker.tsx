@@ -3,10 +3,10 @@ import Image from "next/image";
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
-import { Feature } from "../../utils/types";
+import { Feature, Place } from "../../utils/types";
 
 interface MarkerProps {
-  place: Feature;
+  place: Place;
   draggable?: boolean;
   onClick: (place: Feature) => void;
   onMouseEnter?: (place: Feature | null) => void;
