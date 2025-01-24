@@ -21,13 +21,12 @@ import { useThemeObserver } from "@/utils/themeObserver";
 
 import Campus from "../../data/campuses.json";
 import { Feature, JSONFeatures } from "../../utils/types";
-import PillFilter from "../components/pillFilter";
+import useGeocoder from "../hooks/useGeocoder";
 
 import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
-import { handleResult, handleResults, handleClear } from "./placeHandlers";
-const loadGeocoder = () => import("@/utils/getGeocoder");
+import MapNavbar from "./nabvar";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -78,40 +77,17 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
-  const geocoder = useRef<any>(null);
-  const [geocoderPlaces, setGeocoderPlaces] = useState<Feature[] | null>(null);
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
+  const refMapNavbar = useRef<HTMLSelectElement | null>(null);
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   // const [hover, setHover] = useState<Feature | null>(null);
 
+  const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(Places, refMapNavbar);
+
   useThemeObserver(setTheme, map);
-
-  useEffect(() => {
-    let mounted = true;
-
-    const initializeGeocoder = async () => {
-      const { default: getGeocoder } = await loadGeocoder();
-      if (!mounted) return;
-
-      geocoder.current = getGeocoder(
-        (result: any) => {
-          handleResult(result, setGeocoderPlaces, Places);
-        },
-        (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
-        () => handleClear(setGeocoderPlaces),
-      );
-    };
-
-    initializeGeocoder();
-    return () => {
-      mounted = false;
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
@@ -185,7 +161,6 @@ export default function MapComponent({
 
   function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-    addGeocoderControl();
     if (paramPlace) {
       setGeocoderPlaces([paramPlace]);
     }
@@ -249,12 +224,10 @@ export default function MapComponent({
     });
   }, []);
 
-  const addGeocoderControl = useCallback(() => {
-    mapRef.current?.addControl(geocoder.current, "top-left");
-  }, [geocoder]);
-
   return (
     <>
+      {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
+      <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
@@ -266,7 +239,7 @@ export default function MapComponent({
           /*
           IMPORTANTE
           En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
-
+ 
           En PC: Este problema no ocurre.
           En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
           Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
@@ -275,7 +248,6 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
         <MenuInformation place={place} />
 
         <GeolocateControl position="bottom-right" showUserHeading={true} />

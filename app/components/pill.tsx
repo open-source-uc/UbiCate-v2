@@ -20,7 +20,7 @@ function Pill({ title, iconPath, onClick, active }: PillProps) {
           ${active ? "bg-sky-600 border-gray-500 transition-transform duration-300" : "bg-white"}
           border border-gray-300 pointer-events-auto cursor-pointer
           min-h-[36px] max-h-[36px] rounded-full
-          flex justify-center items-center font-bold px-2 min-w-5
+          flex justify-center items-center font-semibold px-2 min-w-5
           transition-colors duration-300 ease-in-out
           ${inter.className}
         `}
