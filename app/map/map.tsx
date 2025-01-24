@@ -312,20 +312,20 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces
-            .filter((e) => e.geometry.type === "Point")
-            .map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                // onMouseEnter={setHover}
-                />
-              );
-            })
+              .filter((e) => e.geometry.type === "Point")
+              .map((place) => {
+                return (
+                  <Marker
+                    key={place.properties.identifier}
+                    place={place}
+                    onClick={() => {
+                      setTmpMark(null);
+                      onClickMark(place);
+                    }}
+                    // onMouseEnter={setHover}
+                  />
+                );
+              })
           : null}
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
