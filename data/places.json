@@ -4,6 +4,78 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "auditorium-33669891",
+                "name": "Auditorio Sergio Larraín",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61727595494885,
+                    -33.418740654946745
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "auditorium-33669872",
+                "name": "Auditorio Diseño",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61730781409395,
+                    -33.41929369752461
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "auditorium-33079671",
+                "name": "Auditorios FADEU",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61844935640693,
+                    -33.419592118926495
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "parking-19",
                 "name": "Acceso/Salida (UC Christus) - M. Carlos Cas. 547 ",
                 "information": "",
@@ -1342,30 +1414,6 @@
                 "coordinates": [
                     -70.61795866266479,
                     -33.41907853908444
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "auditorium-33079671",
-                "name": "Auditorios Rector Fernando Castillo Velasco",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "LC",
-                "faculties": "",
-                "floors": [
-                    -1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61844935640693,
-                    -33.419592118926495
                 ]
             }
         },
@@ -14088,29 +14136,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "B-203",
-                "name": "B-203",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "CC",
-                "faculties": "BIO",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.63985,
-                    -33.441733
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "banco1",
                 "name": "Banco Santander",
                 "information": "",
@@ -16040,29 +16065,6 @@
                 "coordinates": [
                     -70.610713,
                     -33.499102
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "COM308",
-                "name": "COM308",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "CC",
-                "faculties": "COM",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640897,
-                    -33.441368
                 ]
             }
         },
@@ -19743,29 +19745,6 @@
                 "coordinates": [
                     -70.618043,
                     -33.418941
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m",
-                "name": "M",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640542,
-                    -33.441493
                 ]
             }
         },
