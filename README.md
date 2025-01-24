@@ -56,13 +56,14 @@ Donde `{Id sala}` puede ser:
 
 Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local``
 Agregar la URL base del proyecto, actualmente es `https://ubicate.osuc.dev/`
-
+> [!IMPORTANT]  
+> Debe **llamarse** `.env.local`
 ```shell
 NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
-NEXT_PUBLIC_BASE_URL = <BASE_URL>
-GITHUB_TOKEN_USER = <TOKEN_USER>
-GITHUB_USER_EMAIL = <EMAIL>
-GITHUB_BRANCH_NAME = <EXISTING_BRANCH>
+NEXT_PUBLIC_BASE_URL = <BASE_URL> // Opcional, en producción obligatorio
+GITHUB_TOKEN_USER = <TOKEN_USER> // Opcional, en producción obligatorio
+GITHUB_USER_EMAIL = <EMAIL> // Opcional, en producción obligatorio
+GITHUB_BRANCH_NAME = <EXISTING_BRANCH> // Opcional, en producción obligatorio
 ```
 
 ### Instalar dependencias
@@ -191,14 +192,23 @@ systemctl enable --now ubicate.service
 ####
 
 
-## Agregar nuevas salas
+## Agregar Nuevas Salas y Áreas
 
-Las salas subidas en el formulario se cargan directamente a una rama de Git definida en el archivo `.env.local`, correspondiente a `GITHUB_BRANCH_NAME`. Estas salas se añaden al archivo `data/places.json`.
+Las salas subidas a través del formulario se cargan automáticamente a una rama de Git especificada en el archivo `.env.local`, bajo la variable `GITHUB_BRANCH_NAME`. Estas salas se añaden al archivo `data/places.json`. 
+> [!IMPORTANT]  
+> La rama de Git debe existir antes de usar el formulario. Además, asegúrate de configurar el token de GitHub en `GITHUB_TOKEN_USER` y el correo asociado a la cuenta en `GITHUB_USER_EMAIL`. Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
 
-Además, es posible añadir ubicaciones de forma manual. 
+### Añadir Ubicaciones de Forma Manual
 
-> [!CAUTION]
-> Es sumamente importante que cualquier ubicación agregada manualmente se realice en la rama correspondiente para evitar problemas.
+Es posible agregar ubicaciones manualmente siguiendo el **formato GeoJSON**. Además, las áreas que tengan una geometría de tipo "Polygon" también deben agregarse en este archivo.
+
+En caso de querer agregar campus, estos deben incluirse en el archivo `campus.json`.
+
+> [!CAUTION] 
+> Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
+
+> [!NOTE]
+> Los puntos o áreas que no tengan el campo `needApproval` establecido en `false`, o que no incluyan este campo, no serán mostrados en el mapa.
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
@@ -221,10 +231,6 @@ Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Créditos.
-
-
-
 ## Bugs
 
 ### Error del servidor 500
@@ -237,9 +243,7 @@ Fecha de compatibilidad obsoleta (Compatibility Date): Una fecha de compatibilid
 ![alt text](image/image.png)
 
 
-
-
-
+## Créditos.
 ### Mantenedores
 
 - [MrBased](https://github.com/MrBased)
