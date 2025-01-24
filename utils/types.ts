@@ -23,26 +23,9 @@ export interface Feature {
   geometry: PointGeometry | PolygonGeometry;
 }
 
-export interface Area {
-  type: string;
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string[];
-    campus: string;
-    needApproval?: boolean;
-  };
-  geometry: {
-    type: string;
-    coordinates: [number, number][][];
-  };
-}
-
-
 export interface JSONFeatures {
   type: string;
-  features: (Area | Feature)[];
+  features: Feature[];
 }
 
 export const siglas = new Map<string, string>([
