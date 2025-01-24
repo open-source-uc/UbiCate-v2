@@ -218,6 +218,11 @@ export default function MapComponent({
 
       if ((ff as unknown as Feature).properties.categories.some((e) => e === "faculty")) return;
       setPlace(ff as unknown as Feature);
+      window.history.replaceState(
+        null,
+        "",
+        `?place=${ff.properties.identifier}`,
+      );
     });
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
@@ -339,20 +344,20 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces
-              .filter((e) => e.geometry.type === "Point")
-              .map((place) => {
-                return (
-                  <Marker
-                    key={place.properties.identifier}
-                    place={place as Place}
-                    onClick={() => {
-                      setTmpMark(null);
-                      onClickMark(place);
-                    }}
-                    // onMouseEnter={setHover}
-                  />
-                );
-              })
+            .filter((e) => e.geometry.type === "Point")
+            .map((place) => {
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place as Place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
