@@ -90,7 +90,6 @@ export default function MapComponent({
 
   const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
     if (place?.geometry.type === "Point") {
-      mapRef.current?.getMap().setMinZoom(0);
       mapRef.current?.getMap().flyTo({
         essential: true,
         duration: 400,
@@ -101,7 +100,6 @@ export default function MapComponent({
       mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
         zoom: 17,
       });
-      mapRef.current?.getMap().setMinZoom(5);
     }
     window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
   });
@@ -264,13 +262,13 @@ export default function MapComponent({
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
           /*
-                              IMPORTANTE
-                              En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
-                     
-                              En PC: Este problema no ocurre.
-                              En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
-                              Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
-                              */
+                                        IMPORTANTE
+                                        En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
+                               
+                                        En PC: Este problema no ocurre.
+                                        En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
+                                        Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
+                                        */
           setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
         }}
         ref={mapRef}
