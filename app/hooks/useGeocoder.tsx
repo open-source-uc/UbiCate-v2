@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
-import { handleResult, handleResults, handleClear } from "./placeHandlers";
 const loadGeocoder = () => import("@/utils/getGeocoder");
 
 function useGeocoder(
@@ -22,13 +21,15 @@ function useGeocoder(
 
       geocoder.current = getGeocoder(
         PlacesJSON,
-        (result: any) => {
-          handleResult(result, setGeocoderPlaces, PlacesJSON, (e) => {
-            callBackResult(e);
-          });
+        (result: { result: Feature }) => {
+          setGeocoderPlaces([result.result]);
+          callBackResult(result.result);
         },
-        (results: any) => mounted && handleResults(results, setGeocoderPlaces, PlacesJSON),
-        () => handleClear(setGeocoderPlaces),
+        (results: { features: Feature[] | null | undefined; config: any }) => {
+          if (!mounted) return;
+          setGeocoderPlaces(results.features ?? []);
+        },
+        () => setGeocoderPlaces([]),
       );
 
       ref?.current?.appendChild(geocoder.current.onAdd());

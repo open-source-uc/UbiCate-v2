@@ -48,6 +48,7 @@ export default function getGeocoder(
     zoom: 18,
     marker: false,
     types: "poi",
+    language: "es-CL",
     render: (item) => {
       const { name, campus } = (item as unknown as Feature).properties;
 
