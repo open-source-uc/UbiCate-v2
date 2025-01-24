@@ -227,7 +227,8 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 
 ## Necesitas contactarnos
-Comuníquese con nosotros a traves de [https://www.instagram.com/opensource_euc/](Open Source UC)
+
+**Comuníquese con nosotros a través de [Open Source UC](https://www.instagram.com/opensource_euc/).**
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
