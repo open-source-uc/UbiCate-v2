@@ -1,5 +1,5 @@
 export interface Feature {
-  type: "Feature";
+  type: string;
   properties: {
     identifier: string;
     name: string;
@@ -11,14 +11,31 @@ export interface Feature {
     needApproval?: boolean;
   };
   geometry: {
-    type: "Point";
+    type: string;
     coordinates: [number, number];
   };
 }
 
+export interface Area {
+  type: string;
+  properties: {
+    identifier: string;
+    name: string;
+    information: string;
+    categories: string[];
+    campus: string;
+    needApproval?: boolean;
+  };
+  geometry: {
+    type: string;
+    coordinates: [number, number][][];
+  };
+}
+
+
 export interface JSONFeatures {
   type: string;
-  features: Feature[];
+  features: (Area | Feature)[];
 }
 
 export const siglas = new Map<string, string>([
