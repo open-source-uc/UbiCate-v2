@@ -142,9 +142,10 @@ export const darkCampusBorderLayer: LayerProps = {
 };
 export const redAreaLayer: LayerProps = {
   id: "red-area",
-  type: "fill",
+  type: "line", // Cambiado a línea
   paint: {
-    "fill-color": "rgba(255, 165, 0, 0.05)", // Naranja tenue casi imperceptible
-    "fill-outline-color": "#FF0000", // Borde rojo
+    "line-color": "#FF0000", // Color rojo para el borde
+    "line-width": 0.7, // Grosor de la línea
+    "line-dasharray": [4, 2], // Patrón de línea punteada (4px línea, 2px espacio)
   },
 };

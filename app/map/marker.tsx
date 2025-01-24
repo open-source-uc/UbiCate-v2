@@ -16,8 +16,8 @@ interface MarkerProps {
 
 // Mapeo de nombres a archivos SVG
 const nameToSvgMap: Record<string, string> = {
-  Acceso: "/acceso.svg",
-  Salida: "/salida.svg",
+  Acceso: "/categoryIcons/acceso.svg",
+  Salida: "/categoryIcons/salida.svg",
   "Acceso/Salida": "/acceso_y_salida.svg",
 };
 

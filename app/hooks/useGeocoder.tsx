@@ -23,7 +23,9 @@ function useGeocoder(
       geocoder.current = getGeocoder(
         PlacesJSON,
         (result: any) => {
-          handleResult(result, setGeocoderPlaces, PlacesJSON, callBackResult);
+          handleResult(result, setGeocoderPlaces, PlacesJSON, (e) => {
+            callBackResult(e);
+          });
         },
         (results: any) => mounted && handleResults(results, setGeocoderPlaces, PlacesJSON),
         () => handleClear(setGeocoderPlaces),
@@ -41,7 +43,17 @@ function useGeocoder(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return [geocoderPlaces, setGeocoderPlaces];
+  const setPlaces = (e: Feature[] | Feature | null) => {
+    if (Array.isArray(e)) {
+      setGeocoderPlaces(e);
+    } else if (e) {
+      setGeocoderPlaces([e]);
+    } else {
+      setGeocoderPlaces([]);
+    }
+  };
+
+  return [geocoderPlaces, setPlaces];
 }
 
 export default useGeocoder;
