@@ -96,6 +96,8 @@ export default function MapComponent({
         duration: 400,
         center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
       });
+      setArea(null);
+
     }
     if (place?.geometry.type === "Polygon") {
       mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
@@ -115,7 +117,6 @@ export default function MapComponent({
   function onClickMap(e: MapLayerMouseEvent) {
     window.history.replaceState(null, "", window.location.pathname);
     setPlace(null);
-    setArea(null);
   }
 
   function onClickMark(place: Feature) {
@@ -312,20 +313,20 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces
-              .filter((e) => e.geometry.type === "Point")
-              .map((place) => {
-                return (
-                  <Marker
-                    key={place.properties.identifier}
-                    place={place as Place}
-                    onClick={() => {
-                      setTmpMark(null);
-                      onClickMark(place);
-                    }}
-                    // onMouseEnter={setHover}
-                  />
-                );
-              })
+            .filter((e) => e.geometry.type === "Point")
+            .map((place) => {
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place as Place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
