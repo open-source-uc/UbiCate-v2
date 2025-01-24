@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "NODE_OPTIONS='--inspect' next dev --turbopack",
     "build": "next build",
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run pages:build && wrangler pages dev",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@next/eslint-plugin-next": "15.1.4",
+    "@turf/bbox": "^7.2.0",
     "@types/geojson": "^7946.0.10",
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.4",
     "@types/mapbox-gl": "^2.7.12",

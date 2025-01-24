@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { getParamCampusBounds } from "@/utils/getCampusBounds";
-import { Feature, JSONFeatures } from "@/utils/types";
+import { Feature } from "@/utils/types";
 
 import PlacesJSON from "../../data/places.json";
 
@@ -40,13 +40,14 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   const paramLat: number | undefined = searchParams?.lat;
 
   const paramPlace: Feature | null =
-    (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
+    (PlacesJSON.features.find(
+      (place) => place.properties.identifier.toUpperCase() === paramPlaceId?.toUpperCase(),
+    ) as Feature) ?? null;
 
   return (
     <>
       <main spellCheck="false" className="h-full w-full relative">
         <MapComponent
-          Places={PlacesJSON as JSONFeatures}
           paramCampusBounds={campusBounds}
           paramPlace={paramPlace}
           paramLat={paramLat}

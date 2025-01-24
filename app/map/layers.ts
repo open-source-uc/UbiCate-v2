@@ -140,3 +140,11 @@ export const darkCampusBorderLayer: LayerProps = {
     "line-dasharray": [1, 1],
   },
 };
+export const redAreaLayer: LayerProps = {
+  id: "red-area",
+  type: "fill",
+  paint: {
+    "fill-color": "rgba(255, 165, 0, 0.05)", // Naranja tenue casi imperceptible
+    "fill-outline-color": "#FF0000", // Borde rojo
+  },
+};

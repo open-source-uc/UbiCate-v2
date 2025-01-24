@@ -1,3 +1,13 @@
+interface PointGeometry {
+  type: "Point";
+  coordinates: [number, number];
+}
+
+interface PolygonGeometry {
+  type: "Polygon";
+  coordinates: [number, number][][];
+}
+
 export interface Feature {
   type: string;
   properties: {
@@ -6,14 +16,11 @@ export interface Feature {
     information: string;
     categories: string[];
     campus: string;
-    faculties: string;
-    floors: number[];
+    faculties?: string;
+    floors?: number[];
     needApproval?: boolean;
   };
-  geometry: {
-    type: string;
-    coordinates: [number, number];
-  };
+  geometry: PointGeometry | PolygonGeometry;
 }
 
 export interface Area {

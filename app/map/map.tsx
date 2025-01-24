@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 
+import { bbox } from "@turf/bbox";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type {
@@ -20,10 +21,10 @@ import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { useThemeObserver } from "@/utils/themeObserver";
 
 import Campus from "../../data/campuses.json";
-import { Feature, JSONFeatures } from "../../utils/types";
+import { Feature } from "../../utils/types";
 import useGeocoder from "../hooks/useGeocoder";
 
-import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
+import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer, redAreaLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import MapNavbar from "./nabvar";
@@ -40,7 +41,7 @@ interface InitialViewState extends Partial<ViewState> {
 
 function createInitialViewState(
   paramCampusBounds: LngLatBoundsLike,
-  paramPlace: any,
+  paramPlace: Feature | undefined,
   paramLng: number | null | undefined,
   paramLat: number | null | undefined,
 ): InitialViewState {
@@ -49,8 +50,13 @@ function createInitialViewState(
   };
 
   if (paramPlace) {
-    initialViewState.longitude = paramPlace.geometry.coordinates[0];
-    initialViewState.latitude = paramPlace.geometry.coordinates[1];
+    if (paramPlace?.geometry.type === "Point") {
+      initialViewState.longitude = paramPlace?.geometry.coordinates[0];
+      initialViewState.latitude = paramPlace?.geometry.coordinates[1];
+    }
+    if (paramPlace?.geometry.type === "Polygon") {
+      initialViewState.bounds = bbox(paramPlace?.geometry);
+    }
   } else if (paramLng && paramLat) {
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
@@ -63,31 +69,44 @@ function createInitialViewState(
 }
 
 export default function MapComponent({
-  Places,
   paramCampusBounds,
   paramPlace,
   paramLng,
   paramLat,
 }: {
-  Places: JSONFeatures;
   paramCampusBounds: LngLatBoundsLike;
-  paramPlace: Feature | null;
+  paramPlace?: Feature;
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
-  const map = mapRef.current?.getMap();
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
   );
   const refMapNavbar = useRef<HTMLSelectElement | null>(null);
   const [place, setPlace] = useState<Feature | null>(null);
+  const [area, setArea] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   // const [hover, setHover] = useState<Feature | null>(null);
 
-  const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(Places, refMapNavbar);
+  const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
+    if (place?.geometry.type === "Point") {
+      mapRef.current?.getMap().flyTo({
+        essential: true,
+        duration: 400,
+        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+      });
+    }
+    if (place?.geometry.type === "Polygon") {
+      mapRef.current?.fitBounds(bbox(place?.geometry), {
+        zoom: 17,
+      });
+      setArea(place);
+    }
+    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+  });
 
-  useThemeObserver(setTheme, map);
+  useThemeObserver(setTheme, mapRef.current?.getMap());
 
   useEffect(() => {
     mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
@@ -100,18 +119,21 @@ export default function MapComponent({
 
   function onClickMark(place: Feature) {
     setPlace(place);
-    if (!map) return;
+    if (!mapRef.current?.getMap()) return;
     if (place.properties.identifier === "42-ALL") {
       window.history.replaceState(
         null,
         "",
-        `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
+        `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
       );
     } else {
       window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
     }
-    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
-    const bounds = map.getBounds();
+
+    if (place?.geometry.type !== "Point") return;
+
+    const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
+    const bounds = mapRef.current?.getMap().getBounds();
     const margin = 0.001;
 
     const isOutside = !(
@@ -122,8 +144,8 @@ export default function MapComponent({
     );
 
     if (isOutside) {
-      map.flyTo({
-        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+      mapRef.current?.getMap().flyTo({
+        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
         essential: true,
         duration: 400,
       });
@@ -163,6 +185,7 @@ export default function MapComponent({
     e.target.doubleClickZoom.disable();
     if (paramPlace) {
       setGeocoderPlaces([paramPlace]);
+      if (paramPlace?.geometry.type === "Polygon") setArea(paramPlace);
     }
     if (paramLng && paramLat) {
       setCustomMark(paramLng, paramLat, false);
@@ -260,6 +283,10 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
+
+        <Source id="areas" type="geojson" data={featuresToGeoJSON([area])}>
+          <Layer {...redAreaLayer} />
+        </Source>
         <DebugMode />
         {/*
         El hover fue desactivado pues al clikear en telefonos 
@@ -279,7 +306,9 @@ export default function MapComponent({
           </Popup>
         ) : null} */}
         {geocoderPlaces
-          ? geocoderPlaces.map((place) => {
+          ? geocoderPlaces
+            .filter((e) => e.geometry.type === "Point")
+            .map((place) => {
               return (
                 <Marker
                   key={place.properties.identifier}
@@ -288,12 +317,12 @@ export default function MapComponent({
                     setTmpMark(null);
                     onClickMark(place);
                   }}
-                  // onMouseEnter={setHover}
+                // onMouseEnter={setHover}
                 />
               );
             })
           : null}
-        {!tmpMark ? null : (
+        {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
             draggable={true}
             key={tmpMark.properties.identifier}
@@ -302,7 +331,7 @@ export default function MapComponent({
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
           />
-        )}
+        ) : null}
       </Map>
     </>
   );
