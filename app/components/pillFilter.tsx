@@ -172,7 +172,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
       </div>
       {isAtEnd || (
         <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-none w-10 h-10"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-none w-[36px] h-[36px]"
           onClick={moveRight}
           type="button"
         >
