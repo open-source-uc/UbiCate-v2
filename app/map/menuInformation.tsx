@@ -30,8 +30,9 @@ export default function Menu({ place }: MenuProps) {
     <>
       {!edit ? (
         <menu
-          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${place ? "sm:translate-x-0 translate-y-0" : "translate-y-full sm:translate-y-0 sm:-translate-x-full"
-            } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
+          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${
+            place ? "sm:translate-x-0 translate-y-0" : "translate-y-full sm:translate-y-0 sm:-translate-x-full"
+          } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
         >
           <div className="p-4 dark:text-white text-gray-700">
             <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
@@ -77,19 +78,17 @@ export default function Menu({ place }: MenuProps) {
             >
               Compartir
             </button>
-            {
-              place?.properties.categories.some((c) => c === "building" || c === "faculty") ? null : (
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  onClick={(e) => {
-                    setEdit(true);
-                  }}
-                  type="button"
-                >
-                  {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-                </button>
-              )
-            }
+            {place?.properties.categories.some((c) => c === "building" || c === "faculty") ? null : (
+              <button
+                className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={(e) => {
+                  setEdit(true);
+                }}
+                type="button"
+              >
+                {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
+              </button>
+            )}
           </div>
         </menu>
       ) : (
