@@ -216,7 +216,7 @@ export default function MapComponent({
         return;
       }
 
-      if ((ff as unknown as Feature).properties.categories.some((e) => e === "faculty")) return;
+      // if ((ff as unknown as Feature).properties.categories.some((e) => e === "faculty")) return;
       setPlace(ff as unknown as Feature);
       window.history.replaceState(null, "", `?place=${ff.properties.identifier}`);
     });
