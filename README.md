@@ -71,10 +71,6 @@ GITHUB_BRANCH_NAME = <EXISTING_BRANCH> // Opcional, en producción obligatorio
 ```shell
 npm install
 ```
-
-¡Entendido! Aquí tienes la sección que explica los scripts del proyecto:  
-
-```markdown
 ## Scripts Disponibles  
 
 ### `npm run dev`  
