@@ -70,6 +70,8 @@ export const siglas = new Map<string, string>([
   ["photocopy", "Fotocopias / Impresoras"],
   ["shop", "Tienda"],
   ["parking", "Estacionamiento"],
+  ["faculty", "Facultad"],
+  ["building", "Edificio"],
   ["other", "Otro"],
 ]);
 

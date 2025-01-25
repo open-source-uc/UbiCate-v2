@@ -24,7 +24,14 @@ import Campus from "../../data/campuses.json";
 import { Feature, Place } from "../../utils/types";
 import useGeocoder from "../hooks/useGeocoder";
 
-import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer, redAreaLayer } from "./layers";
+import {
+  placesTextLayer,
+  placesDarkTextLayer,
+  campusBorderLayer,
+  darkCampusBorderLayer,
+  redAreaLayer,
+  redLineLayer,
+} from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import MapNavbar from "./nabvar";
@@ -89,6 +96,7 @@ export default function MapComponent({
   // const [hover, setHover] = useState<Feature | null>(null);
 
   const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
+    setPlace(null);
     if (place?.geometry.type === "Point") {
       mapRef.current?.getMap().flyTo({
         essential: true,
@@ -192,6 +200,27 @@ export default function MapComponent({
     if (paramLng && paramLat) {
       setCustomMark(paramLng, paramLat, false);
     }
+
+    e.target.on("click", ["red-area"], (e) => {
+      const todos = e.target.queryRenderedFeatures(e.point, {
+        layers: ["red-area"],
+      });
+      const f = todos[0];
+      const ff = {
+        type: "Feature",
+        properties: f.properties,
+        geometry: f.geometry,
+      };
+      if (ff.properties) {
+        ff.properties.categories = JSON.parse(ff.properties.categories);
+      } else {
+        return;
+      }
+
+      // if ((ff as unknown as Feature).properties.categories.some((e) => e === "faculty")) return;
+      setPlace(ff as unknown as Feature);
+      window.history.replaceState(null, "", `?place=${ff.properties.identifier}`);
+    });
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
@@ -273,7 +302,7 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <MenuInformation place={place} />
+        <MenuInformation place={place} close={(e) => setPlace(null)} />
 
         <GeolocateControl position="bottom-right" showUserHeading={true} />
         {/* <FullscreenControl position="top-left" /> */}
@@ -288,6 +317,9 @@ export default function MapComponent({
 
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
           <Layer {...redAreaLayer} />
+        </Source>
+        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+          <Layer {...redLineLayer} />
         </Source>
         <DebugMode />
         {/*

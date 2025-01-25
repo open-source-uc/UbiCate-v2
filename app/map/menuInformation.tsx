@@ -5,10 +5,11 @@ import ReactMarkdown from "react-markdown";
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 interface MenuProps {
   place: Feature | null;
+  close: (e: React.MouseEvent) => void;
 }
 import FormGeo from "../form-geo/form";
 
-export default function Menu({ place }: MenuProps) {
+export default function Menu({ place, close }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
 
   const handleShare = async () => {
@@ -35,7 +36,22 @@ export default function Menu({ place }: MenuProps) {
           } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
         >
           <div className="p-4 dark:text-white text-gray-700">
-            <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
+            <div className="flex w-full">
+              <div className="flex-grow">
+                <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
+              </div>
+              <div>
+                <button
+                  className="w-6 h-6 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium 
+                  rounded-lg text-lg text-center disabled:opacity-50 disabled:cursor-not-allowed z-30 p-3"
+                  onClick={(e) => {
+                    close(e);
+                  }}
+                >
+                  X
+                </button>
+              </div>
+            </div>
             <section>
               {place && place.properties?.floors && place.properties.floors.length > 0 ? (
                 <div className="flex justify-between">
@@ -78,15 +94,17 @@ export default function Menu({ place }: MenuProps) {
             >
               Compartir
             </button>
-            <button
-              className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={(e) => {
-                setEdit(true);
-              }}
-              type="button"
-            >
-              {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-            </button>
+            {place?.properties.categories.some((c) => c === "building" || c === "faculty") ? null : (
+              <button
+                className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={(e) => {
+                  setEdit(true);
+                }}
+                type="button"
+              >
+                {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
+              </button>
+            )}
           </div>
         </menu>
       ) : (

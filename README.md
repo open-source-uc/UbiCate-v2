@@ -71,26 +71,77 @@ GITHUB_BRANCH_NAME = <EXISTING_BRANCH> // Opcional, en producción obligatorio
 ```shell
 npm install
 ```
+## Scripts Disponibles  
 
-### Ejecutar servidor de desarrollo
-
-```shell
+### `npm run dev`  
+Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con `NODE_OPTIONS='--inspect'`.  
+**Uso:**  
+```bash
 npm run dev
-```
+```  
 
-## Linter
+### `npm run build`  
+Compila la aplicación para producción, optimizándola para su implementación.  
+**Uso:**  
+```bash
+npm run build
+```  
 
-Es necesario resolver los errores y warnings de linter en cada pull request, estos errores se muestran (y se resuelven la mayoría de errores) ejecutando:
+### `npm run pages:build`  
+Usa `@cloudflare/next-on-pages` para generar una versión de la aplicación compatible con Cloudflare Pages.  
+**Uso:**  
+```bash
+npm run pages:build
+```  
 
-```
+### `npm run preview`  
+Compila la aplicación con `pages:build` y la previsualiza localmente utilizando `wrangler pages dev`. Ideal para probar cambios antes de la implementación.  
+> [!NOTE]
+> Este comando es especialmente útil para identificar problemas antes de la implementación en Cloudflare Pages. Por ejemplo, ha permitido detectar errores como el **Error 500** mencionado más adelante en este documento.
+
+**Uso:**  
+```bash
+npm run preview
+```  
+
+### `npm run deploy`  
+Compila la aplicación con `pages:build` y la implementa en Cloudflare Pages usando `wrangler pages deploy`.  
+**Uso:**  
+```bash
+npm run deploy
+```  
+
+### `npm run start`  
+Inicia la aplicación previamente construida en modo producción usando **Next.js**.  
+**Uso:**  
+```bash
+npm run start
+```  
+
+### `npm run lint`  
+Ejecuta el linter de **Next.js** para identificar errores y problemas de estilo en el código.  
+**Uso:**  
+```bash
+npm run lint
+```  
+
+### `npm run lint:fix`  
+Ejecuta el linter y corrige automáticamente los problemas solucionables de forma segura.  
+
+> [!NOTE]
+> Asegúrate de ejecutar este comando antes de realizar una build o subirlo a cloudflare, ya que de lo contrario el build podría fallar. 
+
+**Uso:**  
+```bash
 npm run lint:fix
-```
+```  
 
 ## Deployment
 
 ### Cloudflare (automatic)
 
-Es necesario que el proyecto pueda realizar correctamente un `build` para poder ser desplegado en Cloudflare
+Es necesario que el proyecto pueda realizar correctamente un `build` (`npm run build`) antes de intentar desplegarlo en Cloudflare.  
+Si el build funciona localmente pero falla en Cloudflare, utiliza el comando `npm run preview` para identificar posibles problemas en un entorno de previsualización local de Cloudflare. 
 
 ```shell
 npm run build:cloudflare
