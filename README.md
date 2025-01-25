@@ -129,12 +129,11 @@ npm run lint
 Ejecuta el linter y corrige automáticamente los problemas solucionables de forma segura.  
 
 > [!NOTE]
-> Asegúrate de ejecutar este comando antes de realizar una previsualización, ya que de lo contrario el build podría fallar. 
+> Asegúrate de ejecutar este comando antes de realizar una build o subirlo a cloudflare, ya que de lo contrario el build podría fallar. 
 
 **Uso:**  
 ```bash
 npm run lint:fix
-```  
 ```  
 
 ## Deployment
