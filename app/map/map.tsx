@@ -96,6 +96,7 @@ export default function MapComponent({
   // const [hover, setHover] = useState<Feature | null>(null);
 
   const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
+    setPlace(null)
     if (place?.geometry.type === "Point") {
       mapRef.current?.getMap().flyTo({
         essential: true,
@@ -301,7 +302,7 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <MenuInformation place={place} />
+        <MenuInformation place={place} close={(e) => setPlace(null)} />
 
         <GeolocateControl position="bottom-right" showUserHeading={true} />
         {/* <FullscreenControl position="top-left" /> */}
@@ -340,20 +341,20 @@ export default function MapComponent({
         ) : null} */}
         {geocoderPlaces
           ? geocoderPlaces
-              .filter((e) => e.geometry.type === "Point")
-              .map((place) => {
-                return (
-                  <Marker
-                    key={place.properties.identifier}
-                    place={place as Place}
-                    onClick={() => {
-                      setTmpMark(null);
-                      onClickMark(place);
-                    }}
-                    // onMouseEnter={setHover}
-                  />
-                );
-              })
+            .filter((e) => e.geometry.type === "Point")
+            .map((place) => {
+              return (
+                <Marker
+                  key={place.properties.identifier}
+                  place={place as Place}
+                  onClick={() => {
+                    setTmpMark(null);
+                    onClickMark(place);
+                  }}
+                // onMouseEnter={setHover}
+                />
+              );
+            })
           : null}
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
