@@ -109,6 +109,7 @@ export default function MapComponent({
       mapRef.current?.getMap().flyTo({
         essential: true,
         duration: 400,
+        zoom: 16,
         center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
       });
     }
@@ -196,7 +197,7 @@ export default function MapComponent({
         type: "Feature",
         properties: {
           identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `Lon: ${lng} Lat: ${lat}`,
+          name: `Lon: ${lng.toFixed(4)} Lat: ${lat.toFixed(4)}`,
           information: "",
           categories: [],
           campus: "",
@@ -366,7 +367,7 @@ export default function MapComponent({
                 setTmpMark(null);
                 onClickMark(place);
               }}
-              // onMouseEnter={setHover}
+            // onMouseEnter={setHover}
             />
           );
         })}
