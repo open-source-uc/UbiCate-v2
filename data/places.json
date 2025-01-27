@@ -23850,7 +23850,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "complejo_luksic",
-                "campus": null,
+                "campus": "SJ",
                 "name": "Complejo Andrónico Luksic",
                 "needApproval": false,
                 "information": "",
