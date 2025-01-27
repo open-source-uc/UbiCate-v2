@@ -4,54 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "-33787884",
-                "name": "test",
-                "information": "",
-                "categories": [
-                    null
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64111655581719,
-                    -33.442476132509114
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "centro_des_docente",
-                "name": "Borrar",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60668749620929,
-                    -33.501638188092876
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "auditorium-33669891",
                 "name": "Auditorio Sergio Larraín",
                 "information": "",
