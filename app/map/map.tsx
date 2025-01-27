@@ -1,5 +1,7 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { bbox } from "@turf/bbox";
@@ -17,11 +19,17 @@ import type {
 import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
+import { useThemeObserver } from "@/app/hooks/useThemeObserver";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { useThemeObserver } from "@/utils/themeObserver";
+import {
+  getCampusBoundsFromName,
+  getCampusFromPoint2,
+  getMaxCampusBoundsFromName,
+  getMaxCampusBoundsFromPoint,
+} from "@/utils/getCampusBounds";
 
 import Campus from "../../data/campuses.json";
-import { Feature, Place } from "../../utils/types";
+import { Feature, PointFeature } from "../../utils/types";
 import useGeocoder from "../hooks/useGeocoder";
 
 import {
@@ -47,7 +55,7 @@ interface InitialViewState extends Partial<ViewState> {
 }
 
 function createInitialViewState(
-  paramCampusBounds: LngLatBoundsLike,
+  campusName: string | null,
   paramPlace: Feature | null | undefined,
   paramLng: number | null | undefined,
   paramLat: number | null | undefined,
@@ -55,7 +63,6 @@ function createInitialViewState(
   const initialViewState: InitialViewState = {
     zoom: 17,
   };
-
   if (paramPlace) {
     if (paramPlace?.geometry.type === "Point") {
       initialViewState.longitude = paramPlace?.geometry.coordinates[0];
@@ -69,34 +76,35 @@ function createInitialViewState(
     initialViewState.latitude = paramLat;
     initialViewState.zoom = 17;
   } else {
-    initialViewState.bounds = paramCampusBounds;
+    initialViewState.bounds = getCampusBoundsFromName(campusName);
   }
 
   return initialViewState;
 }
 
 export default function MapComponent({
-  paramCampusBounds,
   paramPlace,
   paramLng,
   paramLat,
 }: {
-  paramCampusBounds: [number, number, number, number];
   paramPlace?: Feature | null;
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
-  const [theme, setTheme] = useState(
-    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
-  );
+
   const refMapNavbar = useRef<HTMLSelectElement | null>(null);
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
+  const params = useSearchParams();
   // const [hover, setHover] = useState<Feature | null>(null);
 
-  const [geocoderPlaces, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
-    setPlace(null);
+  const [Places, Points, Polygons, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
+    setMenu(null);
+    mapRef.current?.getMap().setMaxBounds(undefined);
+    localStorage.setItem("defaultCampus", place.properties.campus);
+    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+
     if (place?.geometry.type === "Point") {
       mapRef.current?.getMap().flyTo({
         essential: true,
@@ -107,39 +115,52 @@ export default function MapComponent({
     if (place?.geometry.type === "Polygon") {
       mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
         zoom: 17,
+        duration: 400,
       });
     }
-    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
   });
 
-  useThemeObserver(setTheme, mapRef.current?.getMap());
+  const [theme] = useThemeObserver(mapRef.current?.getMap());
 
   useEffect(() => {
-    mapRef.current?.getMap().setMaxBounds(undefined);
-    mapRef.current?.fitBounds(paramCampusBounds, {
-      duration: 4_000,
-    });
-  }, [paramCampusBounds]);
+    const campusName = params.get("campus");
+    if (campusName) {
+      mapRef.current?.getMap().setMaxBounds(undefined);
+      localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
+        duration: 2_500,
+      });
+    }
+    setTimeout(
+      () => {
+        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      },
+      campusName ? 2_600 : 500,
+    );
+  }, [params]);
 
-  function onClickMap(e: MapLayerMouseEvent) {
-    window.history.replaceState(null, "", window.location.pathname);
-    setPlace(null);
-  }
+  const setMenu = useCallback(
+    (place: Feature | null) => {
+      setPlace(place);
+      if (place)
+        if (place.properties.identifier === "42-ALL") {
+          window.history.replaceState(
+            null,
+            "",
+            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
+          );
+        } else {
+          window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+        }
+      else window.history.replaceState(null, "", "?");
+    },
+    [setPlace],
+  );
 
   function onClickMark(place: Feature) {
     if (!mapRef.current?.getMap()) return;
 
-    setPlace(place);
-
-    if (place.properties.identifier === "42-ALL") {
-      window.history.replaceState(
-        null,
-        "",
-        `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
-      );
-    } else {
-      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-    }
+    setMenu(place);
 
     if (place?.geometry.type !== "Point") return;
 
@@ -163,120 +184,113 @@ export default function MapComponent({
     }
   }
 
-  function setCustomMark(lng: number, lat: number, showMenu: boolean) {
-    lng = +lng;
-    lat = +lat;
-    const newMark: Feature = {
-      type: "Feature",
-      properties: {
-        identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-        name: `Lon: ${lng.toFixed(2)}, Lat ${lat.toFixed(2)}`,
-        information: "",
-        categories: [],
-        campus: "",
-        faculties: "",
-        floors: [],
-      },
-      geometry: {
-        type: "Point",
-        coordinates: [lng, lat],
-      },
-    };
-    setTmpMark(newMark);
-    if (showMenu) setPlace(newMark);
+  function onClickMap(e: MapLayerMouseEvent) {
+    setMenu(null);
+  }
 
-    window.history.replaceState(
-      null,
-      "",
-      `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
-    );
+  const setCustomMark = useCallback(
+    (lng: number, lat: number, showMenu: boolean) => {
+      lng = +lng;
+      lat = +lat;
+      const newMark: Feature = {
+        type: "Feature",
+        properties: {
+          identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
+          name: `Lon: ${lng} Lat: ${lat}`,
+          information: "",
+          categories: [],
+          campus: "",
+          faculties: "",
+          floors: [],
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [lng, lat],
+        },
+      };
+      setTmpMark(newMark);
+      if (showMenu) setMenu(newMark);
+    },
+    [setTmpMark, setMenu],
+  );
+
+  function getFeatureOfLayerFromPoint(target: mapboxgl.Map, point: mapboxgl.Point, layers: string[]): Feature | null {
+    const features = target.queryRenderedFeatures(point, {
+      layers: layers,
+    });
+
+    const feature = features[0];
+    if (!feature) return null;
+
+    if (!feature.properties) return null;
+
+    const exit = {
+      type: "Feature",
+      properties: feature.properties,
+      geometry: feature.geometry,
+    };
+    exit.properties.categories = JSON.parse(exit.properties.categories);
+
+    if (feature.properties?.floors) exit.properties.floors = JSON.parse(exit.properties.floors);
+
+    return exit as unknown as Feature;
   }
 
   function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
     if (paramPlace) {
+      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
       setGeocoderPlaces([paramPlace]);
     }
     if (paramLng && paramLat) {
+      localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       setCustomMark(paramLng, paramLat, false);
     }
 
     e.target.on("click", ["red-area"], (e) => {
-      const todos = e.target.queryRenderedFeatures(e.point, {
-        layers: ["red-area"],
-      });
-      const f = todos[0];
-      const ff = {
-        type: "Feature",
-        properties: f.properties,
-        geometry: f.geometry,
-      };
-      if (ff.properties) {
-        ff.properties.categories = JSON.parse(ff.properties.categories);
-      } else {
-        return;
-      }
+      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["red-area"]);
+      if (!feature) return;
 
-      // if ((ff as unknown as Feature).properties.categories.some((e) => e === "faculty")) return;
-      setPlace(ff as unknown as Feature);
-      window.history.replaceState(null, "", `?place=${ff.properties.identifier}`);
+      setTmpMark(null);
+      setMenu(feature);
     });
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
       e.target.on("click", ["points-layer-2"], (e) => {
-        const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-2"] });
-        const f = todos[0];
-        if (!f) return;
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
+        if (!feature) return;
 
-        const ff = {
-          type: "Feature",
-          properties: f.properties,
-          geometry: f.geometry,
-        };
-        if (ff.properties) {
-          ff.properties.categories = JSON.parse(ff.properties.categories);
-          ff.properties.floors = JSON.parse(ff.properties.floors);
-        } else {
-          return;
-        }
-
-        setPlace(ff as unknown as Feature);
+        setMenu(feature);
       });
       e.target.on("click", ["points-layer-3"], (e) => {
-        const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-3"] });
-        const f = todos[0];
-        if (!f) return;
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
+        if (!feature) return;
 
-        const ff = {
-          type: "Feature",
-          properties: f.properties,
-          geometry: f.geometry,
-        };
-        if (ff.properties) {
-          ff.properties.categories = JSON.parse(ff.properties.categories);
-          ff.properties.floors = JSON.parse(ff.properties.floors);
-        } else {
-          return;
-        }
-
-        setPlace(ff as unknown as Feature);
+        setMenu(feature);
       });
     }
   }
 
-  const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
-    setPlace(null);
-    setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-  }, []);
+  const onMarkerDrag = useCallback(
+    (event: MarkerDragEvent) => {
+      setMenu(null);
+      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
+    },
+    [setCustomMark, setMenu],
+  );
 
-  const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
-    setPlace(null);
-    setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-    mapRef.current?.flyTo({
-      center: [event.lngLat.lng, event.lngLat.lat],
-    });
-  }, []);
+  const onMarkerDragEnd = useCallback(
+    (event: MarkerDragEvent) => {
+      setMenu(null);
+      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
+      mapRef.current?.flyTo({
+        center: [event.lngLat.lng, event.lngLat.lat],
+      });
+    },
+    [setCustomMark, setMenu],
+  );
 
   return (
     <>
@@ -285,8 +299,12 @@ export default function MapComponent({
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        initialViewState={createInitialViewState(paramCampusBounds, paramPlace, paramLng, paramLat)}
-        interactiveLayerIds={[placesTextLayer.id as string]}
+        initialViewState={createInitialViewState(
+          params.get("campus") ?? localStorage.getItem("defaultCampus") ?? null,
+          paramPlace,
+          paramLng,
+          paramLat,
+        )}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
@@ -302,7 +320,7 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <MenuInformation place={place} close={(e) => setPlace(null)} />
+        <MenuInformation place={place} onClose={(e) => setMenu(null)} />
 
         <GeolocateControl position="bottom-right" showUserHeading={true} />
         {/* <FullscreenControl position="top-left" /> */}
@@ -311,14 +329,14 @@ export default function MapComponent({
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON(Places)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
         </Source>
 
-        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
           <Layer {...redAreaLayer} />
         </Source>
-        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
           <Layer {...redLineLayer} />
         </Source>
         <DebugMode />
@@ -339,28 +357,25 @@ export default function MapComponent({
             {hover.properties.name}
           </Popup>
         ) : null} */}
-        {geocoderPlaces
-          ? geocoderPlaces
-              .filter((e) => e.geometry.type === "Point")
-              .map((place) => {
-                return (
-                  <Marker
-                    key={place.properties.identifier}
-                    place={place as Place}
-                    onClick={() => {
-                      setTmpMark(null);
-                      onClickMark(place);
-                    }}
-                    // onMouseEnter={setHover}
-                  />
-                );
-              })
-          : null}
+        {Points.map((place) => {
+          return (
+            <Marker
+              key={place.properties.identifier}
+              place={place}
+              onClick={() => {
+                setTmpMark(null);
+                onClickMark(place);
+              }}
+              // onMouseEnter={setHover}
+            />
+          );
+        })}
+
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
             draggable={true}
             key={tmpMark.properties.identifier}
-            place={tmpMark as Place}
+            place={tmpMark as PointFeature}
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}

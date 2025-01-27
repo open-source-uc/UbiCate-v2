@@ -1,8 +1,12 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import mapboxgl from "mapbox-gl";
 
-export const useThemeObserver = (setTheme: (theme: string) => void, map: mapboxgl.Map | undefined) => {
+export const useThemeObserver = (map: mapboxgl.Map | undefined) => {
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
+  );
+
   const observer = useRef<MutationObserver | null>(null);
 
   const onClassChange = useCallback(() => {
@@ -21,4 +25,6 @@ export const useThemeObserver = (setTheme: (theme: string) => void, map: mapboxg
       observer.current?.disconnect();
     };
   }, [onClassChange]);
+
+  return [theme];
 };

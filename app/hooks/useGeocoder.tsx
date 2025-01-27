@@ -1,16 +1,22 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
 
 import PlacesJSON from "@/utils/places";
-import { Feature } from "@/utils/types";
+import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
 
 const loadGeocoder = () => import("@/utils/getGeocoder");
 
 function useGeocoder(
-  ref: React.RefObject<any> | null,
+  ref: React.RefObject<HTMLElement | null>,
   callBackResult: (e: Feature) => void,
-): [Feature[], (places: Feature[]) => void] {
-  const [geocoderPlaces, setGeocoderPlaces] = useState<Feature[]>([]);
-  const geocoder = useRef<any>(null);
+): [
+  Feature[],
+  PointFeature[],
+  PolygonFeature[],
+  (places: Feature[] | Feature | null) => void,
+  (placeIdentifier: string | null) => Feature | undefined,
+] {
+  const [findPlaces, setFindPlaces] = useState<Feature[]>([]);
+  const geocoder = useRef<MapboxGeocoder | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -22,17 +28,16 @@ function useGeocoder(
       geocoder.current = getGeocoder(
         PlacesJSON,
         (result: { result: Feature }) => {
-          setGeocoderPlaces([result.result]);
+          setFindPlaces([result.result]);
           callBackResult(result.result);
         },
         (results: { features: Feature[] | null | undefined; config: any }) => {
           if (!mounted) return;
-          setGeocoderPlaces(results.features ?? []);
+          setFindPlaces(results.features ?? []);
         },
-        () => setGeocoderPlaces([]),
+        () => setFindPlaces([]),
       );
-
-      ref?.current?.appendChild(geocoder.current.onAdd());
+      if (ref.current) geocoder.current?.addTo(ref.current);
     };
 
     initializeGeocoder();
@@ -46,15 +51,24 @@ function useGeocoder(
 
   const setPlaces = (e: Feature[] | Feature | null) => {
     if (Array.isArray(e)) {
-      setGeocoderPlaces(e);
+      setFindPlaces(e);
     } else if (e) {
-      setGeocoderPlaces([e]);
+      setFindPlaces([e]);
     } else {
-      setGeocoderPlaces([]);
+      setFindPlaces([]);
     }
   };
 
-  return [geocoderPlaces, setPlaces];
+  const findPlace = useCallback((placeIdentifier: string | null): Feature | undefined => {
+    if (!placeIdentifier) return undefined;
+    const place = PlacesJSON.features.find((e) => e.properties.identifier === placeIdentifier);
+    return place;
+  }, []);
+
+  const Points = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Point"), [findPlaces]);
+  const Polygons = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Polygon"), [findPlaces]);
+
+  return [findPlaces, Points as PointFeature[], Polygons as PolygonFeature[], setPlaces, findPlace];
 }
 
 export default useGeocoder;

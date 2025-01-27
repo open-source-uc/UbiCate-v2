@@ -23,7 +23,7 @@ export interface Feature {
   geometry: PointGeometry | PolygonGeometry;
 }
 
-export interface Place {
+export interface PointFeature {
   type: string;
   properties: {
     identifier: string;
@@ -36,6 +36,21 @@ export interface Place {
     needApproval?: boolean;
   };
   geometry: PointGeometry;
+}
+
+export interface PolygonFeature {
+  type: string;
+  properties: {
+    identifier: string;
+    name: string;
+    information: string;
+    categories: string[];
+    campus: string;
+    faculties?: string;
+    floors?: number[];
+    needApproval?: boolean;
+  };
+  geometry: PolygonGeometry;
 }
 
 export interface JSONFeatures {
