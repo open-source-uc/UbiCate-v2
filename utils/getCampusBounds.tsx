@@ -20,44 +20,44 @@ export const campusBounds: Record<string, CampusBounds> = {
 
 export const campusMaxBounds: Record<string, CampusBounds> = {
   SanJoaquin: {
-    longitudeRange: [-70.62307240179186, -70.59884685362503],
-    latitudeRange: [-33.509508238293144, -33.489337527669164]
+    longitudeRange: [-70.617503, -70.601962],
+    latitudeRange: [-33.504828, -33.492834]
   },
   LoContador: {
-    longitudeRange: [-70.62567642511436, -70.60304813488096],
-    latitudeRange: [-33.44558951180905, -33.38254425051799]
+    longitudeRange: [-70.619316, -70.612656],
+    latitudeRange: [-33.424452, -33.410765]
   },
   Villarrica: {
-    longitudeRange: [-72.22652629578519, -72.22364220636078],
-    latitudeRange: [-39.28767116764962, -39.262430534373074]
+    longitudeRange: [-72.225319, -72.225415],
+    latitudeRange: [-39.280247, -39.275629]
   },
   CasaCentral: {
-    longitudeRange: [-70.64904059419399, -70.629035452913],
-    latitudeRange: [-33.458783678625466, -33.41557666615463]
+    longitudeRange: [-70.643948, -70.635644],
+    latitudeRange: [-33.446233, -33.434954]
   },
   Oriente: {
-    longitudeRange: [-70.60988774174442, -70.57682114489863],
-    latitudeRange: [-33.461665186663446, -33.42454754613738]
+    longitudeRange: [-70.597549, -70.589627],
+    latitudeRange: [-33.447784, -33.443034]
   },
   SJ: {
-    longitudeRange: [-70.62307240179186, -70.59884685362503],
-    latitudeRange: [-33.509508238293144, -33.489337527669164]
+    longitudeRange: [-70.617503, -70.635644],
+    latitudeRange: [-33.504828, -33.492834]
   },
   LC: {
-    longitudeRange: [-70.62567642511436, -70.60304813488096],
-    latitudeRange: [-33.44558951180905, -33.38254425051799]
+    longitudeRange: [-70.619316, -70.612656],
+    latitudeRange: [-33.424452, -33.410765]
   },
   VR: {
-    longitudeRange: [-72.22652629578519, -72.22364220636078],
-    latitudeRange: [-39.28767116764962, -39.262430534373074]
+    longitudeRange: [-72.225319, -72.225415],
+    latitudeRange: [-39.280247, -39.275629]
   },
   CC: {
-    longitudeRange: [-70.64904059419399, -70.629035452913],
-    latitudeRange: [-33.458783678625466, -33.41557666615463]
+    longitudeRange: [-70.643948, -70.639467],
+    latitudeRange: [-33.446233, -33.434954]
   },
   OR: {
-    longitudeRange: [-70.60988774174442, -70.57682114489863],
-    latitudeRange: [-33.461665186663446, -33.42454754613738]
+    longitudeRange: [-70.597549, -70.589627],
+    latitudeRange: [-33.447784, -33.443034]
   },
 };
 

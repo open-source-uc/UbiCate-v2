@@ -130,6 +130,7 @@ export default function MapComponent({
       localStorage.setItem("defaultCampus", campusName);
       mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 2_500,
+        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
     }
     setTimeout(
@@ -197,7 +198,7 @@ export default function MapComponent({
         type: "Feature",
         properties: {
           identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `Lon: ${lng.toFixed(4)} Lat: ${lat.toFixed(4)}`,
+          name: `[${lng.toFixed(6)},${lat.toFixed(6)}]`,
           information: "",
           categories: [],
           campus: "",
