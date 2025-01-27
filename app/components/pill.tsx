@@ -17,7 +17,7 @@ function Pill({ title, iconPath, onClick, active }: PillProps) {
     <button onClick={onClick} type="button">
       <section
         className={`
-          ${active ? "bg-sky-600 text-white transition-transform duration-300 border-dark-2" : "bg-white"}
+          ${active ? "bg-sky-600 text-white transition-transform duration-300" : "bg-white"}
           border pointer-events-auto cursor-pointer
           min-h-[36px] max-h-[36px] rounded-full
           flex justify-center items-center font-semibold px-2 min-w-5
