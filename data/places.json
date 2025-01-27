@@ -23704,13 +23704,14 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AL",
+                "identifier": "ALSJ",
                 "campus": "SJ",
                 "name": "Aula Magna",
                 "information": "",
                 "needApproval": false,
                 "categories": [
-                    "building"
+                    "building",
+                    "auditorium"
                 ]
             },
             "geometry": {
