@@ -197,7 +197,7 @@ export default function MapComponent({
         type: "Feature",
         properties: {
           identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `Lon: ${lng} Lat: ${lat}`,
+          name: `Lon: ${lng.toFixed(2)} Lat: ${lat.toFixed(2)}`,
           information: "",
           categories: [],
           campus: "",

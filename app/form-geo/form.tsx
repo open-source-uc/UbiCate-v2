@@ -50,10 +50,9 @@ export default function FormComponent({
   fun: (() => void) | null;
 }) {
   const initialValues = values || defaultValues;
-
   const [submitting, setSubmitting] = useState<boolean>(false);
-  const [longitude, setLongitude] = useState<number>(values?.longitude ?? -70.6109);
-  const [latitude, setLatitude] = useState<number>(values?.latitude ?? -33.4983);
+  const [longitude, setLongitude] = useState<number | undefined | null>(values?.longitude);
+  const [latitude, setLatitude] = useState<number | undefined | null>(values?.latitude);
   const [campus, setCampus] = useState<string>("");
 
   const dragLocUpdate = useCallback((event: any) => {
@@ -66,6 +65,11 @@ export default function FormComponent({
 
     var campus: string | null = null;
 
+    if (!longitude || !latitude) {
+      errors.latitude = "Ubicación fuera de algún campus";
+      return;
+    }
+
     for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
       if (
         longitude >= boundary.longitudeRange[0] &&
@@ -77,6 +81,7 @@ export default function FormComponent({
         break;
       }
     }
+
     if (!campus) {
       errors.latitude = "Ubicación fuera de algún campus";
     } else {

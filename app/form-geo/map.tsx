@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
@@ -19,8 +21,8 @@ const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 interface MapProps {
   markerPosition: {
-    longitude: number;
-    latitude: number;
+    longitude: number | null | undefined;
+    latitude: number | null | undefined;
   };
   onMarkerMove: (event: MapLayerMouseEvent | MarkerDragEvent) => void;
 }
@@ -31,9 +33,13 @@ export default function MapComponent(props: MapProps) {
   const [marker, setMarker] = useState({ ...props.markerPosition });
 
   const searchParams = useSearchParams();
-  const campusMapBounds =
-    getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ??
-    getCampusBoundsFromName(searchParams.get("campus") ?? localStorage.getItem("defaultCampus"));
+  let campusMapBounds = null;
+  if (props.markerPosition.longitude && props.markerPosition.latitude) {
+    campusMapBounds = getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude);
+  }
+  if (!campusMapBounds) {
+    campusMapBounds = getCampusBoundsFromName(searchParams.get("campus") ?? localStorage.getItem("defaultCampus"));
+  }
 
   const [theme] = useThemeObserver(map);
 
@@ -76,6 +82,11 @@ export default function MapComponent(props: MapProps) {
           mapboxAccessToken={MAPBOX_TOKEN}
           onLoad={() => {
             mapRef.current?.getMap().setMaxBounds(campusMapBounds);
+            if (props.markerPosition.longitude && props.markerPosition.latitude) {
+              mapRef.current?.getMap().flyTo({
+                center: [props.markerPosition.longitude, props.markerPosition.latitude],
+              });
+            }
           }}
           ref={mapRef}
           onClick={onClickMap}
@@ -90,18 +101,19 @@ export default function MapComponent(props: MapProps) {
             {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
           </Source>
           <DebugMode />
-
-          <Marker
-            longitude={marker.longitude}
-            latitude={marker.latitude}
-            anchor="bottom"
-            draggable
-            onDrag={onMarkerDrag}
-            onDragEnd={onMarkerDragEnd}
-            style={{ zIndex: 1 }}
-          >
-            <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
-          </Marker>
+          {marker.longitude && marker.latitude ? (
+            <Marker
+              longitude={marker.longitude}
+              latitude={marker.latitude}
+              anchor="bottom"
+              draggable
+              onDrag={onMarkerDrag}
+              onDragEnd={onMarkerDragEnd}
+              style={{ zIndex: 1 }}
+            >
+              <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
+            </Marker>
+          ) : null}
         </Map>
         <ControlPanel />
       </div>
