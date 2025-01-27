@@ -101,7 +101,10 @@ export default function FormComponent({
       errors.information = "Informacion demasiado larga";
     }
 
-    if (Math.abs(newPlace.floor) > 20) {
+    if (newPlace.floor > 20) {
+      errors.floor = "Piso inválido";
+    }
+    if (newPlace.floor < -10) {
       errors.floor = "Piso inválido";
     }
 
@@ -165,7 +168,7 @@ export default function FormComponent({
     <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">
       <div className="flex flex-col w-5/6 max-w-md h-5/6 my-2 items-center justify-center rounded dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
-          {({ isSubmitting = submitting }) => (
+          {({ isSubmitting = submitting, setFieldValue, values }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
               <label
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
@@ -224,12 +227,28 @@ export default function FormComponent({
               >
                 Piso
               </label>
-              <Field
-                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="floor"
-                id="floor"
-                type="number"
-              />
+              <div className="flex items-center gap-2 w-full">
+                <Field
+                  className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  name="floor"
+                  id="floor"
+                  type="number"
+                />
+                <button
+                  type="button"
+                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  onClick={() => setFieldValue("floor", Math.max(values.floor - 1, -Infinity))}
+                >
+                  -
+                </button>
+                <button
+                  type="button"
+                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  onClick={() => setFieldValue("floor", Math.min(values.floor + 1, Infinity))}
+                >
+                  +
+                </button>
+              </div>
               <ErrorMessage className="text-error font-bold text-sm w-full text-left" name="floor" component="div" />
               <label
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
