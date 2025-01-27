@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Layer, Source } from "react-map-gl";
-import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
+import type { MarkerDragEvent, MapLayerMouseEvent, MapRef, LngLatBoundsLike } from "react-map-gl";
 
 import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
 import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCampusBounds";
@@ -33,7 +33,7 @@ export default function MapComponent(props: MapProps) {
   const [marker, setMarker] = useState({ ...props.markerPosition });
 
   const searchParams = useSearchParams();
-  let campusMapBounds = null;
+  let campusMapBounds: [number, number, number, number] | null = null;
   if (props.markerPosition.longitude && props.markerPosition.latitude) {
     campusMapBounds = getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude);
   }
@@ -81,7 +81,7 @@ export default function MapComponent(props: MapProps) {
           mapStyle={`mapbox://styles/mapbox/${theme}`}
           mapboxAccessToken={MAPBOX_TOKEN}
           onLoad={() => {
-            mapRef.current?.getMap().setMaxBounds(campusMapBounds);
+            mapRef.current?.getMap().setMaxBounds(campusMapBounds as LngLatBoundsLike);
             if (props.markerPosition.longitude && props.markerPosition.latitude) {
               mapRef.current?.getMap().flyTo({
                 center: [props.markerPosition.longitude, props.markerPosition.latitude],
