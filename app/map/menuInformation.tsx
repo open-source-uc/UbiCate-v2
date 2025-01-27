@@ -5,11 +5,11 @@ import ReactMarkdown from "react-markdown";
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 interface MenuProps {
   place: Feature | null;
-  close: (e: React.MouseEvent) => void;
+  onClose: (e: React.MouseEvent) => void;
 }
 import FormGeo from "../form-geo/form";
 
-export default function Menu({ place, close }: MenuProps) {
+export default function Menu({ place, onClose }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
 
   const handleShare = async () => {
@@ -45,7 +45,7 @@ export default function Menu({ place, close }: MenuProps) {
                   className="w-6 h-6 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium 
                   rounded-lg text-lg text-center disabled:opacity-50 disabled:cursor-not-allowed z-30 p-3"
                   onClick={(e) => {
-                    close(e);
+                    onClose(e);
                   }}
                 >
                   X
@@ -94,7 +94,7 @@ export default function Menu({ place, close }: MenuProps) {
             >
               Compartir
             </button>
-            {place?.properties.categories.some((c) => c === "building" || c === "faculty") ? null : (
+            {place?.geometry.type === "Polygon" ? null : (
               <button
                 className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={(e) => {

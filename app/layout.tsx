@@ -5,6 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Suspense } from "react";
 
 import { Metadata } from "next";
+import type { Viewport } from "next";
 
 import Header from "./components/header";
 import Overlay from "./components/overlay";
@@ -40,6 +41,10 @@ export const metadata: Metadata = {
     "San Joaquín",
     "Open Source",
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: [{ color: "#0084d1" }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

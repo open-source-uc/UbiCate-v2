@@ -354,10 +354,30 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.61507603930174,
-                    -33.49647373743166
+                    [
+                        [
+                            -70.615917,
+                            -33.496673
+                        ],
+                        [
+                            -70.614321,
+                            -33.496585
+                        ],
+                        [
+                            -70.614351,
+                            -33.496202
+                        ],
+                        [
+                            -70.615968,
+                            -33.496255
+                        ],
+                        [
+                            -70.615917,
+                            -33.496673
+                        ]
+                    ]
                 ]
             }
         },
@@ -402,10 +422,50 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.60818655190255,
-                    -33.49708987405875
+                    [
+                        [
+                            -70.608671,
+                            -33.496641
+                        ],
+                        [
+                            -70.608220,
+                            -33.496414
+                        ],
+                        [
+                            -70.607359,
+                            -33.497734
+                        ],
+                        [
+                            -70.607794,
+                            -33.497907
+                        ],
+                        [
+                            -70.608135,
+                            -33.497390
+                        ],
+                        [
+                            -70.608135,
+                            -33.497390
+                        ],
+                        [
+                            -70.607799,
+                            -33.497236
+                        ],
+                        [
+                            -70.607911,
+                            -33.497028
+                        ],
+                        [
+                            -70.608320,
+                            -33.497170
+                        ],
+                        [
+                            -70.608671,
+                            -33.496641
+                        ]
+                    ]
                 ]
             }
         },
@@ -426,10 +486,30 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.6136836365463,
-                    -33.496388879238616
+                    [
+                        [
+                            -70.614274,
+                            -33.496197
+                        ],
+                        [
+                            -70.614214,
+                            -33.496637
+                        ],
+                        [
+                            -70.613101,
+                            -33.496568
+                        ],
+                        [
+                            -70.613148,
+                            -33.496146
+                        ],
+                        [
+                            -70.614274,
+                            -33.496197
+                        ]
+                    ]
                 ]
             }
         },
@@ -450,10 +530,30 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.61155471291906,
-                    -33.496214683057616
+                    [
+                        [
+                            -70.612207,
+                            -33.496493
+                        ],
+                        [
+                            -70.610771,
+                            -33.496393
+                        ],
+                        [
+                            -70.610839,
+                            -33.496017
+                        ],
+                        [
+                            -70.612258,
+                            -33.496132
+                        ],
+                        [
+                            -70.612207,
+                            -33.496493
+                        ]
+                    ]
                 ]
             }
         },
@@ -474,10 +574,30 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.60691534638289,
-                    -33.501245030986276
+                    [
+                        [
+                            -70.607505,
+                            -33.501528
+                        ],
+                        [
+                            -70.606736,
+                            -33.501588
+                        ],
+                        [
+                            -70.606671,
+                            -33.501056
+                        ],
+                        [
+                            -70.607430,
+                            -33.500991
+                        ],
+                        [
+                            -70.607505,
+                            -33.501528
+                        ]
+                    ]
                 ]
             }
         },
@@ -522,10 +642,30 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.61051628110039,
-                    -33.501037664666995
+                    [
+                        [
+                            -70.611393,
+                            -33.501180
+                        ],
+                        [
+                            -70.609887,
+                            -33.501292
+                        ],
+                        [
+                            -70.609883,
+                            -33.500900
+                        ],
+                        [
+                            -70.611357,
+                            -33.500771
+                        ],
+                        [
+                            -70.611393,
+                            -33.501180
+                        ]
+                    ]
                 ]
             }
         },
@@ -546,10 +686,30 @@
                 "needApproval": false
             },
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.61234851390911,
-                    -33.500906564524186
+                    [
+                        [
+                            -70.612932,
+                            -33.500954
+                        ],
+                        [
+                            -70.611935,
+                            -33.501066
+                        ],
+                        [
+                            -70.611902,
+                            -33.500732
+                        ],
+                        [
+                            -70.612887,
+                            -33.500655
+                        ],
+                        [
+                            -70.612932,
+                            -33.500954
+                        ]
+                    ]
                 ]
             }
         },
@@ -4668,9 +4828,7 @@
                 ],
                 "campus": "SJ",
                 "faculties": "",
-                "floors": [
-                    null
-                ],
+                "floors": [],
                 "needApproval": false
             },
             "geometry": {
@@ -7112,7 +7270,7 @@
                 "name": "CS101",
                 "information": "Piso -1",
                 "categories": [
-                    null
+                    "classroom"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -7405,7 +7563,7 @@
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
-                    null
+                    2
                 ],
                 "needApproval": false
             },
@@ -7429,7 +7587,7 @@
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
-                    null
+                    2
                 ],
                 "needApproval": false
             },
@@ -7948,30 +8106,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "laboratory-32306420",
-                "name": "Agroanalisis",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60822600469957,
-                    -33.49619999560456
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "laboratory-32306356",
                 "name": "Huerto e invernadero",
                 "information": "",
@@ -8023,13 +8157,11 @@
                 "identifier": "-32306118",
                 "name": "Auditorio Dirección de investigación y postgrado",
                 "information": "",
-                "categories": [
-                    null
-                ],
+                "categories": [],
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
-                    null
+                    1
                 ],
                 "needApproval": false
             },
@@ -9676,54 +9808,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "other-32216827",
-                "name": "Centro Médico San Joaquin",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61458202716828,
-                    -33.497141997934825
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "other-32216788",
-                "name": "Clinica odontologica docente",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61468380745562,
-                    -33.497710548105154
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "food_lunch-32216608",
                 "name": "Pronto Copec",
                 "information": "Muy lindas vistas 100/7",
@@ -11025,29 +11109,6 @@
                 "coordinates": [
                     -70.61040985685648,
                     -33.4965992259542
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "other-27007668",
-                "name": "Sector pataguas",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61035546939554,
-                    -33.49658330065852
                 ]
             }
         },
@@ -16646,29 +16707,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "centro_des_docente",
-                "name": "Centro de Desarrollo Docente",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612111,
-                    -33.499173
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CEEP",
                 "name": "Centro de Estudiantes de Educación de Párvulos",
                 "information": "CEEP",
@@ -18963,29 +19001,6 @@
                 "coordinates": [
                     -70.594105,
                     -33.446264
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "EST",
-                "name": "Instituto de Estética",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593993,
-                    -33.446473
                 ]
             }
         },
@@ -22626,29 +22641,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "templo_or",
-                "name": "Templo Oriente",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593746,
-                    -33.445984
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "BC26",
                 "name": "BC26",
                 "information": "",
@@ -23607,7 +23599,7 @@
                 "identifier": "LA_Y",
                 "campus": "SJ",
                 "name": "Centro Desarrollo Docente",
-                "information": null,
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
                 "categories": [
                     "building"
                 ],
@@ -23712,13 +23704,14 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AL",
+                "identifier": "ALSJ",
                 "campus": "SJ",
                 "name": "Aula Magna",
-                "information": null,
+                "information": "",
                 "needApproval": false,
                 "categories": [
-                    "building"
+                    "building",
+                    "auditorium"
                 ]
             },
             "geometry": {
@@ -23767,7 +23760,7 @@
                 "identifier": "TEMPLO",
                 "campus": "SJ",
                 "name": "Templo",
-                "information": null,
+                "information": "",
                 "needApproval": false,
                 "categories": [
                     "building"
@@ -23811,7 +23804,7 @@
                 "identifier": "SAN_AGUSTIN",
                 "campus": "SJ",
                 "name": "Edificio San Agustín",
-                "information": null,
+                "information": "",
                 "needApproval": false,
                 "categories": [
                     "building"
@@ -23873,7 +23866,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "complejo_luksic",
-                "campus": null,
+                "campus": "SJ",
                 "name": "Complejo Andrónico Luksic",
                 "needApproval": false,
                 "information": "",
@@ -24076,74 +24069,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "FADEU",
-                "campus": "LC",
-                "name": "Facultad de Arquitectura, Diseño y Estudios Urbanos",
-                "information": "Facultad de Arquitectura, Diseño y Estudios Urbanos de la Pontificia Universidad Católica de Chile.\nLa facultad está compuesta por 3 unidades: la Escuela de Arquitectura, la Escuela de Diseño y el Instituto de Estudios Urbanos.",
-                "categories": [
-                    "faculty"
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.619088,
-                            -33.419498
-                        ],
-                        [
-                            -70.618084,
-                            -33.418578
-                        ],
-                        [
-                            -70.617878,
-                            -33.418744
-                        ],
-                        [
-                            -70.617686,
-                            -33.418641
-                        ],
-                        [
-                            -70.617589,
-                            -33.418692
-                        ],
-                        [
-                            -70.61714,
-                            -33.41843
-                        ],
-                        [
-                            -70.61726,
-                            -33.418137
-                        ],
-                        [
-                            -70.617057,
-                            -33.418062
-                        ],
-                        [
-                            -70.616523,
-                            -33.418626
-                        ],
-                        [
-                            -70.616779,
-                            -33.419039
-                        ],
-                        [
-                            -70.61804,
-                            -33.420279
-                        ],
-                        [
-                            -70.619088,
-                            -33.419498
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "EA",
                 "campus": "SJ",
                 "name": "Facultad de Ciencias Económicas y Administrativas",
@@ -24158,24 +24083,52 @@
                 "coordinates": [
                     [
                         [
-                            -70.612149,
-                            -33.496927
+                            -70.611882,
+                            -33.497332
+                        ],
+                        [
+                            -70.611677,
+                            -33.497303
+                        ],
+                        [
+                            -70.611691,
+                            -33.497152
+                        ],
+                        [
+                            -70.610857,
+                            -33.497089
                         ],
                         [
                             -70.610891,
-                            -33.496824
+                            -33.496807
                         ],
                         [
-                            -70.610834,
-                            -33.497113
+                            -70.611717,
+                            -33.496882
                         ],
                         [
-                            -70.612113,
-                            -33.497222
+                            -70.611783,
+                            -33.496493
                         ],
                         [
-                            -70.612149,
-                            -33.496927
+                            -70.611970,
+                            -33.496500
+                        ],
+                        [
+                            -70.611927,
+                            -33.496890
+                        ],
+                        [
+                            -70.612176,
+                            -33.496918
+                        ],
+                        [
+                            -70.612143,
+                            -33.497196
+                        ],
+                        [
+                            -70.611907,
+                            -33.497176
                         ]
                     ]
                 ]
@@ -24352,62 +24305,6 @@
                         [
                             -70.614132,
                             -33.496899
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "DE",
-                "campus": "CC",
-                "name": "Facultad de Derecho",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.640776,
-                            -33.440663
-                        ],
-                        [
-                            -70.640399,
-                            -33.440394
-                        ],
-                        [
-                            -70.640034,
-                            -33.440765
-                        ],
-                        [
-                            -70.640458,
-                            -33.44107
-                        ],
-                        [
-                            -70.640553,
-                            -33.440971
-                        ],
-                        [
-                            -70.640238,
-                            -33.440752
-                        ],
-                        [
-                            -70.640412,
-                            -33.440579
-                        ],
-                        [
-                            -70.64068,
-                            -33.440759
-                        ],
-                        [
-                            -70.640776,
-                            -33.440663
                         ]
                     ]
                 ]
@@ -24629,60 +24526,244 @@
                 "coordinates": [
                     [
                         [
-                            -70.613308,
-                            -33.4996
+                            -70.613483,
+                            -33.499826
                         ],
                         [
-                            -70.612452,
-                            -33.499528
-                        ],
-                        [
-                            -70.612065,
-                            -33.499497
-                        ],
-                        [
-                            -70.611948,
-                            -33.499487
-                        ],
-                        [
-                            -70.611789,
-                            -33.499606
-                        ],
-                        [
-                            -70.611788,
-                            -33.499716
-                        ],
-                        [
-                            -70.612045,
-                            -33.499799
-                        ],
-                        [
-                            -70.612301,
-                            -33.499834
-                        ],
-                        [
-                            -70.612249,
-                            -33.50054
-                        ],
-                        [
-                            -70.613287,
-                            -33.500641
-                        ],
-                        [
-                            -70.61333,
-                            -33.500303
-                        ],
-                        [
-                            -70.613484,
+                            -70.613438,
                             -33.500239
                         ],
                         [
-                            -70.613516,
-                            -33.499875
+                            -70.613328,
+                            -33.500234
                         ],
                         [
-                            -70.613308,
-                            -33.4996
+                            -70.613293,
+                            -33.500602
+                        ],
+                        [
+                            -70.612991,
+                            -33.500572
+                        ],
+                        [
+                            -70.613004,
+                            -33.500517
+                        ],
+                        [
+                            -70.612530,
+                            -33.500474
+                        ],
+                        [
+                            -70.612510,
+                            -33.500541
+                        ],
+                        [
+                            -70.612260,
+                            -33.500517
+                        ],
+                        [
+                            -70.612368,
+                            -33.499717
+                        ],
+                        [
+                            -70.612624,
+                            -33.499739
+                        ],
+                        [
+                            -70.612624,
+                            -33.499731
+                        ],
+                        [
+                            -70.612571,
+                            -33.500251
+                        ],
+                        [
+                            -70.612457,
+                            -33.500237
+                        ],
+                        [
+                            -70.612445,
+                            -33.500345
+                        ],
+                        [
+                            -70.613145,
+                            -33.500400
+                        ],
+                        [
+                            -70.613163,
+                            -33.500206
+                        ],
+                        [
+                            -70.613120,
+                            -33.500208
+                        ],
+                        [
+                            -70.613171,
+                            -33.499807
+                        ],
+                        [
+                            -70.613483,
+                            -33.499826
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ING-K",
+                "campus": "SJ",
+                "name": "Edificio de Ciencia y Tecnología",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.612001,
+                            -33.499887
+                        ],
+                        [
+                            -70.611920,
+                            -33.500567
+                        ],
+                        [
+                            -70.611720,
+                            -33.500554
+                        ],
+                        [
+                            -70.611806,
+                            -33.499867
+                        ],
+                        [
+                            -70.612001,
+                            -33.499887
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "CMSJ",
+                "campus": "SJ",
+                "name": "Centro Médico San Joaquín",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.615367,
+                            -33.497481
+                        ],
+                        [
+                            -70.614626,
+                            -33.497432
+                        ],
+                        [
+                            -70.614628,
+                            -33.497365
+                        ],
+                        [
+                            -70.614388,
+                            -33.497335
+                        ],
+                        [
+                            -70.614435,
+                            -33.496872
+                        ],
+                        [
+                            -70.614788,
+                            -33.496885
+                        ],
+                        [
+                            -70.614807,
+                            -33.496800
+                        ],
+                        [
+                            -70.614807,
+                            -33.496800
+                        ],
+                        [
+                            -70.615428,
+                            -33.496838
+                        ],
+                        [
+                            -70.615406,
+                            -33.497058
+                        ],
+                        [
+                            -70.615273,
+                            -33.497054
+                        ],
+                        [
+                            -70.615263,
+                            -33.497133
+                        ],
+                        [
+                            -70.615402,
+                            -33.497154
+                        ],
+                        [
+                            -70.615360,
+                            -33.497486
+                        ],
+                        [
+                            -70.615367,
+                            -33.497481
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "COSJ",
+                "campus": "SJ",
+                "name": "Clínica Odontológica",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.614852,
+                            -33.497808
+                        ],
+                        [
+                            -70.614888,
+                            -33.497461
+                        ],
+                        [
+                            -70.614668,
+                            -33.497446
+                        ],
+                        [
+                            -70.614647,
+                            -33.497804
+                        ],
+                        [
+                            -70.614852,
+                            -33.497808
                         ]
                     ]
                 ]
@@ -25153,7 +25234,7 @@
                 "identifier": "LA_Y_2",
                 "campus": "SJ",
                 "name": "La Y",
-                "information": null,
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
                 "categories": [
                     "building"
                 ],
@@ -25194,6 +25275,651 @@
                         [
                             -70.612336,
                             -33.498908
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "VET",
+                "campus": "SJ",
+                "name": "Escuela de Medicina Veterinaria",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.606489,
+                            -33.501209
+                        ],
+                        [
+                            -70.606270,
+                            -33.501220
+                        ],
+                        [
+                            -70.606195,
+                            -33.500616
+                        ],
+                        [
+                            -70.606411,
+                            -33.500588
+                        ],
+                        [
+                            -70.606489,
+                            -33.501209
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ODO",
+                "campus": "SJ",
+                "name": "Escuela de Odontología",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.614648,
+                            -33.497788
+                        ],
+                        [
+                            -70.614530,
+                            -33.497799
+                        ],
+                        [
+                            -70.614534,
+                            -33.497483
+                        ],
+                        [
+                            -70.614277,
+                            -33.497470
+                        ],
+                        [
+                            -70.614273,
+                            -33.497362
+                        ],
+                        [
+                            -70.614652,
+                            -33.497384
+                        ],
+                        [
+                            -70.614648,
+                            -33.497788
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ASP",
+                "campus": "SJ",
+                "name": "Instituto de Astrofísica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.611501,
+                            -33.500033
+                        ],
+                        [
+                            -70.611356,
+                            -33.500012
+                        ],
+                        [
+                            -70.611368,
+                            -33.499907
+                        ],
+                        [
+                            -70.610942,
+                            -33.499864
+                        ],
+                        [
+                            -70.610950,
+                            -33.499761
+                        ],
+                        [
+                            -70.611525,
+                            -33.499800
+                        ],
+                        [
+                            -70.611501,
+                            -33.500033
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "laboratory-AGRA",
+                "campus": "SJ",
+                "name": "Agroanálisis",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.608286,
+                            -33.496170
+                        ],
+                        [
+                            -70.608142,
+                            -33.496406
+                        ],
+                        [
+                            -70.607974,
+                            -33.496335
+                        ],
+                        [
+                            -70.608137,
+                            -33.496110
+                        ],
+                        [
+                            -70.608286,
+                            -33.496170
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AP-sector",
+                "campus": "SJ",
+                "name": "Sector Pataguas",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.610523,
+                            -33.496728
+                        ],
+                        [
+                            -70.610251,
+                            -33.496720
+                        ],
+                        [
+                            -70.610245,
+                            -33.496784
+                        ],
+                        [
+                            -70.610054,
+                            -33.496770
+                        ],
+                        [
+                            -70.610097,
+                            -33.496350
+                        ],
+                        [
+                            -70.610347,
+                            -33.496373
+                        ],
+                        [
+                            -70.610350,
+                            -33.496353
+                        ],
+                        [
+                            -70.610549,
+                            -33.496365
+                        ],
+                        [
+                            -70.610523,
+                            -33.496728
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "CentrodeMediciMIDEUC",
+                "campus": "SJ",
+                "name": "Centro de Medición MIDE UC",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.610455,
+                            -33.496958
+                        ],
+                        [
+                            -70.610428,
+                            -33.497133
+                        ],
+                        [
+                            -70.610069,
+                            -33.497094
+                        ],
+                        [
+                            -70.610087,
+                            -33.496927
+                        ],
+                        [
+                            -70.610455,
+                            -33.496958
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AQR-1",
+                "campus": "LC",
+                "name": "Escuela de Arquitectura",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.617498,
+                            -33.419551
+                        ],
+                        [
+                            -70.617218,
+                            -33.419299
+                        ],
+                        [
+                            -70.617315,
+                            -33.419224
+                        ],
+                        [
+                            -70.617596,
+                            -33.419482
+                        ],
+                        [
+                            -70.617498,
+                            -33.419551
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "DNO",
+                "campus": "LC",
+                "name": "Escuela de Diseño",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.618136,
+                            -33.419116
+                        ],
+                        [
+                            -70.617896,
+                            -33.418896
+                        ],
+                        [
+                            -70.618123,
+                            -33.418726
+                        ],
+                        [
+                            -70.618361,
+                            -33.418946
+                        ],
+                        [
+                            -70.618136,
+                            -33.419116
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ARTE",
+                "campus": "OR",
+                "name": "Escuela de Arte",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.594629,
+                            -33.445841
+                        ],
+                        [
+                            -70.594567,
+                            -33.445747
+                        ],
+                        [
+                            -70.594567,
+                            -33.445747
+                        ],
+                        [
+                            -70.594674,
+                            -33.445695
+                        ],
+                        [
+                            -70.594487,
+                            -33.445422
+                        ],
+                        [
+                            -70.594369,
+                            -33.445489
+                        ],
+                        [
+                            -70.594071,
+                            -33.445063
+                        ],
+                        [
+                            -70.593576,
+                            -33.445333
+                        ],
+                        [
+                            -70.593654,
+                            -33.445420
+                        ],
+                        [
+                            -70.594003,
+                            -33.445234
+                        ],
+                        [
+                            -70.594493,
+                            -33.445901
+                        ],
+                        [
+                            -70.594629,
+                            -33.445841
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "IEST",
+                "campus": "OR",
+                "name": "Instituto de Estética",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.594335,
+                            -33.446341
+                        ],
+                        [
+                            -70.594137,
+                            -33.446072
+                        ],
+                        [
+                            -70.594013,
+                            -33.446138
+                        ],
+                        [
+                            -70.594231,
+                            -33.446401
+                        ],
+                        [
+                            -70.594335,
+                            -33.446341
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ACO",
+                "campus": "OR",
+                "name": "Escuela de Teatro",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.593151,
+                            -33.446077
+                        ],
+                        [
+                            -70.593354,
+                            -33.446352
+                        ],
+                        [
+                            -70.593210,
+                            -33.446454
+                        ],
+                        [
+                            -70.592996,
+                            -33.446156
+                        ],
+                        [
+                            -70.593151,
+                            -33.446077
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TEMPLO_OR",
+                "campus": "OR",
+                "name": "Templo",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.594023,
+                            -33.445996
+                        ],
+                        [
+                            -70.593729,
+                            -33.446151
+                        ],
+                        [
+                            -70.593532,
+                            -33.445885
+                        ],
+                        [
+                            -70.593831,
+                            -33.445741
+                        ],
+                        [
+                            -70.594023,
+                            -33.445996
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "DE",
+                "campus": "CC",
+                "name": "Facultad de Derecho",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.640460,
+                            -33.441093
+                        ],
+                        [
+                            -70.640189,
+                            -33.441383
+                        ],
+                        [
+                            -70.640125,
+                            -33.441342
+                        ],
+                        [
+                            -70.640094,
+                            -33.441373
+                        ],
+                        [
+                            -70.639992,
+                            -33.441291
+                        ],
+                        [
+                            -70.640297,
+                            -33.440983
+                        ],
+                        [
+                            -70.640460,
+                            -33.441093
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "FMED",
+                "campus": "CC",
+                "name": "Facultad de Medicina",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.641293,
+                            -33.442447
+                        ],
+                        [
+                            -70.640942,
+                            -33.442362
+                        ],
+                        [
+                            -70.641000,
+                            -33.442191
+                        ],
+                        [
+                            -70.641108,
+                            -33.442211
+                        ],
+                        [
+                            -70.641101,
+                            -33.442243
+                        ],
+                        [
+                            -70.641271,
+                            -33.442281
+                        ],
+                        [
+                            -70.641277,
+                            -33.442251
+                        ],
+                        [
+                            -70.641365,
+                            -33.442268
+                        ],
+                        [
+                            -70.641293,
+                            -33.442447
                         ]
                     ]
                 ]

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 
-import { getParamCampusBounds } from "@/utils/getCampusBounds";
 import { Feature } from "@/utils/types";
 
 import PlacesJSON from "../../data/places.json";
@@ -34,25 +33,19 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
 
 export default async function Page(props: { searchParams: Promise<SearchParams> }) {
   const searchParams = await props.searchParams;
-  const campusBounds = getParamCampusBounds(searchParams.campus ?? null);
-  const paramPlaceId: string | undefined = searchParams?.place;
   const paramLng: number | undefined = searchParams?.lng;
   const paramLat: number | undefined = searchParams?.lat;
 
-  const paramPlace: Feature | null =
-    (PlacesJSON.features.find(
-      (place) => place.properties.identifier.toUpperCase() === paramPlaceId?.toUpperCase(),
-    ) as Feature) ?? null;
+  const paramPlace: Feature | null = searchParams?.place
+    ? (PlacesJSON.features.find(
+        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
+      ) as Feature) ?? null
+    : null;
 
   return (
     <>
       <main spellCheck="false" className="h-full w-full relative">
-        <MapComponent
-          paramCampusBounds={campusBounds}
-          paramPlace={paramPlace}
-          paramLat={paramLat}
-          paramLng={paramLng}
-        />
+        <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
       </main>
     </>
   );
