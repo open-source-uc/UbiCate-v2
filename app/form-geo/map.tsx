@@ -7,11 +7,11 @@ import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, La
 import type { MarkerDragEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 
 import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
-import { getCampusBoundsFromPoint, getParamCampusBounds } from "@/utils/getCampusBounds";
+import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import Campus from "../../data/campuses.json";
-import { useThemeObserver } from "../../utils/themeObserver";
 import DebugMode from "../components/debugMode";
+import { useThemeObserver } from "../hooks/useThemeObserver";
 
 import ControlPanel from "./controlPanel";
 
@@ -29,15 +29,13 @@ export default function MapComponent(props: MapProps) {
   const mapRef = useRef<MapRef>(null);
   const map = mapRef.current?.getMap();
   const [marker, setMarker] = useState({ ...props.markerPosition });
-  const [theme, setTheme] = useState(
-    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
-  );
+
   const searchParams = useSearchParams();
   const campusMapBounds =
     getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ??
-    getParamCampusBounds(searchParams.get("campus"));
+    getCampusBoundsFromName(searchParams.get("campus"));
 
-  useThemeObserver(setTheme, map);
+  const [theme] = useThemeObserver(map);
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
     setMarker({
