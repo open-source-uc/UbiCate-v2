@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     "San Joaquín",
     "Open Source",
   ],
+  themeColor: "#0084d1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

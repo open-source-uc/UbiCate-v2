@@ -94,7 +94,7 @@ export default function Menu({ place, onClose }: MenuProps) {
             >
               Compartir
             </button>
-            {place?.properties.categories.some((c) => c === "building" || c === "faculty") ? null : (
+            {place?.geometry.type === "Polygon" ? null : (
               <button
                 className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={(e) => {
