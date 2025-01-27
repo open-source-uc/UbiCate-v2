@@ -109,6 +109,7 @@ export default function MapComponent({
       mapRef.current?.getMap().flyTo({
         essential: true,
         duration: 400,
+        zoom: 16,
         center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
       });
     }

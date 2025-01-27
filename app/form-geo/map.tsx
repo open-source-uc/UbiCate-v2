@@ -74,6 +74,9 @@ export default function MapComponent(props: MapProps) {
           }}
           mapStyle={`mapbox://styles/mapbox/${theme}`}
           mapboxAccessToken={MAPBOX_TOKEN}
+          onLoad={() => {
+            mapRef.current?.getMap().setMaxBounds(campusMapBounds);
+          }}
           ref={mapRef}
           onClick={onClickMap}
         >
