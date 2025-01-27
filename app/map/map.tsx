@@ -367,7 +367,7 @@ export default function MapComponent({
                 setTmpMark(null);
                 onClickMark(place);
               }}
-            // onMouseEnter={setHover}
+              // onMouseEnter={setHover}
             />
           );
         })}
