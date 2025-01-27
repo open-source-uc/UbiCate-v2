@@ -4668,9 +4668,7 @@
                 ],
                 "campus": "SJ",
                 "faculties": "",
-                "floors": [
-                    null
-                ],
+                "floors": [],
                 "needApproval": false
             },
             "geometry": {
@@ -7112,7 +7110,7 @@
                 "name": "CS101",
                 "information": "Piso -1",
                 "categories": [
-                    null
+                    "classroom"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -7405,7 +7403,7 @@
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
-                    null
+                    2
                 ],
                 "needApproval": false
             },
@@ -7429,7 +7427,7 @@
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
-                    null
+                    2
                 ],
                 "needApproval": false
             },
@@ -8023,13 +8021,11 @@
                 "identifier": "-32306118",
                 "name": "Auditorio Dirección de investigación y postgrado",
                 "information": "",
-                "categories": [
-                    null
-                ],
+                "categories": [],
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
-                    null
+                    1
                 ],
                 "needApproval": false
             },
@@ -23584,7 +23580,7 @@
                 "identifier": "LA_Y",
                 "campus": "SJ",
                 "name": "Centro Desarrollo Docente",
-                "information": null,
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
                 "categories": [
                     "building"
                 ],
@@ -23692,7 +23688,7 @@
                 "identifier": "AL",
                 "campus": "SJ",
                 "name": "Aula Magna",
-                "information": null,
+                "information": "",
                 "needApproval": false,
                 "categories": [
                     "building"
@@ -23744,7 +23740,7 @@
                 "identifier": "TEMPLO",
                 "campus": "SJ",
                 "name": "Templo",
-                "information": null,
+                "information": "",
                 "needApproval": false,
                 "categories": [
                     "building"
@@ -23788,7 +23784,7 @@
                 "identifier": "SAN_AGUSTIN",
                 "campus": "SJ",
                 "name": "Edificio San Agustín",
-                "information": null,
+                "information": "",
                 "needApproval": false,
                 "categories": [
                     "building"
@@ -25130,7 +25126,7 @@
                 "identifier": "LA_Y_2",
                 "campus": "SJ",
                 "name": "La Y",
-                "information": null,
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
                 "categories": [
                     "building"
                 ],
