@@ -33,7 +33,7 @@ export default function MapComponent(props: MapProps) {
   const searchParams = useSearchParams();
   const campusMapBounds =
     getCampusBoundsFromPoint(props.markerPosition.longitude, props.markerPosition.latitude) ??
-    getCampusBoundsFromName(searchParams.get("campus"));
+    getCampusBoundsFromName(searchParams.get("campus") ?? localStorage.getItem("defaultCampus"));
 
   const [theme] = useThemeObserver(map);
 
