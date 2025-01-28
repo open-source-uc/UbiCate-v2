@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_MULTIMEDIOS_2-CC",
+                "name": "Sala multimedios 2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    6
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64063512142584,
+                    -33.441651802464996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "PABELLÓN_ANATOMÍA-CC",
                 "name": "Pabellón Anatomía",
                 "information": "",
