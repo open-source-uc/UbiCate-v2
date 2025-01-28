@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "other-34030812",
+                "name": "Unidad de histología",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    7
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6403425,
+                    -33.4413651
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "laboratory-34030760",
                 "name": "Laboratorio de neuroanatomia",
                 "information": "",
