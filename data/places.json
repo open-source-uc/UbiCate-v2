@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "PABELLÓN_ANATOMÍA-CC",
+                "name": "Pabellón Anatomía",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    6
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64031324850649,
+                    -33.441402110819
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_SEMINARIO_10-CC",
                 "name": "Sala seminario 10",
                 "information": "",
