@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_SEMINARIO_4-CC",
+                "name": "Sala seminario 4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    5
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64055431472678,
+                    -33.44161374319661
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_MULTIMEDIOS-CC",
                 "name": "Sala multimedios",
                 "information": "",
