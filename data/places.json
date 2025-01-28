@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "park_bicycle-34032745",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6419183697138,
+                    -33.44165728846105
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "S32-CC",
                 "name": "S32",
                 "information": "",
