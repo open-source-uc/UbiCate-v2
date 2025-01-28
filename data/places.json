@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "auditorium-34032553",
+                "name": "Auditorio María Luisa Santander Achurra",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    3
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64213776743699,
+                    -33.44206551941067
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "water-34032280",
                 "name": "Agua",
                 "information": "6 y 4",
