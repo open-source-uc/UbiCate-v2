@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "S32-CC",
+                "name": "S32",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    3
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64230835927208,
+                    -33.44180772646987
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "auditorium-34032553",
                 "name": "Auditorio María Luisa Santander Achurra",
                 "information": "",
