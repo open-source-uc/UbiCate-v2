@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "food_lunch-34032900",
+                "name": "Copper",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64151873365411,
+                    -33.44156571470494
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "auditorium-34032764",
                 "name": "Andrónico Luksic Abaroa",
                 "information": "",
