@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_SEMINARIO_13-CC",
+                "name": "Sala seminario 13",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    6
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64055139893766,
+                    -33.441589420163496
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_ESPEJO_2-CC",
                 "name": "Sala espejo 2",
                 "information": "",
