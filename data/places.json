@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "B203-CC",
+                "name": "B203",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    -2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63982165465022,
+                    -33.44177070972358
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "auditorium-34029242",
                 "name": "Monuel Jose irarrazaval",
                 "information": "",
