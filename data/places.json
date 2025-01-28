@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "water-34032280",
+                "name": "Agua",
+                "information": "6 y 4",
+                "categories": [
+                    "water"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    6
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64232219010592,
+                    -33.44187555023283
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "other-34032466",
                 "name": "T4",
                 "information": "",
@@ -70,30 +94,6 @@
                 "coordinates": [
                     -70.64213776743699,
                     -33.44206551941067
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "water-34032280",
-                "name": "Agua",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    6
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64232218364286,
-                    -33.44187561585638
                 ]
             }
         },
