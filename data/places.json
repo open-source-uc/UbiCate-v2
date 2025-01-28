@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "auditorium-34031149",
+                "name": "Auditorio 2",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    -2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64036766717126,
+                    -33.441306514102564
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "auditorium-34031122",
                 "name": "Auditorio 1",
                 "information": "",
