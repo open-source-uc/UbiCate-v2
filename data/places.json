@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "other-34032466",
+                "name": "T4",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    4
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64213776743699,
+                    -33.44206551941067
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "A41-CC",
                 "name": "A41",
                 "information": "",
