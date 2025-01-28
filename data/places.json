@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "laboratory-34030760",
+                "name": "Laboratorio de neuroanatomia",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    7
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64050225536135,
+                    -33.441438086680385
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_MULTIMEDIOS_2-CC",
                 "name": "Sala multimedios 2",
                 "information": "",
