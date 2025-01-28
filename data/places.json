@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "auditorium-34031149",
+                "name": "Auditorio 2",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64036769792438,
+                    -33.441306497015475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "auditorium-34031264",
                 "name": "MS-2",
                 "information": "",
@@ -94,30 +118,6 @@
                 "coordinates": [
                     -70.6405663,
                     -33.4415776
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "auditorium-34031149",
-                "name": "Auditorio 2",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    -2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64036766717126,
-                    -33.441306514102564
                 ]
             }
         },
