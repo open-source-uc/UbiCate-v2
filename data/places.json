@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "auditorium-34030984",
+                "name": "Auditorio M2",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404016477046,
+                    -33.44136782520019
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "other-34030812",
                 "name": "Unidad de histología",
                 "information": "",
