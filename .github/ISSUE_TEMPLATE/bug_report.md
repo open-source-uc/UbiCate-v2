@@ -12,10 +12,9 @@ Una pequeña descripción del bug
 
 ## Pasos para generar el bug
 Pasos para replicar el comportamiento:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. 
+2. 
+3. 
 
 ## *Contexto adicional
 

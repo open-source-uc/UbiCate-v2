@@ -1,15 +1,6 @@
 # Problema
-
-Descripción del problema a resolver.
+1. 
 
 ## Solución
+1. 
 
-Lista con soluciones implementadas.
-
-- feature 1
-- feature 2
-
-
-## Resuelve
-
-Esta pull request resuelve la issue #
