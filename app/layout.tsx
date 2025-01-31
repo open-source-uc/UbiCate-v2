@@ -38,21 +38,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap"
-        />
-      </head>
-      <body className="h-full pb-[-12px] dark:bg-dark-1">
+      <body className="h-full pb-[-12px] dark:bg-dark-1 font-instrument-sans">
         <SidebarProvider>
           <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
             <NavigationBar />

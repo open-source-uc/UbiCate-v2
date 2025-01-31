@@ -5,13 +5,12 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: false,
   theme: {
-    screens: {
-      tablet: '960px',
-      desktop: '1248px',
-    },
     extend: {
+      screens: {
+        tablet: '768px',
+        desktop: '1154px',
+      },
       colors: {
         error: '#be6069',
         info: '#5d81ac',
@@ -26,12 +25,61 @@ module.exports = {
         'light-3': '#d8dee9',
         'light-4': '#c1c8d7',
         'sidebar-color': 'rgb(35, 55, 75, 90%)',
-        'azure': '#015FFF',
-        'snow': '#F9F8F3',
-        'light-brown': '#8A817C',
-        'dark-brown': '#39302B',
-        'licorice': '#170D09'
+        'blue-location': '#015FFF',
+        'brown-dark': '#150A04',
+        'brown-medium': '#39302B',
+        'brown-light': '#8A817C',
+        'white-ubi': '#F9F8F3',
+        'pink-option': '#E86A92',
+        'red-option': '#EF233C',
+        'green-option': '#98CE00',
+        'cyan-option': '#03B5AA',
+        'orange-option': '#F58A07'
       },
+      fontSize: {
+  			'4xl': [
+  				'3.25rem',
+  				{
+  					lineHeight: '1.1'
+  				}
+  			],
+  			'3xl': [
+  				'3rem',
+  				{
+  					lineHeight: '1.2'
+  				}
+  			],
+  			'2xl': [
+  				'2.5rem',
+  				{
+  					lineHeight: '1.2'
+  				}
+  			],
+  			xl: [
+  				'1.5rem',
+  				{
+  					lineHeight: '1.3'
+  				}
+  			],
+  			lg: [
+  				'1.25rem',
+  				{
+  					lineHeight: '1.4'
+  				}
+  			],
+  			md: [
+  				'1rem',
+  				{
+  					lineHeight: '1.5'
+  				}
+  			]
+  		},
+  		fontFamily: {
+  			'instrument-sans': [
+  				'Instrument Sans',
+  				'sans-serif'
+  			]
+  		},
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

@@ -12,7 +12,7 @@ export default function Sidebar() {
         <>
             {/* Collapsed Sidebar */}
             {!isOpen && (
-                <aside className="fixed inset-y-0 left-0 bg-licorice flex flex-col z-50">
+                <aside className="fixed inset-y-0 left-0 bg-brown-dark text-white-ubi flex flex-col z-50">
                     <div className="flex flex-col items-center py-6 px-4 space-y-6">
                         <div className="mt-2 mb-10 flex justify-center">
                             <button
@@ -37,13 +37,13 @@ export default function Sidebar() {
 
             {/* Expanded Sidebar */}
             <aside
-                className={`fixed inset-y-0 left-0 bg-licorice text-snow transform transition-transform duration-300 z-50 ${isOpen ? "translate-x-0 w-64" : "-translate-x-full"
+                className={`fixed inset-y-0 left-0 bg-brown-dark text-white-ubi text-snow transform transition-transform duration-300 z-50 ${isOpen ? "translate-x-0 w-64" : "-translate-x-full"
                     }`}
             >
                 <div className="flex flex-col h-full py-6 px-4 space-y-7">
                     <div className="flex items-center space-x-12">
                         <Link href="/">
-                            <img src="/logo.svg" alt="Logo" className="md-24" width={"48rm"} />
+                            <img src="/logo.svg" alt="Logo" className="md-24" width={"48rm"}/>
                         </Link>
                         <div className="flex-row-reverse">
                             <button
