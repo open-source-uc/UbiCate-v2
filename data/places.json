@@ -15,7 +15,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -39,7 +39,7 @@
                 "floors": [
                     2
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -63,7 +63,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -87,7 +87,7 @@
                 "floors": [
                     3
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -111,7 +111,7 @@
                 "floors": [
                     3
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -135,7 +135,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -159,7 +159,7 @@
                 "floors": [
                     4
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -183,7 +183,7 @@
                 "floors": [
                     4
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -207,7 +207,7 @@
                 "floors": [
                     5
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -231,7 +231,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -255,7 +255,7 @@
                 "floors": [
                     5
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -279,7 +279,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -303,7 +303,7 @@
                 "floors": [
                     7
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -327,7 +327,7 @@
                 "floors": [
                     7
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -351,7 +351,7 @@
                 "floors": [
                     8
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -375,7 +375,7 @@
                 "floors": [
                     8
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -399,7 +399,7 @@
                 "floors": [
                     8
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -423,7 +423,7 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -447,7 +447,7 @@
                 "floors": [
                     -2
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -471,7 +471,7 @@
                 "floors": [
                     -2
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -495,7 +495,7 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -519,7 +519,7 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -543,7 +543,7 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -567,7 +567,7 @@
                 "floors": [
                     2
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -591,7 +591,7 @@
                 "floors": [
                     7
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -615,7 +615,7 @@
                 "floors": [
                     7
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -639,7 +639,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -663,7 +663,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -687,7 +687,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -711,7 +711,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -735,7 +735,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -759,7 +759,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -783,7 +783,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -807,7 +807,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -831,7 +831,7 @@
                 "floors": [
                     6
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -855,7 +855,7 @@
                 "floors": [
                     5
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -879,7 +879,7 @@
                 "floors": [
                     5
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -903,7 +903,7 @@
                 "floors": [
                     5
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -927,7 +927,7 @@
                 "floors": [
                     4
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -951,7 +951,7 @@
                 "floors": [
                     4
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -975,7 +975,7 @@
                 "floors": [
                     4
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -999,7 +999,7 @@
                 "floors": [
                     4
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1023,7 +1023,7 @@
                 "floors": [
                     3
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1047,7 +1047,7 @@
                 "floors": [
                     3
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1071,7 +1071,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1095,7 +1095,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1119,7 +1119,7 @@
                 "floors": [
                     -2
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1143,7 +1143,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1167,7 +1167,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
@@ -1191,7 +1191,7 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true
+                "needApproval": false
             },
             "geometry": {
                 "type": "Point",
