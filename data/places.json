@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "computers-34302078",
+                "name": "Crisol",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6180352127538,
+                    -33.419058300657966
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "bath-34301771",
                 "name": "Baño",
                 "information": "",
