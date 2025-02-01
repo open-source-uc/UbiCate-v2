@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_R1-OR",
+                "name": "Sala R1",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59413618642147,
+                    -33.44603898414859
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "food_lunch-34302435",
                 "name": "Castaño",
                 "information": "",
