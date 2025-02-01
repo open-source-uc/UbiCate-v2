@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "bath-34302371",
+                "name": "Baño Mujer",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59366234937235,
+                    -33.44541324313024
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "bath-34302334",
                 "name": "Baño Hombre",
                 "information": "",
