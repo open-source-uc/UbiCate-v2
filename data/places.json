@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "Baño",
+                "name": "Borrar",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    7
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6120139,
+                    -33.5001276
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "bano17",
                 "name": "Borrar",
                 "information": "",
@@ -24204,29 +24228,6 @@
                 "coordinates": [
                     -70.61193384,
                     -33.5001874
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "Baño",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    7
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6120139,
-                    -33.5001276
                 ]
             }
         },
