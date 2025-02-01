@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "bath-34302334",
+                "name": "Baño Hombre",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59352752560899,
+                    -33.44654366127656
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_LAMPARA-LC",
                 "name": "Sala lampara",
                 "information": "Piso sin confirmar",
