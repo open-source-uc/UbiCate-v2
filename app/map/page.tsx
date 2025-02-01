@@ -28,6 +28,9 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
         },
       ],
     },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/map`,
+    },
   };
 }
 
