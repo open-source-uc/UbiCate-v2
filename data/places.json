@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "banou10cc",
+                "name": "Borrar",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    4
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64185354992698,
+                    -33.442214588766475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "computers-34302633",
                 "name": "Crisol",
                 "information": "",
@@ -17136,29 +17160,6 @@
                 "coordinates": [
                     -70.63968122396304,
                     -33.44167332051259
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "banou10cc",
-                "name": "Baño Universal 10",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    4
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64230279161472,
-                    -33.44196464874343
                 ]
             }
         },
