@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_LAMPARA-LC",
+                "name": "Sala lampara",
+                "information": "Piso sin confirmar",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61804559037331,
+                    -33.41895680561481
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "bath-23513463",
                 "name": "Baño",
                 "information": "",
