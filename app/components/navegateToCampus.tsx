@@ -10,19 +10,19 @@ export default function NavegateToCampus() {
 
   useEffect(() => {
     const firstTime = sessionStorage.getItem("firstTime") ?? "true";
-    const defaultCampus = localStorage.getItem("defaultCampus") ?? null
+    const defaultCampus = localStorage.getItem("defaultCampus") ?? null;
 
     if (firstTime === "true") {
       sessionStorage.setItem("firstTime", "false");
       getCampusFromUserLocation().then((campus) => {
         if (campus !== null) {
           router.push("/map?campus=" + campus);
-          return
+          return;
         }
 
         if (defaultCampus !== null) {
           router.push("/map?campus=" + defaultCampus);
-          return
+          return;
         }
       });
     }
