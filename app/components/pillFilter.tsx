@@ -140,6 +140,12 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
           active={activeFilter === "water"}
         />
         <Pill
+          title="Crisol"
+          iconPath="/categoryIcons/crisol.svg"
+          onClick={() => applyFilter(nameFilter, "crisol")}
+          active={activeFilter === "crisol"}
+        />
+        <Pill
           title="Facultades"
           iconPath="/categoryIcons/faculty.svg"
           onClick={() => applyFilter(categoryFilter, "faculty")}
