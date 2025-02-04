@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "puesto11",
+                "name": "Quiosco",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611747,
+                    -33.498485
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "sports_place-34629367",
                 "name": "test",
                 "information": "",
@@ -22405,29 +22429,6 @@
                 "coordinates": [
                     -70.61002191969271,
                     -33.500622392941494
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "puesto11",
-                "name": "Quiosco",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611747,
-                    -33.498485
                 ]
             }
         },
