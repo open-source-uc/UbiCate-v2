@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "computers-32736304",
+                "name": "Crisol",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63977840261826,
+                    -33.441204394254406
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "puesto11",
                 "name": "Quiosco",
                 "information": "",
@@ -5222,30 +5246,6 @@
                 "coordinates": [
                     -70.63976003508877,
                     -33.4412373397958
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "computers-32736304",
-                "name": "Sala Crisol",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.63977840261826,
-                    -33.441204394254406
                 ]
             }
         },
