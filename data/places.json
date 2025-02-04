@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "shop-34631953",
-                "name": "sssssss",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59402197599411,
-                    -33.4448826015809
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "computers-33081606",
                 "name": "Crisol Alfero",
                 "information": "",
