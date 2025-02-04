@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "shop-34631672",
-                "name": "w",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61222622041747,
-                    -33.49787171158882
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "puesto11",
                 "name": "Quiosco",
                 "information": "",
