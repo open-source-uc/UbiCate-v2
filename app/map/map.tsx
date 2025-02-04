@@ -27,9 +27,9 @@ import {
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/utils/getCampusBounds";
+import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import { Feature, PointFeature } from "../../utils/types";
 import useGeocoder from "../hooks/useGeocoder";
 
 import {
@@ -198,7 +198,7 @@ export default function MapComponent({
         type: "Feature",
         properties: {
           identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `[${lng.toFixed(6)},${lat.toFixed(6)}]`,
+          name: `Lon: ${lng.toFixed(4)}, Lat: ${lat.toFixed(4)}`,
           information: "",
           categories: [],
           campus: "",
@@ -293,6 +293,27 @@ export default function MapComponent({
     },
     [setCustomMark, setMenu],
   );
+
+  useEffect(() => {
+    const title = document.querySelector("title");
+    if (title) {
+      title.textContent = place
+        ? `${siglas.get(place.properties.categories[0]) ?? "UbíCate"} - ${place.properties.name}`
+        : "UbíCate UC - Mapa";
+    }
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        place
+          ? `Nombre: ${place.properties.name}; Categoria: ${
+              siglas.get(place.properties.categories[0]) ?? "Sala"
+            }; Piso: ${place.properties.floors?.[0] ?? "N/A"}`
+          : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+      );
+    }
+  }, [place]);
 
   return (
     <>
