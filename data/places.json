@@ -436,30 +436,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bano17",
-                "name": "Borrar",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "EDU",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614968,
-                    -33.498224
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "food_lunch-34032900",
                 "name": "Copper",
                 "information": "",
