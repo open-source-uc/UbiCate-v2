@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "other-34643799",
-                "name": "Borrar",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61246587486309,
-                    -33.497913785127245
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "computers-33081606",
                 "name": "Crisol Alfero",
                 "information": "",
