@@ -76,30 +76,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "computers-34302633",
-                "name": "Crisol",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59440043129639,
-                    -33.44581007821319
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "R6-OR",
                 "name": "R6",
                 "information": "",
