@@ -24,10 +24,10 @@ function DebugMode() {
     const fetchData = () => {
       if (!isDebugMode) return;
 
-      fetch("/api/data")
+      fetch("/api/ubicate")
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Failed to fetch GeoJSON data");
+            throw new Error("Failed to fetch GeoJSON data " + response.status);
           }
           return response.json();
         })

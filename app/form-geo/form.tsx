@@ -133,7 +133,7 @@ export default function FormComponent({
       body: JSON.stringify(transformedValues),
     };
 
-    fetch("/api/data", requestOptions)
+    fetch("/api/ubicate", requestOptions)
       .then((res) => {
         return Promise.all([res.json(), res]);
       })

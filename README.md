@@ -64,6 +64,7 @@ NEXT_PUBLIC_BASE_URL = <BASE_URL> // Opcional, en producción obligatorio
 GITHUB_TOKEN_USER = <TOKEN_USER> // Opcional, en producción obligatorio
 GITHUB_USER_EMAIL = <EMAIL> // Opcional, en producción obligatorio
 GITHUB_BRANCH_NAME = <EXISTING_BRANCH> // Opcional, en producción obligatorio
+API_UBICATE_SECRET = <API_UBICATE_SECRET> // Opcional, en producción obligatorio
 ```
 
 ### Instalar dependencias

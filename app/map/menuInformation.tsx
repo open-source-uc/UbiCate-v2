@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 
@@ -11,7 +11,7 @@ import FormGeo from "../form-geo/form";
 
 export default function Menu({ place, onClose }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
-
+  const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -25,6 +25,58 @@ export default function Menu({ place, onClose }: MenuProps) {
     } else {
       console.warn("La API de compartir no está soportada en este navegador.");
     }
+  };
+
+  const aprobar = () => {
+    const confirmacion = confirm("Estas seguro de APROBAR el lugar") ?? false;
+    if (!confirmacion) return;
+
+    fetch("api/ubicate", {
+      method: "PATCH",
+      headers: {
+        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
+      },
+      body: JSON.stringify({
+        identifier: place?.properties.identifier,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          alert("Hubo un error: " + res.status);
+          return;
+        }
+        alert("Se aprobo");
+        document.location.reload();
+      })
+      .catch(() => {
+        alert("Hubo un error");
+      });
+  };
+
+  const borrar = () => {
+    const confirmacion = confirm("Estas seguro de BORRAR el lugar") ?? false;
+    if (!confirmacion) return;
+
+    fetch("api/ubicate", {
+      method: "DELETE",
+      headers: {
+        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
+      },
+      body: JSON.stringify({
+        identifier: place?.properties.identifier,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          alert("Hubo un error");
+          return;
+        }
+        alert("Se borro");
+        document.location.reload();
+      })
+      .catch(() => {
+        alert("Hubo un error");
+      });
   };
 
   return (
@@ -92,7 +144,7 @@ export default function Menu({ place, onClose }: MenuProps) {
               onClick={handleShare}
               type="button"
             >
-              Compartir
+              Compartir {isDebug.current.toString()}
             </button>
             {place?.geometry.type === "Polygon" ? null : (
               <button
@@ -104,6 +156,26 @@ export default function Menu({ place, onClose }: MenuProps) {
               >
                 {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
               </button>
+            )}
+            {place?.geometry.type === "Polygon" ||
+            place?.properties.identifier === "42-ALL" ||
+            isDebug.current === false ? null : (
+              <div className="flex gap-5">
+                <button
+                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  onClick={() => aprobar()}
+                >
+                  Aprobar
+                </button>
+                <button
+                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  onClick={() => borrar()}
+                >
+                  Borrar
+                </button>
+              </div>
             )}
           </div>
         </menu>

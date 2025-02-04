@@ -5,6 +5,7 @@ import { Feature } from "../../../utils/types";
 const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
 const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
+const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
 
 interface Places {
   type: string;
@@ -77,6 +78,32 @@ async function updatePlace(url: string, identifier: string, file_places: Places,
   return data;
 }
 
+async function deletePlace(url: string, identifier: string, file_places: Places, file_sha: string) {
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
+      Accept: "application/vnd.github+json",
+    },
+    body: JSON.stringify({
+      message: `DELETE: ${identifier}`,
+      committer: {
+        name: "BOT-PLACES",
+        email: GITHUB_USER_EMAIL,
+      },
+      content: Buffer.from(JSON.stringify(file_places, null, 4)).toString("base64"),
+      sha: file_sha,
+      branch: GITHUB_BRANCH_NAME,
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}
+
 async function fetchPlaces(): Promise<{ url: string; file_places: Places; file_sha: string }> {
   const path = "data/places.json";
   const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
@@ -102,6 +129,11 @@ async function fetchPlaces(): Promise<{ url: string; file_places: Places; file_s
     console.error("Error fetching places:", error);
     throw error;
   }
+}
+
+export async function GET() {
+  const { file_places } = await fetchPlaces();
+  return NextResponse.json({ message: "Hello world!", file_places }, { status: 200 });
 }
 
 export async function POST(request: NextRequest) {
@@ -177,7 +209,7 @@ export async function PUT(request: NextRequest) {
     const nuevo_punto: Feature = {
       type: "Feature",
       properties: {
-        identifier: body.identifier, //Esto se hizo pues debe ser unico y si se usara el "body.name" podria pasar que identifier se duplicara por ejemplo el caso de los baños
+        identifier: body.identifier,
         name: body.name,
         information: body.information,
         categories: [body.categories],
@@ -234,9 +266,93 @@ export async function PUT(request: NextRequest) {
   }
 }
 
-export async function GET() {
-  const { file_places } = await fetchPlaces();
-  return NextResponse.json({ message: "Hello world!", file_places }, { status: 200 });
+export async function PATCH(request: NextRequest) {
+  try {
+    const token = request.headers.get("ubicate-token");
+
+    if (token !== API_UBICATE_SECRET) {
+      return NextResponse.json({}, { status: 401 });
+    }
+
+    const body: {
+      identifier: string;
+    } = await request.json();
+
+    const { url, file_places, file_sha } = await fetchPlaces();
+
+    const index = file_places.features.findIndex(
+      (feature: Feature) => feature.properties.identifier.toUpperCase() === body.identifier.toUpperCase(),
+    );
+
+    if (index == -1) {
+      return NextResponse.json(
+        { message: "¡El lugar NO existe!" },
+        {
+          status: 404,
+        },
+      );
+    }
+
+    const place: Feature = file_places.features[index];
+    file_places.features.splice(index, 1);
+    place.properties.needApproval = false;
+
+    file_places.features.unshift(place);
+
+    await updatePlace(url, place.properties.identifier, file_places, file_sha);
+
+    return NextResponse.json(
+      { message: "¡El lugar fue APROBADO!" },
+      {
+        status: 200,
+      },
+    );
+  } catch (error) {
+    return NextResponse.json({}, { status: 400 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const token = request.headers.get("ubicate-token");
+
+    if (token !== API_UBICATE_SECRET) {
+      return NextResponse.json({}, { status: 401 });
+    }
+
+    const body: {
+      identifier: string;
+    } = await request.json();
+
+    const { url, file_places, file_sha } = await fetchPlaces();
+
+    const index = file_places.features.findIndex(
+      (feature: Feature) => feature.properties.identifier.toUpperCase() === body.identifier.toUpperCase(),
+    );
+
+    if (index == -1) {
+      return NextResponse.json(
+        { message: "¡El lugar NO existe!" },
+        {
+          status: 404,
+        },
+      );
+    }
+
+    const place: Feature = file_places.features[index];
+    file_places.features.splice(index, 1);
+
+    await deletePlace(url, place.properties.identifier, file_places, file_sha);
+
+    return NextResponse.json(
+      { message: "¡El lugar fue borrado!" },
+      {
+        status: 200,
+      },
+    );
+  } catch (error) {
+    return NextResponse.json({}, { status: 400 });
+  }
 }
 
 export const runtime = "edge";

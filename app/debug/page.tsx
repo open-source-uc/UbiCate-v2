@@ -19,16 +19,29 @@ function DebugPage() {
   return (
     <main className="flex flex-col items-center justify-center h-full w-full text-center space-y-4">
       <h1 className="text-3xl font-semibold">Modo Debug</h1>
-      <label className="flex items-center space-x-2 text-xl">
-        <input
-          type="checkbox"
-          checked={isDebugMode}
-          onChange={toggleDebugMode}
-          className="w-6 h-6 text-blue-500 focus:ring-blue-500"
-        />
-        <span>Activar Modo Debug</span>
-      </label>
-      <p className="text-lg">Modo Debug: {isDebugMode ? "Activado" : "Desactivado"}</p>
+      <section>
+        <label className="flex items-center space-x-2 text-xl">
+          <input
+            type="checkbox"
+            checked={isDebugMode}
+            onChange={toggleDebugMode}
+            className="w-6 h-6 text-blue-500 focus:ring-blue-500"
+          />
+          <span>Activar Modo Debug</span>
+        </label>
+        <p className="text-lg">Modo Debug: {isDebugMode ? "Activado" : "Desactivado"}</p>
+      </section>
+      <section>
+        <label className="flex items-center space-x-2 text-xl">
+          <input
+            type="text"
+            disabled={!isDebugMode}
+            onChange={(e) => {
+              sessionStorage.setItem("ubicateToken", e.target.value ?? null);
+            }}
+          />
+        </label>
+      </section>
     </main>
   );
 }
