@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "shop-34631953",
-                "name": "s",
+                "name": "sssssss",
                 "information": "",
                 "categories": [
                     "shop"
@@ -20,8 +20,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59402201745321,
-                    -33.44488272186632
+                    -70.59402197599411,
+                    -33.4448826015809
                 ]
             }
         },
