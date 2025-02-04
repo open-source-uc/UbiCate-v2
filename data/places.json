@@ -28,30 +28,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "banou10cc",
-                "name": "Borrar",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    4
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64185354992698,
-                    -33.442214588766475
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "computers-34302633",
                 "name": "Crisol",
                 "information": "",
