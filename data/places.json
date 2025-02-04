@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "sports_place-34629367",
+                "name": "test",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60762522645538,
+                    -33.495894562891436
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "banou10cc",
                 "name": "Borrar",
                 "information": "",
