@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "computers-33081606",
+                "name": "Crisol Alfero",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61793921239232,
+                    -33.41909614629252
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "computers-32736304",
                 "name": "Crisol",
                 "information": "",
@@ -2582,30 +2606,6 @@
                 "coordinates": [
                     -70.617905,
                     -33.419047
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "computers-33081606",
-                "name": "Sala Crisol Alfero",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "campus": "LC",
-                "faculties": "",
-                "floors": [
-                    -1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61793921239232,
-                    -33.41909614629252
                 ]
             }
         },
