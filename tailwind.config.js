@@ -25,7 +25,7 @@ module.exports = {
         'light-3': '#d8dee9',
         'light-4': '#c1c8d7',
         'sidebar-color': 'rgb(35, 55, 75, 90%)',
-        'blue-location': '#015FFF',
+        'blue-location': '#015FFF', // Start of New Brand
         'brown-dark': '#150A04',
         'brown-medium': '#39302B',
         'brown-light': '#8A817C',
