@@ -46,7 +46,6 @@ export default function Home() {
       </div>
       <TypeAnimationWrapper />
       <section className="justify-center w-full align-middle items-center">
-        <LandingSearch />
       </section>
     </main>
   );

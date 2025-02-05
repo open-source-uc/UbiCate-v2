@@ -64,7 +64,7 @@ export const allPlacesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
-    "text-font": ["Open Sans Bold"],
+    "text-font": ["Instrument Sans"],
     "text-size": 12,
     "text-anchor": "top",
     "text-offset": [0, 0.5],

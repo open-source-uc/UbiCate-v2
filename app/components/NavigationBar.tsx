@@ -5,6 +5,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useSidebar } from "../context/sidebarCtx";
+import LandingSearch from "./landingSearch";
+import PillFilter from "./pillFilter";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
 
@@ -149,31 +151,20 @@ export default function Sidebar() {
         {/* Sub Sidebar inside Expanded Sidebar */}
         {isOpen && activeSubSidebar && (
           <aside
-            className={`absolute top-0 left-full h-full w-64 border-l-2 border-brown-light bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 ${
+            className={`absolute top-0 left-full h-full w-96 border-1 border-l border-brown-light bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 ${
               activeSubSidebar ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div className="p-4">
+            <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
                 <>
-                  <h3 className="font-bold mb-4">Buscar Options</h3>
+                  <h3 className="font-bold text-lg">Buscar</h3>
                   <ul className="space-y-2">
-                    <li>
-                      <Link href="/buscar/option1" className="hover:underline">
-                        Buscar Option 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/buscar/option2" className="hover:underline">
-                        Buscar Option 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/buscar/option3" className="hover:underline">
-                        Buscar Option 3
-                      </Link>
-                    </li>
+                    <LandingSearch />
                   </ul>
+                  <div>
+   
+                  </div>
                 </>
               )}
               {activeSubSidebar === "campus" && (
