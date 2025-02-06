@@ -2,22 +2,18 @@ import { Instrument_Sans } from "next/font/google";
 
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Suspense } from "react";
 
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
-import Header from "./components/header";
-import Overlay from "./components/overlay";
 import NavigationBar from "./components/NavigationBar";
-import Sidebar from "./components/sidebar";
 import { SidebarProvider } from "./context/sidebarCtx";
 
 const instrument_sans = Instrument_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-instrument-sans',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-sans",
+});
 
 export const metadata: Metadata = {
   title: "UbíCate UC",

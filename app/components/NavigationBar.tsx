@@ -1,12 +1,13 @@
 // Language: TSX
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
+import { useState } from "react";
+
 import { useSidebar } from "../context/sidebarCtx";
 import LandingSearch from "./landingSearch";
-import PillFilter from "./pillFilter";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
 
@@ -162,9 +163,6 @@ export default function Sidebar() {
                   <ul className="space-y-2">
                     <LandingSearch />
                   </ul>
-                  <div>
-   
-                  </div>
                 </>
               )}
               {activeSubSidebar === "campus" && (
