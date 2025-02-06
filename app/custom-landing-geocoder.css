@@ -220,8 +220,21 @@
   }
 }
 
-/* Media queries*/
 @media screen and (min-width: 640px) {
+  .mapboxgl-ctrl-top-left {
+    display: flex;
+    width: 100%;
+    justify-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+    max-width: 100%;
+    margin: 0;
+  }
 
   .mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
     width: 36px;
@@ -270,7 +283,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
 
   .mapboxgl-ctrl-geocoder--icon-loading {
     width: 26px;

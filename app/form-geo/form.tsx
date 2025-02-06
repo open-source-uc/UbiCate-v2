@@ -50,10 +50,9 @@ export default function FormComponent({
   fun: (() => void) | null;
 }) {
   const initialValues = values || defaultValues;
-
   const [submitting, setSubmitting] = useState<boolean>(false);
-  const [longitude, setLongitude] = useState<number>(values?.longitude ?? -70.6109);
-  const [latitude, setLatitude] = useState<number>(values?.latitude ?? -33.4983);
+  const [longitude, setLongitude] = useState<number | undefined | null>(values?.longitude);
+  const [latitude, setLatitude] = useState<number | undefined | null>(values?.latitude);
   const [campus, setCampus] = useState<string>("");
 
   const dragLocUpdate = useCallback((event: any) => {
@@ -66,6 +65,11 @@ export default function FormComponent({
 
     var campus: string | null = null;
 
+    if (!longitude || !latitude) {
+      errors.latitude = "Ubicación fuera de algún campus";
+      return;
+    }
+
     for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
       if (
         longitude >= boundary.longitudeRange[0] &&
@@ -77,6 +81,7 @@ export default function FormComponent({
         break;
       }
     }
+
     if (!campus) {
       errors.latitude = "Ubicación fuera de algún campus";
     } else {
@@ -96,7 +101,10 @@ export default function FormComponent({
       errors.information = "Informacion demasiado larga";
     }
 
-    if (Math.abs(newPlace.floor) > 20) {
+    if (newPlace.floor > 20) {
+      errors.floor = "Piso inválido";
+    }
+    if (newPlace.floor < -10) {
       errors.floor = "Piso inválido";
     }
 
@@ -125,7 +133,7 @@ export default function FormComponent({
       body: JSON.stringify(transformedValues),
     };
 
-    fetch("/api/data", requestOptions)
+    fetch("/api/ubicate", requestOptions)
       .then((res) => {
         return Promise.all([res.json(), res]);
       })
@@ -160,7 +168,7 @@ export default function FormComponent({
     <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">
       <div className="flex flex-col w-5/6 max-w-md h-5/6 my-2 items-center justify-center rounded dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
-          {({ isSubmitting = submitting }) => (
+          {({ isSubmitting = submitting, setFieldValue, values }) => (
             <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
               <label
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
@@ -219,12 +227,28 @@ export default function FormComponent({
               >
                 Piso
               </label>
-              <Field
-                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="floor"
-                id="floor"
-                type="number"
-              />
+              <div className="flex items-center gap-2 w-full">
+                <Field
+                  className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  name="floor"
+                  id="floor"
+                  type="number"
+                />
+                <button
+                  type="button"
+                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  onClick={() => setFieldValue("floor", Math.max(values.floor - 1, -Infinity))}
+                >
+                  -
+                </button>
+                <button
+                  type="button"
+                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  onClick={() => setFieldValue("floor", Math.min(values.floor + 1, Infinity))}
+                >
+                  +
+                </button>
+              </div>
               <ErrorMessage className="text-error font-bold text-sm w-full text-left" name="floor" component="div" />
               <label
                 className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"

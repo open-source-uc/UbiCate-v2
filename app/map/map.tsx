@@ -1,7 +1,10 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+
 import { useRef, useState, useCallback, useEffect } from "react";
 
+import { bbox } from "@turf/bbox";
 import "../custom-landing-geocoder.css";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type {
@@ -16,18 +19,30 @@ import type {
 import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
+import { useThemeObserver } from "@/app/hooks/useThemeObserver";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { useThemeObserver } from "@/utils/themeObserver";
+import {
+  getCampusBoundsFromName,
+  getCampusFromPoint2,
+  getMaxCampusBoundsFromName,
+  getMaxCampusBoundsFromPoint,
+} from "@/utils/getCampusBounds";
+import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import { Feature, JSONFeatures } from "../../utils/types";
-import PillFilter from "../components/pillFilter";
+import useGeocoder from "../hooks/useGeocoder";
 
-import { placesTextLayer, placesDarkTextLayer, campusBorderLayer, darkCampusBorderLayer } from "./layers";
+import {
+  placesTextLayer,
+  placesDarkTextLayer,
+  campusBorderLayer,
+  darkCampusBorderLayer,
+  redAreaLayer,
+  redLineLayer,
+} from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
-import { handleResult, handleResults, handleClear } from "./placeHandlers";
-const loadGeocoder = () => import("@/utils/getGeocoder");
+import MapNavbar from "./nabvar";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -40,102 +55,119 @@ interface InitialViewState extends Partial<ViewState> {
 }
 
 function createInitialViewState(
-  paramCampusBounds: LngLatBoundsLike,
-  paramPlace: any,
+  campusName: string | null,
+  paramPlace: Feature | null | undefined,
   paramLng: number | null | undefined,
   paramLat: number | null | undefined,
 ): InitialViewState {
   const initialViewState: InitialViewState = {
-    zoom: 18,
+    zoom: 17,
   };
-
   if (paramPlace) {
-    initialViewState.longitude = paramPlace.geometry.coordinates[0];
-    initialViewState.latitude = paramPlace.geometry.coordinates[1];
+    if (paramPlace?.geometry.type === "Point") {
+      initialViewState.longitude = paramPlace?.geometry.coordinates[0];
+      initialViewState.latitude = paramPlace?.geometry.coordinates[1];
+    }
+    if (paramPlace?.geometry.type === "Polygon") {
+      initialViewState.bounds = bbox(paramPlace?.geometry) as LngLatBoundsLike;
+    }
   } else if (paramLng && paramLat) {
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
     initialViewState.zoom = 17;
   } else {
-    initialViewState.bounds = paramCampusBounds;
+    initialViewState.bounds = getCampusBoundsFromName(campusName);
   }
 
   return initialViewState;
 }
 
 export default function MapComponent({
-  Places,
-  paramCampusBounds,
   paramPlace,
   paramLng,
   paramLat,
 }: {
-  Places: JSONFeatures;
-  paramCampusBounds: LngLatBoundsLike;
-  paramPlace: Feature | null;
+  paramPlace?: Feature | null;
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
-  const map = mapRef.current?.getMap();
-  const geocoder = useRef<any>(null);
-  const [geocoderPlaces, setGeocoderPlaces] = useState<Feature[] | null>(null);
-  const [theme, setTheme] = useState(
-    typeof window !== "undefined" && localStorage?.theme === "dark" ? "dark-v11" : "streets-v12",
-  );
+
+  const refMapNavbar = useRef<HTMLSelectElement | null>(null);
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
+  const params = useSearchParams();
   // const [hover, setHover] = useState<Feature | null>(null);
 
-  useThemeObserver(setTheme, map);
+  const [Places, Points, Polygons, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
+    setMenu(null);
+    mapRef.current?.getMap().setMaxBounds(undefined);
+    localStorage.setItem("defaultCampus", place.properties.campus);
+    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+
+    if (place?.geometry.type === "Point") {
+      mapRef.current?.getMap().flyTo({
+        essential: true,
+        duration: 400,
+        zoom: 16,
+        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+      });
+    }
+    if (place?.geometry.type === "Polygon") {
+      mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+        zoom: 17,
+        duration: 400,
+      });
+    }
+  });
+
+  const [theme] = useThemeObserver(mapRef.current?.getMap());
 
   useEffect(() => {
-    let mounted = true;
+    const campusName = params.get("campus");
+    if (campusName) {
+      mapRef.current?.getMap().setMaxBounds(undefined);
+      localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
+        duration: 2_500,
+        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
+      });
+    }
+    setTimeout(
+      () => {
+        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      },
+      campusName ? 2_600 : 500,
+    );
+  }, [params]);
 
-    const initializeGeocoder = async () => {
-      const { default: getGeocoder } = await loadGeocoder();
-      if (!mounted) return;
-
-      geocoder.current = getGeocoder(
-        (result: any) => {
-          handleResult(result, setGeocoderPlaces, Places);
-        },
-        (results: any) => mounted && handleResults(results, setGeocoderPlaces, Places),
-        () => handleClear(setGeocoderPlaces),
-      );
-    };
-
-    initializeGeocoder();
-    return () => {
-      mounted = false;
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    mapRef.current?.fitBounds(paramCampusBounds, { padding: 20, duration: 4000 });
-  }, [paramCampusBounds]);
-
-  function onClickMap(e: MapLayerMouseEvent) {
-    window.history.replaceState(null, "", window.location.pathname);
-    setPlace(null);
-  }
+  const setMenu = useCallback(
+    (place: Feature | null) => {
+      setPlace(place);
+      if (place)
+        if (place.properties.identifier === "42-ALL") {
+          window.history.replaceState(
+            null,
+            "",
+            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
+          );
+        } else {
+          window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+        }
+      else window.history.replaceState(null, "", "?");
+    },
+    [setPlace],
+  );
 
   function onClickMark(place: Feature) {
-    setPlace(place);
-    if (!map) return;
-    if (place.properties.identifier === "42-ALL") {
-      window.history.replaceState(
-        null,
-        "",
-        `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
-      );
-    } else {
-      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-    }
-    const coordinates = [place.geometry.coordinates[0], place.geometry.coordinates[1]];
-    const bounds = map.getBounds();
+    if (!mapRef.current?.getMap()) return;
+
+    setMenu(place);
+
+    if (place?.geometry.type !== "Point") return;
+
+    const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
+    const bounds = mapRef.current?.getMap().getBounds();
     const margin = 0.001;
 
     const isOutside = !(
@@ -146,147 +178,189 @@ export default function MapComponent({
     );
 
     if (isOutside) {
-      map.flyTo({
-        center: [place.geometry.coordinates[0], place.geometry.coordinates[1]],
+      mapRef.current?.getMap().flyTo({
+        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
         essential: true,
         duration: 400,
       });
     }
   }
 
-  function setCustomMark(lng: number, lat: number, showMenu: boolean) {
-    lng = +lng;
-    lat = +lat;
-    const newMark: Feature = {
-      type: "Feature",
-      properties: {
-        identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-        name: `Lon: ${lng.toFixed(2)}, Lat ${lat.toFixed(2)}`,
-        information: "",
-        categories: [],
-        campus: "",
-        faculties: "",
-        floors: [],
-      },
-      geometry: {
-        type: "Point",
-        coordinates: [lng, lat],
-      },
-    };
-    setTmpMark(newMark);
-    if (showMenu) setPlace(newMark);
+  function onClickMap(e: MapLayerMouseEvent) {
+    setMenu(null);
+  }
 
-    window.history.replaceState(
-      null,
-      "",
-      `?lng=${newMark.geometry.coordinates[0]}&lat=${newMark.geometry.coordinates[1]}`,
-    );
+  const setCustomMark = useCallback(
+    (lng: number, lat: number, showMenu: boolean) => {
+      lng = +lng;
+      lat = +lat;
+      const newMark: Feature = {
+        type: "Feature",
+        properties: {
+          identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
+          name: `Lon: ${lng.toFixed(4)}, Lat: ${lat.toFixed(4)}`,
+          information: "",
+          categories: [],
+          campus: "",
+          faculties: "",
+          floors: [],
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [lng, lat],
+        },
+      };
+      setTmpMark(newMark);
+      if (showMenu) setMenu(newMark);
+    },
+    [setTmpMark, setMenu],
+  );
+
+  function getFeatureOfLayerFromPoint(target: mapboxgl.Map, point: mapboxgl.Point, layers: string[]): Feature | null {
+    const features = target.queryRenderedFeatures(point, {
+      layers: layers,
+    });
+
+    const feature = features[0];
+    if (!feature) return null;
+
+    if (!feature.properties) return null;
+
+    const exit = {
+      type: "Feature",
+      properties: feature.properties,
+      geometry: feature.geometry,
+    };
+    exit.properties.categories = JSON.parse(exit.properties.categories);
+
+    if (feature.properties?.floors) exit.properties.floors = JSON.parse(exit.properties.floors);
+
+    return exit as unknown as Feature;
   }
 
   function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-    addGeocoderControl();
     if (paramPlace) {
+      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
       setGeocoderPlaces([paramPlace]);
     }
     if (paramLng && paramLat) {
+      localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       setCustomMark(paramLng, paramLat, false);
     }
+
+    e.target.on("click", ["red-area"], (e) => {
+      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["red-area"]);
+      if (!feature) return;
+
+      setTmpMark(null);
+      setMenu(feature);
+    });
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
       e.target.on("click", ["points-layer-2"], (e) => {
-        const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-2"] });
-        const f = todos[0];
-        if (!f) return;
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
+        if (!feature) return;
 
-        const ff = {
-          type: "Feature",
-          properties: f.properties,
-          geometry: f.geometry,
-        };
-        if (ff.properties) {
-          ff.properties.categories = JSON.parse(ff.properties.categories);
-          ff.properties.floors = JSON.parse(ff.properties.floors);
-        } else {
-          return;
-        }
-
-        setPlace(ff as unknown as Feature);
+        setMenu(feature);
       });
       e.target.on("click", ["points-layer-3"], (e) => {
-        const todos = e.target.queryRenderedFeatures(e.point, { layers: ["points-layer-3"] });
-        const f = todos[0];
-        if (!f) return;
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
+        if (!feature) return;
 
-        const ff = {
-          type: "Feature",
-          properties: f.properties,
-          geometry: f.geometry,
-        };
-        if (ff.properties) {
-          ff.properties.categories = JSON.parse(ff.properties.categories);
-          ff.properties.floors = JSON.parse(ff.properties.floors);
-        } else {
-          return;
-        }
-
-        setPlace(ff as unknown as Feature);
+        setMenu(feature);
       });
     }
   }
 
-  const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
-    setPlace(null);
-    setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-  }, []);
+  const onMarkerDrag = useCallback(
+    (event: MarkerDragEvent) => {
+      setMenu(null);
+      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
+    },
+    [setCustomMark, setMenu],
+  );
 
-  const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
-    setPlace(null);
-    setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-    mapRef.current?.flyTo({
-      center: [event.lngLat.lng, event.lngLat.lat],
-    });
-  }, []);
+  const onMarkerDragEnd = useCallback(
+    (event: MarkerDragEvent) => {
+      setMenu(null);
+      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
+      mapRef.current?.flyTo({
+        center: [event.lngLat.lng, event.lngLat.lat],
+      });
+    },
+    [setCustomMark, setMenu],
+  );
 
-  const addGeocoderControl = useCallback(() => {
-    mapRef.current?.addControl(geocoder.current, "top-left");
-  }, [geocoder]);
+  useEffect(() => {
+    const title = document.querySelector("title");
+    if (title) {
+      title.textContent = place
+        ? `${siglas.get(place.properties.categories[0]) ?? "UbíCate"} - ${place.properties.name}`
+        : "UbíCate UC - Mapa";
+    }
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        place
+          ? `Nombre: ${place.properties.name}; Categoria: ${
+              siglas.get(place.properties.categories[0]) ?? "Sala"
+            }; Piso: ${place.properties.floors?.[0] ?? "N/A"}`
+          : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+      );
+    }
+  }, [place]);
 
   return (
     <>
+      {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
+      <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        initialViewState={createInitialViewState(paramCampusBounds, paramPlace, paramLng, paramLat)}
-        interactiveLayerIds={[placesTextLayer.id as string]}
+        initialViewState={createInitialViewState(
+          params.get("campus") ?? localStorage.getItem("defaultCampus") ?? null,
+          paramPlace,
+          paramLng,
+          paramLat,
+        )}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
           /*
-          IMPORTANTE
-          En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
-
-          En PC: Este problema no ocurre.
-          En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
-          Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
-          */
+                                        IMPORTANTE
+                                        En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
+                               
+                                        En PC: Este problema no ocurre.
+                                        En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
+                                        Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
+                                        */
           setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
         }}
         ref={mapRef}
       >
-        <PillFilter geocoder={geocoder.current} setFilteredPlaces={setGeocoderPlaces} />
-        <MenuInformation place={place} />
+        <MenuInformation place={place} onClose={(e) => setMenu(null)} />
 
         <GeolocateControl position="bottom-right" showUserHeading={true} />
         {/* <FullscreenControl position="top-left" /> */}
         <NavigationControl position="bottom-right" />
         <ScaleControl />
-        <Source id="campusSmall" type="geojson" data={Campus}>
+        <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON(geocoderPlaces)}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON(Places)}>
           {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
+        </Source>
+
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
+          <Layer {...redAreaLayer} />
+        </Source>
+        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
+          <Layer {...redLineLayer} />
         </Source>
         <DebugMode />
         {/*
@@ -306,31 +380,30 @@ export default function MapComponent({
             {hover.properties.name}
           </Popup>
         ) : null} */}
-        {geocoderPlaces
-          ? geocoderPlaces.map((place) => {
-              return (
-                <Marker
-                  key={place.properties.identifier}
-                  place={place}
-                  onClick={() => {
-                    setTmpMark(null);
-                    onClickMark(place);
-                  }}
-                  // onMouseEnter={setHover}
-                />
-              );
-            })
-          : null}
-        {!tmpMark ? null : (
+        {Points.map((place) => {
+          return (
+            <Marker
+              key={place.properties.identifier}
+              place={place}
+              onClick={() => {
+                setTmpMark(null);
+                onClickMark(place);
+              }}
+              // onMouseEnter={setHover}
+            />
+          );
+        })}
+
+        {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
             draggable={true}
             key={tmpMark.properties.identifier}
-            place={tmpMark}
+            place={tmpMark as PointFeature}
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
           />
-        )}
+        ) : null}
       </Map>
     </>
   );

@@ -56,13 +56,15 @@ Donde `{Id sala}` puede ser:
 
 Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local``
 Agregar la URL base del proyecto, actualmente es `https://ubicate.osuc.dev/`
-
+> [!IMPORTANT]  
+> Debe **llamarse** `.env.local`
 ```shell
 NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
-NEXT_PUBLIC_BASE_URL = <BASE_URL>
-GITHUB_TOKEN_USER = <TOKEN_USER>
-GITHUB_USER_EMAIL = <EMAIL>
-GITHUB_BRANCH_NAME = <EXISTING_BRANCH>
+NEXT_PUBLIC_BASE_URL = <BASE_URL> // Opcional, en producción obligatorio
+GITHUB_TOKEN_USER = <TOKEN_USER> // Opcional, en producción obligatorio
+GITHUB_USER_EMAIL = <EMAIL> // Opcional, en producción obligatorio
+GITHUB_BRANCH_NAME = <EXISTING_BRANCH> // Opcional, en producción obligatorio
+API_UBICATE_SECRET = <API_UBICATE_SECRET> // Opcional, en producción obligatorio
 ```
 
 ### Instalar dependencias
@@ -70,26 +72,77 @@ GITHUB_BRANCH_NAME = <EXISTING_BRANCH>
 ```shell
 npm install
 ```
+## Scripts Disponibles  
 
-### Ejecutar servidor de desarrollo
-
-```shell
+### `npm run dev`  
+Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con `NODE_OPTIONS='--inspect'`.  
+**Uso:**  
+```bash
 npm run dev
-```
+```  
 
-## Linter
+### `npm run build`  
+Compila la aplicación para producción, optimizándola para su implementación.  
+**Uso:**  
+```bash
+npm run build
+```  
 
-Es necesario resolver los errores y warnings de linter en cada pull request, estos errores se muestran (y se resuelven la mayoría de errores) ejecutando:
+### `npm run pages:build`  
+Usa `@cloudflare/next-on-pages` para generar una versión de la aplicación compatible con Cloudflare Pages.  
+**Uso:**  
+```bash
+npm run pages:build
+```  
 
-```
+### `npm run preview`  
+Compila la aplicación con `pages:build` y la previsualiza localmente utilizando `wrangler pages dev`. Ideal para probar cambios antes de la implementación.  
+> [!NOTE]
+> Este comando es especialmente útil para identificar problemas antes de la implementación en Cloudflare Pages. Por ejemplo, ha permitido detectar errores como el **Error 500** mencionado más adelante en este documento.
+
+**Uso:**  
+```bash
+npm run preview
+```  
+
+### `npm run deploy`  
+Compila la aplicación con `pages:build` y la implementa en Cloudflare Pages usando `wrangler pages deploy`.  
+**Uso:**  
+```bash
+npm run deploy
+```  
+
+### `npm run start`  
+Inicia la aplicación previamente construida en modo producción usando **Next.js**.  
+**Uso:**  
+```bash
+npm run start
+```  
+
+### `npm run lint`  
+Ejecuta el linter de **Next.js** para identificar errores y problemas de estilo en el código.  
+**Uso:**  
+```bash
+npm run lint
+```  
+
+### `npm run lint:fix`  
+Ejecuta el linter y corrige automáticamente los problemas solucionables de forma segura.  
+
+> [!NOTE]
+> Asegúrate de ejecutar este comando antes de realizar una build o subirlo a cloudflare, ya que de lo contrario el build podría fallar. 
+
+**Uso:**  
+```bash
 npm run lint:fix
-```
+```  
 
 ## Deployment
 
 ### Cloudflare (automatic)
 
-Es necesario que el proyecto pueda realizar correctamente un `build` para poder ser desplegado en Cloudflare
+Es necesario que el proyecto pueda realizar correctamente un `build` (`npm run build`) antes de intentar desplegarlo en Cloudflare.  
+Si el build funciona localmente pero falla en Cloudflare, utiliza el comando `npm run preview` para identificar posibles problemas en un entorno de previsualización local de Cloudflare. 
 
 ```shell
 npm run build:cloudflare
@@ -191,9 +244,23 @@ systemctl enable --now ubicate.service
 ####
 
 
-## Agregar nuevas salas
+## Agregar Nuevas Salas y Áreas
 
-Las salas subidas en el formulario de la página se suben a una base de datos. Estas salas se tienen que añadir a `data/places.json`  para que sean agregadas a la página.
+Las salas subidas a través del formulario se cargan automáticamente a una rama de Git especificada en el archivo `.env.local`, bajo la variable `GITHUB_BRANCH_NAME`. Estas salas se añaden al archivo `data/places.json`. 
+> [!IMPORTANT]  
+> La rama de Git debe existir antes de usar el formulario. Además, asegúrate de configurar el token de GitHub en `GITHUB_TOKEN_USER` y el correo asociado a la cuenta en `GITHUB_USER_EMAIL`. Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
+
+### Añadir Ubicaciones de Forma Manual
+
+Es posible agregar ubicaciones manualmente siguiendo el **formato GeoJSON**. Además, las áreas que tengan una geometría de tipo "Polygon" también deben agregarse en este archivo.
+
+En caso de querer agregar campus, estos deben incluirse en el archivo `campus.json`.
+
+> [!CAUTION] 
+> Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
+
+> [!NOTE]
+> Los puntos o áreas que no tengan el campo `needApproval` establecido en `false`, o que no incluyan este campo, no serán mostrados en el mapa.
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
@@ -212,12 +279,24 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 
 ## Necesitas contactarnos
-Comuníquese con nosotros a traves de [osuc.dev](https://links.osuc.dev/)
+
+**Comuníquese con nosotros a través de [Open Source UC](https://www.instagram.com/opensource_euc/).**
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Créditos.
+## Bugs
 
+### Error del servidor 500
+Si este error ocurre en Cloudflare, es muy probable que se deba a uno de los siguientes motivos:
+
+Versión incorrecta de Node.js: Asegúrate de que la versión de Node.js configurada sea compatible con tu aplicación.
+
+Fecha de compatibilidad obsoleta (Compatibility Date): Una fecha de compatibilidad muy antigua puede causar problemas con el entorno de ejecución de Cloudflare.
+
+![alt text](image/image.png)
+
+
+## Créditos.
 ### Mantenedores
 
 - [MrBased](https://github.com/MrBased)

@@ -4,22 +4,30 @@ import React, { useEffect, useState } from "react";
 
 import { Source, Layer } from "react-map-gl";
 
-import { allPointsLayer, allPlacesTextLayer, approvalPointsLayer, allPlacesTextApprovalLayer } from "@/app/map/layers";
-import Places from "@/data/places.json";
+import {
+  allPointsLayer,
+  allPlacesTextLayer,
+  approvalPointsLayer,
+  allPlacesTextApprovalLayer,
+  redLineLayerDebug,
+} from "@/app/map/layers";
+import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
+import Places from "@/utils/places";
+import { JSONFeatures } from "@/utils/types";
 
 function DebugMode() {
   const isDebugMode = sessionStorage.getItem("debugMode") === "true";
-  const [json, setJson] = useState(null);
+  const [json, setJson] = useState<JSONFeatures | null>(null);
   const [debugMode, setDebugMode] = useState(1);
 
   useEffect(() => {
     const fetchData = () => {
       if (!isDebugMode) return;
 
-      fetch("/api/data")
+      fetch("/api/ubicate")
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Failed to fetch GeoJSON data");
+            throw new Error("Failed to fetch GeoJSON data " + response.status);
           }
           return response.json();
         })
@@ -107,19 +115,38 @@ resize-x border-2 border-dashed pointer-events-auto"
           </li>
         </ul>
       </div>
+      <Source
+        id="debug-1"
+        type="geojson"
+        data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Polygon"))}
+      >
+        <Layer {...redLineLayerDebug} />
+      </Source>
 
       {debugMode === 1 && (
-        <Source id="debug-2" type="geojson" data={Places}>
-          <Layer {...allPointsLayer} />
-          <Layer {...allPlacesTextLayer} />
-        </Source>
+        <>
+          <Source
+            id="debug-2"
+            type="geojson"
+            data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Point"))}
+          >
+            <Layer {...allPointsLayer} />
+            <Layer {...allPlacesTextLayer} />
+          </Source>
+        </>
       )}
 
       {debugMode === 2 && json ? (
-        <Source id="debug-3" type="geojson" data={json}>
-          <Layer {...approvalPointsLayer} />
-          <Layer {...allPlacesTextApprovalLayer} />
-        </Source>
+        <>
+          <Source
+            id="debug-3"
+            type="geojson"
+            data={featuresToGeoJSON(json.features.filter((e) => e.geometry.type === "Point"))}
+          >
+            <Layer {...approvalPointsLayer} />
+            <Layer {...allPlacesTextApprovalLayer} />
+          </Source>
+        </>
       ) : null}
     </>
   );
