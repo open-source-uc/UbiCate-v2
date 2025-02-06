@@ -75,10 +75,7 @@ module.exports = {
   			]
   		},
   		fontFamily: {
-  			'instrument-sans': [
-  				'Instrument Sans',
-  				'sans-serif'
-  			]
+        sans: ['var(--font-instrument-sans)'],
   		},
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
