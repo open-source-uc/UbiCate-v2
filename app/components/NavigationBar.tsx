@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
 
@@ -52,7 +52,8 @@ export default function Sidebar() {
             </button>
             <button
               onClick={() => handleCollapsedClick("guías")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium"
+              disabled
+              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 cursor-not-allowed pointer-events-none"
             >
               <span className="material-symbols-outlined">menu_book</span>
             </button>
@@ -110,12 +111,11 @@ export default function Sidebar() {
               </button>
               <button
                 onClick={() => toggleSubSidebar("guías")}
-                className="w-full flex items-center space-x-4 p-2 rounded-sm hover:bg-brown-medium"
+                disabled
+                className="w-full flex items-center space-x-4 p-2 rounded-sm opacity-50 cursor-not-allowed pointer-events-none"
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "guías" ? "bg-blue-location" : "bg-brown-light"
-                  }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}
                 >
                   <span className="material-symbols-outlined">menu_book</span>
                 </span>
@@ -124,7 +124,7 @@ export default function Sidebar() {
             </div>
           </nav>
 
-          {/* Buttons for Promotion */}
+          {/* Sections for Feedback and OSUC */}
           <div className="flex-col space-y-4">
             <div className="w-full rounded-xl bg-brown-light">
               <div className="text-xs text-white-blue p-4">
@@ -151,7 +151,7 @@ export default function Sidebar() {
         {/* Sub Sidebar inside Expanded Sidebar */}
         {isOpen && activeSubSidebar ? (
           <aside
-            className={`absolute top-0 left-full h-full w-96 border-1 border-l border-brown-light bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 ${
+            className={`absolute top-0 left-full h-full w-96 border-l-1 border-brown-light bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 ${
               activeSubSidebar ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -160,51 +160,25 @@ export default function Sidebar() {
                 <>
                   <h3 className="font-bold text-lg">Buscar</h3>
                   <ul className="space-y-2">
-                    <LandingSearch />
+                    <Suspense>
+                      <LandingSearch />
+                    </Suspense>
                   </ul>
                 </>
               )}
               {activeSubSidebar === "campus" && (
                 <>
-                  <h3 className="font-bold mb-4">Campus Options</h3>
+                  <h3 className="font-bold text-lg">Campus</h3>
                   <ul className="space-y-2">
-                    <li>
-                      <Link href="/campus/option1" className="hover:underline">
-                        Campus Option 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/campus/option2" className="hover:underline">
-                        Campus Option 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/campus/option3" className="hover:underline">
-                        Campus Option 3
-                      </Link>
-                    </li>
+                    Hello!
                   </ul>
                 </>
               )}
               {activeSubSidebar === "guías" && (
                 <>
-                  <h3 className="font-bold mb-4">Guías Options</h3>
+                  <h3 className="font-bold text-lg">Guías</h3>
                   <ul className="space-y-2">
-                    <li>
-                      <Link href="/guías/option1" className="hover:underline">
-                        Guías Option 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/guías/option2" className="hover:underline">
-                        Guías Option 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/guías/option3" className="hover:underline">
-                        Guías Option 3
-                      </Link>
-                    </li>
+                    Hello. This is not implemented.
                   </ul>
                 </>
               )}

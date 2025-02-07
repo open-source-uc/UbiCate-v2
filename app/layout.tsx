@@ -3,8 +3,6 @@ import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { Suspense } from "react";
-
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
@@ -62,9 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="h-full pb-[-12px] dark:bg-dark-1">
         <SidebarProvider>
           <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
-            <Suspense>
-              <NavigationBar />
-            </Suspense>
+            <NavigationBar />
             {children}
           </div>
         </SidebarProvider>
