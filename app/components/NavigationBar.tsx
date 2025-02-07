@@ -23,7 +23,7 @@ export default function Sidebar() {
   };
 
   const handleCollapsedClick = (type: SubSidebarType) => {
-    toggleSidebar(); 
+    toggleSidebar();
     toggleSubSidebar(type);
   };
 
@@ -32,7 +32,6 @@ export default function Sidebar() {
     toggleSidebar();
     setActiveSubSidebar(null);
   };
-  
 
   return (
     <>

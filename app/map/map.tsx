@@ -31,14 +31,7 @@ import { siglas, Feature, PointFeature } from "@/utils/types";
 import Campus from "../../data/campuses.json";
 import useGeocoder from "../hooks/useGeocoder";
 
-import {
-  placesTextLayer,
-  placesDarkTextLayer,
-  campusBorderLayer,
-  darkCampusBorderLayer,
-  redAreaLayer,
-  redLineLayer,
-} from "./layers";
+import { placesDarkTextLayer, darkCampusBorderLayer, redAreaLayer, redLineLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 import MapNavbar from "./nabvar";
