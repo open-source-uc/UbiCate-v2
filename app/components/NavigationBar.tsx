@@ -2,7 +2,8 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+import Image from 'next/image'
 
 import { Suspense, useState } from "react";
 
@@ -16,6 +17,7 @@ export default function Sidebar() {
   const { isOpen, toggleSidebar } = useSidebar();
   const searchParams = useSearchParams();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
+  const router = useRouter();
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
@@ -169,9 +171,122 @@ export default function Sidebar() {
               {activeSubSidebar === "campus" && (
                 <>
                   <h3 className="font-bold text-lg">Campus</h3>
-                  <ul className="space-y-2">
-                    Hello!
-                  </ul>
+                  <div className="w-full space-y-4">
+                    
+                    <button 
+                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      onClick={() => router.push('/map?campus=SanJoaquin')}
+                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=SanJoaquin')}
+                      aria-label="Navega a Campus San Joaquín"
+                      role="navigation"
+                      tabIndex={0}
+                    >
+                      <Image
+                        src="/images/campus/san_joaquin.jpg"
+                        alt="Campus San Joaquín"
+                        fill
+                        className="object-cover rounded-lg transition-transform duration-300"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">San Joaquín</span>
+                      </div>
+                    </button>
+
+                    <button 
+                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      onClick={() => router.push('/map?campus=CasaCentral')}
+                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=CasaCentral')}
+                      aria-label="Navega a Campus Casa Central"
+                      role="navigation"
+                      tabIndex={0}
+                    >
+                      <Image
+                        src="/images/campus/casa_central.jpg"
+                        alt="Campus Casa Central"
+                        fill
+                        className="object-cover rounded-lg transition-transform duration-300"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Casa Central</span>
+                      </div>
+                    </button>
+
+                    <button 
+                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      onClick={() => router.push('/map?campus=Oriente')}
+                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=Oriente')}
+                      aria-label="Navega a Campus Oriente"
+                      role="navigation"
+                      tabIndex={0}
+                    >
+                      <Image
+                        src="/images/campus/oriente.jpg"
+                        alt="Campus Oriente"
+                        fill
+                        className="object-cover rounded-lg transition-transform duration-300"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Oriente</span>
+                      </div>
+                    </button>
+
+                    <button 
+                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      onClick={() => router.push('/map?campus=LoContador')}
+                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=LoContador')}
+                      aria-label="Navega a Campus Lo Contador"
+                      role="navigation"
+                      tabIndex={0}
+                    >
+                      <Image
+                        src="/images/campus/lo_contador.jpg"
+                        alt="Campus Lo Contador"
+                        fill
+                        className="object-cover rounded-lg transition-transform duration-300"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Lo Contador</span>
+                      </div>
+                    </button>
+
+                    <button 
+                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      onClick={() => router.push('/map?campus=Villarrica')}
+                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=Villarrica')}
+                      aria-label="Navega a Campus Villarrica"
+                      role="navigation"
+                      tabIndex={0}
+                    >
+                      <Image
+                        src="/images/campus/villarrica.png"
+                        alt="Campus Villarrica"
+                        fill
+                        className="object-cover rounded-lg transition-transform duration-300"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Villarrica</span>
+                      </div>
+                    </button>
+                    
+
+                    
+
+                  </div>
                 </>
               )}
               {activeSubSidebar === "guías" && (
