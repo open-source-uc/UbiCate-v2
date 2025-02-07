@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
+
 import LandingSearch from "./landingSearch";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
@@ -129,9 +130,7 @@ export default function Sidebar() {
               <div className="text-xs text-white-blue p-4">
                 ¿Crees que algo falta?
                 <Link
-                  href={`/form-geo/${
-                    searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""
-                  }`}
+                  href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
                   className="font-semibold block hover:underline"
                 >
                   Ayúdanos agregándolo
@@ -150,7 +149,7 @@ export default function Sidebar() {
         </div>
 
         {/* Sub Sidebar inside Expanded Sidebar */}
-        {isOpen && activeSubSidebar && (
+        {isOpen && activeSubSidebar ? (
           <aside
             className={`absolute top-0 left-full h-full w-96 border-1 border-l border-brown-light bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 ${
               activeSubSidebar ? "translate-x-0" : "translate-x-full"
@@ -209,15 +208,12 @@ export default function Sidebar() {
                   </ul>
                 </>
               )}
-              <button
-                onClick={() => toggleSubSidebar(activeSubSidebar)}
-                className="mt-4 text-sm hover:underline"
-              >
+              <button onClick={() => toggleSubSidebar(activeSubSidebar)} className="mt-4 text-sm hover:underline">
                 Close
               </button>
             </div>
           </aside>
-        )}
+        ) : null}
       </aside>
     </>
   );

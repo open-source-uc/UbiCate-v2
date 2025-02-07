@@ -3,6 +3,8 @@ import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
+import { Suspense } from "react";
+
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
@@ -52,12 +54,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${instrument_sans.variable}`}>
       <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
       </head>
       <body className="h-full pb-[-12px] dark:bg-dark-1">
         <SidebarProvider>
           <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
-            <NavigationBar />
+            <Suspense>
+              <NavigationBar />
+            </Suspense>
             {children}
           </div>
         </SidebarProvider>
