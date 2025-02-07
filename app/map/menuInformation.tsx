@@ -89,7 +89,7 @@ export default function Menu({ place, onClose }: MenuProps) {
         >
           <div className="p-4 dark:text-white text-gray-700">
             <div className="flex w-full">
-              <div className="flex-grow">
+              <div className="grow">
                 <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
               </div>
               <div>

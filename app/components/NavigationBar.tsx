@@ -109,7 +109,7 @@ export default function Sidebar() {
               </button>
               <button
                 onClick={() => toggleSubSidebar("guías")}
-                className="w-full flex items-center space-x-4 p-2 rounded hover:bg-brown-medium"
+                className="w-full flex items-center space-x-4 p-2 rounded-sm hover:bg-brown-medium"
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${

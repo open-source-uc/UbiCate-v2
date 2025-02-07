@@ -166,10 +166,10 @@ export default function FormComponent({
 
   return (
     <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">
-      <div className="flex flex-col w-5/6 max-w-md h-5/6 my-2 items-center justify-center rounded dark:bg-dark-1 space-y-6">
+      <div className="flex flex-col w-5/6 max-w-md h-5/6 my-2 items-center justify-center rounded-sm dark:bg-dark-1 space-y-6">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting, setFieldValue, values }) => (
-            <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
+            <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-(--breakpoint-lg) text-xl">
               <label
                 className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
                 htmlFor="placeName"
@@ -177,7 +177,7 @@ export default function FormComponent({
                 Nombre (Ej: Departamento de Asistencia Económica, K203, ... )
               </label>
               <Field
-                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 name="placeName"
                 id="placeName"
                 type="text"
@@ -197,7 +197,7 @@ export default function FormComponent({
               <Field
                 name="categories"
                 as="select"
-                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Seleccionar</option>
                 <option value="classroom">Sala</option>
@@ -229,21 +229,21 @@ export default function FormComponent({
               </label>
               <div className="flex items-center gap-2 w-full">
                 <Field
-                  className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                   name="floor"
                   id="floor"
                   type="number"
                 />
                 <button
                   type="button"
-                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
                   onClick={() => setFieldValue("floor", Math.max(values.floor - 1, -Infinity))}
                 >
                   -
                 </button>
                 <button
                   type="button"
-                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
                   onClick={() => setFieldValue("floor", Math.min(values.floor + 1, Infinity))}
                 >
                   +
@@ -257,7 +257,7 @@ export default function FormComponent({
                 Información (opcional)
               </label>
               <Field
-                className="block p-3 w-full h-36 | text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full h-36 | text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 name="information"
                 id="information"
                 as="textarea"
@@ -270,7 +270,7 @@ export default function FormComponent({
               >
                 Ubicación
               </label>
-              <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500">
                 <Suspense>
                   <MapComponent
                     markerPosition={{
