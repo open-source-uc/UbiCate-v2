@@ -1,4 +1,3 @@
-// Language: TSX
 "use client";
 
 import Image from "next/image";
@@ -23,11 +22,17 @@ export default function Sidebar() {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
-  // Handle button click in collapsed sidebar
   const handleCollapsedClick = (type: SubSidebarType) => {
-    toggleSidebar(); // expand main sidebar
-    toggleSubSidebar(type); // open specific sub sidebar
+    toggleSidebar(); 
+    toggleSubSidebar(type);
   };
+
+  const handleCampusClick = (campusName: string) => {
+    router.push(`/map?campus=${campusName}`);
+    toggleSidebar();
+    setActiveSubSidebar(null);
+  };
+  
 
   return (
     <>
@@ -172,8 +177,8 @@ export default function Sidebar() {
                   <div className="w-full space-y-4">
                     <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push("/map?campus=SanJoaquin")}
-                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=SanJoaquin")}
+                      onClick={() => handleCampusClick("SanJoaquin")}
+                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("SanJoaquin")}
                       aria-label="Navega a Campus San Joaquín"
                       role="navigation"
                       tabIndex={0}
@@ -196,8 +201,8 @@ export default function Sidebar() {
 
                     <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push("/map?campus=CasaCentral")}
-                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=CasaCentral")}
+                      onClick={() => handleCampusClick("CasaCentral")}
+                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("CasaCentral")}
                       aria-label="Navega a Campus Casa Central"
                       role="navigation"
                       tabIndex={0}
@@ -220,8 +225,8 @@ export default function Sidebar() {
 
                     <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push("/map?campus=Oriente")}
-                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=Oriente")}
+                      onClick={() => handleCampusClick("Oriente")}
+                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Oriente")}
                       aria-label="Navega a Campus Oriente"
                       role="navigation"
                       tabIndex={0}
@@ -244,8 +249,8 @@ export default function Sidebar() {
 
                     <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push("/map?campus=LoContador")}
-                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=LoContador")}
+                      onClick={() => handleCampusClick("LoContador")}
+                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("LoContador")}
                       aria-label="Navega a Campus Lo Contador"
                       role="navigation"
                       tabIndex={0}
@@ -268,8 +273,8 @@ export default function Sidebar() {
 
                     <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push("/map?campus=Villarrica")}
-                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=Villarrica")}
+                      onClick={() => handleCampusClick("Villarrica")}
+                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Villarrica")}
                       aria-label="Navega a Campus Villarrica"
                       role="navigation"
                       tabIndex={0}

@@ -19,7 +19,6 @@ import type {
 import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
-import { useThemeObserver } from "@/app/hooks/useThemeObserver";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import {
   getCampusBoundsFromName,
@@ -120,8 +119,6 @@ export default function MapComponent({
       });
     }
   });
-
-  const [theme] = useThemeObserver(mapRef.current?.getMap());
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -320,7 +317,7 @@ export default function MapComponent({
       {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
       <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
       <Map
-        mapStyle={`mapbox://styles/mapbox/${theme}`}
+        mapStyle="mapbox://styles/mapbox/navigation-night-v1"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(
           params.get("campus") ?? localStorage.getItem("defaultCampus") ?? null,
@@ -350,10 +347,10 @@ export default function MapComponent({
         <NavigationControl position="bottom-right" />
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
-          {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
+          <Layer {...darkCampusBorderLayer} />
         </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON(Places)}>
-          {theme && theme === "dark-v11" ? <Layer {...placesDarkTextLayer} /> : <Layer {...placesTextLayer} />}
+          <Layer {...placesDarkTextLayer} />
         </Source>
 
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
