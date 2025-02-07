@@ -1,9 +1,9 @@
 // Language: TSX
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-import Image from 'next/image'
 
 import { Suspense, useState } from "react";
 
@@ -116,9 +116,7 @@ export default function Sidebar() {
                 disabled
                 className="w-full flex items-center space-x-4 p-2 rounded-sm opacity-50 cursor-not-allowed pointer-events-none"
               >
-                <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}
-                >
+                <span className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}>
                   <span className="material-symbols-outlined">menu_book</span>
                 </span>
                 <span>Guías</span>
@@ -172,11 +170,10 @@ export default function Sidebar() {
                 <>
                   <h3 className="font-bold text-lg">Campus</h3>
                   <div className="w-full space-y-4">
-                    
-                    <button 
+                    <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push('/map?campus=SanJoaquin')}
-                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=SanJoaquin')}
+                      onClick={() => router.push("/map?campus=SanJoaquin")}
+                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=SanJoaquin")}
                       aria-label="Navega a Campus San Joaquín"
                       role="navigation"
                       tabIndex={0}
@@ -191,14 +188,16 @@ export default function Sidebar() {
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
                       <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">San Joaquín</span>
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                          San Joaquín
+                        </span>
                       </div>
                     </button>
 
-                    <button 
+                    <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push('/map?campus=CasaCentral')}
-                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=CasaCentral')}
+                      onClick={() => router.push("/map?campus=CasaCentral")}
+                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=CasaCentral")}
                       aria-label="Navega a Campus Casa Central"
                       role="navigation"
                       tabIndex={0}
@@ -213,14 +212,16 @@ export default function Sidebar() {
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
                       <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Casa Central</span>
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                          Casa Central
+                        </span>
                       </div>
                     </button>
 
-                    <button 
+                    <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push('/map?campus=Oriente')}
-                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=Oriente')}
+                      onClick={() => router.push("/map?campus=Oriente")}
+                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=Oriente")}
                       aria-label="Navega a Campus Oriente"
                       role="navigation"
                       tabIndex={0}
@@ -235,14 +236,16 @@ export default function Sidebar() {
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
                       <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Oriente</span>
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                          Oriente
+                        </span>
                       </div>
                     </button>
 
-                    <button 
+                    <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push('/map?campus=LoContador')}
-                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=LoContador')}
+                      onClick={() => router.push("/map?campus=LoContador")}
+                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=LoContador")}
                       aria-label="Navega a Campus Lo Contador"
                       role="navigation"
                       tabIndex={0}
@@ -257,14 +260,16 @@ export default function Sidebar() {
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
                       <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Lo Contador</span>
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                          Lo Contador
+                        </span>
                       </div>
                     </button>
 
-                    <button 
+                    <button
                       className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                      onClick={() => router.push('/map?campus=Villarrica')}
-                      onKeyDown={(e) => e.key === 'Enter' && router.push('/map?campus=Villarrica')}
+                      onClick={() => router.push("/map?campus=Villarrica")}
+                      onKeyDown={(e) => e.key === "Enter" && router.push("/map?campus=Villarrica")}
                       aria-label="Navega a Campus Villarrica"
                       role="navigation"
                       tabIndex={0}
@@ -279,22 +284,18 @@ export default function Sidebar() {
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
                       <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">Villarrica</span>
+                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                          Villarrica
+                        </span>
                       </div>
                     </button>
-                    
-
-                    
-
                   </div>
                 </>
               )}
               {activeSubSidebar === "guías" && (
                 <>
                   <h3 className="font-bold text-lg">Guías</h3>
-                  <ul className="space-y-2">
-                    Hello. This is not implemented.
-                  </ul>
+                  <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
               <button onClick={() => toggleSubSidebar(activeSubSidebar)} className="mt-4 text-sm hover:underline">
