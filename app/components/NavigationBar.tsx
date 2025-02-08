@@ -26,15 +26,30 @@ export default function Sidebar() {
     toggleSubSidebar(type);
   };
 
+  const handleSearchSelection = () => {
+    toggleSidebar();
+    setActiveSubSidebar(null);
+  };
+
   const handleCampusClick = (campusName: string) => {
     router.push(`/map?campus=${campusName}`);
     toggleSidebar();
     setActiveSubSidebar(null);
   };
 
-  // Agregar el geocoder al contenedor de búsqueda, cuando se abre la subbarra de búsqueda
+  // Add the geocoder to the search container when the "buscar" subsidebar is open
   useEffect(() => {
     if (refSearchContainer.current) geocoder.current?.addTo(refSearchContainer.current);
+  }, [activeSubSidebar, geocoder]);
+
+  // Collapse the sidebar when a search result is selected
+  useEffect(() => {
+    if (activeSubSidebar === "buscar" && geocoder.current) {
+      geocoder.current.on("result", handleSearchSelection);
+      return () => {
+        geocoder.current?.off("result", handleSearchSelection);
+      };
+    }
   }, [activeSubSidebar, geocoder]);
 
   return (
