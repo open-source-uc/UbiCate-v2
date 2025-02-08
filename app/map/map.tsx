@@ -29,12 +29,12 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import useGeocoder from "../hooks/useGeocoder";
+import PillFilter from "../components/pillFilter";
+import { useSidebar } from "../context/sidebarCtx";
 
 import { placesDarkTextLayer, darkCampusBorderLayer, redAreaLayer, redLineLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
-import MapNavbar from "./nabvar";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -84,12 +84,22 @@ export default function MapComponent({
   paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
-
-  const refMapNavbar = useRef<HTMLSelectElement | null>(null);
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
+  const { places, points, polygons, setPlaces, refFunctionClickOnResult } = useSidebar();
+
   // const [hover, setHover] = useState<Feature | null>(null);
+
+  /*
+
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
 
   const [Places, Points, Polygons, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
     setMenu(null);
@@ -112,6 +122,17 @@ export default function MapComponent({
       });
     }
   });
+  
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
+
+  */
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -229,10 +250,33 @@ export default function MapComponent({
   }
 
   function onLoad(e: MapEvent) {
+    // Nueva funcion al buscar en el sidebar
+    refFunctionClickOnResult.current = (place) => {
+      setMenu(null);
+      mapRef.current?.getMap().setMaxBounds(undefined);
+      localStorage.setItem("defaultCampus", place.properties.campus);
+      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+
+      if (place?.geometry.type === "Point") {
+        mapRef.current?.getMap().flyTo({
+          essential: true,
+          duration: 400,
+          zoom: 16,
+          center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+        });
+      }
+      if (place?.geometry.type === "Polygon") {
+        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+          zoom: 17,
+          duration: 400,
+        });
+      }
+    };
+
     e.target.doubleClickZoom.disable();
     if (paramPlace) {
       localStorage.setItem("defaultCampus", paramPlace.properties.campus);
-      setGeocoderPlaces([paramPlace]);
+      setPlaces([paramPlace]);
     }
     if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
@@ -308,7 +352,9 @@ export default function MapComponent({
   return (
     <>
       {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
-      <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
+      <section className="ml-20">
+        <PillFilter setFilteredPlaces={setPlaces} />
+      </section>
       <Map
         mapStyle="mapbox://styles/mapbox/navigation-guidance-night-v4"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
@@ -342,14 +388,14 @@ export default function MapComponent({
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...darkCampusBorderLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON(Places)}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON(places)}>
           <Layer {...placesDarkTextLayer} />
         </Source>
 
-        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...redAreaLayer} />
         </Source>
-        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(Polygons)}>
+        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...redLineLayer} />
         </Source>
         <DebugMode />
@@ -370,7 +416,7 @@ export default function MapComponent({
             {hover.properties.name}
           </Popup>
         ) : null} */}
-        {Points.map((place) => {
+        {points.map((place) => {
           return (
             <Marker
               key={place.properties.identifier}

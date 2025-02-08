@@ -4,18 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 
-import { Suspense, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
-
-import LandingSearch from "./landingSearch";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
 
 export default function Sidebar() {
-  const { isOpen, toggleSidebar } = useSidebar();
+  const { isOpen, toggleSidebar, geocoder, refFunctionClickOnResult } = useSidebar();
   const searchParams = useSearchParams();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
+  const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
 
   const toggleSubSidebar = (type: SubSidebarType) => {
@@ -32,6 +31,11 @@ export default function Sidebar() {
     toggleSidebar();
     setActiveSubSidebar(null);
   };
+
+  // Agregar el geocoder al contenedor de búsqueda, cuando se abre la subbarra de búsqueda
+  useEffect(() => {
+    if (refSearchContainer.current) geocoder.current?.addTo(refSearchContainer.current);
+  }, [activeSubSidebar, geocoder]);
 
   return (
     <>
@@ -162,11 +166,12 @@ export default function Sidebar() {
             <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
                 <>
-                  <h3 className="font-bold text-lg">Buscar</h3>
+                  <h3 className="font-bold text-lg">Buscar {refSearchContainer.current?.tagName ?? "NADA"}</h3>
                   <ul className="space-y-2">
-                    <Suspense>
-                      <LandingSearch />
-                    </Suspense>
+                    <section
+                      ref={refSearchContainer}
+                      className="flex justify-center w-full sm:w-4/6 md:w-5/12 xl:w-4/12 align-middle mapbox-gl-geocoder-theme-borderless"
+                    />
                   </ul>
                 </>
               )}

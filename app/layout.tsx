@@ -3,6 +3,8 @@ import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
+import { Suspense } from "react";
+
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
@@ -58,12 +60,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="h-full pb-[-12px] dark:bg-dark-1">
-        <SidebarProvider>
-          <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
-            <NavigationBar />
+        {/*No sacar el Suspense, pues si se saca fallara el build pues al ser el sidebarprovider un componente de cliente y layout uno de server, nextjs no sabra que hacer y dara error */}
+        <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
+          <SidebarProvider>
+            <Suspense>
+              <NavigationBar />
+            </Suspense>
             {children}
-          </div>
-        </SidebarProvider>
+          </SidebarProvider>
+        </div>
       </body>
     </html>
   );
