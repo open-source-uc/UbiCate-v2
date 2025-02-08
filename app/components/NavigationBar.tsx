@@ -7,6 +7,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
+import PillFilter from "./pillFilter";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
 
@@ -184,6 +185,9 @@ export default function Sidebar() {
                   <h3 className="font-bold text-lg">Buscar </h3>
                   <ul className="space-y-2">
                     <section ref={refSearchContainer} />
+                    <div>
+                      {/* Pill Filtrer*/}
+                    </div>
                   </ul>
                 </>
               )}
