@@ -90,7 +90,6 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
 
   return (
     <div className="relative w-full max-w-full overflow-hidden">
-
       {/*
       {isAtStart || (
         <button
@@ -112,10 +111,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
       )}
       */}
 
-      <div
-        className="overflow-x-auto overflow-auto-chrome overflow-firebox"
-        ref={pillsContainer}
-      >
+      <div className="overflow-x-auto overflow-auto-chrome overflow-firebox space-y-2" ref={pillsContainer}>
         <style jsx>{`
           .overflow-auto-chrome::-webkit-scrollbar {
             display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
@@ -126,66 +122,76 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
         `}</style>
         <Pill
           title="Baños"
-          iconGoogle="search"
+          iconGoogle="wc"
+          bg_color="bg-deep-cyan-option"
           onClick={() => applyFilter(categoryFilter, "bath")}
           active={activeFilter === "bath"}
         />
         <Pill
           title="Comida"
-          iconGoogle="search"
+          iconGoogle="restaurant"
+          bg_color="bg-orange-option"
           onClick={() => applyFilter(categoryFilter, "food_lunch")}
           active={activeFilter === "food_lunch"}
         />
         <Pill
           title="Agua"
-          iconGoogle="search"
+          iconGoogle="local_drink"
+          bg_color="bg-cyan-option"
           onClick={() => applyFilter(categoryFilter, "water")}
           active={activeFilter === "water"}
         />
         <Pill
           title="Crisol"
-          iconGoogle="search"
+          iconGoogle="print"
+          bg_color="bg-purple-option"
           onClick={() => applyFilter(nameFilter, "crisol")}
           active={activeFilter === "crisol"}
         />
         <Pill
           title="Facultades"
-          iconGoogle="search"
+          iconGoogle="school"
+          bg_color="bg-deep-red-option"
           onClick={() => applyFilter(categoryFilter, "faculty")}
           active={activeFilter === "faculty"}
         />
         <Pill
           title="Bibliotecas"
-          iconGoogle="search"
+          iconGoogle="local_library"
+          bg_color="bg-pink-option"
           onClick={() => applyFilter(nameFilter, "biblioteca")}
           active={activeFilter === "biblioteca"}
         />
         <Pill
           title="Salas de Estudio"
-          iconGoogle="search"
+          iconGoogle="group"
+          bg_color="bg-red-option"
           onClick={() => applyFilter(categoryFilter, "studyroom")}
           active={activeFilter === "studyroom"}
         />
         <Pill
           title="Auditorios"
-          iconGoogle="search"
+          iconGoogle="book_2"
+          bg_color="bg-green-option"
           onClick={() => applyFilter(categoryFilter, "auditorium")}
           active={activeFilter === "auditorium"}
         />
         <Pill
           title="Deportes"
-          iconGoogle="search"
+          iconGoogle="sports_soccer"
+          bg_color="bg-deep-green-option"
           onClick={() => applyFilter(categoryFilter, "sports_place")}
           active={activeFilter === "sports_place"}
         />
         <Pill
           title="Estacionamientos"
-          iconGoogle="search"
+          iconGoogle="local_parking"
+          bg_color="bg-gray-option"
           onClick={() => applyFilter(categoryFilter, "parking")}
           active={activeFilter === "parking"}
         />
       </div>
-      
+
       {/*
       {isAtEnd || (
         <button
@@ -206,7 +212,6 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
         </button>
       )}
       */}
-
     </div>
   );
 }

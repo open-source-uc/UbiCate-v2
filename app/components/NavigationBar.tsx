@@ -7,6 +7,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
+
 import PillFilter from "./pillFilter";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
@@ -120,7 +121,7 @@ export default function Sidebar() {
                 >
                   <span className="material-symbols-outlined">search</span>
                 </span>
-                <span>Buscar</span>
+                <span className="text-md">Buscar</span>
               </button>
               <button
                 onClick={() => toggleSubSidebar("campus")}
@@ -133,7 +134,7 @@ export default function Sidebar() {
                 >
                   <span className="material-symbols-outlined">map</span>
                 </span>
-                <span>Campus</span>
+                <p className="text-md">Campus</p>
               </button>
               <button
                 onClick={() => toggleSubSidebar("guías")}
@@ -143,7 +144,7 @@ export default function Sidebar() {
                 <span className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}>
                   <span className="material-symbols-outlined">menu_book</span>
                 </span>
-                <span>Guías</span>
+                <p className="text-md">Guías</p>
               </button>
             </div>
           </nav>

@@ -16,7 +16,7 @@ import type {
   MapEvent,
   MapLayerMouseEvent,
 } from "react-map-gl";
-import { Map, Source, Layer, GeolocateControl, NavigationControl, ScaleControl } from "react-map-gl";
+import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";

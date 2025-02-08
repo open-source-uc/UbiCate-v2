@@ -27,6 +27,11 @@
   --color-green-option: #98ce00;
   --color-cyan-option: #03b5aa;
   --color-orange-option: #f58a07;
+  --color-gray-option: #2C4251;
+  --color-purple-option: #361134;
+  --color-deep-green-option: #2A4D14;
+  --color-deep-cyan-option: #28536B;
+  --color-deep-red-option: #5F021F;
 
   --text-4xl: 3.25rem;
   --text-4xl--line-height: 1.1;
@@ -50,6 +55,15 @@
   );
 
   --radius-menu: 2.1rem;
+}
+
+/* Relative to the Material Symbols*/
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 /*
