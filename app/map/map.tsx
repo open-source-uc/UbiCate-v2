@@ -29,7 +29,6 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import PillFilter from "../components/pillFilter";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesDarkTextLayer, darkCampusBorderLayer, redAreaLayer, redLineLayer } from "./layers";
@@ -351,12 +350,6 @@ export default function MapComponent({
 
   return (
     <>
-      {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
-      <section className="fixed flex w-full pt-2 flex-col sm:flex-row gap-2 sm:gap-1 justify-start items-center z-10 | ml-20">
-        <div className="flex w-11/12 justify-start items-center">
-          <PillFilter setFilteredPlaces={setPlaces} />
-        </div>
-      </section>
       <Map
         mapStyle="mapbox://styles/mapbox/navigation-guidance-night-v4"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
@@ -370,22 +363,20 @@ export default function MapComponent({
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
           /*
-                                        IMPORTANTE
-                                        En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
-                               
-                                        En PC: Este problema no ocurre.
-                                        En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
-                                        Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
-                                        */
+          IMPORTANTE
+          En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
+  
+          En PC: Este problema no ocurre.
+          En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
+          Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
+          */
           setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
         }}
         ref={mapRef}
       >
         <MenuInformation place={place} onClose={(e) => setMenu(null)} />
 
-        <GeolocateControl position="bottom-right" showUserHeading={true} />
         {/* <FullscreenControl position="top-left" /> */}
-        <NavigationControl position="bottom-right" />
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...darkCampusBorderLayer} />

@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import Image from "next/image";
 
 import React from "react";
@@ -10,19 +9,16 @@ interface PillProps {
   onClick: () => void;
 }
 
-const inter = Inter({ subsets: ["latin"] });
-
 function Pill({ title, iconPath, onClick, active }: PillProps) {
   return (
     <button onClick={onClick} type="button">
       <section
         className={`
-          ${active ? "bg-sky-600 text-white transition-transform duration-300" : "bg-white"}
+          ${active ? "bg-brown-light text-white-ubi transition-transform duration-300" : "bg-brown-medium"}
           pointer-events-auto cursor-pointer
-          min-h-[36px] max-h-[36px] rounded-full
+          min-h-[36px] max-h-[36px] rounded-lg
           flex justify-center items-center font-semibold px-2 min-w-5
           transition-colors duration-300 ease-in-out
-          ${inter.className}
         `}
       >
         <span className="px-2 whitespace-nowrap">{title}</span>
@@ -31,7 +27,6 @@ function Pill({ title, iconPath, onClick, active }: PillProps) {
             className={`
               pe-2 max-map-sm:pe-0 
               w-3 h-3 min-w-[24px] min-h-[24px]
-              ${active ? "invert" : ""}
             `}
             src={iconPath}
             alt="icon"

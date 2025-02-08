@@ -12,7 +12,7 @@ import PillFilter from "./pillFilter";
 type SubSidebarType = "buscar" | "campus" | "guías" | null;
 
 export default function Sidebar() {
-  const { isOpen, toggleSidebar, geocoder, refFunctionClickOnResult } = useSidebar();
+  const { isOpen, toggleSidebar, geocoder, setPlaces } = useSidebar();
   const searchParams = useSearchParams();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
@@ -182,11 +182,12 @@ export default function Sidebar() {
             <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
                 <>
-                  <h3 className="font-bold text-lg">Buscar </h3>
-                  <ul className="space-y-2">
+                  <h3 className="font-bold text-lg">Buscar</h3>
+                  <ul className="space-y-8">
                     <section ref={refSearchContainer} />
-                    <div>
-                      {/* Pill Filtrer*/}
+                    <div className="space-y-2">
+                      <h4 className="font-semibold text-md">Filtra por lugares</h4>
+                      <PillFilter setFilteredPlaces={setPlaces} />
                     </div>
                   </ul>
                 </>
