@@ -5,8 +5,11 @@ import { useEffect } from "react";
 
 import { getCampusFromUserLocation } from "@/utils/getCampusBounds";
 
+import { useSidebar } from "../context/sidebarCtx";
+
 export default function NavegateToCampus() {
   const router = useRouter();
+  const { refFunctionClickOnResult } = useSidebar();
 
   useEffect(() => {
     const firstTime = sessionStorage.getItem("firstTime") ?? "true";
@@ -27,6 +30,10 @@ export default function NavegateToCampus() {
       });
     }
   }, [router]);
+
+  useEffect(() => {
+    refFunctionClickOnResult.current = null;
+  });
 
   return null;
 }

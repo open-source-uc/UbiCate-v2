@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="h-full pb-[-12px] dark:bg-dark-1">
         {/*No sacar el Suspense, pues si se saca fallara el build pues al ser el sidebarprovider un componente de cliente y layout uno de server, nextjs no sabra que hacer y dara error */}
-        <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
+        <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">
           <SidebarProvider>
             <Suspense>
               <NavigationBar />

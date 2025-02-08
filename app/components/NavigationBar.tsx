@@ -46,12 +46,14 @@ export default function Sidebar() {
 
   // Collapse the sidebar when a search result is selected
   useEffect(() => {
+    let current: null | MapboxGeocoder = null;
     if (activeSubSidebar === "buscar" && geocoder.current) {
-      geocoder.current.on("result", handleSearchSelection);
-      return () => {
-        geocoder.current?.off("result", handleSearchSelection);
-      };
+      geocoder.current?.on("result", handleSearchSelection);
+      current = geocoder.current;
     }
+    return () => {
+      current?.off("result", handleSearchSelection);
+    };
   }, [activeSubSidebar, geocoder]);
 
   return (
