@@ -166,12 +166,9 @@ export default function Sidebar() {
             <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
                 <>
-                  <h3 className="font-bold text-lg">Buscar {refSearchContainer.current?.tagName ?? "NADA"}</h3>
+                  <h3 className="font-bold text-lg">Buscar </h3>
                   <ul className="space-y-2">
-                    <section
-                      ref={refSearchContainer}
-                      className="flex justify-center w-full sm:w-4/6 md:w-5/12 xl:w-4/12 align-middle mapbox-gl-geocoder-theme-borderless"
-                    />
+                    <section ref={refSearchContainer} />
                   </ul>
                 </>
               )}

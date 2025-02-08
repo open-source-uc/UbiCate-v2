@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 
-import React, { useState, useRef, useEffect, useMemo, RefObject } from "react";
+import React, { useState, useRef, useEffect, useMemo, RefObject, useCallback } from "react";
 
 import PlacesJSON from "@/utils/places";
 import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
@@ -56,15 +56,18 @@ function useGeocoder(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setPlaces = (e: Feature[] | Feature | null) => {
-    if (Array.isArray(e)) {
-      setFindPlaces(e);
-    } else if (e) {
-      setFindPlaces([e]);
-    } else {
-      setFindPlaces([]);
-    }
-  };
+  const setPlaces = useCallback(
+    (e: Feature[] | Feature | null) => {
+      if (Array.isArray(e)) {
+        setFindPlaces(e);
+      } else if (e) {
+        setFindPlaces([e]);
+      } else {
+        setFindPlaces([]);
+      }
+    },
+    [setFindPlaces],
+  );
 
   const Points = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Point"), [findPlaces]);
   const Polygons = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Polygon"), [findPlaces]);

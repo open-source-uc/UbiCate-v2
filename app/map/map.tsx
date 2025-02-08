@@ -352,8 +352,10 @@ export default function MapComponent({
   return (
     <>
       {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
-      <section className="ml-20">
-        <PillFilter setFilteredPlaces={setPlaces} />
+      <section className="fixed flex w-full pt-2 flex-col sm:flex-row gap-2 sm:gap-1 justify-start items-center z-10 | ml-20">
+        <div className="flex w-11/12 justify-start items-center">
+          <PillFilter setFilteredPlaces={setPlaces} />
+        </div>
       </section>
       <Map
         mapStyle="mapbox://styles/mapbox/navigation-guidance-night-v4"

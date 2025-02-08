@@ -1,6 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
-
 import { createContext, useContext, ReactNode, useState, useRef, RefObject } from "react";
 
 import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
@@ -21,17 +19,10 @@ interface SidebarContextType {
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const refFunctionClickOnResult = useRef<((e: Feature) => void) | null>(null);
 
-  const [places, points, polygons, setPlaces, geocoder] = useGeocoder(
-    null,
-    refFunctionClickOnResult ??
-      ((e: Feature) => {
-        router.push("/map?place=" + e.properties.identifier);
-      }),
-  );
+  const [places, points, polygons, setPlaces, geocoder] = useGeocoder(null, refFunctionClickOnResult);
 
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
