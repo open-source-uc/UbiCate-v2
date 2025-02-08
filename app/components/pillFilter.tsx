@@ -90,6 +90,8 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
 
   return (
     <div className="relative w-full max-w-full overflow-hidden">
+
+      {/*
       {isAtStart || (
         <button
           type="button"
@@ -108,9 +110,10 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
           </svg>
         </button>
       )}
+      */}
 
       <div
-        className="overflow-x-auto overflow-auto-chrome overflow-firebox flex justify-start items-center sm:pt-0 gap-3"
+        className="overflow-x-auto overflow-auto-chrome overflow-firebox"
         ref={pillsContainer}
       >
         <style jsx>{`
@@ -123,65 +126,67 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
         `}</style>
         <Pill
           title="Baños"
-          iconPath="/categoryIcons/toilet.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "bath")}
           active={activeFilter === "bath"}
         />
         <Pill
           title="Comida"
-          iconPath="/categoryIcons/food.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "food_lunch")}
           active={activeFilter === "food_lunch"}
         />
         <Pill
           title="Agua"
-          iconPath="/categoryIcons/water.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "water")}
           active={activeFilter === "water"}
         />
         <Pill
           title="Crisol"
-          iconPath="/categoryIcons/crisol.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(nameFilter, "crisol")}
           active={activeFilter === "crisol"}
         />
         <Pill
           title="Facultades"
-          iconPath="/categoryIcons/faculty.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "faculty")}
           active={activeFilter === "faculty"}
         />
         <Pill
           title="Bibliotecas"
-          iconPath="/categoryIcons/library.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(nameFilter, "biblioteca")}
           active={activeFilter === "biblioteca"}
         />
         <Pill
           title="Salas de Estudio"
-          iconPath="/categoryIcons/studyroom.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "studyroom")}
           active={activeFilter === "studyroom"}
         />
         <Pill
           title="Auditorios"
-          iconPath="/categoryIcons/auditorium.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "auditorium")}
           active={activeFilter === "auditorium"}
         />
         <Pill
           title="Deportes"
-          iconPath="/categoryIcons/sports_place.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "sports_place")}
           active={activeFilter === "sports_place"}
         />
         <Pill
           title="Estacionamientos"
-          iconPath="/categoryIcons/parking.svg"
+          iconGoogle="search"
           onClick={() => applyFilter(categoryFilter, "parking")}
           active={activeFilter === "parking"}
         />
       </div>
+      
+      {/*
       {isAtEnd || (
         <button
           className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-hidden w-[36px] h-[36px]"
@@ -200,6 +205,8 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
           </svg>
         </button>
       )}
+      */}
+
     </div>
   );
 }
