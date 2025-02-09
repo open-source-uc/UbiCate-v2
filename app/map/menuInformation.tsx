@@ -3,6 +3,14 @@ import React, { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 import FormGeo from "../form-geo/form";
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger, 
+} from "../components/ui/dropdown-menu";
 
 interface MenuProps {
   place: Feature | null;
@@ -105,64 +113,59 @@ export default function Menu({ place, onClose }: MenuProps) {
                 aria-label="Comparte esta Ubicación"
                 role="navigation"
                 tabIndex={0}
-                className="py-1 px-4 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
-                <span style={{ fontSize: "1.3rem" }}  className="material-symbols-outlined">share</span>
-                <p className="text-sm font-medium">Compartir</p>
+                className="p-1 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
+                <span style={{ fontSize: "1.6rem" }}  className="material-symbols-outlined">share</span>
+                <p className="text-xs font-medium">Compartir</p>
               </button>
 
               <button 
-                onClick={handleShare}
-                onKeyDown={(e) => e.key === "Enter" && handleShare}
-                aria-label="Comparte esta Ubicación"
+                onKeyDown={(e) => e.key === "Enter"}
+                aria-label="Ingresa a la página web de este lugar"
                 role="navigation"
                 tabIndex={0}
-                className="py-1 px-4 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
-                <span style={{ fontSize: "1.3rem" }}  className="material-symbols-outlined">explore</span>
-                <p className="text-sm font-medium">Website</p>
+                className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
+                <span style={{ fontSize: "1.6rem" }}  className="material-symbols-outlined">explore</span>
+                <p className="text-xs font-medium">Website</p>
               </button>
+              
+              <DropdownMenu>
+                <DropdownMenuTrigger 
+                  onKeyDown={(e) => e.key === "Enter" && handleShare}
+                  aria-label="Comparte esta Ubicación"
+                  role="navigation"
+                  tabIndex={0}
+                  className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
+                  <span style={{ fontSize: "1.6rem" }}  className="material-symbols-outlined">more_horiz</span>
+                  <p className="text-xs font-medium">Más</p>
+                </DropdownMenuTrigger>
+                  <DropdownMenuContent>
 
-              <button 
-                onClick={handleShare}
-                onKeyDown={(e) => e.key === "Enter" && handleShare}
-                aria-label="Comparte esta Ubicación"
-                role="navigation"
-                tabIndex={0}
-                className="py-1 px-4 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
-                <span style={{ fontSize: "1.3rem" }}  className="material-symbols-outlined">edit</span>
-                <p className="text-sm font-medium">Editar</p>
-              </button>
+                  {place?.geometry.type !== "Polygon" && (
+                    <DropdownMenuItem onClick={() => setEdit(true)}>
+                      {place?.properties.identifier === "42-ALL"
+                        ? "Agregar ubicación"
+                        : "Sugerir Edición"}
+                        <span style={{ fontSize: "1.2rem" }}  className="material-symbols-outlined">edit</span>
+                    </DropdownMenuItem>
+                  )}
+                  
+                  {place?.geometry.type !== "Polygon" &&
+                    place?.properties.identifier !== "42-ALL" &&
+                    isDebug.current && (
+                      <>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={() => aprobar()}>
+                          Aprobar
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => borrar()}>
+                          Borrar
+                        </DropdownMenuItem>
+                      </>
+                    )}
+                </DropdownMenuContent>
+              </DropdownMenu>
 
             </section>
-
-            {place?.geometry.type === "Polygon" ? null : (
-              <button
-                className="my-2 w-full h-12 flex items-center justify-start bg-brown-dark hover:bg-brown-medium border-solid border-2 border-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={() => setEdit(true)}
-                type="button"
-              >
-                {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-              </button>
-            )}
-            {place?.geometry.type === "Polygon" ||
-            place?.properties.identifier === "42-ALL" ||
-            isDebug.current === false ? null : (
-              <div className="flex gap-5">
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start bg-brown-dark hover:bg-brown-medium border-solid border-2 border-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  type="button"
-                  onClick={() => aprobar()}
-                >
-                  Aprobar
-                </button>
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start bg-brown-dark hover:bg-brown-medium border-solid border-2 border-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  type="button"
-                  onClick={() => borrar()}
-                >
-                  Borrar
-                </button>
-              </div>
-            )}
 
             <section>
               {place && place.properties?.floors && place.properties.floors.length > 0 ? (

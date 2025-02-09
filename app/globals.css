@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+/* ---break---*/
+@plugin 'tailwindcss-animate';
+/* ---break---*/
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --breakpoint-tablet: 768px;
@@ -17,7 +21,7 @@
   --color-light-3: #d8dee9;
   --color-light-4: #c1c8d7;
   --color-sidebar-color: rgb(35, 55, 75, 90%);
-  
+
   --color-blue-location: #015fff;
   --color-brown-dark: #150a04;
   --color-brown-medium: #39302b;
@@ -82,5 +86,74 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+}
+/* ---break---*/
+:root {
+  --background: var(--color-brown-dark);
+  --foreground: var(--color-white-ubi);
+  --card: var(--color-brown-dark);
+  --card-foreground: var(--color-white-ubi);
+  --popover: var(--color-brown-dark);
+  --popover-foreground: var(--color-white-ubi);
+  --primary: var(--color-blue-location);
+  --primary-foreground: var(--color-white-ubi);
+  --secondary: var(--color-brown-medium);
+  --secondary-foreground: var(--color-white-ubi);
+  --muted: var(--color-brown-light);
+  --muted-foreground: var(--color-brown-dark);
+  --accent: var(--color-brown-light);
+  --accent-foreground: var(--color-white-ubi);
+  --destructive: var(--color-red-option);
+  --destructive-foreground: var(--color-white-ubi);
+  --border: var(--color-brown-medium);
+  --input: var(--color-brown-light);
+  --ring: var(--color-blue-location);
+  --chart-1: var(--color-green-option);
+  --chart-2: var(--color-cyan-option);
+  --chart-3: var(--color-orange-option);
+  --chart-4: var(--color-purple-option);
+  --chart-5: var(--color-deep-green-option);
+  --radius: 0.6rem;
+}
+
+/* ---break---*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+/* ---break---*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
