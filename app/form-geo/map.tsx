@@ -98,7 +98,7 @@ export default function MapComponent(props: MapProps) {
           <FullscreenControl position="bottom-right" />
           <NavigationControl position="bottom-right" />
           <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
-            {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
+            <Layer {...campusBorderLayer} />
           </Source>
           <DebugMode />
           {marker.longitude && marker.latitude ? (
