@@ -13,7 +13,7 @@ function Pill({ title, iconGoogle, onClick, active, bg_color }: PillProps) {
     <button
       onClick={onClick}
       type="button"
-      className="rounded-lg w-full flex justify-left items-center px-2 py-1 bg-brown-medium text-white-ubi pointer-events-auto cursor-pointer text-md"
+      className="rounded-lg w-full flex justify-left items-center px-2 py-1 bg-brown-medium text-white-ubi pointer-events-auto cursor-pointer text-md hover:bg-brown-light focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
     >
       <div className={`flex items-center justify-center w-8 h-8 rounded-full ${bg_color}`}>
         <span className="material-symbols-outlined">{iconGoogle}</span>

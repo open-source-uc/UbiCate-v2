@@ -111,7 +111,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
       )}
       */}
 
-      <div className="overflow-x-auto overflow-auto-chrome overflow-firebox space-y-2" ref={pillsContainer}>
+      <div className="overflow-x-auto overflow-auto-chrome overflow-firebox space-y-2 p-1" ref={pillsContainer}>
         <style jsx>{`
           .overflow-auto-chrome::-webkit-scrollbar {
             display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
