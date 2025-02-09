@@ -31,7 +31,7 @@ import { siglas, Feature, PointFeature } from "@/utils/types";
 import Campus from "../../data/campuses.json";
 import { useSidebar } from "../context/sidebarCtx";
 
-import { placesDarkTextLayer, darkCampusBorderLayer, redAreaLayer, redLineLayer } from "./layers";
+import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
 import MenuInformation from "./menuInformation";
 
@@ -379,17 +379,17 @@ export default function MapComponent({
         {/* <FullscreenControl position="top-left" /> */}
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
-          <Layer {...darkCampusBorderLayer} />
+          <Layer {...campusBorderLayer} />
         </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON(places)}>
-          <Layer {...placesDarkTextLayer} />
+          <Layer {...placesTextLayer} />
         </Source>
 
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
-          <Layer {...redAreaLayer} />
+          <Layer {...sectionAreaLayer} />
         </Source>
         <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
-          <Layer {...redLineLayer} />
+          <Layer {...sectionStrokeLayer} />
         </Source>
         <DebugMode />
         {/*

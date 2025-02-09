@@ -98,26 +98,13 @@ export const placesTextLayer: LayerProps = {
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["Open Sans Bold"],
-    "text-size": 12,
+    "text-size": 11,
     "text-anchor": "top",
   },
   paint: {
-    "text-color": "#000",
-  },
-};
-
-export const placesDarkTextLayer: LayerProps = {
-  id: "places-dark-text",
-  type: "symbol",
-  source: "places",
-  layout: {
-    "text-field": ["get", "name"],
-    "text-font": ["Open Sans Bold"],
-    "text-size": 12,
-    "text-anchor": "top",
-  },
-  paint: {
-    "text-color": "#fff",
+    "text-color": "#f9f8f3",
+    "text-halo-color": "#150a04",
+    "text-halo-width": 1,
   },
 };
 
@@ -125,46 +112,37 @@ export const campusBorderLayer: LayerProps = {
   id: "campus-border",
   type: "line",
   paint: {
-    "line-color": "#716ADB",
-    "line-width": 3,
-    "line-dasharray": [1, 1],
+    "line-color": "#f9f8f3",
+    "line-width": 1.4,
+    "line-dasharray": [2, 1],
   },
 };
 
-export const darkCampusBorderLayer: LayerProps = {
-  id: "dark-campus-border",
+export const sectionStrokeLayer: LayerProps = {
+  id: "red-line",
   type: "line",
   paint: {
-    "line-color": "#FFA500",
-    "line-width": 3,
-    "line-dasharray": [1, 1],
-  },
-};
-export const redLineLayer: LayerProps = {
-  id: "red-line",
-  type: "line", // Cambiado a línea
-  paint: {
-    "line-color": "#FF0000", // Color rojo para el borde
-    "line-width": 0.7, // Grosor de la línea
-    "line-dasharray": [4, 2], // Patrón de línea punteada (4px línea, 2px espacio)
+    "line-color": "#015FFF",
+    "line-width": 0.7,
+    "line-dasharray": [4, 2],
   },
 };
 
-export const redAreaLayer: LayerProps = {
+export const sectionAreaLayer: LayerProps = {
   id: "red-area",
-  type: "fill", // Cambiado a relleno
+  type: "fill",
   source: "states",
   paint: {
-    "fill-color": "rgba(255, 255, 255, 0.25)", // Color naranja brillante con opacidad
+    "fill-color": "rgba(1, 95, 255, 0.1)",
   },
 };
 
 export const redLineLayerDebug: LayerProps = {
   id: "red-line-debug",
-  type: "line", // Cambiado a línea
+  type: "line",
   paint: {
-    "line-color": "#FF0000", // Color rojo para el borde
-    "line-width": 0.7, // Grosor de la línea
-    "line-dasharray": [4, 2], // Patrón de línea punteada (4px línea, 2px espacio)
+    "line-color": "#FF0000",
+    "line-width": 0.7,
+    "line-dasharray": [4, 2],
   },
 };

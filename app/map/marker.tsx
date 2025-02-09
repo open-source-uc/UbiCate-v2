@@ -14,18 +14,50 @@ interface MarkerProps {
   onDragEnd?: (e: MarkerDragEvent) => void;
 }
 
-// Mapeo de nombres a archivos SVG
-const nameToSvgMap: Record<string, string> = {
-  Acceso: "/categoryIcons/acceso.svg",
-  Salida: "/categoryIcons/salida.svg",
-  "Acceso/Salida": "/acceso_y_salida.svg",
+// Mapeo de nombres a colores
+const nameToColorMap: Record<string, string> = {
+  "Acceso": "bg-blue-location",
+  "Salida": "bg-blue-location",
+  "Acceso/Salida": "bg-blue-location",
+  "Baño": "bg-deep-cyan-option",
+  "Comida": "bg-orange-option",
+  "Agua": "bg-cyan-option",
+  "Crisol": "bg-purple-option",
+  "Facultad": "bg-deep-red-option",
+  "Biblioteca": "bg-pink-option",
+  "Sala de estudio": "bg-red-option", /* Sala de estudio */
+  "Auditorio": "bg-green-option",
+  "Multicancha": "bg-deep-green-option", /* Deportes */
+  "Estacionamiento": "bg-brown-light"
 };
 
-const defaultSvg = "/logo.svg";
+// Mapeo de nombres a archivos SVG
+const nameToSvgMap: Record<string, string> = {
+  "Acceso": "local_parking",
+  "Salida": "local_parking",
+  "Acceso/Salida": "local_parking",
+  "Baño": "wc",
+  "Comida": "restaurant",
+  "Agua": "local_drink",
+  "Crisol": "print",
+  "Facultad": "school",
+  "Biblioteca": "local_library",
+  "Sala de estudio": "group", /* Sala de estudio */
+  "Auditorio": "book_2",
+  "Multicancha": "sports_soccer", /* Deportes */
+  "Estacionamiento": "local_parking"
+};
+
+const defaultSvg = "fiber_manual_record";
 
 export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
   const matchedKey = Object.keys(nameToSvgMap).find((key) => place.properties.name.includes(key));
   const svgPath = matchedKey ? nameToSvgMap[matchedKey] : defaultSvg;
+  const color = matchedKey ? nameToColorMap[matchedKey] : "bg-brown-light";
+
+  {/* Checks if the background color is too dark or too white, in order to change the icon color and make more accesible the map*/}
+  const darkBackgrounds = ["bg-brown-dark", "bg-blue-location", "bg-purple-option", "bg-deep-green-option", "bg-deep-cyan-option"];
+  const textColorClass = darkBackgrounds.includes(color) ? "text-white-ubi" : "text-brown-dark";
 
   return (
     <MapboxMarker
@@ -48,8 +80,13 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
           if (onMouseEnter) onMouseEnter(null);
         }}
       >
-        <Image className="dark:invert" src={svgPath} alt={place.properties.name} width={20} height={29} />
+        <div className={`flex items-center justify-center w-4 h-4 rounded-full ${color} ${textColorClass} ring-brown-dark ring-1`}>
+          {/* The hardcoded style is not the most efficient or pretty way to do it, but it's the way to change the size using Material Symbols. text-sm did not work*/}
+          <span style={{ fontSize: '0.8rem' }} className="material-symbols-outlined">{svgPath}</span>
+        </div>
       </div>
     </MapboxMarker>
   );
 }
+
+/* <Image className="" src={svgPath} alt={place.properties.name} width={20} height={29} /> */

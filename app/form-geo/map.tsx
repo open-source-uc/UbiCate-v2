@@ -8,7 +8,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Layer, Source } from "react-map-gl";
 import type { MarkerDragEvent, MapLayerMouseEvent, MapRef, LngLatBoundsLike } from "react-map-gl";
 
-import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
+import { campusBorderLayer } from "@/app/map/layers";
 import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import Campus from "../../data/campuses.json";
