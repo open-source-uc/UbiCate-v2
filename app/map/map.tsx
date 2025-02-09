@@ -33,7 +33,6 @@ import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
-import MenuInformation from "./menuInformation";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -86,7 +85,7 @@ export default function MapComponent({
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { places, points, polygons, setPlaces, refFunctionClickOnResult } = useSidebar();
+  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace} = useSidebar();
 
   // const [hover, setHover] = useState<Feature | null>(null);
 
@@ -154,19 +153,22 @@ export default function MapComponent({
   const setMenu = useCallback(
     (place: Feature | null) => {
       setPlace(place);
-      if (place)
+      setSelectedPlace(place);
+      if (place) {
         if (place.properties.identifier === "42-ALL") {
           window.history.replaceState(
             null,
             "",
-            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
+            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`
           );
         } else {
           window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
         }
-      else window.history.replaceState(null, "", "?");
+      } else {
+        window.history.replaceState(null, "", "?");
+      }
     },
-    [setPlace],
+    [setSelectedPlace]
   );
 
   function onClickMark(place: Feature) {
@@ -374,8 +376,6 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <MenuInformation place={place} onClose={(e) => setMenu(null)} />
-
         {/* <FullscreenControl position="top-left" /> */}
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>

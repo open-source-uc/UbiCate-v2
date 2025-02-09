@@ -6,14 +6,15 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
+import MenuInformation from "../map/menuInformation";
 import { useSidebar } from "../context/sidebarCtx";
 
 import PillFilter from "./pillFilter";
 
-type SubSidebarType = "buscar" | "campus" | "guías" | null;
+type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
 export default function Sidebar() {
-  const { isOpen, toggleSidebar, geocoder, setPlaces } = useSidebar();
+  const { isOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const searchParams = useSearchParams();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
@@ -39,6 +40,16 @@ export default function Sidebar() {
     setActiveSubSidebar(null);
   };
 
+  // When a place is selected, make the MenuInformation a subsidebar.
+  useEffect(() => {
+    if (selectedPlace) {
+      setActiveSubSidebar("menuInformation");
+      if (!isOpen) {
+        toggleSidebar();
+      }
+    }
+  }, [selectedPlace]);
+
   // Add the geocoder to the search container when the "buscar" subsidebar is open
   useEffect(() => {
     if (refSearchContainer.current) geocoder.current?.addTo(refSearchContainer.current);
@@ -60,7 +71,7 @@ export default function Sidebar() {
     <>
       {/* Collapsed Sidebar */}
       {!isOpen && (
-        <aside className="fixed inset-y-0 left-0 bg-brown-dark/95 text-white-ubi flex flex-col z-50">
+        <aside className="fixed inset-y-0 left-0 bg-brown-dark/96 backdrop-blur-lg text-white-ubi flex flex-col z-50">
           <div className="flex flex-col items-center py-8 px-4 space-y-6">
             <div className="mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium">
@@ -92,7 +103,7 @@ export default function Sidebar() {
 
       {/* Expanded Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 bg-brown-dark/95 text-white-ubi text-snow transform transition-transform duration-300 z-50 ${
+        className={`fixed inset-y-0 left-0 bg-brown-dark/96 backdrop-blur-lg text-white-ubi text-snow transform transition-transform duration-300 z-50 ${
           isOpen ? "translate-x-0 w-64" : "-translate-x-full"
         }`}
       >
@@ -176,9 +187,10 @@ export default function Sidebar() {
         </div>
 
         {/* Sub Sidebar inside Expanded Sidebar */}
-        {isOpen && activeSubSidebar ? (
+        {((isOpen && activeSubSidebar) ||
+          (activeSubSidebar === "menuInformation")) && (
           <aside
-            className={`absolute top-0 left-full h-full w-96 border-l-1 border-brown-light bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 ${
+            className={`absolute top-0 left-full h-full w-96 border-l-1 border-brown-light bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60 ${
               activeSubSidebar ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -327,6 +339,15 @@ export default function Sidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
+              {activeSubSidebar === "menuInformation" && (
+                <MenuInformation
+                  place={selectedPlace}
+                  onClose={() => {
+                    setSelectedPlace(null);
+                    setActiveSubSidebar(null);
+                  }}
+                />
+              )}
               <button
                 onClick={() => toggleSubSidebar(activeSubSidebar)}
                 className="absolute top-8 right-4 text-white-ubi bg-brown-light flex items-center align-middle rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer  focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
@@ -336,7 +357,7 @@ export default function Sidebar() {
               </button>
             </div>
           </aside>
-        ) : null}
+        )}
       </aside>
     </>
   );

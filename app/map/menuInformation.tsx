@@ -1,17 +1,18 @@
+// TypeScript
 import React, { useRef, useState } from "react";
-
 import ReactMarkdown from "react-markdown";
-
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
+import FormGeo from "../form-geo/form";
+
 interface MenuProps {
   place: Feature | null;
   onClose: (e: React.MouseEvent) => void;
 }
-import FormGeo from "../form-geo/form";
 
 export default function Menu({ place, onClose }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -82,28 +83,87 @@ export default function Menu({ place, onClose }: MenuProps) {
   return (
     <>
       {!edit ? (
-        <menu
-          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${
-            place ? "sm:translate-x-0 translate-y-0" : "translate-y-full sm:translate-y-0 sm:-translate-x-full"
-          } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
-        >
-          <div className="p-4 dark:text-white text-gray-700">
-            <div className="flex w-full">
-              <div className="grow">
-                <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
+          <div className="space-y-6">
+
+            <div className="space-y-1">
+              <div className="max-w-[300px] h-full flex items-end">
+                <h3 className="font-bold text-xl break-words whitespace-normal">
+                  {place ? place.properties.name : "Lugar sin nombre"}
+                </h3>
               </div>
-              <div>
+              {place && place.properties?.categories?.[0] ? (
+                <span className="font-light text-sm">
+                  {MapSiglas.get(place.properties.categories[0]) || "Lugar sin categoría"}
+                </span>
+              ) : null}
+            </div>
+
+            <section className="flex space-x-2">
+              <button 
+                onClick={handleShare}
+                onKeyDown={(e) => e.key === "Enter" && handleShare}
+                aria-label="Comparte esta Ubicación"
+                role="navigation"
+                tabIndex={0}
+                className="py-1 px-4 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
+                <span style={{ fontSize: "1.3rem" }}  className="material-symbols-outlined">share</span>
+                <p className="text-sm font-medium">Compartir</p>
+              </button>
+
+              <button 
+                onClick={handleShare}
+                onKeyDown={(e) => e.key === "Enter" && handleShare}
+                aria-label="Comparte esta Ubicación"
+                role="navigation"
+                tabIndex={0}
+                className="py-1 px-4 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
+                <span style={{ fontSize: "1.3rem" }}  className="material-symbols-outlined">explore</span>
+                <p className="text-sm font-medium">Website</p>
+              </button>
+
+              <button 
+                onClick={handleShare}
+                onKeyDown={(e) => e.key === "Enter" && handleShare}
+                aria-label="Comparte esta Ubicación"
+                role="navigation"
+                tabIndex={0}
+                className="py-1 px-4 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2">
+                <span style={{ fontSize: "1.3rem" }}  className="material-symbols-outlined">edit</span>
+                <p className="text-sm font-medium">Editar</p>
+              </button>
+
+            </section>
+
+            {place?.geometry.type === "Polygon" ? null : (
+              <button
+                className="my-2 w-full h-12 flex items-center justify-start bg-brown-dark hover:bg-brown-medium border-solid border-2 border-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => setEdit(true)}
+                type="button"
+              >
+                {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
+              </button>
+            )}
+            {place?.geometry.type === "Polygon" ||
+            place?.properties.identifier === "42-ALL" ||
+            isDebug.current === false ? null : (
+              <div className="flex gap-5">
                 <button
-                  className="w-6 h-6 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium 
-                  rounded-lg text-lg text-center disabled:opacity-50 disabled:cursor-not-allowed z-30 p-3"
-                  onClick={(e) => {
-                    onClose(e);
-                  }}
+                  className="my-2 w-full h-12 flex items-center justify-start bg-brown-dark hover:bg-brown-medium border-solid border-2 border-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  onClick={() => aprobar()}
                 >
-                  X
+                  Aprobar
+                </button>
+                <button
+                  className="my-2 w-full h-12 flex items-center justify-start bg-brown-dark hover:bg-brown-medium border-solid border-2 border-dark-4 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  onClick={() => borrar()}
+                >
+                  Borrar
                 </button>
               </div>
-            </div>
+            )}
+
             <section>
               {place && place.properties?.floors && place.properties.floors.length > 0 ? (
                 <div className="flex justify-between">
@@ -132,58 +192,25 @@ export default function Menu({ place, onClose }: MenuProps) {
                   place.properties.information === "" ? (
                     "N/A"
                   ) : (
-                    <ReactMarkdown className="prose dark:prose-invert">{place.properties.information}</ReactMarkdown>
+                    <ReactMarkdown className="prose dark:prose-invert">
+                      {place.properties.information}
+                    </ReactMarkdown>
                   )
                 ) : (
                   "N/A"
                 )}
               </div>
             </section>
-            <button
-              className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleShare}
-              type="button"
-            >
-              Compartir {isDebug.current.toString()}
-            </button>
-            {place?.geometry.type === "Polygon" ? null : (
-              <button
-                className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={(e) => {
-                  setEdit(true);
-                }}
-                type="button"
-              >
-                {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-              </button>
-            )}
-            {place?.geometry.type === "Polygon" ||
-            place?.properties.identifier === "42-ALL" ||
-            isDebug.current === false ? null : (
-              <div className="flex gap-5">
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  type="button"
-                  onClick={() => aprobar()}
-                >
-                  Aprobar
-                </button>
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  type="button"
-                  onClick={() => borrar()}
-                >
-                  Borrar
-                </button>
-              </div>
-            )}
           </div>
-        </menu>
       ) : (
-        <menu className="absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg bg-white overflow-y-auto">
+        <aside
+          className="absolute top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto"
+        >
           <div className="w-full text-center my-6">
-            <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">
-              {place?.properties.identifier === "42-ALL" ? "Nueva ubicación" : `Edición de ${place?.properties.name}`}
+            <h1 className="text-3xl lg:text-6xl text-white select-none">
+              {place?.properties.identifier === "42-ALL"
+                ? "Nueva ubicación"
+                : `Edición de ${place?.properties.name}`}
             </h1>
           </div>
           <FormGeo
@@ -199,15 +226,7 @@ export default function Menu({ place, onClose }: MenuProps) {
             mode={place?.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
             fun={() => setEdit(false)}
           />
-          <button
-            className="fixed bottom-2 right-2 w-12 h-12 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed z-30"
-            onClick={(e) => {
-              setEdit(false);
-            }}
-          >
-            X
-          </button>
-        </menu>
+        </aside>
       )}
     </>
   );

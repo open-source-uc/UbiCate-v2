@@ -14,6 +14,8 @@ interface SidebarContextType {
   toggleSidebar: () => void;
   geocoder: RefObject<MapboxGeocoder | null>;
   refFunctionClickOnResult: RefObject<((e: Feature) => void) | null>;
+  selectedPlace: Feature | null;
+  setSelectedPlace: (place: Feature | null) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
@@ -24,13 +26,15 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
 
   const [places, points, polygons, setPlaces, geocoder] = useGeocoder(null, refFunctionClickOnResult);
 
+  const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
+
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
   };
 
   return (
     <SidebarContext.Provider
-      value={{ isOpen, places, points, polygons, setPlaces, toggleSidebar, geocoder, refFunctionClickOnResult }}
+      value={{ isOpen, places, points, polygons, setPlaces, toggleSidebar, geocoder, refFunctionClickOnResult, selectedPlace, setSelectedPlace}}
     >
       {children}
     </SidebarContext.Provider>

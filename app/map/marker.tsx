@@ -26,14 +26,14 @@ const nameToColorMap: Record<string, string> = {
   "Sala de estudio": "bg-red-option" /* Sala de estudio */,
   Auditorio: "bg-green-option",
   Multicancha: "bg-deep-green-option" /* Deportes */,
-  Estacionamiento: "bg-brown-light",
+  Estacionamiento: "bg-gray-option",
 };
 
 // Mapeo de nombres a archivos SVG
 const nameToSvgMap: Record<string, string> = {
-  Acceso: "local_parking",
-  Salida: "local_parking",
-  "Acceso/Salida": "local_parking",
+  Acceso: "arrow_upward",
+  Salida: "arrow_upward",
+  "Acceso/Salida": "arrow_upward",
   Baño: "wc",
   Comida: "restaurant",
   Agua: "local_drink",
@@ -58,10 +58,11 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
   }
   const darkBackgrounds = [
     "bg-brown-dark",
-    "bg-blue-location",
     "bg-purple-option",
     "bg-deep-green-option",
     "bg-deep-cyan-option",
+    "bg-deep-red-option",
+    "bg-gray-option"
   ];
   const textColorClass = darkBackgrounds.includes(color) ? "text-white-ubi" : "text-brown-dark";
 
