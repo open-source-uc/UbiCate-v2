@@ -327,13 +327,13 @@ export default function Sidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-                <button 
-                onClick={() => toggleSubSidebar(activeSubSidebar)} 
+              <button
+                onClick={() => toggleSubSidebar(activeSubSidebar)}
                 className="absolute top-8 right-4 text-white-ubi bg-brown-light flex items-center align-middle rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer  focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                 aria-label="Cerrar menú"
-                >
+              >
                 <span className="material-symbols-outlined">close</span>
-                </button>
+              </button>
             </div>
           </aside>
         ) : null}
