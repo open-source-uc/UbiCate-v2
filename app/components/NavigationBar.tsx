@@ -60,7 +60,7 @@ export default function Sidebar() {
     <>
       {/* Collapsed Sidebar */}
       {!isOpen && (
-        <aside className="fixed inset-y-0 left-0 bg-brown-dark text-white-ubi flex flex-col z-50">
+        <aside className="fixed inset-y-0 left-0 bg-brown-dark/95 text-white-ubi flex flex-col z-50">
           <div className="flex flex-col items-center py-8 px-4 space-y-6">
             <div className="mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium">
@@ -92,7 +92,7 @@ export default function Sidebar() {
 
       {/* Expanded Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 bg-brown-dark text-white-ubi text-snow transform transition-transform duration-300 z-50 ${
+        className={`fixed inset-y-0 left-0 bg-brown-dark/95 text-white-ubi text-snow transform transition-transform duration-300 z-50 ${
           isOpen ? "translate-x-0 w-64" : "-translate-x-full"
         }`}
       >
@@ -327,9 +327,13 @@ export default function Sidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              <button onClick={() => toggleSubSidebar(activeSubSidebar)} className="mt-4 text-sm hover:underline">
-                Close
-              </button>
+                <button 
+                onClick={() => toggleSubSidebar(activeSubSidebar)} 
+                className="absolute top-8 right-4 text-white-ubi bg-brown-light flex items-center align-middle rounded-full hover:text-brown-light hover:bg-brown-medium focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                aria-label="Cerrar menú"
+                >
+                <span className="material-symbols-outlined">close</span>
+                </button>
             </div>
           </aside>
         ) : null}
