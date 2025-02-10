@@ -85,7 +85,7 @@ export default function MapComponent({
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace} = useSidebar();
+  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace } = useSidebar();
 
   // const [hover, setHover] = useState<Feature | null>(null);
 
@@ -159,7 +159,7 @@ export default function MapComponent({
           window.history.replaceState(
             null,
             "",
-            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`
+            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
           );
         } else {
           window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
@@ -168,7 +168,7 @@ export default function MapComponent({
         window.history.replaceState(null, "", "?");
       }
     },
-    [setSelectedPlace]
+    [setSelectedPlace],
   );
 
   function onClickMark(place: Feature) {

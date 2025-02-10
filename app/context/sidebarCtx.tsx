@@ -34,7 +34,18 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
 
   return (
     <SidebarContext.Provider
-      value={{ isOpen, places, points, polygons, setPlaces, toggleSidebar, geocoder, refFunctionClickOnResult, selectedPlace, setSelectedPlace}}
+      value={{
+        isOpen,
+        places,
+        points,
+        polygons,
+        setPlaces,
+        toggleSidebar,
+        geocoder,
+        refFunctionClickOnResult,
+        selectedPlace,
+        setSelectedPlace,
+      }}
     >
       {children}
     </SidebarContext.Provider>

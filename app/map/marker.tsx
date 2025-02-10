@@ -62,7 +62,7 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
     "bg-deep-green-option",
     "bg-deep-cyan-option",
     "bg-deep-red-option",
-    "bg-gray-option"
+    "bg-gray-option",
   ];
   const textColorClass = darkBackgrounds.includes(color) ? "text-white-ubi" : "text-brown-dark";
 

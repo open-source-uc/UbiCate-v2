@@ -6,8 +6,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
-import MenuInformation from "../map/menuInformation";
 import { useSidebar } from "../context/sidebarCtx";
+import MenuInformation from "../map/menuInformation";
 
 import PillFilter from "./pillFilter";
 
@@ -187,8 +187,7 @@ export default function Sidebar() {
         </div>
 
         {/* Sub Sidebar inside Expanded Sidebar */}
-        {((isOpen && activeSubSidebar) ||
-          (activeSubSidebar === "menuInformation")) && (
+        {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
           <aside
             className={`absolute top-0 left-full h-full w-96 border-l-1 border-brown-light bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60 ${
               activeSubSidebar ? "translate-x-0" : "translate-x-full"
@@ -357,7 +356,7 @@ export default function Sidebar() {
               </button>
             </div>
           </aside>
-        )}
+        ) : null}
       </aside>
     </>
   );
