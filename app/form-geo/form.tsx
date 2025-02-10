@@ -245,7 +245,7 @@ export default function FormComponent({
                 </p>
                 <div className="flex items-center gap-2 w-full">
                   <Field
-                    className="block p-3 w-full text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
+                    className="block p-3 w-full text-sm rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2"
                     name="floor"
                     id="floor"
                     type="number"

@@ -192,7 +192,7 @@ export default function Menu({ place, onClose }: MenuProps) {
                     </span>
                     <span className="font-medium text-white-ubi">Categoría</span>
                   </div>
-                  <span className="text-white-ubi/80 font-light">
+                  <span className="text-white-ubi font-light">
                     {MapSiglas.get(place.properties.categories[0]) || "N/A"}
                   </span>
                 </div>
@@ -208,7 +208,7 @@ export default function Menu({ place, onClose }: MenuProps) {
                     </span>
                     <span className="font-medium text-white-ubi">Campus</span>
                   </div>
-                  <span className="text-white-ubi/80 font-light">
+                  <span className="text-white-ubi font-light">
                     {MapSiglas.get(place.properties.campus) || "N/A"}
                   </span>
                 </div>
