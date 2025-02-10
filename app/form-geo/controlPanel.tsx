@@ -9,7 +9,7 @@ function ControlPanel() {
         {eventNames.map((eventName) => {
           return (
             <p key={eventName} className="pb-5">
-              Haz click o arrastra el marcador para indicar ubicación.
+              Haz click o arrastra el marcador para indicar la ubicación
             </p>
           );
         })}

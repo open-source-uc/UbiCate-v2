@@ -207,8 +207,8 @@ export default function Menu({ place, onClose }: MenuProps) {
       ) : (
         <aside className="absolute top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
           <div className="w-full text-center my-6">
-            <h1 className="text-3xl lg:text-6xl text-white select-none">
-              {place?.properties.identifier === "42-ALL" ? "Nueva ubicación" : `Edición de ${place?.properties.name}`}
+            <h1 className="text-2xl text-white-ubi select-none">
+              {place?.properties.identifier === "42-ALL" ? "Nueva ubicación" : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
           </div>
           <FormGeo
