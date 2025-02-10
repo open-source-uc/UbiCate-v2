@@ -169,44 +169,54 @@ export default function Menu({ place, onClose }: MenuProps) {
           </section>
 
           <section className="divide-y divide-brown-light/30">
-            {place && place.properties?.floors && place.properties.floors.length > 0 && (
+            {place && place.properties?.floors && place.properties.floors.length > 0 ? (
               <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3 text-blue-location">
-                  <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">floor</span>
+                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
+                      floor
+                    </span>
                     <span className="font-medium text-white-ubi">Piso</span>
                   </div>
                   <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
                 </div>
               </div>
-            )}
+            ) : null}
 
-            {place && place.properties?.categories?.[0] && (
+            {place && place.properties?.categories?.[0] ? (
               <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3 text-blue-location">
-                      <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">category</span>
+                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
+                      category
+                    </span>
                     <span className="font-medium text-white-ubi">Categoría</span>
                   </div>
-                  <span className="text-white-ubi/80 font-light">{MapSiglas.get(place.properties.categories[0]) || "N/A"}</span>
+                  <span className="text-white-ubi/80 font-light">
+                    {MapSiglas.get(place.properties.categories[0]) || "N/A"}
+                  </span>
                 </div>
               </div>
-            )}
+            ) : null}
 
-            {place && place.properties?.campus && (
+            {place && place.properties?.campus ? (
               <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3 text-blue-location">
-                      <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">map</span>
+                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
+                      map
+                    </span>
                     <span className="font-medium text-white-ubi">Campus</span>
                   </div>
-                  <span className="text-white-ubi/80 font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
+                  <span className="text-white-ubi/80 font-light">
+                    {MapSiglas.get(place.properties.campus) || "N/A"}
+                  </span>
                 </div>
               </div>
-            )}
+            ) : null}
           </section>
 
-          {place?.properties.information && (
+          {place?.properties.information ? (
             <div className="space-y-2">
               <h3 className="text-lg font-semibold">Descripción</h3>
               <div className="bg-brown-medium rounded-md">
@@ -215,13 +225,15 @@ export default function Menu({ place, onClose }: MenuProps) {
                 </ReactMarkdown>
               </div>
             </div>
-          )}
+          ) : null}
         </div>
       ) : (
         <aside className="absolute top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
           <div className="w-full text-center my-6">
             <h1 className="text-2xl text-white-ubi select-none">
-              {place?.properties.identifier === "42-ALL" ? "Nueva ubicación" : `Edición de ${place?.properties.name} (Beta)`}
+              {place?.properties.identifier === "42-ALL"
+                ? "Nueva ubicación"
+                : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
           </div>
           <FormGeo

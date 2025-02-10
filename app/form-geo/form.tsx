@@ -170,7 +170,6 @@ export default function FormComponent({
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting, setFieldValue, values }) => (
             <Form className="space-y-12 text-md">
-
               <div className="space-y-4">
                 <label
                   className="flex items-center justify-center text-md font-medium text-white-ubi"
@@ -195,7 +194,7 @@ export default function FormComponent({
               </div>
 
               <div className="space-y-4">
-                <label 
+                <label
                   className="flex items-center justify-center text-md font-medium text-white-ubi"
                   htmlFor="categories"
                 >
@@ -227,20 +226,22 @@ export default function FormComponent({
                   <option value="shop">Tienda</option>
                   <option value="other">Otro</option>
                 </Field>
-                <ErrorMessage name="categories" component="div" className="text-blue-location font-semibold text-sm w-full text-left" />
+                <ErrorMessage
+                  name="categories"
+                  component="div"
+                  className="text-blue-location font-semibold text-sm w-full text-left"
+                />
               </div>
 
               {/* Continue applying the same style onwards */}
 
               <div className="space-y-4">
-                <label
-                  className="flex items-center justify-center text-md font-medium text-white-ubi"
-                  htmlFor="floor"
-                >
+                <label className="flex items-center justify-center text-md font-medium text-white-ubi" htmlFor="floor">
                   Piso
                 </label>
                 <p className="text-xs text-white-ubi text-center italic">
-                  Si corresponde, selecciona el piso en el que se encuentra la ubicación. En caso que no aplique, selecciona 1
+                  Si corresponde, selecciona el piso en el que se encuentra la ubicación. En caso que no aplique,
+                  selecciona 1
                 </p>
                 <div className="flex items-center gap-2 w-full">
                   <Field
@@ -264,7 +265,11 @@ export default function FormComponent({
                     +
                   </button>
                 </div>
-                <ErrorMessage className="text-blue-location font-bold text-sm w-full text-left" name="floor" component="div" />
+                <ErrorMessage
+                  className="text-blue-location font-bold text-sm w-full text-left"
+                  name="floor"
+                  component="div"
+                />
               </div>
 
               <div className="space-y-4">
@@ -274,9 +279,7 @@ export default function FormComponent({
                 >
                   Descripción (Opcional)
                 </label>
-                <p className="text-xs text-white-ubi text-center italic">
-                  ¡Cuéntanos más sobre esta ubicación!
-                </p>
+                <p className="text-xs text-white-ubi text-center italic">¡Cuéntanos más sobre esta ubicación!</p>
                 <Field
                   className="block p-3 w-full h-36 text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
                   name="information"
@@ -292,9 +295,6 @@ export default function FormComponent({
                 >
                   Ubicación
                 </label>
-                <p className="text-xs text-white-ubi text-center italic">
-                  Selecciona la categoría que consideres que más corresponda
-                </p>
                 <div className="flex p-3 w-full h-96 rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2">
                   <Suspense>
                     <MapComponent
@@ -311,10 +311,10 @@ export default function FormComponent({
                   name="longitude"
                   component="div"
                 />
-                <ErrorMessage 
-                  className="text-blue-location font-bold text-sm w-full text-left" 
-                  name="latitude" 
-                  component="div" 
+                <ErrorMessage
+                  className="text-blue-location font-bold text-sm w-full text-left"
+                  name="latitude"
+                  component="div"
                 />
               </div>
 
@@ -325,7 +325,6 @@ export default function FormComponent({
               >
                 Enviar
               </button>
-
             </Form>
           )}
         </Formik>

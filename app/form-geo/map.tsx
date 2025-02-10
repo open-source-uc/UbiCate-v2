@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
@@ -108,8 +107,12 @@ export default function MapComponent(props: MapProps) {
               onDragEnd={onMarkerDragEnd}
               style={{ zIndex: 1 }}
             >
-              <div className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}>
-                <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">fiber_manual_record</span>
+              <div
+                className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}
+              >
+                <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">
+                  fiber_manual_record
+                </span>
               </div>
             </Marker>
           ) : null}
