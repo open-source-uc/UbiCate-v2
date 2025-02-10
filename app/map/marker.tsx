@@ -88,7 +88,7 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
         }}
       >
         <div
-          className={`flex items-center justify-center w-4 h-4 rounded-full ${color} ${textColorClass} ring-brown-dark ring-1`}
+          className={`flex items-center justify-center w-4 h-4 rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1`}
         >
           {/* The hardcoded style is not the most efficient or pretty way to do it, but it's the way to change the size using Material Symbols. text-sm did not work*/}
           <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">

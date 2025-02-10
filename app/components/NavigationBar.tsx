@@ -74,26 +74,26 @@ export default function Sidebar() {
         <aside className="fixed inset-y-0 left-0 bg-brown-dark/96 backdrop-blur-lg text-white-ubi flex flex-col z-50">
           <div className="flex flex-col items-center py-8 px-4 space-y-6">
             <div className="mb-9 flex justify-center">
-              <button onClick={toggleSidebar} className="hover:text-brown-medium">
+              <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
                 <span className="material-symbols-outlined self-center">dock_to_right</span>
               </button>
             </div>
             <button
               onClick={() => handleCollapsedClick("buscar")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium"
+              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
               <span className="material-symbols-outlined">search</span>
             </button>
             <button
               onClick={() => handleCollapsedClick("campus")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium"
+              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
               <span className="material-symbols-outlined">map</span>
             </button>
             <button
               onClick={() => handleCollapsedClick("guías")}
               disabled
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 cursor-not-allowed pointer-events-none"
+              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 pointer-events-auto cursor-pointer"
             >
               <span className="material-symbols-outlined">menu_book</span>
             </button>
@@ -114,7 +114,7 @@ export default function Sidebar() {
               <img src="/long-logo.svg" className="pl-2" alt="Logo" width={"120rm"} />
             </Link>
             <div className="flex-row-reverse">
-              <button onClick={toggleSidebar} className="hover:text-brown-medium">
+              <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
                 <span className="material-symbols-outlined">dock_to_right</span>
               </button>
             </div>
@@ -125,7 +125,7 @@ export default function Sidebar() {
             <div className="pt-5 space-y-2">
               <button
                 onClick={() => toggleSubSidebar("buscar")}
-                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium"
+                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
@@ -138,7 +138,7 @@ export default function Sidebar() {
               </button>
               <button
                 onClick={() => toggleSubSidebar("campus")}
-                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium"
+                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
@@ -152,7 +152,7 @@ export default function Sidebar() {
               <button
                 onClick={() => toggleSubSidebar("guías")}
                 disabled
-                className="w-full flex items-center space-x-4 p-2 rounded-sm opacity-50 cursor-not-allowed pointer-events-none"
+                className="w-full flex items-center space-x-4 p-2 rounded-sm opacity-50 pointer-events-auto cursor-pointer"
               >
                 <span className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}>
                   <span className="material-symbols-outlined">menu_book</span>

@@ -168,41 +168,54 @@ export default function Menu({ place, onClose }: MenuProps) {
             </DropdownMenu>
           </section>
 
-          <section>
-            {place && place.properties?.floors && place.properties.floors.length > 0 ? (
-              <div className="flex justify-between">
-                <span className="font-semibold">Piso/s:</span>
-                <span className="flex gap-2">{place.properties.floors.join(", ")}</span>
+          <section className="divide-y divide-brown-light/30">
+            {place && place.properties?.floors && place.properties.floors.length > 0 && (
+              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3 text-blue-location">
+                  <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">floor</span>
+                    <span className="font-medium text-white-ubi">Piso</span>
+                  </div>
+                  <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
+                </div>
               </div>
-            ) : null}
+            )}
 
-            {place && place.properties?.categories?.[0] ? (
-              <div className="flex justify-between">
-                <span className="font-semibold">Categoría:</span>
-                <span>{MapSiglas.get(place.properties.categories[0]) || "N/A"}</span>
+            {place && place.properties?.categories?.[0] && (
+              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3 text-blue-location">
+                      <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">category</span>
+                    <span className="font-medium text-white-ubi">Categoría</span>
+                  </div>
+                  <span className="text-white-ubi/80 font-light">{MapSiglas.get(place.properties.categories[0]) || "N/A"}</span>
+                </div>
               </div>
-            ) : null}
+            )}
 
-            {place && place.properties?.campus ? (
-              <div className="flex justify-between">
-                <span className="font-semibold">Campus:</span>
-                <span>{MapSiglas.get(place.properties.campus) || "N/A"}</span>
+            {place && place.properties?.campus && (
+              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3 text-blue-location">
+                      <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">map</span>
+                    <span className="font-medium text-white-ubi">Campus</span>
+                  </div>
+                  <span className="text-white-ubi/80 font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
+                </div>
               </div>
-            ) : null}
-
-            <h3 className="text-xl font-semibold mt-4">Información</h3>
-            <div className="mt-2 min-h-16">
-              {place ? (
-                place.properties.information === "" ? (
-                  "N/A"
-                ) : (
-                  <ReactMarkdown className="prose dark:prose-invert">{place.properties.information}</ReactMarkdown>
-                )
-              ) : (
-                "N/A"
-              )}
-            </div>
+            )}
           </section>
+
+          {place?.properties.information && (
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold">Descripción</h3>
+              <div className="bg-brown-medium rounded-md">
+                <ReactMarkdown className="text-white-ubi text-prose p-2 dark:prose-invert">
+                  {place.properties.information}
+                </ReactMarkdown>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <aside className="absolute top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
