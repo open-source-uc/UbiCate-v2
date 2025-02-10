@@ -33,7 +33,7 @@ export default function NavegateToCampus() {
 
   useEffect(() => {
     refFunctionClickOnResult.current = null;
-  });
+  }, []);
 
   return null;
 }
