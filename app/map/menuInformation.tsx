@@ -208,9 +208,7 @@ export default function Menu({ place, onClose }: MenuProps) {
                     </span>
                     <span className="font-medium text-white-ubi">Campus</span>
                   </div>
-                  <span className="text-white-ubi font-light">
-                    {MapSiglas.get(place.properties.campus) || "N/A"}
-                  </span>
+                  <span className="text-white-ubi font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
                 </div>
               </div>
             ) : null}

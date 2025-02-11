@@ -178,7 +178,8 @@ export default function FormComponent({
                   Nombre de la Ubicación
                 </label>
                 <p className="text-xs text-white-ubi italic text-center">
-                  Ejemplo: "Sala de Estudio", "Fork", "Departamento de Ciencia de la Computación"
+                  Ejemplo: &quot;Sala de Estudio&quot;, &quot;Fork&quot;, &quot;Departamento de Ciencia de la
+                  Computación&quot;
                 </p>
                 <Field
                   className="block p-3 w-full text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
