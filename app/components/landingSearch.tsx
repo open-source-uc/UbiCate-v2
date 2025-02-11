@@ -1,19 +1,22 @@
 "use client";
-import { useRouter } from "next/navigation";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import "../custom-landing-geocoder.css";
+import { useSidebar } from "../context/sidebarCtx";
 import useGeocoder from "../hooks/useGeocoder";
 
 export default function LandingSearch() {
   const geocoderContainer = useRef<HTMLDivElement>(null);
+  const fun = useRef<null>(null);
+  const { refFunctionClickOnResult } = useSidebar();
 
-  const router = useRouter();
+  // Poner la funcion por defecto del serachbox de la sidebar
+  useEffect(() => {
+    refFunctionClickOnResult.current = null;
+  }, [refFunctionClickOnResult]);
 
-  useGeocoder(geocoderContainer, (place) => {
-    router.push("/map?place=" + place.properties.identifier);
-  });
+  useGeocoder(geocoderContainer, fun);
 
   return (
     <div className="flex justify-center w-full">

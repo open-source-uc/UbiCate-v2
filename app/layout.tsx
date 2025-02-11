@@ -1,18 +1,21 @@
-import { Inter } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 
 import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+
 import { Suspense } from "react";
 
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
-import Header from "./components/header";
-import Overlay from "./components/overlay";
-import Sidebar from "./components/sidebar";
+import NavigationBar from "./components/NavigationBar";
 import { SidebarProvider } from "./context/sidebarCtx";
 
-const inter = Inter({ subsets: ["latin"] });
+const instrument_sans = Instrument_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-sans",
+});
 
 export const metadata: Metadata = {
   title: "UbíCate UC",
@@ -49,18 +52,23 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
-      <body className={`h-full pb-[-12px] dark:bg-dark-1 ${inter.className}`}>
-        <SidebarProvider>
-          <Overlay />
-          <div className="w-full h-dvh flex-col justify-between pb-12 dark:bg-dark-1">
-            <Header />
+    <html lang="es" className={`${instrument_sans.variable}`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+      </head>
+      <body className="h-full pb-[-12px] dark:bg-dark-1">
+        {/*No sacar el Suspense, pues si se saca fallara el build pues al ser el sidebarprovider un componente de cliente y layout uno de server, nextjs no sabra que hacer y dara error */}
+        <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">
+          <SidebarProvider>
             <Suspense>
-              <Sidebar />
+              <NavigationBar />
             </Suspense>
             {children}
-          </div>
-        </SidebarProvider>
+          </SidebarProvider>
+        </div>
       </body>
     </html>
   );

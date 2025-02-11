@@ -17,7 +17,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
   const placeName = paramPlace?.properties?.name || "";
 
   return {
-    title: placeName ? `UbíCate UC - ${placeName}` : "UbíCate UC - Mapa",
+    title: placeName ? `Ubicate - ${placeName}` : "Ubicate - Mapa",
     openGraph: {
       images: [
         {

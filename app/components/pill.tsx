@@ -1,45 +1,24 @@
-import { Inter } from "next/font/google";
-import Image from "next/image";
-
 import React from "react";
 
 interface PillProps {
   title: string;
-  iconPath: string;
+  iconGoogle: string;
+  bg_color: string;
   active: boolean;
   onClick: () => void;
 }
 
-const inter = Inter({ subsets: ["latin"] });
-
-function Pill({ title, iconPath, onClick, active }: PillProps) {
+function Pill({ title, iconGoogle, onClick, active, bg_color }: PillProps) {
   return (
-    <button onClick={onClick} type="button">
-      <section
-        className={`
-          ${active ? "bg-sky-600 text-white transition-transform duration-300" : "bg-white"}
-          pointer-events-auto cursor-pointer
-          min-h-[36px] max-h-[36px] rounded-full
-          flex justify-center items-center font-semibold px-2 min-w-5
-          transition-colors duration-300 ease-in-out
-          ${inter.className}
-        `}
-      >
-        <span className="px-2 whitespace-nowrap">{title}</span>
-        <div>
-          <Image
-            className={`
-              pe-2 max-map-sm:pe-0 
-              w-3 h-3 min-w-[24px] min-h-[24px]
-              ${active ? "invert" : ""}
-            `}
-            src={iconPath}
-            alt="icon"
-            width={16}
-            height={16}
-          />
-        </div>
-      </section>
+    <button
+      onClick={onClick}
+      type="button"
+      className="rounded-lg w-full flex justify-left items-center px-2 py-1 bg-brown-medium text-white-ubi pointer-events-auto cursor-pointer text-md hover:bg-brown-light focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+    >
+      <div className={`flex items-center justify-center w-8 h-8 rounded-full ${bg_color}`}>
+        <span className="material-symbols-outlined">{iconGoogle}</span>
+      </div>
+      <span className="px-2 whitespace-nowrap">{title}</span>
     </button>
   );
 }
