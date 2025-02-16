@@ -3,7 +3,6 @@
 import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import PillFilter from "../components/pillFilter";
 
 import { bbox } from "@turf/bbox";
 import "../custom-landing-geocoder.css";
@@ -30,6 +29,7 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
+import PillFilter from "../components/pillFilter";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
@@ -353,7 +353,7 @@ export default function MapComponent({
 
   return (
     <>
-        <Map
+      <Map
         mapStyle="mapbox://styles/mapbox/navigation-guidance-night-v4"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(
@@ -379,7 +379,7 @@ export default function MapComponent({
       >
         {/* <FullscreenControl position="top-left" /> */}
         <aside className="desktop:hidden">
-            <PillFilter setFilteredPlaces={setPlaces} />
+          <PillFilter setFilteredPlaces={setPlaces} />
         </aside>
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>

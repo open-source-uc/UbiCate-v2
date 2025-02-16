@@ -7,10 +7,10 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
+import { useSwipeableDrawer } from "../hooks/useSwipeableDrawer";
 import MenuInformation from "../map/menuInformation";
 
 import PillFilter from "./pillFilter";
-import { useSwipeableDrawer } from "../hooks/useSwipeableDrawer";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
@@ -74,10 +74,10 @@ export default function Sidebar() {
     <>
       {/* Pills for Mobile and Tablet */}
 
-
       {/* Collapsed Sidebar */}
       {!isOpen && (
-        <aside className={`
+        <aside
+          className={`
           fixed 
           bg-brown-dark/96 
           backdrop-blur-lg 
@@ -97,11 +97,12 @@ export default function Sidebar() {
           desktop:h-full
           desktop:w-auto
         `}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          <div className={`
+          <div
+            className={`
             flex 
             items-center 
             p-4 
@@ -110,8 +111,8 @@ export default function Sidebar() {
 
             desktop:py-8
             desktop:space-y-6
-          `}>
-
+          `}
+          >
             {/* Options available for Tablet and Mobile */}
             <button
               onClick={toggleSidebar}
@@ -153,21 +154,24 @@ export default function Sidebar() {
         className={`
           fixed bg-brown-dark/96 backdrop-blur-lg text-white-ubi text-snow transform transition-transform duration-300 z-50
           /* Desktop */
-          desktop:inset-y-0 desktop:left-0 desktop:w-64 ${isOpen ? "desktop:translate-x-0" : "desktop:-translate-x-full"}
+          desktop:inset-y-0 desktop:left-0 desktop:w-64 ${
+            isOpen ? "desktop:translate-x-0" : "desktop:-translate-x-full"
+          }
           /* Mobile & Tablet */
-          max-desktop:inset-x-0 max-desktop:bottom-0 max-desktop:h-64 ${isOpen ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}
+          max-desktop:inset-x-0 max-desktop:bottom-0 max-desktop:h-64 ${
+            isOpen ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"
+          }
         `}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div className="flex flex-col h-full py-5 px-4 space-y-6">
-
-           {/* Option available for Tablet and Mobile */}
-           <button
-              onClick={toggleSidebar}
-              className="desktop:hidden w-full p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
-              aria-label="Toggle sidebar"
+          {/* Option available for Tablet and Mobile */}
+          <button
+            onClick={toggleSidebar}
+            className="desktop:hidden w-full p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
+            aria-label="Toggle sidebar"
           />
 
           {/* Logo and Button to Close Sidebar | Desktop Only */}
@@ -250,15 +254,19 @@ export default function Sidebar() {
 
         {/* Sub Sidebar inside Expanded Sidebar */}
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
-        <aside
-          className={`
+          <aside
+            className={`
             absolute bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60
             /* Desktop: Positioned to the right */
-            desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"}
+            desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light ${
+              activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
+            }
             /* Mobile & Tablet: Positioned above the expanded sidebar */
-            max-desktop:inset-x-0 max-desktop:bottom-full max-desktop:h-64 max-desktop:border-t-1 max-desktop:border-brown-light ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}
+            max-desktop:inset-x-0 max-desktop:bottom-full max-desktop:h-64 max-desktop:border-t-1 max-desktop:border-brown-light ${
+              activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"
+            }
           `}
-        >
+          >
             <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
                 <>
