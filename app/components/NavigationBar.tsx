@@ -71,29 +71,56 @@ export default function Sidebar() {
     <>
       {/* Collapsed Sidebar */}
       {!isOpen && (
-        <aside className="fixed inset-y-0 left-0 bg-brown-dark/96 backdrop-blur-lg text-white-ubi flex flex-col z-50">
-          <div className="flex flex-col items-center py-8 px-4 space-y-6">
-            <div className="mb-9 flex justify-center">
+        <aside className={`
+          fixed 
+          bg-brown-dark/96 
+          backdrop-blur-lg 
+          text-white-ubi 
+          flex 
+          flex-col 
+          z-50
+          
+          /* Mobile & Tablet */
+          max-desktop:inset-x-0
+          max-desktop:bottom-0
+          max-desktop:h-24
+          
+          /* Desktop */
+          desktop:left-0
+          desktop:inset-y-0
+          desktop:h-full
+          desktop:w-auto
+        `}>
+          <div className={`
+            flex 
+            items-center 
+            py-8 
+            px-4 
+            space-y-6
+
+            desktop:flex-col
+          `}>
+            <div className="max-desktop:hidden mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
                 <span className="material-symbols-outlined self-center">dock_to_right</span>
               </button>
             </div>
             <button
               onClick={() => handleCollapsedClick("buscar")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
+              className="max-desktop:hidden w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
               <span className="material-symbols-outlined">search</span>
             </button>
             <button
               onClick={() => handleCollapsedClick("campus")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
+              className="max-desktop:hidden w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
               <span className="material-symbols-outlined">map</span>
             </button>
             <button
               onClick={() => handleCollapsedClick("guías")}
               disabled
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 pointer-events-auto cursor-pointer"
+              className="max-desktop:hidden w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 pointer-events-auto cursor-pointer"
             >
               <span className="material-symbols-outlined">menu_book</span>
             </button>
