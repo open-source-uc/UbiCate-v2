@@ -10,6 +10,7 @@ import { useSidebar } from "../context/sidebarCtx";
 import MenuInformation from "../map/menuInformation";
 
 import PillFilter from "./pillFilter";
+import { useSwipeableDrawer } from "../hooks/useSwipeableDrawer";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
@@ -19,6 +20,8 @@ export default function Sidebar() {
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
+
+  const { handleTouchStart, handleTouchMove, handleTouchEnd } = useSwipeableDrawer(toggleSidebar);
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
@@ -69,6 +72,9 @@ export default function Sidebar() {
 
   return (
     <>
+      {/* Pills for Mobile and Tablet */}
+
+
       {/* Collapsed Sidebar */}
       {!isOpen && (
         <aside className={`
@@ -90,16 +96,30 @@ export default function Sidebar() {
           desktop:inset-y-0
           desktop:h-full
           desktop:w-auto
-        `}>
+        `}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        >
           <div className={`
             flex 
             items-center 
-            py-8 
-            px-4 
-            space-y-6
+            p-4 
+            space-y-4
+            flex-col
 
-            desktop:flex-col
+            desktop:py-8
+            desktop:space-y-6
           `}>
+
+            {/* Options available for Tablet and Mobile */}
+            <button
+              onClick={toggleSidebar}
+              className="desktop:hidden w-full p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
+              aria-label="Toggle sidebar"
+            />
+
+            {/* Options available for Desktop */}
             <div className="max-desktop:hidden mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
                 <span className="material-symbols-outlined self-center">dock_to_right</span>
@@ -130,13 +150,28 @@ export default function Sidebar() {
 
       {/* Expanded Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 bg-brown-dark/96 backdrop-blur-lg text-white-ubi text-snow transform transition-transform duration-300 z-50 ${
-          isOpen ? "translate-x-0 w-64" : "-translate-x-full"
-        }`}
+        className={`
+          fixed bg-brown-dark/96 backdrop-blur-lg text-white-ubi text-snow transform transition-transform duration-300 z-50
+          /* Desktop */
+          desktop:inset-y-0 desktop:left-0 desktop:w-64 ${isOpen ? "desktop:translate-x-0" : "desktop:-translate-x-full"}
+          /* Mobile & Tablet */
+          max-desktop:inset-x-0 max-desktop:bottom-0 max-desktop:h-64 ${isOpen ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}
+        `}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div className="flex flex-col h-full py-5 px-4 space-y-6">
-          {/* Logo and Button to Close Sidebar */}
-          <div className="flex items-center justify-between">
+
+           {/* Option available for Tablet and Mobile */}
+           <button
+              onClick={toggleSidebar}
+              className="desktop:hidden w-full p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
+              aria-label="Toggle sidebar"
+          />
+
+          {/* Logo and Button to Close Sidebar | Desktop Only */}
+          <div className="max-desktop:hidden flex items-center justify-between">
             <Link href="/">
               <img src="/long-logo.svg" className="pl-2" alt="Logo" width={"120rm"} />
             </Link>
@@ -152,7 +187,7 @@ export default function Sidebar() {
             <div className="pt-5 space-y-2">
               <button
                 onClick={() => toggleSubSidebar("buscar")}
-                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
+                className="max-desktop:hidden w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
@@ -215,11 +250,15 @@ export default function Sidebar() {
 
         {/* Sub Sidebar inside Expanded Sidebar */}
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
-          <aside
-            className={`absolute top-0 left-full h-full w-96 border-l-1 border-brown-light bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60 ${
-              activeSubSidebar ? "translate-x-0" : "translate-x-full"
-            }`}
-          >
+        <aside
+          className={`
+            absolute bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60
+            /* Desktop: Positioned to the right */
+            desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"}
+            /* Mobile & Tablet: Positioned above the expanded sidebar */
+            max-desktop:inset-x-0 max-desktop:bottom-full max-desktop:h-64 max-desktop:border-t-1 max-desktop:border-brown-light ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}
+          `}
+        >
             <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
                 <>

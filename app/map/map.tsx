@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import PillFilter from "../components/pillFilter";
 
 import { bbox } from "@turf/bbox";
 import "../custom-landing-geocoder.css";
@@ -333,8 +334,8 @@ export default function MapComponent({
     const title = document.querySelector("title");
     if (title) {
       title.textContent = place
-        ? `${siglas.get(place.properties.categories[0]) ?? "UbíCate"} - ${place.properties.name}`
-        : "UbíCate UC - Mapa";
+        ? `${siglas.get(place.properties.categories[0]) ?? "Ubicate"} - ${place.properties.name}`
+        : "UbicateUC - Mapa";
     }
 
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -352,7 +353,7 @@ export default function MapComponent({
 
   return (
     <>
-      <Map
+        <Map
         mapStyle="mapbox://styles/mapbox/navigation-guidance-night-v4"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(
@@ -377,6 +378,9 @@ export default function MapComponent({
         ref={mapRef}
       >
         {/* <FullscreenControl position="top-left" /> */}
+        <aside className="desktop:hidden">
+            <PillFilter setFilteredPlaces={setPlaces} />
+        </aside>
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />

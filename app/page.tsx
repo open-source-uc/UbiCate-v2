@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="flex max-h-screen flex-col items-center justify-between py-10 px-3">
       <div className="relative flex place-items-center">
-        <Image className="" src="/logo.svg" alt="UbíCate uc" width={180} height={37} priority />
+        <Image className="" src="/logo.svg" alt="Ubicate UC" width={180} height={37} priority />
       </div>
       <section className="justify-center w-full align-middle items-center">
         {/* En el siguiente componente se maneja la logica de auto navete al campus la primera vez que se entra */}
