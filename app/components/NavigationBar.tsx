@@ -7,7 +7,6 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { useSidebar } from "../context/sidebarCtx";
-import { useSwipeableDrawer } from "../hooks/useSwipeableDrawer";
 import MenuInformation from "../map/menuInformation";
 
 import PillFilter from "./pillFilter";
@@ -20,8 +19,6 @@ export default function Sidebar() {
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
-
-  const { handleTouchStart, handleTouchMove, handleTouchEnd } = useSwipeableDrawer(toggleSidebar);
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
@@ -72,8 +69,6 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Pills for Mobile and Tablet */}
-
       {/* Collapsed Sidebar */}
       {!isOpen && (
         <aside
@@ -97,9 +92,6 @@ export default function Sidebar() {
           desktop:h-full
           desktop:w-auto
         `}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
           <div
             className={`
@@ -158,13 +150,10 @@ export default function Sidebar() {
             isOpen ? "desktop:translate-x-0" : "desktop:-translate-x-full"
           }
           /* Mobile & Tablet */
-          max-desktop:inset-x-0 max-desktop:bottom-0 max-desktop:h-64 ${
+          max-desktop:inset-x-0 max-desktop:bottom-0 max-desktop:h-120 ${
             isOpen ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"
           }
         `}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         <div className="flex flex-col h-full py-5 px-4 space-y-6">
           {/* Option available for Tablet and Mobile */}
@@ -229,9 +218,9 @@ export default function Sidebar() {
           </nav>
 
           {/* Sections for Feedback and OSUC */}
-          <div className="flex-col space-y-4">
+          <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2 mobile:flex-row tablet:flex-row desktop:flex-col desktop:space-y-4 desktop:gap-0">
             <div className="w-full rounded-xl bg-brown-light">
-              <div className="text-xs text-white-blue p-4">
+              <div className="text-xs text-white-blue p-4 mobile:p-3 tablet:p-4">
                 ¿Crees que algo falta?
                 <Link
                   href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
@@ -242,8 +231,8 @@ export default function Sidebar() {
               </div>
             </div>
             <div className="w-full rounded-xl bg-blue-location">
-              <div className="text-xs text-white-blue p-4">
-                Proyecto desarrollado por
+              <div className="text-xs text-white-blue p-4 mobile:p-3 tablet:p-4">
+                Desarrollado por
                 <a href="https://osuc.dev" className="font-semibold block hover:underline">
                   Open Source eUC
                 </a>
@@ -256,16 +245,16 @@ export default function Sidebar() {
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
           <aside
             className={`
-            absolute bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60
-            /* Desktop: Positioned to the right */
-            desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light ${
-              activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
-            }
-            /* Mobile & Tablet: Positioned above the expanded sidebar */
-            max-desktop:inset-x-0 max-desktop:bottom-full max-desktop:h-64 max-desktop:border-t-1 max-desktop:border-brown-light ${
-              activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"
-            }
-          `}
+          absolute bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60
+          /* Desktop: Positioned to the right */
+          desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light ${
+            activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
+          }
+          /* Mobile & Tablet: Positioned overlaying the expanded sidebar */
+          max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light ${
+            activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"
+          }
+        `}
           >
             <div className="py-7 px-4 space-y-6">
               {activeSubSidebar === "buscar" && (
@@ -283,9 +272,9 @@ export default function Sidebar() {
               {activeSubSidebar === "campus" && (
                 <>
                   <h3 className="font-bold text-lg">Campus</h3>
-                  <div className="w-full space-y-4">
+                  <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
                     <button
-                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                       onClick={() => handleCampusClick("SanJoaquin")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("SanJoaquin")}
                       aria-label="Navega a Campus San Joaquín"
@@ -301,15 +290,15 @@ export default function Sidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
+                        <span className="text-white-ubi text-sm mobile:text-md font-semibold" aria-hidden="true">
                           San Joaquín
                         </span>
                       </div>
                     </button>
 
                     <button
-                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                       onClick={() => handleCampusClick("CasaCentral")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("CasaCentral")}
                       aria-label="Navega a Campus Casa Central"
@@ -325,15 +314,15 @@ export default function Sidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
+                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
                           Casa Central
                         </span>
                       </div>
                     </button>
 
                     <button
-                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                       onClick={() => handleCampusClick("Oriente")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Oriente")}
                       aria-label="Navega a Campus Oriente"
@@ -349,15 +338,15 @@ export default function Sidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
+                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
                           Oriente
                         </span>
                       </div>
                     </button>
 
                     <button
-                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                       onClick={() => handleCampusClick("LoContador")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("LoContador")}
                       aria-label="Navega a Campus Lo Contador"
@@ -373,15 +362,15 @@ export default function Sidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
+                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
                           Lo Contador
                         </span>
                       </div>
                     </button>
 
                     <button
-                      className="relative w-full h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] col-span-2 md:col-span-1 rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                       onClick={() => handleCampusClick("Villarrica")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Villarrica")}
                       aria-label="Navega a Campus Villarrica"
@@ -397,8 +386,8 @@ export default function Sidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-4">
-                        <span className="text-white-ubi text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
+                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
                           Villarrica
                         </span>
                       </div>

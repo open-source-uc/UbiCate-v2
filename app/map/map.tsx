@@ -29,7 +29,6 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import PillFilter from "../components/pillFilter";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
@@ -354,7 +353,7 @@ export default function MapComponent({
   return (
     <>
       <Map
-        mapStyle="mapbox://styles/mapbox/navigation-guidance-night-v4"
+        mapStyle="mapbox://styles/ignaciopalma/cm7jy1kyc000j01su65wqgz0e"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(
           params.get("campus") ?? localStorage.getItem("defaultCampus") ?? null,
@@ -378,9 +377,14 @@ export default function MapComponent({
         ref={mapRef}
       >
         {/* <FullscreenControl position="top-left" /> */}
+
+        {/* Pills for Mobile and Tablet */}
+        {/*
         <aside className="desktop:hidden">
           <PillFilter setFilteredPlaces={setPlaces} />
         </aside>
+        */}
+
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
