@@ -318,7 +318,7 @@ export default function MapComponent({
   return (
     <>
       {/*Esto esta afuera de map pues si fuera adentro podria pasar que el map no se rendirizara lo que deja la ref en null, provocando que no se agregue el geocoder o mejor conocido como searchbox */}
-      <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} />
+      <MapNavbar ref={refMapNavbar} setGeocoderPlaces={setGeocoderPlaces} setMenu={setMenu} />
       <Map
         mapStyle={`mapbox://styles/mapbox/${theme}`}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}

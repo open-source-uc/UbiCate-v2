@@ -8,21 +8,29 @@ interface PillProps {
   iconPath: string;
   active: boolean;
   onClick: () => void;
+  className?: string;
+  activateClassName?: string;
 }
 
 const inter = Inter({ subsets: ["latin"] });
 
-function Pill({ title, iconPath, onClick, active }: PillProps) {
+function Pill({
+  title,
+  iconPath,
+  onClick,
+  active,
+  className = "bg-white",
+  activateClassName = "bg-sky-600",
+}: PillProps) {
   return (
     <button onClick={onClick} type="button">
       <section
-        className={`
-          ${active ? "bg-sky-600 text-white transition-transform duration-300" : "bg-white"}
+        className={` 
+          ${active ? `${activateClassName} text-white transition-transform duration-300` : className}
           pointer-events-auto cursor-pointer
           min-h-[36px] max-h-[36px] rounded-full
           flex justify-center items-center font-semibold px-2 min-w-5
           transition-colors duration-300 ease-in-out
-          ${inter.className}
         `}
       >
         <span className="px-2 whitespace-nowrap">{title}</span>
