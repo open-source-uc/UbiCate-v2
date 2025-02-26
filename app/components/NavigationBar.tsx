@@ -74,8 +74,8 @@ export default function Sidebar() {
         <aside
           className={`
           fixed 
-          bg-brown-dark/96 
-          backdrop-blur-lg 
+          bg-brown-dark/95
+          backdrop-blur-sm 
           text-white-ubi 
           flex 
           flex-col 
@@ -108,7 +108,7 @@ export default function Sidebar() {
             {/* Options available for Tablet and Mobile */}
             <button
               onClick={toggleSidebar}
-              className="desktop:hidden w-full p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
+              className="desktop:hidden mx-auto w-1/8 p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
               aria-label="Toggle sidebar"
             />
 
@@ -144,7 +144,7 @@ export default function Sidebar() {
       {/* Expanded Sidebar */}
       <aside
         className={`
-          fixed bg-brown-dark/96 backdrop-blur-lg text-white-ubi text-snow transform transition-transform duration-300 z-50
+          fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50
           /* Desktop */
           desktop:inset-y-0 desktop:left-0 desktop:w-64 ${
             isOpen ? "desktop:translate-x-0" : "desktop:-translate-x-full"
@@ -155,11 +155,11 @@ export default function Sidebar() {
           }
         `}
       >
-        <div className="flex flex-col h-full py-5 px-4 space-y-6">
+        <div className="flex flex-col h-full py-5 px-4 space-y-4">
           {/* Option available for Tablet and Mobile */}
           <button
             onClick={toggleSidebar}
-            className="desktop:hidden w-full p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
+            className="desktop:hidden mx-auto w-1/8 p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
             aria-label="Toggle sidebar"
           />
 
@@ -176,8 +176,8 @@ export default function Sidebar() {
           </div>
 
           {/* Navigation Options */}
-          <nav className="flex-1">
-            <div className="pt-5 space-y-2">
+          <nav className="desktop:flex-1">
+            <div className="pt-5 space-y-2 flex desktop:flex-col">
               <button
                 onClick={() => toggleSubSidebar("buscar")}
                 className="max-desktop:hidden w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
@@ -191,29 +191,34 @@ export default function Sidebar() {
                 </span>
                 <span className="text-md">Buscar</span>
               </button>
-              <button
-                onClick={() => toggleSubSidebar("campus")}
-                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
-              >
-                <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                  }`}
-                >
-                  <span className="material-symbols-outlined">map</span>
-                </span>
-                <p className="text-md">Campus</p>
-              </button>
-              <button
-                onClick={() => toggleSubSidebar("guías")}
-                disabled
-                className="w-full flex items-center space-x-4 p-2 rounded-sm opacity-50 pointer-events-auto cursor-pointer"
-              >
-                <span className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}>
-                  <span className="material-symbols-outlined">menu_book</span>
-                </span>
-                <p className="text-md">Guías</p>
-              </button>
+              <div className="flex flex-1 flex-col space-y-2">
+                <p className="text-md font-semibold text-white-ubi desktop:hidden">Explora</p>
+                <div className="bg-brown-medium flex flex-1 rounded-lg p-2 mb-2 desktop:flex-col desktop:space-y-2 desktop:bg-transparent desktop:p-0 desktop:mb-0">
+                  <button
+                    onClick={() => toggleSubSidebar("campus")}
+                    className="w-full flex flex-col desktop:flex-row items-center justify-center desktop:justify-start space-x-0 desktop:space-x-4 p-2 rounded-md hover:bg-brown-light/20 pointer-events-auto cursor-pointer"
+                  >
+                    <span
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                        activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
+                      }`}
+                    >
+                      <span className="material-symbols-outlined">map</span>
+                    </span>
+                    <p className="text-sm tablet:text-md mt-1 desktop:mt-0">Campus</p>
+                  </button>
+                  <button
+                    onClick={() => toggleSubSidebar("guías")}
+                    disabled
+                    className="w-full flex flex-col desktop:flex-row items-center justify-center desktop:justify-start space-x-0 desktop:space-x-4 p-2 rounded-md opacity-50"
+                  >
+                    <span className={`w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light`}>
+                      <span className="material-symbols-outlined">menu_book</span>
+                    </span>
+                    <p className="text-sm tablet:text-md mt-1 desktop:mt-0">Guías</p>
+                  </button>
+                </div>
+              </div>
             </div>
           </nav>
 
@@ -245,7 +250,7 @@ export default function Sidebar() {
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
           <aside
             className={`
-          absolute bg-brown-dark/95 backdrop-blur-lg text-white-ubi transform transition-transform duration-300 z-60
+          absolute bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60
           /* Desktop: Positioned to the right */
           desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light ${
             activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
