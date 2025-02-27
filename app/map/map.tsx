@@ -353,7 +353,7 @@ export default function MapComponent({
   return (
     <>
       <Map
-        mapStyle="mapbox://styles/ignaciopalma/cm7jy1kyc000j01su65wqgz0e"
+        mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(
           params.get("campus") ?? localStorage.getItem("defaultCampus") ?? null,
