@@ -445,5 +445,3 @@ export default function MapComponent({
     </>
   );
 }
-
-export const runtime = "edge";
