@@ -33,6 +33,7 @@ import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
+import PillFilter from "../components/pillFilter";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -379,11 +380,9 @@ export default function MapComponent({
         {/* <FullscreenControl position="top-left" /> */}
 
         {/* Pills for Mobile and Tablet */}
-        {/*
         <aside className="desktop:hidden">
           <PillFilter setFilteredPlaces={setPlaces} />
         </aside>
-        */}
 
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>

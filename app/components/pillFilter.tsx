@@ -45,7 +45,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
   return (
     <div className="relative w-full max-w-full overflow-hidden pt-2">
       <div
-        className="flex flex-row desktop:flex-col overflow-x-auto scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firebox space-x-2 space-y-2 desktop:p-1"
+        className="flex flex-row desktop:flex-col overflow-x-auto scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firebox space-x-2 desktop:space-y-2 desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
         <style jsx>{`
@@ -55,8 +55,11 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
           .overflow-firebox {
             scrollbar-width: none; /* Hide scrollbar in Firefox */
           }
+          .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+          }
         `}</style>
-        <div className="snap-start">
+         <div className="snap-start flex-shrink-0">
           <Pill
             title="Baños"
             iconGoogle="wc"
@@ -65,7 +68,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "bath"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Comida"
             iconGoogle="restaurant"
@@ -74,7 +77,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "food_lunch"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Agua"
             iconGoogle="local_drink"
@@ -83,7 +86,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "water"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Crisol"
             iconGoogle="print"
@@ -92,7 +95,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "crisol"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Facultades"
             iconGoogle="school"
@@ -101,7 +104,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "faculty"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Bibliotecas"
             iconGoogle="local_library"
@@ -110,7 +113,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "biblioteca"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Salas de Estudio"
             iconGoogle="group"
@@ -119,7 +122,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "studyroom"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Auditorios"
             iconGoogle="book_2"
@@ -128,7 +131,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "auditorium"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Deportes"
             iconGoogle="sports_soccer"
@@ -137,7 +140,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             active={activeFilter === "sports_place"}
           />
         </div>
-        <div className="snap-start">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Estacionamientos"
             iconGoogle="local_parking"
