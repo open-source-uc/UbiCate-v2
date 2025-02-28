@@ -85,7 +85,8 @@ export default function MapComponent({
   const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, isOpen, toggleSidebar } = useSidebar();
+  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, isOpen, toggleSidebar } =
+    useSidebar();
 
   // const [hover, setHover] = useState<Feature | null>(null);
 
@@ -343,8 +344,9 @@ export default function MapComponent({
       metaDescription.setAttribute(
         "content",
         place
-          ? `Nombre: ${place.properties.name}; Categoria: ${siglas.get(place.properties.categories[0]) ?? "Sala"
-          }; Piso: ${place.properties.floors?.[0] ?? "N/A"}`
+          ? `Nombre: ${place.properties.name}; Categoria: ${
+              siglas.get(place.properties.categories[0]) ?? "Sala"
+            }; Piso: ${place.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
@@ -424,7 +426,7 @@ export default function MapComponent({
                 setTmpMark(null);
                 onClickMark(place);
               }}
-            // onMouseEnter={setHover}
+              // onMouseEnter={setHover}
             />
           );
         })}

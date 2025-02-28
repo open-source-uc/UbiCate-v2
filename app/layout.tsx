@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">
           <SidebarProvider>
             <Suspense>
-              <NavigationBar></NavigationBar>
+              <NavigationBar />
             </Suspense>
             {children}
           </SidebarProvider>
