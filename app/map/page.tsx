@@ -41,8 +41,8 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   const paramPlace: Feature | null = searchParams?.place
     ? (PlacesJSON.features.find(
-        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
-      ) as Feature) ?? null
+      (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
+    ) as Feature) ?? null
     : null;
 
   return (
@@ -53,5 +53,3 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
     </>
   );
 }
-
-export const runtime = "edge";

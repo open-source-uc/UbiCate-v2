@@ -49,3 +49,5 @@ export default function Home() {
     </main>
   );
 }
+
+export const runtime = "edge";
