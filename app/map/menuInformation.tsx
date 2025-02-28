@@ -126,7 +126,7 @@ export default function Menu({ place, onClose }: MenuProps) {
               aria-label="Ingresa a la página web de este lugar"
               role="navigation"
               tabIndex={0}
-              className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+              className="hidden p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
             >
               <span style={{ fontSize: "1.6rem" }} className="material-symbols-outlined">
                 explore
@@ -179,22 +179,6 @@ export default function Menu({ place, onClose }: MenuProps) {
                     <span className="font-medium text-white-ubi">Piso</span>
                   </div>
                   <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
-                </div>
-              </div>
-            ) : null}
-
-            {place && place.properties?.categories?.[0] ? (
-              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3 text-blue-location">
-                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
-                      category
-                    </span>
-                    <span className="font-medium text-white-ubi">Categoría</span>
-                  </div>
-                  <span className="text-white-ubi font-light">
-                    {MapSiglas.get(place.properties.categories[0]) || "N/A"}
-                  </span>
                 </div>
               </div>
             ) : null}
