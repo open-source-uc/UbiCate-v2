@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
+import { Feature } from "@/utils/types";
 
 import Pill from "./pill";
 
 interface PillFilterProps {
   setFilteredPlaces: ([]) => void;
+  setMenu: (place: Feature | null) => void;
 }
 
-function PillFilter({ setFilteredPlaces }: PillFilterProps) {
+function PillFilter({ setFilteredPlaces, setMenu }: PillFilterProps) {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -33,6 +35,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
       if (activeFilter === category) {
         setActiveFilter(null);
         setFilteredPlaces([]);
+        setMenu(null);
         return;
       }
 
@@ -121,6 +124,34 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
           }
         `}</style>
+        <Pill
+          title="Bienvenida Novata 2025"
+          iconPath="/categoryIcons/party_horn.svg"
+          className="bg-pink-300 text-gray-900"
+          activateClassName="bg-pink-400"
+          onClick={() => {
+            setMenu({
+              type: "Feature",
+              properties: {
+                identifier: "bienvenida_2025-01",
+                name: "¡Bienvenidos a la Búsqueda del Tesoro de OpenSource UC!",
+                information:
+                  " ¡Prepárate para una aventura en el campus San Joaquín de la Universidad Católica!\n En esta actividad, explorarás el mapa interactivo de nuestra universidad y te retamos a encontrar tres lugares clave.\n\n## ¿Cómo jugar?\n\n1. **Encuentra y fotografía tres lugares**: Descubre lugares secretos en el mapa y captura una foto de cada uno.\n2. **Vuelve al stand**: Trae tus fotos y ven a nuestro stand en OpenSource UC para confirmar tu participación.\n3. **Deja tus sugerencias**: ¿Tienes ideas? ¡Queremos escucharlas! Deja tus sugerencias en nuestro buzón y ayúdanos a mejorar.\n\nDiviértete, explora y ¡no olvides que hay premios esperándote!",
+                categories: ["bienvenida_novata"],
+                campus: "SJ",
+                faculties: "",
+                floors: [1],
+                needApproval: false,
+              },
+              geometry: {
+                type: "Point",
+                coordinates: [-70.58571815619236, -33.587804325654494],
+              },
+            });
+            applyFilter(categoryFilter, "bienvenida_novata");
+          }}
+          active={activeFilter === "bienvenida_novata"}
+        />
         <Pill
           title="Baños"
           iconPath="/categoryIcons/toilet.svg"
