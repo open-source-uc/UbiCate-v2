@@ -29,11 +29,11 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
+import PillFilter from "../components/pillFilter";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
-import PillFilter from "../components/pillFilter";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;

@@ -59,7 +59,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             -ms-overflow-style: none; /* IE and Edge */
           }
         `}</style>
-         <div className="snap-start flex-shrink-0">
+        <div className="snap-start flex-shrink-0">
           <Pill
             title="Baños"
             iconGoogle="wc"
