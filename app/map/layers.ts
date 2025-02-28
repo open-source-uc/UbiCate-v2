@@ -64,8 +64,8 @@ export const allPlacesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
-    "text-font": ["Instrument Sans"],
-    "text-size": 12,
+    "text-font": ["Open Sans Semibold"],
+    "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 0.5],
   },
@@ -81,8 +81,8 @@ export const allPlacesTextApprovalLayer: LayerProps = {
   filter: ["==", ["get", "needApproval"], true],
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
-    "text-font": ["Open Sans Bold"],
-    "text-size": 12,
+    "text-font": ["Open Sans Semibold"],
+    "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 0.5],
   },
@@ -97,7 +97,7 @@ export const placesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["get", "name"],
-    "text-font": ["Open Sans Bold"],
+    "text-font": ["Open Sans Semibold"],
     "text-size": 11,
     "text-anchor": "top",
   },
