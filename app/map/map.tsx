@@ -328,7 +328,7 @@ export default function MapComponent({
           En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
           Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
           */
-          setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
+          setCustomMark(e.lngLat.lng, e.lngLat.lat, false);
         }}
         ref={mapRef}
       >

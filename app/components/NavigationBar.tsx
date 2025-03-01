@@ -75,6 +75,12 @@ export function DesktopSidebar() {
     };
   }, [activeSubSidebar, geocoder]);
 
+  useEffect(() => {
+    if (isOpen === false) {
+      setActiveSubSidebar(null);
+    }
+  }, [isOpen]);
+
   return (
     <>
       {/* Sidebar colapsado */}
@@ -423,6 +429,12 @@ export function MobileSidebar() {
       clearInterval(interval);
     };
   }, []);
+
+  useEffect(() => {
+    if (isOpen === false) {
+      setActiveSubSidebar(null);
+    }
+  }, [isOpen]);
 
   return (
     <>
