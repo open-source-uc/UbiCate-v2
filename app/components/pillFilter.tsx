@@ -61,6 +61,42 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
         `}</style>
         <div className="snap-start flex-shrink-0">
           <Pill
+            title="Facultades"
+            iconGoogle="school"
+            bg_color="bg-deep-red-option"
+            onClick={() => applyFilter(categoryFilter, "faculty")}
+            active={activeFilter === "faculty"}
+          />
+        </div>
+        <div className="snap-start flex-shrink-0">
+          <Pill
+            title="Salas de Estudio"
+            iconGoogle="group"
+            bg_color="bg-red-option"
+            onClick={() => applyFilter(categoryFilter, "studyroom")}
+            active={activeFilter === "studyroom"}
+          />
+        </div>
+        <div className="snap-start flex-shrink-0">
+          <Pill
+            title="Auditorios"
+            iconGoogle="book_2"
+            bg_color="bg-green-option"
+            onClick={() => applyFilter(categoryFilter, "auditorium")}
+            active={activeFilter === "auditorium"}
+          />
+        </div>
+        <div className="snap-start flex-shrink-0">
+          <Pill
+            title="Bibliotecas"
+            iconGoogle="local_library"
+            bg_color="bg-pink-option"
+            onClick={() => applyFilter(nameFilter, "biblioteca")}
+            active={activeFilter === "biblioteca"}
+          />
+        </div>
+        <div className="snap-start flex-shrink-0">
+          <Pill
             title="Baños"
             iconGoogle="wc"
             bg_color="bg-deep-cyan-option"
@@ -88,56 +124,20 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
         </div>
         <div className="snap-start flex-shrink-0">
           <Pill
-            title="Crisol"
-            iconGoogle="print"
-            bg_color="bg-purple-option"
-            onClick={() => applyFilter(nameFilter, "crisol")}
-            active={activeFilter === "crisol"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Facultades"
-            iconGoogle="school"
-            bg_color="bg-deep-red-option"
-            onClick={() => applyFilter(categoryFilter, "faculty")}
-            active={activeFilter === "faculty"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Bibliotecas"
-            iconGoogle="local_library"
-            bg_color="bg-pink-option"
-            onClick={() => applyFilter(nameFilter, "biblioteca")}
-            active={activeFilter === "biblioteca"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Salas de Estudio"
-            iconGoogle="group"
-            bg_color="bg-red-option"
-            onClick={() => applyFilter(categoryFilter, "studyroom")}
-            active={activeFilter === "studyroom"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Auditorios"
-            iconGoogle="book_2"
-            bg_color="bg-green-option"
-            onClick={() => applyFilter(categoryFilter, "auditorium")}
-            active={activeFilter === "auditorium"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
             title="Deportes"
             iconGoogle="sports_soccer"
             bg_color="bg-deep-green-option"
             onClick={() => applyFilter(categoryFilter, "sports_place")}
             active={activeFilter === "sports_place"}
+          />
+        </div>
+        <div className="snap-start flex-shrink-0">
+          <Pill
+            title="Crisol"
+            iconGoogle="print"
+            bg_color="bg-purple-option"
+            onClick={() => applyFilter(nameFilter, "crisol")}
+            active={activeFilter === "crisol"}
           />
         </div>
         <div className="snap-start flex-shrink-0">
