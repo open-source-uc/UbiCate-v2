@@ -132,6 +132,10 @@ export default function MapComponent({
 
     setMenu(place);
 
+    if (!isOpen) {
+      toggleSidebar();
+    }
+
     if (place?.geometry.type !== "Point") return;
 
     const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
@@ -376,12 +380,8 @@ export default function MapComponent({
           return (
             <Marker
               key={place.properties.identifier}
-              place={place}
-              onClick={() => {
-                setTmpMark(null);
-                onClickMark(place);
-              }}
-              // onMouseEnter={setHover}
+              place={place as PointFeature}
+              onClick={() => onClickMark(place)}
             />
           );
         })}

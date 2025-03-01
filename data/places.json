@@ -8518,7 +8518,7 @@
                 "name": "Crisol CS 104",
                 "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
                 "categories": [
-                    "laboratory"
+                    "computers"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -8542,7 +8542,7 @@
                 "name": "Crisol CS 103",
                 "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
                 "categories": [
-                    "laboratory"
+                    "computers"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -8566,7 +8566,7 @@
                 "name": "Crisol CS 102",
                 "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
                 "categories": [
-                    "laboratory"
+                    "computers"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -8590,7 +8590,7 @@
                 "name": "Crisol CS 101",
                 "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
                 "categories": [
-                    "laboratory"
+                    "computers"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -16899,7 +16899,7 @@
                 "name": "Biblioteca Biomédica",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "CC",
                 "faculties": "",
@@ -16922,7 +16922,7 @@
                 "name": "Biblioteca Derecho y Comunicaciones",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "CC",
                 "faculties": "",
@@ -16945,7 +16945,7 @@
                 "name": "Biblioteca Lo Contador",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "LC",
                 "faculties": "FADEU",
@@ -16968,7 +16968,7 @@
                 "name": "Biblioteca Oriente",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "OR",
                 "faculties": "",
@@ -16991,7 +16991,7 @@
                 "name": "Biblioteca de Ciencias Sociales",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "SJ",
                 "faculties": "SOC",
@@ -17014,7 +17014,7 @@
                 "name": "Biblioteca de Humanidades",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "SJ",
                 "faculties": "HIS",
@@ -17037,7 +17037,7 @@
                 "name": "Biblioteca de Matemática",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "SJ",
                 "faculties": "MAT",
@@ -17060,7 +17060,7 @@
                 "name": "Biblioteca de Teología",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "library"
                 ],
                 "campus": "SJ",
                 "faculties": "TTF",

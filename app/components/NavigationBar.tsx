@@ -21,32 +21,41 @@ export function DesktopSidebar() {
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
+  const handleToggleSidebar = () => {
+    // If opening the sidebar and no activeSubSidebar but there's a selectedPlace,
+    // we should clear the selectedPlace to prevent menuInformation from showing
+    if (!isOpen && !activeSubSidebar && selectedPlace) {
+      setSelectedPlace(null);
+    }
+    toggleSidebar();
+  };
+
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
   const handleCollapsedClick = (type: SubSidebarType) => {
-    toggleSidebar();
+    handleToggleSidebar();
     toggleSubSidebar(type);
   };
 
   const handleSearchSelection = () => {
-    toggleSidebar();
+    handleToggleSidebar();
     setActiveSubSidebar(null);
   };
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
-    toggleSidebar();
+    handleToggleSidebar();
     setActiveSubSidebar(null);
   };
 
   // Cuando se selecciona un lugar, muestra "menuInformation"
   useEffect(() => {
-    if (selectedPlace) {
+    if (selectedPlace && !activeSubSidebar) {
       setActiveSubSidebar("menuInformation");
       if (!isOpen) {
-        toggleSidebar();
+        handleToggleSidebar();
       }
     }
   }, [selectedPlace, isOpen]);
@@ -236,8 +245,8 @@ export function DesktopSidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
-                        <span className="text-white-ubi text-sm mobile:text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
                           San Joaquín
                         </span>
                       </div>
@@ -260,8 +269,8 @@ export function DesktopSidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
-                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
                           Casa Central
                         </span>
                       </div>
@@ -284,8 +293,8 @@ export function DesktopSidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
-                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
                           Oriente
                         </span>
                       </div>
@@ -308,8 +317,8 @@ export function DesktopSidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
-                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
                           Lo Contador
                         </span>
                       </div>
@@ -332,8 +341,8 @@ export function DesktopSidebar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
                       <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3 md:p-4">
-                        <span className="text-white-ubi text-sm md:text-md font-semibold" aria-hidden="true">
+                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
                           Villarrica
                         </span>
                       </div>
@@ -378,18 +387,27 @@ export function MobileSidebar() {
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
+  const handleToggleSidebar = () => {
+    // If opening the sidebar and no activeSubSidebar but there's a selectedPlace,
+    // we should clear the selectedPlace to prevent menuInformation from showing
+    if (!isOpen && !activeSubSidebar && selectedPlace) {
+      setSelectedPlace(null);
+    }
+    toggleSidebar();
+  };
+
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
   const handleSearchSelection = () => {
-    toggleSidebar();
+    handleToggleSidebar();
     setActiveSubSidebar(null);
   };
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
-    toggleSidebar();
+    handleToggleSidebar();
     setActiveSubSidebar(null);
   };
 
@@ -397,7 +415,7 @@ export function MobileSidebar() {
     if (selectedPlace) {
       setActiveSubSidebar("menuInformation");
       if (!isOpen) {
-        toggleSidebar();
+        handleToggleSidebar();
       }
     }
   }, [selectedPlace, isOpen]);
@@ -435,16 +453,16 @@ export function MobileSidebar() {
       >
         <div className="flex flex-col h-full">
           {/* Botón principal y search container (común en ambos estados) */}
-          <div className="flex items-center py-2 px-4 gap-2 flex-col">
+          <div className="flex items-center py-4 px-4 gap-2 flex-col space-y-2">
             <button
               onClick={toggleSidebar}
-              className="mx-auto w-1/8 p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
+              className="mx-auto w-1/4 p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
               aria-label="Toggle sidebar"
             />
             <section
               ref={refSearchContainer}
               onClick={() => {
-                if (!isOpen) toggleSidebar();
+                if (!isOpen) handleToggleSidebar();
               }}
               className="flex justify-center w-full" // Ejemplo: se agrega margen en estado abierto
             />
@@ -452,7 +470,7 @@ export function MobileSidebar() {
 
           {/* Contenido extra solo para estado expandido */}
           {isOpen ? (
-            <div className="flex flex-col flex-1 py-5 px-4 space-y-4">
+            <div className="flex flex-col flex-1 py-2 px-4 space-y-4">
               {/* Opciones de navegación */}
               <nav>
                 <div className="pt-5 space-y-2 flex flex-col">

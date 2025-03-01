@@ -13,45 +13,41 @@ interface MarkerProps {
 }
 
 // Mapeo de nombres a colores
-const nameToColorMap: Record<string, string> = {
-  Acceso: "bg-blue-location",
-  Salida: "bg-blue-location",
-  "Acceso/Salida": "bg-blue-location",
-  Baño: "bg-deep-cyan-option",
-  Comida: "bg-orange-option",
-  Agua: "bg-cyan-option",
-  Crisol: "bg-purple-option",
+const categoryToColorMap: Record<string, string> = {
+  bath: "bg-deep-cyan-option",
+  food_lunch: "bg-orange-option",
+  water: "bg-cyan-option",
+  computers: "bg-purple-option",
   Facultad: "bg-deep-red-option",
-  Biblioteca: "bg-pink-option",
-  "Sala de estudio": "bg-red-option" /* Sala de estudio */,
-  Auditorio: "bg-green-option",
-  Multicancha: "bg-deep-green-option" /* Deportes */,
-  Estacionamiento: "bg-gray-option",
+  library: "bg-pink-option",
+  studyroom: "bg-red-option",
+  auditorium: "bg-green-option",
+  sports_place: "bg-deep-green-option",
+  parking: "bg-gray-option",
 };
 
 // Mapeo de nombres a archivos SVG
-const nameToSvgMap: Record<string, string> = {
-  Acceso: "arrow_upward",
-  Salida: "arrow_upward",
-  "Acceso/Salida": "arrow_upward",
-  Baño: "wc",
-  Comida: "restaurant",
-  Agua: "local_drink",
-  Crisol: "print",
+const categoryToSvgMap: Record<string, string> = {
+  bath: "wc",
+  food_lunch: "restaurant",
+  water: "local_drink",
+  computers: "print",
   Facultad: "school",
-  Biblioteca: "local_library",
-  "Sala de estudio": "group" /* Sala de estudio */,
-  Auditorio: "book_2",
-  Multicancha: "sports_soccer" /* Deportes */,
-  Estacionamiento: "local_parking",
+  library: "local_library",
+  studyroom: "group",
+  auditorium: "book_2",
+  sports_place: "sports_soccer",
+  parking: "local_parking",
 };
 
 const defaultSvg = "fiber_manual_record";
 
 export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
-  const matchedKey = Object.keys(nameToSvgMap).find((key) => place.properties.name.includes(key));
-  const svgPath = matchedKey ? nameToSvgMap[matchedKey] : defaultSvg;
-  const color = matchedKey ? nameToColorMap[matchedKey] : "bg-brown-light";
+  const primaryCategory = place.properties.categories[0];
+  const svgPath = primaryCategory && categoryToSvgMap[primaryCategory] ? categoryToSvgMap[primaryCategory] : defaultSvg;
+
+  const color =
+    primaryCategory && categoryToColorMap[primaryCategory] ? categoryToColorMap[primaryCategory] : "bg-brown-light";
 
   {
     /* Checks if the background color is too dark or too white, in order to change the icon color and make more accesible the map*/
