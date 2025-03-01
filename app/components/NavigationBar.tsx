@@ -445,7 +445,7 @@ export function MobileSidebar() {
     } else if (sidebarHeight < 80) {
       setSidebarHeight(45);
     } else {
-      setSidebarHeight(100);
+      setSidebarHeight(90);
     }
   };
 
@@ -480,7 +480,7 @@ export function MobileSidebar() {
     } else if (sidebarHeight > 39 && sidebarHeight < 60) {
       setSidebarHeight(45);
     } else {
-      setSidebarHeight(100);
+      setSidebarHeight(90);
     }
   };
 
@@ -774,7 +774,7 @@ export function MobileSidebar() {
                   }}
                   onEdit={(isEdit) => {
                     if (isEdit) {
-                      setSidebarHeight(100);
+                      setSidebarHeight(90);
                     }
                   }}
                 />
