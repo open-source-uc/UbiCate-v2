@@ -370,7 +370,16 @@ export function DesktopSidebar() {
 }
 
 export function MobileSidebar() {
-  const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
+  const {
+    isOpen,
+    setIsOpen,
+    toggleSidebar,
+    geocoder,
+    setPlaces,
+    selectedPlace,
+    setSelectedPlace,
+    refFunctionClickOnResult,
+  } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -412,7 +421,9 @@ export function MobileSidebar() {
         clearInterval(interval);
       }
     }, 100);
-
+    refFunctionClickOnResult.current = (place) => {
+      setIsOpen(false);
+    };
     return () => clearInterval(interval);
   }, []);
 
