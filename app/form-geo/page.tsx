@@ -6,7 +6,7 @@ import FormComponent from "./form";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Ubicate - Nueva ubicación",
+    title: "Ubicate UC - Nueva ubicación",
     description: "Ayúdanos registrando una nueva ubicación.",
 
     alternates: {

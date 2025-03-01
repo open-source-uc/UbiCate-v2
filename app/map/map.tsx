@@ -295,7 +295,7 @@ export default function MapComponent({
     if (title) {
       title.textContent = place
         ? `${siglas.get(place.properties.categories[0]) ?? "Ubicate"} - ${place.properties.name}`
-        : "UbicateUC - Mapa";
+        : "Ubicate UC - Mapa";
     }
 
     let metaDescription = document.querySelector('meta[name="description"]');
