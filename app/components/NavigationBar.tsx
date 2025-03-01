@@ -370,16 +370,7 @@ export function DesktopSidebar() {
 }
 
 export function MobileSidebar() {
-  const {
-    isOpen,
-    setIsOpen,
-    toggleSidebar,
-    geocoder,
-    setPlaces,
-    selectedPlace,
-    setSelectedPlace,
-    refFunctionClickOnResult,
-  } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -415,28 +406,21 @@ export function MobileSidebar() {
   }, [selectedPlace, setIsOpen]);
 
   useEffect(() => {
+    let current: null | MapboxGeocoder = null;
     const interval = setInterval(() => {
       if (geocoder.current !== null && refSearchContainer.current !== null) {
         geocoder.current.addTo(refSearchContainer.current);
         clearInterval(interval);
+        geocoder.current?.on("result", handleSearchSelection);
+        current = geocoder.current;
       }
     }, 100);
-    refFunctionClickOnResult.current = (place) => {
-      setIsOpen(false);
-    };
-    return () => clearInterval(interval);
-  }, []);
 
-  useEffect(() => {
-    let current: null | MapboxGeocoder = null;
-    if (activeSubSidebar === "buscar" && geocoder.current) {
-      geocoder.current?.on("result", handleSearchSelection);
-      current = geocoder.current;
-    }
     return () => {
       current?.off("result", handleSearchSelection);
+      clearInterval(interval);
     };
-  }, [activeSubSidebar, geocoder]);
+  }, []);
 
   return (
     <>
