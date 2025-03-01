@@ -374,13 +374,17 @@ export function DesktopSidebar() {
     </>
   );
 }
-
 export function MobileSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
+  const [sidebarHeight, setSidebarHeight] = useState<number>(40);
+  const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
+  const dragStartY = useRef<number | null>(null);
+  const lastHeight = useRef<number>(40);
+  const isDragging = useRef<boolean>(false);
 
   const handleToggleSidebar = () => {
     toggleSidebar();
@@ -403,13 +407,96 @@ export function MobileSidebar() {
     setActiveSubSidebar(null);
   };
 
+  // Handle mouse down para desktop
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!isOpen) return;
+
+    e.preventDefault();
+    dragStartY.current = e.clientY;
+    lastHeight.current = sidebarHeight;
+    isDragging.current = true;
+    setEnableTransition(false);
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  // Handle mouse move para desktop
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging.current || dragStartY.current === null) return;
+
+    const windowHeight = window.innerHeight;
+    const dragDelta = dragStartY.current - e.clientY;
+    const heightPercentDelta = (dragDelta / windowHeight) * 100;
+
+    let newHeight = Math.max(40, Math.min(100, lastHeight.current + heightPercentDelta));
+    setSidebarHeight(newHeight);
+  };
+
+  // Handle mouse up para desktop
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    dragStartY.current = null;
+    setEnableTransition(true);
+
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
+
+    if (sidebarHeight < 45) {
+      setSidebarHeight(40);
+    } else if (sidebarHeight < 80) {
+      setSidebarHeight(66);
+    } else {
+      setSidebarHeight(100);
+    }
+  };
+
+  // Handle touch start para mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!isOpen) return;
+
+    dragStartY.current = e.touches[0].clientY;
+    lastHeight.current = sidebarHeight;
+    isDragging.current = true;
+    setEnableTransition(false);
+  };
+
+  // Handle touch move para mobile
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current || dragStartY.current === null) return;
+
+    const windowHeight = window.innerHeight;
+    const dragDelta = dragStartY.current - e.touches[0].clientY;
+    const heightPercentDelta = (dragDelta / windowHeight) * 100;
+
+    let newHeight = Math.max(40, Math.min(100, lastHeight.current + heightPercentDelta));
+    setSidebarHeight(newHeight);
+  };
+
+  // Handle touch end para mobile
+  const handleTouchEnd = () => {
+    isDragging.current = false;
+    dragStartY.current = null;
+    setEnableTransition(true);
+
+    if (sidebarHeight < 45) {
+      setSidebarHeight(40);
+    } else if (sidebarHeight < 80) {
+      setSidebarHeight(66);
+    } else {
+      setSidebarHeight(100);
+    }
+  };
+
   useEffect(() => {
     if (selectedPlace !== null) {
       setIsOpen(true);
       setActiveSubSidebar("menuInformation");
+      setSidebarHeight(66);
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
+      setSidebarHeight(40);
     }
   }, [selectedPlace, setIsOpen]);
 
@@ -433,40 +520,56 @@ export function MobileSidebar() {
   useEffect(() => {
     if (isOpen === false) {
       setActiveSubSidebar(null);
+      setSidebarHeight(40);
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
+
+  const calculatedHeight = isOpen ? `${sidebarHeight}vh` : "h-28";
+
   return (
     <>
-      {/* Sidebar único que adapta altura y transform según isOpen */}
       <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 transition-transform duration-300 ${
-          isOpen ? "h-120 translate-y-0" : "h-28 translate-y-0" /* Se mantiene visible en ambos estados */
+        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 ${
+          isOpen ? `${calculatedHeight} translate-y-0` : "h-28 translate-y-0"
         }`}
+        style={{
+          height: isOpen ? `${sidebarHeight}vh` : "7rem",
+          transition: enableTransition ? "all 300ms" : "none",
+        }}
       >
         <div className="flex flex-col h-full">
-          {/* Botón principal y search container (común en ambos estados) */}
-          <div className="flex items-center py-4 px-4 gap-2 flex-col space-y-2">
-            <button
-              onClick={toggleSidebar}
-              className="mx-auto w-1/4 p-1 bg-brown-medium rounded-full hover:bg-brown-dark transition-colors"
-              aria-label="Toggle sidebar"
-            />
+          <div
+            className="w-1/4 h-1.5 bg-brown-medium rounded-full mx-auto mt-2 cursor-grab active:cursor-grabbing"
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onClick={() => {
+              if (!isOpen) handleToggleSidebar();
+            }}
+          />
+
+          <div className="flex items-center py-2 px-4 gap-2 flex-col space-y-2">
             <section
               ref={refSearchContainer}
               onClick={() => {
                 if (!isOpen) handleToggleSidebar();
               }}
-              className="flex justify-center w-full" // Ejemplo: se agrega margen en estado abierto
+              className="flex justify-center w-full"
             />
           </div>
 
-          {/* Contenido extra solo para estado expandido */}
           {isOpen ? (
-            <div className="flex flex-col flex-1 py-2 px-4 space-y-4">
-              {/* Opciones de navegación */}
+            <div className="flex flex-col flex-1 py-2 px-4 space-y-4 overflow-y-auto">
               <nav>
-                <div className="pt-5 space-y-2 flex flex-col">
+                <div className="pt-2 space-y-2 flex flex-col">
                   <div className="flex flex-1 flex-col space-y-2">
                     <p className="text-md font-semibold text-white-ubi">Explora</p>
                     <div className="bg-brown-medium flex flex-1 rounded-lg p-2 mb-2">
@@ -498,7 +601,6 @@ export function MobileSidebar() {
                 </div>
               </nav>
 
-              {/* Secciones de Feedback y OSUC */}
               <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2">
                 <div className="w-full rounded-xl bg-brown-light">
                   <div className="text-xs text-white-blue p-4 mobile:p-3 tablet:p-4">
@@ -524,19 +626,29 @@ export function MobileSidebar() {
           ) : null}
         </div>
 
-        {/* Subsidebar (Mobile) integrado, se muestra cuando hay submenú activo */}
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
           <section
-            className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60 inset-x-0 bottom-0 h-120 ${
-              isOpen ? "translate-y-0" : "translate-y-full"
+            className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 ${
+              isOpen ? `${calculatedHeight} translate-y-0` : "translate-y-full"
             }`}
+            style={{
+              height: isOpen ? `${sidebarHeight}vh` : "7rem",
+              transition: enableTransition ? "all 300ms" : "none",
+            }}
           >
-            <div className="flex flex-col h-full py-5 px-4 space-y-4 relative">
+            <div className="flex flex-col h-full py-5 px-4 space-y-4 relative overflow-y-auto">
+              <div
+                className="w-1/4 h-1.5 bg-brown-medium rounded-full mx-auto -mt-3 mb-2 cursor-grab active:cursor-grabbing"
+                onMouseDown={handleMouseDown}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              />
+
               {activeSubSidebar === "buscar" && (
                 <>
                   <h3 className="font-bold text-lg">Buscar</h3>
                   <ul className="space-y-8">
-                    {/* Se elimina el duplicado del search container ya que ahora es común */}
                     <div className="space-y-2">
                       <h4 className="font-semibold text-md">Filtra por lugares</h4>
                       <PillFilter setFilteredPlaces={setPlaces} />
@@ -548,7 +660,6 @@ export function MobileSidebar() {
                 <>
                   <h3 className="font-bold text-lg">Campus</h3>
                   <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
-                    {/* Botón Campus San Joaquín */}
                     <button
                       onClick={() => handleCampusClick("SanJoaquin")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("SanJoaquin")}
@@ -572,7 +683,6 @@ export function MobileSidebar() {
                         </span>
                       </div>
                     </button>
-                    {/* Botón Campus Casa Central */}
                     <button
                       onClick={() => handleCampusClick("CasaCentral")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("CasaCentral")}
@@ -596,7 +706,6 @@ export function MobileSidebar() {
                         </span>
                       </div>
                     </button>
-                    {/* Botón Campus Oriente */}
                     <button
                       onClick={() => handleCampusClick("Oriente")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Oriente")}
@@ -620,7 +729,6 @@ export function MobileSidebar() {
                         </span>
                       </div>
                     </button>
-                    {/* Botón Campus Lo Contador */}
                     <button
                       onClick={() => handleCampusClick("LoContador")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("LoContador")}
@@ -644,7 +752,6 @@ export function MobileSidebar() {
                         </span>
                       </div>
                     </button>
-                    {/* Botón Campus Villarrica */}
                     <button
                       onClick={() => handleCampusClick("Villarrica")}
                       onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Villarrica")}
@@ -683,6 +790,11 @@ export function MobileSidebar() {
                   onClose={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
+                  }}
+                  onEdit={(isEdit) => {
+                    if (isEdit) {
+                      setSidebarHeight(100);
+                    }
                   }}
                 />
               )}

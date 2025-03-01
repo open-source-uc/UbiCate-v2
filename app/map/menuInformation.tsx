@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 
@@ -15,11 +15,16 @@ import FormGeo from "../form-geo/form";
 interface MenuProps {
   place: Feature | null;
   onClose: (e: React.MouseEvent) => void;
+  onEdit?: (isEdit: boolean) => void;
 }
 
-export default function Menu({ place, onClose }: MenuProps) {
+export default function Menu({ place, onClose, onEdit }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
+
+  useEffect(() => {
+    onEdit?.(edit);
+  }, [edit, onEdit]);
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -91,7 +96,7 @@ export default function Menu({ place, onClose }: MenuProps) {
   return (
     <>
       {!edit ? (
-        <div className="space-y-6">
+        <div className="space-y-6 overflow-y-auto">
           <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
             <div className="flex items-center justify-between w-full">
               <div className="max-w-[260px] pr-10">
@@ -220,7 +225,7 @@ export default function Menu({ place, onClose }: MenuProps) {
           ) : null}
         </div>
       ) : (
-        <aside className="fixed top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
+        <div className="fixed top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
           <div className="w-full text-center my-6 flex items-center justify-center relative">
             <h1 className="text-2xl text-white-ubi select-none">
               {place?.properties.identifier === "42-ALL"
@@ -248,7 +253,7 @@ export default function Menu({ place, onClose }: MenuProps) {
             mode={place?.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
             fun={() => setEdit(false)}
           />
-        </aside>
+        </div>
       )}
     </>
   );
