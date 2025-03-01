@@ -124,7 +124,7 @@ export function DesktopSidebar() {
           {/* Logo y botón para cerrar */}
           <div className="flex items-center justify-between">
             <Link href="/">
-              <img src="/long-logo.svg" className="pl-2" alt="Logo" width="120" />
+              <img src="/long-logo.svg" className="pl-2" alt="Logo" width="118" />
             </Link>
             <div className="flex-row-reverse">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
@@ -153,7 +153,7 @@ export function DesktopSidebar() {
                 <div className="bg-transparent p-0 mb-0">
                   <button
                     onClick={() => toggleSubSidebar("campus")}
-                    className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md hover:bg-brown-light/20 pointer-events-auto cursor-pointer"
+                    className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
                   >
                     <span
                       className={`w-10 h-10 rounded-lg flex items-center justify-center ${
@@ -377,13 +377,13 @@ export function DesktopSidebar() {
 export function MobileSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
-  const [sidebarHeight, setSidebarHeight] = useState<number>(15);
+  const [sidebarHeight, setSidebarHeight] = useState<number>(18);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
-  const lastHeight = useRef<number>(15);
+  const lastHeight = useRef<number>(18);
   const isDragging = useRef<boolean>(false);
 
   const handleToggleSidebar = () => {
@@ -427,7 +427,7 @@ export function MobileSidebar() {
     const dragDelta = dragStartY.current - e.clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    let newHeight = Math.max(15, Math.min(100, lastHeight.current + heightPercentDelta));
+    let newHeight = Math.max(18, Math.min(100, lastHeight.current + heightPercentDelta));
     setSidebarHeight(newHeight);
   };
 
@@ -441,7 +441,7 @@ export function MobileSidebar() {
     document.removeEventListener("mouseup", handleMouseUp);
 
     if (sidebarHeight < 45) {
-      setSidebarHeight(15);
+      setSidebarHeight(18);
     } else if (sidebarHeight < 80) {
       setSidebarHeight(45);
     } else {
@@ -465,7 +465,7 @@ export function MobileSidebar() {
     const dragDelta = dragStartY.current - e.touches[0].clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    let newHeight = Math.max(15, Math.min(100, lastHeight.current + heightPercentDelta));
+    let newHeight = Math.max(18, Math.min(100, lastHeight.current + heightPercentDelta));
     setSidebarHeight(newHeight);
   };
 
@@ -476,7 +476,7 @@ export function MobileSidebar() {
     setEnableTransition(true);
 
     if (sidebarHeight < 40) {
-      setSidebarHeight(15);
+      setSidebarHeight(18);
     } else if (sidebarHeight > 39 && sidebarHeight < 60) {
       setSidebarHeight(45);
     } else {
@@ -492,7 +492,7 @@ export function MobileSidebar() {
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
-      setSidebarHeight(15);
+      setSidebarHeight(18);
     }
   }, [selectedPlace, setIsOpen]);
 
@@ -516,7 +516,7 @@ export function MobileSidebar() {
   useEffect(() => {
     if (isOpen === false) {
       setActiveSubSidebar(null);
-      setSidebarHeight(15);
+      setSidebarHeight(18);
     }
   }, [isOpen]);
 
@@ -577,7 +577,7 @@ export function MobileSidebar() {
                   <div className="bg-brown-medium flex flex-1 rounded-lg p-2 mb-2">
                     <button
                       onClick={() => toggleSubSidebar("campus")}
-                      className="w-full flex flex-col items-center justify-center p-2 rounded-md hover:bg-brown-light/20 pointer-events-auto cursor-pointer"
+                      className="w-full flex flex-col items-center justify-center p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
                     >
                       <span
                         className={`w-10 h-10 rounded-lg flex items-center justify-center ${
