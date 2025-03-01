@@ -116,8 +116,9 @@ export function DesktopSidebar() {
 
       {/* Sidebar expandido */}
       <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50 inset-y-0 left-0 w-64 ${isOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50 inset-y-0 left-0 w-64 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         <div className="flex flex-col h-full py-5 px-4 space-y-4">
           {/* Logo y botón para cerrar */}
@@ -140,8 +141,9 @@ export function DesktopSidebar() {
                 className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
-                    }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
+                  }`}
                 >
                   <span className="material-symbols-outlined">search</span>
                 </span>
@@ -154,8 +156,9 @@ export function DesktopSidebar() {
                     className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
                   >
                     <span
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                        }`}
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                        activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
+                      }`}
                     >
                       <span className="material-symbols-outlined">map</span>
                     </span>
@@ -205,8 +208,9 @@ export function DesktopSidebar() {
           <section
             className={`absolute bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60
             desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light
-            max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
-              } ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
+            max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light ${
+              activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
+            } ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
           >
             <div className="py-7 px-4 space-y-6 relative">
               {activeSubSidebar === "buscar" && (
@@ -528,8 +532,9 @@ export function MobileSidebar() {
   return (
     <>
       <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 ${isOpen ? `${calculatedHeight} translate-y-0` : "h-28 translate-y-0"
-          }`}
+        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 ${
+          isOpen ? `${calculatedHeight} translate-y-0` : "h-28 translate-y-0"
+        }`}
         style={{
           height: `${sidebarHeight}dvh`,
           transition: enableTransition ? "all 300ms" : "none",
@@ -575,8 +580,9 @@ export function MobileSidebar() {
                       className="w-full flex flex-col items-center justify-center p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
                     >
                       <span
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                          }`}
+                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
+                        }`}
                       >
                         <span className="material-symbols-outlined">map</span>
                       </span>
