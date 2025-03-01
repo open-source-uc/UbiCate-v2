@@ -65,7 +65,7 @@ function createInitialViewState(
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
     initialViewState.zoom = 17;
-  } else {
+  } else if (campusName) {
     initialViewState.bounds = getCampusBoundsFromName(campusName);
   }
 
@@ -208,6 +208,13 @@ export default function MapComponent({
 
   function onLoad(e: MapEvent) {
     // Nueva funcion al buscar en el sidebar
+    const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+
+    mapRef.current?.getMap().fitBounds(getCampusBoundsFromName(defaultCampus), {
+      duration: 0,
+    });
+    mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+
     refFunctionClickOnResult.current = (place) => {
       setMenu(null);
       mapRef.current?.getMap().setMaxBounds(undefined);
@@ -311,12 +318,7 @@ export default function MapComponent({
       <Map
         mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        initialViewState={createInitialViewState(
-          params.get("campus") ?? localStorage.getItem("defaultCampus") ?? "SanJoaquin",
-          paramPlace,
-          paramLng,
-          paramLat,
-        )}
+        initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {

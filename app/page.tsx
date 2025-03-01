@@ -4,6 +4,7 @@ import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
 import NavigationBar from "./components/NavigationBar";
+import { SidebarProvider } from "./context/sidebarCtx";
 import MapComponent from "./map/map";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
@@ -60,11 +61,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   return (
     <>
-      <main spellCheck="false" className="h-full w-full relative">
-        <NavigationBar />
-        <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-      </main>
+      <SidebarProvider>
+        <main spellCheck="false" className="h-full w-full relative">
+          <NavigationBar />
+          <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+        </main>
+      </SidebarProvider>
     </>
   );
 }
-export const runtime = "edge";

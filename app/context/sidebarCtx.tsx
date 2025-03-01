@@ -22,6 +22,7 @@ interface SidebarContextType {
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
+  "use client";
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const refFunctionClickOnResult = useRef<((e: Feature) => void) | null>(null);
 

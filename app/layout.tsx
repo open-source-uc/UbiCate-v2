@@ -6,8 +6,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
-import { SidebarProvider } from "./context/sidebarCtx";
-
 const instrument_sans = Instrument_Sans({
   subsets: ["latin"],
   display: "swap",
@@ -57,9 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="h-full pb-[-12px] dark:bg-dark-1">
-        <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">
-          <SidebarProvider>{children}</SidebarProvider>
-        </div>
+        <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">{children}</div>
       </body>
     </html>
   );
