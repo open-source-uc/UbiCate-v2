@@ -33,7 +33,7 @@ function useGeocoder(
         (result: { result: Feature }) => {
           setFindPlaces([result.result]);
           if (refFunctionClickOnResult.current === null) {
-            router.push("/map?place=" + result.result.properties.identifier);
+            router.push("/?place=" + result.result.properties.identifier);
           } else {
             refFunctionClickOnResult.current(result.result);
           }

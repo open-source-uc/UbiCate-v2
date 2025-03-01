@@ -1,12 +1,22 @@
-import Image from "next/image";
-
 import { Metadata } from "next";
 
-import NavegateToCampus from "./components/navegateToCampus";
+import PlacesJSON from "@/utils/places";
+import { Feature } from "@/utils/types";
 
-export async function generateMetadata(): Promise<Metadata> {
+import NavigationBar from "./components/NavigationBar";
+import MapComponent from "./map/map";
+
+type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
+
+export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
+  const searchParams = await props.searchParams;
+  const paramPlaceId: string | undefined = searchParams?.place;
+  const paramPlace: Feature | null =
+    (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
+  const placeName = paramPlace?.properties?.name || "";
+
   return {
-    title: "Ubicate · Tu mapa en la UC",
+    title: placeName ? `Ubicate · ${placeName}` : "Ubicate · Tu mapa en la UC",
     description:
       "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
     alternates: {
@@ -32,22 +42,29 @@ export async function generateMetadata(): Promise<Metadata> {
       "Ubícate UC",
       "San Joaquín",
       "Open Source",
+      "Busca Salas UC",
     ],
   };
 }
 
-export default function Home() {
+export default async function Page(props: { searchParams: Promise<SearchParams> }) {
+  const searchParams = await props.searchParams;
+  const paramLng: number | undefined = searchParams?.lng;
+  const paramLat: number | undefined = searchParams?.lat;
+
+  const paramPlace: Feature | null = searchParams?.place
+    ? (PlacesJSON.features.find(
+        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
+      ) as Feature) ?? null
+    : null;
+
   return (
-    <main className="flex max-h-screen flex-col items-center justify-between py-10 px-3">
-      <div className="relative flex place-items-center">
-        <Image className="" src="/logo.svg" alt="Ubicate UC" width={180} height={37} priority />
-      </div>
-      <section className="justify-center w-full align-middle items-center">
-        {/* En el siguiente componente se maneja la logica de auto navete al campus la primera vez que se entra */}
-        <NavegateToCampus />
-      </section>
-    </main>
+    <>
+      <main spellCheck="false" className="h-full w-full relative">
+        <NavigationBar />
+        <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+      </main>
+    </>
   );
 }
-
 export const runtime = "edge";

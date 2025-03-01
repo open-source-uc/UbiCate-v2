@@ -88,51 +88,6 @@ export default function MapComponent({
   const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, isOpen, toggleSidebar } =
     useSidebar();
 
-  // const [hover, setHover] = useState<Feature | null>(null);
-
-  /*
-
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-
-  const [Places, Points, Polygons, setGeocoderPlaces] = useGeocoder(refMapNavbar, (place) => {
-    setMenu(null);
-    mapRef.current?.getMap().setMaxBounds(undefined);
-    localStorage.setItem("defaultCampus", place.properties.campus);
-    window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-
-    if (place?.geometry.type === "Point") {
-      mapRef.current?.getMap().flyTo({
-        essential: true,
-        duration: 400,
-        zoom: 16,
-        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
-      });
-    }
-    if (place?.geometry.type === "Polygon") {
-      mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
-        zoom: 17,
-        duration: 400,
-      });
-    }
-  });
-  
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-  BORRAR CUANDO SE HAGA SE APRUEBE LA PR, POR MIENTRAS ES UN RECUERDO DE LO QUE FUNCIONABA ANTES
-
-  */
-
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
@@ -358,7 +313,7 @@ export default function MapComponent({
         mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(
-          params.get("campus") ?? localStorage.getItem("defaultCampus") ?? null,
+          params.get("campus") ?? localStorage.getItem("defaultCampus") ?? "SanJoaquin",
           paramPlace,
           paramLng,
           paramLat,

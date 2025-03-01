@@ -36,7 +36,7 @@ export function DesktopSidebar() {
   };
 
   const handleCampusClick = (campusName: string) => {
-    router.push(`/map?campus=${campusName}`);
+    router.push(`/?campus=${campusName}`);
     toggleSidebar();
     setActiveSubSidebar(null);
   };
@@ -74,7 +74,7 @@ export function DesktopSidebar() {
     <>
       {/* Sidebar colapsado */}
       {!isOpen && (
-        <aside className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-50 left-0 inset-y-0 h-full w-auto">
+        <section className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-50 left-0 inset-y-0 h-full w-auto">
           <div className="flex items-center p-4 flex-col py-8 space-y-6">
             <div className="mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
@@ -100,11 +100,11 @@ export function DesktopSidebar() {
               <span className="material-symbols-outlined">menu_book</span>
             </button>
           </div>
-        </aside>
+        </section>
       )}
 
       {/* Sidebar expandido */}
-      <aside
+      <section
         className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50 inset-y-0 left-0 w-64 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
@@ -194,7 +194,7 @@ export function DesktopSidebar() {
 
         {/* Subsidebar (Desktop) integrado */}
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
-          <aside
+          <section
             className={`absolute bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60
             desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light
             max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light ${
@@ -364,9 +364,9 @@ export function DesktopSidebar() {
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
-          </aside>
+          </section>
         ) : null}
-      </aside>
+      </section>
     </>
   );
 }
@@ -388,7 +388,7 @@ export function MobileSidebar() {
   };
 
   const handleCampusClick = (campusName: string) => {
-    router.push(`/map?campus=${campusName}`);
+    router.push(`/?campus=${campusName}`);
     toggleSidebar();
     setActiveSubSidebar(null);
   };
@@ -428,7 +428,7 @@ export function MobileSidebar() {
   return (
     <>
       {/* Sidebar único que adapta altura y transform según isOpen */}
-      <aside
+      <section
         className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 transition-transform duration-300 ${
           isOpen ? "h-120 translate-y-0" : "h-28 translate-y-0" /* Se mantiene visible en ambos estados */
         }`}
@@ -443,7 +443,9 @@ export function MobileSidebar() {
             />
             <section
               ref={refSearchContainer}
-              onClick={toggleSidebar}
+              onClick={() => {
+                if (!isOpen) toggleSidebar();
+              }}
               className="flex justify-center w-full" // Ejemplo: se agrega margen en estado abierto
             />
           </div>
@@ -513,7 +515,7 @@ export function MobileSidebar() {
 
         {/* Subsidebar (Mobile) integrado, se muestra cuando hay submenú activo */}
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
-          <aside
+          <section
             className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60 inset-x-0 bottom-0 h-120 ${
               isOpen ? "translate-y-0" : "translate-y-full"
             }`}
@@ -681,9 +683,9 @@ export function MobileSidebar() {
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
-          </aside>
+          </section>
         ) : null}
-      </aside>
+      </section>
     </>
   );
 }
@@ -692,13 +694,13 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop */}
-      <div className="max-desktop:hidden">
+      <aside className="max-desktop:hidden">
         <DesktopSidebar />
-      </div>
+      </aside>
       {/* Mobile & Tablet */}
-      <div className="desktop:hidden">
+      <footer className="desktop:hidden">
         <MobileSidebar />
-      </div>
+      </footer>
     </>
   );
 }
