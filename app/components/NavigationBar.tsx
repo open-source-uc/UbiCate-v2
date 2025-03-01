@@ -387,6 +387,8 @@ export function MobileSidebar() {
   const handleSearchSelection = () => {
     handleToggleSidebar();
     setActiveSubSidebar(null);
+    const activeElement = document.activeElement as HTMLElement;
+    activeElement?.blur();
   };
 
   const handleCampusClick = (campusName: string) => {
