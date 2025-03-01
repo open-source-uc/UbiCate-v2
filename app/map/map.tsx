@@ -82,10 +82,9 @@ export default function MapComponent({
   paramLat?: number | null;
 }) {
   const mapRef = useRef<MapRef>(null);
-  const [place, setPlace] = useState<Feature | null>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, isOpen, toggleSidebar } =
+  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
     useSidebar();
 
   useEffect(() => {
@@ -108,7 +107,6 @@ export default function MapComponent({
 
   const setMenu = useCallback(
     (place: Feature | null) => {
-      setPlace(place);
       setSelectedPlace(place);
       if (place) {
         if (place.properties.identifier === "42-ALL") {
@@ -131,10 +129,6 @@ export default function MapComponent({
     if (!mapRef.current?.getMap()) return;
 
     setMenu(place);
-
-    if (!isOpen) {
-      toggleSidebar();
-    }
 
     if (place?.geometry.type !== "Point") return;
 
@@ -160,7 +154,8 @@ export default function MapComponent({
 
   function onClickMap(e: MapLayerMouseEvent) {
     setMenu(null);
-    if (isOpen) toggleSidebar();
+    setTmpMark(null);
+    setIsOpen(false);
   }
 
   const setCustomMark = useCallback(
@@ -293,8 +288,8 @@ export default function MapComponent({
   useEffect(() => {
     const title = document.querySelector("title");
     if (title) {
-      title.textContent = place
-        ? `${siglas.get(place.properties.categories[0]) ?? "Ubicate"} - ${place.properties.name}`
+      title.textContent = selectedPlace
+        ? `${siglas.get(selectedPlace.properties.categories[0]) ?? "Ubicate"} - ${selectedPlace.properties.name}`
         : "Ubicate UC - Mapa";
     }
 
@@ -302,14 +297,14 @@ export default function MapComponent({
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        place
-          ? `Nombre: ${place.properties.name}; Categoria: ${
-              siglas.get(place.properties.categories[0]) ?? "Sala"
-            }; Piso: ${place.properties.floors?.[0] ?? "N/A"}`
+        selectedPlace
+          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${
+              siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
+            }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
-  }, [place]);
+  }, [selectedPlace]);
 
   return (
     <>

@@ -15,18 +15,13 @@ import PillFilter from "./pillFilter";
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
 export function DesktopSidebar() {
-  const { isOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
   const handleToggleSidebar = () => {
-    // If opening the sidebar and no activeSubSidebar but there's a selectedPlace,
-    // we should clear the selectedPlace to prevent menuInformation from showing
-    if (!isOpen && !activeSubSidebar && selectedPlace) {
-      setSelectedPlace(null);
-    }
     toggleSidebar();
   };
 
@@ -52,13 +47,14 @@ export function DesktopSidebar() {
 
   // Cuando se selecciona un lugar, muestra "menuInformation"
   useEffect(() => {
-    if (selectedPlace && !activeSubSidebar) {
+    if (selectedPlace !== null) {
+      setIsOpen(true);
       setActiveSubSidebar("menuInformation");
-      if (!isOpen) {
-        handleToggleSidebar();
-      }
     }
-  }, [selectedPlace, isOpen]);
+    if (selectedPlace === null) {
+      setActiveSubSidebar(null);
+    }
+  }, [selectedPlace, setIsOpen]);
 
   // Añade el geocoder cuando se abre el subsidebar "buscar"
   useEffect(() => {
@@ -365,13 +361,6 @@ export function DesktopSidebar() {
                   }}
                 />
               )}
-              <button
-                onClick={() => toggleSubSidebar(null)}
-                className="absolute top-8 right-4 text-white-ubi bg-brown-light flex items-center align-middle rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                aria-label="Cerrar menú"
-              >
-                <span className="material-symbols-outlined">close</span>
-              </button>
             </div>
           </section>
         ) : null}
@@ -381,18 +370,13 @@ export function DesktopSidebar() {
 }
 
 export function MobileSidebar() {
-  const { isOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
   const handleToggleSidebar = () => {
-    // If opening the sidebar and no activeSubSidebar but there's a selectedPlace,
-    // we should clear the selectedPlace to prevent menuInformation from showing
-    if (!isOpen && !activeSubSidebar && selectedPlace) {
-      setSelectedPlace(null);
-    }
     toggleSidebar();
   };
 
@@ -412,18 +396,18 @@ export function MobileSidebar() {
   };
 
   useEffect(() => {
-    if (selectedPlace) {
+    if (selectedPlace !== null) {
+      setIsOpen(true);
       setActiveSubSidebar("menuInformation");
-      if (!isOpen) {
-        handleToggleSidebar();
-      }
     }
-  }, [selectedPlace, isOpen]);
+    if (selectedPlace === null) {
+      setActiveSubSidebar(null);
+    }
+  }, [selectedPlace, setIsOpen]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (geocoder.current !== null && refSearchContainer.current !== null) {
-        console.log(geocoder.current);
         geocoder.current.addTo(refSearchContainer.current);
         clearInterval(interval);
       }
@@ -693,13 +677,6 @@ export function MobileSidebar() {
                   }}
                 />
               )}
-              <button
-                onClick={() => toggleSubSidebar(null)}
-                className="absolute top-8 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                aria-label="Cerrar menú"
-              >
-                <span className="material-symbols-outlined">close</span>
-              </button>
             </div>
           </section>
         ) : null}

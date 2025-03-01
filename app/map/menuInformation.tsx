@@ -1,4 +1,3 @@
-// TypeScript
 import React, { useRef, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
@@ -93,20 +92,31 @@ export default function Menu({ place, onClose }: MenuProps) {
     <>
       {!edit ? (
         <div className="space-y-6">
-          <div className="space-y-1">
-            <div className="max-w-[300px] h-full flex items-end">
-              <h3 className="font-bold text-xl break-words whitespace-normal">
-                {place ? place.properties.name : "Lugar sin nombre"}
-              </h3>
+          <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
+            <div className="flex items-center justify-between w-full">
+              <div className="max-w-[260px] pr-10">
+                <h3 className="font-bold text-xl break-words whitespace-normal">
+                  {place ? place.properties.name : "Lugar sin nombre"}
+                </h3>
+              </div>
+
+              <button
+                onClick={(e) => onClose(e)}
+                className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                aria-label="Cerrar menú"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
             </div>
+
             {place && place.properties?.categories?.[0] ? (
-              <span className="font-light text-sm">
+              <div className="font-light text-sm mt-1">
                 {MapSiglas.get(place.properties.categories[0]) || "Lugar sin categoría"}
-              </span>
+              </div>
             ) : null}
           </div>
 
-          <section className="flex space-x-2">
+          <section className="flex space-x-2 mt-8">
             <button
               onClick={handleShare}
               onKeyDown={(e) => e.key === "Enter" && handleShare}
@@ -210,13 +220,20 @@ export default function Menu({ place, onClose }: MenuProps) {
           ) : null}
         </div>
       ) : (
-        <aside className="absolute top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
-          <div className="w-full text-center my-6">
+        <aside className="fixed top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
+          <div className="w-full text-center my-6 flex items-center justify-center relative">
             <h1 className="text-2xl text-white-ubi select-none">
               {place?.properties.identifier === "42-ALL"
                 ? "Nueva ubicación"
                 : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
+            <button
+              onClick={(e) => setEdit(false)}
+              className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+              aria-label="Cerrar menú"
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
           </div>
           <FormGeo
             values={{

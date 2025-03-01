@@ -7,11 +7,12 @@ import useGeocoder from "../hooks/useGeocoder";
 
 interface SidebarContextType {
   isOpen: boolean;
+  toggleSidebar: () => void;
+  setIsOpen: (e: boolean) => void;
   places: Feature[];
   points: PointFeature[];
   polygons: PolygonFeature[];
   setPlaces: (e: Feature[] | Feature | null) => void;
-  toggleSidebar: () => void;
   geocoder: RefObject<MapboxGeocoder | null>;
   refFunctionClickOnResult: RefObject<((e: Feature) => void) | null>;
   selectedPlace: Feature | null;
@@ -36,11 +37,12 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     <SidebarContext.Provider
       value={{
         isOpen,
+        setIsOpen,
+        toggleSidebar,
         places,
         points,
         polygons,
         setPlaces,
-        toggleSidebar,
         geocoder,
         refFunctionClickOnResult,
         selectedPlace,

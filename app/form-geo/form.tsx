@@ -165,7 +165,7 @@ export default function FormComponent({
   }, [initialValues]);
 
   return (
-    <section className="flex w-full items-center justify-center">
+    <section className="flex w-full items-center justify-center py-4">
       <div className="flex flex-col w-5/6 max-w-md items-center justify-center">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting, setFieldValue, values }) => (
@@ -208,7 +208,7 @@ export default function FormComponent({
                   id="categories"
                   name="categories"
                   as="select"
-                  className="block p-4 w-full text-sm rounded-lg border border-brown-light focus:outline-hidden focus:ring-2 focus:ring-blue-location"
+                  className="block p-4 w-full text-sm rounded-lg border border-brown-light focus:outline-hidden focus:ring-2 focus:ring-blue-location bg-brown-dark"
                 >
                   <option value="">Seleccionar</option>
                   <option value="classroom">Sala</option>
@@ -280,7 +280,10 @@ export default function FormComponent({
                 >
                   Descripción (Opcional)
                 </label>
-                <p className="text-xs text-white-ubi text-center italic">¡Cuéntanos más sobre esta ubicación!</p>
+                <p className="text-xs text-white-ubi text-center italic">
+                  ¡Cuéntanos más sobre esta ubicación!
+                  <br />- Soporta markdown -
+                </p>
                 <Field
                   className="block p-3 w-full h-36 text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
                   name="information"
