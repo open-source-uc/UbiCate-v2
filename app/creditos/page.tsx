@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import Contribuir from "@/app/creditos/contributor";
 
 async function fetchContributors() {
@@ -16,10 +17,7 @@ export default async function Page() {
   const contributors = await fetchContributors();
 
   return (
-    <main
-      spellCheck="false"
-      className="min-h-screen w-full bg-brown-dark text-white-ubi pb-7"
-    >
+    <main spellCheck="false" className="min-h-screen w-full bg-brown-dark text-white-ubi pb-7">
       <div className="w-full text-center px-4">
         <div className="w-full text-center px-4">
           <div className="py-8">
@@ -85,4 +83,4 @@ export default async function Page() {
 }
 
 export const runtime = "edge";
-``
+``;
