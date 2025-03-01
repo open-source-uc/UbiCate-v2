@@ -445,7 +445,7 @@ export function MobileSidebar() {
     } else if (sidebarHeight < 80) {
       setSidebarHeight(45);
     } else {
-      setSidebarHeight(90);
+      setSidebarHeight(100);
     }
   };
 
@@ -480,7 +480,7 @@ export function MobileSidebar() {
     } else if (sidebarHeight > 39 && sidebarHeight < 60) {
       setSidebarHeight(45);
     } else {
-      setSidebarHeight(90);
+      setSidebarHeight(100);
     }
   };
 
@@ -542,7 +542,7 @@ export function MobileSidebar() {
       >
         <div className="flex flex-col h-full">
           <div
-            className="w-full flex justify-center items-center"
+            className="w-full h-5 flex justify-center items-center"
             onMouseDown={handleMouseDown}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -774,7 +774,7 @@ export function MobileSidebar() {
                   }}
                   onEdit={(isEdit) => {
                     if (isEdit) {
-                      setSidebarHeight(90);
+                      setSidebarHeight(100);
                     }
                   }}
                 />
