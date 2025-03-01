@@ -527,7 +527,7 @@ export function MobileSidebar() {
     };
   }, []);
 
-  const calculatedHeight = isOpen ? `${sidebarHeight}vh` : "h-28";
+  const calculatedHeight = isOpen ? `${sidebarHeight}vhd` : "h-28";
 
   return (
     <>
@@ -536,7 +536,7 @@ export function MobileSidebar() {
           isOpen ? `${calculatedHeight} translate-y-0` : "h-28 translate-y-0"
         }`}
         style={{
-          height: `${sidebarHeight}vh`,
+          height: `${sidebarHeight}vhd`,
           transition: enableTransition ? "all 300ms" : "none",
         }}
       >
@@ -632,7 +632,7 @@ export function MobileSidebar() {
             className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 ${`${calculatedHeight} translate-y-0`}"
               }`}
             style={{
-              height: `${sidebarHeight}vh`,
+              height: `${sidebarHeight}vhd`,
               transition: enableTransition ? "all 300ms" : "none",
             }}
           >
