@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "OSUC",
+                "name": "Open Source UC - OSUC",
+                "information": "test - 2025/03/01",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61333266525133,
+                    -33.500222000070764
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "computers-33081606",
                 "name": "Crisol Alfero",
                 "information": "",
@@ -14809,29 +14833,6 @@
                 "coordinates": [
                     -70.61019001073926,
                     -33.49672743680977
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "OSUC",
-                "name": "Open Source UC - OSUC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333266525133,
-                    -33.500222000070764
                 ]
             }
         },
