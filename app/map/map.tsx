@@ -244,7 +244,7 @@ export default function MapComponent({
       mapRef.current?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
-      })
+      });
     }
 
     e.target.on("click", ["red-area"], (e) => {
@@ -333,8 +333,9 @@ export default function MapComponent({
       metaDescription.setAttribute(
         "content",
         selectedPlace
-          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
-          }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
+          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${
+              siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
+            }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
