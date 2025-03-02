@@ -28,7 +28,6 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
-import PillFilter from "../components/pillFilter";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
@@ -131,10 +130,12 @@ export default function MapComponent({
     setMenu(place);
 
     if (place?.geometry.type !== "Point") return;
-
     const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
-    const bounds = mapRef.current?.getMap().getBounds();
+    const map = mapRef.current?.getMap();
+    const bounds = map?.getBounds();
     const margin = 0.001;
+
+    if (!map || !bounds) return;
 
     const isOutside = !(
       coordinates[0] >= bounds.getWest() + margin &&
@@ -144,8 +145,11 @@ export default function MapComponent({
     );
 
     if (isOutside) {
-      mapRef.current?.getMap().flyTo({
-        center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+      const mapHeight = bounds.getNorth() - bounds.getSouth();
+      const offset = mapHeight * 0.25; // Ajusta el valor para modificar la posición
+
+      map.flyTo({
+        center: [coordinates[0], coordinates[1] - offset], // Baja el centro
         essential: true,
         duration: 400,
       });
@@ -335,11 +339,6 @@ export default function MapComponent({
         ref={mapRef}
       >
         {/* <FullscreenControl position="top-left" /> */}
-
-        {/* Pills for Mobile and Tablet */}
-        <aside className="desktop:hidden">
-          <PillFilter setFilteredPlaces={setPlaces} />
-        </aside>
 
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>

@@ -15,15 +15,18 @@ import FormGeo from "../form-geo/form";
 interface MenuProps {
   place: Feature | null;
   onClose: (e: React.MouseEvent) => void;
-  onEdit?: (isEdit: boolean) => void;
+  onEdit?: () => void;
+  onCloseEdit?: () => void;
 }
 
-export default function Menu({ place, onClose, onEdit }: MenuProps) {
+export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
 
   useEffect(() => {
-    onEdit?.(edit);
+    if (edit) {
+      onEdit?.();
+    }
   }, [edit, onEdit]);
 
   const handleShare = async () => {
@@ -225,7 +228,7 @@ export default function Menu({ place, onClose, onEdit }: MenuProps) {
           ) : null}
         </div>
       ) : (
-        <div className="fixed top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto">
+        <div className="fixed top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
           <div className="w-full text-center my-6 flex items-center justify-center relative">
             <h1 className="text-2xl text-white-ubi select-none">
               {place?.properties.identifier === "42-ALL"
@@ -233,7 +236,10 @@ export default function Menu({ place, onClose, onEdit }: MenuProps) {
                 : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
             <button
-              onClick={(e) => setEdit(false)}
+              onClick={(e) => {
+                onCloseEdit?.();
+                setEdit(false);
+              }}
               className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
               aria-label="Cerrar menú"
             >
@@ -251,7 +257,10 @@ export default function Menu({ place, onClose, onEdit }: MenuProps) {
               identifier: place?.properties.identifier as string,
             }}
             mode={place?.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
-            fun={() => setEdit(false)}
+            fun={() => {
+              onCloseEdit?.();
+              setEdit(false);
+            }}
           />
         </div>
       )}

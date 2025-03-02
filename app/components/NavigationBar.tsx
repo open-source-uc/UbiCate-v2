@@ -377,13 +377,12 @@ export function DesktopSidebar() {
 export function MobileSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
-  const [sidebarHeight, setSidebarHeight] = useState<number>(18);
-  const [enableTransition, setEnableTransition] = useState(true);
+  const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
-  const lastHeight = useRef<number>(18);
+  const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
 
   const handleToggleSidebar = () => {
@@ -413,7 +412,6 @@ export function MobileSidebar() {
     dragStartY.current = e.clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
-    setEnableTransition(false);
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
@@ -427,7 +425,7 @@ export function MobileSidebar() {
     const dragDelta = dragStartY.current - e.clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    let newHeight = Math.max(18, Math.min(100, lastHeight.current + heightPercentDelta));
+    let newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
     setSidebarHeight(newHeight);
   };
 
@@ -435,17 +433,16 @@ export function MobileSidebar() {
   const handleMouseUp = () => {
     isDragging.current = false;
     dragStartY.current = null;
-    setEnableTransition(true);
 
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
 
     if (sidebarHeight < 45) {
-      setSidebarHeight(18);
+      setSidebarHeight(10);
     } else if (sidebarHeight < 80) {
       setSidebarHeight(45);
     } else {
-      setSidebarHeight(100);
+      setSidebarHeight(80);
     }
   };
 
@@ -454,7 +451,6 @@ export function MobileSidebar() {
     dragStartY.current = e.touches[0].clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
-    setEnableTransition(false);
   };
 
   // Handle touch move para mobile
@@ -465,7 +461,7 @@ export function MobileSidebar() {
     const dragDelta = dragStartY.current - e.touches[0].clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    let newHeight = Math.max(18, Math.min(100, lastHeight.current + heightPercentDelta));
+    let newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
     setSidebarHeight(newHeight);
   };
 
@@ -473,14 +469,14 @@ export function MobileSidebar() {
   const handleTouchEnd = () => {
     isDragging.current = false;
     dragStartY.current = null;
-    setEnableTransition(true);
 
     if (sidebarHeight < 40) {
-      setSidebarHeight(18);
+      setIsOpen(false);
+      setSidebarHeight(10);
     } else if (sidebarHeight > 39 && sidebarHeight < 60) {
-      setSidebarHeight(45);
+      setSidebarHeight(sidebarHeight);
     } else {
-      setSidebarHeight(100);
+      setSidebarHeight(80);
     }
   };
 
@@ -488,11 +484,11 @@ export function MobileSidebar() {
     if (selectedPlace !== null) {
       setIsOpen(true);
       setActiveSubSidebar("menuInformation");
-      setSidebarHeight(45);
+      setSidebarHeight(60);
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
-      setSidebarHeight(18);
+      setSidebarHeight(10);
     }
   }, [selectedPlace, setIsOpen]);
 
@@ -516,7 +512,7 @@ export function MobileSidebar() {
   useEffect(() => {
     if (isOpen === false) {
       setActiveSubSidebar(null);
-      setSidebarHeight(18);
+      setSidebarHeight(10);
     }
   }, [isOpen]);
 
@@ -527,22 +523,21 @@ export function MobileSidebar() {
     };
   }, []);
 
-  const calculatedHeight = isOpen ? `${sidebarHeight}dvh` : "h-28";
-
   return (
     <>
+      <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4">
+        <div ref={refSearchContainer} className="w-full" />
+      </section>
       <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 ${
-          isOpen ? `${calculatedHeight} translate-y-0` : "h-28 translate-y-0"
-        }`}
+        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0`}
         style={{
           height: `${sidebarHeight}dvh`,
-          transition: enableTransition ? "all 300ms" : "none",
+          transition: "all 300ms",
         }}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full items-center">
           <div
-            className="w-full h-5 flex justify-center items-center"
+            className="w-full h-8 flex justify-center items-center"
             onMouseDown={handleMouseDown}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -554,44 +549,28 @@ export function MobileSidebar() {
               }
             }}
           >
-            <div className="w-1/4 h-1.5 bg-brown-medium rounded-full mx-auto mt-2 cursor-grab active:cursor-grabbing" />
+            <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto cursor-grab active:cursor-grabbing" />
           </div>
-
-          <div className="flex items-center py-2 px-4 gap-2 flex-col space-y-2">
-            <section
-              ref={refSearchContainer}
-              onClick={() => {
-                if (!isOpen) {
-                  setSidebarHeight(45);
-                  handleToggleSidebar();
-                }
-              }}
-              className="flex justify-center w-full"
-            />
-          </div>
-          <div className="flex flex-col flex-1 py-2 px-4 space-y-4 overflow-y-auto">
-            <nav>
-              <div className="pt-2 space-y-2 flex flex-col">
-                <div className="flex flex-1 flex-col space-y-2">
+          <div className="relative flex flex-col flex-1 px-4 space-y-4 overflow-y-auto">
+            <nav className="pb-5">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2">
                   <p className="text-md font-semibold text-white-ubi">Explora</p>
-                  <div className="bg-brown-medium flex flex-1 rounded-lg p-2 mb-2">
+                  <div className="bg-brown-medium flex rounded-lg p-2">
                     <button
                       onClick={() => toggleSubSidebar("campus")}
-                      className="w-full flex flex-col items-center justify-center p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
+                      className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
+                        activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                      }`}
                     >
-                      <span
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                        }`}
-                      >
+                      <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
                         <span className="material-symbols-outlined">map</span>
                       </span>
                       <p className="text-sm tablet:text-md mt-1">Campus</p>
                     </button>
                     <button
-                      onClick={() => toggleSubSidebar("guías")}
                       disabled
-                      className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50"
+                      className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
                     >
                       <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
                         <span className="material-symbols-outlined">menu_book</span>
@@ -600,46 +579,69 @@ export function MobileSidebar() {
                     </button>
                   </div>
                 </div>
+
+                <div>
+                  <PillFilter setFilteredPlaces={setPlaces} />
+                </div>
+
+                <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2 pb-5">
+                  <div className="w-full rounded-xl bg-brown-light p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
+                    ¿Crees que algo falta?
+                    <Link
+                      href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
+                      className="font-semibold block hover:underline"
+                    >
+                      Ayúdanos agregándolo
+                    </Link>
+                  </div>
+                  <div className="w-full rounded-xl bg-blue-location p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
+                    Desarrollado por
+                    <Link href="/creditos" className="font-semibold block hover:underline">
+                      Open Source eUC
+                    </Link>
+                  </div>
+                </div>
               </div>
             </nav>
-
-            <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2">
-              <div className="w-full rounded-xl bg-brown-light">
-                <div className="text-xs text-white-blue p-4 mobile:p-3 tablet:p-4">
-                  ¿Crees que algo falta?
-                  <Link
-                    href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
-                    className="font-semibold block hover:underline"
-                  >
-                    Ayúdanos agregándolo
-                  </Link>
-                </div>
-              </div>
-              <div className="w-full rounded-xl bg-blue-location">
-                <div className="text-xs text-white-blue p-4 mobile:p-3 tablet:p-4">
-                  Desarrollado por
-                  <Link href="/creditos" className="font-semibold block hover:underline">
-                    Open Source eUC
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
         {activeSubSidebar !== null || activeSubSidebar === "menuInformation" ? (
           <section
-            className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 ${`${calculatedHeight} translate-y-0`}"
-              }`}
+            className={`fixed pb-5 bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 translate-y-0`}
             style={{
               height: `${sidebarHeight}dvh`,
-              transition: enableTransition ? "all 300ms" : "none",
+              transition: "all 300ms",
             }}
           >
-            <div className="flex flex-col h-full py-5 px-4 space-y-4 relative overflow-y-auto">
+            <div
+              className="w-full h-8 flex justify-center items-center"
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onClick={() => {
+                if (!isOpen) {
+                  setSidebarHeight(45);
+                  handleToggleSidebar();
+                }
+              }}
+            >
+              <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto cursor-grab active:cursor-grabbing" />
+            </div>
+            <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
               {activeSubSidebar === "campus" && (
                 <>
                   <h3 className="font-bold text-lg">Campus</h3>
+                  <button
+                    onClick={() => {
+                      setActiveSubSidebar(null);
+                    }}
+                    className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                    aria-label="Cerrar menú"
+                  >
+                    <span className="material-symbols-outlined">close</span>
+                  </button>
                   <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
                     <button
                       onClick={() => handleCampusClick("SanJoaquin")}
@@ -772,10 +774,11 @@ export function MobileSidebar() {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
                   }}
-                  onEdit={(isEdit) => {
-                    if (isEdit) {
-                      setSidebarHeight(100);
-                    }
+                  onEdit={() => {
+                    setSidebarHeight(100);
+                  }}
+                  onCloseEdit={() => {
+                    setSidebarHeight(60);
                   }}
                 />
               )}

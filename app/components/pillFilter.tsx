@@ -45,7 +45,7 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
   return (
     <div className="relative w-full max-w-full overflow-hidden pt-2">
       <div
-        className="flex flex-row desktop:flex-col overflow-x-auto scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firebox space-x-2 desktop:space-y-2 desktop:p-1 no-scrollbar"
+        className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:space-y-2 desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
         <style jsx>{`
@@ -59,96 +59,35 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
             -ms-overflow-style: none; /* IE and Edge */
           }
         `}</style>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Facultades"
-            iconGoogle="school"
-            bg_color="bg-deep-red-option"
-            onClick={() => applyFilter(categoryFilter, "faculty")}
-            active={activeFilter === "faculty"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Salas de Estudio"
-            iconGoogle="group"
-            bg_color="bg-red-option"
-            onClick={() => applyFilter(categoryFilter, "studyroom")}
-            active={activeFilter === "studyroom"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Auditorios"
-            iconGoogle="book_2"
-            bg_color="bg-green-option"
-            onClick={() => applyFilter(categoryFilter, "auditorium")}
-            active={activeFilter === "auditorium"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Bibliotecas"
-            iconGoogle="local_library"
-            bg_color="bg-pink-option"
-            onClick={() => applyFilter(nameFilter, "biblioteca")}
-            active={activeFilter === "biblioteca"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Baños"
-            iconGoogle="wc"
-            bg_color="bg-deep-cyan-option"
-            onClick={() => applyFilter(categoryFilter, "bath")}
-            active={activeFilter === "bath"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Comida"
-            iconGoogle="restaurant"
-            bg_color="bg-orange-option"
-            onClick={() => applyFilter(categoryFilter, "food_lunch")}
-            active={activeFilter === "food_lunch"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Agua"
-            iconGoogle="local_drink"
-            bg_color="bg-cyan-option"
-            onClick={() => applyFilter(categoryFilter, "water")}
-            active={activeFilter === "water"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Deportes"
-            iconGoogle="sports_soccer"
-            bg_color="bg-deep-green-option"
-            onClick={() => applyFilter(categoryFilter, "sports_place")}
-            active={activeFilter === "sports_place"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Crisol"
-            iconGoogle="print"
-            bg_color="bg-purple-option"
-            onClick={() => applyFilter(nameFilter, "crisol")}
-            active={activeFilter === "crisol"}
-          />
-        </div>
-        <div className="snap-start flex-shrink-0">
-          <Pill
-            title="Estacionamientos"
-            iconGoogle="local_parking"
-            bg_color="bg-gray-option"
-            onClick={() => applyFilter(categoryFilter, "parking")}
-            active={activeFilter === "parking"}
-          />
-        </div>
+
+        {[
+          { title: "Facultades", icon: "school", bg: "bg-deep-red-option", filter: "faculty" },
+          { title: "Salas de Estudio", icon: "group", bg: "bg-red-option", filter: "studyroom" },
+          { title: "Auditorios", icon: "book_2", bg: "bg-green-option", filter: "auditorium" },
+          {
+            title: "Bibliotecas",
+            icon: "local_library",
+            bg: "bg-pink-option",
+            filter: "biblioteca",
+            isNameFilter: true,
+          },
+          { title: "Baños", icon: "wc", bg: "bg-deep-cyan-option", filter: "bath" },
+          { title: "Comida", icon: "restaurant", bg: "bg-orange-option", filter: "food_lunch" },
+          { title: "Agua", icon: "local_drink", bg: "bg-cyan-option", filter: "water" },
+          { title: "Deportes", icon: "sports_soccer", bg: "bg-deep-green-option", filter: "sports_place" },
+          { title: "Crisol", icon: "print", bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
+          { title: "Estacionamientos", icon: "local_parking", bg: "bg-gray-option", filter: "parking" },
+        ].map(({ title, icon, bg, filter, isNameFilter }) => (
+          <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
+            <Pill
+              title={title}
+              iconGoogle={icon}
+              bg_color={bg}
+              onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
+              active={activeFilter === filter}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
