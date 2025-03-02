@@ -92,19 +92,13 @@ export default function MapComponent({
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
-      mapRef.current?.getMap().setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
-        duration: 2_500,
+        duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
     }
-    setTimeout(
-      () => {
-        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      },
-      campusName ? 2_600 : 500,
-    );
   }, [params]);
 
   const setMenu = useCallback(
@@ -215,7 +209,7 @@ export default function MapComponent({
 
   async function onLoad(e: MapEvent) {
     // Nueva funcion al buscar en el sidebar
-    const defaultCampus = (await getCampusFromUserLocation()) ?? localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+    const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
 
     mapRef.current?.getMap().fitBounds(getCampusBoundsFromName(defaultCampus), {
       duration: 0,
@@ -315,9 +309,8 @@ export default function MapComponent({
       metaDescription.setAttribute(
         "content",
         selectedPlace
-          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${
-              siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
-            }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
+          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
+          }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
