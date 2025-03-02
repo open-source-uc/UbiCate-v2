@@ -379,6 +379,7 @@ export function MobileSidebar() {
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(18);
   const [enableTransition, setEnableTransition] = useState(true);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
@@ -399,6 +400,19 @@ export function MobileSidebar() {
     setActiveSubSidebar(null);
     const activeElement = document.activeElement as HTMLElement;
     activeElement?.blur();
+  };
+
+  const handleSearchFocus = () => {
+    setIsSearchFocused(true);
+    setSidebarHeight(65);
+  };
+
+  const handleSearchBlur = () => {
+    setIsSearchFocused(false);
+    // Return to normal height if not showing other content
+    if (activeSubSidebar === null) {
+      setSidebarHeight(45);
+    }
   };
 
   const handleCampusClick = (campusName: string) => {
@@ -504,12 +518,26 @@ export function MobileSidebar() {
         clearInterval(interval);
         geocoder.current?.on("result", handleSearchSelection);
         current = geocoder.current;
+        
+        // Add focus/blur listeners to the input element
+        const searchInput = refSearchContainer.current.querySelector('input');
+        if (searchInput) {
+          searchInput.addEventListener('focus', handleSearchFocus);
+          searchInput.addEventListener('blur', handleSearchBlur);
+        }
       }
     }, 100);
 
     return () => {
       current?.off("result", handleSearchSelection);
       clearInterval(interval);
+      
+      // Clean up event listeners
+      const searchInput = refSearchContainer.current?.querySelector('input');
+      if (searchInput) {
+        searchInput.removeEventListener('focus', handleSearchFocus);
+        searchInput.removeEventListener('blur', handleSearchBlur);
+      }
     };
   }, []);
 
@@ -557,7 +585,11 @@ export function MobileSidebar() {
             <div className="w-1/4 h-1.5 bg-brown-medium rounded-full mx-auto mt-2 cursor-grab active:cursor-grabbing" />
           </div>
 
-          <div className="flex items-center py-2 px-4 gap-2 flex-col space-y-2">
+          <div 
+            className={`flex items-center py-2 px-4 gap-2 flex-col space-y-2 ${
+              isSearchFocused ? 'fixed top-4 left-0 right-0 z-50' : ''
+            }`}
+          >
             <section
               ref={refSearchContainer}
               onClick={() => {
@@ -566,7 +598,9 @@ export function MobileSidebar() {
                   handleToggleSidebar();
                 }
               }}
-              className="flex justify-center w-full"
+              className={`flex justify-center w-full ${
+                isSearchFocused ? 'p-2 bg-brown-dark/95 rounded-lg' : ''
+              }`}
             />
           </div>
           <div className="flex flex-col flex-1 py-2 px-4 space-y-4 overflow-y-auto">
