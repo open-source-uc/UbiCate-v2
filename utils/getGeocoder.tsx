@@ -43,7 +43,7 @@ export default function getGeocoder(
     fuzzyMatch: true,
     localGeocoderOnly: true,
     mapboxgl: Mapbox,
-    placeholder: "Salas, Bibliotecas, Laboratorios y más.",
+    placeholder: "Buscar en Ubicate",
     limit: 10,
     zoom: 18,
     marker: false,
@@ -54,11 +54,11 @@ export default function getGeocoder(
 
       return `
         <div class="geocoder-item flex items-center gap-2">
-          <div class="icon w-8 h-8 bg-blue-500 text-white flex items-center justify-center rounded-full">
+          <div class="icon w-8 h-8 bg-brown-medium flex items-center justify-center">
             📍
           </div>
           <div class="">
-            <span class="text-sm font-semibold text-gray-800">${name} | ${campus}</span>
+            <span class="text-sm font-medium text-brown-light">${name} | ${campus}</span>
           </div>
         </div>
       `;

@@ -1,18 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu";
+import FormGeo from "../form-geo/form";
+
 interface MenuProps {
   place: Feature | null;
   onClose: (e: React.MouseEvent) => void;
+  onEdit?: () => void;
+  onCloseEdit?: () => void;
 }
-import FormGeo from "../form-geo/form";
 
-export default function Menu({ place, onClose }: MenuProps) {
+export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps) {
   const [edit, setEdit] = useState<boolean>(false);
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
+
+  useEffect(() => {
+    if (edit) {
+      onEdit?.();
+    }
+  }, [edit, onEdit]);
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -83,119 +100,152 @@ export default function Menu({ place, onClose }: MenuProps) {
   return (
     <>
       {!edit ? (
-        <menu
-          className={`absolute | h-1/2 sm:h-full bottom-0 left-0 z-20 sm:w-6/12 md:w-5/12 lg:w-3/12 w-full  sm:mt-0 transition-transform duration-300 ease-in-out  rounded-t-menu sm:rounded-none overflow-y-auto ${
-            place ? "sm:translate-x-0 translate-y-0" : "translate-y-full sm:translate-y-0 sm:-translate-x-full"
-          } dark:bg-dark-1 bg-light-1  shadow-lg font-normal text-lg`}
-        >
-          <div className="p-4 dark:text-white text-gray-700">
-            <div className="flex w-full">
-              <div className="flex-grow">
-                <h2 className="text-2xl font-semibold mb-2">{place ? place.properties.name : "Lugar no disponible"}</h2>
+        <div className="space-y-6 overflow-y-auto">
+          <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
+            <div className="flex items-center justify-between w-full">
+              <div className="max-w-[260px] pr-10">
+                <h3 className="font-bold text-xl break-words whitespace-normal">
+                  {place ? place.properties.name : "Lugar sin nombre"}
+                </h3>
               </div>
-              <div>
-                <button
-                  className="w-6 h-6 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium 
-                  rounded-lg text-lg text-center disabled:opacity-50 disabled:cursor-not-allowed z-30 p-3"
-                  onClick={(e) => {
-                    onClose(e);
-                  }}
-                >
-                  X
-                </button>
+
+              <button
+                onClick={(e) => onClose(e)}
+                className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                aria-label="Cerrar menú"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            {place && place.properties?.categories?.[0] ? (
+              <div className="font-light text-sm mt-1">
+                {MapSiglas.get(place.properties.categories[0]) || "Lugar sin categoría"}
+              </div>
+            ) : null}
+          </div>
+
+          <section className="flex space-x-2 mt-8">
+            <button
+              onClick={handleShare}
+              onKeyDown={(e) => e.key === "Enter" && handleShare}
+              aria-label="Comparte esta Ubicación"
+              role="navigation"
+              tabIndex={0}
+              className="p-1 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+            >
+              <span style={{ fontSize: "1.6rem" }} className="material-symbols-outlined">
+                share
+              </span>
+              <p className="text-xs font-medium">Compartir</p>
+            </button>
+
+            <button
+              onKeyDown={(e) => e.key === "Enter"}
+              aria-label="Ingresa a la página web de este lugar"
+              role="navigation"
+              tabIndex={0}
+              className="hidden p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+            >
+              <span style={{ fontSize: "1.6rem" }} className="material-symbols-outlined">
+                explore
+              </span>
+              <p className="text-xs font-medium">Website</p>
+            </button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                onKeyDown={(e) => e.key === "Enter" && handleShare}
+                aria-label="Comparte esta Ubicación"
+                role="navigation"
+                tabIndex={0}
+                className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+              >
+                <span style={{ fontSize: "1.6rem" }} className="material-symbols-outlined">
+                  more_horiz
+                </span>
+                <p className="text-xs font-medium">Más</p>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {place?.geometry.type !== "Polygon" && (
+                  <DropdownMenuItem onClick={() => setEdit(true)}>
+                    {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
+                    <span style={{ fontSize: "1.2rem" }} className="material-symbols-outlined">
+                      edit
+                    </span>
+                  </DropdownMenuItem>
+                )}
+
+                {place?.geometry.type !== "Polygon" && place?.properties.identifier !== "42-ALL" && isDebug.current ? (
+                  <>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => aprobar()}>Aprobar</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => borrar()}>Borrar</DropdownMenuItem>
+                  </>
+                ) : null}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </section>
+
+          <section className="divide-y divide-brown-light/30">
+            {place && place.properties?.floors && place.properties.floors.length > 0 ? (
+              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3 text-blue-location">
+                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
+                      floor
+                    </span>
+                    <span className="font-medium text-white-ubi">Piso</span>
+                  </div>
+                  <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
+                </div>
+              </div>
+            ) : null}
+
+            {place && place.properties?.campus ? (
+              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3 text-blue-location">
+                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
+                      map
+                    </span>
+                    <span className="font-medium text-white-ubi">Campus</span>
+                  </div>
+                  <span className="text-white-ubi font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
+                </div>
+              </div>
+            ) : null}
+          </section>
+
+          {place?.properties.information ? (
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold">Descripción</h3>
+              <div className="bg-brown-medium rounded-md">
+                <ReactMarkdown className="text-white-ubi text-prose p-2 dark:prose-invert">
+                  {place.properties.information}
+                </ReactMarkdown>
               </div>
             </div>
-            <section>
-              {place && place.properties?.floors && place.properties.floors.length > 0 ? (
-                <div className="flex justify-between">
-                  <span className="font-semibold">Piso/s:</span>
-                  <span className="flex gap-2">{place.properties.floors.join(", ")}</span>
-                </div>
-              ) : null}
-
-              {place && place.properties?.categories?.[0] ? (
-                <div className="flex justify-between">
-                  <span className="font-semibold">Categoría:</span>
-                  <span>{MapSiglas.get(place.properties.categories[0]) || "N/A"}</span>
-                </div>
-              ) : null}
-
-              {place && place.properties?.campus ? (
-                <div className="flex justify-between">
-                  <span className="font-semibold">Campus:</span>
-                  <span>{MapSiglas.get(place.properties.campus) || "N/A"}</span>
-                </div>
-              ) : null}
-
-              <h3 className="text-xl font-semibold mt-4">Información</h3>
-              <div className="mt-2 min-h-16">
-                {place ? (
-                  place.properties.information === "" ? (
-                    "N/A"
-                  ) : (
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      components={{
-                        h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
-                        h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
-                        h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
-                        // Puedes añadir más niveles si lo requieres
-                      }}
-                    >
-                      {place.properties.information}
-                    </ReactMarkdown>
-                  )
-                ) : (
-                  "N/A"
-                )}
-              </div>
-            </section>
-            <button
-              className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleShare}
-              type="button"
-            >
-              Compartir
-            </button>
-            {place?.geometry.type === "Polygon" ? null : (
-              <button
-                className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={(e) => {
-                  setEdit(true);
-                }}
-                type="button"
-              >
-                {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-              </button>
-            )}
-            {place?.geometry.type === "Polygon" ||
-            place?.properties.identifier === "42-ALL" ||
-            isDebug.current === false ? null : (
-              <div className="flex gap-5">
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  type="button"
-                  onClick={() => aprobar()}
-                >
-                  Aprobar
-                </button>
-                <button
-                  className="my-2 w-full h-12 flex items-center justify-start dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  type="button"
-                  onClick={() => borrar()}
-                >
-                  Borrar
-                </button>
-              </div>
-            )}
-          </div>
-        </menu>
+          ) : null}
+        </div>
       ) : (
-        <menu className="absolute bottom-0 left-0 | w-full h-full dark:bg-dark-1 z-20 shadow-lg font-normal text-lg bg-white overflow-y-auto">
-          <div className="w-full text-center my-6">
-            <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">
-              {place?.properties.identifier === "42-ALL" ? "Nueva ubicación" : `Edición de ${place?.properties.name}`}
+        <div className="h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
+          <div className="w-full text-center my-6 flex items-center justify-center relative">
+            <h1 className="text-2xl text-white-ubi select-none">
+              {place?.properties.identifier === "42-ALL"
+                ? "Nueva ubicación"
+                : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
+            <button
+              onClick={(e) => {
+                onCloseEdit?.();
+                setEdit(false);
+              }}
+              className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+              aria-label="Cerrar menú"
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
           </div>
           <FormGeo
             values={{
@@ -208,17 +258,12 @@ export default function Menu({ place, onClose }: MenuProps) {
               identifier: place?.properties.identifier as string,
             }}
             mode={place?.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
-            fun={() => setEdit(false)}
-          />
-          <button
-            className="fixed bottom-2 right-2 w-12 h-12 flex items-center justify-center dark:text-light-4 border-solid border-2 dark:border-0 border-dark-4 dark:bg-dark-4 bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed z-30"
-            onClick={(e) => {
+            fun={() => {
+              onCloseEdit?.();
               setEdit(false);
             }}
-          >
-            X
-          </button>
-        </menu>
+          />
+        </div>
       )}
     </>
   );

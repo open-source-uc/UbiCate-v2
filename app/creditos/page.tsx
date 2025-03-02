@@ -17,35 +17,47 @@ export default async function Page() {
   const contributors = await fetchContributors();
 
   return (
-    <main
-      spellCheck="false"
-      className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 pb-7"
-    >
+    <main spellCheck="false" className="min-h-screen w-full bg-brown-dark text-white-ubi pb-7">
       <div className="w-full text-center px-4">
-        <div className="py-8">
-          <Image
-            src="/logo-osuc.svg"
-            alt="Open Source UC Logo"
-            width={192}
-            height={192}
-            className="mx-auto drop-shadow-lg"
-          />
+        <div className="w-full text-center px-4">
+          <div className="py-8">
+            <Image
+              src="/logo-osuc.svg"
+              alt="Open Source UC Logo"
+              width={192}
+              height={192}
+              className="mx-auto drop-shadow-lg"
+            />
+          </div>
+
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
+            Desarrollado por{" "}
+            <a
+              href="https://osuc.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-success transition-all underline"
+            >
+              Open Source UC
+            </a>
+            , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
+          </p>
+          <br />
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
+            El código de este proyecto es{" "}
+            <a
+              href="https://github.com/open-source-uc/UbiCate-v2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-success transition-all underline"
+            >
+              código abierto
+            </a>
+            , por lo que cualquier persona puede aportar.
+          </p>
         </div>
 
-        <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-          Desarrollado por{" "}
-          <a
-            href="https://osuc.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-sky-600 dark:text-sky-300 hover:text-sky-800 dark:hover:text-sky-500 transition-all underline"
-          >
-            Open Source UC
-          </a>
-          , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
-        </p>
-
-        <h2 className="text-3xl font-bold mt-10">Contribuidores de UbíCate</h2>
+        <h2 className="text-3xl font-bold mt-10 text-white-ubi">Contribuidores de UbiCate</h2>
 
         <div className="mt-8">
           {contributors.length > 0 ? (
@@ -62,7 +74,7 @@ export default async function Page() {
                 ))}
             </ul>
           ) : (
-            <p className="text-lg font-medium">Cargando contribuyentes...</p>
+            <p className="text-lg font-medium text-white-ubi">Cargando contribuyentes...</p>
           )}
         </div>
       </div>
