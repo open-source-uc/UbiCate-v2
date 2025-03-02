@@ -38,8 +38,6 @@ interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
   fitBoundsOptions?: {
     offset?: PointLike;
-    minZoom?: number;
-    maxZoom?: number;
     padding?: number | PaddingOptions;
   };
 }
@@ -208,7 +206,7 @@ export default function MapComponent({
 
   async function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-    mapRef.current?.getMap().setMinZoom(16);
+    mapRef.current?.getMap().setMinZoom(15);
     if (paramPlace) {
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       if (paramPlace.geometry.type === "Point") {
