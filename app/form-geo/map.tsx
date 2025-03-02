@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 import { useRef, useState, useCallback, useEffect } from "react";
@@ -8,12 +7,11 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Layer, Source } from "react-map-gl";
 import type { MarkerDragEvent, MapLayerMouseEvent, MapRef, LngLatBoundsLike } from "react-map-gl";
 
-import { campusBorderLayer, darkCampusBorderLayer } from "@/app/map/layers";
+import { campusBorderLayer } from "@/app/map/layers";
 import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import Campus from "../../data/campuses.json";
 import DebugMode from "../components/debugMode";
-import { useThemeObserver } from "../hooks/useThemeObserver";
 
 import ControlPanel from "./controlPanel";
 
@@ -40,8 +38,6 @@ export default function MapComponent(props: MapProps) {
   if (!campusMapBounds) {
     campusMapBounds = getCampusBoundsFromName(searchParams.get("campus") ?? localStorage.getItem("defaultCampus"));
   }
-
-  const [theme] = useThemeObserver(map);
 
   const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
     setMarker({
@@ -78,7 +74,7 @@ export default function MapComponent(props: MapProps) {
           initialViewState={{
             bounds: campusMapBounds,
           }}
-          mapStyle={`mapbox://styles/mapbox/${theme}`}
+          mapStyle={`mapbox://styles/mapbox/navigation-guidance-night-v4`}
           mapboxAccessToken={MAPBOX_TOKEN}
           onLoad={() => {
             mapRef.current?.getMap().setMaxBounds(campusMapBounds as LngLatBoundsLike);
@@ -98,7 +94,7 @@ export default function MapComponent(props: MapProps) {
           <FullscreenControl position="bottom-right" />
           <NavigationControl position="bottom-right" />
           <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
-            {theme && theme === "dark-v11" ? <Layer {...darkCampusBorderLayer} /> : <Layer {...campusBorderLayer} />}
+            <Layer {...campusBorderLayer} />
           </Source>
           <DebugMode />
           {marker.longitude && marker.latitude ? (
@@ -111,7 +107,13 @@ export default function MapComponent(props: MapProps) {
               onDragEnd={onMarkerDragEnd}
               style={{ zIndex: 1 }}
             >
-              <Image className="dark:invert" src="/logo.svg" alt="Logo" width={20} height={29} />
+              <div
+                className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}
+              >
+                <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">
+                  fiber_manual_record
+                </span>
+              </div>
             </Marker>
           ) : null}
         </Map>

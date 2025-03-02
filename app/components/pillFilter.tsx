@@ -12,8 +12,6 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
-  const [isAtStart, setIsAtStart] = useState(true);
-  const [isAtEnd, setIsAtEnd] = useState(false);
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -44,162 +42,53 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
     [placesGeoJson, placesFilteredByCategory, setFilteredPlaces, activeFilter],
   );
 
-  const moveLeft = () => {
-    if (pillsContainer.current) {
-      const newScrollLeft = pillsContainer.current.scrollLeft - 150;
-      pillsContainer.current.scrollTo({
-        left: newScrollLeft,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const moveRight = () => {
-    if (pillsContainer.current) {
-      const newScrollLeft = pillsContainer.current.scrollLeft + 150;
-      pillsContainer.current.scrollTo({
-        left: newScrollLeft,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const checkScrollPosition = () => {
-    if (pillsContainer.current) {
-      const container = pillsContainer.current;
-      const isAtStart = container.scrollLeft === 0;
-      setIsAtStart(isAtStart);
-
-      if (container.scrollLeft + 3 > container.scrollWidth - container.clientWidth) setIsAtEnd(true);
-      else setIsAtEnd(false);
-    }
-  };
-
-  useEffect(() => {
-    const container = pillsContainer.current;
-    if (container) {
-      container.addEventListener("scroll", checkScrollPosition);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("scroll", checkScrollPosition);
-      }
-    };
-  }, []);
-
   return (
-    <div className="relative w-full max-w-full overflow-hidden">
-      {isAtStart || (
-        <button
-          type="button"
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-none w-[36px] h-[36px]"
-          onClick={moveLeft}
-        >
-          <svg
-            className="w-5 h-5 text-gray-800"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-      )}
-
+    <div className="relative w-full max-w-full overflow-hidden pt-2">
       <div
-        className="overflow-x-auto overflow-auto-chrome overflow-firebox flex justify-start items-center sm:pt-0 gap-3"
+        className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:space-y-2 desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
         <style jsx>{`
           .overflow-auto-chrome::-webkit-scrollbar {
-            display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
+            display: none; /* Hide scrollbar in Chrome and Safari */
           }
           .overflow-firebox {
-            scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
+          }
+          .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
           }
         `}</style>
-        <Pill
-          title="Baños"
-          iconPath="/categoryIcons/toilet.svg"
-          onClick={() => applyFilter(categoryFilter, "bath")}
-          active={activeFilter === "bath"}
-        />
-        <Pill
-          title="Comida"
-          iconPath="/categoryIcons/food.svg"
-          onClick={() => applyFilter(categoryFilter, "food_lunch")}
-          active={activeFilter === "food_lunch"}
-        />
-        <Pill
-          title="Agua"
-          iconPath="/categoryIcons/water.svg"
-          onClick={() => applyFilter(categoryFilter, "water")}
-          active={activeFilter === "water"}
-        />
-        <Pill
-          title="Crisol"
-          iconPath="/categoryIcons/crisol.svg"
-          onClick={() => applyFilter(nameFilter, "crisol")}
-          active={activeFilter === "crisol"}
-        />
-        <Pill
-          title="Facultades"
-          iconPath="/categoryIcons/faculty.svg"
-          onClick={() => applyFilter(categoryFilter, "faculty")}
-          active={activeFilter === "faculty"}
-        />
-        <Pill
-          title="Bibliotecas"
-          iconPath="/categoryIcons/library.svg"
-          onClick={() => applyFilter(nameFilter, "biblioteca")}
-          active={activeFilter === "biblioteca"}
-        />
-        <Pill
-          title="Salas de Estudio"
-          iconPath="/categoryIcons/studyroom.svg"
-          onClick={() => applyFilter(categoryFilter, "studyroom")}
-          active={activeFilter === "studyroom"}
-        />
-        <Pill
-          title="Auditorios"
-          iconPath="/categoryIcons/auditorium.svg"
-          onClick={() => applyFilter(categoryFilter, "auditorium")}
-          active={activeFilter === "auditorium"}
-        />
-        <Pill
-          title="Deportes"
-          iconPath="/categoryIcons/sports_place.svg"
-          onClick={() => applyFilter(categoryFilter, "sports_place")}
-          active={activeFilter === "sports_place"}
-        />
-        <Pill
-          title="Estacionamientos"
-          iconPath="/categoryIcons/parking.svg"
-          onClick={() => applyFilter(categoryFilter, "parking")}
-          active={activeFilter === "parking"}
-        />
+
+        {[
+          { title: "Facultades", icon: "school", bg: "bg-deep-red-option", filter: "faculty" },
+          { title: "Salas de Estudio", icon: "group", bg: "bg-red-option", filter: "studyroom" },
+          { title: "Auditorios", icon: "book_2", bg: "bg-green-option", filter: "auditorium" },
+          {
+            title: "Bibliotecas",
+            icon: "local_library",
+            bg: "bg-pink-option",
+            filter: "biblioteca",
+            isNameFilter: true,
+          },
+          { title: "Baños", icon: "wc", bg: "bg-deep-cyan-option", filter: "bath" },
+          { title: "Comida", icon: "restaurant", bg: "bg-orange-option", filter: "food_lunch" },
+          { title: "Agua", icon: "local_drink", bg: "bg-cyan-option", filter: "water" },
+          { title: "Deportes", icon: "sports_soccer", bg: "bg-deep-green-option", filter: "sports_place" },
+          { title: "Crisol", icon: "print", bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
+          { title: "Estacionamientos", icon: "local_parking", bg: "bg-gray-option", filter: "parking" },
+        ].map(({ title, icon, bg, filter, isNameFilter }) => (
+          <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
+            <Pill
+              title={title}
+              iconGoogle={icon}
+              bg_color={bg}
+              onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
+              active={activeFilter === filter}
+            />
+          </div>
+        ))}
       </div>
-      {isAtEnd || (
-        <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-auto cursor-pointer flex items-center justify-center bg-white text-gray-800 border-2 border-gray-300 rounded-full p-2 shadow-md transition-all hover:bg-gray-100 hover:border-gray-400 active:scale-95 focus:outline-none w-[36px] h-[36px]"
-          onClick={moveRight}
-          type="button"
-        >
-          <svg
-            className="w-5 h-5 text-gray-800"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      )}
     </div>
   );
 }

@@ -6,8 +6,8 @@ import FormComponent from "./form";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "UbíCate UC - Agregar nueva ubicación",
-    description: "Ayúdanos registrando una nueva sala o cualquier otra ubicación.",
+    title: "Ubicate UC - Nueva ubicación",
+    description: "Ayúdanos registrando una nueva ubicación.",
 
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
@@ -19,10 +19,10 @@ export default async function Page() {
   return (
     <>
       <main spellCheck="false" className="h-full w-full">
-        <div className="w-full text-center my-6">
-          <h1 className="text-3xl lg:text-6xl text-black dark:text-white select-none">Nueva ubicación</h1>
-          <h2 className="text-base lg:text-lg text-black dark:text-light-4 select-none text-center">
-            Ayúdanos registrando una nueva sala, oficina o cualquier otro espacio que consideres pertinente.
+        <div className="w-full text-center p-12">
+          <h1 className="text-2xl font-semibold text-white-ubi">Nueva ubicación (Beta)</h1>
+          <h2 className="text-lg text-white-ubi">
+            ¡Ayúdanos registrando una nueva ubicación! <br />
           </h2>
         </div>
         <FormComponent values={null} mode={METHOD.CREATE} fun={null} />
