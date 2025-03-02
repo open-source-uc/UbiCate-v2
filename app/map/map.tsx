@@ -351,8 +351,13 @@ export default function MapComponent({
         () => {
           clearInterval(i);
         },
+        {
+          enableHighAccuracy: true, // Solicita una mayor precisión
+          timeout: 4_000, // Establece un tiempo máximo para obtener la posición
+          maximumAge: 0, // No usa una posición en caché
+        },
       );
-    }, 1_000);
+    }, 4_500);
 
     return () => {
       clearInterval(i);
