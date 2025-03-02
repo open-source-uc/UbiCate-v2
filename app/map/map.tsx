@@ -207,45 +207,40 @@ export default function MapComponent({
   }
 
   async function onLoad(e: MapEvent) {
-    // Nueva funcion al buscar en el sidebar
-    const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+    e.target.doubleClickZoom.disable();
 
-    mapRef.current?.getMap().fitBounds(getCampusBoundsFromName(defaultCampus), {
-      duration: 0,
-    });
-    mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-
-    refFunctionClickOnResult.current = (place) => {
-      setMenu(null);
-      mapRef.current?.getMap().setMaxBounds(undefined);
-      localStorage.setItem("defaultCampus", place.properties.campus);
-      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-
-      if (place?.geometry.type === "Point") {
+    if (paramPlace) {
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
+      if (paramPlace.geometry.type === "Point") {
         mapRef.current?.getMap().flyTo({
           essential: true,
-          duration: 400,
-          zoom: 16,
-          center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
-        });
-      }
-      if (place?.geometry.type === "Polygon") {
-        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+          duration: 0,
           zoom: 17,
-          duration: 400,
+          center: [paramPlace.geometry.coordinates[0], paramPlace.geometry.coordinates[1]],
         });
       }
-    };
+      if (paramPlace.geometry.type === "Polygon") {
+        mapRef.current?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
+          zoom: 17,
+          duration: 0,
+        });
+      }
 
-    e.target.doubleClickZoom.disable();
-    if (paramPlace) {
       localStorage.setItem("defaultCampus", paramPlace.properties.campus);
       setPlaces([paramPlace]);
-    }
-    if (paramLng && paramLat) {
+    } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      mapRef.current?.getMap().flyTo({
+        essential: true,
+        duration: 0,
+        zoom: 17,
+        center: [paramLng, paramLat],
+      });
       setCustomMark(paramLng, paramLat, false);
+    } else {
+      const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
     }
 
     e.target.on("click", ["red-area"], (e) => {
@@ -258,6 +253,32 @@ export default function MapComponent({
         setMenu(feature);
       }, 10);
     });
+
+    refFunctionClickOnResult.current = (place) => {
+      setMenu(null);
+      mapRef.current?.getMap().setMaxBounds(undefined);
+      localStorage.setItem("defaultCampus", place.properties.campus);
+      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+
+      if (place?.geometry.type === "Point") {
+        mapRef.current?.getMap().flyTo({
+          essential: true,
+          duration: 400,
+          zoom: 18,
+          center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+        });
+      }
+      if (place?.geometry.type === "Polygon") {
+        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+          zoom: 17,
+          duration: 400,
+        });
+      }
+      setTimeout(() => {
+        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(place.properties.campus));
+      }, 400);
+    };
+
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
