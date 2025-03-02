@@ -10,7 +10,8 @@ import { useEffect, useRef, useState } from "react";
 import { useSidebar } from "../context/sidebarCtx";
 import MenuInformation from "../map/menuInformation";
 
-import PillFilter from "./pillFilter";
+import PillActionBar from "./pillActionBar";
+import PillFilter from "./pillFilterBar";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
@@ -220,7 +221,7 @@ export function DesktopSidebar() {
                     <section ref={refSearchContainer} />
                     <div className="space-y-2">
                       <h4 className="font-semibold text-md">Filtra por lugares</h4>
-                      <PillFilter setFilteredPlaces={setPlaces} />
+                      <PillFilter />
                     </div>
                   </ul>
                 </>
@@ -555,8 +556,11 @@ export function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4">
+      <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
+        <div>
+          <PillActionBar />
+        </div>
       </section>
 
       {/* Main Sidebar */}
@@ -612,7 +616,7 @@ export function MobileSidebar() {
                   </div>
 
                   <div>
-                    <PillFilter setFilteredPlaces={setPlaces} />
+                    <PillFilter />
                   </div>
 
                   <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2 pb-5">

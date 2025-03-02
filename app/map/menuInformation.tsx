@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
 import {
@@ -98,7 +99,69 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
 
   return (
     <>
-      {!edit ? (
+      {place?.properties.categories.includes("bienvenida_novata") ? (
+        <div className="space-y-6 overflow-y-auto">
+          <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
+            <div className="flex items-center justify-between w-full">
+              <div className="max-w-[260px] pr-10">
+                <h3 className="font-bold text-xl break-words whitespace-normal">
+                  {place ? place.properties.name : "Lugar sin nombre"}
+                </h3>
+              </div>
+
+              <button
+                onClick={(e) => onClose(e)}
+                className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                aria-label="Cerrar menú"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            {place && place.properties?.categories?.[0] ? (
+              <div className="font-light text-sm mt-1">
+                {MapSiglas.get(place.properties.categories[0]) || "Lugar sin categoría"}
+              </div>
+            ) : null}
+          </div>
+
+          <section className="divide-y divide-brown-light/30">
+            {place && place.properties?.campus ? (
+              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3 text-blue-location">
+                    <span style={{ fontSize: "1.4rem" }} className="material-symbols-outlined">
+                      map
+                    </span>
+                    <span className="font-medium text-white-ubi">Campus</span>
+                  </div>
+                  <span className="text-white-ubi font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
+                </div>
+              </div>
+            ) : null}
+          </section>
+
+          {place?.properties.information ? (
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold">Descripción</h3>
+              <div className="bg-brown-medium rounded-md">
+                <ReactMarkdown
+                  className="text-white-ubi text-prose p-2 dark:prose-invert"
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
+                    h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
+                    // Puedes añadir más niveles si lo requieres
+                  }}
+                >
+                  {place.properties.information}
+                </ReactMarkdown>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      ) : !edit ? (
         <div className="space-y-6 overflow-y-auto">
           <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
             <div className="flex items-center justify-between w-full">
@@ -220,7 +283,16 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
             <div className="space-y-2">
               <h3 className="text-lg font-semibold">Descripción</h3>
               <div className="bg-brown-medium rounded-md">
-                <ReactMarkdown className="text-white-ubi text-prose p-2 dark:prose-invert">
+                <ReactMarkdown
+                  className="text-white-ubi text-prose p-2 dark:prose-invert"
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
+                    h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
+                    // Puedes añadir más niveles si lo requieres
+                  }}
+                >
                   {place.properties.information}
                 </ReactMarkdown>
               </div>

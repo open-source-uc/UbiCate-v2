@@ -2,17 +2,17 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
 
+import { useSidebar } from "../context/sidebarCtx";
+
 import Pill from "./pill";
 
-interface PillFilterProps {
-  setFilteredPlaces: ([]) => void;
-}
-
-function PillFilter({ setFilteredPlaces }: PillFilterProps) {
+function PillFilter() {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const pillsContainer = useRef<HTMLDivElement | null>(null);
+
+  const { setPlaces } = useSidebar();
 
   useEffect(() => {
     const loadGeoJson = async () => {
@@ -25,21 +25,21 @@ function PillFilter({ setFilteredPlaces }: PillFilterProps) {
 
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
-      setFilteredPlaces([]);
+      setPlaces([]);
       if (!placesGeoJson) return;
 
       if (activeFilter === category) {
         setActiveFilter(null);
-        setFilteredPlaces([]);
+        setPlaces([]);
         return;
       }
 
       const results = placesFilteredByCategory[category] || filter(placesGeoJson, category);
       setPlacesFilteredByCategory((prev) => ({ ...prev, [category]: results }));
-      setFilteredPlaces(results);
+      setPlaces(results);
       setActiveFilter(category);
     },
-    [placesGeoJson, placesFilteredByCategory, setFilteredPlaces, activeFilter],
+    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilter],
   );
 
   return (
