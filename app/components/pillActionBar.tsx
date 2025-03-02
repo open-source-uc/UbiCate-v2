@@ -30,6 +30,7 @@ function PillFilter() {
             if (activeFilter === category) {
                 setActiveFilter(null);
                 setPlaces([]);
+                setSelectedPlace(null)
                 return;
             }
 
@@ -42,32 +43,37 @@ function PillFilter() {
     );
 
     return (
-        <div className="relative w-full max-w-full overflow-hidden pt-2">
-            <div
-                className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:space-y-2 desktop:p-1 no-scrollbar"
-                ref={pillsContainer}
-            >
-                <style jsx>{`
-          .overflow-auto-chrome::-webkit-scrollbar {
-            display: none; /* Hide scrollbar in Chrome and Safari */
-          }
-          .overflow-firebox {
-            scrollbar-width: none; /* Hide scrollbar in Firefox */
-          }
-          .no-scrollbar {
-            -ms-overflow-style: none; /* IE and Edge */
-          }
-        `}</style>
-
+        <div className="relative w-full max-w-full overflow-x-auto pt-2 no-scrollbar">
+            <div className="flex space-x-2 justify-center">
                 {[
-                    { title: "Bienvenida Novata", icon: "school", bg: "bg-pink-option", filter: "bienvenida_novata", isNameFilter: false },
+                    { title: "Evento Bienvenida Novata 🎉", icon: "school", bg: "bg-pink-option", filter: "bienvenida_novata", isNameFilter: false },
                 ].map(({ title, icon, bg, filter, isNameFilter }) => (
-                    <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
+                    <div key={title} className="flex-shrink-0 min-w-[120px]">
                         <Pill
                             title={title}
                             iconGoogle={icon}
                             bg_color={bg}
-                            onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
+                            onClick={() => {
+                                setSelectedPlace({
+                                    type: "Feature",
+                                    properties: {
+                                        identifier: "bienvenida_2025-010",
+                                        name: "¡Bienvenidos a la Búsqueda del Tesoro de OpenSource UC!",
+                                        information:
+                                            " ¡Prepárate para una aventura en el campus San Joaquín de la Universidad Católica!\n En esta actividad, explorarás el mapa interactivo de nuestra universidad y te retamos a encontrar tres lugares clave.\n\n## ¿Cómo jugar?\n\n1. **Encuentra y fotografía tres lugares**: Descubre lugares secretos en el mapa y captura una foto de cada uno.\n2. **Vuelve al stand**: Trae tus fotos y ven a nuestro stand en OpenSource UC para confirmar tu participación.\n3. **Deja tus sugerencias**: ¿Tienes ideas? ¡Queremos escucharlas! Deja tus sugerencias en nuestro buzón y ayúdanos a mejorar.\n\nDiviértete, explora y ¡no olvides que hay premios esperándote!",
+                                        categories: ["bienvenida_novata"],
+                                        campus: "SJ",
+                                        faculties: "",
+                                        floors: [1],
+                                        needApproval: false,
+                                    },
+                                    geometry: {
+                                        type: "Point",
+                                        coordinates: [-70.58571815619236, -33.587804325654494],
+                                    },
+                                })
+                                applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)
+                            }}
                             active={activeFilter === filter}
                         />
                     </div>

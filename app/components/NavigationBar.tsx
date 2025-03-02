@@ -11,6 +11,7 @@ import { useSidebar } from "../context/sidebarCtx";
 import MenuInformation from "../map/menuInformation";
 
 import PillFilter from "./pillFilterBar";
+import PillActionBar from "./pillActionBar";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
@@ -551,8 +552,11 @@ export function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4">
+      <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
+        <div>
+          <PillActionBar></PillActionBar>
+        </div>
       </section>
 
       {/* Main Sidebar */}
