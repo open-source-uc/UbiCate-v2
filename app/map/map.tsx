@@ -257,7 +257,10 @@ export default function MapComponent({
       if (!feature) return;
 
       setTmpMark(null);
-      setMenu(feature);
+      setTimeout(() => {
+        setIsOpen(true);
+        setMenu(feature);
+      }, 10);
     });
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 

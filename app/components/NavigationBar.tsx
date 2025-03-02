@@ -407,7 +407,7 @@ export function MobileSidebar() {
     setActiveSubSidebar(null);
   };
 
-  // Handle mouse down para desktop
+  // Handlers for drag functionality (desktop)
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
     dragStartY.current = e.clientY;
@@ -419,19 +419,22 @@ export function MobileSidebar() {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  // Handle mouse move para desktop
   const handleMouseMove = (e: MouseEvent) => {
     if (!isDragging.current || dragStartY.current === null) return;
-
-    const windowHeight = document.documentElement.clientHeight;
+    e.preventDefault();
+    const windowHeight = window.innerHeight;
     const dragDelta = dragStartY.current - e.clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    let newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
+    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
     setSidebarHeight(newHeight);
+
+    // Ensure sidebar is open when dragging
+    if (newHeight > 10 && !isOpen) {
+      setIsOpen(true);
+    }
   };
 
-  // Handle mouse up para desktop
   const handleMouseUp = () => {
     isDragging.current = false;
     dragStartY.current = null;
@@ -440,63 +443,84 @@ export function MobileSidebar() {
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
 
-    if (sidebarHeight < 45) {
+    // Snap to predefined heights
+    if (sidebarHeight < 30) {
       setSidebarHeight(10);
-    } else if (sidebarHeight < 80) {
+      setIsOpen(false);
+    } else if (sidebarHeight < 65) {
       setSidebarHeight(45);
+      setIsOpen(true);
     } else {
       setSidebarHeight(80);
+      setIsOpen(true);
     }
   };
 
-  // Handle touch start para mobile
+  // Handlers for drag functionality (mobile)
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
     dragStartY.current = e.touches[0].clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
     setEnableTransition(false);
   };
 
-  // Handle touch move para mobile
   const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault();
     if (!isDragging.current || dragStartY.current === null) return;
 
-    const windowHeight = document.documentElement.clientHeight;
+    const windowHeight = window.innerHeight;
     const dragDelta = dragStartY.current - e.touches[0].clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    let newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
+    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
     setSidebarHeight(newHeight);
+
+    // Ensure sidebar is open when dragging
+    if (newHeight > 10 && !isOpen) {
+      setIsOpen(true);
+    }
   };
 
-  // Handle touch end para mobile
   const handleTouchEnd = () => {
     isDragging.current = false;
     dragStartY.current = null;
     setEnableTransition(true);
 
-    if (sidebarHeight < 40) {
-      setIsOpen(false);
+    // Snap to heights and handle open/close state
+    if (sidebarHeight < 30) {
       setSidebarHeight(10);
-    } else if (sidebarHeight > 39 && sidebarHeight < 60) {
-      setSidebarHeight(sidebarHeight);
+      setIsOpen(false);
+    } else if (sidebarHeight < 65) {
+      setSidebarHeight(45);
+      setIsOpen(true);
     } else {
       setSidebarHeight(80);
+      setIsOpen(true);
     }
   };
 
+  // Handle click on grab bar when sidebar is closed
+  const handleGrabBarClick = () => {
+    if (!isOpen) {
+      setSidebarHeight(45);
+      setIsOpen(true);
+    }
+  };
+
+  // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
       setIsOpen(true);
       setActiveSubSidebar("menuInformation");
       setSidebarHeight(60);
-    }
-    if (selectedPlace === null) {
+    } else {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
     }
   }, [selectedPlace, setIsOpen]);
 
+  // Set up geocoder
   useEffect(() => {
     let current: null | MapboxGeocoder = null;
     const interval = setInterval(() => {
@@ -514,6 +538,7 @@ export function MobileSidebar() {
     };
   }, []);
 
+  // Handle sidebar close
   useEffect(() => {
     if (isOpen === false) {
       setActiveSubSidebar(null);
@@ -521,6 +546,7 @@ export function MobileSidebar() {
     }
   }, [isOpen]);
 
+  // Clean up event listeners
   useEffect(() => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
@@ -530,118 +556,117 @@ export function MobileSidebar() {
 
   return (
     <>
+      {/* Search Container */}
       <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4">
         <div ref={refSearchContainer} className="w-full" />
       </section>
+
+      {/* Main Sidebar */}
       <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0`}
+        className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
         style={{
-          height: `${sidebarHeight}dvh`,
+          height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
       >
-        <div className="flex flex-col h-full items-center">
-          <div
-            className="w-full h-8 flex justify-center items-center"
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onClick={() => {
-              if (!isOpen) {
-                setSidebarHeight(45);
-                handleToggleSidebar();
-              }
-            }}
-          >
-            <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto cursor-grab active:cursor-grabbing" />
-          </div>
-          <div className="relative flex flex-col flex-1 px-4 space-y-4 overflow-y-auto">
-            <nav className="pb-5">
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-col gap-2">
-                  <p className="text-md font-semibold text-white-ubi">Explora</p>
-                  <div className="bg-brown-medium flex rounded-lg p-2">
-                    <button
-                      onClick={() => toggleSubSidebar("campus")}
-                      className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
-                        activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
-                      }`}
-                    >
-                      <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                        <span className="material-symbols-outlined">map</span>
-                      </span>
-                      <p className="text-sm tablet:text-md mt-1">Campus</p>
-                    </button>
-                    <button
-                      disabled
-                      className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
-                    >
-                      <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                        <span className="material-symbols-outlined">menu_book</span>
-                      </span>
-                      <p className="text-sm tablet:text-md mt-1">Guías</p>
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <PillFilter setFilteredPlaces={setPlaces} />
-                </div>
-
-                <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2 pb-5">
-                  <div className="w-full rounded-xl bg-brown-light p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
-                    ¿Crees que algo falta?
-                    <Link
-                      href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
-                      className="font-semibold block hover:underline"
-                    >
-                      Ayúdanos agregándolo
-                    </Link>
-                  </div>
-                  <div className="w-full rounded-xl bg-blue-location p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
-                    Desarrollado por
-                    <Link href="/creditos" className="font-semibold block hover:underline">
-                      Open Source eUC
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </nav>
-          </div>
+        {/* Drag handle that spans full width */}
+        <div
+          className="w-full h-7 cursor-grab active:cursor-grabbing 
+    flex justify-center items-center rounded-t-lg"
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onClick={handleGrabBarClick}
+        >
+          <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto" />
         </div>
 
-        {activeSubSidebar !== null || activeSubSidebar === "menuInformation" ? (
+        {isOpen ? (
+          <div className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto">
+            <div className="px-4 space-y-4">
+              <nav className="pb-5">
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2">
+                    <p className="text-md font-semibold text-white-ubi">Explora</p>
+                    <div className="bg-brown-medium flex rounded-lg p-2">
+                      <button
+                        onClick={() => toggleSubSidebar("campus")}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
+                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                        }`}
+                      >
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                          <span className="material-symbols-outlined">map</span>
+                        </span>
+                        <p className="text-sm tablet:text-md mt-1">Campus</p>
+                      </button>
+                      <button
+                        disabled
+                        className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
+                      >
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                          <span className="material-symbols-outlined">menu_book</span>
+                        </span>
+                        <p className="text-sm tablet:text-md mt-1">Guías</p>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <PillFilter setFilteredPlaces={setPlaces} />
+                  </div>
+
+                  <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2 pb-5">
+                    <div className="w-full rounded-xl bg-brown-light p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
+                      ¿Crees que algo falta?
+                      <Link
+                        href={`/form-geo/${searchParams.get("campus") ? `?campus=${searchParams.get("campus")}` : ""}`}
+                        className="font-semibold block hover:underline"
+                      >
+                        Ayúdanos agregándolo
+                      </Link>
+                    </div>
+                    <div className="w-full rounded-xl bg-blue-location p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
+                      Desarrollado por
+                      <Link href="/creditos" className="font-semibold block hover:underline">
+                        Open Source eUC
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        ) : null}
+
+        {/* Sub Sidebars */}
+        {activeSubSidebar ? (
           <section
-            className={`fixed pb-5 bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 translate-y-0`}
+            className="fixed pb-5 bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
               transition: enableTransition ? "all 300ms" : "none",
             }}
           >
+            {/* Drag handle in subsidebar */}
             <div
-              className="w-full h-8 flex justify-center items-center"
+              className="w-full h-7 cursor-grab active:cursor-grabbing flex justify-center items-center rounded-t-lg"
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
-              onClick={() => {
-                if (!isOpen) {
-                  setSidebarHeight(45);
-                  handleToggleSidebar();
-                }
-              }}
+              onClick={handleGrabBarClick}
             >
-              <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto cursor-grab active:cursor-grabbing" />
+              <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto" />
             </div>
+
             <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
               {activeSubSidebar === "campus" && (
                 <>
                   <h3 className="font-bold text-lg">Campus</h3>
                   <button
-                    onClick={() => {
-                      setActiveSubSidebar(null);
-                    }}
+                    onClick={() => setActiveSubSidebar(null)}
                     className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                     aria-label="Cerrar menú"
                   >
