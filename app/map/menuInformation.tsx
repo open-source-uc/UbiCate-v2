@@ -228,7 +228,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
           ) : null}
         </div>
       ) : (
-        <div className="fixed top-0 left-0 h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
+        <div className="h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
           <div className="w-full text-center my-6 flex items-center justify-center relative">
             <h1 className="text-2xl text-white-ubi select-none">
               {place?.properties.identifier === "42-ALL"
