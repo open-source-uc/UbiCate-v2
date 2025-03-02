@@ -329,8 +329,9 @@ export default function MapComponent({
       metaDescription.setAttribute(
         "content",
         selectedPlace
-          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
-          }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
+          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${
+              siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
+            }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
@@ -449,7 +450,7 @@ export default function MapComponent({
               place={userPosition as PointFeature}
               onClick={() => null}
             />
-            <div className="fixed z-40 bottom-17 right-0 px-2">
+            <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
               <LocationButton
                 onClick={() => {
                   if (userPosition === null) return;
