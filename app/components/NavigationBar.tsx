@@ -802,6 +802,7 @@ export function MobileSidebar() {
                   onClose={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
+                    setIsOpen(false);
                   }}
                   onEdit={() => {
                     setSidebarHeight(100);
