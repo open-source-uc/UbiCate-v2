@@ -91,14 +91,14 @@ export default function FormComponent({
     if (!newPlace.placeName) {
       errors.placeName = "Requerido";
     } else if (newPlace.placeName.length > 60) {
-      errors.placeName = "Nombre demasiado largo";
+      errors.placeName = "El nombre es demasiado largo";
     }
     if (newPlace.categories == "") {
-      errors.categories = "Debe seleccionar una categoría.";
+      errors.categories = "Debes seleccionar una categoría";
     }
 
     if (newPlace.information && newPlace.information.length > 200) {
-      errors.information = "Informacion demasiado larga";
+      errors.information = "La descripción es demasiado larga";
     }
 
     if (newPlace.floor > 20) {
@@ -165,130 +165,165 @@ export default function FormComponent({
   }, [initialValues]);
 
   return (
-    <section className="flex w-full items-center justify-center dark:bg-dark-1 px-1">
-      <div className="flex flex-col w-5/6 max-w-md h-5/6 my-2 items-center justify-center rounded dark:bg-dark-1 space-y-6">
+    <section className="flex w-full items-center justify-center py-4">
+      <div className="flex flex-col w-5/6 max-w-md items-center justify-center">
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ isSubmitting = submitting, setFieldValue, values }) => (
-            <Form className="flex flex-col justify-center items-center w-full space-y-4 max-w-screen-lg text-xl">
-              <label
-                className="my-2 flex items-center justify-center text-black dark:text-light-4 lg:text-2xl"
-                htmlFor="placeName"
-              >
-                Nombre (Ej: Departamento de Asistencia Económica, K203, ... )
-              </label>
-              <Field
-                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="placeName"
-                id="placeName"
-                type="text"
-              />
-
-              <ErrorMessage
-                className="text-error font-bold text-sm w-full text-left"
-                name="placeName"
-                component="div"
-              />
-              <label
-                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
-                htmlFor="categories"
-              >
-                Categoría
-              </label>
-              <Field
-                name="categories"
-                as="select"
-                className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Seleccionar</option>
-                <option value="classroom">Sala</option>
-                <option value="bath">Baño</option>
-                <option value="food_lunch">Comida</option>
-                <option value="studyroom">Sala de estudio</option>
-                <option value="trash">Reciclaje</option>
-                <option value="park_bicycle">Bicicletero</option>
-                <option value="financial">Banco / Cajero automático</option>
-                <option value="laboratory">Laboratorio</option>
-                <option value="water">Punto de agua</option>
-                <option value="auditorium">Auditorio</option>
-                <option value="sports_place">Deporte</option>
-                <option value="computers">Sala de computadores</option>
-                <option value="photocopy">Fotocopias / Impresoras</option>
-                <option value="shop">Tienda</option>
-                <option value="other">Otro</option>
-              </Field>
-              <ErrorMessage
-                className="text-error font-bold text-sm w-full text-left"
-                name="categories"
-                component="div"
-              />
-              <label
-                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
-                htmlFor="placeName"
-              >
-                Piso
-              </label>
-              <div className="flex items-center gap-2 w-full">
+            <Form className="space-y-12 text-md">
+              <div className="space-y-4">
+                <label
+                  className="flex items-center justify-center text-md font-medium text-white-ubi"
+                  htmlFor="placeName"
+                >
+                  Nombre de la Ubicación
+                </label>
+                <p className="text-xs text-white-ubi italic text-center">
+                  Ejemplo: &quot;Sala de Estudio&quot;, &quot;Fork&quot;, &quot;Departamento de Ciencia de la
+                  Computación&quot;
+                </p>
                 <Field
-                  className="block p-3 w-full text-lg rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  name="floor"
-                  id="floor"
-                  type="number"
+                  className="block p-3 w-full text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
+                  name="placeName"
+                  id="placeName"
+                  type="text"
                 />
-                <button
-                  type="button"
-                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
-                  onClick={() => setFieldValue("floor", Math.max(values.floor - 1, -Infinity))}
-                >
-                  -
-                </button>
-                <button
-                  type="button"
-                  className="w-12 h-12 bg-dark-3 border border-dark-4 text-light-4 rounded-full focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
-                  onClick={() => setFieldValue("floor", Math.min(values.floor + 1, Infinity))}
-                >
-                  +
-                </button>
+                <ErrorMessage
+                  className="text-blue-location font-bold text-sm w-full text-left"
+                  name="placeName"
+                  component="div"
+                />
               </div>
-              <ErrorMessage className="text-error font-bold text-sm w-full text-left" name="floor" component="div" />
-              <label
-                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
-                htmlFor="placeName"
-              >
-                Información (opcional)
-              </label>
-              <Field
-                className="block p-3 w-full h-36 | text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="information"
-                id="information"
-                as="textarea"
-                type="text"
-              />
 
-              <label
-                className="my-2 flex items-center justify-center dark:text-light-4 lg:text-2xl"
-                htmlFor="placeName"
-              >
-                Ubicación
-              </label>
-              <div className="flex p-3 w-full h-96 text-lg lg:text-xl rounded-lg border dark:bg-dark-3 border-dark-4 dark:text-light-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <Suspense>
-                  <MapComponent
-                    markerPosition={{
-                      longitude: longitude,
-                      latitude: latitude,
-                    }}
-                    onMarkerMove={dragLocUpdate}
-                  />
-                </Suspense>
+              <div className="space-y-4">
+                <label
+                  className="flex items-center justify-center text-md font-medium text-white-ubi"
+                  htmlFor="categories"
+                >
+                  Categoría de la Ubicación
+                </label>
+                <p className="text-xs text-white-ubi text-center italic">
+                  Selecciona la categoría que consideres que más corresponda
+                </p>
+                <Field
+                  id="categories"
+                  name="categories"
+                  as="select"
+                  className="block p-4 w-full text-sm rounded-lg border border-brown-light focus:outline-hidden focus:ring-2 focus:ring-blue-location bg-brown-dark"
+                >
+                  <option value="">Seleccionar</option>
+                  <option value="classroom">Sala</option>
+                  <option value="bath">Baño</option>
+                  <option value="food_lunch">Comida</option>
+                  <option value="studyroom">Sala de estudio</option>
+                  <option value="trash">Reciclaje</option>
+                  <option value="park_bicycle">Bicicletero</option>
+                  <option value="financial">Banco / Cajero automático</option>
+                  <option value="laboratory">Laboratorio</option>
+                  <option value="water">Punto de agua</option>
+                  <option value="auditorium">Auditorio</option>
+                  <option value="sports_place">Deporte</option>
+                  <option value="computers">Sala de computadores</option>
+                  <option value="photocopy">Fotocopias / Impresoras</option>
+                  <option value="shop">Tienda</option>
+                  <option value="other">Otro</option>
+                </Field>
+                <ErrorMessage
+                  name="categories"
+                  component="div"
+                  className="text-blue-location font-semibold text-sm w-full text-left"
+                />
               </div>
-              <ErrorMessage
-                className="text-error font-bold text-sm w-full text-center"
-                name="longitude"
-                component="div"
-              />
-              <ErrorMessage className="text-error font-bold text-sm w-full text-left" name="latitude" component="div" />
+
+              {/* Continue applying the same style onwards */}
+
+              <div className="space-y-4">
+                <label className="flex items-center justify-center text-md font-medium text-white-ubi" htmlFor="floor">
+                  Piso
+                </label>
+                <p className="text-xs text-white-ubi text-center italic">
+                  Si corresponde, selecciona el piso en el que se encuentra la ubicación. En caso que no aplique,
+                  selecciona 1
+                </p>
+                <div className="flex items-center gap-2 w-full">
+                  <Field
+                    className="block p-3 w-full text-sm rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2"
+                    name="floor"
+                    id="floor"
+                    type="number"
+                  />
+                  <button
+                    type="button"
+                    className="w-12 h-12 bg-transparent border border-brown-light text-white-ubi rounded-full focus:ring-blue-location focus:outline-hidden focus:ring-2 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                    onClick={() => setFieldValue("floor", Math.max(values.floor - 1, -Infinity))}
+                  >
+                    -
+                  </button>
+                  <button
+                    type="button"
+                    className="w-12 h-12 bg-transparent border border-brown-light text-white-ubi rounded-full focus:ring-blue-location focus:outline-hidden focus:ring-2 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                    onClick={() => setFieldValue("floor", Math.min(values.floor + 1, Infinity))}
+                  >
+                    +
+                  </button>
+                </div>
+                <ErrorMessage
+                  className="text-blue-location font-bold text-sm w-full text-left"
+                  name="floor"
+                  component="div"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <label
+                  className="flex items-center justify-center text-md font-medium text-white-ubi"
+                  htmlFor="information"
+                >
+                  Descripción (Opcional)
+                </label>
+                <p className="text-xs text-white-ubi text-center italic">
+                  ¡Cuéntanos más sobre esta ubicación!
+                  <br />- Soporta markdown -
+                </p>
+                <Field
+                  className="block p-3 w-full h-36 text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
+                  name="information"
+                  id="information"
+                  as="textarea"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <label
+                  className="flex items-center justify-center text-md font-medium text-white-ubi"
+                  htmlFor="location"
+                >
+                  Ubicación
+                </label>
+                <div className="flex p-3 w-full h-96 rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2">
+                  <Suspense>
+                    <MapComponent
+                      markerPosition={{
+                        longitude: longitude,
+                        latitude: latitude,
+                      }}
+                      onMarkerMove={dragLocUpdate}
+                    />
+                  </Suspense>
+                </div>
+                <ErrorMessage
+                  className="text-blue-location font-bold text-sm w-full text-center"
+                  name="longitude"
+                  component="div"
+                />
+                <ErrorMessage
+                  className="text-blue-location font-bold text-sm w-full text-left"
+                  name="latitude"
+                  component="div"
+                />
+              </div>
+
               <button
-                className="my-2 w-48 h-12 flex items-center justify-center dark:text-light-4 dark:bg-dark-3 border-solid border-2 dark:border-0 border-dark-4 dark:enabled:hover:bg-dark-4 enabled:hover:bg-slate-200 font-medium rounded-lg text-lg px-6 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full p-3 text-white-ubi bg-transparent border border-brown-light rounded-lg hover:bg-brown-light/10 focus:ring-blue-location focus:outline-hidden focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
                 disabled={isSubmitting}
               >

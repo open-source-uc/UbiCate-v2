@@ -1,21 +1,58 @@
 "use client";
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState, useRef, RefObject } from "react";
+
+import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
+
+import useGeocoder from "../hooks/useGeocoder";
 
 interface SidebarContextType {
   isOpen: boolean;
   toggleSidebar: () => void;
+  setIsOpen: (e: boolean) => void;
+  places: Feature[];
+  points: PointFeature[];
+  polygons: PolygonFeature[];
+  setPlaces: (e: Feature[] | Feature | null) => void;
+  geocoder: RefObject<MapboxGeocoder | null>;
+  refFunctionClickOnResult: RefObject<((e: Feature) => void) | null>;
+  selectedPlace: Feature | null;
+  setSelectedPlace: (place: Feature | null) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
+  "use client";
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const refFunctionClickOnResult = useRef<((e: Feature) => void) | null>(null);
+
+  const [places, points, polygons, setPlaces, geocoder] = useGeocoder(null, refFunctionClickOnResult);
+
+  const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
 
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
   };
 
-  return <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>{children}</SidebarContext.Provider>;
+  return (
+    <SidebarContext.Provider
+      value={{
+        isOpen,
+        setIsOpen,
+        toggleSidebar,
+        places,
+        points,
+        polygons,
+        setPlaces,
+        geocoder,
+        refFunctionClickOnResult,
+        selectedPlace,
+        setSelectedPlace,
+      }}
+    >
+      {children}
+    </SidebarContext.Provider>
+  );
 }
 
 export const useSidebar = () => {
