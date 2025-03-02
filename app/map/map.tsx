@@ -19,15 +19,11 @@ import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import {
-  getCampusBoundsFromName,
-  getCampusFromPoint2,
-  getMaxCampusBoundsFromName,
-  getMaxCampusBoundsFromPoint,
-} from "@/utils/getCampusBounds";
+import { getCampusBoundsFromName, getCampusFromPoint2, getCampusFromUserLocation } from "@/utils/getCampusBounds";
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
+import LocationButton from "../components/locationButton";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
@@ -82,6 +78,7 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
+  const [userPosition, setUserPosition] = useState<Feature | null>(null);
   const params = useSearchParams();
   const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
     useSidebar();
@@ -98,7 +95,7 @@ export default function MapComponent({
     }
     setTimeout(
       () => {
-        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+        // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       },
       campusName ? 2_600 : 500,
     );
@@ -210,18 +207,18 @@ export default function MapComponent({
     return exit as unknown as Feature;
   }
 
-  function onLoad(e: MapEvent) {
+  async function onLoad(e: MapEvent) {
     // Nueva funcion al buscar en el sidebar
-    const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+    const defaultCampus = (await getCampusFromUserLocation()) ?? localStorage.getItem("defaultCampus") ?? "SanJoaquin";
 
     mapRef.current?.getMap().fitBounds(getCampusBoundsFromName(defaultCampus), {
       duration: 0,
     });
-    mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+    // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
 
     refFunctionClickOnResult.current = (place) => {
       setMenu(null);
-      mapRef.current?.getMap().setMaxBounds(undefined);
+      // mapRef.current?.getMap().setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", place.properties.campus);
       window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
 
@@ -248,7 +245,7 @@ export default function MapComponent({
     }
     if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       setCustomMark(paramLng, paramLat, false);
     }
 
@@ -320,6 +317,42 @@ export default function MapComponent({
     }
   }, [selectedPlace]);
 
+  useEffect(() => {
+    const i = setInterval(async () => {
+      if (!navigator.geolocation) return;
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { longitude, latitude } = position.coords;
+          setUserPosition({
+            type: "Feature",
+            properties: {
+              identifier: "user_location_0001",
+              name: "Yo",
+              information: "",
+              categories: ["userLocation"],
+              campus: "SJ",
+              faculties: "",
+              floors: [1],
+              needApproval: false,
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [longitude, latitude],
+            },
+          });
+        },
+        () => {
+          clearInterval(i);
+        },
+      );
+    }, 1_000);
+
+    return () => {
+      clearInterval(i);
+    };
+  }, []);
+
   return (
     <>
       <Map
@@ -384,6 +417,23 @@ export default function MapComponent({
             />
           );
         })}
+
+        {userPosition ? (
+          <Marker key={userPosition.properties.identifier} place={userPosition as PointFeature} onClick={() => null} />
+        ) : null}
+        <div className="fixed z-40 bottom-17 right-0">
+          <LocationButton
+            onClick={() => {
+              if (userPosition === null) return;
+
+              mapRef.current?.getMap().flyTo({
+                center: userPosition.geometry.coordinates as [number, number],
+                zoom: 17,
+                duration: 400,
+              });
+            }}
+          />
+        </div>
 
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
