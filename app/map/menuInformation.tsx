@@ -146,7 +146,16 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               <div className="space-y-2">
                 <h3 className="text-lg font-semibold">Descripción</h3>
                 <div className="bg-brown-medium rounded-md">
-                  <ReactMarkdown className="text-white-ubi text-prose p-2 dark:prose-invert">
+                  <ReactMarkdown
+                    className="text-white-ubi text-prose p-2 dark:prose-invert"
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
+                      h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
+                      h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
+                      // Puedes añadir más niveles si lo requieres
+                    }}
+                  >
                     {place.properties.information}
                   </ReactMarkdown>
                 </div>
@@ -276,7 +285,16 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold">Descripción</h3>
                   <div className="bg-brown-medium rounded-md">
-                    <ReactMarkdown className="text-white-ubi text-prose p-2 dark:prose-invert">
+                    <ReactMarkdown
+                      className="text-white-ubi text-prose p-2 dark:prose-invert"
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
+                        h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
+                        h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
+                        // Puedes añadir más niveles si lo requieres
+                      }}
+                    >
                       {place.properties.information}
                     </ReactMarkdown>
                   </div>

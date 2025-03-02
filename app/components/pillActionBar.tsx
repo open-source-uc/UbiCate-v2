@@ -44,7 +44,7 @@ function PillFilter() {
 
     return (
         <div className="relative w-full max-w-full overflow-x-auto pt-2 no-scrollbar">
-            <div className="flex space-x-2 justify-center">
+            <div className="flex space-x-2">
                 {[
                     { title: "Evento Bienvenida Novata 🎉", icon: "school", bg: "bg-pink-option", filter: "bienvenida_novata", isNameFilter: false },
                 ].map(({ title, icon, bg, filter, isNameFilter }) => (
@@ -60,7 +60,7 @@ function PillFilter() {
                                         identifier: "bienvenida_2025-010",
                                         name: "¡Bienvenidos a la Búsqueda del Tesoro de OpenSource UC!",
                                         information:
-                                            " ¡Prepárate para una aventura en el campus San Joaquín de la Universidad Católica!\n En esta actividad, explorarás el mapa interactivo de nuestra universidad y te retamos a encontrar tres lugares clave.\n\n## ¿Cómo jugar?\n\n1. **Encuentra y fotografía tres lugares**: Descubre lugares secretos en el mapa y captura una foto de cada uno.\n2. **Vuelve al stand**: Trae tus fotos y ven a nuestro stand en OpenSource UC para confirmar tu participación.\n3. **Deja tus sugerencias**: ¿Tienes ideas? ¡Queremos escucharlas! Deja tus sugerencias en nuestro buzón y ayúdanos a mejorar.\n\nDiviértete, explora y ¡no olvides que hay premios esperándote!",
+                                            " ¡Prepárate para una aventura en el campus San Joaquín de la Universidad Católica!\n En esta actividad, explorarás el mapa interactivo de nuestra universidad y te retamos a encontrar tres lugares clave.\n\n## ¿Cómo jugar?\n\n1. **Encuentra y fotografía tres lugares**: Descubre lugares secretos en el mapa y captura una foto de cada uno.\n\n2. **Vuelve al stand**: Trae tus fotos y ven a nuestro stand en OpenSource UC para confirmar tu participación.\n\n3. \n\n**Diviértete, explora y ¡no olvides que hay premios esperándote!**",
                                         categories: ["bienvenida_novata"],
                                         campus: "SJ",
                                         faculties: "",
