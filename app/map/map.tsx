@@ -208,7 +208,7 @@ export default function MapComponent({
 
   async function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-
+    mapRef.current?.getMap().setMinZoom(16)
     if (paramPlace) {
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       if (paramPlace.geometry.type === "Point") {
@@ -333,9 +333,8 @@ export default function MapComponent({
       metaDescription.setAttribute(
         "content",
         selectedPlace
-          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${
-              siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
-            }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
+          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
+          }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
