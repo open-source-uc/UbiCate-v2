@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "sports_place-32757377",
+                "name": "C- Futbol (test | ignorar edicion)",
+                "information": "### Ignorar edición ",
+                "categories": [
+                    "sports_place"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60842753607395,
+                    -33.49984221434922
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "other-36765013",
                 "name": "Borrar",
                 "information": "# Hola",
@@ -4934,30 +4958,6 @@
                 "coordinates": [
                     -70.60861399979045,
                     -33.50109497584726
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "sports_place-32757377",
-                "name": "C- Futbol",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60842753607395,
-                    -33.49984221434922
                 ]
             }
         },
