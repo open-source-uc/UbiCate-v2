@@ -24,6 +24,7 @@ const categoryToColorMap: Record<string, string> = {
   auditorium: "bg-green-option",
   sports_place: "bg-deep-green-option",
   parking: "bg-gray-option",
+  userLocation: "bg-cyan-option",
 };
 
 // Mapeo de nombres a archivos SVG
@@ -38,6 +39,7 @@ const categoryToSvgMap: Record<string, string> = {
   auditorium: "book_2",
   sports_place: "sports_soccer",
   parking: "local_parking",
+  userLocation: "radio_button_checked",
 };
 
 const defaultSvg = "fiber_manual_record";

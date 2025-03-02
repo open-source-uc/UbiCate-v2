@@ -376,7 +376,7 @@ export function DesktopSidebar() {
   );
 }
 export function MobileSidebar() {
-  const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -556,7 +556,7 @@ export function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <section className="fixed top-0 right-0 w-full flex justify-center z-50 py-2 px-4 flex flex-col">
+      <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
         <div>
           <PillActionBar />
@@ -565,7 +565,7 @@ export function MobileSidebar() {
 
       {/* Main Sidebar */}
       <section
-        className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
+        className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",

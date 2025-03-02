@@ -28,6 +28,7 @@ import {
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
+import LocationButton from "../components/locationButton";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
@@ -82,6 +83,7 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
+  const [userPosition, setUserPosition] = useState<Feature | null>(null);
   const params = useSearchParams();
   const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
     useSidebar();
@@ -89,19 +91,13 @@ export default function MapComponent({
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
-      mapRef.current?.getMap().setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
-        duration: 2_500,
+        duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
     }
-    setTimeout(
-      () => {
-        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      },
-      campusName ? 2_600 : 500,
-    );
   }, [params]);
 
   const setMenu = useCallback(
@@ -210,46 +206,45 @@ export default function MapComponent({
     return exit as unknown as Feature;
   }
 
-  function onLoad(e: MapEvent) {
-    // Nueva funcion al buscar en el sidebar
-    const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-
-    mapRef.current?.getMap().fitBounds(getCampusBoundsFromName(defaultCampus), {
-      duration: 0,
-    });
-    mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-
-    refFunctionClickOnResult.current = (place) => {
-      setMenu(null);
-      mapRef.current?.getMap().setMaxBounds(undefined);
-      localStorage.setItem("defaultCampus", place.properties.campus);
-      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-
-      if (place?.geometry.type === "Point") {
+  async function onLoad(e: MapEvent) {
+    e.target.doubleClickZoom.disable();
+    mapRef.current?.getMap().setMinZoom(16);
+    if (paramPlace) {
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
+      if (paramPlace.geometry.type === "Point") {
         mapRef.current?.getMap().flyTo({
           essential: true,
-          duration: 400,
-          zoom: 16,
-          center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
-        });
-      }
-      if (place?.geometry.type === "Polygon") {
-        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+          duration: 0,
           zoom: 17,
-          duration: 400,
+          center: [paramPlace.geometry.coordinates[0], paramPlace.geometry.coordinates[1]],
         });
       }
-    };
+      if (paramPlace.geometry.type === "Polygon") {
+        mapRef.current?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
+          zoom: 17,
+          duration: 0,
+        });
+      }
 
-    e.target.doubleClickZoom.disable();
-    if (paramPlace) {
       localStorage.setItem("defaultCampus", paramPlace.properties.campus);
       setPlaces([paramPlace]);
-    }
-    if (paramLng && paramLat) {
+    } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      mapRef.current?.getMap().flyTo({
+        essential: true,
+        duration: 0,
+        zoom: 17,
+        center: [paramLng, paramLat],
+      });
       setCustomMark(paramLng, paramLat, false);
+    } else {
+      const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+      mapRef.current?.fitBounds(getCampusBoundsFromName(defaultCampus), {
+        duration: 0,
+        zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
+      });
     }
 
     e.target.on("click", ["red-area"], (e) => {
@@ -262,6 +257,32 @@ export default function MapComponent({
         setMenu(feature);
       }, 10);
     });
+
+    refFunctionClickOnResult.current = (place) => {
+      setMenu(null);
+      mapRef.current?.getMap().setMaxBounds(undefined);
+      localStorage.setItem("defaultCampus", place.properties.campus);
+      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+
+      if (place?.geometry.type === "Point") {
+        mapRef.current?.getMap().flyTo({
+          essential: true,
+          duration: 400,
+          zoom: 18,
+          center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
+        });
+      }
+      if (place?.geometry.type === "Polygon") {
+        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+          zoom: 17,
+          duration: 400,
+        });
+      }
+      setTimeout(() => {
+        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(place.properties.campus));
+      }, 400);
+    };
+
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
@@ -319,6 +340,47 @@ export default function MapComponent({
       );
     }
   }, [selectedPlace]);
+
+  useEffect(() => {
+    const i = setInterval(async () => {
+      if (!navigator.geolocation) return;
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { longitude, latitude } = position.coords;
+          setUserPosition({
+            type: "Feature",
+            properties: {
+              identifier: "user_location_0001",
+              name: "Yo",
+              information: "",
+              categories: ["userLocation"],
+              campus: "SJ",
+              faculties: "",
+              floors: [1],
+              needApproval: false,
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [longitude, latitude],
+            },
+          });
+        },
+        () => {
+          clearInterval(i);
+        },
+        {
+          enableHighAccuracy: true, // Solicita una mayor precisión
+          timeout: 4_000, // Establece un tiempo máximo para obtener la posición
+          maximumAge: 0, // No usa una posición en caché
+        },
+      );
+    }, 4_500);
+
+    return () => {
+      clearInterval(i);
+    };
+  }, []);
 
   return (
     <>
@@ -384,6 +446,29 @@ export default function MapComponent({
             />
           );
         })}
+
+        {userPosition ? (
+          <>
+            <Marker
+              key={userPosition.properties.identifier}
+              place={userPosition as PointFeature}
+              onClick={() => null}
+            />
+            <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
+              <LocationButton
+                onClick={() => {
+                  if (userPosition === null) return;
+
+                  mapRef.current?.getMap().flyTo({
+                    center: userPosition.geometry.coordinates as [number, number],
+                    zoom: 17,
+                    duration: 400,
+                  });
+                }}
+              />
+            </div>
+          </>
+        ) : null}
 
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
