@@ -45,7 +45,7 @@ function PillFilter() {
 
   return (
     <div className="relative w-full max-w-full overflow-x-auto pt-2 no-scrollbar">
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 justify-center w-full">
         {[
           {
             title: "Evento Bienvenida Novata 🎉",
@@ -55,7 +55,7 @@ function PillFilter() {
             isNameFilter: false,
           },
         ].map(({ title, icon, bg, filter, isNameFilter }) => (
-          <div key={title} className="flex-shrink-0 min-w-[120px]">
+          <div key={title} className="flex-shrink-0 w-full">
             <Pill
               title={title}
               iconGoogle={icon}
