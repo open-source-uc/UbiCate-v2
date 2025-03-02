@@ -155,7 +155,7 @@ export default function Menu({ place, onClose }: MenuProps) {
               onClick={handleShare}
               type="button"
             >
-              Compartir {isDebug.current.toString()}
+              Compartir
             </button>
             {place?.geometry.type === "Polygon" ? null : (
               <button
