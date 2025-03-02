@@ -419,21 +419,27 @@ export default function MapComponent({
         })}
 
         {userPosition ? (
-          <Marker key={userPosition.properties.identifier} place={userPosition as PointFeature} onClick={() => null} />
-        ) : null}
-        <div className="fixed z-40 bottom-17 right-0">
-          <LocationButton
-            onClick={() => {
-              if (userPosition === null) return;
+          <>
+            <Marker
+              key={userPosition.properties.identifier}
+              place={userPosition as PointFeature}
+              onClick={() => null}
+            />
+            <div className="fixed z-40 bottom-17 right-0">
+              <LocationButton
+                onClick={() => {
+                  if (userPosition === null) return;
 
-              mapRef.current?.getMap().flyTo({
-                center: userPosition.geometry.coordinates as [number, number],
-                zoom: 17,
-                duration: 400,
-              });
-            }}
-          />
-        </div>
+                  mapRef.current?.getMap().flyTo({
+                    center: userPosition.geometry.coordinates as [number, number],
+                    zoom: 17,
+                    duration: 400,
+                  });
+                }}
+              />
+            </div>
+          </>
+        ) : null}
 
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
