@@ -420,8 +420,9 @@ export function MobileSidebar() {
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging.current || dragStartY.current === null) return;
     e.preventDefault();
+    if (!isDragging.current || dragStartY.current === null) return;
+
     const windowHeight = window.innerHeight;
     const dragDelta = dragStartY.current - e.clientY;
     const heightPercentDelta = (dragDelta / windowHeight) * 100;
@@ -458,7 +459,6 @@ export function MobileSidebar() {
 
   // Handlers for drag functionality (mobile)
   const handleTouchStart = (e: React.TouchEvent) => {
-    e.preventDefault();
     dragStartY.current = e.touches[0].clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
@@ -466,7 +466,6 @@ export function MobileSidebar() {
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    e.preventDefault();
     if (!isDragging.current || dragStartY.current === null) return;
 
     const windowHeight = window.innerHeight;
