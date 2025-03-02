@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
-import { Feature } from "@/utils/types";
+
+import { useSidebar } from "../context/sidebarCtx";
 
 import Pill from "./pill";
-import { useSidebar } from "../context/sidebarCtx";
 
 function PillFilter() {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });

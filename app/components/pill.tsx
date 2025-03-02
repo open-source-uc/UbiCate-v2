@@ -10,9 +10,15 @@ interface PillProps {
   noActivateClassName?: string;
 }
 
-function Pill({ title, iconGoogle, onClick, active, bg_color,
+function Pill({
+  title,
+  iconGoogle,
+  onClick,
+  active,
+  bg_color,
   activateClassName = "bg-blue-location",
-  noActivateClassName = "bg-brown-dark desktop:bg-brown-medium text-white-ubi" }: PillProps) {
+  noActivateClassName = "bg-brown-dark desktop:bg-brown-medium text-white-ubi",
+}: PillProps) {
   return (
     <button
       onClick={onClick}
