@@ -378,6 +378,7 @@ export function MobileSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
+  const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
   const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
@@ -412,6 +413,7 @@ export function MobileSidebar() {
     dragStartY.current = e.clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
+    setEnableTransition(false);
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
@@ -433,6 +435,7 @@ export function MobileSidebar() {
   const handleMouseUp = () => {
     isDragging.current = false;
     dragStartY.current = null;
+    setEnableTransition(true);
 
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
@@ -451,6 +454,7 @@ export function MobileSidebar() {
     dragStartY.current = e.touches[0].clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
+    setEnableTransition(false);
   };
 
   // Handle touch move para mobile
@@ -469,6 +473,7 @@ export function MobileSidebar() {
   const handleTouchEnd = () => {
     isDragging.current = false;
     dragStartY.current = null;
+    setEnableTransition(true);
 
     if (sidebarHeight < 40) {
       setIsOpen(false);
@@ -532,7 +537,7 @@ export function MobileSidebar() {
         className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0`}
         style={{
           height: `${sidebarHeight}dvh`,
-          transition: "all 300ms",
+          transition: enableTransition ? "all 300ms" : "none",
         }}
       >
         <div className="flex flex-col h-full items-center">
@@ -611,7 +616,7 @@ export function MobileSidebar() {
             className={`fixed pb-5 bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 translate-y-0`}
             style={{
               height: `${sidebarHeight}dvh`,
-              transition: "all 300ms",
+              transition: enableTransition ? "all 300ms" : "none",
             }}
           >
             <div
