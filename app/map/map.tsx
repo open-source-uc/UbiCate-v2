@@ -19,7 +19,13 @@ import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { getCampusBoundsFromName, getCampusFromPoint2, getCampusFromUserLocation } from "@/utils/getCampusBounds";
+import {
+  getCampusBoundsFromName,
+  getCampusFromPoint2,
+  getCampusFromUserLocation,
+  getMaxCampusBoundsFromName,
+  getMaxCampusBoundsFromPoint,
+} from "@/utils/getCampusBounds";
 import { siglas, Feature, PointFeature } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
@@ -95,7 +101,7 @@ export default function MapComponent({
     }
     setTimeout(
       () => {
-        // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       },
       campusName ? 2_600 : 500,
     );
@@ -214,11 +220,11 @@ export default function MapComponent({
     mapRef.current?.getMap().fitBounds(getCampusBoundsFromName(defaultCampus), {
       duration: 0,
     });
-    // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+    mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
 
     refFunctionClickOnResult.current = (place) => {
       setMenu(null);
-      // mapRef.current?.getMap().setMaxBounds(undefined);
+      mapRef.current?.getMap().setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", place.properties.campus);
       window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
 
@@ -245,7 +251,7 @@ export default function MapComponent({
     }
     if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
-      // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       setCustomMark(paramLng, paramLat, false);
     }
 
