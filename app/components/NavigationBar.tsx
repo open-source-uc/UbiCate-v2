@@ -409,7 +409,6 @@ export function MobileSidebar() {
 
   // Handlers for drag functionality (desktop)
   const handleMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault();
     dragStartY.current = e.clientY;
     lastHeight.current = sidebarHeight;
     isDragging.current = true;
@@ -571,7 +570,7 @@ export function MobileSidebar() {
         {/* Drag handle that spans full width */}
         <div
           className="w-full h-7 cursor-grab active:cursor-grabbing 
-    flex justify-center items-center rounded-t-lg"
+    flex justify-center items-center rounded-t-lg touch-pan-x"
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -650,7 +649,7 @@ export function MobileSidebar() {
           >
             {/* Drag handle in subsidebar */}
             <div
-              className="w-full h-7 cursor-grab active:cursor-grabbing flex justify-center items-center rounded-t-lg"
+              className="w-full h-7 cursor-grab active:cursor-grabbing flex justify-center items-center rounded-t-lg touch-pan-x"
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
