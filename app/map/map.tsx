@@ -90,6 +90,7 @@ export default function MapComponent({
     const campusName = params.get("campus");
     if (campusName) {
       localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.getMap().setMaxBounds(undefined);
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
@@ -208,6 +209,7 @@ export default function MapComponent({
     e.target.doubleClickZoom.disable();
     mapRef.current?.getMap().setMinZoom(15);
     if (paramPlace) {
+      mapRef.current?.getMap().setMaxBounds(undefined);
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       if (paramPlace.geometry.type === "Point") {
         mapRef.current?.getMap().flyTo({
@@ -228,6 +230,7 @@ export default function MapComponent({
       setPlaces([paramPlace]);
     } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
+      mapRef.current?.getMap().setMaxBounds(undefined);
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       mapRef.current?.getMap().flyTo({
         essential: true,
@@ -238,6 +241,7 @@ export default function MapComponent({
       setCustomMark(paramLng, paramLat, false);
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
+      mapRef.current?.getMap().setMaxBounds(undefined);
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
       mapRef.current?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
