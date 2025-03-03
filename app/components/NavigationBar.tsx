@@ -208,166 +208,173 @@ function DesktopSidebar() {
         {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
           <section
             className={`absolute bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60
-            desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:border-l-1 desktop:border-brown-light
-            max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light ${
-              activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"
-            } ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
+        desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:overflow-hidden
+        max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light
+        desktop:border-l-1 desktop:border-brown-light
+        ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"}
+        ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
           >
-            <div className="py-7 px-4 space-y-6 relative">
-              {activeSubSidebar === "buscar" && (
-                <>
-                  <h3 className="font-bold text-lg">Buscar</h3>
-                  <ul className="space-y-8">
-                    <section ref={refSearchContainer} />
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-md">Filtra por lugares</h4>
-                      <PillFilter />
+            <div className={`h-full ${activeSubSidebar === "menuInformation" ? "overflow-y-auto" : ""}`}>
+              <div className="py-7 px-4 space-y-6 relative">
+                {activeSubSidebar === "buscar" && (
+                  <>
+                    <h3 className="font-bold text-lg">Buscar</h3>
+                    <ul className="space-y-8 overflow-y-auto">
+                      <div className="p-1 ">
+                        <section ref={refSearchContainer} />
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-md">Filtra por lugares</h4>
+                        <PillFilter />
+                      </div>
+                    </ul>
+                  </>
+                )}
+                {activeSubSidebar === "campus" && (
+                  <>
+                    <h3 className="font-bold text-lg">Campus</h3>
+                    <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
+                      {/* Botón Campus San Joaquín */}
+                      <button
+                        onClick={() => handleCampusClick("SanJoaquin")}
+                        onKeyDown={(e) => e.key === "Enter" && handleCampusClick("SanJoaquin")}
+                        aria-label="Navega a Campus San Joaquín"
+                        role="navigation"
+                        tabIndex={0}
+                        className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      >
+                        <Image
+                          src="/images/campus/san_joaquin.jpg"
+                          alt="Campus San Joaquín"
+                          fill
+                          className="object-cover rounded-lg transition-transform duration-300"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                        <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                        <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                          <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
+                            San Joaquín
+                          </span>
+                        </div>
+                      </button>
+                      {/* Botón Campus Casa Central */}
+                      <button
+                        onClick={() => handleCampusClick("CasaCentral")}
+                        onKeyDown={(e) => e.key === "Enter" && handleCampusClick("CasaCentral")}
+                        aria-label="Navega a Campus Casa Central"
+                        role="navigation"
+                        tabIndex={0}
+                        className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      >
+                        <Image
+                          src="/images/campus/casa_central.jpg"
+                          alt="Campus Casa Central"
+                          fill
+                          className="object-cover rounded-lg transition-transform duration-300"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                        <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                        <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                          <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
+                            Casa Central
+                          </span>
+                        </div>
+                      </button>
+                      {/* Botón Campus Oriente */}
+                      <button
+                        onClick={() => handleCampusClick("Oriente")}
+                        onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Oriente")}
+                        aria-label="Navega a Campus Oriente"
+                        role="navigation"
+                        tabIndex={0}
+                        className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      >
+                        <Image
+                          src="/images/campus/oriente.jpg"
+                          alt="Campus Oriente"
+                          fill
+                          className="object-cover rounded-lg transition-transform duration-300"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                        <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                        <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                          <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
+                            Oriente
+                          </span>
+                        </div>
+                      </button>
+                      {/* Botón Campus Lo Contador */}
+                      <button
+                        onClick={() => handleCampusClick("LoContador")}
+                        onKeyDown={(e) => e.key === "Enter" && handleCampusClick("LoContador")}
+                        aria-label="Navega a Campus Lo Contador"
+                        role="navigation"
+                        tabIndex={0}
+                        className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      >
+                        <Image
+                          src="/images/campus/lo_contador.jpg"
+                          alt="Campus Lo Contador"
+                          fill
+                          className="object-cover rounded-lg transition-transform duration-300"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                        <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                        <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                          <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
+                            Lo Contador
+                          </span>
+                        </div>
+                      </button>
+                      {/* Botón Campus Villarrica */}
+                      <button
+                        onClick={() => handleCampusClick("Villarrica")}
+                        onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Villarrica")}
+                        aria-label="Navega a Campus Villarrica"
+                        role="navigation"
+                        tabIndex={0}
+                        className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] col-span-2 md:col-span-1 rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                      >
+                        <Image
+                          src="/images/campus/villarrica.png"
+                          alt="Campus Villarrica"
+                          fill
+                          className="object-cover rounded-lg transition-transform duration-300"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
+                        <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
+                        <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
+                          <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
+                            Villarrica
+                          </span>
+                        </div>
+                      </button>
                     </div>
-                  </ul>
-                </>
-              )}
-              {activeSubSidebar === "campus" && (
-                <>
-                  <h3 className="font-bold text-lg">Campus</h3>
-                  <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
-                    {/* Botón Campus San Joaquín */}
-                    <button
-                      onClick={() => handleCampusClick("SanJoaquin")}
-                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("SanJoaquin")}
-                      aria-label="Navega a Campus San Joaquín"
-                      role="navigation"
-                      tabIndex={0}
-                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    >
-                      <Image
-                        src="/images/campus/san_joaquin.jpg"
-                        alt="Campus San Joaquín"
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
-                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
-                          San Joaquín
-                        </span>
-                      </div>
-                    </button>
-                    {/* Botón Campus Casa Central */}
-                    <button
-                      onClick={() => handleCampusClick("CasaCentral")}
-                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("CasaCentral")}
-                      aria-label="Navega a Campus Casa Central"
-                      role="navigation"
-                      tabIndex={0}
-                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    >
-                      <Image
-                        src="/images/campus/casa_central.jpg"
-                        alt="Campus Casa Central"
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
-                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
-                          Casa Central
-                        </span>
-                      </div>
-                    </button>
-                    {/* Botón Campus Oriente */}
-                    <button
-                      onClick={() => handleCampusClick("Oriente")}
-                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Oriente")}
-                      aria-label="Navega a Campus Oriente"
-                      role="navigation"
-                      tabIndex={0}
-                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    >
-                      <Image
-                        src="/images/campus/oriente.jpg"
-                        alt="Campus Oriente"
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
-                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
-                          Oriente
-                        </span>
-                      </div>
-                    </button>
-                    {/* Botón Campus Lo Contador */}
-                    <button
-                      onClick={() => handleCampusClick("LoContador")}
-                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("LoContador")}
-                      aria-label="Navega a Campus Lo Contador"
-                      role="navigation"
-                      tabIndex={0}
-                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    >
-                      <Image
-                        src="/images/campus/lo_contador.jpg"
-                        alt="Campus Lo Contador"
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
-                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
-                          Lo Contador
-                        </span>
-                      </div>
-                    </button>
-                    {/* Botón Campus Villarrica */}
-                    <button
-                      onClick={() => handleCampusClick("Villarrica")}
-                      onKeyDown={(e) => e.key === "Enter" && handleCampusClick("Villarrica")}
-                      aria-label="Navega a Campus Villarrica"
-                      role="navigation"
-                      tabIndex={0}
-                      className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] col-span-2 md:col-span-1 rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    >
-                      <Image
-                        src="/images/campus/villarrica.png"
-                        alt="Campus Villarrica"
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown-dark/100 rounded-lg" />
-                      <div className="absolute inset-0 bg-brown-light/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-                        <span className="text-white-ubi text-sm tablet:text-md font-semibold" aria-hidden="true">
-                          Villarrica
-                        </span>
-                      </div>
-                    </button>
+                  </>
+                )}
+                {activeSubSidebar === "guías" && (
+                  <>
+                    <h3 className="font-bold text-lg">Guías</h3>
+                    <ul className="space-y-2">Hello. This is not implemented.</ul>
+                  </>
+                )}
+                {activeSubSidebar === "menuInformation" && (
+                  <div className="h-full overflow-y-auto">
+                    <MenuInformation
+                      place={selectedPlace}
+                      onClose={() => {
+                        setSelectedPlace(null);
+                        toggleSubSidebar(null);
+                      }}
+                    />
                   </div>
-                </>
-              )}
-              {activeSubSidebar === "guías" && (
-                <>
-                  <h3 className="font-bold text-lg">Guías</h3>
-                  <ul className="space-y-2">Hello. This is not implemented.</ul>
-                </>
-              )}
-              {activeSubSidebar === "menuInformation" && (
-                <MenuInformation
-                  place={selectedPlace}
-                  onClose={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                  }}
-                />
-              )}
+                )}
+              </div>
             </div>
           </section>
         ) : null}
