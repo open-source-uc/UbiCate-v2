@@ -27533,6 +27533,330 @@
                     ]
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SJ",
+                "name": "Campus San Joaquín",
+                "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaquín) con 82 hás., el actual campus San Joaquín de la Universidad comenzó su implementación como ciudad universitaria en los sesenta y continúa en desarrollo.",
+                "categories": [
+                    "campus"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.615236,
+                            -33.500917
+                        ],
+                        [
+                            -70.606134,
+                            -33.501670
+                        ],
+                        [
+                            -70.605826,
+                            -33.498789
+                        ],
+                        [
+                            -70.606989,
+                            -33.496044
+                        ],
+                        [
+                            -70.607434,
+                            -33.495640
+                        ],
+                        [
+                            -70.614801,
+                            -33.496298
+                        ],
+                        [
+                            -70.616199,
+                            -33.496259
+                        ],
+                        [
+                            -70.615236,
+                            -33.500917
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "CC",
+                "name": "Campus Casa Central",
+                "information": "El edificio principal y fundacional de la Universidad se terminó de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su discípulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Dirección Superior y a varias facultades.",
+                "categories": [
+                    "campus"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.641785,
+                            -33.441202
+                        ],
+                        [
+                            -70.640432,
+                            -33.440255
+                        ],
+                        [
+                            -70.638986,
+                            -33.441794
+                        ],
+                        [
+                            -70.641206,
+                            -33.442673
+                        ],
+                        [
+                            -70.641785,
+                            -33.441202
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "LC",
+                "name": "Campus Lo Contador",
+                "information": "Antigua hacienda del siglo XVIII contemporánea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitectónico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Diseño y Estudios Urbanos de la Universidad.",
+                "categories": [
+                    "campus"
+                ],
+                "campus": "LC",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.619088,
+                            -33.419498
+                        ],
+                        [
+                            -70.618084,
+                            -33.418578
+                        ],
+                        [
+                            -70.617878,
+                            -33.418744
+                        ],
+                        [
+                            -70.617686,
+                            -33.418641
+                        ],
+                        [
+                            -70.617589,
+                            -33.418692
+                        ],
+                        [
+                            -70.61714,
+                            -33.41843
+                        ],
+                        [
+                            -70.61726,
+                            -33.418137
+                        ],
+                        [
+                            -70.617057,
+                            -33.418062
+                        ],
+                        [
+                            -70.616523,
+                            -33.418626
+                        ],
+                        [
+                            -70.616779,
+                            -33.419039
+                        ],
+                        [
+                            -70.61804,
+                            -33.420279
+                        ],
+                        [
+                            -70.619088,
+                            -33.419498
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "OR",
+                "name": "Campus Oriente",
+                "information": "Construido en 1934 y adquirido por la Universidad a la Congregación de las Monjas Francesas en la década de los setenta (1971), acoge a las carreras de la Facultad de Artes y al Instituto de Estética.",
+                "categories": [
+                    "campus"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.595273,
+                            -33.446396
+                        ],
+                        [
+                            -70.595099,
+                            -33.446139
+                        ],
+                        [
+                            -70.595595,
+                            -33.445868
+                        ],
+                        [
+                            -70.595025,
+                            -33.445101
+                        ],
+                        [
+                            -70.595287,
+                            -33.44497
+                        ],
+                        [
+                            -70.594523,
+                            -33.443975
+                        ],
+                        [
+                            -70.594331,
+                            -33.444066
+                        ],
+                        [
+                            -70.594271,
+                            -33.443975
+                        ],
+                        [
+                            -70.593896,
+                            -33.444163
+                        ],
+                        [
+                            -70.593982,
+                            -33.444273
+                        ],
+                        [
+                            -70.59164,
+                            -33.445466
+                        ],
+                        [
+                            -70.592286,
+                            -33.446403
+                        ],
+                        [
+                            -70.59194,
+                            -33.44661
+                        ],
+                        [
+                            -70.592023,
+                            -33.446732
+                        ],
+                        [
+                            -70.592233,
+                            -33.446616
+                        ],
+                        [
+                            -70.592312,
+                            -33.446688
+                        ],
+                        [
+                            -70.592451,
+                            -33.446606
+                        ],
+                        [
+                            -70.593006,
+                            -33.447198
+                        ],
+                        [
+                            -70.593461,
+                            -33.446976
+                        ],
+                        [
+                            -70.593708,
+                            -33.44722
+                        ],
+                        [
+                            -70.595273,
+                            -33.446396
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "VR",
+                "name": "Campus Villarrica",
+                "information": "",
+                "categories": [
+                    "campus"
+                ],
+                "campus": "VR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -72.22554669349407,
+                            -39.27729344343152
+                        ],
+                        [
+                            -72.22603747436048,
+                            -39.27770591498732
+                        ],
+                        [
+                            -72.22574767994438,
+                            -39.27789044094905
+                        ],
+                        [
+                            -72.22525923612956,
+                            -39.27749967951302
+                        ],
+                        [
+                            -72.22554669349407,
+                            -39.27729344343152
+                        ]
+                    ]
+                ]
+            }
         }
     ]
 }
