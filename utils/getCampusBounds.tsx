@@ -18,8 +18,8 @@ export const campusBounds: Record<string, CampusBounds> = {
 
 const campusMaxBounds: Record<string, CampusBounds> = {
   SanJoaquin: {
-    longitudeRange: [-70.617503, -70.601962],
-    latitudeRange: [-33.504828, -33.492834]
+    longitudeRange: [-70.617503, -70.59515236827939],
+    latitudeRange: [-33.504828, -33.50720547017047]
   },
   LoContador: {
     longitudeRange: [-70.619316, -70.612656],
@@ -38,8 +38,8 @@ const campusMaxBounds: Record<string, CampusBounds> = {
     latitudeRange: [-33.447784, -33.443034]
   },
   SJ: {
-    longitudeRange: [-70.617503, -70.635644],
-    latitudeRange: [-33.504828, -33.492834]
+    longitudeRange: [-70.617503, -70.59515236827939],
+    latitudeRange: [-33.504828, -33.50720547017047]
   },
   LC: {
     longitudeRange: [-70.619316, -70.612656],
