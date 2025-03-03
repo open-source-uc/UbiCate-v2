@@ -6,7 +6,7 @@
     "dev": "NODE_OPTIONS='--inspect' next dev --turbopack",
     "build": "next build",
     "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
+    "preview": "npm run lint:fix && npm run pages:build && wrangler pages dev .vercel/output/static",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
