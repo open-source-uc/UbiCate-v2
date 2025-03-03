@@ -15,7 +15,7 @@ import PillFilter from "./pillFilterBar";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
-export function DesktopSidebar() {
+function DesktopSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
@@ -375,7 +375,8 @@ export function DesktopSidebar() {
     </>
   );
 }
-export function MobileSidebar() {
+
+function MobileSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);

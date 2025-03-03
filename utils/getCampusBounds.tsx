@@ -1,5 +1,3 @@
-import type { LngLatBoundsLike } from "mapbox-gl";
-
 interface CampusBounds {
   longitudeRange: [number, number];
   latitudeRange: [number, number];
@@ -18,7 +16,7 @@ export const campusBounds: Record<string, CampusBounds> = {
   OR: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
 };
 
-export const campusMaxBounds: Record<string, CampusBounds> = {
+const campusMaxBounds: Record<string, CampusBounds> = {
   SanJoaquin: {
     longitudeRange: [-70.617503, -70.601962],
     latitudeRange: [-33.504828, -33.492834]
@@ -61,19 +59,6 @@ export const campusMaxBounds: Record<string, CampusBounds> = {
   },
 };
 
-export function stringToCampusSigle(e: string | null | undefined) {
-  if (e === 'SanJoaquin') return 'SJ'
-  if (e === 'LoContador') return 'LC'
-  if (e === 'CasaCentral') return 'CC'
-  if (e === 'Oriente') return 'OR'
-  if (e === 'Villarrica') return 'VR'
-  if (e === 'SJ') return 'SJ'
-  if (e === 'LC') return 'LC'
-  if (e === 'CC') return 'CC'
-  if (e === 'OR') return 'OR'
-  if (e === 'VR') return 'VR'
-  return 'SJ'
-}
 
 export function getMaxCampusBoundsFromName(paramCampus: string | null): [number, number, number, number] {
   if (!paramCampus || !Object.keys(campusMaxBounds).includes(paramCampus)) {
@@ -145,7 +130,7 @@ export function getCampusBoundsFromPoint(longitude: number, latitude: number): [
   return null
 }
 
-export function getCampusFromPoint(longitude: number, latitude: number): string | null {
+function getCampusFromPoint(longitude: number, latitude: number): string | null {
   for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
     if (
       longitude >= boundary.longitudeRange[0] &&
@@ -175,7 +160,7 @@ export function getCampusFromPoint2(longitude: number, latitude: number): string
   return "SanJoaquin"
 }
 
-export async function getCampusFromUserLocation(): Promise<string | null> {
+async function getCampusFromUserLocation(): Promise<string | null> {
   return new Promise((resolve) => {
     if (!navigator.geolocation) {
       resolve(null);
