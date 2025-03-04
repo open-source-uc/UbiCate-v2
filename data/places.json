@@ -6124,7 +6124,9 @@
                 ],
                 "campus": "SJ",
                 "faculties": "",
-                "floors": [],
+                "floors": [
+                    1
+                ],
                 "needApproval": false
             },
             "geometry": {
@@ -9453,7 +9455,9 @@
                 "identifier": "-32306118",
                 "name": "Auditorio Dirección de investigación y postgrado",
                 "information": "",
-                "categories": [],
+                "categories": [
+                    "auditorium"
+                ],
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [
@@ -14505,7 +14509,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OSUC",
-                "name": "Open Source UC - OSUC",
+                "name": "(OSUC) Open Source UC",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -18648,7 +18652,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DCC",
-                "name": "Departamento de Ciencias de la Computación - DCC",
+                "name": " (DCC) Departamento de Ciencias de la Computación",
                 "information": "El Departamento de Ciencia de la Computación (DCC), perteneciente a la Escuela de Ingeniería UC, se encarga de la docencia e investigación en Ciencia de la Computación, Ingeniería de Software y Tecnologías de la Información.",
                 "categories": [
                     "classroom"
@@ -24492,7 +24496,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "IMC",
-                "name": "Instituto de Ingeniería Matemática y Computacional - IMC",
+                "name": "(IMC) Instituto de Ingeniería Matemática y Computacional",
                 "information": "",
                 "categories": [
                     "other"
@@ -24618,7 +24622,9 @@
                 "identifier": "METROLOGIA",
                 "name": "DICTUC - Metrología",
                 "information": "",
-                "categories": [],
+                "categories": [
+                    "other"
+                ],
                 "campus": "SJ",
                 "faculties": "",
                 "floors": [

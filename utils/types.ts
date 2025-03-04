@@ -8,6 +8,68 @@ interface PolygonGeometry {
   coordinates: [number, number][][];
 }
 
+export type Category = 'auditorium' |
+  'bath' |
+  'building' |
+  'campus' |
+  'classroom' |
+  'computers' |
+  'faculty' |
+  'financial' |
+  'food_lunch' |
+  'laboratory' |
+  'library' |
+  'other' |
+  'park_bicycle' |
+  'parking' |
+  'photocopy' |
+  'shop' |
+  'sports_place' |
+  'studyroom' |
+  'trash' |
+  'auditorium' |
+  'customMark' |
+  'water';
+
+export type IconName =
+  | 'dockToRight'
+  | 'search'
+  | 'map'
+  | 'menuBook'
+  | 'wc'
+  | 'restaurant'
+  | 'localDrink'
+  | 'print'
+  | 'school'
+  | 'library'
+  | 'studyroom'
+  | 'auditorium'
+  | 'sport'
+  | 'parking'
+  | 'userLocation'
+  | 'gps'
+  | 'default'
+  | 'pin'
+  | 'share'
+  | 'options'
+  | 'floor'
+  | 'edit'
+  | 'close';
+
+export const CategoryToIcon: Map<Category, IconName> = new Map([
+  ["bath", "wc"],
+  ["computers", "print"],
+  ["food_lunch", "restaurant"],
+  ["library", "library"],
+  ["parking", "parking"],
+  ["photocopy", "print"],
+  ["sports_place", "sport"],
+  ["studyroom", "studyroom"],
+  ["water", "localDrink"],
+  ["auditorium", "auditorium"],
+  ["customMark", "pin"]
+]);
+
 export interface Feature {
   type: string;
   properties: {

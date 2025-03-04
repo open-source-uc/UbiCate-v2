@@ -14,6 +14,7 @@ import Campus from "../../data/campuses.json";
 import DebugMode from "../components/debugMode";
 
 import ControlPanel from "./controlPanel";
+import IconSelector from "../components/icons/icons";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -110,9 +111,7 @@ export default function MapComponent(props: MapProps) {
               <div
                 className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}
               >
-                <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">
-                  fiber_manual_record
-                </span>
+                <IconSelector iconName="pin" className="w-7 h-7 flex justify-center items-center"></IconSelector>
               </div>
             </Marker>
           ) : null}

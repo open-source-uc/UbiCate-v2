@@ -54,21 +54,10 @@
   --font-sans: var(--font-instrument-sans);
 
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    var(--tw-gradient-stops)
-  );
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%,
+      var(--tw-gradient-stops));
 
   --radius-menu: 2.1rem;
-}
-
-/* Relative to the Material Symbols*/
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 200,
-  'GRAD' 0,
-  'opsz' 24
 }
 
 /*
@@ -80,6 +69,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -88,6 +78,7 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
 /* ---break---*/
 :root {
   --background: var(--color-brown-dark);
@@ -148,11 +139,13 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+
 /* ---break---*/
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

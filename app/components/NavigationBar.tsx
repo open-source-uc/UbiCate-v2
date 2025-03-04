@@ -11,6 +11,7 @@ import { useSidebar } from "../context/sidebarCtx";
 import MenuInformation from "../map/menuInformation";
 
 import PillFilter from "./pillFilterBar";
+import IconSelector from "./icons/icons";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
 
@@ -89,26 +90,26 @@ function DesktopSidebar() {
           <div className="flex items-center p-4 flex-col py-8 space-y-6">
             <div className="mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
-                <span className="material-symbols-outlined self-center">dock_to_right</span>
+                <IconSelector iconName="dockToRight" className="w-9 h-9"></IconSelector>
               </button>
             </div>
             <button
               onClick={() => handleCollapsedClick("buscar")}
               className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
-              <span className="material-symbols-outlined">search</span>
+              <IconSelector iconName="search" className="w-7 h-7"></IconSelector>
             </button>
             <button
               onClick={() => handleCollapsedClick("campus")}
               className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
-              <span className="material-symbols-outlined">map</span>
+              <IconSelector iconName="map" className="w-7 h-7"></IconSelector>
             </button>
             <button
               disabled
               className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 pointer-events-auto cursor-pointer"
             >
-              <span className="material-symbols-outlined">menu_book</span>
+              <IconSelector iconName="menuBook" className="w-7 h-7"></IconSelector>
             </button>
           </div>
         </section>
@@ -116,9 +117,8 @@ function DesktopSidebar() {
 
       {/* Sidebar expandido */}
       <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50 inset-y-0 left-0 w-64 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50 inset-y-0 left-0 w-64 ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full py-5 px-4 space-y-4">
           {/* Logo y botón para cerrar */}
@@ -128,7 +128,7 @@ function DesktopSidebar() {
             </Link>
             <div className="flex-row-reverse">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
-                <span className="material-symbols-outlined">dock_to_right</span>
+                <IconSelector iconName="dockToRight" className="w-9 h-9"></IconSelector>
               </button>
             </div>
           </div>
@@ -141,11 +141,10 @@ function DesktopSidebar() {
                 className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
-                  }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
+                    }`}
                 >
-                  <span className="material-symbols-outlined">search</span>
+                  <IconSelector iconName="search" className="w-7 h-7"></IconSelector>
                 </span>
                 <span className="text-md">Buscar</span>
               </button>
@@ -156,11 +155,10 @@ function DesktopSidebar() {
                     className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
                   >
                     <span
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                        activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                      }`}
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
+                        }`}
                     >
-                      <span className="material-symbols-outlined">map</span>
+                      <IconSelector iconName="map" className="w-7 h-7"></IconSelector>
                     </span>
                     <p className="text-md">Campus</p>
                   </button>
@@ -170,7 +168,7 @@ function DesktopSidebar() {
                     className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md opacity-50"
                   >
                     <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                      <span className="material-symbols-outlined">menu_book</span>
+                      <IconSelector iconName="menuBook" className="w-7 h-7"></IconSelector>
                     </span>
                     <p className="text-md">Guías</p>
                   </button>
@@ -598,12 +596,11 @@ function MobileSidebar() {
                     <div className="bg-brown-medium flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
-                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
-                        }`}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                          }`}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                          <span className="material-symbols-outlined">map</span>
+                          <IconSelector iconName="map" className="w-7 h-7"></IconSelector>
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
@@ -612,7 +609,7 @@ function MobileSidebar() {
                         className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                          <span className="material-symbols-outlined">menu_book</span>
+                          <IconSelector iconName="menuBook" className="w-7 h-7"></IconSelector>
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Guías</p>
                       </button>
@@ -676,7 +673,7 @@ function MobileSidebar() {
                     className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                     aria-label="Cerrar menú"
                   >
-                    <span className="material-symbols-outlined">close</span>
+                    <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center"></IconSelector>
                   </button>
                   <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
                     <button
