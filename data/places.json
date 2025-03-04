@@ -27787,6 +27787,30 @@
                     ]
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-36975794",
+                "name": "Kiosco",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60781487722299,
+                    -33.50095032956365
+                ]
+            }
         }
     ]
 }
