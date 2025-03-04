@@ -33,7 +33,7 @@ function DebugMode() {
         })
         .then((data) => {
           setJson(data.new_places);
-          console.log(data)
+          console.log(data);
         })
         .catch((error) => {
           console.error("Error fetching GeoJSON data:", error);
