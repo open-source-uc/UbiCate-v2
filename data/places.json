@@ -8,7 +8,7 @@
                 "name": "Cristales de colores. Educación",
                 "information": "",
                 "categories": [
-                    "bienvenida_novata"
+                    "other"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -28,179 +28,11 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bienvenida_2025-18",
-                "name": "La Concha Acustica",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60938534418604,
-                    -33.497661646255594
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-17",
-                "name": "El Dojo",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60762931914677,
-                    -33.50113485822126
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-16",
-                "name": "El Domo",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60909528255021,
-                    -33.500686623940425
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-15",
-                "name": "OSUC - Sede Central",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333154486877,
-                    -33.50022087634128
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-14",
-                "name": "Sistema planetario. Astrofísica",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61148598750232,
-                    -33.49940049860514
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-13",
-                "name": "Cristo Online",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61389840040823,
-                    -33.49739199643119
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-12",
-                "name": "Los limites de San Joaquin",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60599360485243,
-                    -33.49972428950213
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bienvenida_2025-11",
                 "name": "Casillero 666",
                 "information": "",
                 "categories": [
-                    "bienvenida_novata"
+                    "other"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -224,7 +56,7 @@
                 "name": "Los peces de sociales",
                 "information": "",
                 "categories": [
-                    "bienvenida_novata"
+                    "other"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -244,107 +76,11 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bienvenida_2025-09",
-                "name": "'El Food Garden'",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61105572038632,
-                    -33.496632395847755
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-08",
-                "name": "Ex Muro Ingeniera",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61341561379132,
-                    -33.49966873153523
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-07",
-                "name": "Ajedrez Gigante",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60984724022806,
-                    -33.49842832848809
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-06",
-                "name": "La Bombonera",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60812442114045,
-                    -33.49903567559983
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bienvenida_2025-05",
                 "name": "Capsula del Tiempo. Luksic",
                 "information": "",
                 "categories": [
-                    "bienvenida_novata"
+                    "other"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -364,35 +100,11 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bienvenida_2025-04",
-                "name": "Pronto Copec (Piso 8)",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61525897237307,
-                    -33.49780007339941
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bienvenida_2025-03",
                 "name": "Escultura de las 4 caras",
                 "information": "",
                 "categories": [
-                    "bienvenida_novata"
+                    "other"
                 ],
                 "campus": "SJ",
                 "faculties": "",
@@ -406,30 +118,6 @@
                 "coordinates": [
                     -70.61256693789625,
                     -33.49815598265434
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bienvenida_2025-02",
-                "name": "Los Meones",
-                "information": "",
-                "categories": [
-                    "bienvenida_novata"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61271797180294,
-                    -33.49940354738362
                 ]
             }
         },
