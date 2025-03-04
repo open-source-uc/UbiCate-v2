@@ -10,7 +10,6 @@ import { useEffect, useRef, useState } from "react";
 import { useSidebar } from "../context/sidebarCtx";
 import MenuInformation from "../map/menuInformation";
 
-import PillActionBar from "./pillActionBar";
 import PillFilter from "./pillFilterBar";
 
 type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
@@ -566,9 +565,6 @@ function MobileSidebar() {
       {/* Search Container */}
       <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
-        <div>
-          <PillActionBar />
-        </div>
       </section>
 
       {/* Main Sidebar */}
