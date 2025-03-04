@@ -1612,30 +1612,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo11",
-                "name": "Borrar",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64115496664972,
-                    -33.442460066645964
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "auditorium-33669891",
                 "name": "Auditorio Sergio Larraín",
                 "information": "",
@@ -14472,29 +14448,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "other-25906374",
-                "name": "TEST",
-                "information": "Q",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6127268079339,
-                    -33.496665540028026
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "Salon Verde",
                 "name": "Salon Verde",
                 "information": "",
@@ -14512,29 +14465,6 @@
                 "coordinates": [
                     -70.61443061535283,
                     -33.49997459719161
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "other-23525482",
-                "name": "TEST PRODUCTION",
-                "information": "Hola TEST UPD222ATE",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60693777999894,
-                    -33.50100890181019
                 ]
             }
         },
