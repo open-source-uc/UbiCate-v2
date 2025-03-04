@@ -671,14 +671,17 @@ function MobileSidebar() {
             <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
               {activeSubSidebar === "campus" && (
                 <>
-                  <h3 className="font-bold text-lg">Campus</h3>
-                  <button
-                    onClick={() => setActiveSubSidebar(null)}
-                    className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    aria-label="Cerrar menú"
-                  >
-                    <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center z-50" />
-                  </button>
+                  <div className="flex">
+                    <h3 className="font-bold text-lg">Campus</h3>
+                    <div className="flex w-full" />
+                    <button
+                      onClick={() => setActiveSubSidebar(null)}
+                      className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2 z-50"
+                      aria-label="Cerrar menú"
+                    >
+                      <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center" />
+                    </button>
+                  </div>
                   <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
                     <button
                       onClick={() => handleCampusClick("SanJoaquin")}
