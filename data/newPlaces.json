@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-37065359",
+                "name": "H",
+                "information": "# test\n\n> hola mundo\n\n1. A\n2. B\n\n- 1\n- 2\n\nHOLA MJNDO\n\n[Hola](uc.cl)",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61215490254222,
+                    -33.49707117640782
+                ]
+            }
+        }
+    ]
 }
