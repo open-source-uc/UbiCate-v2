@@ -58,7 +58,12 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
     })
       .then((res) => {
         if (!res.ok) {
-          alert("Hubo un error: " + res.status);
+          res.json().then((data) => {
+            alert("Hubo un error: " + data.message);
+          })
+            .catch(() => {
+              alert("Hubo un error: " + res.status);
+            })
           return;
         }
         alert("Se aprobo");
