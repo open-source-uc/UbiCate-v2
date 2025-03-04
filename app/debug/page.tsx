@@ -35,6 +35,7 @@ function DebugPage() {
         <label className="flex items-center space-x-2 text-xl">
           <input
             type="text"
+            className="bg-brown-medium rounded-2xl p-2"
             disabled={!isDebugMode}
             onChange={(e) => {
               sessionStorage.setItem("ubicateToken", e.target.value ?? null);
