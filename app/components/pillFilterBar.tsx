@@ -1,36 +1,36 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
+import { IconName } from "@/utils/types";
 
 import { useSidebar } from "../context/sidebarCtx";
 
 import Pill from "./pill";
-import { IconName } from "./icons/icons";
 
 const pills: Array<{
-  title: string,
-  icon: IconName,
-  bg: string,
-  filter: string,
-  isNameFilter?: boolean
+  title: string;
+  icon: IconName;
+  bg: string;
+  filter: string;
+  isNameFilter?: boolean;
 }> = [
-    { title: "Facultades", icon: "school", bg: "bg-deep-red-option", filter: "faculty" },
-    { title: "Salas de Estudio", icon: "studyroom", bg: "bg-red-option", filter: "studyroom" },
-    { title: "Auditorios", icon: "auditorium", bg: "bg-green-option", filter: "auditorium" },
-    {
-      title: "Bibliotecas",
-      icon: "library",
-      bg: "bg-pink-option",
-      filter: "biblioteca",
-      isNameFilter: true,
-    },
-    { title: "Baños", icon: "wc", bg: "bg-deep-cyan-option", filter: "bath" },
-    { title: "Comida", icon: "restaurant", bg: "bg-orange-option", filter: "food_lunch" },
-    { title: "Agua", icon: "localDrink", bg: "bg-cyan-option", filter: "water" },
-    { title: "Deportes", icon: "sport", bg: "bg-deep-green-option", filter: "sports_place" },
-    { title: "Crisol", icon: "print", bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
-    { title: "Estacionamientos", icon: "parking", bg: "bg-gray-option", filter: "parking" },
-  ]
+  { title: "Facultades", icon: "school", bg: "bg-deep-red-option", filter: "faculty" },
+  { title: "Salas de Estudio", icon: "studyroom", bg: "bg-red-option", filter: "studyroom" },
+  { title: "Auditorios", icon: "auditorium", bg: "bg-green-option", filter: "auditorium" },
+  {
+    title: "Bibliotecas",
+    icon: "library",
+    bg: "bg-pink-option",
+    filter: "biblioteca",
+    isNameFilter: true,
+  },
+  { title: "Baños", icon: "wc", bg: "bg-deep-cyan-option", filter: "bath" },
+  { title: "Comida", icon: "restaurant", bg: "bg-orange-option", filter: "food_lunch" },
+  { title: "Agua", icon: "localDrink", bg: "bg-cyan-option", filter: "water" },
+  { title: "Deportes", icon: "sport", bg: "bg-deep-green-option", filter: "sports_place" },
+  { title: "Crisol", icon: "print", bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
+  { title: "Estacionamientos", icon: "parking", bg: "bg-gray-option", filter: "parking" },
+];
 
 function PillFilter() {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });

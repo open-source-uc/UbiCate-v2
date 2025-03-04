@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState, useCallback, Suspense } from "react";
+
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import { campusBounds } from "@/utils/getCampusBounds";
 import getGeolocation from "@/utils/getGeolocation";
 
 import { siglas as MapSiglas, METHOD } from "../../utils/types";
+import MarkDownComponent from "../components/markDown";
 
 import MapComponent from "./map";
-import MarkDownComponent from "../components/markDown";
 
 interface errors {
   longitude?: number | string | null;
@@ -287,20 +288,22 @@ export default function FormComponent({
                 <div className="flex justify-end mb-2 space-x-2">
                   <button
                     type="button"
-                    className={`px-3 py-1 rounded-md text-sm ${!isPreviewMode
-                      ? 'bg-blue-location text-white'
-                      : 'bg-transparent border border-brown-light text-white-ubi'
-                      }`}
+                    className={`px-3 py-1 rounded-md text-sm ${
+                      !isPreviewMode
+                        ? "bg-blue-location text-white"
+                        : "bg-transparent border border-brown-light text-white-ubi"
+                    }`}
                     onClick={() => setIsPreviewMode(false)}
                   >
                     Editar
                   </button>
                   <button
                     type="button"
-                    className={`px-3 py-1 rounded-md text-sm ${isPreviewMode
-                      ? 'bg-blue-location text-white'
-                      : 'bg-transparent border border-brown-light text-white-ubi'
-                      }`}
+                    className={`px-3 py-1 rounded-md text-sm ${
+                      isPreviewMode
+                        ? "bg-blue-location text-white"
+                        : "bg-transparent border border-brown-light text-white-ubi"
+                    }`}
                     onClick={() => setIsPreviewMode(true)}
                   >
                     Vista Previa

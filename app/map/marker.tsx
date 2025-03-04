@@ -30,8 +30,6 @@ const categoryToColorMap: Record<string, string> = {
 
 // Mapeo de nombres a archivos SVG
 
-
-
 export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
 
@@ -75,7 +73,10 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
         <div
           className={`flex items-center justify-center w-5 h-5 rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1`}
         >
-          <IconSelector iconName={CategoryToIcon.get(place.properties.categories[0] as any) ?? "default"} className="w-4 h-4" />
+          <IconSelector
+            iconName={CategoryToIcon.get(place.properties.categories[0] as any) ?? "default"}
+            className="w-4 h-4"
+          />
         </div>
       </div>
     </MapboxMarker>
