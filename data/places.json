@@ -27490,7 +27490,7 @@
                         ],
                         [
                             -70.606134,
-                            -33.501670
+                            -33.50167
                         ],
                         [
                             -70.605826,
@@ -27502,7 +27502,7 @@
                         ],
                         [
                             -70.607434,
-                            -33.495640
+                            -33.49564
                         ],
                         [
                             -70.614801,
@@ -27785,6 +27785,30 @@
                             -39.27729344343152
                         ]
                     ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-36974983",
+                "name": "test",
+                "information": "# Hola mundo",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61343111578431,
+                    -33.497182350677726
                 ]
             }
         }
