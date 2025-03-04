@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "other-36974983",
-                "name": "test",
-                "information": "# Hola mundo",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61343111578431,
-                    -33.497182350677726
-                ]
-            }
-        }
-    ]
+    "features": []
 }
