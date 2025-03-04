@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   const url = new URL(request.nextUrl.href);
   const baseUrl = `${url.origin.toString()}`;
 
-  const text = placeName || "UbíCate UC - Mapa";
+  const text = placeName || "Ubicate UC - Mapa";
   const textTruncated: string = text && text.length > 24 ? `${text.slice(0, 24)}...` : text;
 
   const fontResponse = await fetch(`${baseUrl}/fonts/Lato-Bold.ttf`);
