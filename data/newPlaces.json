@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bici3",
-                "name": "Estacionamiento de Bicicletas",
-                "information": "## Test",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610355,
-                    -33.497237
-                ]
-            }
-        }
-    ]
+    "features": []
 }
