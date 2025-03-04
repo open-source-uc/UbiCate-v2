@@ -512,19 +512,15 @@ export async function DELETE(request: NextRequest) {
       );
 
       // Si existe en lugares aprobados, eliminarlo
+      let deleted = false;
       if (approvedIndex !== -1) {
         const placeToDelete = approvedPlaces.features[approvedIndex];
         approvedPlaces.features.splice(approvedIndex, 1);
 
         await githubFileOperation(approvedPlacesUrl, placeToDelete.properties.identifier, approvedPlaces, approvedPlacesSha, "DELETE");
-
-        return NextResponse.json(
-          { message: "¡El lugar fue borrado de lugares aprobados!" },
-          { status: 200 }
-        );
+        deleted = true
       }
 
-      // Si no está en lugares aprobados, verificar en lugares nuevos
       const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
 
       const newPlacesIndex = newPlaces.features.findIndex(
@@ -537,18 +533,20 @@ export async function DELETE(request: NextRequest) {
         newPlaces.features.splice(newPlacesIndex, 1);
 
         await githubFileOperation(newPlacesUrl, placeToDelete.properties.identifier, newPlaces, newPlacesSha, "DELETE_FROM_NEW");
-
+        deleted = true
+      }
+      if (deleted) {
         return NextResponse.json(
           { message: "¡El lugar fue borrado de lugares pendientes de aprobación!" },
           { status: 200 }
         );
+      } else {
+        // Si no está en ningún archivo
+        return NextResponse.json(
+          { message: "¡El lugar NO existe!" },
+          { status: 404 }
+        );
       }
-
-      // Si no está en ningún archivo
-      return NextResponse.json(
-        { message: "¡El lugar NO existe!" },
-        { status: 404 }
-      );
     } catch (error) {
       if (error instanceof Error && error.message.includes("Concurrent modification")) {
         return NextResponse.json(
