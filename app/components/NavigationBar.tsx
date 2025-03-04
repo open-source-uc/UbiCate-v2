@@ -214,7 +214,7 @@ function DesktopSidebar() {
         ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"}
         ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
           >
-            <div className={`h-full ${activeSubSidebar === "menuInformation" ? "overflow-y-auto" : ""}`}>
+            <div className={`h-full overflow-y-auto ${activeSubSidebar === "menuInformation" ? "" : ""}`}>
               <div className="py-7 px-4 space-y-6 relative">
                 {activeSubSidebar === "buscar" && (
                   <>
@@ -677,7 +677,7 @@ function MobileSidebar() {
                     className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                     aria-label="Cerrar menú"
                   >
-                    <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center" />
+                    <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center z-50" />
                   </button>
                   <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
                     <button
