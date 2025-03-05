@@ -17,9 +17,10 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
   const placeName = paramPlace?.properties?.name || "";
 
   return {
-    title: placeName ? `Ubicate · ${placeName}` : "Ubicate · Tu mapa en la UC",
-    description:
-      "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+    title: paramPlace ? `Ubicate · ${paramPlace.properties.name}` : "Ubicate · Tu mapa en la UC",
+    description: paramPlace
+      ? `Piso: ${paramPlace.properties.floors} · Campus: ${paramPlace.properties.campus} · Información: ${paramPlace.properties.information}`
+      : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
     },
@@ -30,7 +31,11 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     openGraph: {
       images: [
         {
-          url: new URL(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/opengraph-image.png`),
+          url: new URL(
+            `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/${
+              paramPlace ? "og-image?n=" + paramPlace.properties : "opengraph-image.png"
+            }`,
+          ),
         },
       ],
     },
