@@ -48,9 +48,9 @@ function PillFilter() {
       <div className="flex space-x-2 justify-center w-full">
         {[
           {
-            title: "Evento Bienvenida Novata 🎉",
+            title: "Evento: Bienvenida Novata 🎉",
             icon: "school",
-            bg: "bg-pink-option",
+            bg: "bg-blue-ubi",
             filter: "bienvenida_novata",
             isNameFilter: false,
           },
