@@ -136,7 +136,7 @@ function DesktopSidebar() {
 
           {/* Opciones de navegación */}
           <nav className="flex-1">
-            <div className="pt-5 space-y-2 flex flex-col">
+            <div className="pt-5 flex flex-col">
               <button
                 onClick={() => toggleSubSidebar("buscar")}
                 className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
@@ -197,7 +197,7 @@ function DesktopSidebar() {
               <div className="text-xs text-white-blue p-4 mobile:p-3 tablet:p-4">
                 Desarrollado por
                 <Link href="/creditos" className="font-semibold block hover:underline">
-                  Open Source eUC
+                  Open Source UC
                 </Link>
               </div>
             </div>
@@ -593,7 +593,7 @@ function MobileSidebar() {
           <div className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto">
             <div className="px-4 space-y-4">
               <nav className="pb-5">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
                     <p className="text-md font-semibold text-white-ubi">Explora</p>
                     <div className="bg-brown-medium flex rounded-lg p-2">
@@ -624,7 +624,7 @@ function MobileSidebar() {
                     <PillFilter />
                   </div>
 
-                  <div className="flex flex-row gap-4 tablet:gap-4 mobile:gap-2 pb-5">
+                  <div className="flex flex-row gap-4 gap-2 pb-5 pt-4">
                     <div className="w-full rounded-xl bg-brown-light p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
                       ¿Crees que algo falta?
                       <Link
@@ -637,7 +637,7 @@ function MobileSidebar() {
                     <div className="w-full rounded-xl bg-blue-location p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
                       Desarrollado por
                       <Link href="/creditos" className="font-semibold block hover:underline">
-                        Open Source eUC
+                        Open Source UC
                       </Link>
                     </div>
                   </div>

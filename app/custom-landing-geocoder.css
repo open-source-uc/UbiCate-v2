@@ -11,6 +11,7 @@
   line-height: 24px;
   position: relative;
   background-color: #39302B;
+  outline: 1px solid #150a04;
   width: 100%;
   min-width: 240px;
   z-index: 1;
@@ -41,11 +42,12 @@
 }
 
 .mapboxgl-ctrl-geocoder--input:focus {
+  z-index: 2;
   color: #8A817C;
-  border-radius: 2rem;
+  border-radius: 1rem;
   outline: 1px solid #015FFF;
   outline-offset: -1px;
-  box-shadow: 0 0 0 2.5px #015FFF;
+  box-shadow: 0 0 0 2 #015FFF;
   transition: 0.15s;
 }
 

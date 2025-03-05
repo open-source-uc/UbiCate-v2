@@ -71,7 +71,7 @@ function PillFilter() {
   return (
     <div className="relative w-full max-w-full overflow-hidden pt-2">
       <div
-        className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:space-y-2 desktop:p-1 no-scrollbar"
+        className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
         <style jsx>{`
