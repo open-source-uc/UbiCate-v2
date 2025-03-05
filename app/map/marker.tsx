@@ -1,11 +1,13 @@
+import React from "react";
+
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
-import { CategoryToIcon, Feature, PointFeature } from "../../utils/types";
-import IconSelector from "../components/icons/icons";
+import { Feature, PointFeature } from "../../utils/types";
 
 interface MarkerProps {
   place: PointFeature;
+  icon: React.ReactElement;
   draggable?: boolean;
   onClick: (place: Feature) => void;
   onMouseEnter?: (place: Feature | null) => void;
@@ -15,22 +17,31 @@ interface MarkerProps {
 
 // Mapeo de nombres a colores
 const categoryToColorMap: Record<string, string> = {
+  auditorium: "bg-green-option",
+  water: "bg-cyan-option",
   bath: "bg-deep-cyan-option",
   food_lunch: "bg-orange-option",
-  water: "bg-cyan-option",
   computers: "bg-purple-option",
   Facultad: "bg-deep-red-option",
   library: "bg-pink-option",
   studyroom: "bg-red-option",
-  auditorium: "bg-green-option",
   sports_place: "bg-deep-green-option",
   parking: "bg-gray-option",
   userLocation: "bg-cyan-option",
+  customMark: "bg-pink-option",
 };
 
 // Mapeo de nombres a archivos SVG
 
-export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
+export default function Marker({
+  place,
+  draggable = false,
+  onClick,
+  onMouseEnter,
+  onDrag,
+  onDragEnd,
+  icon,
+}: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
 
   const color =
@@ -71,12 +82,9 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
         }}
       >
         <div
-          className={`flex items-center justify-center w-4 h-4 rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1`}
+          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1`}
         >
-          <IconSelector
-            iconName={CategoryToIcon.get(place.properties.categories[0] as any) ?? "default"}
-            className="w-3 h-3"
-          />
+          {icon}
         </div>
       </div>
     </MapboxMarker>

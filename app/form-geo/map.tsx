@@ -12,7 +12,7 @@ import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCa
 
 import Campus from "../../data/campuses.json";
 import DebugMode from "../components/debugMode";
-import IconSelector from "../components/icons/icons";
+import * as Icons from "../components/icons/icons";
 
 import ControlPanel from "./controlPanel";
 
@@ -111,7 +111,7 @@ export default function MapComponent(props: MapProps) {
               <div
                 className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}
               >
-                <IconSelector iconName="pin" className="w-7 h-7 flex justify-center items-center" />
+                <Icons.UserLocation className="w-9 h-9" />
               </div>
             </Marker>
           ) : null}

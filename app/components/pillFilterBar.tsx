@@ -1,35 +1,35 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
-import { IconName } from "@/utils/types";
 
 import { useSidebar } from "../context/sidebarCtx";
 
+import * as Icons from "./icons/icons";
 import Pill from "./pill";
 
 const pills: Array<{
   title: string;
-  icon: IconName;
+  icon: React.ReactNode;
   bg: string;
   filter: string;
   isNameFilter?: boolean;
 }> = [
-  { title: "Facultades", icon: "school", bg: "bg-deep-red-option", filter: "faculty" },
-  { title: "Salas de Estudio", icon: "studyroom", bg: "bg-red-option", filter: "studyroom" },
-  { title: "Auditorios", icon: "auditorium", bg: "bg-green-option", filter: "auditorium" },
+  { title: "Facultades", icon: <Icons.School />, bg: "bg-deep-red-option", filter: "faculty" },
+  { title: "Salas de Estudio", icon: <Icons.Studyroom />, bg: "bg-red-option", filter: "studyroom" },
+  { title: "Auditorios", icon: <Icons.Auditorium />, bg: "bg-green-option", filter: "auditorium" },
   {
     title: "Bibliotecas",
-    icon: "library",
+    icon: <Icons.Library />,
     bg: "bg-pink-option",
     filter: "biblioteca",
     isNameFilter: true,
   },
-  { title: "Baños", icon: "wc", bg: "bg-deep-cyan-option", filter: "bath" },
-  { title: "Comida", icon: "restaurant", bg: "bg-orange-option", filter: "food_lunch" },
-  { title: "Agua", icon: "localDrink", bg: "bg-cyan-option", filter: "water" },
-  { title: "Deportes", icon: "sport", bg: "bg-deep-green-option", filter: "sports_place" },
-  { title: "Crisol", icon: "print", bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
-  { title: "Estacionamientos", icon: "parking", bg: "bg-gray-option", filter: "parking" },
+  { title: "Baños", icon: <Icons.Wc />, bg: "bg-deep-cyan-option", filter: "bath" },
+  { title: "Comida", icon: <Icons.Restaurant />, bg: "bg-orange-option", filter: "food_lunch" },
+  { title: "Agua", icon: <Icons.Water />, bg: "bg-cyan-option", filter: "water" },
+  { title: "Deportes", icon: <Icons.Sport />, bg: "bg-deep-green-option", filter: "sports_place" },
+  { title: "Crisol", icon: <Icons.Print />, bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
+  { title: "Estacionamientos", icon: <Icons.Parking />, bg: "bg-gray-option", filter: "parking" },
 ];
 
 function PillFilter() {
@@ -90,7 +90,7 @@ function PillFilter() {
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill
               title={title}
-              iconGoogle={icon}
+              icon={icon}
               bg_color={bg}
               onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
               active={activeFilter === filter}

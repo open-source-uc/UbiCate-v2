@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, useState, useCallback, useEffect } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike } from "mapbox-gl";
@@ -25,9 +25,10 @@ import {
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/utils/getCampusBounds";
-import { siglas, Feature, PointFeature } from "@/utils/types";
+import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
+import * as Icons from "../components/icons/icons";
 import LocationButton from "../components/locationButton";
 import { useSidebar } from "../context/sidebarCtx";
 
@@ -41,6 +42,10 @@ interface InitialViewState extends Partial<ViewState> {
     padding?: number | PaddingOptions;
   };
 }
+
+const isReactElement = (icon: any): icon is React.ReactElement => {
+  return React.isValidElement(icon);
+};
 
 function createInitialViewState(
   campusName: string | null,
@@ -441,22 +446,44 @@ export default function MapComponent({
             {hover.properties.name}
           </Popup>
         ) : null} */}
+
         {points.map((place) => {
+          const primaryCategory = place.properties.categories[0] as Category;
+
+          const categoryIcons: Record<string, React.ReactElement> = {
+            auditorium: <Icons.Auditorium className="w-4 h-4" />,
+            bath: <Icons.Wc className="w-4 h-4" />,
+            water: <Icons.Water className="w-4 h-4" />,
+            food_lunch: <Icons.Restaurant className="w-4 h-4" />,
+            library: <Icons.Library className="w-4 h-4" />,
+            studyroom: <Icons.Studyroom className="w-4 h-4" />,
+            sports_place: <Icons.Sport className="w-4 h-4" />,
+            parking: <Icons.Parking className="w-4 h-4" />,
+            computers: <Icons.Print className="w-4 h-4" />,
+          };
+
+          const icon = isReactElement(categoryIcons[primaryCategory]) ? (
+            categoryIcons[primaryCategory]
+          ) : (
+            <Icons.Default className="w-4 h-4" />
+          );
+
           return (
             <Marker
               key={place.properties.identifier}
               place={place as PointFeature}
               onClick={() => onClickMark(place)}
+              icon={icon}
             />
           );
         })}
-
         {userPosition ? (
           <>
             <Marker
               key={userPosition.properties.identifier}
               place={userPosition as PointFeature}
               onClick={() => null}
+              icon={<Icons.UserLocation />}
             />
             <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
               <LocationButton
@@ -482,6 +509,7 @@ export default function MapComponent({
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
+            icon={<Icons.Pin className="w-5 h-5" />}
           />
         ) : null}
       </Map>

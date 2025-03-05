@@ -1,12 +1,8 @@
-import React from "react";
-
-import { IconName } from "@/utils/types";
-
-import IconSelector from "./icons/icons";
+import React, { ReactNode } from "react";
 
 interface PillProps {
   title: string;
-  iconGoogle: IconName;
+  icon: ReactNode;
   bg_color: string;
   active: boolean;
   onClick: () => void;
@@ -16,12 +12,12 @@ interface PillProps {
 
 function Pill({
   title,
-  iconGoogle,
   onClick,
   active,
   bg_color,
   activateClassName = "bg-blue-location",
   noActivateClassName = "bg-brown-dark desktop:bg-brown-medium text-white-ubi",
+  icon,
 }: PillProps) {
   return (
     <button
@@ -36,9 +32,7 @@ function Pill({
         className={`flex items-center justify-center rounded-lg
         min-w-[24px] min-h-[24px] desktop:min-w-[28px] desktop:min-h-[28px]`}
       >
-        <div className={`${bg_color} w-8 h-8 rounded-md flex justify-center items-center`}>
-          <IconSelector iconName={iconGoogle} className={`w-7 h-7`} />
-        </div>
+        <div className={`${bg_color} w-8 h-8 rounded-md flex justify-center items-center`}>{icon}</div>
       </div>
       <span className="px-2 whitespace-nowrap text-xs font-medium desktop:text-sm desktop:font-normal">{title}</span>
     </button>

@@ -150,3 +150,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Añadirlo en base permite ser sobreescrito */
+@layer base {
+  [data-slot="icon"] {
+    @apply w-6 h-6 fill-white-ubi flex justify-center items-center;
+  }
+}

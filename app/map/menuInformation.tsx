@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
-import IconSelector from "../components/icons/icons";
+import * as Icons from "../components/icons/icons";
 import MarkDownComponent from "../components/markDown";
 import {
   DropdownMenu,
@@ -121,7 +121,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                 className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                 aria-label="Cerrar menú"
               >
-                <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center" />
+                <Icons.Close />
               </button>
             </div>
 
@@ -142,7 +142,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               className="p-1 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
             >
               <div className="flex justify-center items-center w-full h-10">
-                <IconSelector iconName="share" className="flex justify-center items-center" />
+                <Icons.Share />
               </div>
               <p className="text-xs font-medium">Compartir</p>
             </button>
@@ -155,7 +155,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                 className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
               >
                 <div className="w-full flex justify-center items-center">
-                  <IconSelector iconName="options" className="flex justify-center items-center" />
+                  <Icons.Options />
                 </div>
                 <p className="text-xs font-medium">Más</p>
               </DropdownMenuTrigger>
@@ -163,7 +163,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                 {place?.geometry.type !== "Polygon" && (
                   <DropdownMenuItem onClick={() => setEdit(true)}>
                     {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-                    <IconSelector iconName="edit" className="w-5 h-5 flex justify-center items-center" />
+                    <Icons.Edit />
                   </DropdownMenuItem>
                 )}
 
@@ -183,7 +183,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3 text-blue-location">
-                    <IconSelector iconName="floor" className=" w-7 h-7 fill-blue-location" />
+                    <Icons.Floor className="fill-blue-location" />
                     <span className="font-medium text-white-ubi">Piso</span>
                   </div>
                   <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
@@ -195,7 +195,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3 text-blue-location">
-                    <IconSelector iconName="map" className=" w-7 h-7 fill-blue-location" />
+                    <Icons.Map className="fill-blue-location" />
                     <span className="font-medium text-white-ubi">Campus</span>
                   </div>
                   <span className="text-white-ubi font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
@@ -229,7 +229,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
               aria-label="Cerrar menú"
             >
-              <IconSelector iconName="close" className="w-7 h-7 flex justify-center items-center" />
+              <Icons.Close />
             </button>
           </div>
           <FormGeo

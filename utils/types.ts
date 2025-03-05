@@ -1,3 +1,5 @@
+import React from "react";
+
 interface PointGeometry {
   type: "Point";
   coordinates: [number, number];
@@ -31,32 +33,7 @@ export type Category = 'auditorium' |
   'customMark' |
   'water';
 
-export type IconName =
-  | 'dockToRight'
-  | 'search'
-  | 'map'
-  | 'menuBook'
-  | 'wc'
-  | 'restaurant'
-  | 'localDrink'
-  | 'print'
-  | 'school'
-  | 'library'
-  | 'studyroom'
-  | 'auditorium'
-  | 'sport'
-  | 'parking'
-  | 'userLocation'
-  | 'gps'
-  | 'default'
-  | 'pin'
-  | 'share'
-  | 'options'
-  | 'floor'
-  | 'edit'
-  | 'close';
-
-export const CategoryToIcon: Map<Category, IconName> = new Map([
+export const CategoryToIcon: Map<Category, React.ReactNode> = new Map([
   ["bath", "wc"],
   ["computers", "print"],
   ["food_lunch", "restaurant"],
