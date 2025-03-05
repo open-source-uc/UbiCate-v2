@@ -9,7 +9,7 @@ import LocationButton from "../components/locationButton";
 
 import Marker from "./marker";
 
-export default function ButtonMaps({ mapRef }: { mapRef: React.RefObject<MapRef> }) {
+export default function ButtonMaps({ mapRef }: { mapRef: React.RefObject<MapRef | null> }) {
   const [userPosition, setUserPosition] = useState<Feature | null>(null);
   const [isTracking, setIsTracking] = useState(false);
   const [isFirstLocationFetch, setIsFirstLocationFetch] = useState(true);
