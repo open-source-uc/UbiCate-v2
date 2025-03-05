@@ -74,7 +74,7 @@ function DesktopSidebar() {
     return () => {
       current?.off("result", handleSearchSelection);
     };
-  }, [activeSubSidebar, geocoder, handleSearchSelection]);
+  }, [activeSubSidebar, geocoder]);
 
   useEffect(() => {
     if (isOpen === false) {
@@ -551,7 +551,7 @@ function MobileSidebar() {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
     }
-  }, [isOpen, setActiveSubSidebar, setSidebarHeight]);
+  }, [isOpen]);
 
   // Clean up event listeners
   useEffect(() => {
