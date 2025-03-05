@@ -20,7 +20,11 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     description: paramPlace
       ? `Piso: ${paramPlace.properties.floors}
         · Campus: ${paramPlace.properties.campus} 
-        ${paramPlace.properties.information !== "" ? ` · Información: ${paramPlace.properties.information || "N/A"}` : ""}`
+        ${
+          paramPlace.properties.information !== ""
+            ? ` · Información: ${paramPlace.properties.information || "N/A"}`
+            : ""
+        }`
       : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
@@ -60,8 +64,8 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   const paramPlace: Feature | null = searchParams?.place
     ? (PlacesJSON.features.find(
-      (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
-    ) as Feature) ?? null
+        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
+      ) as Feature) ?? null
     : null;
 
   return (
