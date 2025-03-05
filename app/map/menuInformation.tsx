@@ -78,7 +78,8 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
   };
 
   const borrar = () => {
-    const confirmacion = confirm("Estas seguro de BORRAR el lugar") ?? false;
+    const confirmacion =
+      confirm("Estas seguro de BORRAR el lugar " + (sessionStorage.getItem("ubicateToken") ?? "")) ?? false;
     if (!confirmacion) return;
 
     fetch("api/ubicate", {
