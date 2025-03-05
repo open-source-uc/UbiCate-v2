@@ -33,11 +33,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     openGraph: {
       images: [
         {
-          url: new URL(
-            `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/${
-              paramPlace ? "og-image?n=" + paramPlace.properties.name : "opengraph-image.png"
-            }`,
-          ),
+          url: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}/api/og-image?n=" + ${paramPlace.properties.name ?? ""}`),
         },
       ],
     },
