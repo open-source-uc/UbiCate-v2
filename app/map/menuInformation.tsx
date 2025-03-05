@@ -161,7 +161,12 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {place?.geometry.type !== "Polygon" && (
-                  <DropdownMenuItem onClick={() => setEdit(true)}>
+                  <DropdownMenuItem
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setEdit(true);
+                    }}
+                  >
                     {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
                     <Icons.Edit />
                   </DropdownMenuItem>
@@ -170,8 +175,22 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                 {place?.geometry.type !== "Polygon" && place?.properties.identifier !== "42-ALL" && isDebug.current ? (
                   <>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => aprobar()}>Aprobar</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => borrar()}>Borrar</DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        aprobar();
+                      }}
+                    >
+                      Aprobar
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        borrar();
+                      }}
+                    >
+                      Borrar
+                    </DropdownMenuItem>
                   </>
                 ) : null}
               </DropdownMenuContent>

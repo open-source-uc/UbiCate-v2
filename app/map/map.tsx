@@ -451,21 +451,21 @@ export default function MapComponent({
           const primaryCategory = place.properties.categories[0] as Category;
 
           const categoryIcons: Record<string, React.ReactElement> = {
-            auditorium: <Icons.Auditorium className="w-4 h-4" />,
-            bath: <Icons.Wc className="w-4 h-4" />,
-            water: <Icons.Water className="w-4 h-4" />,
-            food_lunch: <Icons.Restaurant className="w-4 h-4" />,
-            library: <Icons.Library className="w-4 h-4" />,
-            studyroom: <Icons.Studyroom className="w-4 h-4" />,
-            sports_place: <Icons.Sport className="w-4 h-4" />,
-            parking: <Icons.Parking className="w-4 h-4" />,
-            computers: <Icons.Print className="w-4 h-4" />,
+            auditorium: <Icons.Auditorium className="w-3 h-3" />,
+            bath: <Icons.Wc className="w-3 h-3" />,
+            water: <Icons.Water className="w-3 h-3" />,
+            food_lunch: <Icons.Restaurant className="w-3 h-3" />,
+            library: <Icons.Library className="w-3 h-3" />,
+            studyroom: <Icons.Studyroom className="w-3 h-3" />,
+            sports_place: <Icons.Sport className="w-3 h-3" />,
+            parking: <Icons.Parking className="w-3 h-3" />,
+            computers: <Icons.Print className="w-3 h-3" />,
           };
 
           const icon = isReactElement(categoryIcons[primaryCategory]) ? (
             categoryIcons[primaryCategory]
           ) : (
-            <Icons.Default className="w-4 h-4" />
+            <Icons.Default className="w-3 h-3" />
           );
 
           return (
@@ -509,7 +509,7 @@ export default function MapComponent({
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
-            icon={<Icons.Pin className="w-5 h-5" />}
+            icon={<Icons.Pin className="w-4 h-4" />}
           />
         ) : null}
       </Map>
