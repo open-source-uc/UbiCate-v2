@@ -10,6 +10,8 @@ interface PolygonGeometry {
   coordinates: [number, number][][];
 }
 
+export type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
+
 export type Category = 'auditorium' |
   'bath' |
   'building' |

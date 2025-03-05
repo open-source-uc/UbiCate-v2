@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
-import NavigationBar from "./components/NavigationBar";
+import NavigationSidebar from "./components/NavigationSidebar";
 import { SidebarProvider } from "./context/sidebarCtx";
 import MapComponent from "./map/map";
 
@@ -13,15 +13,35 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
   const searchParams = await props.searchParams;
   const paramPlaceId: string | undefined = searchParams?.place;
   const paramPlace: Feature | null =
-    (PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) as Feature) ?? null;
-  const placeName = paramPlace?.properties?.name || "";
+    PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null;
+
+  const defaultDescription =
+    "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la " +
+    "Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de " +
+    "manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. " +
+    "¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC";
+
+  let title = "Ubicate · Tu mapa en la UC";
+  if (paramPlace) {
+    title = `Ubicate · ${paramPlace.properties.name} · Piso ${paramPlace.properties.floors} · Campus ${paramPlace.properties.campus}`;
+  }
+
+  let placeDescription = "";
+  if (paramPlace) {
+    placeDescription = `Piso: ${paramPlace.properties.floors} · Campus: ${paramPlace.properties.campus}`;
+
+    if (paramPlace.properties.information && paramPlace.properties.information.trim() !== "") {
+      placeDescription += ` · Información: ${paramPlace.properties.information}`;
+    }
+  }
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   return {
-    title: placeName ? `Ubicate · ${placeName}` : "Ubicate · Tu mapa en la UC",
-    description:
-      "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+    title: title,
+    description: paramPlace ? placeDescription : defaultDescription,
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+      canonical: `${baseUrl}/`,
     },
     authors: [{ name: "Open Source UC" }],
     twitter: {
@@ -30,11 +50,11 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     openGraph: {
       images: [
         {
-          url: new URL(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/opengraph-image.png`),
+          url: new URL(`${baseUrl}/api/og-image?n=${paramPlace?.properties.name || ""}`),
         },
       ],
     },
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
+    metadataBase: new URL(baseUrl),
     keywords: [
       "Salas UC",
       "Campus UC",
@@ -62,8 +82,8 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   return (
     <>
       <SidebarProvider>
-        <main spellCheck="false" className="h-full w-full relative">
-          <NavigationBar />
+        <main spellCheck="false" className="h-full w-full relative flex">
+          <NavigationSidebar />
           <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
         </main>
       </SidebarProvider>

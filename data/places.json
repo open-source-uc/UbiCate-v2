@@ -27506,6 +27506,30 @@
                     -33.497237
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "studyroom-37148252",
+                "name": "Alvaro Campos",
+                "information": "**Mejor sala dcc**",
+                "categories": [
+                    "studyroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    4
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61509187213163,
+                    -33.49933987184855
+                ]
+            }
         }
     ]
 }
