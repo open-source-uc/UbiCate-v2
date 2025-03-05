@@ -30,11 +30,11 @@ import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 import Campus from "../../data/campuses.json";
 import * as Icons from "../components/icons/icons";
 import MarkerIcon from "../components/icons/markerIcon";
-import LocationButton from "../components/locationButton";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
+import ButtonMaps from "./buttonsMaps";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -83,7 +83,6 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
-  const [userPosition, setUserPosition] = useState<Feature | null>(null);
   const params = useSearchParams();
   const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
     useSidebar();
@@ -339,54 +338,13 @@ export default function MapComponent({
       metaDescription.setAttribute(
         "content",
         selectedPlace
-          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${
-              siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
-            }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
+          ? `Nombre: ${selectedPlace.properties.name}; Categoria: ${siglas.get(selectedPlace.properties.categories[0]) ?? "Sala"
+          }; Piso: ${selectedPlace.properties.floors?.[0] ?? "N/A"}`
           : "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
       );
     }
   }, [selectedPlace]);
 
-  useEffect(() => {
-    const i = setInterval(async () => {
-      if (!navigator.geolocation) return;
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { longitude, latitude } = position.coords;
-          setUserPosition({
-            type: "Feature",
-            properties: {
-              identifier: "user_location_0001",
-              name: "Yo",
-              information: "",
-              categories: ["userLocation"],
-              campus: "SJ",
-              faculties: "",
-              floors: [1],
-              needApproval: false,
-            },
-            geometry: {
-              type: "Point",
-              coordinates: [longitude, latitude],
-            },
-          });
-        },
-        () => {
-          clearInterval(i);
-        },
-        {
-          enableHighAccuracy: true, // Solicita una mayor precisión
-          timeout: 4_000, // Establece un tiempo máximo para obtener la posición
-          maximumAge: 0, // No usa una posición en caché
-        },
-      );
-    }, 4_500);
-
-    return () => {
-      clearInterval(i);
-    };
-  }, []);
 
   return (
     <>
@@ -443,7 +401,7 @@ export default function MapComponent({
             {hover.properties.name}
           </Popup>
         ) : null} */}
-
+        <ButtonMaps mapRef={mapRef}></ButtonMaps>
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as Category;
           return (
@@ -455,29 +413,6 @@ export default function MapComponent({
             />
           );
         })}
-        {userPosition ? (
-          <>
-            <Marker
-              key={userPosition.properties.identifier}
-              place={userPosition as PointFeature}
-              onClick={() => null}
-              icon={<Icons.UserLocation />}
-            />
-            <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
-              <LocationButton
-                onClick={() => {
-                  if (userPosition === null) return;
-
-                  mapRef.current?.getMap().flyTo({
-                    center: userPosition.geometry.coordinates as [number, number],
-                    zoom: 17,
-                    duration: 400,
-                  });
-                }}
-              />
-            </div>
-          </>
-        ) : null}
 
         {tmpMark && tmpMark.geometry.type === "Point" ? (
           <Marker
