@@ -111,7 +111,7 @@ export default function MapComponent(props: MapProps) {
               <div
                 className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}
               >
-                <Icons.UserLocation className="w-9 h-9" />
+                <Icons.Pin className="w-4 h-4" />
               </div>
             </Marker>
           ) : null}

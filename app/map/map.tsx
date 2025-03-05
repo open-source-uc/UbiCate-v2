@@ -29,6 +29,7 @@ import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
 import * as Icons from "../components/icons/icons";
+import MarkerIcon from "../components/icons/markerIcon";
 import LocationButton from "../components/locationButton";
 import { useSidebar } from "../context/sidebarCtx";
 
@@ -42,10 +43,6 @@ interface InitialViewState extends Partial<ViewState> {
     padding?: number | PaddingOptions;
   };
 }
-
-const isReactElement = (icon: any): icon is React.ReactElement => {
-  return React.isValidElement(icon);
-};
 
 function createInitialViewState(
   campusName: string | null,
@@ -449,31 +446,12 @@ export default function MapComponent({
 
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as Category;
-
-          const categoryIcons: Record<string, React.ReactElement> = {
-            auditorium: <Icons.Auditorium className="w-3 h-3" />,
-            bath: <Icons.Wc className="w-3 h-3" />,
-            water: <Icons.Water className="w-3 h-3" />,
-            food_lunch: <Icons.Restaurant className="w-3 h-3" />,
-            library: <Icons.Library className="w-3 h-3" />,
-            studyroom: <Icons.Studyroom className="w-3 h-3" />,
-            sports_place: <Icons.Sport className="w-3 h-3" />,
-            parking: <Icons.Parking className="w-3 h-3" />,
-            computers: <Icons.Print className="w-3 h-3" />,
-          };
-
-          const icon = isReactElement(categoryIcons[primaryCategory]) ? (
-            categoryIcons[primaryCategory]
-          ) : (
-            <Icons.Default className="w-3 h-3" />
-          );
-
           return (
             <Marker
               key={place.properties.identifier}
               place={place as PointFeature}
               onClick={() => onClickMark(place)}
-              icon={icon}
+              icon={<MarkerIcon label={primaryCategory} />}
             />
           );
         })}
