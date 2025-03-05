@@ -1,3 +1,5 @@
+import React from "react";
+
 interface PointGeometry {
   type: "Point";
   coordinates: [number, number];
@@ -7,6 +9,43 @@ interface PolygonGeometry {
   type: "Polygon";
   coordinates: [number, number][][];
 }
+
+export type Category = 'auditorium' |
+  'bath' |
+  'building' |
+  'campus' |
+  'classroom' |
+  'computers' |
+  'faculty' |
+  'financial' |
+  'food_lunch' |
+  'laboratory' |
+  'library' |
+  'other' |
+  'park_bicycle' |
+  'parking' |
+  'photocopy' |
+  'shop' |
+  'sports_place' |
+  'studyroom' |
+  'trash' |
+  'auditorium' |
+  'customMark' |
+  'water';
+
+export const CategoryToIcon: Map<Category, React.ReactNode> = new Map([
+  ["bath", "wc"],
+  ["computers", "print"],
+  ["food_lunch", "restaurant"],
+  ["library", "library"],
+  ["parking", "parking"],
+  ["photocopy", "print"],
+  ["sports_place", "sport"],
+  ["studyroom", "studyroom"],
+  ["water", "localDrink"],
+  ["auditorium", "auditorium"],
+  ["customMark", "pin"]
+]);
 
 export interface Feature {
   type: string;

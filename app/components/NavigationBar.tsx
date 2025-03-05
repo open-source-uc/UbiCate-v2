@@ -7,6 +7,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
+import * as Icons from "../components/icons/icons";
 import { useSidebar } from "../context/sidebarCtx";
 import MenuInformation from "../map/menuInformation";
 
@@ -89,26 +90,26 @@ function DesktopSidebar() {
           <div className="flex items-center p-4 flex-col py-8 space-y-6">
             <div className="mb-9 flex justify-center">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
-                <span className="material-symbols-outlined self-center">dock_to_right</span>
+                <Icons.DockToRight className="w-9 h-9" />
               </button>
             </div>
             <button
               onClick={() => handleCollapsedClick("buscar")}
               className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
-              <span className="material-symbols-outlined">search</span>
+              <Icons.Search />
             </button>
             <button
               onClick={() => handleCollapsedClick("campus")}
               className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
             >
-              <span className="material-symbols-outlined">map</span>
+              <Icons.Map />
             </button>
             <button
               disabled
               className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 pointer-events-auto cursor-pointer"
             >
-              <span className="material-symbols-outlined">menu_book</span>
+              <Icons.MenuBook />
             </button>
           </div>
         </section>
@@ -128,7 +129,7 @@ function DesktopSidebar() {
             </Link>
             <div className="flex-row-reverse">
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
-                <span className="material-symbols-outlined">dock_to_right</span>
+                <Icons.DockToRight className="w-9 h-9" />
               </button>
             </div>
           </div>
@@ -145,7 +146,7 @@ function DesktopSidebar() {
                     activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
                   }`}
                 >
-                  <span className="material-symbols-outlined">search</span>
+                  <Icons.Search />
                 </span>
                 <span className="text-md">Buscar</span>
               </button>
@@ -160,7 +161,7 @@ function DesktopSidebar() {
                         activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
                       }`}
                     >
-                      <span className="material-symbols-outlined">map</span>
+                      <Icons.Map />
                     </span>
                     <p className="text-md">Campus</p>
                   </button>
@@ -170,7 +171,7 @@ function DesktopSidebar() {
                     className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md opacity-50"
                   >
                     <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                      <span className="material-symbols-outlined">menu_book</span>
+                      <Icons.MenuBook />
                     </span>
                     <p className="text-md">Guías</p>
                   </button>
@@ -213,7 +214,7 @@ function DesktopSidebar() {
         ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"}
         ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
           >
-            <div className={`h-full ${activeSubSidebar === "menuInformation" ? "overflow-y-auto" : ""}`}>
+            <div className={`h-full overflow-y-auto ${activeSubSidebar === "menuInformation" ? "" : ""}`}>
               <div className="py-7 px-4 space-y-6 relative">
                 {activeSubSidebar === "buscar" && (
                   <>
@@ -603,7 +604,7 @@ function MobileSidebar() {
                         }`}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                          <span className="material-symbols-outlined">map</span>
+                          <Icons.Map />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
@@ -612,7 +613,7 @@ function MobileSidebar() {
                         className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                          <span className="material-symbols-outlined">menu_book</span>
+                          <Icons.MenuBook />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Guías</p>
                       </button>
@@ -623,7 +624,7 @@ function MobileSidebar() {
                     <PillFilter />
                   </div>
 
-                  <div className="flex flex-row gap-4 gap-2 pb-5 pt-4">
+                  <div className="flex flex-row gap-2 pb-5 pt-4">
                     <div className="w-full rounded-xl bg-brown-light p-4 mobile:p-3 tablet:p-4 text-xs text-white-blue">
                       ¿Crees que algo falta?
                       <Link
@@ -670,14 +671,17 @@ function MobileSidebar() {
             <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
               {activeSubSidebar === "campus" && (
                 <>
-                  <h3 className="font-bold text-lg">Campus</h3>
-                  <button
-                    onClick={() => setActiveSubSidebar(null)}
-                    className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-                    aria-label="Cerrar menú"
-                  >
-                    <span className="material-symbols-outlined">close</span>
-                  </button>
+                  <div className="flex">
+                    <h3 className="font-bold text-lg">Campus</h3>
+                    <div className="flex w-full" />
+                    <button
+                      onClick={() => setActiveSubSidebar(null)}
+                      className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2 z-50"
+                      aria-label="Cerrar menú"
+                    >
+                      <Icons.Close />
+                    </button>
+                  </div>
                   <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
                     <button
                       onClick={() => handleCampusClick("SanJoaquin")}

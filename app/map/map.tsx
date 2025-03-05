@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, useState, useCallback, useEffect } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike } from "mapbox-gl";
@@ -25,9 +25,11 @@ import {
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/utils/getCampusBounds";
-import { siglas, Feature, PointFeature } from "@/utils/types";
+import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 
 import Campus from "../../data/campuses.json";
+import * as Icons from "../components/icons/icons";
+import MarkerIcon from "../components/icons/markerIcon";
 import LocationButton from "../components/locationButton";
 import { useSidebar } from "../context/sidebarCtx";
 
@@ -166,7 +168,7 @@ export default function MapComponent({
           identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
           name: `Lon: ${lng.toFixed(4)}, Lat: ${lat.toFixed(4)}`,
           information: "",
-          categories: [],
+          categories: ["customMark"],
           campus: "",
           faculties: "",
           floors: [],
@@ -441,22 +443,25 @@ export default function MapComponent({
             {hover.properties.name}
           </Popup>
         ) : null} */}
+
         {points.map((place) => {
+          const primaryCategory = place.properties.categories[0] as Category;
           return (
             <Marker
               key={place.properties.identifier}
               place={place as PointFeature}
               onClick={() => onClickMark(place)}
+              icon={<MarkerIcon label={primaryCategory} />}
             />
           );
         })}
-
         {userPosition ? (
           <>
             <Marker
               key={userPosition.properties.identifier}
               place={userPosition as PointFeature}
               onClick={() => null}
+              icon={<Icons.UserLocation />}
             />
             <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
               <LocationButton
@@ -482,6 +487,7 @@ export default function MapComponent({
             onClick={() => onClickMark(tmpMark)}
             onDrag={onMarkerDrag}
             onDragEnd={onMarkerDragEnd}
+            icon={<Icons.Pin className="w-4 h-4" />}
           />
         ) : null}
       </Map>

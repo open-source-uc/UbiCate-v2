@@ -12,6 +12,7 @@ import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCa
 
 import Campus from "../../data/campuses.json";
 import DebugMode from "../components/debugMode";
+import * as Icons from "../components/icons/icons";
 
 import ControlPanel from "./controlPanel";
 
@@ -110,9 +111,7 @@ export default function MapComponent(props: MapProps) {
               <div
                 className={`flex items-center justify-center border-1 border-brown-dark w-4 h-4 rounded-full text-brown-dark bg-brown-light`}
               >
-                <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">
-                  fiber_manual_record
-                </span>
+                <Icons.Pin className="w-4 h-4" />
               </div>
             </Marker>
           ) : null}
