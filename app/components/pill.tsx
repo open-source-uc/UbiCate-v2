@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface PillProps {
   title: string;
-  iconGoogle: string;
+  icon: ReactNode;
   bg_color: string;
   active: boolean;
   onClick: () => void;
@@ -12,12 +12,12 @@ interface PillProps {
 
 function Pill({
   title,
-  iconGoogle,
   onClick,
   active,
   bg_color,
   activateClassName = "bg-blue-location",
   noActivateClassName = "bg-brown-dark desktop:bg-brown-medium text-white-ubi",
+  icon,
 }: PillProps) {
   return (
     <button
@@ -29,10 +29,10 @@ function Pill({
         hover:bg-brown-light`}
     >
       <div
-        className={`flex items-center justify-center rounded-lg ${bg_color} 
+        className={`flex items-center justify-center rounded-lg
         min-w-[24px] min-h-[24px] desktop:min-w-[28px] desktop:min-h-[28px]`}
       >
-        <span className="material-symbols-outlined text-sm desktop:text-base p-0.5">{iconGoogle}</span>
+        <div className={`${bg_color} w-8 h-8 rounded-md flex justify-center items-center`}>{icon}</div>
       </div>
       <span className="px-2 whitespace-nowrap text-xs font-medium desktop:text-sm desktop:font-normal">{title}</span>
     </button>

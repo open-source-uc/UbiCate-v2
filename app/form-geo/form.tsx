@@ -8,6 +8,7 @@ import { campusBounds } from "@/utils/getCampusBounds";
 import getGeolocation from "@/utils/getGeolocation";
 
 import { siglas as MapSiglas, METHOD } from "../../utils/types";
+import MarkDownComponent from "../components/markDown";
 
 import MapComponent from "./map";
 
@@ -54,6 +55,7 @@ export default function FormComponent({
   const [longitude, setLongitude] = useState<number | undefined | null>(values?.longitude);
   const [latitude, setLatitude] = useState<number | undefined | null>(values?.latitude);
   const [campus, setCampus] = useState<string>("");
+  const [isPreviewMode, setIsPreviewMode] = useState<boolean>(false);
 
   const dragLocUpdate = useCallback((event: any) => {
     setLongitude(event.lngLat.lng);
@@ -234,8 +236,6 @@ export default function FormComponent({
                 />
               </div>
 
-              {/* Continue applying the same style onwards */}
-
               <div className="space-y-4">
                 <label className="flex items-center justify-center text-md font-medium text-white-ubi" htmlFor="floor">
                   Piso
@@ -284,12 +284,44 @@ export default function FormComponent({
                   ¡Cuéntanos más sobre esta ubicación!
                   <br />- Soporta markdown -
                 </p>
-                <Field
-                  className="block p-3 w-full h-36 text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
-                  name="information"
-                  id="information"
-                  as="textarea"
-                />
+
+                <div className="flex justify-end mb-2 space-x-2">
+                  <button
+                    type="button"
+                    className={`px-3 py-1 rounded-md text-sm ${
+                      !isPreviewMode
+                        ? "bg-blue-location text-white"
+                        : "bg-transparent border border-brown-light text-white-ubi"
+                    }`}
+                    onClick={() => setIsPreviewMode(false)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    className={`px-3 py-1 rounded-md text-sm ${
+                      isPreviewMode
+                        ? "bg-blue-location text-white"
+                        : "bg-transparent border border-brown-light text-white-ubi"
+                    }`}
+                    onClick={() => setIsPreviewMode(true)}
+                  >
+                    Vista Previa
+                  </button>
+                </div>
+
+                {isPreviewMode ? (
+                  <div className="bg-brown-medium rounded-md">
+                    <MarkDownComponent>{values.information}</MarkDownComponent>
+                  </div>
+                ) : (
+                  <Field
+                    className="block p-3 w-full h-96 text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
+                    name="information"
+                    id="information"
+                    as="textarea"
+                  />
+                )}
               </div>
 
               <div className="space-y-4">

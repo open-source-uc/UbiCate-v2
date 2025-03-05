@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
@@ -5,6 +7,7 @@ import { Feature, PointFeature } from "../../utils/types";
 
 interface MarkerProps {
   place: PointFeature;
+  icon: React.ReactElement;
   draggable?: boolean;
   onClick: (place: Feature) => void;
   onMouseEnter?: (place: Feature | null) => void;
@@ -14,39 +17,32 @@ interface MarkerProps {
 
 // Mapeo de nombres a colores
 const categoryToColorMap: Record<string, string> = {
+  auditorium: "bg-green-option",
+  water: "bg-cyan-option",
   bath: "bg-deep-cyan-option",
   food_lunch: "bg-orange-option",
-  water: "bg-cyan-option",
   computers: "bg-purple-option",
   Facultad: "bg-deep-red-option",
   library: "bg-pink-option",
   studyroom: "bg-red-option",
-  auditorium: "bg-green-option",
   sports_place: "bg-deep-green-option",
   parking: "bg-gray-option",
   userLocation: "bg-cyan-option",
+  customMark: "bg-pink-option",
 };
 
 // Mapeo de nombres a archivos SVG
-const categoryToSvgMap: Record<string, string> = {
-  bath: "wc",
-  food_lunch: "restaurant",
-  water: "local_drink",
-  computers: "print",
-  Facultad: "school",
-  library: "local_library",
-  studyroom: "group",
-  auditorium: "book_2",
-  sports_place: "sports_soccer",
-  parking: "local_parking",
-  userLocation: "radio_button_checked",
-};
 
-const defaultSvg = "fiber_manual_record";
-
-export default function Marker({ place, draggable = false, onClick, onMouseEnter, onDrag, onDragEnd }: MarkerProps) {
+export default function Marker({
+  place,
+  draggable = false,
+  onClick,
+  onMouseEnter,
+  onDrag,
+  onDragEnd,
+  icon,
+}: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
-  const svgPath = primaryCategory && categoryToSvgMap[primaryCategory] ? categoryToSvgMap[primaryCategory] : defaultSvg;
 
   const color =
     primaryCategory && categoryToColorMap[primaryCategory] ? categoryToColorMap[primaryCategory] : "bg-brown-light";
@@ -86,12 +82,9 @@ export default function Marker({ place, draggable = false, onClick, onMouseEnter
         }}
       >
         <div
-          className={`flex items-center justify-center w-4 h-4 rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1`}
+          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1 w-4 h-4`}
         >
-          {/* The hardcoded style is not the most efficient or pretty way to do it, but it's the way to change the size using Material Symbols. text-sm did not work*/}
-          <span style={{ fontSize: "0.8rem" }} className="material-symbols-outlined">
-            {svgPath}
-          </span>
+          {icon}
         </div>
       </div>
     </MapboxMarker>
