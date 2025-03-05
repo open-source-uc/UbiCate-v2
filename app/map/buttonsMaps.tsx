@@ -59,13 +59,8 @@ export default function ButtonMaps({ mapRef }: { mapRef: React.RefObject<MapRef 
           alert(
             "Permiso de ubicación denegado. Por favor, habilite los permisos de ubicación en la configuración de su navegador.",
           );
-        } else if (positionError.code === 2) {
-          alert("La información de ubicación no está disponible.");
-        } else if (positionError.code === 3) {
-          alert("La solicitud para obtener la ubicación ha expirado.");
-        } else {
-          alert(`Error al obtener la ubicación: ${positionError.message}`);
         }
+
         setIsTracking(false);
         setIsFirstLocationFetch(false);
       },
