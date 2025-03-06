@@ -22,13 +22,17 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     "¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC";
 
   let title = "Ubicate · Tu mapa en la UC";
+  let floor = paramPlace?.properties.floors?.[0];
   if (paramPlace) {
-    title = `Ubicate · ${paramPlace.properties.name} · Piso ${paramPlace.properties.floors} · Campus ${paramPlace.properties.campus}`;
+    title =
+      `Ubicate · ${paramPlace.properties.name}` +
+      (floor ? ` · Piso ${floor}` : "") +
+      ` · Campus ${paramPlace.properties.campus}`;
   }
 
   let placeDescription = "";
   if (paramPlace) {
-    placeDescription = `Piso: ${paramPlace.properties.floors} · Campus: ${paramPlace.properties.campus}`;
+    placeDescription = (floor ? `Piso: ${floor}` : "") + ` · Campus: ${paramPlace.properties.campus}`;
 
     if (paramPlace.properties.information && paramPlace.properties.information.trim() !== "") {
       placeDescription += ` · Información: ${paramPlace.properties.information}`;
