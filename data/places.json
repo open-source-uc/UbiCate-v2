@@ -27628,6 +27628,30 @@
                     -33.497426649550384
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "PATAGONIA-SJ",
+                "name": "Patagonia",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6131840595405,
+                    -33.49737807468579
+                ]
+            }
         }
     ]
 }
