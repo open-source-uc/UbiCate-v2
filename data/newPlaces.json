@@ -48,30 +48,6 @@
                     -33.49737807468579
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ATACAMA-SJ",
-                "name": "Atacama",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    -1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61318235919948,
-                    -33.497426649550384
-                ]
-            }
         }
     ]
 }
