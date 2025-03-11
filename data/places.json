@@ -18258,29 +18258,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo12",
-                "name": "Comida",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593593,
-                    -33.445119
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "D101",
                 "name": "D101",
                 "information": "",
