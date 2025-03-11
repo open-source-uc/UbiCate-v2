@@ -27579,6 +27579,30 @@
                     -33.49805124486678
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-37631812",
+                "name": "Cafetón",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61346024294069,
+                    -33.49820595363147
+                ]
+            }
         }
     ]
 }
