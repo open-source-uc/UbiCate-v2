@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "studyroom-37632215",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    4
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6134352533702,
+                    -33.49668411209907
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "puesto12",
                 "name": "quiosco",
                 "information": "",
@@ -94,30 +118,6 @@
                 "coordinates": [
                     -70.61318235919948,
                     -33.497426649550384
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "studyroom-37632215",
-                "name": "Sala de estudio",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    4
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61327284081781,
-                    -33.496775184219764
                 ]
             }
         },
