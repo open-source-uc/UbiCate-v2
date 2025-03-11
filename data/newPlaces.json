@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "BC24",
-                "name": "BC24",
-                "information": "esta en el piso 2 no 1",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61315687373632,
-                    -33.5005568945961
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AUD_21",
                 "name": "Auditorio Celia Pérez Matus",
                 "information": "",
