@@ -5732,30 +5732,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AUD_21",
-                "name": "Auditorio Celia Pérez Matus",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64077908173203,
-                    -33.44115500065521
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "auditorium-32477516",
                 "name": "Auditorio A201",
                 "information": "",
@@ -6326,30 +6302,6 @@
                 "coordinates": [
                     -70.61317221278318,
                     -33.50046241754243
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "BC24",
-                "name": "BC24",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "ING",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61315687373632,
-                    -33.5005568945961
                 ]
             }
         },
@@ -18306,29 +18258,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo12",
-                "name": "Comida",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593593,
-                    -33.445119
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "D101",
                 "name": "D101",
                 "information": "",
@@ -27528,6 +27457,54 @@
                 "coordinates": [
                     -70.61509187213163,
                     -33.49933987184855
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "BC24",
+                "name": "BC24",
+                "information": "esta en el piso 2 no 1",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61315687373632,
+                    -33.5005568945961
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AUD_21",
+                "name": "Auditorio Celia Pérez Matus",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64077908173203,
+                    -33.44115500065521
                 ]
             }
         }
