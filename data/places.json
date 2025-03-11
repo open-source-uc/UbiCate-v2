@@ -27555,6 +27555,30 @@
                     -33.49806942558134
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-37630329",
+                "name": "Centro estudiantes de pedagogías",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61396800616009,
+                    -33.49805124486678
+                ]
+            }
         }
     ]
 }
