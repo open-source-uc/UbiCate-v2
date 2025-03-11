@@ -22007,29 +22007,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "puesto12",
-                "name": "quiosco",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333985821348,
-                    -33.4981220546526
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "puesto13",
                 "name": "Maholo Sushi & Gohan",
                 "information": "",
@@ -27601,6 +27578,30 @@
                 "coordinates": [
                     -70.61346024294069,
                     -33.49820595363147
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "puesto12",
+                "name": "quiosco",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61334339412389,
+                    -33.49819447890233
                 ]
             }
         }
