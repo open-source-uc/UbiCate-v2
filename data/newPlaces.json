@@ -144,30 +144,6 @@
                     -33.49805124486678
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_STEAM-SJ",
-                "name": "Sala STEAM",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    -1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6141596631249,
-                    -33.49806942558134
-                ]
-            }
         }
     ]
 }
