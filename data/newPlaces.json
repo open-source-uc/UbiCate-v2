@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "puesto12",
+                "name": "quiosco",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61334339412389,
+                    -33.49819447890233
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_DE_MÚSICA_-_VICTOR_ALORCÓN_DÍAZ-SJ",
                 "name": "Sala de música - Victor Alorcón Díaz",
                 "information": "",
@@ -118,30 +142,6 @@
                 "coordinates": [
                     -70.61346024294069,
                     -33.49820595363147
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "puesto12",
-                "name": "quiosco",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333742332214,
-                    -33.49816294897793
                 ]
             }
         },
