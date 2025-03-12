@@ -5732,30 +5732,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AUD_21",
-                "name": "Auditorio Celia Pérez Matus",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64077908173203,
-                    -33.44115500065521
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "auditorium-32477516",
                 "name": "Auditorio A201",
                 "information": "",
@@ -6326,30 +6302,6 @@
                 "coordinates": [
                     -70.61317221278318,
                     -33.50046241754243
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "BC24",
-                "name": "BC24",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "ING",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61315687373632,
-                    -33.5005568945961
                 ]
             }
         },
@@ -18306,29 +18258,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo12",
-                "name": "Comida",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593593,
-                    -33.445119
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "D101",
                 "name": "D101",
                 "information": "",
@@ -22072,29 +22001,6 @@
                 "coordinates": [
                     -70.611747,
                     -33.498485
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "puesto12",
-                "name": "quiosco",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333985821348,
-                    -33.4981220546526
                 ]
             }
         },
@@ -27528,6 +27434,246 @@
                 "coordinates": [
                     -70.61509187213163,
                     -33.49933987184855
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "BC24",
+                "name": "BC24",
+                "information": "esta en el piso 2 no 1",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61315687373632,
+                    -33.5005568945961
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AUD_21",
+                "name": "Auditorio Celia Pérez Matus",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "CC",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64077908173203,
+                    -33.44115500065521
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_DE_MÚSICA_-_VICTOR_ALORCÓN_DÍAZ-SJ",
+                "name": "Sala de música - Victor Alorcón Díaz",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61444083133267,
+                    -33.49807132134248
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_STEAM-SJ",
+                "name": "Sala STEAM",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6141596631249,
+                    -33.49806942558134
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-37630329",
+                "name": "Centro estudiantes de pedagogías",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61396800616009,
+                    -33.49805124486678
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "food_lunch-37631812",
+                "name": "Cafetón",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61346024294069,
+                    -33.49820595363147
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "puesto12",
+                "name": "quiosco",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61334339412389,
+                    -33.49819447890233
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ATACAMA-SJ",
+                "name": "Atacama",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61318235919948,
+                    -33.497426649550384
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "PATAGONIA-SJ",
+                "name": "Patagonia",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6131840595405,
+                    -33.49737807468579
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "studyroom-37632215",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    4
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6134352533702,
+                    -33.49668411209907
                 ]
             }
         }
