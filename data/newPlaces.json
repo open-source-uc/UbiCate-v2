@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "sports_place-37722932",
-                "name": "Area Verde",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6080339284187,
-                    -33.500632548944346
-                ]
-            }
-        }
-    ]
+    "features": []
 }
