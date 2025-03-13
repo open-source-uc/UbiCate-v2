@@ -27676,6 +27676,112 @@
                     -33.49668411209907
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "sports_place-37722932",
+                "name": "Area Verde",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6080339284187,
+                    -33.500632548944346
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "PCC-123",
+                "name": "Patio de comercial",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61174908050778,
+                            -33.49651642118276
+                        ],
+                        [
+                            -70.6109551466401,
+                            -33.49646273925935
+                        ],
+                        [
+                            -70.61090686687675,
+                            -33.49686087939521
+                        ],
+                        [
+                            -70.61169543632623,
+                            -33.49694140189589
+                        ],
+                        [
+                            -70.61174908050778,
+                            -33.49651642118276
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "PLV-012389",
+                "name": "Patio la virgen",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6137883355168,
+                            -33.50031109443737
+                        ],
+                        [
+                            -70.61347514006417,
+                            -33.50030751696343
+                        ],
+                        [
+                            -70.61351589773942,
+                            -33.49992381419967
+                        ],
+                        [
+                            -70.6138248017208,
+                            -33.49997390155926
+                        ],
+                        [
+                            -70.6137883355168,
+                            -33.50031109443737
+                        ]
+                    ]
+                ]
+            }
         }
     ]
 }
