@@ -27884,6 +27884,30 @@
                     ]
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-38158285",
+                "name": "Zócalo San Agustín",
+                "information": "### IMC y DCC",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61495812609792,
+                    -33.499328736308414
+                ]
+            }
         }
     ]
 }
