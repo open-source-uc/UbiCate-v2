@@ -27908,6 +27908,30 @@
                     -33.499328736308414
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_DE_ESTUDIO-SJ",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61003631656136,
+                    -33.49974574814009
+                ]
+            }
         }
     ]
 }
