@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_BIEDMA_LÓPEZ-SJ",
-                "name": "Sala Biedma López",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60983812173434,
-                    -33.49799907132077
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "shop-38162136",
                 "name": "La Tala",
                 "information": "",
