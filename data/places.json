@@ -28004,6 +28004,30 @@
                     -33.49799907132077
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "shop-38162136",
+                "name": "La Tala",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60988511996237,
+                    -33.49798659015038
+                ]
+            }
         }
     ]
 }
