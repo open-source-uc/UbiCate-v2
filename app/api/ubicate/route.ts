@@ -262,7 +262,7 @@ export async function POST(request: NextRequest) {
         nuevo_punto.properties.campus.toUpperCase();
     } else {
       const uuid = crypto.randomUUID();
-      nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + uuid;
+      nuevo_punto.properties.identifier = uuid;
     }
 
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
