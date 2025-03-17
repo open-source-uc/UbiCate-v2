@@ -96,30 +96,6 @@
                     -33.499328736308414
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "shop-38156842",
-                "name": "una seccion, de \"tiendas\" como lapiz lopez, librerías, etc",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60980360519864,
-                    -33.498308357704374
-                ]
-            }
         }
     ]
 }
