@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "laboratory-38162238",
-                "name": "Laboratorio digital",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60985980167332,
-                    -33.49817682022046
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_BIEDMA_LÓPEZ-SJ",
                 "name": "Sala Biedma López",
                 "information": "",
