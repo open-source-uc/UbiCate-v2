@@ -27782,6 +27782,30 @@
                     ]
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "auditorium-38157330",
+                "name": "Concha Acústica",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60932295883389,
+                    -33.49771943351201
+                ]
+            }
         }
     ]
 }
