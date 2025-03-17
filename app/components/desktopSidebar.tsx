@@ -17,7 +17,7 @@ import FooterOptionsSidebar from "./footerOptionsSidebar";
 import PillFilter from "./pillFilterBar";
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, toggleSidebar, geocoder, setPlaces, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -32,7 +32,6 @@ export default function DesktopSidebar() {
   };
 
   const handleCollapsedClick = (type: SubSidebarType) => {
-    handleToggleSidebar();
     toggleSubSidebar(type);
   };
 
@@ -55,6 +54,7 @@ export default function DesktopSidebar() {
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
+      setIsOpen(false)
     }
   }, [selectedPlace, setIsOpen]);
 
@@ -77,167 +77,113 @@ export default function DesktopSidebar() {
     };
   }, [activeSubSidebar, geocoder]);
 
-  useEffect(() => {
-    if (isOpen === false) {
-      setActiveSubSidebar(null);
-    }
-  }, [isOpen]);
-
   return (
     <>
-      {/* Sidebar colapsado */}
-      {!isOpen && (
-        <section className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-50 left-0 inset-y-0 h-full w-auto">
-          <div className="flex items-center p-4 flex-col py-8 space-y-6">
-            <div className="mb-9 flex justify-center">
-              <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
-                <Icons.DockToRight className="w-9 h-9" />
-              </button>
-            </div>
-            <button
-              onClick={() => handleCollapsedClick("buscar")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
-            >
-              <Icons.Search />
-            </button>
-            <button
-              onClick={() => handleCollapsedClick("campus")}
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center hover:bg-brown-medium pointer-events-auto cursor-pointer"
-            >
-              <Icons.Map />
-            </button>
-            <button
-              disabled
-              className="w-10 h-10 bg-brown-light rounded-lg flex items-center justify-center opacity-50 pointer-events-auto cursor-pointer"
-            >
-              <Icons.MenuBook />
-            </button>
-          </div>
-        </section>
-      )}
-
-      {/* Sidebar expandido */}
-      <section
-        className={`fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi text-snow transform transition-transform duration-300 z-50 inset-y-0 left-0 w-64 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="flex flex-col h-full py-5 px-4 space-y-4">
-          {/* Logo y botón para cerrar */}
-          <div className="flex items-center justify-between">
-            <Link href="/">
+      {/* Contenedor principal con flex row */}
+      <div className="flex h-screen">
+        {/* Sidebar principal */}
+        <section className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${isOpen ? 'w-60' : 'w-20'}`}>
+          <div className={`flex items-center p-4 ${isOpen ? 'flex-row justify-between' : 'flex-col py-8 space-y-6'}`}>
+            {/* Logo - visible only when expanded */}
+            <Link href="/" className={`${isOpen ? 'block' : 'hidden'}`}>
               <img src="/long-logo.svg" className="pl-2" alt="Logo" width="118" />
             </Link>
-            <div className="flex-row-reverse">
+
+            {/* Toggle button */}
+            <div className={`${isOpen ? '' : 'flex justify-center'}`}>
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
                 <Icons.DockToRight className="w-9 h-9" />
               </button>
             </div>
           </div>
 
-          {/* Opciones de navegación */}
+          {/* Navigation */}
           <nav className="flex-1">
-            <div className="pt-5 flex flex-col">
+            <div className={`${isOpen ? 'pt-5 px-4' : ''} flex flex-col`}>
+              {/* Search button */}
               <button
-                onClick={() => toggleSubSidebar("buscar")}
-                className="w-full flex items-center space-x-4 p-2 rounded-md hover:bg-brown-medium pointer-events-auto cursor-pointer"
+                onClick={() => isOpen ? toggleSubSidebar("buscar") : handleCollapsedClick("buscar")}
+                className={`${isOpen ? 'w-full p-2 rounded-md hover:bg-brown-medium' : ''} flex items-center pointer-events-auto cursor-pointer ${!isOpen ? 'justify-center px-4 py-3' : 'space-x-4'}`}
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
-                  }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"}`}
                 >
                   <Icons.Search />
                 </span>
-                <span className="text-md">Buscar</span>
+                <span className={`text-md ${isOpen ? 'block' : 'hidden'}`}>Buscar</span>
               </button>
-              <div className="flex flex-col space-y-2">
-                <div className="bg-transparent p-0 mb-0">
-                  <button
-                    onClick={() => toggleSubSidebar("campus")}
-                    className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md hover:bg-brown-light/18 pointer-events-auto cursor-pointer"
-                  >
-                    <span
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                        activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                      }`}
-                    >
-                      <Icons.Map />
-                    </span>
-                    <p className="text-md">Campus</p>
-                  </button>
-                  <button
-                    onClick={() => toggleSubSidebar("guías")}
-                    disabled
-                    className="w-full flex flex-row items-center justify-start space-x-4 p-2 rounded-md opacity-50"
-                  >
-                    <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
-                      <Icons.MenuBook />
-                    </span>
-                    <p className="text-md">Guías</p>
-                  </button>
-                </div>
-              </div>
+
+              {/* Campus button */}
+              <button
+                onClick={() => isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus")}
+                className={`${isOpen ? 'w-full p-2 rounded-md hover:bg-brown-light/18' : ''} flex items-center pointer-events-auto cursor-pointer ${!isOpen ? 'justify-center px-4 py-3' : 'space-x-4'}`}
+              >
+                <span
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"}`}
+                >
+                  <Icons.Map />
+                </span>
+                <span className={`text-md ${isOpen ? 'block' : 'hidden'}`}>Campus</span>
+              </button>
+
+              {/* Guides button */}
+              <button
+                disabled
+                className={`${isOpen ? 'w-full p-2 rounded-md opacity-50' : ''} flex items-center ${!isOpen ? 'justify-center px-4 py-3 opacity-50' : 'space-x-4'}`}
+              >
+                <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                  <Icons.MenuBook />
+                </span>
+                <span className={`text-md ${isOpen ? 'block' : 'hidden'}`}>Guías</span>
+              </button>
             </div>
           </nav>
 
-          {/* Secciones de Feedback y OSUC */}
-          <div className="flex flex-col space-y-4">
+          {/* Footer - visible only when expanded */}
+          <div className={`flex flex-col space-y-4 px-4 ${isOpen ? 'block' : 'hidden'}`}>
             <FooterOptionsSidebar />
           </div>
-        </div>
+        </section>
 
-        {/* Subsidebar (Desktop) integrado */}
-        {(isOpen && activeSubSidebar) || activeSubSidebar === "menuInformation" ? (
-          <section
-            className={`absolute bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform transition-transform duration-300 z-60
-        desktop:top-0 desktop:left-full desktop:h-full desktop:w-96 desktop:overflow-hidden
-        max-desktop:inset-0 max-desktop:border-t-1 max-desktop:border-brown-light
-        desktop:border-l-1 desktop:border-brown-light
-        ${activeSubSidebar ? "desktop:translate-x-0" : "desktop:translate-x-full"}
-        ${activeSubSidebar ? "max-desktop:translate-y-0" : "max-desktop:translate-y-full"}`}
-          >
-            <div className={`h-full overflow-y-auto ${activeSubSidebar === "menuInformation" ? "" : ""}`}>
-              <div className="py-7 px-4 space-y-6 relative">
-                {activeSubSidebar === "buscar" && (
-                  <>
-                    <h3 className="font-bold text-lg">Buscar</h3>
-                    <ul className="space-y-8 overflow-y-auto">
-                      <div className="p-1 ">
-                        <section ref={refSearchContainer} />
-                      </div>
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-md">Filtra por lugares</h4>
-                        <PillFilter />
-                      </div>
-                    </ul>
-                  </>
-                )}
-                {activeSubSidebar === "campus" && (
-                  <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
-                )}
-                {activeSubSidebar === "guías" && (
-                  <>
-                    <h3 className="font-bold text-lg">Guías</h3>
-                    <ul className="space-y-2">Hello. This is not implemented.</ul>
-                  </>
-                )}
-                {activeSubSidebar === "menuInformation" && (
-                  <div className="h-full overflow-y-auto">
-                    <MenuInformation
-                      place={selectedPlace}
-                      onClose={() => {
-                        setSelectedPlace(null);
-                        toggleSubSidebar(null);
-                      }}
-                    />
-                  </div>
-                )}
+        {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
+        <section className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 ${activeSubSidebar !== null ? 'w-72 opacity-100 p-4' : 'w-0 opacity-0 p-0'}`}>
+          <div className={`${activeSubSidebar !== null ? 'block overflow-auto h-full' : 'hidden'}`}>
+            {activeSubSidebar === "campus" && (
+              <div className="w-full h-full">
+                <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
               </div>
-            </div>
-          </section>
-        ) : null}
-      </section>
+            )}
+            {activeSubSidebar === "guías" && (
+              <>
+                <h3 className="font-bold text-lg">Guías</h3>
+                <ul className="space-y-2">Hello. This is not implemented.</ul>
+              </>
+            )}
+            {activeSubSidebar === "menuInformation" && (
+              <MenuInformation
+                place={selectedPlace}
+                onClose={() => {
+                  setSelectedPlace(null);
+                  toggleSubSidebar(null);
+                }}
+              />
+            )}
+            {activeSubSidebar === "buscar" && (
+              <div className="w-full h-full overflow-auto">
+                <h3 className="font-bold text-lg">Buscar</h3>
+                <div className="p-1">
+                  <section ref={refSearchContainer} />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-md">Filtra por lugares</h4>
+                  <PillFilter />
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
     </>
   );
 }
+

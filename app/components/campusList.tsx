@@ -12,7 +12,7 @@ export default function CampusList({
 }) {
   return (
     <>
-      <div className="flex">
+      <div className="flex w-full pb-2">
         <h3 className="font-bold text-lg">Campus</h3>
         <div className="flex w-full" />
         <button
