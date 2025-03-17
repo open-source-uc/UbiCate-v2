@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "822a8f95-6e97-4127-b02a-5421d6767ba3",
-                "name": "2",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60977445520767,
-                    -33.49667623522971
-                ]
-            }
-        }
-    ]
+    "features": []
 }
