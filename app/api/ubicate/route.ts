@@ -34,6 +34,12 @@ function normalizeIdentifier(identifier: string): string {
   return identifier.trim().toUpperCase().replace(/\s+/g, "");
 }
 
+function generateRandomIdWithTimestamp() {
+  const timestamp = Date.now().toString(36); // Get timestamp in base-36
+  const randomPart = Math.random().toString(36).substring(2, 8); // Shorter random part
+  return timestamp + randomPart; // Concatenate timestamp and random part
+}
+
 function getID(place: Feature) {
   return place.properties.name + "-" + place.properties.categories + "-" + place.properties.campus;
 }
@@ -261,8 +267,7 @@ export async function POST(request: NextRequest) {
         "-" +
         nuevo_punto.properties.campus.toUpperCase();
     } else {
-      const uuid = crypto.randomUUID();
-      nuevo_punto.properties.identifier = uuid;
+      nuevo_punto.properties.identifier = generateRandomIdWithTimestamp();
     }
 
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
