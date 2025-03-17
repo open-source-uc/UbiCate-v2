@@ -261,11 +261,8 @@ export async function POST(request: NextRequest) {
         "-" +
         nuevo_punto.properties.campus.toUpperCase();
     } else {
-      const startOfYear2024 = new Date("2024-01-01T00:00:00");
-      const now = new Date().getTime();
-      const diffInMilliseconds = now - startOfYear2024.getTime();
-      const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
-      nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
+      const uuid = crypto.randomUUID();
+      nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + uuid;
     }
 
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
