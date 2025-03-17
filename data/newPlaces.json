@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "33840340-bf58-46a5-a564-f9808a7b4829",
+                "name": "1",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61327938712981,
+                    -33.49810600374222
+                ]
+            }
+        }
+    ]
 }
