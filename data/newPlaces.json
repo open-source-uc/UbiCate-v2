@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_DE_ESTUDIO-SJ",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61003631656136,
+                    -33.49974574814009
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "laboratory-38162238",
                 "name": "Laboratorio digital",
                 "information": "",
