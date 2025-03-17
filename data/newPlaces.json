@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "studyroom-38159019",
+                "name": "Sala de estudio",
+                "information": "**IMC**",
+                "categories": [
+                    "studyroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61202366674101,
+                    -33.499606027025195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "other-38158285",
                 "name": "Zócalo San Agustín",
                 "information": "### IMC y DCC",
