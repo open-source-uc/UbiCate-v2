@@ -27848,7 +27848,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "FLPVN-012389",
-                "name": "Edificio felipe villanueva ",
+                "name": "Edificio felipe villanueva",
                 "information": "",
                 "categories": [
                     "building"
@@ -28026,6 +28026,55 @@
                 "coordinates": [
                     -70.60988511996237,
                     -33.49798659015038
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "FLPVN-012389",
+                "name": "Edificio rolando chuaqui",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61094830613465,
+                            -33.49975899806645
+                        ],
+                        [
+                            -70.61056109218447,
+                            -33.49971764338576
+                        ],
+                        [
+                            -70.61054092251041,
+                            -33.49993028630127
+                        ],
+                        [
+                            -70.61065905918653,
+                            -33.49993869624835
+                        ],
+                        [
+                            -70.61066194056846,
+                            -33.49989784932556
+                        ],
+                        [
+                            -70.61093134981694,
+                            -33.49992307780221
+                        ],
+                        [
+                            -70.61094830613465,
+                            -33.49975899806645
+                        ]
+                    ]
                 ]
             }
         }
