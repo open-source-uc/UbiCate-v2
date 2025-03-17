@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "other-38158285",
+                "name": "Socalo San Agustín",
+                "information": "### IMC y DCC",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6149581110187,
+                    -33.49932871300625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "shop-38156842",
                 "name": "una seccion, de \"tiendas\" como lapiz lopez, librerías, etc",
                 "information": "",
