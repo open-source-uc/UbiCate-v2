@@ -27806,6 +27806,228 @@
                     -33.49771943351201
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "PLAY-012389",
+                "name": "Patio la Y",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61241195959674,
+                            -33.498989089736426
+                        ],
+                        [
+                            -70.6127264612336,
+                            -33.49941381820767
+                        ],
+                        [
+                            -70.61237036237135,
+                            -33.49940129649921
+                        ],
+                        [
+                            -70.61241195959674,
+                            -33.498989089736426
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "FLPVN-012389",
+                "name": "Edificio felipe villanueva ",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6099963591088,
+                            -33.49967259009886
+                        ],
+                        [
+                            -70.60998515067352,
+                            -33.499797676189395
+                        ],
+                        [
+                            -70.61054724598705,
+                            -33.499851313407596
+                        ],
+                        [
+                            -70.61055380937208,
+                            -33.49973384605174
+                        ],
+                        [
+                            -70.6099963591088,
+                            -33.49967259009886
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "other-38158285",
+                "name": "Zócalo San Agustín",
+                "information": "### IMC y DCC",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61495812609792,
+                    -33.499328736308414
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_DE_ESTUDIO-SJ",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61003631656136,
+                    -33.49974574814009
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "laboratory-38162238",
+                "name": "Laboratorio digital",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60985980167332,
+                    -33.49817682022046
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "studyroom-38159019",
+                "name": "Sala de estudio",
+                "information": "**IMC**",
+                "categories": [
+                    "studyroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61202366674101,
+                    -33.499606027025195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_BIEDMA_LÓPEZ-SJ",
+                "name": "Sala Biedma López",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60983812173434,
+                    -33.49799907132077
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "shop-38162136",
+                "name": "La Tala",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60988511996237,
+                    -33.49798659015038
+                ]
+            }
         }
     ]
 }
