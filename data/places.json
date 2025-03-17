@@ -27806,6 +27806,84 @@
                     -33.49771943351201
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "PLAY-012389",
+                "name": "Patio la Y",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61241195959674,
+                            -33.498989089736426
+                        ],
+                        [
+                            -70.6127264612336,
+                            -33.49941381820767
+                        ],
+                        [
+                            -70.61237036237135,
+                            -33.49940129649921
+                        ],
+                        [
+                            -70.61241195959674,
+                            -33.498989089736426
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "FLPVN-012389",
+                "name": "Edificio felipe villanueva ",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6099963591088,
+                            -33.49967259009886
+                        ],
+                        [
+                            -70.60998515067352,
+                            -33.499797676189395
+                        ],
+                        [
+                            -70.61054724598705,
+                            -33.499851313407596
+                        ],
+                        [
+                            -70.61055380937208,
+                            -33.49973384605174
+                        ],
+                        [
+                            -70.6099963591088,
+                            -33.49967259009886
+                        ]
+                    ]
+                ]
+            }
         }
     ]
 }
