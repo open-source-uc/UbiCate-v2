@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_DE_USOS_MÚLTIPLES-SJ",
+                "name": "Sala de usos múltiples",
+                "information": "Hay una escalera para entrar",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6104993974682,
+                    -33.49996823501344
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "m8drzv4wpbngh9",
                 "name": "Test",
                 "information": "",
