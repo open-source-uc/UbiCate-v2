@@ -150,7 +150,6 @@ export default function MobileSidebar() {
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
-      setIsOpen(true);
       setActiveSubSidebar("menuInformation");
       setSidebarHeight(60);
     } else {

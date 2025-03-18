@@ -34,6 +34,12 @@ function normalizeIdentifier(identifier: string): string {
   return identifier.trim().toUpperCase().replace(/\s+/g, "");
 }
 
+function generateRandomIdWithTimestamp() {
+  const timestamp = Date.now().toString(36); // Get timestamp in base-36
+  const randomPart = Math.random().toString(36).substring(2, 8); // Shorter random part
+  return timestamp + randomPart; // Concatenate timestamp and random part
+}
+
 function getID(place: Feature) {
   return place.properties.name + "-" + place.properties.categories + "-" + place.properties.campus;
 }
@@ -261,11 +267,7 @@ export async function POST(request: NextRequest) {
         "-" +
         nuevo_punto.properties.campus.toUpperCase();
     } else {
-      const startOfYear2024 = new Date("2024-01-01T00:00:00");
-      const now = new Date().getTime();
-      const diffInMilliseconds = now - startOfYear2024.getTime();
-      const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
-      nuevo_punto.properties.identifier = nuevo_punto.properties.categories + "-" + diffInSeconds.toString();
+      nuevo_punto.properties.identifier = generateRandomIdWithTimestamp();
     }
 
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
