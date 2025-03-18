@@ -49,7 +49,6 @@ export default function DesktopSidebar() {
   // Cuando se selecciona un lugar, muestra "menuInformation"
   useEffect(() => {
     if (selectedPlace !== null) {
-      setIsOpen(true);
       setActiveSubSidebar("menuInformation");
     }
     if (selectedPlace === null) {
@@ -165,8 +164,8 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 ${
-            activeSubSidebar !== null ? "w-72 opacity-100 p-4" : "w-0 opacity-0 p-0"
+          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${
+            activeSubSidebar !== null ? "w-80 opacity-100 p-4" : "w-0 opacity-0 p-0"
           }`}
         >
           <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
@@ -182,13 +181,15 @@ export default function DesktopSidebar() {
               </>
             )}
             {activeSubSidebar === "menuInformation" && (
-              <MenuInformation
-                place={selectedPlace}
-                onClose={() => {
-                  setSelectedPlace(null);
-                  toggleSubSidebar(null);
-                }}
-              />
+              <div className="w-full h-full">
+                <MenuInformation
+                  place={selectedPlace}
+                  onClose={() => {
+                    setSelectedPlace(null);
+                    toggleSubSidebar(null);
+                  }}
+                />
+              </div>
             )}
             {activeSubSidebar === "buscar" && (
               <div className="w-full h-full overflow-auto">
@@ -196,7 +197,7 @@ export default function DesktopSidebar() {
                 <div className="p-1">
                   <section ref={refSearchContainer} />
                 </div>
-                <div className="space-y-2">
+                <div>
                   <h4 className="font-semibold text-md">Filtra por lugares</h4>
                   <PillFilter />
                 </div>
