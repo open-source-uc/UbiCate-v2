@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8hwvs9z7x10a8",
+                "name": "Agua",
+                "information": "Hay agua fria y caliente!",
+                "categories": [
+                    "water"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60963001716996,
+                    -33.49971641958577
+                ]
+            }
+        }
+    ]
 }
