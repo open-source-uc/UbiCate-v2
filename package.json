@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "knip": "knip"
+    "knip": "knip",
+    "deploy": "wrangler deploy --keep-vars"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
