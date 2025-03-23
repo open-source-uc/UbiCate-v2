@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "knip": "knip"
+    "knip": "knip",
+    "deploy": "wrangler deploy --keep-vars"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
@@ -21,7 +22,7 @@
     "fuse.js": "^7.0.0",
     "mapbox-gl": "^2.15.0",
     "maplibre-gl": "^3.1.0",
-    "next": "15.1.4",
+    "next": "15.2.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-map-gl": "^7.1.3",
