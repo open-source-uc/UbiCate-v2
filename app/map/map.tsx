@@ -332,6 +332,18 @@ export default function MapComponent({
         ? `${siglas.get(selectedPlace.properties.categories[0]) ?? "Ubicate"} - ${selectedPlace.properties.name}`
         : "Ubicate UC - Mapa";
     }
+    if (selectedPlace?.properties.identifier === "26032025" && selectedPlace?.geometry.type === "Point") {
+      mapRef.current?.getMap().flyTo({
+        essential: true,
+        duration: 400,
+        zoom: 18,
+        center: [
+          selectedPlace?.geometry.coordinates[0],
+          selectedPlace?.geometry.coordinates[1] - 0.0003, // Ajusta este valor según sea necesario
+        ],
+      });
+      setTmpMark(selectedPlace);
+    }
   }, [selectedPlace]);
 
   return (

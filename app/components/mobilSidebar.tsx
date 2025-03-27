@@ -13,6 +13,7 @@ import MenuInformation from "../map/menuInformation";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import Pill from "./pill";
 import PillFilter from "./pillFilterBar";
 
 export default function MobileSidebar() {
@@ -197,6 +198,35 @@ export default function MobileSidebar() {
       {/* Search Container */}
       <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
+        <div className="w-full h-16 py-2 items-center justify-center">
+          <Pill
+            title={"Ven a nuestro stand para ganar premios 🎁🎊"}
+            icon={<Icons.School />}
+            bg_color="bg-pink-option"
+            onClick={() =>
+              setSelectedPlace({
+                type: "Feature",
+                properties: {
+                  identifier: "26032025",
+                  name: "Stand Open Source UC",
+                  information:
+                    "¿Quieres ganar una [figurita](https://thegithubshop.com/collections/collectibles/products/1539178-00-mona-figurine-5-5)?\n¡Entonces participa de este concurso!\n\nPara participar, debes:\n- Ir a una ubicación del campus que te encante\n- Sacar una fotografía (no es necesario que tú salgas en esta)\n- Subir la fotografía a Instagram haciendo tag a @opensource_euc y utilizando el hashtag #ubicateuc\n\nPuedes tomar fotografías de la entrada al Campus, de nuestro patio de Ingeniería, de nuestra Alameda principal o edificios; ¡lo importante es que sea un lugar que te encante de nuestros campus! 💖\n\n¡Participa de este concurso y gana!",
+                  categories: ["other"],
+                  campus: "SJ",
+                  faculties: "ING",
+                  floors: [1],
+                  needApproval: false,
+                },
+                geometry: {
+                  type: "Point",
+                  coordinates: [-70.61305934398541, -33.50019582185146],
+                },
+              })
+            }
+            active={false}
+            noActivateClassName="bg-brown-dark desktop:bg-brown-medium text-white-ubi"
+          />
+        </div>
       </section>
 
       {/* Main Sidebar */}
