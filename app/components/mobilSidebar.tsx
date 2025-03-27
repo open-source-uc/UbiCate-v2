@@ -201,6 +201,7 @@ export default function MobileSidebar() {
         <div className="w-full h-16 py-2 items-center justify-center">
           <Pill
             title={"Ven a nuestro stand para ganar premios 🎁🎊"}
+            className="w-full max-w-[360px] truncate rounded-xl flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent"
             icon={<Icons.School />}
             bg_color="bg-pink-option"
             onClick={() =>
@@ -211,7 +212,7 @@ export default function MobileSidebar() {
                   name: "Stand Open Source UC",
                   information:
                     "¿Quieres ganar una [figurita](https://thegithubshop.com/collections/collectibles/products/1539178-00-mona-figurine-5-5)?\n¡Entonces participa de este concurso!\n\nPara participar, debes:\n- Ir a una ubicación del campus que te encante\n- Sacar una fotografía (no es necesario que tú salgas en esta)\n- Subir la fotografía a Instagram haciendo tag a @opensource_euc y utilizando el hashtag #ubicateuc\n\nPuedes tomar fotografías de la entrada al Campus, de nuestro patio de Ingeniería, de nuestra Alameda principal o edificios; ¡lo importante es que sea un lugar que te encante de nuestros campus! 💖\n\n¡Participa de este concurso y gana!",
-                  categories: ["other"],
+                  categories: ["event"],
                   campus: "SJ",
                   faculties: "ING",
                   floors: [1],
