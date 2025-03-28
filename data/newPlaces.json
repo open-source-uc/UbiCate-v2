@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "AULA_MOZART-OR",
+                "name": "Aula mozart",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304537199895,
+                    -33.44596824014272
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "AULA_MÚSICA_ANTIGUA-OR",
                 "name": "Aula música antigua",
                 "information": "",
