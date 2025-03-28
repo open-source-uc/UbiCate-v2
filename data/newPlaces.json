@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "m8t6hwlzxxap3b",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59380761258232,
+                    -33.44646992526883
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "m8t6hbz1y4mvkl",
                 "name": "Salón Multiuso",
                 "information": "",
