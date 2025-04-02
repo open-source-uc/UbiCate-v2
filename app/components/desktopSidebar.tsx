@@ -95,7 +95,7 @@ export default function DesktopSidebar() {
             {/* Toggle button */}
             <div className={`${isOpen ? "" : "flex justify-center"}`}>
               <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
-                <Icons.DockToRight className="w-9 h-9" />
+                <Icons.DockToRight className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function DesktopSidebar() {
         >
           <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
             {activeSubSidebar === "campus" && (
-              <div className="w-full h-full">
+              <div className="w-full h-full space-y-4">
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
@@ -181,7 +181,7 @@ export default function DesktopSidebar() {
               </>
             )}
             {activeSubSidebar === "menuInformation" && (
-              <div className="w-full h-full">
+              <div className="w-full h-full space-y-4">
                 <MenuInformation
                   place={selectedPlace}
                   onClose={() => {
@@ -192,7 +192,7 @@ export default function DesktopSidebar() {
               </div>
             )}
             {activeSubSidebar === "buscar" && (
-              <div className="w-full h-full overflow-auto">
+              <div className="w-full h-full overflow-auto space-y-2">
                 <h3 className="font-bold text-lg">Buscar</h3>
                 <div className="p-1">
                   <section ref={refSearchContainer} />
