@@ -28274,30 +28274,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t6ercvjqhnqk",
-                "name": "Castaño",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59377466438089,
-                    -33.446592941606376
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AULA_DE_ARTE_Y_ARTESANÍAS-OR",
                 "name": "Aula de Arte y Artesanías",
                 "information": "",
@@ -28508,30 +28484,6 @@
                 "coordinates": [
                     -70.59376182300412,
                     -33.44640990906889
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m8t6nz7bwpebm9",
-                "name": "Centro de extensión oriente",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59379196291492,
-                    -33.44639824347777
                 ]
             }
         },
