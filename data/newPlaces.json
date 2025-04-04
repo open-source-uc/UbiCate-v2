@@ -292,30 +292,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ESPACIO_ESCÉNICO_ALBERTO_VEGA-OR",
-                "name": "Espacio Escénico Alberto Vega",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59301357135166,
-                    -33.4463791152772
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_2-OR",
                 "name": "Sala 2",
                 "information": "",
