@@ -748,30 +748,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AULA_DE_ARTE_Y_ARTESANÍAS-OR",
-                "name": "Aula de Arte y Artesanías",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59381416866758,
-                    -33.446583314773115
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8t6jqlkhu8y1w",
                 "name": "Baño",
                 "information": "",
