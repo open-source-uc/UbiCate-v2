@@ -52,30 +52,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t7jmgcye13n8",
-                "name": "Drawing place",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59365677267118,
-                    -33.4453223158919
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AULA_INTERPRETACIÓN_MUSICAL-OR",
                 "name": "Aula interpretación musical",
                 "information": "",
