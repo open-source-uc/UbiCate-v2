@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AULA_INTERPRETACIÓN_MUSICAL-OR",
-                "name": "Aula interpretación musical",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59306817279608,
-                    -33.446003942511446
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_2-OR",
                 "name": "Sala 2",
                 "information": "",
