@@ -124,30 +124,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t7cr2ctz5563",
-                "name": "PLOT",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59355186844752,
-                    -33.44580463319389
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AULA_INTERPRETACIÓN_MUSICAL-OR",
                 "name": "Aula interpretación musical",
                 "information": "",
