@@ -28798,6 +28798,30 @@
                     -33.446203527565835
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t72rzqwllgww",
+                "name": "Dirección de educación continua",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59333549095763,
+                    -33.44591157801213
+                ]
+            }
         }
     ]
 }
