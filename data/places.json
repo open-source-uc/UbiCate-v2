@@ -28246,6 +28246,30 @@
                     -33.44663981405564
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t6fwcpg8qdkt",
+                "name": "Teatro",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5936633905187,
+                    -33.446612012507636
+                ]
+            }
         }
     ]
 }
