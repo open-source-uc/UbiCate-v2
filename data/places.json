@@ -28990,6 +28990,30 @@
                     -33.445880640419304
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AULA_MOZART-OR",
+                "name": "Aula mozart",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304537199895,
+                    -33.44596824014272
+                ]
+            }
         }
     ]
 }
