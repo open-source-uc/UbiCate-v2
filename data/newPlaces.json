@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m91k94fm26gh9l",
-                "name": "Laboratorio 12",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61076254536259,
-                    -33.49939384034417
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8t81uq9omomyn",
                 "name": "Centro de eventos",
                 "information": "",
