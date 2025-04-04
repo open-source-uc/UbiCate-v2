@@ -28894,6 +28894,30 @@
                     -33.44503402491788
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "INTERPRETACIÓN_MUSICAL-OR",
+                "name": "Interpretación musical",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59302408620528,
+                    -33.445753484055174
+                ]
+            }
         }
     ]
 }
