@@ -100,30 +100,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t72vpl8bvvjj",
-                "name": "Dirección de educación continua",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59333549095763,
-                    -33.44591157801213
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_2-OR",
                 "name": "Sala 2",
                 "information": "",
