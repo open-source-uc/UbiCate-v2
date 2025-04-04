@@ -1060,30 +1060,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8qm6hw5gb4hys",
-                "name": "CAI",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61327872937629,
-                    -33.49990057479303
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8hwvs9z7x10a8",
                 "name": "Agua",
                 "information": "Hay agua fria y caliente!",
