@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t7ouxrjnuo7f",
-                "name": "Canchas de fútbol",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59302597254695,
-                    -33.44503402491788
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AULA_INTERPRETACIÓN_MUSICAL-OR",
                 "name": "Aula interpretación musical",
                 "information": "",
