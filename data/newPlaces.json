@@ -124,30 +124,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t7eq6n3ymjmv",
-                "name": "Hidropunto",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59378452213893,
-                    -33.4456272313886
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8t7cr2ctz5563",
                 "name": "PLOT",
                 "information": "",
