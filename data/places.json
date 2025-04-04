@@ -28366,6 +28366,30 @@
                     -33.446447328589926
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t6esp4pi0loc",
+                "name": "Castaño",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59377466438089,
+                    -33.446592941606376
+                ]
+            }
         }
     ]
 }
