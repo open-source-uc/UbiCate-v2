@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t7r09jhqf80k",
-                "name": "Calistenia",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59347641197262,
-                    -33.4446888360744
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8t7ouxrjnuo7f",
                 "name": "Canchas de fútbol",
                 "information": "",
