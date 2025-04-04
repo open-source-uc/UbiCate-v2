@@ -28101,6 +28101,30 @@
                     -33.49996823501344
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8qm6hw5gb4hys",
+                "name": "CAI",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61327872937629,
+                    -33.49990057479303
+                ]
+            }
         }
     ]
 }
