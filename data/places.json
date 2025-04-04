@@ -28654,6 +28654,30 @@
                     -33.44516552697166
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t7lczvwhozl5",
+                "name": "Marley Coffee",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59382788792314,
+                    -33.4453321948448
+                ]
+            }
         }
     ]
 }
