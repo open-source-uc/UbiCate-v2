@@ -48,30 +48,6 @@
                     -33.4462661592628
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_3-OR",
-                "name": "Sala 3",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59311358970513,
-                    -33.446258178805266
-                ]
-            }
         }
     ]
 }
