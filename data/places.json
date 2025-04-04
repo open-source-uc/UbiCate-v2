@@ -28414,6 +28414,30 @@
                     -33.446469089093746
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E101-OR",
+                "name": "E101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5934533570796,
+                    -33.446391207079834
+                ]
+            }
         }
     ]
 }
