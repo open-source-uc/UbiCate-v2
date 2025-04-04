@@ -28678,6 +28678,30 @@
                     -33.4453321948448
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t7jmgcye13n8",
+                "name": "Drawing place",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59365677267118,
+                    -33.4453223158919
+                ]
+            }
         }
     ]
 }
