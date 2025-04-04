@@ -5,7 +5,7 @@ function Template({ text, url }: { text: string; url: string }) {
   return (
     <div tw="relative flex w-full h-full flex items-center justify-center">
       <div tw="absolute flex inset-0">
-        <img src={url} alt="UbíCate UC - Mapa" width={1200} height={630} />
+        <img src={url} alt="Ubicate UC - Mapa" width={1200} height={630} />
         <div tw="absolute flex inset-0 bg-black bg-opacity-0" />
       </div>
       <div tw="flex flex-col h-full flex-col-reverse">
@@ -23,14 +23,14 @@ export async function GET(request: NextRequest) {
   const text = placeName === "" ? "Ubicate UC · Mapa" : placeName;
   const textTruncated: string = text && text.length > 24 ? `${text.slice(0, 24)}...` : text;
 
-  const fontResponse = await fetch(`${baseUrl}/fonts/Lato-Bold.ttf`);
+  const fontResponse = await fetch(`${baseUrl}/fonts/InstrumentSans-Regular.ttf`);
 
   return new ImageResponse(<Template text={textTruncated} url={baseUrl + "/opengraph-image.png"} />, {
     width: 1200,
     height: 630,
     fonts: [
       {
-        name: "VictorMono",
+        name: "Instrument Sans",
         data: await fontResponse.arrayBuffer(),
         weight: 700,
         style: "normal",
