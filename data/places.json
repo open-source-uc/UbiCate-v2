@@ -28750,6 +28750,30 @@
                     -33.44629975189195
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_6-OR",
+                "name": "Sala 6",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59313581162402,
+                    -33.446286267905855
+                ]
+            }
         }
     ]
 }
