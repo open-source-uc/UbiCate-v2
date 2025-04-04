@@ -28606,6 +28606,30 @@
                     -33.4456272313886
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t7cr2ctz5563",
+                "name": "PLOT",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59355186844752,
+                    -33.44580463319389
+                ]
+            }
         }
     ]
 }
