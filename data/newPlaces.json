@@ -76,30 +76,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AULA_MÚSICA_ANTIGUA-OR",
-                "name": "Aula música antigua",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59296841335298,
-                    -33.44586345987017
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_2-OR",
                 "name": "Sala 2",
                 "information": "",
