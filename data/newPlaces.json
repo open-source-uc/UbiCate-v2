@@ -624,30 +624,6 @@
                     -33.44639824347777
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m8t6jqlkhu8y1w",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    -1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59376182300412,
-                    -33.44640990906889
-                ]
-            }
         }
     ]
 }
