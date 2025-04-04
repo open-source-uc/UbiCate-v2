@@ -868,30 +868,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8t6ercvjqhnqk",
-                "name": "Castaño",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59377466438089,
-                    -33.446592941606376
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8t6dn9etutve4",
                 "name": "Librería UC",
                 "information": "",
