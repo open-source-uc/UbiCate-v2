@@ -600,30 +600,6 @@
                     -33.446258178805266
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m8t6o0gookdlyq",
-                "name": "Centro de extensión oriente",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59379196291492,
-                    -33.44639824347777
-                ]
-            }
         }
     ]
 }
