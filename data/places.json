@@ -28198,6 +28198,30 @@
                     -33.49971641958577
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m8t6b8nomiba3q",
+                "name": "Casa del coro",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59416320198417,
+                    -33.44684624060388
+                ]
+            }
         }
     ]
 }
