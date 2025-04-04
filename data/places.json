@@ -28966,6 +28966,30 @@
                     -33.44586345987017
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AULA_ESCRITURA_MUSICAL-OR",
+                "name": "Aula escritura musical",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59297955275926,
+                    -33.445880640419304
+                ]
+            }
         }
     ]
 }
