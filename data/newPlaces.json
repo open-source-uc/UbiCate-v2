@@ -604,30 +604,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E101-OR",
-                "name": "E101",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5934533570796,
-                    -33.446391207079834
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "E102-OR",
                 "name": "E102",
                 "information": "",
