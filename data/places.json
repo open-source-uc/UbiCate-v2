@@ -29062,6 +29062,30 @@
                     -33.446203527565835
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_2-OR",
+                "name": "Sala 2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59308252074258,
+                    -33.446257885033404
+                ]
+            }
         }
     ]
 }
