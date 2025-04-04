@@ -604,30 +604,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E103-OR",
-                "name": "E103",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59369043480794,
-                    -33.44626242649246
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "m8t6o0gookdlyq",
                 "name": "Centro de extensión oriente",
                 "information": "",
