@@ -28126,6 +28126,30 @@
                     -33.500563
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m91hzqlza900rh",
+                "name": "Laboratorio 14",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61060377966481,
+                    -33.499387132095386
+                ]
+            }
         }
     ]
 }
