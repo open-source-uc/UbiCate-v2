@@ -29134,54 +29134,6 @@
                     -33.4462661592628
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m9djgw26puhpf1",
-                "name": "xd",
-                "information": "```\nel daniel estuvo acá \n  ```\ndanielGOD\n\n*peo*",
-                "categories": [
-                    "customMark"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6147014722228,
-                    -33.498618030413944
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m9dknkdzrre0h0",
-                "name": "per",
-                "information": "```pedro salinas  es tonto```",
-                "categories": [
-                    "customMark"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6142143881826,
-                    -33.498642815731664
-                ]
-            }
         }
     ]
 }

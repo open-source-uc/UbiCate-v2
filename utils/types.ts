@@ -129,7 +129,7 @@ export const siglas = new Map<string, string>([
   ["faculty", "Facultad"],
   ["building", "Edificio"],
   ["other", "Otro"],
-  ["bienvenida_novata", "Bienvenida Novata 2025"],
+  ["event", "Evento"],
 ]);
 
 export enum METHOD {

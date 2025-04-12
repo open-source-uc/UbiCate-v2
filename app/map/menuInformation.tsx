@@ -131,97 +131,103 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               </div>
             ) : null}
           </div>
-
-          <section className="flex space-x-2 mt-8">
-            <button
-              onClick={handleShare}
-              onKeyDown={(e) => e.key === "Enter" && handleShare}
-              aria-label="Comparte esta Ubicación"
-              role="navigation"
-              tabIndex={0}
-              className="p-1 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-            >
-              <div className="flex justify-center items-center w-full h-10">
-                <Icons.Share />
-              </div>
-              <p className="text-xs font-medium">Compartir</p>
-            </button>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                onKeyDown={(e) => e.key === "Enter" && handleShare}
-                aria-label="Comparte esta Ubicación"
-                role="navigation"
-                tabIndex={0}
-                className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-              >
-                <div className="w-full flex justify-center items-center">
-                  <Icons.Options />
-                </div>
-                <p className="text-xs font-medium">Más</p>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {place?.geometry.type !== "Polygon" && (
-                  <DropdownMenuItem
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setEdit(true);
-                    }}
+          {place && place.properties.categories?.at(0) !== "event" ? (
+            <>
+              <section className="flex space-x-2 mt-8">
+                <button
+                  onClick={handleShare}
+                  onKeyDown={(e) => e.key === "Enter" && handleShare}
+                  aria-label="Comparte esta Ubicación"
+                  role="navigation"
+                  tabIndex={0}
+                  className="p-1 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+                >
+                  <div className="flex justify-center items-center w-full h-10">
+                    <Icons.Share />
+                  </div>
+                  <p className="text-xs font-medium">Compartir</p>
+                </button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger
+                    onKeyDown={(e) => e.key === "Enter" && handleShare}
+                    aria-label="Comparte esta Ubicación"
+                    role="navigation"
+                    tabIndex={0}
+                    className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
                   >
-                    {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
-                    <Icons.Edit />
-                  </DropdownMenuItem>
-                )}
+                    <div className="w-full flex justify-center items-center">
+                      <Icons.Options />
+                    </div>
+                    <p className="text-xs font-medium">Más</p>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {place?.geometry.type !== "Polygon" && (
+                      <DropdownMenuItem
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setEdit(true);
+                        }}
+                      >
+                        {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
+                        <Icons.Edit />
+                      </DropdownMenuItem>
+                    )}
 
-                {place?.geometry.type !== "Polygon" && place?.properties.identifier !== "42-ALL" && isDebug.current ? (
-                  <>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        aprobar();
-                      }}
-                    >
-                      Aprobar
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        borrar();
-                      }}
-                    >
-                      Borrar
-                    </DropdownMenuItem>
-                  </>
+                    {place?.geometry.type !== "Polygon" &&
+                    place?.properties.identifier !== "42-ALL" &&
+                    isDebug.current ? (
+                      <>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            aprobar();
+                          }}
+                        >
+                          Aprobar
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            borrar();
+                          }}
+                        >
+                          Borrar
+                        </DropdownMenuItem>
+                      </>
+                    ) : null}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </section>
+              <section className="divide-y divide-brown-light/30">
+                {place && place.properties?.floors && place.properties.floors.length > 0 ? (
+                  <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3 text-blue-location">
+                        <Icons.Floor className="fill-blue-location" />
+                        <span className="font-medium text-white-ubi">Piso</span>
+                      </div>
+                      <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
+                    </div>
+                  </div>
                 ) : null}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </section>
 
-          <section className="divide-y divide-brown-light/30">
-            {place && place.properties?.floors && place.properties.floors.length > 0 ? (
-              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3 text-blue-location">
-                    <Icons.Floor className="fill-blue-location" />
-                    <span className="font-medium text-white-ubi">Piso</span>
+                {place && place.properties?.campus ? (
+                  <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3 text-blue-location">
+                        <Icons.Map className="fill-blue-location" />
+                        <span className="font-medium text-white-ubi">Campus</span>
+                      </div>
+                      <span className="text-white-ubi font-light">
+                        {MapSiglas.get(place.properties.campus) || "N/A"}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
-                </div>
-              </div>
-            ) : null}
-
-            {place && place.properties?.campus ? (
-              <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3 text-blue-location">
-                    <Icons.Map className="fill-blue-location" />
-                    <span className="font-medium text-white-ubi">Campus</span>
-                  </div>
-                  <span className="text-white-ubi font-light">{MapSiglas.get(place.properties.campus) || "N/A"}</span>
-                </div>
-              </div>
-            ) : null}
-          </section>
+                ) : null}
+              </section>
+            </>
+          ) : null}
 
           {place?.properties.information ? (
             <div className="space-y-2">

@@ -8,6 +8,7 @@ interface PillProps {
   onClick: () => void;
   activateClassName?: string;
   noActivateClassName?: string;
+  className?: string;
 }
 
 function Pill({
@@ -17,13 +18,14 @@ function Pill({
   bg_color,
   activateClassName = "bg-blue-location",
   noActivateClassName = "bg-brown-dark desktop:bg-brown-medium text-white-ubi",
+  className = "w-full rounded-xl flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent",
   icon,
 }: PillProps) {
   return (
     <button
       onClick={onClick}
       type="button"
-      className={`rounded-xl w-full flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent
+      className={`${className} 
         ${active ? activateClassName : noActivateClassName} 
         pointer-events-auto cursor-pointer transition-colors duration-200
         hover:bg-brown-light`}
