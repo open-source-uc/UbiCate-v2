@@ -6,7 +6,7 @@
             "properties": {
                 "identifier": "m9djgw26puhpf1",
                 "name": "xd",
-                "information": "",
+                "information": "```\nel daniel estuvo acá \n  ```\ndanielGOD\n\n*peo*",
                 "categories": [
                     "customMark"
                 ],
@@ -20,8 +20,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61470143493979,
-                    -33.49861801023915
+                    -70.6147014722228,
+                    -33.498618030413944
                 ]
             }
         }
