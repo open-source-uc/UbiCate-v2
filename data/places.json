@@ -29158,6 +29158,30 @@
                     -33.498618030413944
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "m9dknkdzrre0h0",
+                "name": "per",
+                "information": "```pedro salinas  es tonto```",
+                "categories": [
+                    "customMark"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6142143881826,
+                    -33.498642815731664
+                ]
+            }
         }
     ]
 }
