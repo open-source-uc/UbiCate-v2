@@ -10,7 +10,7 @@ interface RouteButtonProps {
 
 export default function RouteButton({ place }: RouteButtonProps) {
   const { setDirectionData } = useDirections();
-  var userLocation: [number, number] = [-70.60909, -33.49805];
+  var userLocation: [number, number] = [-1, -1];
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -27,7 +27,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
   }
 
   const handleDirections = async () => {
-    if (!navigator.geolocation) {
+    if (!navigator.geolocation || userLocation[0] === -1 || userLocation[1] === -1) {
       alert("No podemos acceder a tu ubicación");
       return;
     }
