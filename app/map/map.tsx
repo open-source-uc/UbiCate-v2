@@ -2,20 +2,12 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type {
-  MapRef,
-  ViewState,
-  PointLike,
-  PaddingOptions,
-  MarkerDragEvent,
-  MapEvent,
-  MapLayerMouseEvent,
-} from "react-map-gl";
-import { Map, Source, Layer, ScaleControl } from "react-map-gl";
+import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent, MapLayerMouseEvent } from "react-map-gl";
+import { Map, useMap, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
 import Campus from "@/data/campuses.json";
@@ -32,8 +24,7 @@ import * as Icons from "../components/icons/icons";
 import MarkerIcon from "../components/icons/markerIcon";
 import { useDirections } from "../context/directionsCtx";
 import { useSidebar } from "../context/sidebarCtx";
-import RouteInfoMarker from "../directions/infoMarker";
-import RouteLayer from "../directions/routeLayer";
+import DirectionsComponent from "../directions/component";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
@@ -84,7 +75,7 @@ export default function MapComponent({
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
-  const mapRef = useRef<MapRef>(null);
+  const { mainMap } = useMap();
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
   const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
@@ -95,8 +86,8 @@ export default function MapComponent({
     const campusName = params.get("campus");
     if (campusName) {
       localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
+      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      mainMap?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
@@ -124,13 +115,13 @@ export default function MapComponent({
   );
 
   function onClickMark(place: Feature) {
-    if (!mapRef.current?.getMap()) return;
+    if (!mainMap?.getMap()) return;
 
     setMenu(place);
 
     if (place?.geometry.type !== "Point") return;
     const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
-    const map = mapRef.current?.getMap();
+    const map = mainMap?.getMap();
     const bounds = map?.getBounds();
     const margin = 0.001;
 
@@ -211,11 +202,11 @@ export default function MapComponent({
 
   async function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-    mapRef.current?.getMap().setMinZoom(15);
+    mainMap?.getMap().setMinZoom(15);
     if (paramPlace) {
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
+      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       if (paramPlace.geometry.type === "Point") {
-        mapRef.current?.getMap().flyTo({
+        mainMap?.getMap().flyTo({
           essential: true,
           duration: 0,
           zoom: 17,
@@ -223,7 +214,7 @@ export default function MapComponent({
         });
       }
       if (paramPlace.geometry.type === "Polygon") {
-        mapRef.current?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
+        mainMap?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
           zoom: 17,
           duration: 0,
         });
@@ -233,8 +224,8 @@ export default function MapComponent({
       setPlaces([paramPlace]);
     } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
-      mapRef.current?.getMap().flyTo({
+      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      mainMap?.getMap().flyTo({
         essential: true,
         duration: 0,
         zoom: 17,
@@ -243,8 +234,8 @@ export default function MapComponent({
       setCustomMark(paramLng, paramLat, false);
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-      mapRef.current?.fitBounds(getCampusBoundsFromName(defaultCampus), {
+      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+      mainMap?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
       });
@@ -263,12 +254,12 @@ export default function MapComponent({
 
     refFunctionClickOnResult.current = (place) => {
       setMenu(null);
-      mapRef.current?.getMap().setMaxBounds(undefined);
+      mainMap?.getMap().setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", place.properties.campus);
       window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
 
       if (place?.geometry.type === "Point") {
-        mapRef.current?.getMap().flyTo({
+        mainMap?.getMap().flyTo({
           essential: true,
           duration: 400,
           zoom: 18,
@@ -276,13 +267,13 @@ export default function MapComponent({
         });
       }
       if (place?.geometry.type === "Polygon") {
-        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
+        mainMap?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
           zoom: 17,
           duration: 400,
         });
       }
       setTimeout(() => {
-        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(place.properties.campus));
+        mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(place.properties.campus));
       }, 400);
     };
 
@@ -322,7 +313,7 @@ export default function MapComponent({
     (event: MarkerDragEvent) => {
       setMenu(null);
       setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-      mapRef.current?.flyTo({
+      mainMap?.flyTo({
         center: [event.lngLat.lng, event.lngLat.lat],
       });
     },
@@ -337,7 +328,7 @@ export default function MapComponent({
         : "Ubicate UC - Mapa";
     }
     if (selectedPlace?.properties.identifier === "26032025" && selectedPlace?.geometry.type === "Point") {
-      mapRef.current?.getMap().flyTo({
+      mainMap?.getMap().flyTo({
         essential: true,
         duration: 400,
         zoom: 18,
@@ -353,6 +344,7 @@ export default function MapComponent({
   return (
     <>
       <Map
+        id="mainMap"
         mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
@@ -369,7 +361,6 @@ export default function MapComponent({
           */
           setCustomMark(e.lngLat.lng, e.lngLat.lat, false);
         }}
-        ref={mapRef}
       >
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
@@ -386,7 +377,7 @@ export default function MapComponent({
           <Layer {...sectionStrokeLayer} />
         </Source>
         <DebugMode />
-        <UserLocation mapRef={mapRef} />
+        <UserLocation />
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as Category;
           return (
@@ -410,10 +401,7 @@ export default function MapComponent({
             icon={<Icons.Pin className="w-4 h-4" />}
           />
         ) : null}
-        {route ? <RouteLayer route={route} /> : null}
-        {route && duration && distance ? (
-          <RouteInfoMarker route={route} duration={duration} distance={distance} />
-        ) : null}
+        <DirectionsComponent route={route} duration={duration} distance={distance} />
       </Map>
     </>
   );

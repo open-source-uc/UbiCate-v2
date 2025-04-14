@@ -6,7 +6,7 @@ import { Feature } from "@/utils/types";
 import NavigationSidebar from "./components/NavigationSidebar";
 import { DirectionsProvider } from "./context/directionsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
-import MapComponent from "./map/map";
+import MapPage from "./map/page";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
@@ -90,7 +90,7 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
         <DirectionsProvider>
           <main spellCheck="false" className="h-full w-full relative flex">
             <NavigationSidebar />
-            <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+            <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
           </main>
         </DirectionsProvider>
       </SidebarProvider>

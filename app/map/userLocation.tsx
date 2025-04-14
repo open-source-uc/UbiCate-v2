@@ -1,23 +1,28 @@
 import { useEffect, useState, useCallback } from "react";
 
-import type { MapRef } from "react-map-gl";
+import { useMap } from "react-map-gl";
 
 import { Feature, PointFeature } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import LocationButton from "../components/locationButton";
+import { useDirections } from "../context/directionsCtx";
 
 import Marker from "./marker";
 
-export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRef | null> }) {
+export default function UserLocation() {
   const [userPosition, setUserPosition] = useState<Feature | null>(null);
-  const [isTracking, setIsTracking] = useState(false);
+
+  const { setTrackingUserLocation, isTrackingUserLocation } = useDirections();
+
   const [isFirstLocationFetch, setIsFirstLocationFetch] = useState(true);
+
+  const { mainMap } = useMap();
 
   const getUserLocation = useCallback(() => {
     if (!navigator.geolocation) {
       alert("La geolocalización no está soportada por este navegador.");
-      setIsTracking(false);
+      setTrackingUserLocation(false);
       return;
     }
 
@@ -46,7 +51,7 @@ export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRe
 
         // If it's the first location fetch, automatically center the map
         if (isFirstLocationFetch) {
-          mapRef.current?.getMap().flyTo({
+          mainMap?.getMap().flyTo({
             center: newPosition.geometry.coordinates as [number, number],
             zoom: 17,
             duration: 400,
@@ -61,7 +66,7 @@ export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRe
           );
         }
 
-        setIsTracking(false);
+        setTrackingUserLocation(false);
         setIsFirstLocationFetch(false);
       },
       {
@@ -70,12 +75,12 @@ export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRe
         maximumAge: 0,
       },
     );
-  }, [isFirstLocationFetch, mapRef]);
+  }, [isFirstLocationFetch, mainMap, setTrackingUserLocation]);
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
 
-    if (isTracking) {
+    if (isTrackingUserLocation) {
       // Initial location fetch
       getUserLocation();
 
@@ -88,17 +93,49 @@ export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRe
         clearInterval(intervalId);
       }
     };
-  }, [isTracking, getUserLocation]);
+  }, [isTrackingUserLocation, getUserLocation]);
+
+  const [alpha, setAlpha] = useState(0);
+  const [bearing, setBearing] = useState(0);
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const updateBearing = () => {
+      if (!mainMap) return;
+      setBearing(mainMap.getBearing() || 0);
+    };
+
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      if (event.alpha == null) return;
+      setAlpha(event.alpha);
+    };
+
+    if (mainMap) {
+      mainMap.on("move", updateBearing);
+      updateBearing();
+    }
+
+    window.addEventListener("deviceorientation", handleOrientation);
+
+    return () => {
+      if (mainMap) {
+        mainMap.off("move", updateBearing);
+      }
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
+  }, [mainMap]);
+
+  useEffect(() => {
+    setRotation((alpha - bearing + 360) % 360);
+  }, [alpha, bearing]);
 
   const handleLocationButtonClick = () => {
     if (userPosition === null) {
-      // If no position, start tracking
-      setIsTracking(true);
+      setTrackingUserLocation(true);
       return;
     }
 
-    // Fly to user's location
-    mapRef.current?.getMap().flyTo({
+    mainMap?.getMap().flyTo({
       center: userPosition.geometry.coordinates as [number, number],
       zoom: 17,
       duration: 400,
@@ -112,7 +149,8 @@ export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRe
           key={userPosition.properties.identifier}
           place={userPosition as PointFeature}
           onClick={() => null}
-          icon={<Icons.UserLocation />}
+          offset={[0, 0]}
+          icon={<Icons.UserLocation rotation={rotation} className="h-4 w-4" />}
         />
       ) : null}
       <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">

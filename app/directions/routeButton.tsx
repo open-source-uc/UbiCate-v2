@@ -9,7 +9,7 @@ interface RouteButtonProps {
 }
 
 export default function RouteButton({ place }: RouteButtonProps) {
-  const { setDirectionData } = useDirections();
+  const { setDirectionData, setTrackingUserLocation } = useDirections();
   var userLocation: [number, number] = [-1, -1];
 
   if (navigator.geolocation) {
@@ -57,14 +57,20 @@ export default function RouteButton({ place }: RouteButtonProps) {
       return;
     }
 
-    const { direction, duration, distance } = await fetchDirection(userLocation, destination);
+    try {
+      const { direction, duration, distance } = await fetchDirection(userLocation, destination);
 
-    if (!direction || !duration || !distance) {
-      alert("No logró obtener la ruta");
-      return;
+      if (!direction || !duration || !distance) {
+        alert("No logró obtener la ruta");
+        return;
+      }
+
+      setTrackingUserLocation(true);
+      setDirectionData(direction, duration, distance);
+    } catch (error) {
+      console.log("Error fetching directions:", error);
+      alert("No se logró obtener la ruta");
     }
-
-    setDirectionData(direction, duration, distance);
   };
 
   return (
@@ -79,7 +85,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
       } text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2`}
     >
       <div className="flex justify-center items-center w-full h-10">
-        <Icons.Search />
+        <Icons.Directions />
       </div>
       <p className="text-xs font-medium">Cómo llegar</p>
     </button>

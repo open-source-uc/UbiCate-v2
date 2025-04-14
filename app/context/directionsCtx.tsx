@@ -8,7 +8,9 @@ interface DirectionsContextType {
   route: LineFeature | null;
   duration: number | null;
   distance: number | null;
+  isTrackingUserLocation: boolean;
   setDirectionData: (direction: LineFeature, duration: number, distance: number) => void;
+  setTrackingUserLocation: (isTracking: boolean) => void;
 }
 
 const DirectionsContext = createContext<DirectionsContextType | undefined>(undefined);
@@ -17,6 +19,7 @@ export function DirectionsProvider({ children }: { children: ReactNode }) {
   const [route, setRoute] = useState<LineFeature | null>(null);
   const [duration, setDuration] = useState<number | null>(null);
   const [distance, setDistance] = useState<number | null>(null);
+  const [isTrackingUserLocation, setIsTrackingUserLocation] = useState<boolean>(false);
 
   const setDirectionData = (route: LineFeature, duration: number, distance: number) => {
     setRoute(route);
@@ -24,8 +27,21 @@ export function DirectionsProvider({ children }: { children: ReactNode }) {
     setDistance(distance);
   };
 
+  const setTrackingUserLocation = (isTracking: boolean) => {
+    setIsTrackingUserLocation(isTracking);
+  };
+
   return (
-    <DirectionsContext.Provider value={{ route: route, duration, distance, setDirectionData: setDirectionData }}>
+    <DirectionsContext.Provider
+      value={{
+        route,
+        duration,
+        distance,
+        setDirectionData: setDirectionData,
+        isTrackingUserLocation,
+        setTrackingUserLocation: setTrackingUserLocation,
+      }}
+    >
       {children}
     </DirectionsContext.Provider>
   );

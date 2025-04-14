@@ -1,3 +1,5 @@
+import { useRotation } from "../../hooks/useRotation";
+
 export function DockToRight({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
@@ -97,7 +99,7 @@ export function Auditorium({ className }: { className?: string }) {
 export function Sport({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
-      <path d="M480-90q-80.91 0-152.07-30.76-71.15-30.77-123.79-83.5Q151.5-257 120.75-328.09 90-399.17 90-480q0-80.91 30.76-152.07 30.77-71.15 83.5-123.79Q257-808.5 328.09-839.25 399.17-870 480-870q80.91 0 152.07 30.76 71.15 30.77 123.79 83.5Q808.5-703 839.25-631.91 870-560.83 870-480q0 80.91-30.76 152.07-30.77 71.15-83.5 123.79Q703-151.5 631.91-120.75 560.83-90 480-90Zm196-486 54-18.25L746-649q-31-47.5-75.5-81.75T572-782l-54 38v57l158 111Zm-392 0 159-111v-57l-55-38q-54 17-98.5 51.25T214-649l16 54.75L284-576Zm-42 301 47-4 30-54-57-172-57-20-40 30q0 64.24 17.5 117.12Q200-325 242-275Zm238 110q25 0 50-4t49-12l28-60-25.77-45H379l-26 45 28 60q24 8 49 12t50 4Zm-89-196h179l55-159-145-101-143 101.22L391-361Zm327 86q42-50 59.5-102.88Q795-430.76 795-495l-40-28-57 18-57 172 30 54 47 4Z" />
+      <path d="M480-90q-80.91 0-152.07-30.76-71.15-30.77-123.79-83.5Q151.5-257 120.75-328.09 90-399.17 90-480q0-80.91 30.76-152.07 30.77-71.15 83.5-123.79Q257-808.5 328.09-839.25 399.17-870 480-870q92 0 172 34.5t139.5 94Q851-732 885.5-652T920-480q0 91-34.5 171.5t-94 140Q732-109 652-74.5T480-40Zm0-440Zm-25 311q10 10 23 10t23-10l288-288q10-10 10-24t-10-24L501-793q-10-10-23-10t-23 10L167-505q-10 10-10 24t10 24l288 288ZM319-361v-160q0-18 11-29t29-11h166l-42-44 56-56 140 140-140 140-56-56 42-44H399v120h-80Zm161 241q151 0 255.5-104.5T840-480q0-151-104.5-255.5T480-840q-151 0-255.5 104.5T120-480q0 151 104.5 255.5T480-120Z" />
     </svg>
   );
 }
@@ -106,14 +108,6 @@ export function Parking({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
       <path d="M248-130v-700h272q96 0 164 68.5T752-597q0 96-68 164.5T520-364H398v234H248Zm150-384h125q34.24 0 58.62-24.38Q606-562.76 606-597q0-34.24-24.38-58.62Q557.24-680 523-680H398v166Z" />
-    </svg>
-  );
-}
-
-export function UserLocation({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
-      <path d="M443-54v-77q-123.5-13-211.25-100.75T131-443H54v-75h77q13-123.5 100.75-210.75T443-829v-77h75v77q123.5 13 210.75 100.25T829-518h77v75h-77q-13 123.5-100.25 211.25T518-131v77h-75Zm38-150q114.5 0 194.75-81.25T756-481q0-114.5-80.25-194.75T481-756q-114.5 0-195.75 80.25T204-481q0 114.5 81.25 195.75T481-204Zm-1-122q-64 0-109-45t-45-109q0-64 45-109t109-45q64 0 109 45t45 109q0 64-45 109t-109 45Z" />
     </svg>
   );
 }
@@ -130,6 +124,69 @@ export function GPS({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
       <path d="M440-42v-80q-125-14-214.5-103.5T122-440H42v-80h80q14-125 103.5-214.5T440-838v-80h80v80q125 14 214.5 103.5T838-520h80v80h-80q-14 125-103.5 214.5T520-122v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm0-80Z" />
+    </svg>
+  );
+}
+
+export function Start({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className={className}>
+      <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z" />
+    </svg>
+  );
+}
+
+export function UserLocation({ className, rotation = 0 }: { className?: string; rotation?: number }) {
+  const currentRotation = useRotation(rotation);
+
+  return (
+    <span
+      className={className}
+      style={{
+        transform: `rotate(${currentRotation}deg)`,
+        transformOrigin: "center",
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="currentColor"
+        className={className}
+      >
+        <path d="m200-120-40-40 320-720 320 720-40 40-280-120-280 120Zm84-124 196-84 196 84-196-440-196 440Zm196-84Z" />
+      </svg>
+    </span>
+  );
+}
+
+export function Directions({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M480-40q-91 0-171.5-34.5t-140-94q-59.5-59.5-94-140T40-480q0-92 34.5-172t94-139.5q59.5-59.5 140-94T480-920q92 0 172 34.5t139.5 94Q851-732 885.5-652T920-480q0 91-34.5 171.5t-94 140Q732-109 652-74.5T480-40Zm0-440Zm-25 311q10 10 23 10t23-10l288-288q10-10 10-24t-10-24L501-793q-10-10-23-10t-23 10L167-505q-10 10-10 24t10 24l288 288ZM319-361v-160q0-18 11-29t29-11h166l-42-44 56-56 140 140-140 140-56-56 42-44H399v120h-80Zm161 241q151 0 255.5-104.5T840-480q0-151-104.5-255.5T480-840q-151 0-255.5 104.5T120-480q0 151 104.5 255.5T480-120Z" />
+    </svg>
+  );
+}
+
+export function Walking({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      className={className}
+    >
+      <path d="m280-40 112-564-72 28v136h-80v-188l202-86q14-6 29.5-7t29.5 4q14 5 26.5 14t20.5 23l40 64q26 42 70.5 69T760-520v80q-70 0-125-29t-94-74l-25 123 84 80v300h-80v-260l-84-64-72 324h-84Zm260-700q-33 0-56.5-23.5T460-820q0-33 23.5-56.5T540-900q33 0 56.5 23.5T620-820q0 33-23.5 56.5T540-740Z" />
     </svg>
   );
 }
