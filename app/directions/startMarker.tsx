@@ -18,9 +18,14 @@ export default function StartMarker({ route }: StartMarkerProps) {
   const secondPoint = route.geometry.coordinates[1];
 
   const calculateRouteAngle = (start: number[], end: number[], bearing: number) => {
-    const deltaX = end[0] - start[0];
-    const deltaY = end[1] - start[1];
-    let angle = (Math.atan2(deltaY, deltaX) * 180) / Math.PI - 90 - bearing;
+    const [lon1, lat1] = start.map((coord) => (coord * Math.PI) / 180);
+    const [lon2, lat2] = end.map((coord) => (coord * Math.PI) / 180);
+
+    const deltaLon = lon2 - lon1;
+    const x = Math.sin(deltaLon) * Math.cos(lat2);
+    const y = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(deltaLon);
+
+    let angle = (Math.atan2(x, y) * 180) / Math.PI - bearing - 90;
     return (angle + 720) % 360;
   };
 
