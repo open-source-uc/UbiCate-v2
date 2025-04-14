@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Feature } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
@@ -10,13 +12,13 @@ interface RouteButtonProps {
 
 export default function RouteButton({ place }: RouteButtonProps) {
   const { setDirectionData, setTrackingUserLocation } = useDirections();
-  var userLocation: [number, number] = [-1, -1];
+  const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { longitude, latitude } = position.coords;
-        userLocation = [longitude, latitude];
+        setUserLocation([longitude, latitude]);
       },
       (error) => {
         if (error.code === 1) {
@@ -27,7 +29,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
   }
 
   const handleDirections = async () => {
-    if (!navigator.geolocation || userLocation[0] === -1 || userLocation[1] === -1) {
+    if (!navigator.geolocation || !userLocation) {
       alert("No podemos acceder a tu ubicación");
       return;
     }

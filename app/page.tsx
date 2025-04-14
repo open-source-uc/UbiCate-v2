@@ -6,7 +6,7 @@ import { Feature } from "@/utils/types";
 import NavigationSidebar from "./components/NavigationSidebar";
 import { DirectionsProvider } from "./context/directionsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
-import MapPage from "./map/page";
+import MapPage from "./map/mapPage";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
