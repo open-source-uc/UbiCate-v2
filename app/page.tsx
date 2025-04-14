@@ -4,6 +4,7 @@ import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
 import NavigationSidebar from "./components/NavigationSidebar";
+import { DirectionsProvider } from "./context/directionsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import MapComponent from "./map/map";
 
@@ -86,10 +87,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   return (
     <>
       <SidebarProvider>
-        <main spellCheck="false" className="h-full w-full relative flex">
-          <NavigationSidebar />
-          <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-        </main>
+        <DirectionsProvider>
+          <main spellCheck="false" className="h-full w-full relative flex">
+            <NavigationSidebar />
+            <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+          </main>
+        </DirectionsProvider>
       </SidebarProvider>
     </>
   );

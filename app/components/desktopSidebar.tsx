@@ -2,7 +2,7 @@
 import "../custom-landing-geocoder.css";
 
 import Link from "next/link";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -10,7 +10,7 @@ import { SubSidebarType } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import { useSidebar } from "../context/sidebarCtx";
-import MenuInformation from "../map/menuInformation";
+import PlaceInfo from "../map/placeInfo";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
@@ -20,7 +20,6 @@ export default function DesktopSidebar() {
   const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
-  const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
   const handleToggleSidebar = () => {
@@ -46,10 +45,10 @@ export default function DesktopSidebar() {
     setActiveSubSidebar(null);
   };
 
-  // Cuando se selecciona un lugar, muestra "menuInformation"
+  // Cuando se selecciona un lugar, muestra "placeInformation"
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("menuInformation");
+      setActiveSubSidebar("placeInformation");
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
@@ -180,9 +179,9 @@ export default function DesktopSidebar() {
                 <ul className="space-y-2">Hello. This is not implemented.</ul>
               </>
             )}
-            {activeSubSidebar === "menuInformation" && (
+            {activeSubSidebar === "placeInformation" && (
               <div className="w-full h-full">
-                <MenuInformation
+                <PlaceInfo
                   place={selectedPlace}
                   onClose={() => {
                     setSelectedPlace(null);

@@ -3,7 +3,7 @@ import React from "react";
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
-import { Feature, PointFeature } from "../../utils/types";
+import { Feature, PointFeature } from "@/utils/types";
 
 interface MarkerProps {
   place: PointFeature;

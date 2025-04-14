@@ -10,30 +10,36 @@ interface PolygonGeometry {
   coordinates: [number, number][][];
 }
 
-export type SubSidebarType = "buscar" | "campus" | "guías" | "menuInformation" | null;
+interface LineGeometry {
+  type: "LineString";
+  coordinates: [number, number][];
+}
 
-export type Category = 'auditorium' |
-  'bath' |
-  'building' |
-  'campus' |
-  'classroom' |
-  'computers' |
-  'faculty' |
-  'financial' |
-  'food_lunch' |
-  'laboratory' |
-  'library' |
-  'other' |
-  'park_bicycle' |
-  'parking' |
-  'photocopy' |
-  'shop' |
-  'sports_place' |
-  'studyroom' |
-  'trash' |
-  'auditorium' |
-  'customMark' |
-  'water';
+export type SubSidebarType = "buscar" | "campus" | "guías" | "placeInformation" | null;
+
+export type Category =
+  | "auditorium"
+  | "bath"
+  | "building"
+  | "campus"
+  | "classroom"
+  | "computers"
+  | "faculty"
+  | "financial"
+  | "food_lunch"
+  | "laboratory"
+  | "library"
+  | "other"
+  | "park_bicycle"
+  | "parking"
+  | "photocopy"
+  | "shop"
+  | "sports_place"
+  | "studyroom"
+  | "trash"
+  | "auditorium"
+  | "customMark"
+  | "water";
 
 export const CategoryToIcon: Map<Category, React.ReactNode> = new Map([
   ["bath", "wc"],
@@ -46,51 +52,41 @@ export const CategoryToIcon: Map<Category, React.ReactNode> = new Map([
   ["studyroom", "studyroom"],
   ["water", "localDrink"],
   ["auditorium", "auditorium"],
-  ["customMark", "pin"]
+  ["customMark", "pin"],
 ]);
+
+export interface Properties {
+  identifier: string;
+  name: string;
+  information: string;
+  categories: string[];
+  campus: string;
+  faculties?: string;
+  floors?: number[];
+  needApproval?: boolean;
+}
 
 export interface Feature {
   type: string;
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string[];
-    campus: string;
-    faculties?: string;
-    floors?: number[];
-    needApproval?: boolean;
-  };
+  properties: Properties;
   geometry: PointGeometry | PolygonGeometry;
+}
+
+export interface LineFeature {
+  type: string;
+  properties: {};
+  geometry: LineGeometry;
 }
 
 export interface PointFeature {
   type: string;
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string[];
-    campus: string;
-    faculties?: string;
-    floors?: number[];
-    needApproval?: boolean;
-  };
+  properties: Properties;
   geometry: PointGeometry;
 }
 
 export interface PolygonFeature {
   type: string;
-  properties: {
-    identifier: string;
-    name: string;
-    information: string;
-    categories: string[];
-    campus: string;
-    faculties?: string;
-    floors?: number[];
-    needApproval?: boolean;
-  };
+  properties: Properties;
   geometry: PolygonGeometry;
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { Feature, siglas as MapSiglas, METHOD } from "../../utils/types";
+import { Feature, siglas as MapSiglas, METHOD } from "@/utils/types";
+
 import * as Icons from "../components/icons/icons";
 import MarkDownComponent from "../components/markDown";
 import {
@@ -10,16 +11,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu";
+import RouteButton from "../directions/routeButton";
 import FormGeo from "../form-geo/form";
 
-interface MenuProps {
+interface PlaceInfoProps {
   place: Feature | null;
   onClose: (e: React.MouseEvent) => void;
   onEdit?: () => void;
   onCloseEdit?: () => void;
 }
 
-export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps) {
+export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: PlaceInfoProps) {
   const [edit, setEdit] = useState<boolean>(false);
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
 
@@ -28,6 +30,8 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
       onEdit?.();
     }
   }, [edit, onEdit]);
+
+  if (!place) return null;
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -54,7 +58,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
         "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
       },
       body: JSON.stringify({
-        identifier: place?.properties.identifier,
+        identifier: place.properties.identifier,
       }),
     })
       .then((res) => {
@@ -88,7 +92,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
         "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
       },
       body: JSON.stringify({
-        identifier: place?.properties.identifier,
+        identifier: place.properties.identifier,
       }),
     })
       .then((res) => {
@@ -111,9 +115,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
           <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
             <div className="flex items-center justify-between w-full">
               <div className="max-w-[260px] pr-10">
-                <h3 className="font-bold text-xl break-words whitespace-normal">
-                  {place ? place.properties.name : "Lugar sin nombre"}
-                </h3>
+                <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
               </div>
 
               <button
@@ -125,13 +127,13 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
               </button>
             </div>
 
-            {place && place.properties?.categories?.[0] ? (
+            {place.properties?.categories?.[0] ? (
               <div className="font-light text-sm mt-1">
                 {MapSiglas.get(place.properties.categories[0]) || "Lugar sin categoría"}
               </div>
             ) : null}
           </div>
-          {place && place.properties.categories?.at(0) !== "event" ? (
+          {place.properties.categories?.at(0) !== "event" ? (
             <>
               <section className="flex space-x-2 mt-8">
                 <button
@@ -147,6 +149,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                   </div>
                   <p className="text-xs font-medium">Compartir</p>
                 </button>
+                <RouteButton place={place} />
                 <DropdownMenu>
                   <DropdownMenuTrigger
                     onKeyDown={(e) => e.key === "Enter" && handleShare}
@@ -161,7 +164,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                     <p className="text-xs font-medium">Más</p>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    {place?.geometry.type !== "Polygon" && (
+                    {place.geometry.type !== "Polygon" && (
                       <DropdownMenuItem
                         onClick={(e) => {
                           e.stopPropagation();
@@ -173,8 +176,8 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                       </DropdownMenuItem>
                     )}
 
-                    {place?.geometry.type !== "Polygon" &&
-                    place?.properties.identifier !== "42-ALL" &&
+                    {place.geometry.type !== "Polygon" &&
+                    place.properties.identifier !== "42-ALL" &&
                     isDebug.current ? (
                       <>
                         <DropdownMenuSeparator />
@@ -200,7 +203,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                 </DropdownMenu>
               </section>
               <section className="divide-y divide-brown-light/30">
-                {place && place.properties?.floors && place.properties.floors.length > 0 ? (
+                {place.properties?.floors && place.properties.floors.length > 0 ? (
                   <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3 text-blue-location">
@@ -212,7 +215,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
                   </div>
                 ) : null}
 
-                {place && place.properties?.campus ? (
+                {place.properties?.campus ? (
                   <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3 text-blue-location">
@@ -229,7 +232,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
             </>
           ) : null}
 
-          {place?.properties.information ? (
+          {place.properties.information ? (
             <div className="space-y-2">
               <h3 className="text-lg font-semibold">Descripción</h3>
               <div className="bg-brown-medium rounded-md">
@@ -242,7 +245,7 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
         <div className="h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
           <div className="w-full text-center my-6 flex items-center justify-center relative">
             <h1 className="text-2xl text-white-ubi select-none">
-              {place?.properties.identifier === "42-ALL"
+              {place.properties.identifier === "42-ALL"
                 ? "Nueva ubicación"
                 : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
@@ -259,15 +262,15 @@ export default function Menu({ place, onClose, onEdit, onCloseEdit }: MenuProps)
           </div>
           <FormGeo
             values={{
-              placeName: place?.properties.identifier === "42-ALL" ? "" : (place?.properties.name as string),
-              information: place?.properties.information as string,
-              floor: place?.properties.floors?.[0] ?? 1,
-              longitude: place?.geometry.coordinates[0] as number,
-              latitude: place?.geometry.coordinates[1] as number,
-              categories: place?.properties.categories.at(0) as string,
-              identifier: place?.properties.identifier as string,
+              placeName: place.properties.identifier === "42-ALL" ? "" : (place.properties.name as string),
+              information: place.properties.information as string,
+              floor: place.properties.floors?.[0] ?? 1,
+              longitude: place.geometry.coordinates[0] as number,
+              latitude: place.geometry.coordinates[1] as number,
+              categories: place.properties.categories.at(0) as string,
+              identifier: place.properties.identifier as string,
             }}
-            mode={place?.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
+            mode={place.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
             fun={() => {
               onCloseEdit?.();
               setEdit(false);

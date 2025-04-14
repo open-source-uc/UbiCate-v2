@@ -18,6 +18,7 @@ import type {
 import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
+import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import {
   getCampusBoundsFromName,
@@ -27,14 +28,16 @@ import {
 } from "@/utils/getCampusBounds";
 import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 
-import Campus from "../../data/campuses.json";
 import * as Icons from "../components/icons/icons";
 import MarkerIcon from "../components/icons/markerIcon";
+import { useDirections } from "../context/directionsCtx";
 import { useSidebar } from "../context/sidebarCtx";
+import RouteInfoMarker from "../directions/infoMarker";
+import RouteLayer from "../directions/routeLayer";
 
-import ButtonMaps from "./buttonsMaps";
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
+import UserLocation from "./userLocation";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -86,6 +89,7 @@ export default function MapComponent({
   const params = useSearchParams();
   const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
     useSidebar();
+  const { route: route, duration, distance } = useDirections();
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -367,8 +371,6 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        {/* <FullscreenControl position="top-left" /> */}
-
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
@@ -384,24 +386,7 @@ export default function MapComponent({
           <Layer {...sectionStrokeLayer} />
         </Source>
         <DebugMode />
-        {/*
-        El hover fue desactivado pues al clikear en telefonos 
-        se producia un mensaje pulsante, que molestaba
-        y no encontre la forma de desactivarlo en telefonos.             
-        */}
-        {/* {hover ? (
-          <Popup
-            longitude={hover.geometry.coordinates[0]}
-            latitude={hover.geometry.coordinates[1]}
-            closeButton={false}
-            closeOnClick={false}
-            className="place"
-            offset={new Point(0, -10)}
-          >
-            {hover.properties.name}
-          </Popup>
-        ) : null} */}
-        <ButtonMaps mapRef={mapRef} />
+        <UserLocation mapRef={mapRef} />
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as Category;
           return (
@@ -424,6 +409,10 @@ export default function MapComponent({
             onDragEnd={onMarkerDragEnd}
             icon={<Icons.Pin className="w-4 h-4" />}
           />
+        ) : null}
+        {route ? <RouteLayer route={route} /> : null}
+        {route && duration && distance ? (
+          <RouteInfoMarker route={route} duration={duration} distance={distance} />
         ) : null}
       </Map>
     </>

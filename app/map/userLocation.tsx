@@ -9,7 +9,7 @@ import LocationButton from "../components/locationButton";
 
 import Marker from "./marker";
 
-export default function ButtonMaps({ mapRef }: { mapRef: React.RefObject<MapRef | null> }) {
+export default function UserLocation({ mapRef }: { mapRef: React.RefObject<MapRef | null> }) {
   const [userPosition, setUserPosition] = useState<Feature | null>(null);
   const [isTracking, setIsTracking] = useState(false);
   const [isFirstLocationFetch, setIsFirstLocationFetch] = useState(true);
@@ -115,7 +115,6 @@ export default function ButtonMaps({ mapRef }: { mapRef: React.RefObject<MapRef 
           icon={<Icons.UserLocation />}
         />
       ) : null}
-
       <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
         <LocationButton onClick={handleLocationButtonClick} />
       </div>

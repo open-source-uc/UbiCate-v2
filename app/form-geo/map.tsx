@@ -8,9 +8,9 @@ import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, La
 import type { MarkerDragEvent, MapLayerMouseEvent, MapRef, LngLatBoundsLike } from "react-map-gl";
 
 import { campusBorderLayer } from "@/app/map/layers";
+import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromPoint, getCampusBoundsFromName } from "@/utils/getCampusBounds";
 
-import Campus from "../../data/campuses.json";
 import DebugMode from "../components/debugMode";
 import * as Icons from "../components/icons/icons";
 

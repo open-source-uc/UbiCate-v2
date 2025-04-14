@@ -6,8 +6,8 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import { campusBounds } from "@/utils/getCampusBounds";
 import getGeolocation from "@/utils/getGeolocation";
+import { siglas as MapSiglas, METHOD } from "@/utils/types";
 
-import { siglas as MapSiglas, METHOD } from "../../utils/types";
 import MarkDownComponent from "../components/markDown";
 
 import MapComponent from "./map";

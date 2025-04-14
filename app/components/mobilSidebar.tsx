@@ -9,7 +9,7 @@ import { SubSidebarType } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import { useSidebar } from "../context/sidebarCtx";
-import MenuInformation from "../map/menuInformation";
+import PlaceInformation from "../map/placeInfo";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
@@ -150,7 +150,7 @@ export default function MobileSidebar() {
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("menuInformation");
+      setActiveSubSidebar("placeInformation");
       setSidebarHeight(60);
     } else {
       setActiveSubSidebar(null);
@@ -325,8 +325,8 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "menuInformation" && (
-                <MenuInformation
+              {activeSubSidebar === "placeInformation" && (
+                <PlaceInformation
                   place={selectedPlace}
                   onClose={() => {
                     setSelectedPlace(null);
