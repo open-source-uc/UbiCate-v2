@@ -288,22 +288,20 @@ export default function FormComponent({
                 <div className="flex justify-end mb-2 space-x-2">
                   <button
                     type="button"
-                    className={`px-3 py-1 rounded-md text-sm ${
-                      !isPreviewMode
+                    className={`px-3 py-1 rounded-md text-sm ${!isPreviewMode
                         ? "bg-blue-location text-white"
                         : "bg-transparent border border-brown-light text-white-ubi"
-                    }`}
+                      }`}
                     onClick={() => setIsPreviewMode(false)}
                   >
                     Editar
                   </button>
                   <button
                     type="button"
-                    className={`px-3 py-1 rounded-md text-sm ${
-                      isPreviewMode
+                    className={`px-3 py-1 rounded-md text-sm ${isPreviewMode
                         ? "bg-blue-location text-white"
                         : "bg-transparent border border-brown-light text-white-ubi"
-                    }`}
+                      }`}
                     onClick={() => setIsPreviewMode(true)}
                   >
                     Vista Previa
