@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma079aje9xahzg",
+                "name": "Test019",
+                "information": "Testats",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61089724725213,
+                    -33.49859945818981
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "D204",
                 "name": "D204",
                 "information": "",
