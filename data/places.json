@@ -29136,6 +29136,30 @@
                     -33.500598
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma09kdsao8yazn",
+                "name": "Punto Impresión",
+                "information": "# Punto Impresión Quisko ",
+                "categories": [
+                    "photocopy"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61311064037827,
+                    -33.49802535991121
+                ]
+            }
         }
     ]
 }
