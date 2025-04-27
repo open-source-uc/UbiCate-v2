@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ma09q6eg7ppuy7",
-                "name": "Test",
-                "information": "# Test",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61603369457802,
-                    -33.49634181242683
-                ]
-            }
-        }
-    ]
+    "features": []
 }
