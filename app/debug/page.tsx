@@ -36,7 +36,7 @@ function DebugPage() {
       <section>
         <label className="flex items-center space-x-2 text-xl">
           <input
-            type="text"
+            type="password"
             className="bg-brown-light rounded-2xl p-2 disabled:bg-brown-medium"
             disabled={!isDebugMode}
             onChange={(e) => {
