@@ -4,7 +4,6 @@ import { useMap } from "react-map-gl";
 
 import * as Icons from "../components/icons/icons";
 import LocationButton from "../components/locationButton";
-import { useDirections } from "../context/directionsCtx";
 import { useUbication } from "../hooks/useUbication";
 
 import Marker from "./marker";
