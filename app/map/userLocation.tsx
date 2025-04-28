@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 
 import { useMap } from "react-map-gl";
 
@@ -11,11 +11,12 @@ import Marker from "./marker";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
-  const { setTrackingUserLocation, isTrackingUserLocation } = useDirections();
 
-  const { position, alpha, cardinal } = useUbication({ cardinalPoints: 8, updateInterval: 1_500 });
+  const { position, alpha } = useUbication({ cardinalPoints: 8, updateInterval: 1_500 });
 
-  const rotation = isTrackingUserLocation ? (alpha - (mainMap?.getBearing() || 0) + 360) % 360 : 0;
+  const rotation = useMemo(() => {
+    return (alpha - (mainMap?.getBearing() || 0) + 360) % 360;
+  }, [alpha, mainMap]);
 
   const handleLocationButtonClick = useCallback(() => {
     mainMap?.getMap().flyTo({
@@ -23,7 +24,7 @@ export default function UserLocation() {
       zoom: 17,
       duration: 400,
     });
-  }, [mainMap, position, setTrackingUserLocation]);
+  }, [mainMap, position]);
 
   return (
     <>
