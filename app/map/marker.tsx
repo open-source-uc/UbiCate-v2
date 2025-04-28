@@ -40,7 +40,7 @@ export default function Marker({
   onDrag,
   onDragEnd,
   icon,
-  offset = [0, -18],
+  offset = [0, 0],
 }: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
 
