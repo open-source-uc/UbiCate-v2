@@ -1,12 +1,11 @@
 import React, { useCallback, useMemo } from "react";
 
-import { useMap } from "react-map-gl";
+import { Marker, useMap } from "react-map-gl";
 
 import * as Icons from "../components/icons/icons";
 import LocationButton from "../components/locationButton";
 import { useUbication } from "../hooks/useUbication";
 
-import Marker from "./marker";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
@@ -30,11 +29,11 @@ export default function UserLocation() {
       {position ? (
         <Marker
           key={position.properties.identifier}
-          place={position}
+          longitude={position.geometry.coordinates[0]}
+          latitude={position.geometry.coordinates[1]}
           onClick={() => null}
           offset={[0, 0]}
-          icon={<Icons.UserLocation rotation={rotation} className="h-4 w-4" />}
-        />
+        ><Icons.UserLocation rotation={rotation} className=" fill-pink-option" /></Marker>
       ) : null}
       <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
         <LocationButton onClick={handleLocationButtonClick} />
