@@ -1,5 +1,3 @@
-import { useRotation } from "../../hooks/useRotation";
-
 export function DockToRight({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
@@ -137,13 +135,12 @@ export function Start({ className }: { className?: string }) {
 }
 
 export function UserLocation({ className, rotation = 0 }: { className?: string; rotation?: number }) {
-  const currentRotation = useRotation(rotation);
 
   return (
     <span
       className={className}
       style={{
-        transform: `rotate(${currentRotation}deg)`,
+        transform: `rotate(${rotation}deg)`,
         transformOrigin: "center",
       }}
     >
