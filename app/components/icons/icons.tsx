@@ -135,7 +135,6 @@ export function Start({ className }: { className?: string }) {
 }
 
 export function UserLocation({ className, rotation = 0 }: { className?: string; rotation?: number }) {
-
   return (
     <span
       className={className}

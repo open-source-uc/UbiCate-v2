@@ -12,12 +12,7 @@ import { Map, useMap, Source, Layer, ScaleControl } from "react-map-gl";
 import DebugMode from "@/app/components/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import {
-  getCampusBoundsFromName,
-  getCampusNameFromPoint,
-  getMaxCampusBoundsFromName,
-  getMaxCampusBoundsFromPoint,
-} from "@/utils/getCampusBounds";
+import { getCampusBoundsFromName, getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
