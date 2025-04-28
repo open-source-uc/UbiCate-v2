@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { PointFeature } from "@/utils/types";
+import { PointGeometry, Properties } from "@/utils/types";
 
 export type CardinalPoints = 4 | 8;
 
@@ -10,7 +10,11 @@ export interface Options {
 }
 
 export interface LocationOrientationData {
-  position: PointFeature | null;
+  position: {
+    type: string;
+    properties: Properties;
+    geometry: PointGeometry;
+  } | null;
   alpha: number;
   cardinal: string;
 }

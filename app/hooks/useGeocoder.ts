@@ -69,7 +69,30 @@ function useGeocoder(
     [setFindPlaces],
   );
 
-  const Points = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Point"), [findPlaces]);
+  const Points = useMemo(
+    () =>
+      findPlaces
+        .filter((e) => e.geometry.type === "Point")
+        .map((e) => {
+          const formatter = new Intl.ListFormat("es", { style: "long", type: "conjunction" });
+          const safeArray = e.properties.floors ? e.properties.floors.map(String) : [];
+          const str = formatter.format(safeArray);
+
+          const pisoTexto = safeArray.length === 1 ? "Piso" : "Pisos";
+
+          const updatedE = {
+            ...e,
+            properties: {
+              ...e.properties,
+              name: `${e.properties.name}\n ${pisoTexto}: ${str}`,
+            },
+          };
+
+          return updatedE;
+        }),
+    [findPlaces],
+  );
+
   const Polygons = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Polygon"), [findPlaces]);
 
   return [findPlaces, Points as PointFeature[], Polygons as PolygonFeature[], setPlaces, geocoder];

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface PointGeometry {
+export interface PointGeometry {
   type: "Point";
   coordinates: [number, number];
 }

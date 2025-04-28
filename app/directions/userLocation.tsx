@@ -6,11 +6,10 @@ import * as Icons from "../components/icons/icons";
 import LocationButton from "../components/locationButton";
 import { useUbication } from "../hooks/useUbication";
 
-
 export default function UserLocation() {
   const { mainMap } = useMap();
 
-  const { position, alpha } = useUbication({ cardinalPoints: 8, updateInterval: 1_500 });
+  const { position, alpha } = useUbication();
 
   const rotation = useMemo(() => {
     return (alpha - (mainMap?.getBearing() || 0) + 360) % 360;
@@ -33,7 +32,9 @@ export default function UserLocation() {
           latitude={position.geometry.coordinates[1]}
           onClick={() => null}
           offset={[0, 0]}
-        ><Icons.UserLocation rotation={rotation} className=" fill-pink-option" /></Marker>
+        >
+          <Icons.UserLocation rotation={rotation} />
+        </Marker>
       ) : null}
       <div className="fixed z-40 bottom-17 desktop:bottom-0 right-0 p-2">
         <LocationButton onClick={handleLocationButtonClick} />

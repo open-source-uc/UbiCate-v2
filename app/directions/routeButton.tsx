@@ -1,35 +1,37 @@
-import { useState } from "react";
+import { centroid } from "@turf/centroid";
 
+import { getCampusBoundsFromPoint, getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { Feature } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import { useDirections } from "../context/directionsCtx";
+import { useSidebar } from "../context/sidebarCtx";
 import { fetchDirection } from "../directions/fetchDirection";
+import { useUbication } from "../hooks/useUbication";
 
 interface RouteButtonProps {
   place: Feature | null;
 }
+function convertSecondsToReadableFormat(seconds: number): string {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+
+  if (minutes > 0) {
+    return `${minutes} minuto${minutes > 1 ? "s" : ""} y ${remainingSeconds} segundo${
+      remainingSeconds !== 1 ? "s" : ""
+    }`;
+  } else {
+    return `${remainingSeconds} segundo${remainingSeconds !== 1 ? "s" : ""}`;
+  }
+}
 
 export default function RouteButton({ place }: RouteButtonProps) {
   const { setDirectionData, setTrackingUserLocation } = useDirections();
-  const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { longitude, latitude } = position.coords;
-        setUserLocation([longitude, latitude]);
-      },
-      (error) => {
-        if (error.code === 1) {
-          alert("Geolocation permission denied. Please enable location permissions in your browser settings.");
-        }
-      },
-    );
-  }
+  const { position, alpha, cardinal } = useUbication();
+  const { setSelectedPlace } = useSidebar();
 
   const handleDirections = async () => {
-    if (!navigator.geolocation || !userLocation) {
+    if (!navigator.geolocation || !position) {
       alert("No podemos acceder a tu ubicación");
       return;
     }
@@ -39,7 +41,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
       return;
     }
 
-    if (!["SJ", "LC"].includes(place.properties.campus)) {
+    if (!["SJ", "LC", "SanJoaquin", "LoContador"].includes(place.properties.campus)) {
       alert("No se puede calcular la ruta en este campus");
       return;
     }
@@ -49,26 +51,43 @@ export default function RouteButton({ place }: RouteButtonProps) {
     if (place.geometry.type === "Point") {
       destination = place.geometry.coordinates as [number, number];
     } else if (place.geometry.type === "Polygon") {
-      const coordinates = place.geometry.coordinates[0];
-      const centroid = coordinates
-        .reduce((acc, coord) => [acc[0] + coord[0], acc[1] + coord[1]], [0, 0])
-        .map((val) => val / coordinates.length) as [number, number];
-      destination = centroid;
+      destination = centroid(place.geometry).geometry.coordinates as [number, number];
     } else {
       alert("No se puede calcular la ruta para este lugar");
       return;
     }
 
+    if (getCampusBoundsFromPoint(position.geometry.coordinates[0], position.geometry.coordinates[1]) === null) {
+      alert("No se puede calcular la ruta en este campus");
+      return;
+    }
+    if (getCampusBoundsFromPoint(destination[0], destination[1]) === null) {
+      alert("No se puede calcular la ruta en este campus");
+      return;
+    }
+
+    if (
+      getCampusNameFromPoint(destination[0], destination[1]) !==
+      getCampusNameFromPoint(position.geometry.coordinates[0], position.geometry.coordinates[1])
+    ) {
+      alert("No se puede calcular la ruta entre compus distintos");
+      return;
+    }
+
     try {
-      const { direction, duration, distance } = await fetchDirection(userLocation, destination);
+      const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, destination);
 
       if (!direction || !duration || !distance) {
         alert("No logró obtener la ruta");
         return;
       }
 
+      // Convierte la duración
+      const durationFormatted = convertSecondsToReadableFormat(duration);
+
       setTrackingUserLocation(true);
-      setDirectionData(direction, duration, distance);
+      setDirectionData(direction, durationFormatted, distance);
+      setSelectedPlace(null);
     } catch (error) {
       console.log("Error fetching directions:", error);
       alert("No se logró obtener la ruta");

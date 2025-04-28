@@ -17,13 +17,12 @@ import { siglas, Feature, PointFeature, Category } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import MarkerIcon from "../components/icons/markerIcon";
-import { useDirections } from "../context/directionsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 import DirectionsComponent from "../directions/component";
+import UserLocation from "../directions/userLocation";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
-import UserLocation from "./userLocation";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -73,9 +72,8 @@ export default function MapComponent({
   const { mainMap } = useMap();
   const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
+  const { points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
     useSidebar();
-  const { route: route, duration, distance } = useDirections();
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -158,7 +156,7 @@ export default function MapComponent({
           name: `Lon: ${lng.toFixed(4)}, Lat: ${lat.toFixed(4)}`,
           information: "",
           categories: ["customMark"],
-          campus: "",
+          campus: getCampusNameFromPoint(lng, lat) ?? "SanJoaquin",
           faculties: "",
           floors: [],
         },
@@ -248,7 +246,6 @@ export default function MapComponent({
     });
 
     refFunctionClickOnResult.current = (place) => {
-      setMenu(null);
       // mainMap?.getMap().setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", place.properties.campus);
       window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
@@ -268,6 +265,7 @@ export default function MapComponent({
         });
       }
       setTimeout(() => {
+        setMenu(place);
         // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(place.properties.campus));
       }, 400);
     };
@@ -354,14 +352,14 @@ export default function MapComponent({
           En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
           Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
           */
-          setCustomMark(e.lngLat.lng, e.lngLat.lat, false);
+          setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
         }}
       >
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON(places)}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON([...points, ...polygons])}>
           <Layer {...placesTextLayer} />
         </Source>
 
@@ -373,6 +371,8 @@ export default function MapComponent({
         </Source>
         <DebugMode />
         <UserLocation />
+        <DirectionsComponent />
+
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as Category;
           return (
@@ -396,7 +396,6 @@ export default function MapComponent({
             icon={<Icons.Pin className="w-4 h-4" />}
           />
         ) : null}
-        <DirectionsComponent route={route} duration={duration} distance={distance} />
       </Map>
     </>
   );
