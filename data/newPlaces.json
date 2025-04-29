@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_9_|_OR-OR",
+                "name": "Sala 9 | OR",
+                "information": "Sala 9 Pedro Mortheiru\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59340104460716,
+                    -33.44560256068277
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_10-OR",
                 "name": "Sala 10 | OR",
                 "information": "Sala 10 Bernardo Trumper\n(Posibles T)",
@@ -670,30 +694,6 @@
                 "coordinates": [
                     -70.59361101513589,
                     -33.44586058424602
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_9_|_OR-OR",
-                "name": "Sala 9 | OR",
-                "information": "Sala 9 Pedro Mortheiru",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59340102114173,
-                    -33.44560260596611
                 ]
             }
         },
