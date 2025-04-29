@@ -2,11 +2,12 @@ import React, { useCallback, useMemo } from "react";
 
 import { Marker, useMap } from "react-map-gl";
 
+import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
+
 import { useUbication } from "../../hooks/useUbication";
 import * as Icons from "../icons/icons";
 
 import LocationButton from "./locationButton";
-import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
