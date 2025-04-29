@@ -6,6 +6,7 @@ import { useUbication } from "../../hooks/useUbication";
 import * as Icons from "../icons/icons";
 
 import LocationButton from "./locationButton";
+import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
@@ -17,6 +18,15 @@ export default function UserLocation() {
   }, [alpha, mainMap]);
 
   const handleLocationButtonClick = useCallback(() => {
+    if (!position) return;
+
+    const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
+
+    if (!campus) {
+      alert("Estas afuera del campus o no se ha podido determinar el campus");
+      return;
+    }
+
     mainMap?.getMap().flyTo({
       center: position?.geometry.coordinates as [number, number],
       zoom: 17,
