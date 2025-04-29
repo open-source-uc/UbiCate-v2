@@ -29400,6 +29400,30 @@
                     -33.44518809884821
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_9-OR",
+                "name": "Taller arte 9 | OR",
+                "information": "Taller número 9 de la escuela de artes",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59408416971564,
+                    -33.44520810160795
+                ]
+            }
         }
     ]
 }
