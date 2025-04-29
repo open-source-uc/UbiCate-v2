@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2vl18xdkmpbq",
+                "name": "Centro UC Síndrome de Down | OR",
+                "information": "Centro UC Síndrome de Down",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59328705072403,
+                    -33.44702147948767
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_FRAY_ANGÉLICO-OR",
                 "name": "Sala Fray Angélico | OR",
                 "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
@@ -1026,30 +1050,6 @@
                 "coordinates": [
                     -70.59337788427646,
                     -33.44698855107464
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ma2vl18xdkmpbq",
-                "name": "Centro UC Síndrome de Down",
-                "information": "Centro UC Síndrome de Down",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59328700934249,
-                    -33.447021500650266
                 ]
             }
         },
