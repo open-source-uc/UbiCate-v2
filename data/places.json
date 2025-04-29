@@ -14460,29 +14460,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "OSUC",
-                "name": "(OSUC) Open Source UC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333266525133,
-                    -33.500222000070764
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AP302",
                 "name": "AP302",
                 "information": "",
@@ -31267,6 +31244,32 @@
                 "needApproval": false,
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61333266525133,
+                    -33.500222000070764
+                ]
+            },
+            "properties": {
+                "identifier": "OSUC",
+                "name": "(OSUC) Open Source UC",
+                "information": "### Test 29042025\nHola rocka del futuro",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
             }
         }
     ]
