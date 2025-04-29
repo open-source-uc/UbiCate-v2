@@ -30552,6 +30552,30 @@
                     -33.44606499871828
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_9_|_OR-OR",
+                "name": "Sala 9 | OR",
+                "information": "Sala 9 Pedro Mortheiru\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59340104460716,
+                    -33.44560256068277
+                ]
+            }
         }
     ]
 }
