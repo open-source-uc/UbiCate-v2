@@ -1,51 +1,46 @@
 "use client";
-import "@/app/custom-landing-geocoder.css";
+import "../custom-landing-geocoder.css";
 
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SubSidebarType } from "@/utils/types";
 
-import { useDirections } from "../../context/directionsCtx";
-import { useSidebar } from "../../context/sidebarCtx";
-import * as Icons from "../icons/icons";
-import PillFilter from "../pills/pillFilterBar";
-import PlaceInformation from "../placeMenu/placeInfo";
+import * as Icons from "../components/icons/icons";
+import { useSidebar } from "../context/sidebarCtx";
+import MenuInformation from "../map/menuInformation";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import PlaceMenu from "../placeMenu/placeMenu";
+import PillFilter from "./pillFilterBar";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
-  const { setDirectionData, duration, distance } = useDirections();
 
-  const toggleSidebar = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [setIsOpen, isOpen]);
-  const handleToggleSidebar = useCallback(() => {
+  const handleToggleSidebar = () => {
     toggleSidebar();
-  }, [toggleSidebar]);
+  };
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
-  const handleSearchSelection = useCallback(() => {
+  const handleSearchSelection = () => {
     handleToggleSidebar();
     setActiveSubSidebar(null);
     const activeElement = document.activeElement as HTMLElement;
     activeElement?.blur();
-  }, [setActiveSubSidebar, handleToggleSidebar]);
+  };
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
@@ -64,27 +59,24 @@ export default function MobileSidebar() {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      e.preventDefault();
-      if (!isDragging.current || dragStartY.current === null) return;
+  const handleMouseMove = (e: MouseEvent) => {
+    e.preventDefault();
+    if (!isDragging.current || dragStartY.current === null) return;
 
-      const windowHeight = window.innerHeight;
-      const dragDelta = dragStartY.current - e.clientY;
-      const heightPercentDelta = (dragDelta / windowHeight) * 100;
+    const windowHeight = window.innerHeight;
+    const dragDelta = dragStartY.current - e.clientY;
+    const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-      const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
-      setSidebarHeight(newHeight);
+    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
+    setSidebarHeight(newHeight);
 
-      // Ensure sidebar is open when dragging
-      if (newHeight > 5 && !isOpen) {
-        setIsOpen(true);
-      }
-    },
-    [isOpen, setIsOpen],
-  );
+    // Ensure sidebar is open when dragging
+    if (newHeight > 10 && !isOpen) {
+      setIsOpen(true);
+    }
+  };
 
-  const handleMouseUp = useCallback(() => {
+  const handleMouseUp = () => {
     isDragging.current = false;
     dragStartY.current = null;
     setEnableTransition(true);
@@ -103,7 +95,7 @@ export default function MobileSidebar() {
       setSidebarHeight(80);
       setIsOpen(true);
     }
-  }, [handleMouseMove, setIsOpen, sidebarHeight]);
+  };
 
   // Handlers for drag functionality (mobile)
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -137,7 +129,7 @@ export default function MobileSidebar() {
     // Snap to heights and handle open/close state
     if (sidebarHeight < 30) {
       setSidebarHeight(10);
-      setIsOpen(true);
+      setIsOpen(false);
     } else if (sidebarHeight < 65) {
       setSidebarHeight(45);
       setIsOpen(true);
@@ -158,9 +150,8 @@ export default function MobileSidebar() {
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("placeInformation");
-      setIsOpen(true);
-      setSidebarHeight(45);
+      setActiveSubSidebar("menuInformation");
+      setSidebarHeight(60);
     } else {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
@@ -199,44 +190,43 @@ export default function MobileSidebar() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [handleMouseMove, handleMouseUp]);
+  }, []);
 
   return (
     <>
       {/* Search Container */}
       <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
-        {duration && distance ? (
-          <div
-            className="
-      w-full pointer-events-auto cursor-pointer transition-colors duration-200
-      flex items-center justify-start gap-3 px-4 py-3 mt-2
-      rounded-lg bg-brown-medium hover:bg-brown-light
-    "
-          >
-            <div
-              className="
-        flex items-center justify-center
-        min-w-[28px] min-h-[28px] desktop:min-w-[32px] desktop:min-h-[32px]
-        bg-blue-location rounded-md
-      "
-            >
-              <Icons.Directions className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-sm font-medium whitespace-normal break-words desktop:text-base desktop:font-normal text-white">
-              Ruta de <span className="font-bold">{distance}</span> metros.
-            </span>
-            <div className="ml-auto flex-shrink-0">
-              <button
-                onClick={(e) => setDirectionData(null, null, null)}
-                className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2"
-                aria-label="Cerrar menú"
-              >
-                <Icons.Close />
-              </button>
-            </div>
-          </div>
-        ) : null}
+        {/* <div className="w-full h-16 py-2 items-center justify-center">
+          <Pill
+            title={"¡Ubícate en la UC y gana premios! 🎊"}
+            className="w-full truncate rounded-xl flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent"
+            icon={<Icons.OSUC />}
+            bg_color="bg-blue-location"
+            onClick={() =>
+              setSelectedPlace({
+                type: "Feature",
+                properties: {
+                  identifier: "26032025",
+                  name: "Concurso de Open Source UC",
+                  information:
+                    "## ¿Quieres ganar una [figurita](https://thegithubshop.com/collections/collectibles/products/1539178-00-mona-figurine-5-5) de Mona de GitHub? ¡Entonces participa de este concurso!\n\nPara participar, debes:\n- Ir a una ubicación del campus que te encante\n- Sacar una fotografía (no es necesario que tú salgas en esta)\n- Subir la fotografía a una historia de Instagram haciendo tag a @opensource_euc y utilizando el hashtag #ubicateuc\n\nPuedes tomar fotografías de la entrada al Campus, de nuestro patio de Ingeniería, de nuestra Alameda principal o edificios; ¡lo importante es que sea un lugar que te encante de nuestros campus! 💖\n\n**¡Participa de este concurso y gana!**",
+                  categories: ["event"],
+                  campus: "SJ",
+                  faculties: "ING",
+                  floors: [1],
+                  needApproval: false,
+                },
+                geometry: {
+                  type: "Point",
+                  coordinates: [-70.61305934398541, -33.50019582185146],
+                },
+              })
+            }
+            active={false}
+            noActivateClassName="bg-brown-dark desktop:bg-brown-medium text-white-ubi"
+          />
+        </div> */}
       </section>
 
       {/* Main Sidebar */}
@@ -334,24 +324,19 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
-                <PlaceMenu
+              {activeSubSidebar === "menuInformation" && (
+                <MenuInformation
                   place={selectedPlace}
-                  onCloseMenu={() => {
+                  onClose={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
                     setIsOpen(false);
                   }}
-                  onOpenCreate={() => {
+                  onEdit={() => {
                     setSidebarHeight(100);
                   }}
-                  onCloseCreate={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                    setIsOpen(false);
-                  }}
-                  onOpenEdit={() => {
-                    setSidebarHeight(40);
+                  onCloseEdit={() => {
+                    setSidebarHeight(60);
                   }}
                 />
               )}
