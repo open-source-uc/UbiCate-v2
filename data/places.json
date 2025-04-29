@@ -29356,6 +29356,30 @@
                     -33.445099275348916
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wgxbyz0gwjc",
+                "name": "Mesón UC | OR",
+                "information": "Mesón uc al interior del centro de eventos, campus oriente",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59375911951065,
+                    -33.44509969498771
+                ]
+            }
         }
     ]
 }
