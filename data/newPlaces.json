@@ -3,6 +3,50 @@
     "features": [
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6133692660525,
+                            -33.4980853099062
+                        ],
+                        [
+                            -70.61411813900584,
+                            -33.49815688445636
+                        ],
+                        [
+                            -70.61408380692636,
+                            -33.49842528848163
+                        ],
+                        [
+                            -70.61343793119175,
+                            -33.49840739490576
+                        ],
+                        [
+                            -70.6133692660525,
+                            -33.4980853099062
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ROCKA-SJ",
+                "name": "rocka",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "properties": {
                 "identifier": "TALLER_DE_PERMANENCIA_10_|_OR-OR",
                 "name": "Taller de Permanencia 10 | OR",
