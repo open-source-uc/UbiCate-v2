@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_R6-OR",
+                "name": "Sala R6",
+                "information": "Sala R6, segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59438131776655,
+                    -33.44583508282891
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_29_|_OR-OR",
                 "name": "Taller Arte 29 | OR",
                 "information": "Sala Escuela de Arte 29",
