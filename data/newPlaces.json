@@ -772,30 +772,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_32_|_OR-OR",
-                "name": "Taller Arte 32 | OR",
-                "information": "Sala Escuela de Arte 32",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59335648814121,
-                    -33.445477946300436
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2xj22uhv890c",
                 "name": "Auditorium 3",
                 "information": "Auditorium 3 en el segundo piso con vista al patio central",
