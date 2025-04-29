@@ -29932,6 +29932,30 @@
                     -33.445492895644826
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_32_|_OR-OR",
+                "name": "Taller Arte 32 | OR",
+                "information": "Sala Escuela de Arte 32",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59335648814121,
+                    -33.445477946300436
+                ]
+            }
         }
     ]
 }
