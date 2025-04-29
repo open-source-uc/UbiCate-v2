@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2v2384spiauf",
+                "name": "Sala de Estudio",
+                "information": "Sala de estudio alumnos",
+                "categories": [
+                    "studyroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594209490551,
+                    -33.44634257891822
+                ]
+            }
+        }
+    ]
 }
