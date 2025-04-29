@@ -30792,6 +30792,30 @@
                     -33.44698855107464
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2z7vt8c89fgh",
+                "name": "Direacción de Informática | OR",
+                "information": "Dirección de Informática\nServicio técnico",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5942295795486,
+                    -33.446309558149295
+                ]
+            }
         }
     ]
 }
