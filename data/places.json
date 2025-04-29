@@ -29424,6 +29424,30 @@
                     -33.44520810160795
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_25-OR",
+                "name": "Taller arte 25 | OR",
+                "information": "Taller 25 de la escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59406170621514,
+                    -33.44525985697888
+                ]
+            }
         }
     ]
 }
