@@ -30964,6 +30964,30 @@
                     -33.44663061163697
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vuhzlbxxd63",
+                "name": "Reciclaje Electrónicos y Eléctricos | OR",
+                "information": "Punto Verde de Reciclaje de Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5930746850562,
+                    -33.446568805782285
+                ]
+            }
         }
     ]
 }
