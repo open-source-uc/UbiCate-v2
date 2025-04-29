@@ -29616,6 +29616,30 @@
                     -33.445448009674685
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_23-OR",
+                "name": "Taller arte 23 | OR",
+                "information": "Taller 23 escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59424141421914,
+                    -33.44554437108807
+                ]
+            }
         }
     ]
 }
