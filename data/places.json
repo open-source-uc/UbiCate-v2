@@ -29256,6 +29256,30 @@
                     -33.44602383342191
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wfiviui123z",
+                "name": "Casino | OR",
+                "information": "Casino del Centro de eventos",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5936454934885,
+                    -33.445046940048435
+                ]
+            }
         }
     ]
 }
