@@ -15012,29 +15012,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "auditorio_Y",
-                "name": "Auditorio",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "SJ",
-                "faculties": "ING",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612009,
-                    -33.499094
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "auditorio_college",
                 "name": "Auditorio",
                 "information": "",
@@ -18275,29 +18252,6 @@
                 "coordinates": [
                     -70.611208,
                     -33.500558
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "D204",
-                "name": "D204",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "D",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610932,
-                    -33.500598
                 ]
             }
         },
@@ -29132,6 +29086,78 @@
                 "coordinates": [
                     -70.59310097546303,
                     -33.4462661592628
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "auditorio_Y",
+                "name": "Auditorio J",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61207332554795,
+                    -33.49918781688772
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "D204",
+                "name": "D204",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610932,
+                    -33.500598
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma09kdsao8yazn",
+                "name": "Punto Impresión",
+                "information": "# Punto Impresión Quisko ",
+                "categories": [
+                    "photocopy"
+                ],
+                "campus": "SJ",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61311064037827,
+                    -33.49802535991121
                 ]
             }
         }

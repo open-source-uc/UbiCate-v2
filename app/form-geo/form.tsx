@@ -1,16 +1,13 @@
 "use client";
 
-import { useEffect, useState, useCallback, Suspense } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import { campusBounds } from "@/utils/getCampusBounds";
-import getGeolocation from "@/utils/getGeolocation";
+import { siglas as MapSiglas, METHOD } from "@/utils/types";
 
-import { siglas as MapSiglas, METHOD } from "../../utils/types";
 import MarkDownComponent from "../components/markDown";
-
-import MapComponent from "./map";
 
 interface errors {
   longitude?: number | string | null;
@@ -161,8 +158,6 @@ export default function FormComponent({
     if (initialValues.longitude && initialValues.latitude) {
       setLatitude(initialValues.latitude);
       setLongitude(initialValues.longitude);
-    } else {
-      getGeolocation(setLatitude, setLongitude);
     }
   }, [initialValues]);
 
@@ -321,37 +316,6 @@ export default function FormComponent({
                   />
                 )}
               </div>
-
-              <div className="space-y-4">
-                <label
-                  className="flex items-center justify-center text-md font-medium text-white-ubi"
-                  htmlFor="location"
-                >
-                  Ubicación
-                </label>
-                <div className="flex p-3 w-full h-96 rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2">
-                  <Suspense>
-                    <MapComponent
-                      markerPosition={{
-                        longitude: longitude,
-                        latitude: latitude,
-                      }}
-                      onMarkerMove={dragLocUpdate}
-                    />
-                  </Suspense>
-                </div>
-                <ErrorMessage
-                  className="text-blue-location font-bold text-sm w-full text-center"
-                  name="longitude"
-                  component="div"
-                />
-                <ErrorMessage
-                  className="text-blue-location font-bold text-sm w-full text-left"
-                  name="latitude"
-                  component="div"
-                />
-              </div>
-
               <button
                 className="w-full p-3 text-white-ubi bg-transparent border border-brown-light rounded-lg hover:bg-brown-light/10 focus:ring-blue-location focus:outline-hidden focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"

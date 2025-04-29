@@ -3,7 +3,7 @@ import React from "react";
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
-import { Feature, PointFeature } from "../../utils/types";
+import { Feature, PointFeature } from "@/utils/types";
 
 interface MarkerProps {
   place: PointFeature;
@@ -13,6 +13,7 @@ interface MarkerProps {
   onMouseEnter?: (place: Feature | null) => void;
   onDrag?: (e: MarkerDragEvent) => void;
   onDragEnd?: (e: MarkerDragEvent) => void;
+  offset?: [number, number]; // Added offset prop
 }
 
 // Mapeo de nombres a colores
@@ -31,8 +32,6 @@ const categoryToColorMap: Record<string, string> = {
   customMark: "bg-pink-option",
 };
 
-// Mapeo de nombres a archivos SVG
-
 export default function Marker({
   place,
   draggable = false,
@@ -41,6 +40,7 @@ export default function Marker({
   onDrag,
   onDragEnd,
   icon,
+  offset = [0, 0],
 }: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
 
@@ -64,7 +64,7 @@ export default function Marker({
     <MapboxMarker
       latitude={place.geometry.coordinates[1]}
       longitude={place.geometry.coordinates[0]}
-      offset={[0, -18]}
+      offset={offset}
       draggable={draggable}
       onDrag={(e) => onDrag?.(e)}
       onDragEnd={(e) => onDragEnd?.(e)}
@@ -82,7 +82,7 @@ export default function Marker({
         }}
       >
         <div
-          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1 w-4 h-4`}
+          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1 w-4 h-4 z-50`}
         >
           {icon}
         </div>

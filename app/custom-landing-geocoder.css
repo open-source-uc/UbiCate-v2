@@ -315,6 +315,7 @@
     padding: 10px 5px;
     gap: 0.4rem;
   }
+
   .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
     max-width: 360px;
     margin: 0;
@@ -332,6 +333,7 @@
     flex-wrap: wrap;
     gap: 5px;
   }
+
   .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
     max-width: 100%;
     margin: 0;

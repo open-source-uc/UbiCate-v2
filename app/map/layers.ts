@@ -100,6 +100,7 @@ export const placesTextLayer: LayerProps = {
     "text-font": ["Open Sans Semibold"],
     "text-size": 11,
     "text-anchor": "top",
+    "text-offset": [0, 1],
   },
   paint: {
     "text-color": "#f9f8f3",

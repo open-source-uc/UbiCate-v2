@@ -1,13 +1,14 @@
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import Mapbox from "mapbox-gl";
 import Fuse from "fuse.js";
+import Mapbox from "mapbox-gl";
+
 import { Feature, JSONFeatures } from "./types";
 
 export default function getGeocoder(
   geojson: JSONFeatures,
-  onResult: (result: any) => void = () => { },
-  onResults: (results: any) => void = () => { },
-  onClear: () => void = () => { },
+  onResult: (result: any) => void = () => {},
+  onResults: (results: any) => void = () => {},
+  onClear: () => void = () => {},
 ): MapboxGeocoder {
   const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -21,8 +22,10 @@ export default function getGeocoder(
     const results = fuse.search(query);
 
     const matchingFeatures = results
-      .filter(result => result.item.properties.needApproval === false || result.item.properties.needApproval === undefined) // Para solo mostrar los que son needApproval: false
-      .map(result => {
+      .filter(
+        (result) => result.item.properties.needApproval === false || result.item.properties.needApproval === undefined,
+      ) // Para solo mostrar los que son needApproval: false
+      .map((result) => {
         const feature = result.item;
         const matchedFeatures: any = {
           ...feature,
@@ -32,7 +35,6 @@ export default function getGeocoder(
         };
         return matchedFeatures;
       });
-
 
     return matchingFeatures;
   }
@@ -63,7 +65,6 @@ export default function getGeocoder(
         </div>
       `;
     },
-
   });
 
   geocoder.on("result", onResult);
