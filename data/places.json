@@ -30408,6 +30408,30 @@
                     -33.44597100062394
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R3-OR",
+                "name": "Sala R3 | OR",
+                "information": "Sala R3 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59421878308058,
+                    -33.44595925085498
+                ]
+            }
         }
     ]
 }
