@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_8_|_OR-OR",
+                "name": "Sala 8 | OR",
+                "information": "Sala 8 Rodolfo Bravo\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59362886473536,
+                    -33.44555178466841
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_9_|_OR-OR",
                 "name": "Sala 9 | OR",
                 "information": "Sala 9 Pedro Mortheiru\n(Posibles salas T)",
@@ -694,30 +718,6 @@
                 "coordinates": [
                     -70.59361101513589,
                     -33.44586058424602
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_8_|_OR-OR",
-                "name": "Sala 8 | OR",
-                "information": "Sala 8 Rodolfo Bravo",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59362880024152,
-                    -33.4455517511141
                 ]
             }
         },
