@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import centroid from "@turf/centroid";
@@ -34,10 +34,10 @@ import MarkerIcon from "../components/icons/markerIcon";
 import { useSidebar } from "../context/sidebarCtx";
 import DirectionsComponent from "../directions/component";
 import UserLocation from "../directions/userLocation";
-import useCustomPins from "../hooks/useCustomPins";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
+import { pinsContext } from "../context/pinsCtx";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -87,9 +87,7 @@ export default function MapComponent({
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
   const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
-  const { pins, addPin, handlePinDrag, clearPins } = useCustomPins({
-    maxPins: 20,
-  });
+  const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
   const mapRef = useRef<MapRef>(null);
 
   useEffect(() => {
@@ -191,11 +189,11 @@ export default function MapComponent({
   );
 
   function onClickMap(e: MapLayerMouseEvent) {
-    handlePlaceSelection(null, { openSidebar: false });
     clearTimeout(timeoutId.current ?? undefined);
     timeoutId.current = setTimeout(() => {
+      handlePlaceSelection(null, { openSidebar: false });
       clearPins();
-    }, 300);
+    }, 150);
   }
 
   async function onLoad(e: MapEvent) {
@@ -300,10 +298,10 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
           <Layer {...placesTextLayer} />
         </Source>
-        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygon ? [...polygons, polygon] : polygons)}>
           <Layer {...sectionAreaLayer} />
         </Source>
-        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
+        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygon ? [...polygons, polygon] : polygons)}>
           <Layer {...sectionStrokeLayer} />
         </Source>
         <DebugMode />

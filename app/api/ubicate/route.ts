@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { Feature } from "@/utils/types";
+import { CategoryEnum, Feature } from "@/utils/types";
+import { z } from "zod";
+import booleanClockwise from "@turf/boolean-clockwise";
+import { getCampusNameFromPoint, getFacultiesIdsFromPoint } from "@/utils/getCampusBounds";
+import centroid from "@turf/centroid";
 
 const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
@@ -10,17 +14,6 @@ const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
 interface Places {
   type: string;
   features: Feature[];
-}
-
-interface Place {
-  information: string;
-  identifier: string;
-  floor: number;
-  latitude: number;
-  longitude: number;
-  name: string;
-  campus: string;
-  categories: string;
 }
 
 interface GithubFileResponse {
@@ -205,6 +198,98 @@ async function fetchNewPlaces(retryCount = 3): Promise<GithubFileResponse> {
   }
 }
 
+// Esquema de validación común para POST y PUT
+const placeSchema = z.object({
+  data: z.object({
+    name: z.string({ required_error: "El nombre es obligatorio" })
+      .min(2, "El nombre debe tener al menos 2 caracteres")
+      .max(60, "El nombre debe tener como máximo 60 caracteres"),
+
+    information: z.string({ required_error: "La descripción es obligatoria" })
+      .max(1024, "La descripción no puede exceder los 1024 caracteres"),
+
+    categories: z.array(
+      z.enum(Object.values(CategoryEnum) as [string, ...string[]], {
+        errorMap: () => ({ message: "Categoría no válida" })
+      })
+    ).transform((arr) => [...new Set(arr)]),
+
+    floors: z.array(
+      z.number({ invalid_type_error: "Cada piso debe ser un número" })
+    ).optional()
+      .transform((arr) => arr ? [...new Set(arr)] : arr),
+  }),
+
+  points: z.array(z.object({
+    geometry: z.object({
+      coordinates: z.tuple([
+        z.number(),
+        z.number()
+      ], { required_error: "Coordenadas son obligatorias" })
+    })
+  }))
+});
+
+// Esquema para PUT que incluye identificador
+const putSchema = placeSchema.extend({
+  identifier: z.string({ required_error: "El identificador es obligatorio" })
+});
+
+// Función para crear feature a partir de puntos
+function createFeatureFromPoints(points: any[], properties: any): Feature | null {
+  if (points.length === 1) {
+    // Caso de un solo punto
+    return {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: points[0].geometry.coordinates
+      },
+      properties: {
+        ...properties,
+        campus: getCampusNameFromPoint(points[0].geometry.coordinates[0], points[0].geometry.coordinates[1]) ?? "",
+        faculties: getFacultiesIdsFromPoint(points[0].geometry.coordinates[0], points[0].geometry.coordinates[1]) ?? [],
+      }
+    };
+  } else if (points.length >= 3) {
+    // Caso de polígono (3+ puntos)
+    const coordinates = points.map((point) => point.geometry.coordinates);
+
+    // Asegura que el polígono esté cerrado (el primer punto se repite al final)
+    const closedCoordinates =
+      coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
+        coordinates[0][1] === coordinates[coordinates.length - 1][1]
+        ? coordinates
+        : [...coordinates, coordinates[0]];
+
+    // Si no es en sentido antihorario, lo revertimos (para GeoJSON válido)
+    const isClockwise = booleanClockwise(closedCoordinates);
+    const orderedCoordinates = isClockwise
+      ? closedCoordinates.slice().reverse()
+      : closedCoordinates;
+
+    const destination = centroid({
+      type: "Polygon",
+      coordinates: [orderedCoordinates]
+    }).geometry.coordinates as [number, number];
+
+    return {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [orderedCoordinates]
+      },
+      properties: {
+        ...properties,
+        campus: getCampusNameFromPoint(destination[0], destination[1]) ?? "",
+        faculties: getFacultiesIdsFromPoint(destination[0], destination[1]) ?? [],
+      }
+    };
+  }
+
+  return null;
+}
+
 export async function GET() {
   try {
     const { fileData: approvedPlaces } = await fetchApprovedPlaces();
@@ -232,33 +317,38 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const body: Place = await request.json();
+    const body = await request.json();
+    const result = placeSchema.safeParse(body);
 
-    // Validar campos requeridos
-    const requiredFields = ["name", "information", "categories", "campus", "floor", "latitude", "longitude"];
-    for (const field of requiredFields) {
-      if (body[field as keyof Place] === undefined || body[field as keyof Place] === null) {
-        return NextResponse.json({ message: `El campo ${field} es obligatorio` }, { status: 400 });
-      }
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message || "Error de validación";
+      return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const nuevo_punto: Feature = {
-      type: "Feature",
-      properties: {
-        identifier: "", // Se generará un identificador único
-        name: body.name,
-        information: body.information,
-        categories: [body.categories],
-        campus: body.campus,
-        faculties: "",
-        floors: [body.floor],
-        needApproval: true,
-      },
-      geometry: {
-        type: "Point",
-        coordinates: [body.longitude, body.latitude],
-      },
-    };
+    const points = result.data.points;
+
+    if (points.length === 2) {
+      return NextResponse.json({ message: "Se requieren al menos 3 puntos para crear un polígono" }, { status: 400 });
+    }
+
+    let nuevo_punto = createFeatureFromPoints(points, {
+      identifier: "",
+      name: result.data.data.name,
+      information: result.data.data.information,
+      categories: result.data.data.categories,
+      floors: result.data.data.floors,
+      needApproval: true,
+    });
+
+    if (!nuevo_punto) {
+      return NextResponse.json({
+        message: "Se requiere al menos 1 punto para ubicar un lugar o 3 puntos para crear un polígono"
+      }, { status: 400 });
+    }
+
+    if (nuevo_punto.properties.campus === "") {
+      return NextResponse.json({ message: "El lugar no está dentro de un campus" }, { status: 400 });
+    }
 
     // Generar identificador
     if (nuevo_punto.properties.categories.includes("classroom")) {
@@ -269,6 +359,8 @@ export async function POST(request: NextRequest) {
     } else {
       nuevo_punto.properties.identifier = generateRandomIdWithTimestamp();
     }
+
+    console.log(nuevo_punto);
 
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
 
@@ -298,7 +390,6 @@ export async function POST(request: NextRequest) {
     // Añadir el nuevo lugar al archivo de lugares nuevos
     newPlaces.features.unshift(nuevo_punto);
     await githubFileOperation(newPlacesUrl, getID(nuevo_punto), newPlaces, newPlacesSha, "CREATE");
-
     return NextResponse.json({
       message: "¡El lugar fue creado! Ahora debe esperar a que sea aprobado (máximo 1 semana).",
       identifier: nuevo_punto.properties.identifier,
@@ -317,13 +408,16 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const body: Place = await request.json();
+    const body = await request.json();
+    const result = putSchema.safeParse(body);
 
-    if (!body.identifier) {
-      return NextResponse.json({ message: "El identificador es obligatorio" }, { status: 400 });
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message || "Error de validación";
+      return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const normalizedIdentifier = normalizeIdentifier(body.identifier);
+    const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
+    const points = result.data.points;
 
     // Verificar si el lugar existe en lugares aprobados
     const { fileData: approvedPlaces } = await fetchApprovedPlaces();
@@ -342,39 +436,43 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ message: "¡El lugar NO existe!" }, { status: 400 });
     }
 
-    // Crear el punto actualizado
-    const nuevo_punto: Feature = {
-      type: "Feature",
-      properties: {
-        identifier: body.identifier,
-        name: body.name,
-        information: body.information,
-        categories: [body.categories],
-        campus: body.campus,
-        faculties: "",
-        floors: [body.floor],
-        needApproval: true,
-      },
-      geometry: {
-        type: "Point",
-        coordinates: [body.longitude, body.latitude],
-      },
-    };
+    // Crear el punto actualizado con los nuevos datos
+    let actualizado_punto = createFeatureFromPoints(points, {
+      identifier: result.data.identifier,
+      name: result.data.data.name,
+      information: result.data.data.information,
+      categories: result.data.data.categories,
+      floors: result.data.data.floors,
+      needApproval: true,
+    });
+
+    if (!actualizado_punto) {
+      return NextResponse.json({
+        message: "Se requiere al menos 1 punto para ubicar un lugar o 3 puntos para crear un polígono"
+      }, { status: 400 });
+    }
+
+    if (actualizado_punto.properties.campus === "") {
+      return NextResponse.json({ message: "El lugar no está dentro de un campus" }, { status: 400 });
+    }
 
     try {
       // Si existe en lugares nuevos, actualizarlo
       if (newPlacesIndex !== -1) {
         newPlaces.features.splice(newPlacesIndex, 1);
-        newPlaces.features.unshift(nuevo_punto);
-        await githubFileOperation(newPlacesUrl, nuevo_punto.properties.identifier, newPlaces, newPlacesSha, "UPDATE");
+        newPlaces.features.unshift(actualizado_punto);
+        await githubFileOperation(newPlacesUrl, getID(actualizado_punto), newPlaces, newPlacesSha, "UPDATE");
       } else {
         // Si solo existe en lugares aprobados, agregarlo a lugares nuevos
-        newPlaces.features.unshift(nuevo_punto);
-        await githubFileOperation(newPlacesUrl, nuevo_punto.properties.identifier, newPlaces, newPlacesSha, "UPDATE");
+        newPlaces.features.unshift(actualizado_punto);
+        await githubFileOperation(newPlacesUrl, getID(actualizado_punto), newPlaces, newPlacesSha, "UPDATE");
       }
 
       return NextResponse.json(
-        { message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana)." },
+        {
+          message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana).",
+          identifier: actualizado_punto.properties.identifier
+        },
         { status: 200 },
       );
     } catch (error) {
@@ -410,15 +508,20 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
-    const body: {
-      identifier: string;
-    } = await request.json();
+    // Validación con Zod para PATCH
+    const patchSchema = z.object({
+      identifier: z.string({ required_error: "El identificador es obligatorio" })
+    });
 
-    if (!body.identifier) {
-      return NextResponse.json({ message: "El identificador es obligatorio" }, { status: 400 });
+    const body = await request.json();
+    const result = patchSchema.safeParse(body);
+
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message || "Error de validación";
+      return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const normalizedIdentifier = normalizeIdentifier(body.identifier);
+    const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
 
     // Obtener lugares nuevos
     const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
@@ -521,15 +624,20 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
-    const body: {
-      identifier: string;
-    } = await request.json();
+    // Validación con Zod para DELETE
+    const deleteSchema = z.object({
+      identifier: z.string({ required_error: "El identificador es obligatorio" })
+    });
 
-    if (!body.identifier) {
-      return NextResponse.json({ message: "El identificador es obligatorio" }, { status: 400 });
+    const body = await request.json();
+    const result = deleteSchema.safeParse(body);
+
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message || "Error de validación";
+      return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const normalizedIdentifier = normalizeIdentifier(body.identifier);
+    const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
 
     try {
       // Verificar en lugares aprobados

@@ -7,6 +7,7 @@ import NavigationSidebar from "./components/NavigationSidebar";
 import { DirectionsProvider } from "./context/directionsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import MapPage from "./map/mapPage";
+import { PinsProvider } from "./context/pinsCtx";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
@@ -80,18 +81,20 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   const paramPlace: Feature | null = searchParams?.place
     ? (PlacesJSON.features.find(
-        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
-      ) as Feature) ?? null
+      (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
+    ) as Feature) ?? null
     : null;
 
   return (
     <>
       <SidebarProvider>
         <DirectionsProvider>
-          <main spellCheck="false" className="h-full w-full relative flex">
-            <NavigationSidebar />
-            <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-          </main>
+          <PinsProvider>
+            <main spellCheck="false" className="h-full w-full relative flex">
+              <NavigationSidebar />
+              <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+            </main>
+          </PinsProvider>
         </DirectionsProvider>
       </SidebarProvider>
     </>

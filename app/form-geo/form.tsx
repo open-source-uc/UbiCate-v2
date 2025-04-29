@@ -1,32 +1,62 @@
 "use client";
 
-import { CategoryOptions, CategoryToDisplayName } from "@/utils/types";
-import { useState } from "react";
+import { CategoryOptions, CategoryToDisplayName, PointFeature } from "@/utils/types";
+import { use, useActionState, useState } from "react";
+import MarkDownComponent from "@/app/components/markDown";
+import { SubmitButton } from "./submitButton";
+import { pinsContext } from "../context/pinsCtx";
 
 export default function Formulario() {
-  const [open, setOpen] = useState(false);
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [notification, setNotification] = useState<{
+    type: 'success' | 'error';
+    message: string;
+    visible: boolean;
+  } | null>(null);
   const [data, setData] = useState<{
     name: string;
     information: string;
     categories: string[];
-    floors: number[];
+    floors: (number | "")[];
   }>({
     name: "",
     information: "",
-    categories: [],
+    categories: [""],
     floors: [1],
   });
+  const { pins } = use(pinsContext)
 
-  const toggleOption = (value: string) => {
+  // Función para manejar el cambio de categoría
+  const handleCategoryChange = (index: number, value: string) => {
+    const newCategories = [...data.categories];
+    newCategories[index] = value;
     setData(prev => ({
       ...prev,
-      categories: prev.categories.includes(value)
-        ? prev.categories.filter(opt => opt !== value)
-        : [...prev.categories, value],
+      categories: newCategories,
     }));
   };
 
-  const handleFloorChange = (index: number, value: number) => {
+  // Función para añadir una nueva categoría
+  const addCategory = () => {
+    setData(prev => ({
+      ...prev,
+      categories: [...prev.categories, ""],
+    }));
+  };
+
+  // Función para eliminar una categoría
+  const removeCategory = (index: number) => {
+    if (data.categories.length > 1) {
+      const newCategories = [...data.categories];
+      newCategories.splice(index, 1);
+      setData(prev => ({
+        ...prev,
+        categories: newCategories,
+      }));
+    }
+  };
+
+  const handleFloorChange = (index: number, value: number | "") => {
     const newFloors = [...data.floors];
     newFloors[index] = value;
     setData(prev => ({
@@ -42,124 +72,256 @@ export default function Formulario() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(data);
-    // Aquí podrías mandar `data` a tu API
+  // Función para eliminar un piso
+  const removeFloor = (index: number) => {
+    if (data.floors.length > 1) {
+      const newFloors = [...data.floors];
+      newFloors.splice(index, 1);
+      setData(prev => ({
+        ...prev,
+        floors: newFloors,
+      }));
+    }
   };
 
+  const [state, action, pending] = useActionState(async (_) => {
+    console.log(pins)
+    try {
+      const response = await fetch("/api/ubicate", {
+        method: "POST",
+        body: JSON.stringify({
+          data: data,
+          points: pins
+        }),
+      });
+
+      if (response.ok) {
+        setNotification({
+          type: 'success',
+          message: 'Ubicación creada',
+          visible: true
+        });
+      } else {
+        const errorData = await response.json();
+        setNotification({
+          type: 'error',
+          message: `${errorData.message || 'Ha ocurrido un error'}`,
+          visible: true
+        });
+      }
+
+      // Auto-hide notification after 5 seconds
+      setTimeout(() => {
+        setNotification(prev => prev ? { ...prev, visible: false } : null);
+      }, 5000);
+
+    } catch (error) {
+      setNotification({
+        type: 'error',
+        message: 'Error: Ha ocurrido un error de conexión',
+        visible: true
+      });
+
+      setTimeout(() => {
+        setNotification(prev => prev ? { ...prev, visible: false } : null);
+      }, 5000);
+    }
+  }, {})
+
   return (
-    <form
-      className="flex flex-col gap-6 h-full"
-      onSubmit={handleSubmit}
-      onClick={() => setOpen(false)}
-    >
-      <h1 className="text-2xl font-bold text-gray-800">¡Nueva Ubicación!</h1>
+    <>
+      {notification && notification.visible && (
+        <div className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${notification.type === 'success' ? 'bg-success' : 'bg-error'
+          } text-white`}>
+          {notification.message}
+        </div>
+      )}
 
-      <label className="flex flex-col gap-1">
-        <span className="font-semibold">Nombre del lugar</span>
-        <input
-          type="text"
-          value={data.name}
-          onChange={e => setData(prev => ({ ...prev, name: e.target.value }))}
-          className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Ej: K203, Biblioteca, Sala Álvaro Campos..."
-        />
-      </label>
+      <form
+        className="space-y-4 text-md px-3 py-5"
+        action={action}
+      >
+        <h1 className="text-2xl font-bold text-center text-white-ubi">¡Nueva Ubicación!</h1>
 
-      <div className="relative" onClick={e => e.stopPropagation()}>
-        <span className="font-semibold mb-1 block">Categorías</span>
-        <button
-          type="button"
-          onClick={() => setOpen(!open)}
-          className="w-full border rounded-lg px-4 py-2 text-left focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          {data.categories.length > 0
-            ? `${data.categories.length} seleccionadas`
-            : "Seleccionar opciones"}
-        </button>
+        <div className="space-y-4">
+          <label
+            className="flex items-center justify-center text-md font-medium text-white-ubi"
+            htmlFor="placeName"
+          >
+            Nombre de la Ubicación
+          </label>
+          <p className="text-xs text-white-ubi italic text-center">
+            Ejemplo: &quot;Sala de Estudio&quot;, &quot;Fork&quot;, &quot;Departamento de Ciencia de la Computación&quot;
+          </p>
+          <input
+            id="placeName"
+            type="text"
+            value={data.name}
+            onChange={e => setData(prev => ({ ...prev, name: e.target.value }))}
+            className="block p-3 w-full text-sm rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
+            placeholder="Ej: K203, Biblioteca, Sala Álvaro Campos..."
+            max={20}
+          />
+        </div>
 
-        {open && (
-          <div className="absolute mt-2 w-full rounded-lg shadow-lg z-10 max-h-60 overflow-y-auto bg-brown-light">
-            {CategoryOptions.map(option => (
-              <label
-                key={option}
-                className="flex items-center px-4 py-2 cursor-pointer"
+        <div className="space-y-4">
+          <label
+            className="flex items-center justify-center text-md font-medium text-white-ubi"
+            htmlFor="categories"
+          >
+            Categorías
+          </label>
+          <p className="text-xs text-white-ubi text-center italic">
+            Selecciona las categorías que consideres que corresponden
+          </p>
+
+          {data.categories.map((category, index) => (
+            <div key={index} className="flex items-center gap-2 w-full">
+              <select
+                value={category}
+                onChange={e => handleCategoryChange(index, e.target.value)}
+                className="block p-3 w-full text-sm rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2 bg-brown-dark"
               >
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={data.categories.includes(option)}
-                  onChange={() => toggleOption(option)}
-                  className="mr-2"
-                />
-                {CategoryToDisplayName.get(option)}
-              </label>
-            ))}
-          </div>
-        )}
-      </div>
+                <option value="">Seleccionar categoría</option>
+                {CategoryOptions.map(option => (
+                  <option key={option} value={option}>
+                    {CategoryToDisplayName.get(option)}
+                  </option>
+                ))}
+              </select>
 
-      <label className="flex flex-col gap-1">
-        <span className="font-semibold">Descripción (opcional)</span>
-        <textarea
-          value={data.information}
-          onChange={e =>
-            setData(prev => ({ ...prev, information: e.target.value }))
-          }
-          className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Puedes usar Markdown aquí..."
-          rows={4}
-        ></textarea>
-      </label>
+              {data.categories.length > 1 && (
+                <button
+                  type="button"
+                  className="w-12 h-12 bg-transparent border border-brown-light text-white-ubi rounded-full focus:ring-blue-location focus:outline-hidden focus:ring-2 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  onClick={() => removeCategory(index)}
+                >
+                  x
+                </button>
+              )}
+            </div>
+          ))}
 
-      <div className="flex flex-col gap-2">
-        <label className="font-semibold">Piso/s</label>
-        <div className="flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={addCategory}
+            className="text-sm text-blue-location hover:underline self-start"
+          >
+            + Agregar otra categoría
+          </button>
+        </div>
+
+        <div className="space-y-4">
+          <label className="flex items-center justify-center text-md font-medium text-white-ubi" htmlFor="floor">
+            Piso/s
+          </label>
+          <p className="text-xs text-white-ubi text-center italic">
+            Si corresponde, selecciona el piso en el que se encuentra la ubicación
+          </p>
           {data.floors.map((floor, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => handleFloorChange(index, floor - 1)}
-                className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
-              >
-                −
-              </button>
+            <div key={index} className="flex items-center gap-2 w-full">
               <input
                 type="number"
                 value={floor}
                 onChange={e =>
-                  handleFloorChange(index, parseInt(e.target.value) || 0)
+                  handleFloorChange(index, parseInt(e.target.value) || "")
                 }
-                className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="block p-3 w-full text-sm rounded-lg border border-brown-light focus:ring-blue-location focus:outline-hidden focus:ring-2"
                 placeholder={`Piso ${index + 1}`}
+                min={-10}
+                max={20}
               />
               <button
                 type="button"
-                onClick={() => handleFloorChange(index, floor + 1)}
-                className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                className="w-12 h-12 bg-transparent border border-brown-light text-white-ubi rounded-full focus:ring-blue-location focus:outline-hidden focus:ring-2 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                onClick={() => handleFloorChange(index, (floor || 1) - 1 === 0 ? -1 : (floor || 1) - 1)}
+              >
+                -
+              </button>
+              <button
+                type="button"
+                className="w-12 h-12 bg-transparent border border-brown-light text-white-ubi rounded-full focus:ring-blue-location focus:outline-hidden focus:ring-2 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                onClick={() => handleFloorChange(index, (floor || 1) + 1 === 0 ? 1 : (floor || 1) + 1)}
               >
                 +
               </button>
+
+              {data.floors.length > 1 && (
+                <button
+                  type="button"
+                  className="w-12 h-12 bg-transparent border border-brown-light text-white-ubi rounded-full focus:ring-blue-location focus:outline-hidden focus:ring-2 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center"
+                  onClick={() => removeFloor(index)}
+                >
+                  x
+                </button>
+              )}
             </div>
           ))}
+          <button
+            type="button"
+            onClick={addFloor}
+            className="text-sm text-blue-location hover:underline self-start"
+          >
+            + Agregar otro piso
+          </button>
         </div>
 
-        <button
-          type="button"
-          onClick={addFloor}
-          className="text-sm text-blue-600 hover:underline self-start"
-        >
-          + Agregar otro piso
-        </button>
-      </div>
+        <div className="space-y-4">
+          <label
+            className="flex items-center justify-center text-md font-medium text-white-ubi"
+            htmlFor="information"
+          >
+            Descripción (Opcional)
+          </label>
+          <p className="text-xs text-white-ubi text-center italic">
+            ¡Cuéntanos más sobre esta ubicación!
+            <br />- Soporta markdown -
+          </p>
 
-      <button
-        type="submit"
-        className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg"
-      >
-        Crear ubicación
-      </button>
-    </form>
+          <div className="flex justify-end mb-2 space-x-2">
+            <button
+              type="button"
+              className={`px-3 py-1 rounded-md text-sm ${!isPreviewMode
+                ? "bg-blue-location text-white"
+                : "bg-transparent border border-brown-light text-white-ubi"
+                }`}
+              onClick={() => setIsPreviewMode(false)}
+            >
+              Editar
+            </button>
+            <button
+              type="button"
+              className={`px-3 py-1 rounded-md text-sm ${isPreviewMode
+                ? "bg-blue-location text-white"
+                : "bg-transparent border border-brown-light text-white-ubi"
+                }`}
+              onClick={() => setIsPreviewMode(true)}
+            >
+              Vista Previa
+            </button>
+          </div>
+
+          {isPreviewMode ? (
+            <div className="bg-brown-medium rounded-md p-4 min-[h-20]">
+              <MarkDownComponent>{data.information}</MarkDownComponent>
+            </div>
+          ) : (
+            <textarea
+              value={data.information}
+              onChange={e =>
+                setData(prev => ({ ...prev, information: e.target.value }))
+              }
+              className="w-full field-sizing-content text-sm resize-none min-h-20 p-2 rounded-lg border border-brown-light dark:text-light-4 focus:ring-blue-location focus:outline-hidden focus:ring-2"
+              placeholder="Puedes usar Markdown aquí..."
+              rows={4}
+              maxLength={1024}
+            ></textarea>
+          )}
+        </div>
+        <SubmitButton fallback="Procesando...">
+          Crear Ubicacion
+        </SubmitButton>
+      </form>
+    </>
   );
 }

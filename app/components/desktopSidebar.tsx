@@ -15,6 +15,7 @@ import PlaceInfo from "../map/placeInfo";
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import PillFilter from "./pillFilterBar";
+import { set } from "zod";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -53,6 +54,7 @@ export default function DesktopSidebar() {
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
+      setIsOpen(false);
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
@@ -159,7 +161,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${activeSubSidebar !== null ? "w-80 opacity-100 p-4" : "w-0 opacity-0 p-0"
+          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${activeSubSidebar !== null ? "w-80 opacity-100 p-0" : "w-0 opacity-0 p-0"
             }`}
         >
           <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
@@ -175,18 +177,16 @@ export default function DesktopSidebar() {
               </>
             )}
             {activeSubSidebar === "placeInformation" && (
-              <div className="w-full h-full">
-                <PlaceInfo
-                  place={selectedPlace}
-                  onClose={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                  }}
-                />
-              </div>
+              <PlaceInfo
+                place={selectedPlace}
+                onClose={() => {
+                  setSelectedPlace(null);
+                  toggleSubSidebar(null);
+                }}
+              />
             )}
             {activeSubSidebar === "buscar" && (
-              <div className="w-full h-full overflow-auto space-y-2">
+              <div className="w-full h-full overflow-auto space-y-2 px-2 py-2">
                 <h3 className="font-bold text-lg">Buscar</h3>
                 <div className="p-1">
                   <section ref={refSearchContainer} />

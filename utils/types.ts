@@ -38,7 +38,8 @@ export enum CategoryEnum {
   STUDYROOM = "studyroom",
   TRASH = "trash",
   WATER = "water",
-  USER_LOCATION = "user"
+  USER_LOCATION = "user",
+  YARD = "yard"
 }
 
 
@@ -48,7 +49,7 @@ export interface Properties {
   information: string;
   categories: string[];
   campus: string;
-  faculties?: string;
+  faculties?: string[];
   floors?: number[];
   needApproval?: boolean;
 }
@@ -135,7 +136,8 @@ export const CategoryToDisplayName: Map<CategoryEnum, string> = new Map([
   [CategoryEnum.FACULTY, "Facultad"],
   [CategoryEnum.BUILDING, "Edificio"],
   [CategoryEnum.OTHER, "Otro"],
-  [CategoryEnum.CUSTOM_MARK, "Marcador"]
+  [CategoryEnum.CUSTOM_MARK, "Marcador"],
+  [CategoryEnum.YARD, "Patio"],
 ]);
 
 export const CategoryOptions = [
@@ -157,6 +159,7 @@ export const CategoryOptions = [
   CategoryEnum.PARKING,
   CategoryEnum.FACULTY,
   CategoryEnum.BUILDING,
+  CategoryEnum.YARD,
   CategoryEnum.OTHER,
 ]
 

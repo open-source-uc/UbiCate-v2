@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 
 import { CategoryEnum, Feature, siglas as MapSiglas, METHOD } from "@/utils/types";
 
@@ -13,6 +13,7 @@ import {
 } from "../components/ui/dropdown-menu";
 import RouteButton from "../directions/routeButton";
 import FormGeo from "../form-geo/form";
+import { pinsContext } from "../context/pinsCtx";
 
 interface PlaceInfoProps {
   place: Feature | null;
@@ -24,7 +25,6 @@ interface PlaceInfoProps {
 export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: PlaceInfoProps) {
   const [edit, setEdit] = useState<boolean>(false);
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
-
   useEffect(() => {
     if (edit) {
       onEdit?.();
@@ -111,7 +111,7 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
   return (
     <>
       {!edit ? (
-        <div className="space-y-6 overflow-y-auto">
+        <div className="space-y-6 overflow-y-auto px-2">
           <div className="space-y-1 flex flex-col relative bg-brown-dark pt-2 pb-1 top-0 z-10">
             <div className="flex items-center justify-between w-full">
               <div className="max-w-[260px] pr-10">
@@ -244,26 +244,10 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
           ) : null}
         </div>
       ) : (
-        <div className="h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
-          <FormGeo
-            values={{
-              placeName: place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK)
-                ? ""
-                : (place.properties.name as string),
-              information: place.properties.information as string,
-              floor: place.properties.floors?.[0] ?? 1,
-              longitude: place.geometry.coordinates[0] as number,
-              latitude: place.geometry.coordinates[1] as number,
-              categories: place.properties.categories.at(0) as string,
-              identifier: place.properties.identifier as string,
-            }}
-            mode={place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? METHOD.CREATE : METHOD.UPDATE}
-            fun={() => {
-              onCloseEdit?.();
-              setEdit(false);
-            }}
-          />
-        </div>
+        <FormGeo
+        >
+
+        </FormGeo>
       )}
     </>
   );
