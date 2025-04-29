@@ -1,32 +1,36 @@
 "use client";
 import "../custom-landing-geocoder.css";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
 import { SubSidebarType } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
+import { useDirections } from "../context/directionsCtx";
 import { useSidebar } from "../context/sidebarCtx";
-import MenuInformation from "../map/menuInformation";
+import PlaceInformation from "../map/placeInfo";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import PillFilter from "./pillFilterBar";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
-  const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
+  const { setDirectionData, duration, distance } = useDirections();
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
   const handleToggleSidebar = () => {
     toggleSidebar();
   };
@@ -150,8 +154,8 @@ export default function MobileSidebar() {
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("menuInformation");
-      setSidebarHeight(60);
+      setActiveSubSidebar("placeInformation");
+      setSidebarHeight(45);
     } else {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
@@ -197,36 +201,37 @@ export default function MobileSidebar() {
       {/* Search Container */}
       <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
         <div ref={refSearchContainer} className="w-full" />
-        {/* <div className="w-full h-16 py-2 items-center justify-center">
-          <Pill
-            title={"¡Ubícate en la UC y gana premios! 🎊"}
-            className="w-full truncate rounded-xl flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent"
-            icon={<Icons.OSUC />}
-            bg_color="bg-blue-location"
-            onClick={() =>
-              setSelectedPlace({
-                type: "Feature",
-                properties: {
-                  identifier: "26032025",
-                  name: "Concurso de Open Source UC",
-                  information:
-                    "## ¿Quieres ganar una [figurita](https://thegithubshop.com/collections/collectibles/products/1539178-00-mona-figurine-5-5) de Mona de GitHub? ¡Entonces participa de este concurso!\n\nPara participar, debes:\n- Ir a una ubicación del campus que te encante\n- Sacar una fotografía (no es necesario que tú salgas en esta)\n- Subir la fotografía a una historia de Instagram haciendo tag a @opensource_euc y utilizando el hashtag #ubicateuc\n\nPuedes tomar fotografías de la entrada al Campus, de nuestro patio de Ingeniería, de nuestra Alameda principal o edificios; ¡lo importante es que sea un lugar que te encante de nuestros campus! 💖\n\n**¡Participa de este concurso y gana!**",
-                  categories: ["event"],
-                  campus: "SJ",
-                  faculties: "ING",
-                  floors: [1],
-                  needApproval: false,
-                },
-                geometry: {
-                  type: "Point",
-                  coordinates: [-70.61305934398541, -33.50019582185146],
-                },
-              })
-            }
-            active={false}
-            noActivateClassName="bg-brown-dark desktop:bg-brown-medium text-white-ubi"
-          />
-        </div> */}
+        {duration && distance ? (
+          <div
+            className="
+      w-full pointer-events-auto cursor-pointer transition-colors duration-200
+      flex items-center justify-start gap-3 px-4 py-3 mt-2
+      rounded-lg bg-brown-medium hover:bg-brown-light
+    "
+          >
+            <div
+              className="
+        flex items-center justify-center
+        min-w-[28px] min-h-[28px] desktop:min-w-[32px] desktop:min-h-[32px]
+        bg-blue-location rounded-md
+      "
+            >
+              <Icons.Directions className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-sm font-medium whitespace-normal break-words desktop:text-base desktop:font-normal text-white">
+              Ruta de <span className="font-bold">{distance}</span> metros.
+            </span>
+            <div className="ml-auto flex-shrink-0">
+              <button
+                onClick={(e) => setDirectionData(null, null, null)}
+                className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2"
+                aria-label="Cerrar menú"
+              >
+                <Icons.Close />
+              </button>
+            </div>
+          </div>
+        ) : null}
       </section>
 
       {/* Main Sidebar */}
@@ -324,8 +329,8 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "menuInformation" && (
-                <MenuInformation
+              {activeSubSidebar === "placeInformation" && (
+                <PlaceInformation
                   place={selectedPlace}
                   onClose={() => {
                     setSelectedPlace(null);
