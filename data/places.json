@@ -30988,6 +30988,30 @@
                     -33.446568805782285
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E208_|_OR-OR",
+                "name": "E208 | OR",
+                "information": "Sala E208",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935708736472,
+                    -33.446646509610716
+                ]
+            }
         }
     ]
 }
