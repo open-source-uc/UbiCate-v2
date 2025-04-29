@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2xj22uhv890c",
+                "name": "Auditorium 3 | OR",
+                "information": "Auditorium 3 en el segundo piso con vista al patio central",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59403773397207,
+                    -33.44601366346211
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_R6-OR",
                 "name": "Sala R6 | OR",
                 "information": "Sala R6, segundo piso ",
@@ -838,30 +862,6 @@
                 "coordinates": [
                     -70.59406596627886,
                     -33.44606495996091
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ma2xj22uhv890c",
-                "name": "Auditorium 3",
-                "information": "Auditorium 3 en el segundo piso con vista al patio central",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59403765292237,
-                    -33.44601367365815
                 ]
             }
         },
