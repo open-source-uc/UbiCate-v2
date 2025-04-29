@@ -29500,6 +29500,30 @@
                     -33.445307316794846
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_24_|_OR-OR",
+                "name": "Taller Arte 24 | OR",
+                "information": "Sala escuela de arte 24",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59411618858576,
+                    -33.445335112030676
+                ]
+            }
         }
     ]
 }
