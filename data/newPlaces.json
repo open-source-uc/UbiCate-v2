@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2xurvzfro06t",
+                "name": "Camanires escuela de teatro",
+                "information": "Camarines hombre y mujer separados. De la escuela de teatro.",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59325334592967,
+                    -33.44561506410515
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_10-OR",
                 "name": "Sala 10",
                 "information": "Sala 10 Bernardo Trumper",
