@@ -31128,6 +31128,30 @@
                     -33.446229546174976
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vsrrwpnnd1p",
+                "name": "Reciclaje | OR",
+                "information": "Punto de Reciclaje | OR",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59315552530066,
+                    -33.44654135840123
+                ]
+            }
         }
     ]
 }
