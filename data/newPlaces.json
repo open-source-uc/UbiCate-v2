@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "TALLER_21_ARTE-OR",
+                "name": "Taller 21 arte",
+                "information": "Taller 21 escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59438222362328,
+                    -33.44574497545007
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_22_ARTE-OR",
                 "name": "Taller 22 arte",
                 "information": "Taller 22 escuela de Arte",
