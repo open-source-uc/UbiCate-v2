@@ -724,30 +724,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_33_|_OR-OR",
-                "name": "Taller Arte 33 | OR",
-                "information": "Sala Escuela de Arte 33",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59334568661137,
-                    -33.44548427957816
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_FRAY_ANGÉLICO-OR",
                 "name": "Sala Fray Angélico",
                 "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
