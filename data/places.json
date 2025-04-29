@@ -29688,6 +29688,30 @@
                     -33.44589818672231
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zh7nxqhfg72",
+                "name": "Punto de microondas | OR",
+                "information": "Microondas",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59453820568223,
+                    -33.445877248561324
+                ]
+            }
         }
     ]
 }
