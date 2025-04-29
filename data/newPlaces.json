@@ -700,30 +700,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_TECLADOS_|_OR-OR",
-                "name": "Sala de Teclados | OR",
-                "information": "Sala de Taclados",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5931732473111,
-                    -33.44561313297835
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2ygvmuk9n1wk",
                 "name": "Dirección de Educación Continua | OR",
                 "information": "Oficinas de la Dirección  de Educación Continua, segundo piso en pasillo con vista al patio de la Virgen",
