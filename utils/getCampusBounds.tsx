@@ -110,6 +110,7 @@ export function getCampusBoundsFromName(paramCampus: string | null): [number, nu
   ];
   return campusMapBounds;
 }
+
 export function getCampusBoundsFromPoint(longitude: number, latitude: number): [number, number, number, number] | null {
   for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
     if (
@@ -130,22 +131,7 @@ export function getCampusBoundsFromPoint(longitude: number, latitude: number): [
   return null
 }
 
-function getCampusFromPoint(longitude: number, latitude: number): string | null {
-  for (const [boundaryCampus, boundary] of Object.entries(campusBounds)) {
-    if (
-      longitude >= boundary.longitudeRange[0] &&
-      longitude <= boundary.longitudeRange[1] &&
-      latitude >= boundary.latitudeRange[0] &&
-      latitude <= boundary.latitudeRange[1]
-    ) {
-      return boundaryCampus
-    }
-  }
-
-  return null
-}
-
-export function getCampusFromPoint2(longitude: number, latitude: number): string {
+export function getCampusNameFromPoint(longitude: number, latitude: number): string | null {
   for (const [boundaryCampus, boundary] of Object.entries(campusMaxBounds)) {
     if (
       longitude >= boundary.longitudeRange[0] &&
@@ -157,29 +143,5 @@ export function getCampusFromPoint2(longitude: number, latitude: number): string
     }
   }
 
-  return "SanJoaquin"
-}
-
-async function getCampusFromUserLocation(): Promise<string | null> {
-  return new Promise((resolve) => {
-    if (!navigator.geolocation) {
-      resolve(null);
-    } else {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { longitude, latitude } = position.coords;
-          const campusBounds = getCampusFromPoint(longitude, latitude);
-
-          if (campusBounds) {
-            resolve(campusBounds);
-          } else {
-            resolve(null);
-          }
-        },
-        (error) => {
-          resolve(null);
-        }
-      );
-    }
-  });
+  return null
 }

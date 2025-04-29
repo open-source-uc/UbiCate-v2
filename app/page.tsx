@@ -4,8 +4,9 @@ import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
 import NavigationSidebar from "./components/NavigationSidebar";
+import { DirectionsProvider } from "./context/directionsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
-import MapComponent from "./map/map";
+import MapPage from "./map/mapPage";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
@@ -86,10 +87,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   return (
     <>
       <SidebarProvider>
-        <main spellCheck="false" className="h-full w-full relative flex">
-          <NavigationSidebar />
-          <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-        </main>
+        <DirectionsProvider>
+          <main spellCheck="false" className="h-full w-full relative flex">
+            <NavigationSidebar />
+            <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+          </main>
+        </DirectionsProvider>
       </SidebarProvider>
     </>
   );
