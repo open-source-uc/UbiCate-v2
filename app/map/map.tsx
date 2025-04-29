@@ -73,7 +73,7 @@ export default function MapComponent({
 }) {
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
-  const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen } = useSidebar();
+  const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins } = useCustomPins({
     maxPins: 20,
   });
@@ -84,7 +84,7 @@ export default function MapComponent({
     const campusName = params.get("campus");
     if (campusName) {
       localStorage.setItem("defaultCampus", campusName);
-      // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
@@ -290,10 +290,9 @@ export default function MapComponent({
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON([...points, ...polygons])}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
           <Layer {...placesTextLayer} />
         </Source>
-
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...sectionAreaLayer} />
         </Source>

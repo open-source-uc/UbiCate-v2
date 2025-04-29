@@ -204,25 +204,24 @@ export default function MobileSidebar() {
         {duration && distance ? (
           <div
             className="
-    w-full pointer-events-auto cursor-pointer transition-colors duration-200
-    flex items-center justify-start gap-3 px-4 py-3 mt-2
-    rounded-lg bg-brown-medium hover:bg-brown-light
-  "
+      w-full pointer-events-auto cursor-pointer transition-colors duration-200
+      flex items-center justify-start gap-3 px-4 py-3 mt-2
+      rounded-lg bg-brown-medium hover:bg-brown-light
+    "
           >
             <div
               className="
-      flex items-center justify-center
-      min-w-[28px] min-h-[28px] desktop:min-w-[32px] desktop:min-h-[32px]
-      bg-blue-location rounded-md
-    "
+        flex items-center justify-center
+        min-w-[28px] min-h-[28px] desktop:min-w-[32px] desktop:min-h-[32px]
+        bg-blue-location rounded-md
+      "
             >
               <Icons.Directions className="w-5 h-5 text-white" />
             </div>
-            <span className="text-sm font-medium whitespace-nowrap desktop:text-base desktop:font-normal text-white">
-              Ruta de <span className="font-bold">{distance}</span> metros | duración{" "}
-              <span className="font-bold">{duration}</span>
+            <span className="text-sm font-medium whitespace-normal break-words desktop:text-base desktop:font-normal text-white">
+              Ruta de <span className="font-bold">{distance}</span> metros.
             </span>
-            <div className="ml-auto">
+            <div className="ml-auto flex-shrink-0">
               <button
                 onClick={(e) => setDirectionData(null, null, null)}
                 className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -233,6 +232,7 @@ export default function MobileSidebar() {
             </div>
           </div>
         ) : null}
+
       </section>
 
       {/* Main Sidebar */}

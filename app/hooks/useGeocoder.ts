@@ -8,14 +8,15 @@ const loadGeocoder = () => import("@/utils/getGeocoder");
 function useGeocoder(
   ref: React.RefObject<HTMLElement | null> | null,
 ): [
-  Feature[],
-  PointFeature[],
-  PolygonFeature[],
-  (places: Feature[] | Feature | null) => void,
-  RefObject<MapboxGeocoder | null>,
-  Feature | null,
-  (place: Feature | null) => void,
-] {
+    Feature[],
+    PointFeature[],
+    PolygonFeature[],
+    (places: Feature[] | Feature | null) => void,
+    RefObject<MapboxGeocoder | null>,
+    Feature | null,
+    (place: Feature | null) => void,
+    PointFeature[],
+  ] {
   const [findPlaces, setFindPlaces] = useState<Feature[]>([]);
   const geocoder = useRef<MapboxGeocoder | null>(null);
   const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
@@ -64,7 +65,7 @@ function useGeocoder(
     [setFindPlaces],
   );
 
-  const Points = useMemo(
+  const PointsName = useMemo(
     () =>
       findPlaces
         .filter((e) => e.geometry.type === "Point")
@@ -89,6 +90,7 @@ function useGeocoder(
   );
 
   const Polygons = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Polygon"), [findPlaces]);
+  const Points = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Point"), [findPlaces]);
 
   return [
     findPlaces,
@@ -98,6 +100,7 @@ function useGeocoder(
     geocoder,
     selectedPlace,
     setSelectedPlace,
+    PointsName as PointFeature[],
   ];
 }
 
