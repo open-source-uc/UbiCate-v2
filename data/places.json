@@ -30772,6 +30772,30 @@
                     -33.44634099437342
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vnzpaopfefe",
+                "name": "Centro de Reciclaje | OR",
+                "information": "Centro de reciclaje OR",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59337788427646,
+                    -33.44698855107464
+                ]
+            }
         }
     ]
 }
