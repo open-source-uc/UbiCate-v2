@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_R6-OR",
+                "name": "Sala R6 | OR",
+                "information": "Sala R6, segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5943813920021,
+                    -33.4458350389144
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_R5-OR",
                 "name": "Sala R5 | OR",
                 "information": "Sala R5 segundo piso ",
@@ -863,30 +887,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R6-OR",
-                "name": "Sala R6",
-                "information": "Sala R6, segundo piso ",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59438131776655,
-                    -33.44583508282891
-                ]
             }
         },
         {
