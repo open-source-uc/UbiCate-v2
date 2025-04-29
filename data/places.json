@@ -29760,6 +29760,30 @@
                     -33.44566942271695
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_21_ARTE-OR",
+                "name": "Taller arte 21  | OR",
+                "information": "Taller 21 escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59438223019242,
+                    -33.44574495717055
+                ]
+            }
         }
     ]
 }
