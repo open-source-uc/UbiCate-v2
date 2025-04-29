@@ -196,30 +196,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ma2xp903zzejvs",
-                "name": "LAITEC | OR",
-                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59333214536309,
-                    -33.445492895644826
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2zomg0raykyu",
                 "name": "Reciclaje | OR",
                 "information": "Punto verde",
