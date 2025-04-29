@@ -1,31 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61464275163293,
-                    -33.4983666454104
-                ]
-            },
-            "properties": {
-                "identifier": "ma2xivj0updj9b",
-                "name": "ROCKA",
-                "information": "",
-                "categories": [
-                    "parking",
-                    "building"
-                ],
-                "floors": [
-                    2,
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        }
-    ]
+    "features": []
 }
