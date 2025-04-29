@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_R1-OR",
+                "name": "Sala R1",
+                "information": "Sala R1 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59411754432018,
+                    -33.44598577904956
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_R2-OR",
                 "name": "Sala R2",
                 "information": "Sala R2 segundo piso",
