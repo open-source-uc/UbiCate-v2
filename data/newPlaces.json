@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_FRAY_ANGÉLICO-OR",
+                "name": "Sala Fray Angélico | OR",
+                "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59406589716673,
+                    -33.44606499871828
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2xj22uhv890c",
                 "name": "Auditorium 3 | OR",
                 "information": "Auditorium 3 en el segundo piso con vista al patio central",
@@ -838,30 +862,6 @@
                 "coordinates": [
                     -70.59361101513589,
                     -33.44586058424602
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_FRAY_ANGÉLICO-OR",
-                "name": "Sala Fray Angélico",
-                "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59406596627886,
-                    -33.44606495996091
                 ]
             }
         },
