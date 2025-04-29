@@ -30600,6 +30600,30 @@
                     -33.44601366346211
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xlvgb6avbmb",
+                "name": "Auditorium 1 | OR",
+                "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59392994269729,
+                    -33.446105703218606
+                ]
+            }
         }
     ]
 }
