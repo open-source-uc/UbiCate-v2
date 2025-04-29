@@ -219,30 +219,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "ma2y5z8gamux70",
-                "name": "Auditorium 2 | OR",
-                "information": "Auditorium 2",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59361101513589,
-                    -33.44586058424602
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
