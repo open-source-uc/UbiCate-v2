@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2za5a3bfzpuz",
+                "name": "Subdirección dd Bienestar y Calidad de Vida | OR",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59427663726358,
+                    -33.44633499866576
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2z95pgfxqdpy",
                 "name": "Reciclaje | OR",
                 "information": "",
