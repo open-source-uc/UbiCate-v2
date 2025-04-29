@@ -460,30 +460,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ma2v6p21mo5n6j",
-                "name": "Sala de oración Templo",
-                "information": "Sala de oración",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5937996815866,
-                    -33.4461424729108
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2v4rm1ispnyp",
                 "name": "FEUC",
                 "information": "Sala de atención FEUC",
