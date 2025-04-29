@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2xp903zzejvs",
+                "name": "LAITEC",
+                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59333209517774,
+                    -33.44549295762982
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_8_|_OR-OR",
                 "name": "Sala 8 | OR",
                 "information": "Sala 8 Rodolfo Bravo",
