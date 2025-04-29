@@ -4,7 +4,7 @@ import "../custom-landing-geocoder.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { SubSidebarType } from "@/utils/types";
 
@@ -15,7 +15,6 @@ import PlaceInfo from "../map/placeInfo";
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import PillFilter from "./pillFilterBar";
-import { set } from "zod";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -23,13 +22,13 @@ export default function DesktopSidebar() {
   const router = useRouter();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
-  const toggleSidebar = () => {
+  const toggleSidebar = useCallback(() => {
     setIsOpen(!isOpen);
-  };
+  }, [setIsOpen, isOpen]);
 
-  const handleToggleSidebar = () => {
+  const handleToggleSidebar = useCallback(() => {
     toggleSidebar();
-  };
+  }, [toggleSidebar]);
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
@@ -39,10 +38,10 @@ export default function DesktopSidebar() {
     toggleSubSidebar(type);
   };
 
-  const handleSearchSelection = () => {
+  const handleSearchSelection = useCallback(() => {
     handleToggleSidebar();
     setActiveSubSidebar(null);
-  };
+  }, [handleToggleSidebar, setActiveSubSidebar]);
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
@@ -79,7 +78,7 @@ export default function DesktopSidebar() {
     return () => {
       current?.off("result", handleSearchSelection);
     };
-  }, [activeSubSidebar, geocoder]);
+  }, [activeSubSidebar, geocoder, handleSearchSelection]);
 
   return (
     <>
@@ -87,8 +86,9 @@ export default function DesktopSidebar() {
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
-          className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${isOpen ? "w-72" : "w-20"
-            }`}
+          className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${
+            isOpen ? "w-72" : "w-20"
+          }`}
         >
           <div className={`flex items-center p-4 ${isOpen ? "flex-row justify-between" : "flex-col py-8 space-y-6"}`}>
             {/* Logo - visible only when expanded */}
@@ -110,13 +110,16 @@ export default function DesktopSidebar() {
               {/* Search button */}
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("buscar") : handleCollapsedClick("buscar"))}
-                className={`${isOpen ? "w-full p-2 rounded-md hover:bg-brown-medium" : ""
-                  } flex items-center pointer-events-auto cursor-pointer ${!isOpen ? "justify-center px-4 py-3" : "space-x-4"
-                  }`}
+                className={`${
+                  isOpen ? "w-full p-2 rounded-md hover:bg-brown-medium" : ""
+                } flex items-center pointer-events-auto cursor-pointer ${
+                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
+                }`}
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
-                    }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
+                  }`}
                 >
                   <Icons.Search />
                 </span>
@@ -126,13 +129,16 @@ export default function DesktopSidebar() {
               {/* Campus button */}
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
-                className={`${isOpen ? "w-full p-2 rounded-md hover:bg-brown-light/18" : ""
-                  } flex items-center pointer-events-auto cursor-pointer ${!isOpen ? "justify-center px-4 py-3" : "space-x-4"
-                  }`}
+                className={`${
+                  isOpen ? "w-full p-2 rounded-md hover:bg-brown-light/18" : ""
+                } flex items-center pointer-events-auto cursor-pointer ${
+                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
+                }`}
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
-                    }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
+                  }`}
                 >
                   <Icons.Map />
                 </span>
@@ -142,8 +148,9 @@ export default function DesktopSidebar() {
               {/* Guides button */}
               <button
                 disabled
-                className={`${isOpen ? "w-full p-2 rounded-md opacity-50" : ""} flex items-center ${!isOpen ? "justify-center px-4 py-3 opacity-50" : "space-x-4"
-                  }`}
+                className={`${isOpen ? "w-full p-2 rounded-md opacity-50" : ""} flex items-center ${
+                  !isOpen ? "justify-center px-4 py-3 opacity-50" : "space-x-4"
+                }`}
               >
                 <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
                   <Icons.MenuBook />
@@ -161,8 +168,9 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${activeSubSidebar !== null ? "w-80 opacity-100 p-0" : "w-0 opacity-0 p-0"
-            }`}
+          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${
+            activeSubSidebar !== null ? "w-80 opacity-100 p-0" : "w-0 opacity-0 p-0"
+          }`}
         >
           <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
             {activeSubSidebar === "campus" && (

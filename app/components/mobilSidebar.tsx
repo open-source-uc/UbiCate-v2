@@ -3,7 +3,7 @@ import "../custom-landing-geocoder.css";
 
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { SubSidebarType } from "@/utils/types";
 
@@ -28,23 +28,23 @@ export default function MobileSidebar() {
   const isDragging = useRef<boolean>(false);
   const { setDirectionData, duration, distance } = useDirections();
 
-  const toggleSidebar = () => {
+  const toggleSidebar = useCallback(() => {
     setIsOpen(!isOpen);
-  };
-  const handleToggleSidebar = () => {
+  }, [setIsOpen, isOpen]);
+  const handleToggleSidebar = useCallback(() => {
     toggleSidebar();
-  };
+  }, [toggleSidebar]);
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
-  const handleSearchSelection = () => {
+  const handleSearchSelection = useCallback(() => {
     handleToggleSidebar();
     setActiveSubSidebar(null);
     const activeElement = document.activeElement as HTMLElement;
     activeElement?.blur();
-  };
+  }, [setActiveSubSidebar, handleToggleSidebar]);
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
@@ -63,24 +63,27 @@ export default function MobileSidebar() {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    e.preventDefault();
-    if (!isDragging.current || dragStartY.current === null) return;
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
+      if (!isDragging.current || dragStartY.current === null) return;
 
-    const windowHeight = window.innerHeight;
-    const dragDelta = dragStartY.current - e.clientY;
-    const heightPercentDelta = (dragDelta / windowHeight) * 100;
+      const windowHeight = window.innerHeight;
+      const dragDelta = dragStartY.current - e.clientY;
+      const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
-    setSidebarHeight(newHeight);
+      const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
+      setSidebarHeight(newHeight);
 
-    // Ensure sidebar is open when dragging
-    if (newHeight > 10 && !isOpen) {
-      setIsOpen(true);
-    }
-  };
+      // Ensure sidebar is open when dragging
+      if (newHeight > 10 && !isOpen) {
+        setIsOpen(true);
+      }
+    },
+    [isOpen, setIsOpen],
+  );
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     isDragging.current = false;
     dragStartY.current = null;
     setEnableTransition(true);
@@ -99,7 +102,7 @@ export default function MobileSidebar() {
       setSidebarHeight(80);
       setIsOpen(true);
     }
-  };
+  }, [handleMouseMove, setIsOpen, sidebarHeight]);
 
   // Handlers for drag functionality (mobile)
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -178,7 +181,7 @@ export default function MobileSidebar() {
       current?.off("result", handleSearchSelection);
       clearInterval(interval);
     };
-  }, []);
+  }, [geocoder, handleSearchSelection]);
 
   // Handle sidebar close
   useEffect(() => {
@@ -194,7 +197,7 @@ export default function MobileSidebar() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, []);
+  }, [handleMouseMove, handleMouseUp]);
 
   return (
     <>

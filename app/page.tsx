@@ -5,9 +5,9 @@ import { Feature } from "@/utils/types";
 
 import NavigationSidebar from "./components/NavigationSidebar";
 import { DirectionsProvider } from "./context/directionsCtx";
+import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import MapPage from "./map/mapPage";
-import { PinsProvider } from "./context/pinsCtx";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
@@ -81,8 +81,8 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   const paramPlace: Feature | null = searchParams?.place
     ? (PlacesJSON.features.find(
-      (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
-    ) as Feature) ?? null
+        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
+      ) as Feature) ?? null
     : null;
 
   return (

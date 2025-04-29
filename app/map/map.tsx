@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
-import centroid from "@turf/centroid";
+import { centroid } from "@turf/centroid";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type {
   ViewState,
@@ -31,13 +31,13 @@ import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
 import { Feature, PointFeature, CategoryEnum } from "@/utils/types";
 
 import MarkerIcon from "../components/icons/markerIcon";
+import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 import DirectionsComponent from "../directions/component";
 import UserLocation from "../directions/userLocation";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
-import { pinsContext } from "../context/pinsCtx";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -89,22 +89,6 @@ export default function MapComponent({
   const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
   const mapRef = useRef<MapRef>(null);
-
-  useEffect(() => {
-    const campusName = params.get("campus");
-    if (campusName) {
-      localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
-        duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
-      });
-    }
-  }, [params]);
-
-  useEffect(() => {
-    handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
-  }, [selectedPlace]);
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options?: { openSidebar?: boolean; notSet?: boolean; fly?: boolean }) => {
@@ -185,7 +169,7 @@ export default function MapComponent({
         });
       }
     },
-    [setSelectedPlace, setIsOpen],
+    [setSelectedPlace],
   );
 
   function onClickMap(e: MapLayerMouseEvent) {
@@ -273,6 +257,22 @@ export default function MapComponent({
       });
     }
   }
+
+  useEffect(() => {
+    const campusName = params.get("campus");
+    if (campusName) {
+      localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
+        duration: 0,
+        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
+      });
+    }
+  }, [params]);
+
+  useEffect(() => {
+    handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
+  }, [selectedPlace, handlePlaceSelection]);
 
   return (
     <>

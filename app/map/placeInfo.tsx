@@ -1,6 +1,6 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import { CategoryEnum, Feature, siglas as MapSiglas, METHOD } from "@/utils/types";
+import { CategoryEnum, Feature, siglas as MapSiglas } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import MarkDownComponent from "../components/markDown";
@@ -13,7 +13,6 @@ import {
 } from "../components/ui/dropdown-menu";
 import RouteButton from "../directions/routeButton";
 import FormGeo from "../form-geo/form";
-import { pinsContext } from "../context/pinsCtx";
 
 interface PlaceInfoProps {
   place: Feature | null;
@@ -179,8 +178,8 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
                     )}
 
                     {place.geometry.type !== "Polygon" &&
-                      place.properties.identifier !== "42-ALL" &&
-                      isDebug.current ? (
+                    place.properties.identifier !== "42-ALL" &&
+                    isDebug.current ? (
                       <>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
@@ -244,10 +243,7 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
           ) : null}
         </div>
       ) : (
-        <FormGeo
-        >
-
-        </FormGeo>
+        <FormGeo />
       )}
     </>
   );

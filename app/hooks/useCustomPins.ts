@@ -2,11 +2,11 @@
 
 import { useState, useCallback, useRef, useMemo } from "react";
 
+import { booleanClockwise } from "@turf/boolean-clockwise";
 import type { MarkerDragEvent } from "react-map-gl";
 
 import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { CategoryEnum, PointFeature, PolygonFeature } from "@/utils/types";
-import booleanClockwise from "@turf/boolean-clockwise";
 
 type CustomPin = PointFeature;
 
@@ -96,15 +96,13 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     // Asegura que el polígono esté cerrado (el primer punto se repite al final)
     const closedCoordinates =
       coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
-        coordinates[0][1] === coordinates[coordinates.length - 1][1]
+      coordinates[0][1] === coordinates[coordinates.length - 1][1]
         ? coordinates
         : [...coordinates, coordinates[0]];
 
     // Si no es en sentido antihorario, lo revertimos (para GeoJSON válido)
     const isClockwise = booleanClockwise(closedCoordinates);
-    const orderedCoordinates = isClockwise
-      ? closedCoordinates.slice().reverse()
-      : closedCoordinates;
+    const orderedCoordinates = isClockwise ? closedCoordinates.slice().reverse() : closedCoordinates;
 
     return {
       type: "Feature",
@@ -114,7 +112,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
         information: "",
         categories: [CategoryEnum.CUSTOM_MARK],
         campus: "",
-        faculties: "",
+        faculties: [],
         floors: [],
         needApproval: false,
       },
@@ -125,7 +123,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     };
   }, [customPins]);
 
-
   return {
     pins: customPins,
     addPin,
@@ -133,7 +130,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     handlePinDrag,
     pinsCount: customPins.length,
     maxPins,
-    polygon
+    polygon,
   };
 }
 
