@@ -14,7 +14,7 @@ export default function Formulario() {
     name: "",
     information: "",
     categories: [],
-    floors: [1], // empezamos con un piso
+    floors: [1],
   });
 
   const toggleOption = (value: string) => {
@@ -42,7 +42,6 @@ export default function Formulario() {
     }));
   };
 
-  // Si quieres manejar el submit más adelante
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(data);
@@ -155,7 +154,6 @@ export default function Formulario() {
         </button>
       </div>
 
-      {/* Botón de envío si quieres */}
       <button
         type="submit"
         className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg"
