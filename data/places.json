@@ -31084,6 +31084,30 @@
                     -33.44654135840123
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E201_|_OR-OR",
+                "name": "E201 | OR",
+                "information": "Sala E201",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5937325351794,
+                    -33.44618905852513
+                ]
+            }
         }
     ]
 }
