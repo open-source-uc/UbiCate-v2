@@ -1,4 +1,4 @@
-import * as Icon from "../components/icons/icons";
+import * as Icon from "../icons/icons";
 
 export default function LocationButton({ onClick }: { onClick?: () => void }) {
   return (

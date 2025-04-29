@@ -18,7 +18,7 @@ import type {
 } from "react-map-gl";
 import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
-import DebugMode from "@/app/components/debugMode";
+import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import {
@@ -30,13 +30,13 @@ import {
 import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
 import { Feature, PointFeature, CategoryEnum } from "@/utils/types";
 
+import DirectionsComponent from "../components/directions/component";
+import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
-import DirectionsComponent from "../directions/component";
-import UserLocation from "../directions/userLocation";
 
-import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
+import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer, customPolygonSectionAreaLayer, customPolygonStrokeLayer } from "./layers";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -102,6 +102,7 @@ export default function MapComponent({
         if (title) {
           title.textContent = "Ubicate UC - Mapa";
         }
+        setIsOpen(false);
         return;
       }
 
@@ -224,14 +225,13 @@ export default function MapComponent({
       });
     }
 
-    e.target.on("click", ["red-area"], (e) => {
-      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["red-area"]);
+    e.target.on("click", ["area-polygon"], (e) => {
+      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
       if (!feature) return;
 
       setTimeout(() => {
-        setIsOpen(true);
         handlePlaceSelection(feature, { openSidebar: true });
-      }, 10);
+      }, 200);
     });
 
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
@@ -244,7 +244,7 @@ export default function MapComponent({
         setTimeout(() => {
           setIsOpen(true);
           handlePlaceSelection(feature, { openSidebar: true });
-        }, 10);
+        }, 200);
       });
       e.target.on("click", ["points-layer-3"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
@@ -253,7 +253,15 @@ export default function MapComponent({
         setTimeout(() => {
           setIsOpen(true);
           handlePlaceSelection(feature, { openSidebar: true });
-        }, 10);
+        }, 200);
+      });
+      e.target.on("click", ["debug-area-polygon"], (e) => {
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
+        if (!feature) return;
+
+        setTimeout(() => {
+          handlePlaceSelection(feature, { openSidebar: true });
+        }, 200);
       });
     }
   }
@@ -298,11 +306,13 @@ export default function MapComponent({
         <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
           <Layer {...placesTextLayer} />
         </Source>
-        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygon ? [...polygons, polygon] : polygons)}>
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...sectionAreaLayer} />
-        </Source>
-        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygon ? [...polygons, polygon] : polygons)}>
           <Layer {...sectionStrokeLayer} />
+        </Source>
+        <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(polygon)}>
+          <Layer {...customPolygonSectionAreaLayer} />
+          <Layer {...customPolygonStrokeLayer} />
         </Source>
         <DebugMode />
         <UserLocation />

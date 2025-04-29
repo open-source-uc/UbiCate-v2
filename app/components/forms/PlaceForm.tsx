@@ -3,13 +3,35 @@
 import { use, useActionState, useState } from "react";
 
 import MarkDownComponent from "@/app/components/markDown";
+import { pinsContext } from "@/app/context/pinsCtx";
 import { CategoryOptions, CategoryToDisplayName } from "@/utils/types";
-
-import { pinsContext } from "../context/pinsCtx";
-
+import * as Icons from "../icons/icons";
 import { SubmitButton } from "./submitButton";
 
-export default function Formulario() {
+export default function PlaceForm({
+  onClose,
+  defaultData = {
+    name: "",
+    information: "",
+    categories: [""],
+    floors: [],
+  },
+  method = "POST",
+  submitButtonText = "Crear Ubicación",
+  title = "¡Nueva Ubicación!"
+}: {
+  onClose?: () => void;
+  defaultData?: {
+    name: string;
+    information: string;
+    categories: string[];
+    floors: (number | "")[];
+    identifier?: string;
+  };
+  method?: "POST" | "PUT";
+  submitButtonText?: string;
+  title?: string;
+}) {
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [notification, setNotification] = useState<{
     type: "success" | "error";
@@ -21,12 +43,7 @@ export default function Formulario() {
     information: string;
     categories: string[];
     floors: (number | "")[];
-  }>({
-    name: "",
-    information: "",
-    categories: [""],
-    floors: [1],
-  });
+  }>(defaultData);
   const { pins } = use(pinsContext);
 
   // Función para manejar el cambio de categoría
@@ -88,22 +105,25 @@ export default function Formulario() {
   };
 
   const [state, action, pending] = useActionState(async (_) => {
-    console.log(pins);
     try {
       const response = await fetch("/api/ubicate", {
-        method: "POST",
+        method: method,
         body: JSON.stringify({
           data: data,
           points: pins,
+          identifier: defaultData.identifier ?? "AGUAPIRAÑAJAMASNUNCAEXISTIR-123456",
         }),
       });
 
       if (response.ok) {
         setNotification({
           type: "success",
-          message: "Ubicación creada",
+          message: method === "POST" ? "Ubicación creada" : "Ubicación actualizada",
           visible: true,
         });
+        setTimeout(() => {
+          onClose?.();
+        }, 1_0000);
       } else {
         const errorData = await response.json();
         setNotification({
@@ -134,17 +154,23 @@ export default function Formulario() {
     <>
       {notification && notification.visible ? (
         <div
-          className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${
-            notification.type === "success" ? "bg-success" : "bg-error"
-          } text-white`}
+          className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${notification.type === "success" ? "bg-success" : "bg-error"
+            } text-white`}
         >
           {notification.message}
         </div>
       ) : null}
 
       <form className="space-y-4 text-md px-3 py-5" action={action}>
-        <h1 className="text-2xl font-bold text-center text-white-ubi">¡Nueva Ubicación!</h1>
-
+        <button
+          type="button"
+          className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+          aria-label="Cerrar menú"
+          onClick={(e) => onClose?.()}
+        >
+          <Icons.Close />
+        </button>
+        <h1 className="text-2xl font-bold text-center text-white-ubi">{title}</h1>
         <div className="space-y-4">
           <label className="flex items-center justify-center text-md font-medium text-white-ubi" htmlFor="placeName">
             Nombre de la Ubicación
@@ -265,22 +291,20 @@ export default function Formulario() {
           <div className="flex justify-end mb-2 space-x-2">
             <button
               type="button"
-              className={`px-3 py-1 rounded-md text-sm ${
-                !isPreviewMode
-                  ? "bg-blue-location text-white"
-                  : "bg-transparent border border-brown-light text-white-ubi"
-              }`}
+              className={`px-3 py-1 rounded-md text-sm ${!isPreviewMode
+                ? "bg-blue-location text-white"
+                : "bg-transparent border border-brown-light text-white-ubi"
+                }`}
               onClick={() => setIsPreviewMode(false)}
             >
               Editar
             </button>
             <button
               type="button"
-              className={`px-3 py-1 rounded-md text-sm ${
-                isPreviewMode
-                  ? "bg-blue-location text-white"
-                  : "bg-transparent border border-brown-light text-white-ubi"
-              }`}
+              className={`px-3 py-1 rounded-md text-sm ${isPreviewMode
+                ? "bg-blue-location text-white"
+                : "bg-transparent border border-brown-light text-white-ubi"
+                }`}
               onClick={() => setIsPreviewMode(true)}
             >
               Vista Previa
@@ -302,7 +326,7 @@ export default function Formulario() {
             />
           )}
         </div>
-        <SubmitButton fallback="Procesando...">Crear Ubicacion</SubmitButton>
+        <SubmitButton fallback="Procesando...">{submitButtonText}</SubmitButton>
       </form>
     </>
   );

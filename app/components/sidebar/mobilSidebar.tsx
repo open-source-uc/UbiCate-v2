@@ -1,5 +1,5 @@
 "use client";
-import "../custom-landing-geocoder.css";
+import "@/app/custom-landing-geocoder.css";
 
 import { useRouter } from "next/navigation";
 
@@ -7,14 +7,15 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { SubSidebarType } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
-import { useDirections } from "../context/directionsCtx";
-import { useSidebar } from "../context/sidebarCtx";
-import PlaceInformation from "../map/placeInfo";
+import { useDirections } from "../../context/directionsCtx";
+import { useSidebar } from "../../context/sidebarCtx";
+import * as Icons from "../icons/icons";
+import PillFilter from "../pills/pillFilterBar";
+import PlaceInformation from "../placeMenu/placeInfo";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import PillFilter from "./pillFilterBar";
+import PlaceMenu from "../placeMenu/placeMenu";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -158,6 +159,7 @@ export default function MobileSidebar() {
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
+      setIsOpen(true);
       setSidebarHeight(45);
     } else {
       setActiveSubSidebar(null);
@@ -181,7 +183,7 @@ export default function MobileSidebar() {
       current?.off("result", handleSearchSelection);
       clearInterval(interval);
     };
-  }, [geocoder, handleSearchSelection]);
+  }, []);
 
   // Handle sidebar close
   useEffect(() => {
@@ -268,9 +270,8 @@ export default function MobileSidebar() {
                     <div className="bg-brown-medium flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
-                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
-                        }`}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                          }`}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
                           <Icons.Map />
@@ -333,19 +334,22 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "placeInformation" && (
-                <PlaceInformation
+              {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
+                <PlaceMenu
                   place={selectedPlace}
-                  onClose={() => {
+                  onCloseMenu={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
                     setIsOpen(false);
                   }}
-                  onEdit={() => {
+                  onOpenCreate={() => {
                     setSidebarHeight(100);
                   }}
-                  onCloseEdit={() => {
-                    setSidebarHeight(60);
+                  onCloseCreate={() => {
+                    setSidebarHeight(40);
+                  }}
+                  onOpenEdit={() => {
+                    setSidebarHeight(40);
                   }}
                 />
               )}

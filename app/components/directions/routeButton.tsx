@@ -3,11 +3,12 @@ import { centroid } from "@turf/centroid";
 import { getCampusBoundsFromPoint, getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { Feature } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
-import { useDirections } from "../context/directionsCtx";
-import { useSidebar } from "../context/sidebarCtx";
-import { fetchDirection } from "../directions/fetchDirection";
-import { useUbication } from "../hooks/useUbication";
+import { useDirections } from "../../context/directionsCtx";
+import { useSidebar } from "../../context/sidebarCtx";
+import { useUbication } from "../../hooks/useUbication";
+import * as Icons from "../icons/icons";
+
+import { fetchDirection } from "./fetchDirection";
 
 interface RouteButtonProps {
   place: Feature | null;

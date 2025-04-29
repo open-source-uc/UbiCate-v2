@@ -51,7 +51,7 @@ export interface Properties {
   campus: string;
   faculties?: string[];
   floors?: number[];
-  needApproval?: boolean;
+  needApproval: boolean;
 }
 
 export interface Feature {

@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import FormGeo from "@/app/components/forms/PlaceForm";
 import { CategoryEnum, Feature, siglas as MapSiglas } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
-import MarkDownComponent from "../components/markDown";
+import RouteButton from "../directions/routeButton";
+import * as Icons from "../icons/icons";
+import MarkDownComponent from "../markDown";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu";
-import RouteButton from "../directions/routeButton";
-import FormGeo from "../form-geo/form";
+} from "../ui/dropdown-menu";
 
 interface PlaceInfoProps {
   place: Feature | null;
@@ -178,8 +178,8 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
                     )}
 
                     {place.geometry.type !== "Polygon" &&
-                    place.properties.identifier !== "42-ALL" &&
-                    isDebug.current ? (
+                      place.properties.identifier !== "42-ALL" &&
+                      isDebug.current ? (
                       <>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
