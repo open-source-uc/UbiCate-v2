@@ -30912,6 +30912,30 @@
                     -33.44586058424602
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E206_|_OR-OR",
+                "name": "E206 | OR",
+                "information": "Sala E206",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59371764049956,
+                    -33.44658653306907
+                ]
+            }
         }
     ]
 }
