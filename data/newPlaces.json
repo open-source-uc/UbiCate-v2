@@ -172,30 +172,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ma2z77wrx3dujq",
-                "name": "Salud y Bienestar Estudiantil | OR",
-                "information": "Oficina de salud y bienestar estudiantil en campus oriente",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59427207445033,
-                    -33.44634649364675
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "E205_|_OR-OR",
                 "name": "E205 | OR",
                 "information": "Sala E205",
