@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { PointGeometry, Properties } from "@/utils/types";
+import { CategoryEnum, PointGeometry, Properties } from "@/utils/types";
 
 export type CardinalPoints = 4 | 8;
 
@@ -47,7 +47,7 @@ function updateLocation() {
             identifier: "user_loc",
             name: "Usuario",
             information: "",
-            categories: ["user"],
+            categories: [CategoryEnum.USER_LOCATION],
             campus: "",
             faculties: "",
             floors: [],

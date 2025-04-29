@@ -38,7 +38,8 @@ export enum CategoryEnum {
   SPORTS_PLACE = "sports_place",
   STUDYROOM = "studyroom",
   TRASH = "trash",
-  WATER = "water"
+  WATER = "water",
+  USER_LOCATION = "user"
 }
 
 

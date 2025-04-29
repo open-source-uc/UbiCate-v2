@@ -5,15 +5,30 @@ import { useSearchParams } from "next/navigation";
 import React, { useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
+import centroid from "@turf/centroid";
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
-import { Map, useMap, Source, Layer, ScaleControl } from "react-map-gl";
+import type {
+  ViewState,
+  PointLike,
+  PaddingOptions,
+  MarkerDragEvent,
+  MapEvent,
+  MapLayerMouseEvent,
+  MapRef,
+} from "react-map-gl";
+import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { getCampusBoundsFromName, getCampusNameFromPoint, getMaxCampusBoundsFromName, getMaxCampusBoundsFromPoint } from "@/utils/getCampusBounds";
-import { Feature, PointFeature, CategoryEnum, siglas } from "@/utils/types";
+import {
+  getCampusBoundsFromName,
+  getCampusNameFromPoint,
+  getMaxCampusBoundsFromName,
+  getMaxCampusBoundsFromPoint,
+} from "@/utils/getCampusBounds";
+import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
+import { Feature, PointFeature, CategoryEnum } from "@/utils/types";
 
 import MarkerIcon from "../components/icons/markerIcon";
 import { useSidebar } from "../context/sidebarCtx";
@@ -23,8 +38,6 @@ import useCustomPins from "../hooks/useCustomPins";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
-import centroid from "@turf/centroid";
-import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -79,7 +92,6 @@ export default function MapComponent({
   });
   const mapRef = useRef<MapRef>(null);
 
-
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
@@ -97,8 +109,7 @@ export default function MapComponent({
   }, [selectedPlace]);
 
   const handlePlaceSelection = useCallback(
-    (place: Feature | null, options?: { openSidebar?: boolean, notSet?: boolean, fly?: boolean }) => {
-
+    (place: Feature | null, options?: { openSidebar?: boolean; notSet?: boolean; fly?: boolean }) => {
       if (options?.notSet === undefined || options?.notSet === false) {
         setSelectedPlace(place);
       }
@@ -109,15 +120,13 @@ export default function MapComponent({
         if (title) {
           title.textContent = "Ubicate UC - Mapa";
         }
-        return
-      };
+        return;
+      }
 
       localStorage.setItem("defaultCampus", place.properties.campus);
 
       if (title) {
-        title.textContent = place
-          ? `${place.properties.name}`
-          : "Ubicate UC - Mapa";
+        title.textContent = place ? `${place.properties.name}` : "Ubicate UC - Mapa";
       }
 
       if (place.properties.categories.includes(CategoryEnum.CUSTOM_MARK)) {
@@ -150,9 +159,7 @@ export default function MapComponent({
         const bounds = map?.getBounds();
         const margin = 0.001;
 
-
         if (!map || !bounds) return;
-
 
         const isOutside = !(
           lng >= bounds.getWest() + margin &&

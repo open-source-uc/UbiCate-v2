@@ -8,15 +8,15 @@ const loadGeocoder = () => import("@/utils/getGeocoder");
 function useGeocoder(
   ref: React.RefObject<HTMLElement | null> | null,
 ): [
-    Feature[],
-    PointFeature[],
-    PolygonFeature[],
-    (places: Feature[] | Feature | null) => void,
-    RefObject<MapboxGeocoder | null>,
-    Feature | null,
-    (place: Feature | null) => void,
-    PointFeature[],
-  ] {
+  Feature[],
+  PointFeature[],
+  PolygonFeature[],
+  (places: Feature[] | Feature | null) => void,
+  RefObject<MapboxGeocoder | null>,
+  Feature | null,
+  (place: Feature | null) => void,
+  PointFeature[],
+] {
   const [findPlaces, setFindPlaces] = useState<Feature[]>([]);
   const geocoder = useRef<MapboxGeocoder | null>(null);
   const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);

@@ -25,7 +25,8 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const refFunctionClickOnResult = useRef<((e: Feature) => void) | null>(null);
 
-  const [places, points, polygons, setPlaces, geocoder, selectedPlace, setSelectedPlace, pointsName] = useGeocoder(null);
+  const [places, points, polygons, setPlaces, geocoder, selectedPlace, setSelectedPlace, pointsName] =
+    useGeocoder(null);
 
   return (
     <SidebarContext.Provider
@@ -40,7 +41,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         refFunctionClickOnResult,
         selectedPlace,
         setSelectedPlace,
-        pointsName
+        pointsName,
       }}
     >
       {children}

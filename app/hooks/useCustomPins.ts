@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 
-import { MarkerDragEvent } from "react-map-gl";
+import type { MarkerDragEvent } from "react-map-gl";
 
 import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { CategoryEnum, PointFeature } from "@/utils/types";
