@@ -30864,6 +30864,30 @@
                     -33.44586832996998
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E205_|_OR-OR",
+                "name": "E205 | OR",
+                "information": "Sala E205",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59385286390436,
+                    -33.44652418561454
+                ]
+            }
         }
     ]
 }
