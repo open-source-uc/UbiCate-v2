@@ -172,30 +172,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_21_ARTE-OR",
-                "name": "Taller arte 21  | OR",
-                "information": "Taller 21 escuela de arte",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59438223019242,
-                    -33.44574495717055
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2zomg0raykyu",
                 "name": "Reciclaje | OR",
                 "information": "Punto verde",
