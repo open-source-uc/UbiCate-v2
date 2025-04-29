@@ -1,34 +1,31 @@
 "use client";
-import "@/app/custom-landing-geocoder.css";
+import "../custom-landing-geocoder.css";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SubSidebarType } from "@/utils/types";
 
-import { useSidebar } from "../../context/sidebarCtx";
-import * as Icons from "../icons/icons";
-import PillFilter from "../pills/pillFilterBar";
-import PlaceMenu from "../placeMenu/placeMenu";
+import * as Icons from "../components/icons/icons";
+import { useSidebar } from "../context/sidebarCtx";
+import MenuInformation from "../map/menuInformation";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import PillFilter from "./pillFilterBar";
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
-  const toggleSidebar = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [setIsOpen, isOpen]);
-
-  const handleToggleSidebar = useCallback(() => {
+  const handleToggleSidebar = () => {
     toggleSidebar();
-  }, [toggleSidebar]);
+  };
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
@@ -38,10 +35,10 @@ export default function DesktopSidebar() {
     toggleSubSidebar(type);
   };
 
-  const handleSearchSelection = useCallback(() => {
+  const handleSearchSelection = () => {
     handleToggleSidebar();
     setActiveSubSidebar(null);
-  }, [handleToggleSidebar, setActiveSubSidebar]);
+  };
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
@@ -49,11 +46,10 @@ export default function DesktopSidebar() {
     setActiveSubSidebar(null);
   };
 
-  // Cuando se selecciona un lugar, muestra "placeInformation"
+  // Cuando se selecciona un lugar, muestra "menuInformation"
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("placeInformation");
-      setIsOpen(false);
+      setActiveSubSidebar("menuInformation");
     }
     if (selectedPlace === null) {
       setActiveSubSidebar(null);
@@ -66,7 +62,7 @@ export default function DesktopSidebar() {
     if (activeSubSidebar === "buscar" && refSearchContainer.current) {
       geocoder.current?.addTo(refSearchContainer.current);
     }
-  }, [refSearchContainer, geocoder, activeSubSidebar]);
+  }, [activeSubSidebar, geocoder]);
 
   // Cierra el sidebar al seleccionar un resultado de búsqueda
   useEffect(() => {
@@ -78,7 +74,7 @@ export default function DesktopSidebar() {
     return () => {
       current?.off("result", handleSearchSelection);
     };
-  }, [activeSubSidebar, geocoder, handleSearchSelection]);
+  }, [activeSubSidebar, geocoder]);
 
   return (
     <>
@@ -86,7 +82,7 @@ export default function DesktopSidebar() {
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
-          className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${isOpen ? "w-52" : "w-20"
+          className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${isOpen ? "w-60" : "w-20"
             }`}
         >
           <div className={`flex items-center p-4 ${isOpen ? "flex-row justify-between" : "flex-col py-8 space-y-6"}`}>
@@ -160,7 +156,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${activeSubSidebar !== null ? "w-80 opacity-100 p-0" : "w-0 opacity-0 p-0"
+          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${activeSubSidebar !== null ? "w-80 opacity-100 p-4" : "w-0 opacity-0 p-0"
             }`}
         >
           <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
@@ -175,21 +171,19 @@ export default function DesktopSidebar() {
                 <ul className="space-y-2">Hello. This is not implemented.</ul>
               </>
             )}
-            {activeSubSidebar === "placeInformation" && selectedPlace !== null && <PlaceMenu
-              place={selectedPlace}
-              onCloseMenu={() => {
-                setSelectedPlace(null);
-                toggleSubSidebar(null);
-                setIsOpen(false);
-              }}
-              onCloseCreate={() => {
-                setSelectedPlace(null);
-                toggleSubSidebar(null);
-                setIsOpen(false);
-              }}
-            />}
+            {activeSubSidebar === "menuInformation" && (
+              <div className="w-full h-full space-y-4">
+                <MenuInformation
+                  place={selectedPlace}
+                  onClose={() => {
+                    setSelectedPlace(null);
+                    toggleSubSidebar(null);
+                  }}
+                />
+              </div>
+            )}
             {activeSubSidebar === "buscar" && (
-              <div className="w-full h-full overflow-auto space-y-2 px-2 py-2">
+              <div className="w-full h-full overflow-auto space-y-2">
                 <h3 className="font-bold text-lg">Buscar</h3>
                 <div className="p-1">
                   <section ref={refSearchContainer} />
