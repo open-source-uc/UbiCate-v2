@@ -30432,6 +30432,30 @@
                     -33.44595925085498
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_N1-OR",
+                "name": "Sala N1 | OR",
+                "information": "Sala N1 Oriente en el segundo piso en pasillo con vista al patio de la Virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5933541059494,
+                    -33.44592456105165
+                ]
+            }
         }
     ]
 }
