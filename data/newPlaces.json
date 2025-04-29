@@ -1299,30 +1299,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "TALLER_ARTE_27_|_OR-OR",
-                "name": "Taller Arte 27 | OR",
-                "information": "Sala Escuela de Arte 27",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59412078806756,
-                    -33.445448009674685
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
