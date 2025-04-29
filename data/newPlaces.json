@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
+                "name": "Aulas San Marcos y San Lucas",
+                "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5932826265489,
+                    -33.44597098233941
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALAS_IMUC-OR",
                 "name": "Salas IMUC",
                 "information": "Acceso a las salas del instituto de música UC",
