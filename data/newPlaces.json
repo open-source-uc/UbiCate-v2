@@ -3,6 +3,30 @@
     "features": [
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_26-OR",
+                "name": "Taller arte 26",
+                "information": "Taller 26 de la escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5940823852255,
+                    -33.445188039849945
+                ]
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
