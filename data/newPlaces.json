@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2xp903zzejvs",
+                "name": "LAITEC | OR",
+                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59333214536309,
+                    -33.445492895644826
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_21_ARTE-OR",
                 "name": "Taller arte 21  | OR",
                 "information": "Taller 21 escuela de arte",
@@ -862,30 +886,6 @@
                 "coordinates": [
                     -70.59340102114173,
                     -33.44560260596611
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ma2xp903zzejvs",
-                "name": "LAITEC",
-                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59333209517774,
-                    -33.44549295762982
                 ]
             }
         },
