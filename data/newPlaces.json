@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2vr6u56vk0gu",
+                "name": "Caja Estacionamiento | OR",
+                "information": "Caja de estacionamiento OR",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59320770538861,
+                    -33.44652353503939
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2vnzpaopfefe",
                 "name": "Centro de Reciclaje | OR",
                 "information": "Centro de reciclaje OR",
