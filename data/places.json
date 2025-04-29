@@ -31012,6 +31012,30 @@
                     -33.446646509610716
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2yg13m1te7v4",
+                "name": "English UC | OR",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59332797664784,
+                    -33.44642745537523
+                ]
+            }
         }
     ]
 }
