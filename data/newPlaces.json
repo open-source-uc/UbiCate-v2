@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "AULA_SAN_MATEO-OR",
+                "name": "Aula San Mateo",
+                "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304550068701,
+                    -33.44596860942402
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2xurvzfro06t",
                 "name": "Camanires escuela de teatro",
                 "information": "Camarines hombre y mujer separados. De la escuela de teatro.",
