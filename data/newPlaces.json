@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_10-OR",
+                "name": "Sala 10 | OR",
+                "information": "Sala 10 Bernardo Trumper\n(Posibles T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935562774539,
+                    -33.44586832996998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2xlvgb6avbmb",
                 "name": "Auditorium 1 | OR",
                 "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
@@ -670,30 +694,6 @@
                 "coordinates": [
                     -70.59361101513589,
                     -33.44586058424602
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SALA_10-OR",
-                "name": "Sala 10",
-                "information": "Sala 10 Bernardo Trumper",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5935562866673,
-                    -33.445868371213564
                 ]
             }
         },
