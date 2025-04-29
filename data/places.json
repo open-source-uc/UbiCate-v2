@@ -30336,6 +30336,30 @@
                     -33.4458350389144
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R5-OR",
+                "name": "Sala R5 | OR",
+                "information": "Sala R5 segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59434467926621,
+                    -33.44587616315767
+                ]
+            }
         }
     ]
 }
