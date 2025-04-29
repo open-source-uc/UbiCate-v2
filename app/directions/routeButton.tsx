@@ -58,11 +58,11 @@ export default function RouteButton({ place }: RouteButtonProps) {
     }
 
     if (getCampusBoundsFromPoint(position.geometry.coordinates[0], position.geometry.coordinates[1]) === null) {
-      alert("No se puede calcular la ruta en este campus");
+      alert("No se puede calcular la ruta si estas afuera del campus xd. Deja de buscar bugs");
       return;
     }
     if (getCampusBoundsFromPoint(destination[0], destination[1]) === null) {
-      alert("No se puede calcular la ruta en este campus");
+      alert("El punto de destino no está dentro de algun campus, esto es muy raro, por favor reporta este bug");
       return;
     }
 
