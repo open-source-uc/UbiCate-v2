@@ -52,30 +52,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_R1-OR",
-                "name": "Sala R1 | OR",
-                "information": "Sala R1 segundo piso",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59411752969027,
-                    -33.44598582771106
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_7_|_OR-OR",
                 "name": "Sala 7 | OR",
                 "information": "Sala 7 Fernando Colina\n(Posibles salas T)",
