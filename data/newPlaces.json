@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "TALLER_ARTE_9-OR",
+                "name": "Taller arte 9",
+                "information": "Taller número 9 de la escuela de artes",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59408419952945,
+                    -33.44520813608934
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_6-OR",
                 "name": "Taller Arte 6",
                 "information": "Sala de arte 6,  Escuela dd Arte",
