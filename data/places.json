@@ -30048,6 +30048,30 @@
                     -33.4454221397271
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_DE_TECLADOS_|_OR-OR",
+                "name": "Sala de Teclados | OR",
+                "information": "Sala de Taclados",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5931732473111,
+                    -33.44561313297835
+                ]
+            }
         }
     ]
 }
