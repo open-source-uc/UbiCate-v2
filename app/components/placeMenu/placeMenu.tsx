@@ -89,7 +89,10 @@ export default function PlaceMenu({
       {mode === "information" && (
         <PlaceInformation
           place={place}
-          onClose={onCloseMenu}
+          onClose={() => {
+            clearPins();
+            onCloseMenu?.()
+          }}
           onCreate={() => {
             setMode(() => "create");
             onOpenCreate?.();
@@ -122,6 +125,7 @@ export default function PlaceMenu({
       {mode === "create" && (
         <PlaceForm
           onClose={() => {
+            clearPins()
             setMode(() => "information");
             onCloseCreate?.();
           }}
@@ -140,6 +144,7 @@ export default function PlaceMenu({
           submitButtonText="Actualizar"
           title={"Edición: " + editPlace?.properties.name}
           onClose={() => {
+            clearPins()
             setMode(() => "information");
             onCloseCreate?.();
           }}

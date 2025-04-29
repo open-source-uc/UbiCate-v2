@@ -262,7 +262,7 @@ function createFeatureFromPoints(points: any[], properties: any): Feature | null
     // Asegura que el polígono esté cerrado (el primer punto se repite al final)
     const closedCoordinates =
       coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
-      coordinates[0][1] === coordinates[coordinates.length - 1][1]
+        coordinates[0][1] === coordinates[coordinates.length - 1][1]
         ? coordinates
         : [...coordinates, coordinates[0]];
 
@@ -328,6 +328,9 @@ export async function POST(request: NextRequest) {
     }
 
     const points = result.data.points;
+    if (points.length === 1 && (result.data.data.floors === undefined || result.data.data.floors?.length === 0)) {
+      return NextResponse.json({ message: "Se requiere al menos un piso para crear un lugar" }, { status: 400 });
+    }
 
     if (points.length === 2) {
       return NextResponse.json({ message: "Se requieren al menos 3 puntos para crear un polígono" }, { status: 400 });

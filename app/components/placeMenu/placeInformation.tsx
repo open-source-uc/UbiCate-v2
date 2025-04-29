@@ -52,7 +52,7 @@ export default function PlaceInformation({
     <div className="px-2 pt-4">
       <section className="space-y-1 flex flex-col bg-brown-dark pt-2 pb-4">
         <div className="flex items-center justify-between w-full">
-          <div className="max-w-[260px] pr-10">
+          <div className="max-w-[2/3] pr-10">
             <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
           </div>
 
@@ -98,7 +98,7 @@ export default function PlaceInformation({
             </div>
             <p className="text-xs font-medium">Más</p>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent className="bg-brown-medium rounded-lg shadow-lg px-2 py-2">
             {isDebug.current === false && (
               <DropdownMenuItem>
                 {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? (
@@ -117,13 +117,13 @@ export default function PlaceInformation({
                 <DropdownMenuItem onClick={onReject}>Rechazar</DropdownMenuItem>
               </>
             ) : null}
-            {isDebug.current && place.properties.needApproval === false && !place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
+            {isDebug.current && !place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
               <>
                 <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
                 <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
               </>
             )}
-            {isDebug.current && place.properties.needApproval === false && place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
+            {isDebug.current && place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
               <>
                 <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
               </>
@@ -157,14 +157,14 @@ export default function PlaceInformation({
         ) : null}
 
         {place.properties.information ? (
-          <div className="space-y-2">
-            <h3 className="text-lg font-semibold">Descripción</h3>
+          <div className="space-y-2 py-4">
+            <h3 className="text-xl font-semibold">Descripción</h3>
             <div className="bg-brown-medium rounded-md">
               <MarkDownComponent>{place.properties.information}</MarkDownComponent>
             </div>
           </div>
         ) : null}
       </section>
-    </div>
+    </div >
   );
 }
