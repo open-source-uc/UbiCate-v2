@@ -29832,6 +29832,30 @@
                     -33.445543605586415
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_28_|_OR-OR",
+                "name": "Taller Arte 28 | OR",
+                "information": "Sala Escuela de Arte 28",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59399819732394,
+                    -33.44551394506582
+                ]
+            }
         }
     ]
 }
