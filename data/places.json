@@ -24571,78 +24571,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CDI",
-                "name": "Centro de Innovación UC - Anacleto Angelini",
-                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
-                "categories": [
-                    "building"
-                ],
-                "campus": "SJ",
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.615494,
-                            -33.497752
-                        ],
-                        [
-                            -70.615174,
-                            -33.497696
-                        ],
-                        [
-                            -70.615226,
-                            -33.497579
-                        ],
-                        [
-                            -70.615018,
-                            -33.497547
-                        ],
-                        [
-                            -70.614928,
-                            -33.497891
-                        ],
-                        [
-                            -70.615057,
-                            -33.497916
-                        ],
-                        [
-                            -70.61503,
-                            -33.498027
-                        ],
-                        [
-                            -70.615094,
-                            -33.498039
-                        ],
-                        [
-                            -70.615096,
-                            -33.497976
-                        ],
-                        [
-                            -70.615579,
-                            -33.498042
-                        ],
-                        [
-                            -70.615526,
-                            -33.497991
-                        ],
-                        [
-                            -70.615441,
-                            -33.497975
-                        ],
-                        [
-                            -70.615494,
-                            -33.497752
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "LA_Y",
                 "campus": "SJ",
                 "name": "Centro Desarrollo Docente",
@@ -31260,6 +31188,80 @@
                 "information": "",
                 "categories": [
                     "yard"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61546297758623,
+                            -33.497693530248114
+                        ],
+                        [
+                            -70.61542306247796,
+                            -33.4979557252816
+                        ],
+                        [
+                            -70.61552152580703,
+                            -33.49796833261923
+                        ],
+                        [
+                            -70.61550902776396,
+                            -33.498017898398
+                        ],
+                        [
+                            -70.61524241006427,
+                            -33.49798299616022
+                        ],
+                        [
+                            -70.61521974169378,
+                            -33.498065164147334
+                        ],
+                        [
+                            -70.61515369062317,
+                            -33.498058536487235
+                        ],
+                        [
+                            -70.61517907811108,
+                            -33.49797355975112
+                        ],
+                        [
+                            -70.61501089080923,
+                            -33.49796920249534
+                        ],
+                        [
+                            -70.61508910929986,
+                            -33.497637760631896
+                        ],
+                        [
+                            -70.61512258583868,
+                            -33.49764118448799
+                        ],
+                        [
+                            -70.61521798116756,
+                            -33.497659134341575
+                        ],
+                        [
+                            -70.61546297758623,
+                            -33.497693530248114
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CDI",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
+                "categories": [
+                    "building"
                 ],
                 "floors": [],
                 "needApproval": false,
