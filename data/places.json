@@ -29812,6 +29812,30 @@
                     -33.445790442601925
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_4_|_OR-OR",
+                "name": "Taller Arte 4 | OR",
+                "information": "Sala Escuela de Arte 4",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59410150780234,
+                    -33.445543605586415
+                ]
+            }
         }
     ]
 }
