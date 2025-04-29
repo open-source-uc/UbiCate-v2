@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2vhte6op1sjn",
+                "name": "Estacionamiento | OR",
+                "information": "Estacionamiento | OR",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59287003599817,
+                    -33.44670541002475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2v6p21mo5n6j",
                 "name": "Sala de oración Templo",
                 "information": "Sala de oración",
