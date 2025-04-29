@@ -31152,6 +31152,30 @@
                     -33.44654135840123
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E203_|_OR-OR",
+                "name": "E203 | OR",
+                "information": "Sala E203.\n\nSala de streaming",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59356473051731,
+                    -33.446282881938
+                ]
+            }
         }
     ]
 }
