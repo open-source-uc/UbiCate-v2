@@ -31180,6 +31180,30 @@
                     -33.446282881938
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vr6u56vk0gu",
+                "name": "Caja Estacionamiento | OR",
+                "information": "Caja de estacionamiento OR",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59320770538861,
+                    -33.44652353503939
+                ]
+            }
         }
     ]
 }
