@@ -29284,6 +29284,30 @@
                     -33.445046940048435
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wlw7q3i0cca",
+                "name": "Baños | OR",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59363316085623,
+                    -33.44500168161219
+                ]
+            }
         }
     ]
 }
