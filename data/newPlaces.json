@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2zksnd5yhlvu",
+                "name": "Auditorio Filosofía | OR",
+                "information": "Auditorio Filosofía ",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59467198925982,
+                    -33.44603949900526
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2zho69crynhm",
                 "name": "Reciclaje | OR",
                 "information": "Punto verde",
