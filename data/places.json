@@ -30220,6 +30220,30 @@
                     -33.44596862269464
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALAS_IMUC-OR",
+                "name": "Salas IMUC | OR",
+                "information": "Acceso a las salas del instituto de música UC",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59296434745193,
+                    -33.445984988442035
+                ]
+            }
         }
     ]
 }
