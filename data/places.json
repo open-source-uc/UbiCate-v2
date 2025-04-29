@@ -30532,6 +30532,30 @@
                     -33.44598582771106
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_FRAY_ANGÉLICO-OR",
+                "name": "Sala Fray Angélico | OR",
+                "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59406589716673,
+                    -33.44606499871828
+                ]
+            }
         }
     ]
 }
