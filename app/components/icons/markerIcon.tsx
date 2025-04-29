@@ -26,6 +26,7 @@ const categoryIcons: Record<CategoryEnum, React.ComponentType<{ className?: stri
   [CategoryEnum.STUDYROOM]: Icons.Studyroom,
   [CategoryEnum.TRASH]: Icons.Default,
   [CategoryEnum.WATER]: Icons.Water,
+  [CategoryEnum.USER_LOCATION]: Icons.UserLocation,
 };
 
 export default function MarkerIcon({ label }: { label: CategoryEnum }) {
