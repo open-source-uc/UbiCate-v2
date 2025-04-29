@@ -30624,6 +30624,30 @@
                     -33.446105703218606
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_8_|_OR-OR",
+                "name": "Sala 8 | OR",
+                "information": "Sala 8 Rodolfo Bravo\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59362886473536,
+                    -33.44555178466841
+                ]
+            }
         }
     ]
 }
