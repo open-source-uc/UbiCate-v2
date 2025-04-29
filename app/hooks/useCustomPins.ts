@@ -41,7 +41,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
           campus: getCampusNameFromPoint(lng, lat) ?? "SJ",
           faculties: [],
           floors: [],
-          needApproval: false
+          needApproval: false,
         },
         geometry: {
           type: "Point",
@@ -97,7 +97,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     // Asegura que el polígono esté cerrado (el primer punto se repite al final)
     const closedCoordinates =
       coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
-        coordinates[0][1] === coordinates[coordinates.length - 1][1]
+      coordinates[0][1] === coordinates[coordinates.length - 1][1]
         ? coordinates
         : [...coordinates, coordinates[0]];
 

@@ -1,16 +1,18 @@
+import { use, useState } from "react";
+
+import { pinsContext } from "@/app/context/pinsCtx";
 import { Feature } from "@/utils/types";
 
-import PlaceInformation from "./placeInformation";
-import { use, useState } from "react";
-import { pinsContext } from "@/app/context/pinsCtx";
 import PlaceForm from "../forms/PlaceForm";
 
-export default function placeMenu({
+import PlaceInformation from "./placeInformation";
+
+export default function PlaceMenu({
   place,
   onCloseMenu,
   onCloseCreate,
   onOpenCreate,
-  onOpenEdit
+  onOpenEdit,
 }: {
   place: Feature;
   onCloseMenu?: () => void;
@@ -19,7 +21,7 @@ export default function placeMenu({
   onOpenEdit?: () => void;
 }) {
   const [mode, setMode] = useState<"information" | "create" | "edit">("information");
-  const { clearPins, addPin } = use(pinsContext)
+  const { clearPins, addPin } = use(pinsContext);
   const [editPlace, setEditPlace] = useState<Feature | null>(null);
 
   const approvePlace = () => {
@@ -89,15 +91,15 @@ export default function placeMenu({
           place={place}
           onClose={onCloseMenu}
           onCreate={() => {
-            setMode(() => "create")
+            setMode(() => "create");
             onOpenCreate?.();
           }}
           onEdit={() => {
             clearPins();
-            setMode(() => "edit")
+            setMode(() => "edit");
             setEditPlace(() => structuredClone(place));
             if (place?.geometry.type === "Point") {
-              addPin(place.geometry.coordinates[0], place.geometry.coordinates[1])
+              addPin(place.geometry.coordinates[0], place.geometry.coordinates[1]);
             }
             if (place?.geometry.type === "Polygon") {
               place.geometry.coordinates[0].slice(0, -1).forEach((coord) => {
@@ -107,42 +109,42 @@ export default function placeMenu({
             onOpenEdit?.();
           }}
           onReject={() => {
-            deletePlace()
+            deletePlace();
           }}
           onApprove={() => {
-            approvePlace()
+            approvePlace();
           }}
           onDelete={() => {
-            deletePlace()
+            deletePlace();
           }}
         />
       )}
       {mode === "create" && (
-        <PlaceForm onClose={() => {
-          setMode(() => "information")
-          onCloseCreate?.();
-        }}></PlaceForm>
+        <PlaceForm
+          onClose={() => {
+            setMode(() => "information");
+            onCloseCreate?.();
+          }}
+        />
       )}
-      {
-        mode === "edit" && (
-          <PlaceForm
-            defaultData={{
-              name: editPlace?.properties.name ?? "",
-              information: editPlace?.properties.information ?? "",
-              categories: editPlace?.properties.categories ?? [],
-              floors: editPlace?.properties.floors ?? [],
-              identifier: editPlace?.properties.identifier,
-            }}
-            method="PUT"
-            submitButtonText="Actualizar"
-            title={"Edición: " + editPlace?.properties.name}
-            onClose={() => {
-              setMode(() => "information")
-              onCloseCreate?.();
-            }}></PlaceForm>
-        )
-      }
-
+      {mode === "edit" && (
+        <PlaceForm
+          defaultData={{
+            name: editPlace?.properties.name ?? "",
+            information: editPlace?.properties.information ?? "",
+            categories: editPlace?.properties.categories ?? [],
+            floors: editPlace?.properties.floors ?? [],
+            identifier: editPlace?.properties.identifier,
+          }}
+          method="PUT"
+          submitButtonText="Actualizar"
+          title={"Edición: " + editPlace?.properties.name}
+          onClose={() => {
+            setMode(() => "information");
+            onCloseCreate?.();
+          }}
+        />
+      )}
     </div>
-  )
+  );
 }

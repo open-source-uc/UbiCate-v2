@@ -5,7 +5,9 @@ import { use, useActionState, useState } from "react";
 import MarkDownComponent from "@/app/components/markDown";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { CategoryOptions, CategoryToDisplayName } from "@/utils/types";
+
 import * as Icons from "../icons/icons";
+
 import { SubmitButton } from "./submitButton";
 
 export default function PlaceForm({
@@ -18,7 +20,7 @@ export default function PlaceForm({
   },
   method = "POST",
   submitButtonText = "Crear Ubicación",
-  title = "¡Nueva Ubicación!"
+  title = "¡Nueva Ubicación!",
 }: {
   onClose?: () => void;
   defaultData?: {
@@ -154,8 +156,9 @@ export default function PlaceForm({
     <>
       {notification && notification.visible ? (
         <div
-          className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${notification.type === "success" ? "bg-success" : "bg-error"
-            } text-white`}
+          className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${
+            notification.type === "success" ? "bg-success" : "bg-error"
+          } text-white`}
         >
           {notification.message}
         </div>
@@ -291,20 +294,22 @@ export default function PlaceForm({
           <div className="flex justify-end mb-2 space-x-2">
             <button
               type="button"
-              className={`px-3 py-1 rounded-md text-sm ${!isPreviewMode
-                ? "bg-blue-location text-white"
-                : "bg-transparent border border-brown-light text-white-ubi"
-                }`}
+              className={`px-3 py-1 rounded-md text-sm ${
+                !isPreviewMode
+                  ? "bg-blue-location text-white"
+                  : "bg-transparent border border-brown-light text-white-ubi"
+              }`}
               onClick={() => setIsPreviewMode(false)}
             >
               Editar
             </button>
             <button
               type="button"
-              className={`px-3 py-1 rounded-md text-sm ${isPreviewMode
-                ? "bg-blue-location text-white"
-                : "bg-transparent border border-brown-light text-white-ubi"
-                }`}
+              className={`px-3 py-1 rounded-md text-sm ${
+                isPreviewMode
+                  ? "bg-blue-location text-white"
+                  : "bg-transparent border border-brown-light text-white-ubi"
+              }`}
               onClick={() => setIsPreviewMode(true)}
             >
               Vista Previa

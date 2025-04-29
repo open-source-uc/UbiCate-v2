@@ -36,7 +36,14 @@ import MarkerIcon from "../components/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 
-import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer, customPolygonSectionAreaLayer, customPolygonStrokeLayer } from "./layers";
+import {
+  placesTextLayer,
+  campusBorderLayer,
+  sectionAreaLayer,
+  sectionStrokeLayer,
+  customPolygonSectionAreaLayer,
+  customPolygonStrokeLayer,
+} from "./layers";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {

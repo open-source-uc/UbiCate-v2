@@ -65,4 +65,3 @@ export const customPolygonSectionAreaLayer: LayerProps = {
     "fill-color": "rgba(255, 140, 0, 0.4)",
   },
 };
-
