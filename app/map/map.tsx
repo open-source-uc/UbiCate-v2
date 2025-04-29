@@ -13,7 +13,7 @@ import DebugMode from "@/app/components/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { getCampusBoundsFromName, getCampusNameFromPoint } from "@/utils/getCampusBounds";
-import { Feature, PointFeature, CategoryEnum } from "@/utils/types";
+import { Feature, PointFeature, CategoryEnum, siglas } from "@/utils/types";
 
 import MarkerIcon from "../components/icons/markerIcon";
 import { useSidebar } from "../context/sidebarCtx";
@@ -24,6 +24,7 @@ import useCustomPins from "../hooks/useCustomPins";
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
 import centroid from "@turf/centroid";
+import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -70,13 +71,13 @@ export default function MapComponent({
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
-  const { mainMap } = useMap();
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
   const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins } = useCustomPins({
     maxPins: 20,
   });
+
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -91,21 +92,31 @@ export default function MapComponent({
   }, [params]);
 
   useEffect(() => {
-    if (!selectedPlace) return;
-    handlePlaceSelection(selectedPlace, { openSidebar: true });
+    handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
   }, [selectedPlace]);
 
   const handlePlaceSelection = useCallback(
-    (place: Feature | null, options?: { openSidebar?: boolean }) => {
-      setSelectedPlace(place);
+    (place: Feature | null, options?: { openSidebar?: boolean, notSet?: boolean, fly?: boolean }) => {
 
+      if (options?.notSet === undefined || options?.notSet === false) {
+        setSelectedPlace(place);
+      }
+
+      const title = document.querySelector("title");
       if (!place) {
         window.history.replaceState(null, "", "?");
-        if (options?.openSidebar) {
-          setIsOpen(false);
+        setIsOpen(false);
+        if (title) {
+          title.textContent = "Ubicate UC - Mapa";
         }
         return
       };
+
+      if (title) {
+        title.textContent = place
+          ? `${place.properties.name}`
+          : "Ubicate UC - Mapa";
+      }
 
       if (place.properties.categories.includes(CategoryEnum.CUSTOM_MARK)) {
         window.history.replaceState(
@@ -116,6 +127,7 @@ export default function MapComponent({
       } else {
         window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
       }
+
       let center: [number, number] = [0, 0];
 
       if (place.geometry.type === "Polygon") {
@@ -125,29 +137,41 @@ export default function MapComponent({
       if (place.geometry.type === "Point")
         center = [place.geometry.coordinates[0], place.geometry.coordinates[1]] as unknown as [number, number];
 
-      const map = mainMap?.getMap();
-      const bounds = map?.getBounds();
-      const margin = 0.001;
-
-      if (!map || !bounds) return;
-
       const [lng, lat] = center;
 
-      const isOutside = !(
-        lng >= bounds.getWest() + margin &&
-        lng <= bounds.getEast() - margin &&
-        lat >= bounds.getSouth() + margin &&
-        lat <= bounds.getNorth() - margin
-      );
+      if (options?.fly === false) {
+        console.log("center", center);
+        const map = mainMap?.getMap();
+        const bounds = map?.getBounds();
+        const margin = 0.001;
 
-      if (isOutside) {
-        const mapHeight = bounds.getNorth() - bounds.getSouth();
-        const offset = mapHeight * 0.25;
 
-        map.flyTo({
-          center: [lng, lat - offset],
+        if (!map || !bounds) return;
+
+
+        const isOutside = !(
+          lng >= bounds.getWest() + margin &&
+          lng <= bounds.getEast() - margin &&
+          lat >= bounds.getSouth() + margin &&
+          lat <= bounds.getNorth() - margin
+        );
+        if (isOutside) {
+          const mapHeight = bounds.getNorth() - bounds.getSouth();
+          const offset = mapHeight * 0.25;
+
+          map.flyTo({
+            center: [lng, lat - offset],
+            essential: true,
+            duration: 400,
+          });
+        }
+      } else {
+        console.log(mainMap?.getMap());
+        mainMap?.getMap().flyTo({
           essential: true,
           duration: 400,
+          zoom: 17,
+          center: [lng, lat],
         });
       }
     },
@@ -156,34 +180,10 @@ export default function MapComponent({
 
   function onClickMap(e: MapLayerMouseEvent) {
     handlePlaceSelection(null, { openSidebar: false });
-
     clearTimeout(timeoutId.current ?? undefined);
     timeoutId.current = setTimeout(() => {
       clearPins();
     }, 300);
-  }
-
-
-  function getFeatureOfLayerFromPoint(target: mapboxgl.Map, point: mapboxgl.Point, layers: string[]): Feature | null {
-    const features = target.queryRenderedFeatures(point, {
-      layers: layers,
-    });
-
-    const feature = features[0];
-    if (!feature) return null;
-
-    if (!feature.properties) return null;
-
-    const exit = {
-      type: "Feature",
-      properties: feature.properties,
-      geometry: feature.geometry,
-    };
-    exit.properties.categories = JSON.parse(exit.properties.categories);
-
-    if (feature.properties?.floors) exit.properties.floors = JSON.parse(exit.properties.floors);
-
-    return exit as unknown as Feature;
   }
 
   async function onLoad(e: MapEvent) {
