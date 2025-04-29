@@ -196,30 +196,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_26-OR",
-                "name": "Taller arte 26 | OR",
-                "information": "Taller 26 de la escuela de arte",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59408232569695,
-                    -33.44518809884821
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2zomg0raykyu",
                 "name": "Reciclaje | OR",
                 "information": "Punto verde",
