@@ -112,6 +112,9 @@ export default function placeMenu({
           onApprove={() => {
             approvePlace()
           }}
+          onDelete={() => {
+            deletePlace()
+          }}
         />
       )}
       {mode === "create" && (

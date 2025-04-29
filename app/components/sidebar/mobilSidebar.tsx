@@ -77,7 +77,7 @@ export default function MobileSidebar() {
       setSidebarHeight(newHeight);
 
       // Ensure sidebar is open when dragging
-      if (newHeight > 10 && !isOpen) {
+      if (newHeight > 5 && !isOpen) {
         setIsOpen(true);
       }
     },
@@ -137,7 +137,7 @@ export default function MobileSidebar() {
     // Snap to heights and handle open/close state
     if (sidebarHeight < 30) {
       setSidebarHeight(10);
-      setIsOpen(false);
+      setIsOpen(true);
     } else if (sidebarHeight < 65) {
       setSidebarHeight(45);
       setIsOpen(true);
@@ -346,7 +346,9 @@ export default function MobileSidebar() {
                     setSidebarHeight(100);
                   }}
                   onCloseCreate={() => {
-                    setSidebarHeight(40);
+                    setSelectedPlace(null);
+                    toggleSubSidebar(null);
+                    setIsOpen(false);
                   }}
                   onOpenEdit={() => {
                     setSidebarHeight(40);

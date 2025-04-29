@@ -181,7 +181,13 @@ export default function DesktopSidebar() {
                 setSelectedPlace(null);
                 toggleSubSidebar(null);
                 setIsOpen(false);
-              }} />}
+              }}
+              onCloseCreate={() => {
+                setSelectedPlace(null);
+                toggleSubSidebar(null);
+                setIsOpen(false);
+              }}
+            />}
             {activeSubSidebar === "buscar" && (
               <div className="w-full h-full overflow-auto space-y-2 px-2 py-2">
                 <h3 className="font-bold text-lg">Buscar</h3>
