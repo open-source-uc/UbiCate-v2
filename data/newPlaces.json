@@ -4,6 +4,53 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61315030239795,
+                            -33.497162985486796
+                        ],
+                        [
+                            -70.61411842703819,
+                            -33.498156571712
+                        ],
+                        [
+                            -70.614083558321,
+                            -33.498424975739766
+                        ],
+                        [
+                            -70.61343848705292,
+                            -33.498407082163794
+                        ],
+                        [
+                            -70.61315030239795,
+                            -33.497162985486796
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ROCKA-SJ",
+                "name": "rocka",
+                "information": "# Hola",
+                "categories": [
+                    "classroom",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61464275163293,
@@ -20,50 +67,6 @@
                 ],
                 "floors": [
                     2,
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61336874961853,
-                            -33.49808499716405
-                        ],
-                        [
-                            -70.61411842703819,
-                            -33.498156571712
-                        ],
-                        [
-                            -70.614083558321,
-                            -33.498424975739766
-                        ],
-                        [
-                            -70.61343848705292,
-                            -33.498407082163794
-                        ],
-                        [
-                            -70.61336874961853,
-                            -33.49808499716405
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "ROCKA-SJ",
-                "name": "rocka",
-                "information": "# Hola",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
                     1
                 ],
                 "needApproval": true,
