@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_8_|_OR-OR",
+                "name": "Sala 8 | OR",
+                "information": "Sala 8 Rodolfo Bravo",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59362880024152,
+                    -33.4455517511141
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2xlvgb6avbmb",
                 "name": "Auditorium 1",
                 "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
