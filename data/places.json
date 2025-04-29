@@ -29208,6 +29208,30 @@
                     -33.44698855107464
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2v4rm1ispnyp",
+                "name": "FEUC",
+                "information": "Sala de atención FEUC",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59402295476008,
+                    -33.446032178621714
+                ]
+            }
         }
     ]
 }
