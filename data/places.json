@@ -31200,6 +31200,30 @@
                     -33.44652353503939
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E204_|_OR-OR",
+                "name": "E204 | OR",
+                "information": "Sala E204 en el pasillo con vista al patio de la virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5934267512712,
+                    -33.44639097060916
+                ]
+            }
         }
     ]
 }
