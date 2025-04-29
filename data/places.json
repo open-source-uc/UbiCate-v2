@@ -31036,6 +31036,30 @@
                     -33.44642745537523
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2yukbx6k5njb",
+                "name": "Museo Casa Violeta Parra  | OR",
+                "information": "Casa Violeta Parra\nVirtud de los Elementos",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59382169443194,
+                    -33.44619733995126
+                ]
+            }
         }
     ]
 }
