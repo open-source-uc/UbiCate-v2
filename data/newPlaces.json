@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "TALLER_ARTE_31_|_OR-OR",
+                "name": "Taller Arte 31 | OR",
+                "information": "Sala Escuela de Arte 31",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59339780396529,
+                    -33.445461385232754
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_30_|_OR-OR",
                 "name": "Taller Arte 30 | OR",
                 "information": "Sala Escuela de Arte 30",
