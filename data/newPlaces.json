@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "E201_|_OR-OR",
+                "name": "E201 | OR",
+                "information": "Sala E201",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5937325351794,
+                    -33.44618905852513
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "E202_|_OR-OR",
                 "name": "E202 | OR",
                 "information": "Sala E202",
