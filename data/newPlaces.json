@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2ygvmuk9n1wk",
+                "name": "Dirección de Educación Continua | OR",
+                "information": "Oficinas de la Dirección  de Educación Continua, segundo piso en pasillo con vista al patio de la Virgen",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59322989629132,
+                    -33.44626343389387
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2yg13m1te7v4",
                 "name": "English UC | OR",
                 "information": "",
