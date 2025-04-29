@@ -30168,6 +30168,30 @@
                     -33.44635071381148
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vyyp6pak6ge",
+                "name": "Qualitas | OR",
+                "information": "Qualitas",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59208704781666,
+                    -33.44655978421693
+                ]
+            }
         }
     ]
 }
