@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2z95pgfxqdpy",
+                "name": "Reciclaje | OR",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5942600743323,
+                    -33.446338536765545
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2z8mjb97nylo",
                 "name": "DASE | OR",
                 "information": "Oficina del departamento de asistencia socioeconomica (DASE) en campus oriente",
