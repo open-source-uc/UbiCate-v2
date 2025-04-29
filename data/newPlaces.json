@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "TALLER_ARTE_5-OR",
+                "name": "Taller arte 5 | OR",
+                "information": "Taller número 5 de la escuela de Arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5942365527153,
+                    -33.445320005073846
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_6-OR",
                 "name": "Taller Arte 6 | OR",
                 "information": "Sala de arte 6,  Escuela dd Arte",
@@ -1578,30 +1602,6 @@
                 "coordinates": [
                     -70.5940870829752,
                     -33.445307316794846
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "TALLER_ARTE_5-OR",
-                "name": "Taller arte 5",
-                "information": "Taller número 5 de la escuela de Arte",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59423647980265,
-                    -33.44532002692654
                 ]
             }
         },
