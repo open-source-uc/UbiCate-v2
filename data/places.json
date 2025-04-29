@@ -29308,6 +29308,30 @@
                     -33.44500168161219
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wejmqlixzs7",
+                "name": "Casino | OR",
+                "information": "Casino dentro sel Centro de eventos",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59364806209831,
+                    -33.445062239153096
+                ]
+            }
         }
     ]
 }
