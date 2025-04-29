@@ -29908,6 +29908,30 @@
                     -33.44543293152053
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xp903zzejvs",
+                "name": "LAITEC | OR",
+                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59333214536309,
+                    -33.445492895644826
+                ]
+            }
         }
     ]
 }
