@@ -29572,6 +29572,30 @@
                     -33.44536882291562
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_DE_PERMANENCIA_10_|_OR-OR",
+                "name": "Taller de Permanencia 10 | OR",
+                "information": "Taller de Permanencia 10 campus Oriente",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59424559757349,
+                    -33.445491708424235
+                ]
+            }
         }
     ]
 }
