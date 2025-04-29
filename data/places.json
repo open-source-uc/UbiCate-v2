@@ -30456,6 +30456,30 @@
                     -33.44592456105165
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R2-OR",
+                "name": "Sala R2 | OR",
+                "information": "Sala R2 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59416463598609,
+                    -33.445966804278065
+                ]
+            }
         }
     ]
 }
