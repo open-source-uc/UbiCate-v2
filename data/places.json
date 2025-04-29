@@ -30196,6 +30196,30 @@
                     -33.44655978421693
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AULA_SAN_MATEO-OR",
+                "name": "Aula San Mateo | OR",
+                "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304548427463,
+                    -33.44596862269464
+                ]
+            }
         }
     ]
 }
