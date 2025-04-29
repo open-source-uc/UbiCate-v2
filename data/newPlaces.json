@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "TALLER_22_ARTE-OR",
+                "name": "Taller arte 22  | OR",
+                "information": "Taller 22 escuela de Arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59430561959743,
+                    -33.44566942271695
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_23-OR",
                 "name": "Taller arte 23 | OR",
                 "information": "Taller 23 escuela de arte",
@@ -1462,30 +1486,6 @@
                 "coordinates": [
                     -70.59438222362328,
                     -33.44574497545007
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "TALLER_22_ARTE-OR",
-                "name": "Taller 22 arte",
-                "information": "Taller 22 escuela de Arte",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59430554790555,
-                    -33.445669461436886
                 ]
             }
         },
