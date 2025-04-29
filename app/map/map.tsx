@@ -6,13 +6,13 @@ import React, { useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent, MapLayerMouseEvent } from "react-map-gl";
+import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl";
 import { Map, useMap, Source, Layer, ScaleControl } from "react-map-gl";
 
 import DebugMode from "@/app/components/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { getCampusBoundsFromName, getCampusNameFromPoint } from "@/utils/getCampusBounds";
+import { getCampusBoundsFromName, getCampusNameFromPoint, getMaxCampusBoundsFromName, getMaxCampusBoundsFromPoint } from "@/utils/getCampusBounds";
 import { Feature, PointFeature, CategoryEnum, siglas } from "@/utils/types";
 
 import MarkerIcon from "../components/icons/markerIcon";
@@ -77,6 +77,7 @@ export default function MapComponent({
   const { pins, addPin, handlePinDrag, clearPins } = useCustomPins({
     maxPins: 20,
   });
+  const mapRef = useRef<MapRef>(null);
 
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function MapComponent({
     if (campusName) {
       localStorage.setItem("defaultCampus", campusName);
       // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      mainMap?.fitBounds(getCampusBoundsFromName(campusName), {
+      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
@@ -105,12 +106,13 @@ export default function MapComponent({
       const title = document.querySelector("title");
       if (!place) {
         window.history.replaceState(null, "", "?");
-        setIsOpen(false);
         if (title) {
           title.textContent = "Ubicate UC - Mapa";
         }
         return
       };
+
+      localStorage.setItem("defaultCampus", place.properties.campus);
 
       if (title) {
         title.textContent = place
@@ -138,10 +140,13 @@ export default function MapComponent({
         center = [place.geometry.coordinates[0], place.geometry.coordinates[1]] as unknown as [number, number];
 
       const [lng, lat] = center;
-
+      const map = mapRef.current?.getMap();
+      map?.setMaxBounds(undefined);
+      setTimeout(() => {
+        map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
+      }, 600);
       if (options?.fly === false) {
         console.log("center", center);
-        const map = mainMap?.getMap();
         const bounds = map?.getBounds();
         const margin = 0.001;
 
@@ -166,12 +171,12 @@ export default function MapComponent({
           });
         }
       } else {
-        console.log(mainMap?.getMap());
-        mainMap?.getMap().flyTo({
+        map?.flyTo({
           essential: true,
           duration: 400,
           zoom: 17,
           center: [lng, lat],
+          offset: [0, -20],
         });
       }
     },
@@ -188,11 +193,12 @@ export default function MapComponent({
 
   async function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-    mainMap?.getMap().setMinZoom(15);
+    mapRef.current?.getMap().setMinZoom(15);
+    const map = mapRef.current?.getMap();
     if (paramPlace) {
-      // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
+      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       if (paramPlace.geometry.type === "Point") {
-        mainMap?.getMap().flyTo({
+        mapRef.current?.getMap().flyTo({
           essential: true,
           duration: 0,
           zoom: 17,
@@ -200,7 +206,7 @@ export default function MapComponent({
         });
       }
       if (paramPlace.geometry.type === "Polygon") {
-        mainMap?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
+        mapRef.current?.getMap()?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
           zoom: 17,
           duration: 0,
         });
@@ -210,8 +216,8 @@ export default function MapComponent({
       setPlaces([paramPlace]);
     } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
-      // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
-      mainMap?.getMap().flyTo({
+      map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      mapRef.current?.getMap().flyTo({
         essential: true,
         duration: 0,
         zoom: 17,
@@ -222,8 +228,8 @@ export default function MapComponent({
       });
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-      // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-      mainMap?.fitBounds(getCampusBoundsFromName(defaultCampus), {
+      map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
       });
@@ -278,6 +284,7 @@ export default function MapComponent({
             openSidebar: true,
           });
         }}
+        ref={mapRef}
       >
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
