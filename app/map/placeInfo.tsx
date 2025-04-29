@@ -179,8 +179,8 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
                     )}
 
                     {place.geometry.type !== "Polygon" &&
-                    place.properties.identifier !== "42-ALL" &&
-                    isDebug.current ? (
+                      place.properties.identifier !== "42-ALL" &&
+                      isDebug.current ? (
                       <>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
@@ -245,23 +245,6 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
         </div>
       ) : (
         <div className="h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
-          <div className="w-full text-center my-6 flex items-center justify-center relative">
-            <h1 className="text-2xl text-white-ubi select-none">
-              {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK)
-                ? "Nueva ubicación"
-                : `Edición de ${place?.properties.name} (Beta)`}
-            </h1>
-            <button
-              onClick={(e) => {
-                onCloseEdit?.();
-                setEdit(false);
-              }}
-              className="fixed top-2 right-4 text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
-              aria-label="Cerrar menú"
-            >
-              <Icons.Close />
-            </button>
-          </div>
           <FormGeo
             values={{
               placeName: place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK)

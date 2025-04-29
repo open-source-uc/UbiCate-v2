@@ -139,6 +139,27 @@ export const CategoryToDisplayName: Map<CategoryEnum, string> = new Map([
   [CategoryEnum.CUSTOM_MARK, "Marcador"]
 ]);
 
+export const CategoryOptions = [
+  CategoryEnum.CLASSROOM,
+  CategoryEnum.BATH,
+  CategoryEnum.FOOD_LUNCH,
+  CategoryEnum.STUDYROOM,
+  CategoryEnum.LIBRARY,
+  CategoryEnum.TRASH,
+  CategoryEnum.PARK_BICYCLE,
+  CategoryEnum.FINANCIAL,
+  CategoryEnum.LABORATORY,
+  CategoryEnum.WATER,
+  CategoryEnum.AUDITORIUM,
+  CategoryEnum.SPORTS_PLACE,
+  CategoryEnum.COMPUTERS,
+  CategoryEnum.PHOTOCOPY,
+  CategoryEnum.SHOP,
+  CategoryEnum.PARKING,
+  CategoryEnum.FACULTY,
+  CategoryEnum.BUILDING,
+  CategoryEnum.OTHER,
+]
 
 export function getDisplayNameForCategory(category: CategoryEnum): string {
   return CategoryToDisplayName.get(category) || "Otro"; // Default display name
