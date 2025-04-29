@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2v4rm1ispnyp",
+                "name": "FEUC",
+                "information": "Sala de atención FEUC",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59402295476008,
+                    -33.446032178621714
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2v2384spiauf",
                 "name": "Sala de Estudio",
                 "information": "Sala de estudio alumnos",
