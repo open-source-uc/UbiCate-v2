@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "AULA_SAN_MATEO-OR",
+                "name": "Aula San Mateo | OR",
+                "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304548427463,
+                    -33.44596862269464
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALAS_IMUC-OR",
                 "name": "Salas IMUC | OR",
                 "information": "Acceso a las salas del instituto de música UC",
@@ -766,30 +790,6 @@
                 "coordinates": [
                     -70.5932826265489,
                     -33.44597098233941
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "AULA_SAN_MATEO-OR",
-                "name": "Aula San Mateo",
-                "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59304550068701,
-                    -33.44596860942402
                 ]
             }
         },
