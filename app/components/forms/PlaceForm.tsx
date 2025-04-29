@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useActionState, useState } from "react";
+import { use, useActionState, useEffect, useState } from "react";
 
 import MarkDownComponent from "@/app/components/markDown";
 import { pinsContext } from "@/app/context/pinsCtx";
@@ -34,6 +34,8 @@ export default function PlaceForm({
   submitButtonText?: string;
   title?: string;
 }) {
+  const { pins } = use(pinsContext);
+  console.log(pins.length)
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [notification, setNotification] = useState<{
     type: "success" | "error";
@@ -45,8 +47,12 @@ export default function PlaceForm({
     information: string;
     categories: string[];
     floors: (number | "")[];
-  }>(defaultData);
-  const { pins } = use(pinsContext);
+  }>(defaultData ?? {
+    name: "",
+    information: "",
+    categories: [],
+    floors: [],
+  });
 
   // Función para manejar el cambio de categoría
   const handleCategoryChange = (index: number, value: string) => {
@@ -156,9 +162,8 @@ export default function PlaceForm({
     <>
       {notification && notification.visible ? (
         <div
-          className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${
-            notification.type === "success" ? "bg-success" : "bg-error"
-          } text-white`}
+          className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${notification.type === "success" ? "bg-success" : "bg-error"
+            } text-white`}
         >
           {notification.message}
         </div>
@@ -294,22 +299,20 @@ export default function PlaceForm({
           <div className="flex justify-end mb-2 space-x-2">
             <button
               type="button"
-              className={`px-3 py-1 rounded-md text-sm ${
-                !isPreviewMode
-                  ? "bg-blue-location text-white"
-                  : "bg-transparent border border-brown-light text-white-ubi"
-              }`}
+              className={`px-3 py-1 rounded-md text-sm ${!isPreviewMode
+                ? "bg-blue-location text-white"
+                : "bg-transparent border border-brown-light text-white-ubi"
+                }`}
               onClick={() => setIsPreviewMode(false)}
             >
               Editar
             </button>
             <button
               type="button"
-              className={`px-3 py-1 rounded-md text-sm ${
-                isPreviewMode
-                  ? "bg-blue-location text-white"
-                  : "bg-transparent border border-brown-light text-white-ubi"
-              }`}
+              className={`px-3 py-1 rounded-md text-sm ${isPreviewMode
+                ? "bg-blue-location text-white"
+                : "bg-transparent border border-brown-light text-white-ubi"
+                }`}
               onClick={() => setIsPreviewMode(true)}
             >
               Vista Previa

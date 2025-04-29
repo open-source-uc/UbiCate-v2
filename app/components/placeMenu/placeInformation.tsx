@@ -117,12 +117,17 @@ export default function PlaceInformation({
                 <DropdownMenuItem onClick={onReject}>Rechazar</DropdownMenuItem>
               </>
             ) : null}
-            {isDebug.current && place.properties.needApproval === false ? (
+            {isDebug.current && place.properties.needApproval === false && !place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
               <>
                 <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
                 <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
               </>
-            ) : null}
+            )}
+            {isDebug.current && place.properties.needApproval === false && place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
+              <>
+                <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
+              </>
+            )}
           </DropdownMenuContent>
         </DropdownMenu>
       </section>
