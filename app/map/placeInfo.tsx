@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { Feature, siglas as MapSiglas, METHOD } from "@/utils/types";
+import { CategoryEnum, Feature, siglas as MapSiglas, METHOD } from "@/utils/types";
 
 import * as Icons from "../components/icons/icons";
 import MarkDownComponent from "../components/markDown";
@@ -171,14 +171,14 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
                           setEdit(true);
                         }}
                       >
-                        {place?.properties.identifier === "42-ALL" ? "Agregar ubicación" : "Sugerir Edición"}
+                        {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? "Agregar ubicación" : "Sugerir Edición"}
                         <Icons.Edit />
                       </DropdownMenuItem>
                     )}
 
                     {place.geometry.type !== "Polygon" &&
-                    place.properties.identifier !== "42-ALL" &&
-                    isDebug.current ? (
+                      place.properties.identifier !== "42-ALL" &&
+                      isDebug.current ? (
                       <>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
@@ -245,7 +245,7 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
         <div className="h-full w-full bg-brown-dark text-white-ubi transform transition-transform duration-300 z-60 overflow-y-auto pb-17">
           <div className="w-full text-center my-6 flex items-center justify-center relative">
             <h1 className="text-2xl text-white-ubi select-none">
-              {place.properties.identifier === "42-ALL"
+              {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK)
                 ? "Nueva ubicación"
                 : `Edición de ${place?.properties.name} (Beta)`}
             </h1>
@@ -262,7 +262,7 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
           </div>
           <FormGeo
             values={{
-              placeName: place.properties.identifier === "42-ALL" ? "" : (place.properties.name as string),
+              placeName: place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? "" : (place.properties.name as string),
               information: place.properties.information as string,
               floor: place.properties.floors?.[0] ?? 1,
               longitude: place.geometry.coordinates[0] as number,
@@ -270,7 +270,7 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
               categories: place.properties.categories.at(0) as string,
               identifier: place.properties.identifier as string,
             }}
-            mode={place.properties.identifier === "42-ALL" ? METHOD.CREATE : METHOD.UPDATE}
+            mode={place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? METHOD.CREATE : METHOD.UPDATE}
             fun={() => {
               onCloseEdit?.();
               setEdit(false);

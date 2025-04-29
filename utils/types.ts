@@ -17,43 +17,30 @@ interface LineGeometry {
 
 export type SubSidebarType = "buscar" | "campus" | "guías" | "placeInformation" | null;
 
-export type Category =
-  | "auditorium"
-  | "bath"
-  | "building"
-  | "campus"
-  | "classroom"
-  | "computers"
-  | "faculty"
-  | "financial"
-  | "food_lunch"
-  | "laboratory"
-  | "library"
-  | "other"
-  | "park_bicycle"
-  | "parking"
-  | "photocopy"
-  | "shop"
-  | "sports_place"
-  | "studyroom"
-  | "trash"
-  | "auditorium"
-  | "customMark"
-  | "water";
+export enum CategoryEnum {
+  AUDITORIUM = "auditorium",
+  BATH = "bath",
+  BUILDING = "building",
+  CAMPUS = "campus",
+  CLASSROOM = "classroom",
+  COMPUTERS = "computers",
+  CUSTOM_MARK = "customMark",
+  FACULTY = "faculty",
+  FINANCIAL = "financial",
+  FOOD_LUNCH = "food_lunch",
+  LABORATORY = "laboratory",
+  LIBRARY = "library",
+  OTHER = "other",
+  PARK_BICYCLE = "park_bicycle",
+  PARKING = "parking",
+  PHOTOCOPY = "photocopy",
+  SHOP = "shop",
+  SPORTS_PLACE = "sports_place",
+  STUDYROOM = "studyroom",
+  TRASH = "trash",
+  WATER = "water"
+}
 
-export const CategoryToIcon: Map<Category, React.ReactNode> = new Map([
-  ["bath", "wc"],
-  ["computers", "print"],
-  ["food_lunch", "restaurant"],
-  ["library", "library"],
-  ["parking", "parking"],
-  ["photocopy", "print"],
-  ["sports_place", "sport"],
-  ["studyroom", "studyroom"],
-  ["water", "localDrink"],
-  ["auditorium", "auditorium"],
-  ["customMark", "pin"],
-]);
 
 export interface Properties {
   identifier: string;
@@ -127,6 +114,34 @@ export const siglas = new Map<string, string>([
   ["other", "Otro"],
   ["event", "Evento"],
 ]);
+
+export const CategoryToDisplayName: Map<CategoryEnum, string> = new Map([
+  [CategoryEnum.CLASSROOM, "Sala"],
+  [CategoryEnum.BATH, "Baño"],
+  [CategoryEnum.FOOD_LUNCH, "Comida"],
+  [CategoryEnum.STUDYROOM, "Sala de estudio"],
+  [CategoryEnum.LIBRARY, "Biblioteca"],
+  [CategoryEnum.TRASH, "Reciclaje"],
+  [CategoryEnum.PARK_BICYCLE, "Bicicletero"],
+  [CategoryEnum.FINANCIAL, "Banco / Cajero automático"],
+  [CategoryEnum.LABORATORY, "Laboratorio"],
+  [CategoryEnum.WATER, "Punto de agua"],
+  [CategoryEnum.AUDITORIUM, "Auditorio"],
+  [CategoryEnum.SPORTS_PLACE, "Deporte"],
+  [CategoryEnum.COMPUTERS, "Sala de computadores"],
+  [CategoryEnum.PHOTOCOPY, "Fotocopias / Impresoras"],
+  [CategoryEnum.SHOP, "Tienda"],
+  [CategoryEnum.PARKING, "Estacionamiento"],
+  [CategoryEnum.FACULTY, "Facultad"],
+  [CategoryEnum.BUILDING, "Edificio"],
+  [CategoryEnum.OTHER, "Otro"],
+  [CategoryEnum.CUSTOM_MARK, "Marcador"]
+]);
+
+
+export function getDisplayNameForCategory(category: CategoryEnum): string {
+  return CategoryToDisplayName.get(category) || "Otro"; // Default display name
+}
 
 export enum METHOD {
   CREATE = "create",

@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike } from "mapbox-gl";
@@ -13,9 +13,8 @@ import DebugMode from "@/app/components/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { getCampusBoundsFromName, getCampusNameFromPoint } from "@/utils/getCampusBounds";
-import { siglas, Feature, PointFeature, Category } from "@/utils/types";
+import { siglas, Feature, PointFeature, CategoryEnum } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
 import MarkerIcon from "../components/icons/markerIcon";
 import { useSidebar } from "../context/sidebarCtx";
 import DirectionsComponent from "../directions/component";
@@ -23,6 +22,7 @@ import UserLocation from "../directions/userLocation";
 
 import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
 import Marker from "./marker";
+import useCustomPins from "../hooks/useCustomPins";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -70,10 +70,29 @@ export default function MapComponent({
   paramLat?: number | null;
 }) {
   const { mainMap } = useMap();
-  const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
-    useSidebar();
+  const timeoutId = useRef<NodeJS.Timeout | null>(null);
+
+  const {
+    points,
+    polygons,
+    setPlaces,
+    refFunctionClickOnResult,
+    setSelectedPlace,
+    selectedPlace,
+    setIsOpen
+  } = useSidebar();
+
+  const {
+    pins,
+    addPin,
+    handlePinDrag,
+    clearPins
+  } = useCustomPins({
+    maxPins: 20
+  })
+
+
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -91,7 +110,7 @@ export default function MapComponent({
     (place: Feature | null) => {
       setSelectedPlace(place);
       if (place) {
-        if (place.properties.identifier === "42-ALL") {
+        if (place.properties.categories.includes(CategoryEnum.CUSTOM_MARK)) {
           window.history.replaceState(
             null,
             "",
@@ -141,35 +160,12 @@ export default function MapComponent({
 
   function onClickMap(e: MapLayerMouseEvent) {
     setMenu(null);
-    setTmpMark(null);
     setIsOpen(false);
+    clearTimeout(timeoutId.current ?? undefined);
+    timeoutId.current = setTimeout(() => {
+      clearPins();
+    }, 300);
   }
-
-  const setCustomMark = useCallback(
-    (lng: number, lat: number, showMenu: boolean) => {
-      lng = +lng;
-      lat = +lat;
-      const newMark: Feature = {
-        type: "Feature",
-        properties: {
-          identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `Lon: ${lng.toFixed(4)}, Lat: ${lat.toFixed(4)}`,
-          information: "",
-          categories: ["customMark"],
-          campus: getCampusNameFromPoint(lng, lat) ?? "SanJoaquin",
-          faculties: "",
-          floors: [],
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [lng, lat],
-        },
-      };
-      setTmpMark(newMark);
-      if (showMenu) setMenu(newMark);
-    },
-    [setTmpMark, setMenu],
-  );
 
   function getFeatureOfLayerFromPoint(target: mapboxgl.Map, point: mapboxgl.Point, layers: string[]): Feature | null {
     const features = target.queryRenderedFeatures(point, {
@@ -224,7 +220,6 @@ export default function MapComponent({
         zoom: 17,
         center: [paramLng, paramLat],
       });
-      setCustomMark(paramLng, paramLat, false);
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
       // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
@@ -238,7 +233,6 @@ export default function MapComponent({
       const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["red-area"]);
       if (!feature) return;
 
-      setTmpMark(null);
       setTimeout(() => {
         setIsOpen(true);
         setMenu(feature);
@@ -294,25 +288,6 @@ export default function MapComponent({
     }
   }
 
-  const onMarkerDrag = useCallback(
-    (event: MarkerDragEvent) => {
-      setMenu(null);
-      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-    },
-    [setCustomMark, setMenu],
-  );
-
-  const onMarkerDragEnd = useCallback(
-    (event: MarkerDragEvent) => {
-      setMenu(null);
-      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-      mainMap?.flyTo({
-        center: [event.lngLat.lng, event.lngLat.lat],
-      });
-    },
-    [setCustomMark, setMenu],
-  );
-
   useEffect(() => {
     const title = document.querySelector("title");
     if (title) {
@@ -330,7 +305,6 @@ export default function MapComponent({
           selectedPlace?.geometry.coordinates[1] - 0.0003, // Ajusta este valor según sea necesario
         ],
       });
-      setTmpMark(selectedPlace);
     }
   }, [selectedPlace]);
 
@@ -344,15 +318,8 @@ export default function MapComponent({
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
-          /*
-          IMPORTANTE
-          En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
-  
-          En PC: Este problema no ocurre.
-          En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
-          Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
-          */
-          setCustomMark(e.lngLat.lng, e.lngLat.lat, true);
+          clearTimeout(timeoutId.current ?? undefined);
+          setMenu(addPin(e.lngLat.lng, e.lngLat.lat));
         }}
       >
         <ScaleControl />
@@ -374,7 +341,7 @@ export default function MapComponent({
         <DirectionsComponent />
 
         {points.map((place) => {
-          const primaryCategory = place.properties.categories[0] as Category;
+          const primaryCategory = place.properties.categories[0] as CategoryEnum;
           return (
             <Marker
               key={place.properties.identifier}
@@ -384,18 +351,24 @@ export default function MapComponent({
             />
           );
         })}
-
-        {tmpMark && tmpMark.geometry.type === "Point" ? (
-          <Marker
-            draggable={true}
-            key={tmpMark.properties.identifier}
-            place={tmpMark as PointFeature}
-            onClick={() => onClickMark(tmpMark)}
-            onDrag={onMarkerDrag}
-            onDragEnd={onMarkerDragEnd}
-            icon={<Icons.Pin className="w-4 h-4" />}
-          />
-        ) : null}
+        {
+          pins.map((pin) => {
+            const primaryCategory = pin.properties.categories[0] as CategoryEnum;
+            return (
+              <Marker
+                key={pin.properties.identifier}
+                place={pin as PointFeature}
+                onClick={() => onClickMark(pin)}
+                icon={<MarkerIcon label={primaryCategory} />}
+                draggable
+                onDrag={(e: MarkerDragEvent) => {
+                  handlePinDrag(e, pin.properties.identifier)
+                }}
+              />
+            );
+          }
+          )
+        }
       </Map>
     </>
   );
