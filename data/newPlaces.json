@@ -1,31 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333266525133,
-                    -33.500222000070764
-                ]
-            },
-            "properties": {
-                "identifier": "OSUC",
-                "name": "(OSUC) Open Source UC",
-                "information": "### Test 29042025\nHola rocka del futuro",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "ING"
-                ]
-            }
-        }
-    ]
+    "features": []
 }
