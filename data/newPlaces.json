@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
+                "name": "Aulas San Marcos y San Lucas | OR",
+                "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59328269213438,
+                    -33.44597100062394
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "AULA_SAN_MATEO-OR",
                 "name": "Aula San Mateo | OR",
                 "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
@@ -742,30 +766,6 @@
                 "coordinates": [
                     -70.59361101513589,
                     -33.44586058424602
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
-                "name": "Aulas San Marcos y San Lucas",
-                "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5932826265489,
-                    -33.44597098233941
                 ]
             }
         },
