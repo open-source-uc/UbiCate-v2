@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E208_|_OR-OR",
-                "name": "E208 | OR",
-                "information": "Sala E208",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5935708736472,
-                    -33.446646509610716
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2yukbx6k5njb",
                 "name": "Museo Casa Violeta Parra  | OR",
                 "information": "Casa Violeta Parra\nVirtud de los Elementos",
