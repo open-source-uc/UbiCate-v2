@@ -1,5 +1,3 @@
-import { useRouter } from "next/navigation";
-
 import React, { useState, useRef, useEffect, useMemo, RefObject, useCallback } from "react";
 
 import PlacesJSON from "@/utils/places";
@@ -9,17 +7,18 @@ const loadGeocoder = () => import("@/utils/getGeocoder");
 
 function useGeocoder(
   ref: React.RefObject<HTMLElement | null> | null,
-  refFunctionClickOnResult: RefObject<((e: Feature) => void) | null>,
 ): [
   Feature[],
   PointFeature[],
   PolygonFeature[],
   (places: Feature[] | Feature | null) => void,
-  React.RefObject<MapboxGeocoder | null>,
+  RefObject<MapboxGeocoder | null>,
+  Feature | null,
+  (place: Feature | null) => void,
 ] {
   const [findPlaces, setFindPlaces] = useState<Feature[]>([]);
   const geocoder = useRef<MapboxGeocoder | null>(null);
-  const router = useRouter();
+  const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -32,11 +31,7 @@ function useGeocoder(
         PlacesJSON,
         (result: { result: Feature }) => {
           setFindPlaces([result.result]);
-          if (refFunctionClickOnResult.current === null) {
-            router.push("/?place=" + result.result.properties.identifier);
-          } else {
-            refFunctionClickOnResult.current(result.result);
-          }
+          setSelectedPlace(result.result);
         },
         (results: { features: Feature[] | null | undefined; config: any }) => {
           if (!mounted) return;
@@ -95,7 +90,15 @@ function useGeocoder(
 
   const Polygons = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Polygon"), [findPlaces]);
 
-  return [findPlaces, Points as PointFeature[], Polygons as PolygonFeature[], setPlaces, geocoder];
+  return [
+    findPlaces,
+    Points as PointFeature[],
+    Polygons as PolygonFeature[],
+    setPlaces,
+    geocoder,
+    selectedPlace,
+    setSelectedPlace,
+  ];
 }
 
 export default useGeocoder;

@@ -80,8 +80,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     );
   }, []);
 
-
-
   const handlePinDrag = useCallback(
     (event: MarkerDragEvent, pinId: string) => {
       updatePinPosition(pinId, event.lngLat.lng, event.lngLat.lat);

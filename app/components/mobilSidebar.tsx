@@ -17,7 +17,7 @@ import FooterOptionsSidebar from "./footerOptionsSidebar";
 import PillFilter from "./pillFilterBar";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -28,6 +28,9 @@ export default function MobileSidebar() {
   const isDragging = useRef<boolean>(false);
   const { setDirectionData, duration, distance } = useDirections();
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  }
   const handleToggleSidebar = () => {
     toggleSidebar();
   };
@@ -263,9 +266,8 @@ export default function MobileSidebar() {
                     <div className="bg-brown-medium flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
-                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
-                        }`}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                          }`}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
                           <Icons.Map />

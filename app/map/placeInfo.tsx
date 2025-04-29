@@ -171,14 +171,16 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
                           setEdit(true);
                         }}
                       >
-                        {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? "Agregar ubicación" : "Sugerir Edición"}
+                        {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK)
+                          ? "Agregar ubicación"
+                          : "Sugerir Edición"}
                         <Icons.Edit />
                       </DropdownMenuItem>
                     )}
 
                     {place.geometry.type !== "Polygon" &&
-                      place.properties.identifier !== "42-ALL" &&
-                      isDebug.current ? (
+                    place.properties.identifier !== "42-ALL" &&
+                    isDebug.current ? (
                       <>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
@@ -262,7 +264,9 @@ export default function PlaceInfo({ place, onClose, onEdit, onCloseEdit }: Place
           </div>
           <FormGeo
             values={{
-              placeName: place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? "" : (place.properties.name as string),
+              placeName: place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK)
+                ? ""
+                : (place.properties.name as string),
               information: place.properties.information as string,
               floor: place.properties.floors?.[0] ?? 1,
               longitude: place.geometry.coordinates[0] as number,
