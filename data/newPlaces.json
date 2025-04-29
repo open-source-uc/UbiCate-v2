@@ -4,18 +4,38 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.61396745905142,
-                    -33.49870234727073
+                    [
+                        [
+                            -70.61336874961853,
+                            -33.49808499716405
+                        ],
+                        [
+                            -70.61411842703819,
+                            -33.498156571712
+                        ],
+                        [
+                            -70.614083558321,
+                            -33.498424975739766
+                        ],
+                        [
+                            -70.61343848705292,
+                            -33.498407082163794
+                        ],
+                        [
+                            -70.61336874961853,
+                            -33.49808499716405
+                        ]
+                    ]
                 ]
             },
             "properties": {
-                "identifier": "ma2xivj0updj9b",
-                "name": "ROCKA",
-                "information": "",
+                "identifier": "ROCKA-SJ",
+                "name": "rocka",
+                "information": "# Hola",
                 "categories": [
-                    "parking"
+                    "classroom"
                 ],
                 "floors": [
                     1
@@ -28,38 +48,18 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
+                "type": "Point",
                 "coordinates": [
-                    [
-                        [
-                            -70.6133692660525,
-                            -33.4980853099062
-                        ],
-                        [
-                            -70.61411813900584,
-                            -33.49815688445636
-                        ],
-                        [
-                            -70.61408380692636,
-                            -33.49842528848163
-                        ],
-                        [
-                            -70.61343793119175,
-                            -33.49840739490576
-                        ],
-                        [
-                            -70.6133692660525,
-                            -33.4980853099062
-                        ]
-                    ]
+                    -70.61396745905142,
+                    -33.49870234727073
                 ]
             },
             "properties": {
-                "identifier": "ROCKA-SJ",
-                "name": "rocka",
+                "identifier": "ma2xivj0updj9b",
+                "name": "ROCKA",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "parking"
                 ],
                 "floors": [
                     1
