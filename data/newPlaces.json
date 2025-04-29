@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2xc7n5n7prnx",
+                "name": "Sala Crisol | OR",
+                "information": "Sala Crisol Oriente en el segundo piso",
+                "categories": [
+                    "photocopy"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594439056197,
+                    -33.445790442601925
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_28_|_OR-OR",
                 "name": "Taller Arte 28 | OR",
                 "information": "Sala Escuela de Arte 28",
