@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_10-OR",
-                "name": "Sala 10 | OR",
-                "information": "Sala 10 Bernardo Trumper\n(Posibles T)",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5935562774539,
-                    -33.44586832996998
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "E205_|_OR-OR",
                 "name": "E205 | OR",
                 "information": "Sala E205",
