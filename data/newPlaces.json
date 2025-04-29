@@ -196,30 +196,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ma2zho69crynhm",
-                "name": "Reciclaje | OR",
-                "information": "Punto verde",
-                "categories": [
-                    "trash"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59455277474083,
-                    -33.44589818672231
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2zh7nxqhfg72",
                 "name": "Punto de microondas | OR",
                 "information": "Microondas",
