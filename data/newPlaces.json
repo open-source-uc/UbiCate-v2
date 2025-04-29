@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2wf31rk5xswh",
+                "name": "Punto verde",
+                "information": "Punto verde al interior del centro de eventos",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373679712705,
+                    -33.44509924503726
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2wejmqlixzs7",
                 "name": "Casino | OR",
                 "information": "Casino dentro sel Centro de eventos",
