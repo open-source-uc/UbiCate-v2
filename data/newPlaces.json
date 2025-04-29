@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2zh7nxqhfg72",
+                "name": "Punto de microondas | OR",
+                "information": "Microondas",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59453820568223,
+                    -33.445877248561324
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2zecay26aqi0",
                 "name": "Estacionamiento de bicicletas | OR",
                 "information": "Bicicletero",
