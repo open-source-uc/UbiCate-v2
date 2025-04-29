@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2xlvgb6avbmb",
+                "name": "Auditorium 1 | OR",
+                "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59392994269729,
+                    -33.446105703218606
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
                 "name": "Aulas San Marcos y San Lucas | OR",
                 "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
@@ -742,30 +766,6 @@
                 "coordinates": [
                     -70.59362880024152,
                     -33.4455517511141
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ma2xlvgb6avbmb",
-                "name": "Auditorium 1",
-                "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
-                "categories": [
-                    "auditorium"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59392995815425,
-                    -33.446105669601586
                 ]
             }
         },
