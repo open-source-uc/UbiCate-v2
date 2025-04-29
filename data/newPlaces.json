@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "TALLER_ARTE_9-OR",
+                "name": "Taller arte 9 | OR",
+                "information": "Taller número 9 de la escuela de artes",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59408416971564,
+                    -33.44520810160795
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "TALLER_ARTE_26-OR",
                 "name": "Taller arte 26 | OR",
                 "information": "Taller 26 de la escuela de arte",
@@ -1530,30 +1554,6 @@
                 "coordinates": [
                     -70.5940870829752,
                     -33.445307316794846
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "TALLER_ARTE_9-OR",
-                "name": "Taller arte 9",
-                "information": "Taller número 9 de la escuela de artes",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59408419952945,
-                    -33.44520813608934
                 ]
             }
         },
