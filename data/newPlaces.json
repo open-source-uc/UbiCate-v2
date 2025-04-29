@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2zcda8cew0jm",
+                "name": "Estética UC | OR",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5943078053607,
+                    -33.44634284590845
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2za5a3bfzpuz",
                 "name": "Subdirección dd Bienestar y Calidad de Vida | OR",
                 "information": "",
