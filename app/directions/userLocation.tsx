@@ -2,6 +2,8 @@ import React, { useCallback, useMemo } from "react";
 
 import { Marker, useMap } from "react-map-gl";
 
+import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
+
 import * as Icons from "../components/icons/icons";
 import LocationButton from "../components/locationButton";
 import { useUbication } from "../hooks/useUbication";
@@ -16,6 +18,15 @@ export default function UserLocation() {
   }, [alpha, mainMap]);
 
   const handleLocationButtonClick = useCallback(() => {
+    if (!position) return;
+
+    const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
+
+    if (!campus) {
+      alert("Estas afuera del campus o no se ha podido determinar el campus");
+      return;
+    }
+
     mainMap?.getMap().flyTo({
       center: position?.geometry.coordinates as [number, number],
       zoom: 17,
