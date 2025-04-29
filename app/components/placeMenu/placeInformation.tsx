@@ -117,17 +117,17 @@ export default function PlaceInformation({
                 <DropdownMenuItem onClick={onReject}>Rechazar</DropdownMenuItem>
               </>
             ) : null}
-            {isDebug.current && !place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
+            {isDebug.current && !place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? (
               <>
                 <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
                 <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
               </>
-            )}
-            {isDebug.current && place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) && (
+            ) : null}
+            {isDebug.current && place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? (
               <>
                 <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
               </>
-            )}
+            ) : null}
           </DropdownMenuContent>
         </DropdownMenu>
       </section>
@@ -165,6 +165,6 @@ export default function PlaceInformation({
           </div>
         ) : null}
       </section>
-    </div >
+    </div>
   );
 }

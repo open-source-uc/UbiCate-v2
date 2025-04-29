@@ -262,7 +262,7 @@ function createFeatureFromPoints(points: any[], properties: any): Feature | null
     // Asegura que el polígono esté cerrado (el primer punto se repite al final)
     const closedCoordinates =
       coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
-        coordinates[0][1] === coordinates[coordinates.length - 1][1]
+      coordinates[0][1] === coordinates[coordinates.length - 1][1]
         ? coordinates
         : [...coordinates, coordinates[0]];
 
