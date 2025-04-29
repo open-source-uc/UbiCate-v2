@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2wf31rk5xswh",
+                "name": "Reciclaje | OR",
+                "information": "Punto verde al interior del centro de eventos",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373682364821,
+                    -33.445099275348916
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2wgxbyz0gwjc",
                 "name": "Mesón UC | OR",
                 "information": "Mesón uc al interior del centro de eventos, campus oriente",
@@ -1626,30 +1650,6 @@
                 "coordinates": [
                     -70.59423647980265,
                     -33.44532002692654
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ma2wf31rk5xswh",
-                "name": "Punto verde",
-                "information": "Punto verde al interior del centro de eventos",
-                "categories": [
-                    "trash"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59373679712705,
-                    -33.44509924503726
                 ]
             }
         },
