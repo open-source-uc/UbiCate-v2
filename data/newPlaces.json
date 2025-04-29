@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_7_|_OR-OR",
-                "name": "Sala 7 | OR",
-                "information": "Sala 7 Fernando Colina\n(Posibles salas T)",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59380605816841,
-                    -33.4456414469767
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_10-OR",
                 "name": "Sala 10 | OR",
                 "information": "Sala 10 Bernardo Trumper\n(Posibles T)",
