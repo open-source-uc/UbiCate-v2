@@ -4,6 +4,32 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61464275163293,
+                    -33.4983666454104
+                ]
+            },
+            "properties": {
+                "identifier": "ma2xivj0updj9b",
+                "name": "ROCKA",
+                "information": "",
+                "categories": [
+                    "parking",
+                    "building"
+                ],
+                "floors": [
+                    2,
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
@@ -36,30 +62,6 @@
                 "information": "# Hola",
                 "categories": [
                     "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61396745905142,
-                    -33.49870234727073
-                ]
-            },
-            "properties": {
-                "identifier": "ma2xivj0updj9b",
-                "name": "ROCKA",
-                "information": "",
-                "categories": [
-                    "parking"
                 ],
                 "floors": [
                     1
