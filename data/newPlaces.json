@@ -268,30 +268,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ma2xurvzfro06t",
-                "name": "Camarines escuela de teatro | OR",
-                "information": "Camarines hombre y mujer separados. De la escuela de teatro.",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59325335547328,
-                    -33.44561500989388
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ma2zomg0raykyu",
                 "name": "Reciclaje | OR",
                 "information": "Punto verde",
