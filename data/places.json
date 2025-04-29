@@ -29716,6 +29716,30 @@
                     -33.445877248561324
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zecay26aqi0",
+                "name": "Estacionamiento de bicicletas | OR",
+                "information": "Bicicletero",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59439101221486,
+                    -33.4460733909955
+                ]
+            }
         }
     ]
 }
