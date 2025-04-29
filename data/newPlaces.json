@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "ma2vl18xdkmpbq",
+                "name": "Centro UC Síndrome de Down",
+                "information": "Centro UC Síndrome de Down",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59328700934249,
+                    -33.447021500650266
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "ma2vhte6op1sjn",
                 "name": "Estacionamiento | OR",
                 "information": "Estacionamiento | OR",
