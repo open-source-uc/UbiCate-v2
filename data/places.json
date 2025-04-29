@@ -29236,6 +29236,30 @@
                     -33.446032178621714
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2w476773ejyc",
+                "name": "Estacionamiento de Motos | OR",
+                "information": "Estacionamiento exclusivo para motos",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59291299820958,
+                    -33.44602383342191
+                ]
+            }
         }
     ]
 }
