@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "SALA_10-OR",
+                "name": "Sala 10",
+                "information": "Sala 10 Bernardo Trumper",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935562866673,
+                    -33.445868371213564
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_9_|_OR-OR",
                 "name": "Sala 9 | OR",
                 "information": "Sala 9 Pedro Mortheiru",
