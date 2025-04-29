@@ -3,6 +3,30 @@
     "features": [
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "ma2xj22uhv890c",
+                "name": "Auditorium 3",
+                "information": "Auditorium 3 en el segundo piso con vista al patio central",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59403765292237,
+                    -33.44601367365815
+                ]
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
