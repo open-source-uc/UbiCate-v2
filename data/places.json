@@ -29736,6 +29736,30 @@
                     -33.4460733909955
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_22_ARTE-OR",
+                "name": "Taller arte 22  | OR",
+                "information": "Taller 22 escuela de Arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59430561959743,
+                    -33.44566942271695
+                ]
+            }
         }
     ]
 }
