@@ -1059,30 +1059,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "TALLER_ARTE_29_|_OR-OR",
-                "name": "Taller Arte 29 | OR",
-                "information": "Sala Escuela de Arte 29",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": true
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59390264768938,
-                    -33.44556612608999
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
