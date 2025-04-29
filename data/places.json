@@ -30388,6 +30388,30 @@
                     -33.44591714750317
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
+                "name": "Aulas San Marcos y San Lucas | OR",
+                "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59328269213438,
+                    -33.44597100062394
+                ]
+            }
         }
     ]
 }
