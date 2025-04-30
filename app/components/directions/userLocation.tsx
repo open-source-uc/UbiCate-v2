@@ -1,8 +1,9 @@
-import React, { useCallback, useMemo } from "react";
+import React, { use, useCallback, useMemo } from "react";
 
 import { Marker, useMap } from "react-map-gl";
 
-import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
+import { NotificationContext } from "@/app/context/notificationCtx";
+import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import { useUbication } from "../../hooks/useUbication";
 import * as Icons from "../icons/icons";
@@ -11,7 +12,7 @@ import LocationButton from "./locationButton";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
-
+  const { setNotification } = use(NotificationContext);
   const { position, alpha } = useUbication();
 
   const rotation = useMemo(() => {
@@ -24,16 +25,21 @@ export default function UserLocation() {
     const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
 
     if (!campus) {
-      alert("Estas afuera del campus o no se ha podido determinar el campus");
+      setNotification("Estas afuera del campus o no se ha podido determinar el campus", "error", "locationError");
       return;
     }
 
+    mainMap?.getMap().setMaxBounds(undefined);
     mainMap?.getMap().flyTo({
       center: position?.geometry.coordinates as [number, number],
       zoom: 17,
       duration: 400,
     });
-  }, [mainMap, position]);
+
+    setTimeout(() => {
+      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
+    }, 600);
+  }, [mainMap]);
 
   return (
     <>

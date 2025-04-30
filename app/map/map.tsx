@@ -28,7 +28,7 @@ import {
   getMaxCampusBoundsFromPoint,
 } from "@/utils/getCampusBounds";
 import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
-import { Feature, PointFeature, CategoryEnum } from "@/utils/types";
+import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 
 import DirectionsComponent from "../components/directions/component";
 import UserLocation from "../components/directions/userLocation";
@@ -120,7 +120,7 @@ export default function MapComponent({
         title.textContent = place ? `${place.properties.name}` : "Ubicate UC - Mapa";
       }
 
-      if (place.properties.categories.includes(CategoryEnum.CUSTOM_MARK)) {
+      if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK)) {
         window.history.replaceState(
           null,
           "",
@@ -178,7 +178,7 @@ export default function MapComponent({
         });
       }
     },
-    [setSelectedPlace],
+    [setSelectedPlace, setIsOpen],
   );
 
   function onClickMap(e: MapLayerMouseEvent) {
@@ -216,7 +216,7 @@ export default function MapComponent({
     e.target.on("click", ["area-polygon"], (e) => {
       const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
       if (!feature) return;
-
+      clearTimeout(timeoutId.current ?? undefined);
       setTimeout(() => {
         handlePlaceSelection(feature, { openSidebar: true });
       }, 200);
@@ -311,7 +311,7 @@ export default function MapComponent({
         <DirectionsComponent />
 
         {points.map((place) => {
-          const primaryCategory = place.properties.categories[0] as CategoryEnum;
+          const primaryCategory = place.properties.categories[0] as CATEGORIES;
           return (
             <Marker
               key={place.properties.identifier}
@@ -322,7 +322,7 @@ export default function MapComponent({
           );
         })}
         {pins.map((pin) => {
-          const primaryCategory = pin.properties.categories[0] as CategoryEnum;
+          const primaryCategory = pin.properties.categories[0] as CATEGORIES;
           return (
             <Marker
               key={pin.properties.identifier}

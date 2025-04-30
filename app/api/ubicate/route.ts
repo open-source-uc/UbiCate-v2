@@ -5,7 +5,7 @@ import { centroid } from "@turf/centroid";
 import { z } from "zod";
 
 import { getCampusNameFromPoint, getFacultiesIdsFromPoint } from "@/utils/getCampusBounds";
-import { CategoryEnum, Feature } from "@/utils/types";
+import { CATEGORIES, Feature } from "@/utils/types";
 
 const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
 const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
@@ -213,7 +213,7 @@ const placeSchema = z.object({
 
     categories: z
       .array(
-        z.enum(Object.values(CategoryEnum) as [string, ...string[]], {
+        z.enum(Object.values(CATEGORIES) as [string, ...string[]], {
           errorMap: () => ({ message: "Categoría no válida" }),
         }),
       )
@@ -370,8 +370,6 @@ export async function POST(request: NextRequest) {
     } else {
       nuevo_punto.properties.identifier = generateRandomIdWithTimestamp();
     }
-
-    console.log(nuevo_punto);
 
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
 

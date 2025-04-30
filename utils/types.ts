@@ -16,7 +16,7 @@ interface LineGeometry {
 
 export type SubSidebarType = "buscar" | "campus" | "guías" | "placeInformation" | null;
 
-export enum CategoryEnum {
+export enum CATEGORIES {
   AUDITORIUM = "auditorium",
   BATH = "bath",
   BUILDING = "building",
@@ -83,6 +83,12 @@ export interface JSONFeatures {
   features: Feature[];
 }
 
+/*
+NO USAR PARA CATEGORIAS, EN ESE CASO USAR EL ENUM
+NO SE BORRAN AUN PUES ALGO SE PUEDE ROMPER
+
+SOLO USAR PARA CAMPUS, NO INTENTEN HACER ENUM DE CAMPUS YA ES MUY TARDE, EN EL JSON ESTA SJ y SanJoaquin
+*/
 export const siglas = new Map<string, string>([
   ["SanJoaquin", "SJ"],
   ["LoContador", "LC"],
@@ -116,54 +122,55 @@ export const siglas = new Map<string, string>([
   ["event", "Evento"],
 ]);
 
-export const CategoryToDisplayName: Map<CategoryEnum, string> = new Map([
-  [CategoryEnum.CLASSROOM, "Sala"],
-  [CategoryEnum.BATH, "Baño"],
-  [CategoryEnum.FOOD_LUNCH, "Comida"],
-  [CategoryEnum.STUDYROOM, "Sala de estudio"],
-  [CategoryEnum.LIBRARY, "Biblioteca"],
-  [CategoryEnum.TRASH, "Reciclaje"],
-  [CategoryEnum.PARK_BICYCLE, "Bicicletero"],
-  [CategoryEnum.FINANCIAL, "Banco / Cajero automático"],
-  [CategoryEnum.LABORATORY, "Laboratorio"],
-  [CategoryEnum.WATER, "Punto de agua"],
-  [CategoryEnum.AUDITORIUM, "Auditorio"],
-  [CategoryEnum.SPORTS_PLACE, "Deporte"],
-  [CategoryEnum.COMPUTERS, "Sala de computadores"],
-  [CategoryEnum.PHOTOCOPY, "Fotocopias / Impresoras"],
-  [CategoryEnum.SHOP, "Tienda"],
-  [CategoryEnum.PARKING, "Estacionamiento"],
-  [CategoryEnum.FACULTY, "Facultad"],
-  [CategoryEnum.BUILDING, "Edificio"],
-  [CategoryEnum.OTHER, "Otro"],
-  [CategoryEnum.CUSTOM_MARK, "Marcador"],
-  [CategoryEnum.YARD, "Patio"],
+export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
+  [CATEGORIES.CLASSROOM, "Sala"],
+  [CATEGORIES.BATH, "Baño"],
+  [CATEGORIES.FOOD_LUNCH, "Comida"],
+  [CATEGORIES.STUDYROOM, "Sala de estudio"],
+  [CATEGORIES.LIBRARY, "Biblioteca"],
+  [CATEGORIES.TRASH, "Reciclaje"],
+  [CATEGORIES.PARK_BICYCLE, "Bicicletero"],
+  [CATEGORIES.FINANCIAL, "Banco / Cajero automático"],
+  [CATEGORIES.LABORATORY, "Laboratorio"],
+  [CATEGORIES.WATER, "Punto de agua"],
+  [CATEGORIES.AUDITORIUM, "Auditorio"],
+  [CATEGORIES.SPORTS_PLACE, "Deporte"],
+  [CATEGORIES.COMPUTERS, "Sala de computadores"],
+  [CATEGORIES.PHOTOCOPY, "Fotocopias / Impresoras"],
+  [CATEGORIES.SHOP, "Tienda"],
+  [CATEGORIES.PARKING, "Estacionamiento"],
+  [CATEGORIES.FACULTY, "Facultad"],
+  [CATEGORIES.BUILDING, "Edificio"],
+  [CATEGORIES.OTHER, "Otro"],
+  [CATEGORIES.CUSTOM_MARK, "Marcador"],
+  [CATEGORIES.YARD, "Patio"],
 ]);
 
+// Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK
 export const CategoryOptions = [
-  CategoryEnum.CLASSROOM,
-  CategoryEnum.BATH,
-  CategoryEnum.FOOD_LUNCH,
-  CategoryEnum.STUDYROOM,
-  CategoryEnum.LIBRARY,
-  CategoryEnum.TRASH,
-  CategoryEnum.PARK_BICYCLE,
-  CategoryEnum.FINANCIAL,
-  CategoryEnum.LABORATORY,
-  CategoryEnum.WATER,
-  CategoryEnum.AUDITORIUM,
-  CategoryEnum.SPORTS_PLACE,
-  CategoryEnum.COMPUTERS,
-  CategoryEnum.PHOTOCOPY,
-  CategoryEnum.SHOP,
-  CategoryEnum.PARKING,
-  CategoryEnum.FACULTY,
-  CategoryEnum.BUILDING,
-  CategoryEnum.YARD,
-  CategoryEnum.OTHER,
+  CATEGORIES.CLASSROOM,
+  CATEGORIES.BATH,
+  CATEGORIES.FOOD_LUNCH,
+  CATEGORIES.STUDYROOM,
+  CATEGORIES.LIBRARY,
+  CATEGORIES.TRASH,
+  CATEGORIES.PARK_BICYCLE,
+  CATEGORIES.FINANCIAL,
+  CATEGORIES.LABORATORY,
+  CATEGORIES.WATER,
+  CATEGORIES.AUDITORIUM,
+  CATEGORIES.SPORTS_PLACE,
+  CATEGORIES.COMPUTERS,
+  CATEGORIES.PHOTOCOPY,
+  CATEGORIES.SHOP,
+  CATEGORIES.PARKING,
+  CATEGORIES.FACULTY,
+  CATEGORIES.BUILDING,
+  CATEGORIES.YARD,
+  CATEGORIES.OTHER,
 ]
 
-export function getDisplayNameForCategory(category: CategoryEnum): string {
+export function getDisplayNameForCategory(category: CATEGORIES): string {
   return CategoryToDisplayName.get(category) || "Otro"; // Default display name
 }
 

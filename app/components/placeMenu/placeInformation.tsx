@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 
-import { CategoryEnum, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
+import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
 
 import RouteButton from "../directions/routeButton";
 import * as Icons from "../icons/icons";
@@ -66,7 +66,7 @@ export default function PlaceInformation({
         </div>
         {place.properties?.categories?.[0] ? (
           <div className="font-light text-md mt-1">
-            {CategoryToDisplayName.get(place.properties.categories[0] as CategoryEnum) || "Lugar sin categoría"}
+            {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
           </div>
         ) : null}
       </section>
@@ -101,7 +101,7 @@ export default function PlaceInformation({
           <DropdownMenuContent className="bg-brown-medium rounded-lg shadow-lg px-2 py-2">
             {isDebug.current === false && (
               <DropdownMenuItem>
-                {place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? (
+                {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
                   <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
                 ) : (
                   <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
@@ -117,13 +117,13 @@ export default function PlaceInformation({
                 <DropdownMenuItem onClick={onReject}>Rechazar</DropdownMenuItem>
               </>
             ) : null}
-            {isDebug.current && !place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? (
+            {isDebug.current && !place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
               <>
                 <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
                 <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
               </>
             ) : null}
-            {isDebug.current && place?.properties.categories.includes(CategoryEnum.CUSTOM_MARK) ? (
+            {isDebug.current && place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
               <>
                 <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
               </>

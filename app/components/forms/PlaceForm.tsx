@@ -56,14 +56,12 @@ export default function PlaceForm({
   );
 
   useEffect(() => {
-    setTimeout(() => {
-      if (method === "POST" && pins.length === 1) {
-        setData((prev) => ({
-          ...prev,
-          floors: [1],
-        }));
-      }
-    }, 0);
+    if (method === "POST" && pins.length === 1) {
+      setData((prev) => ({
+        ...prev,
+        floors: [1],
+      }));
+    }
   }, []);
 
   // Función para manejar el cambio de categoría

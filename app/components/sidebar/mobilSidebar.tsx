@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
-import { useDirections } from "@/app/context/directionsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
@@ -14,6 +13,7 @@ import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -25,7 +25,6 @@ export default function MobileSidebar() {
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
-  const { setDirectionData, duration, distance } = useDirections();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -198,40 +197,7 @@ export default function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
-        <div ref={refSearchContainer} className="w-full" />
-        {duration && distance ? (
-          <div
-            className="
-      w-full pointer-events-auto cursor-pointer transition-colors duration-200
-      flex items-center justify-start gap-3 px-4 py-3 mt-2
-      rounded-lg bg-brown-medium hover:bg-brown-light
-    "
-          >
-            <div
-              className="
-        flex items-center justify-center
-        min-w-[28px] min-h-[28px] desktop:min-w-[32px] desktop:min-h-[32px]
-        bg-blue-location rounded-md
-      "
-            >
-              <Icons.Directions className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-sm font-medium whitespace-normal break-words desktop:text-base desktop:font-normal text-white">
-              Ruta de <span className="font-bold">{distance}</span> metros.
-            </span>
-            <div className="ml-auto flex-shrink-0">
-              <button
-                onClick={(e) => setDirectionData(null, null, null)}
-                className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2"
-                aria-label="Cerrar menú"
-              >
-                <Icons.Close />
-              </button>
-            </div>
-          </div>
-        ) : null}
-      </section>
+      <TopMobileSidebar refSearchContainer={refSearchContainer} />
 
       {/* Main Sidebar */}
       <section

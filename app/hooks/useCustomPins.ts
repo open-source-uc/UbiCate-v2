@@ -6,7 +6,7 @@ import { booleanClockwise } from "@turf/boolean-clockwise";
 import type { MarkerDragEvent } from "react-map-gl";
 
 import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
-import { CategoryEnum, PointFeature, PolygonFeature } from "@/utils/types";
+import { CATEGORIES, PointFeature, PolygonFeature } from "@/utils/types";
 
 type CustomPin = PointFeature;
 
@@ -37,7 +37,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
           identifier: generatePinId(pinIndex),
           name: `${lng.toFixed(4)}, ${lat.toFixed(4)}`,
           information: "",
-          categories: [CategoryEnum.CUSTOM_MARK],
+          categories: [CATEGORIES.CUSTOM_MARK],
           campus: getCampusNameFromPoint(lng, lat) ?? "SJ",
           faculties: [],
           floors: [],
@@ -111,7 +111,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
         identifier: "custom-polygon",
         name: "Área personalizada",
         information: "",
-        categories: [CategoryEnum.CUSTOM_MARK],
+        categories: [CATEGORIES.CUSTOM_MARK],
         campus: "",
         faculties: [],
         floors: [],

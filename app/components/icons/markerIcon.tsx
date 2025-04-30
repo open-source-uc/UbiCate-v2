@@ -1,36 +1,36 @@
 import React from "react";
 
-import { CategoryEnum } from "@/utils/types";
+import { CATEGORIES } from "@/utils/types";
 
 import * as Icons from "./icons";
 
-const categoryIcons: Record<CategoryEnum, React.ComponentType<{ className?: string }>> = {
-  [CategoryEnum.AUDITORIUM]: Icons.Auditorium,
-  [CategoryEnum.BATH]: Icons.Wc,
-  [CategoryEnum.BUILDING]: Icons.Default,
-  [CategoryEnum.CAMPUS]: Icons.Default,
-  [CategoryEnum.CLASSROOM]: Icons.Default,
-  [CategoryEnum.COMPUTERS]: Icons.Print,
-  [CategoryEnum.CUSTOM_MARK]: Icons.Pin,
-  [CategoryEnum.FACULTY]: Icons.Default,
-  [CategoryEnum.FINANCIAL]: Icons.Default,
-  [CategoryEnum.FOOD_LUNCH]: Icons.Restaurant,
-  [CategoryEnum.LABORATORY]: Icons.Default,
-  [CategoryEnum.OTHER]: Icons.Default,
-  [CategoryEnum.PARK_BICYCLE]: Icons.Default,
-  [CategoryEnum.PARKING]: Icons.Parking,
-  [CategoryEnum.PHOTOCOPY]: Icons.Print,
-  [CategoryEnum.LIBRARY]: Icons.Library,
-  [CategoryEnum.SHOP]: Icons.Default,
-  [CategoryEnum.SPORTS_PLACE]: Icons.Sport,
-  [CategoryEnum.STUDYROOM]: Icons.Studyroom,
-  [CategoryEnum.TRASH]: Icons.Default,
-  [CategoryEnum.WATER]: Icons.Water,
-  [CategoryEnum.USER_LOCATION]: Icons.UserLocation,
-  [CategoryEnum.YARD]: Icons.Default,
+const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string }>> = {
+  [CATEGORIES.AUDITORIUM]: Icons.Auditorium,
+  [CATEGORIES.BATH]: Icons.Wc,
+  [CATEGORIES.BUILDING]: Icons.Default,
+  [CATEGORIES.CAMPUS]: Icons.Default,
+  [CATEGORIES.CLASSROOM]: Icons.Default,
+  [CATEGORIES.COMPUTERS]: Icons.Print,
+  [CATEGORIES.CUSTOM_MARK]: Icons.Pin,
+  [CATEGORIES.FACULTY]: Icons.Default,
+  [CATEGORIES.FINANCIAL]: Icons.Default,
+  [CATEGORIES.FOOD_LUNCH]: Icons.Restaurant,
+  [CATEGORIES.LABORATORY]: Icons.Default,
+  [CATEGORIES.OTHER]: Icons.Default,
+  [CATEGORIES.PARK_BICYCLE]: Icons.Default,
+  [CATEGORIES.PARKING]: Icons.Parking,
+  [CATEGORIES.PHOTOCOPY]: Icons.Print,
+  [CATEGORIES.LIBRARY]: Icons.Library,
+  [CATEGORIES.SHOP]: Icons.Default,
+  [CATEGORIES.SPORTS_PLACE]: Icons.Sport,
+  [CATEGORIES.STUDYROOM]: Icons.Studyroom,
+  [CATEGORIES.TRASH]: Icons.Default,
+  [CATEGORIES.WATER]: Icons.Water,
+  [CATEGORIES.USER_LOCATION]: Icons.UserLocation,
+  [CATEGORIES.YARD]: Icons.Default,
 };
 
-export default function MarkerIcon({ label }: { label: CategoryEnum }) {
+export default function MarkerIcon({ label }: { label: CATEGORIES }) {
   const Icon = categoryIcons[label] ?? Icons.Default;
   return <Icon className="w-3 h-3" />;
 }

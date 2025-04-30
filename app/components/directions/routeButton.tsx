@@ -1,6 +1,7 @@
-import { centroid } from "@turf/centroid";
+import { use } from "react";
 
-import { getCampusBoundsFromPoint, getCampusNameFromPoint } from "@/utils/getCampusBounds";
+import { NotificationContext } from "@/app/context/notificationCtx";
+import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
 import { Feature } from "@/utils/types";
 
 import { useDirections } from "../../context/directionsCtx";
@@ -13,85 +14,35 @@ import { fetchDirection } from "./fetchDirection";
 interface RouteButtonProps {
   place: Feature | null;
 }
-function convertSecondsToReadableFormat(seconds: number): string {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-
-  if (minutes > 0) {
-    return `${minutes} minuto${minutes > 1 ? "s" : ""} y ${remainingSeconds} segundo${
-      remainingSeconds !== 1 ? "s" : ""
-    }`;
-  } else {
-    return `${remainingSeconds} segundo${remainingSeconds !== 1 ? "s" : ""}`;
-  }
-}
 
 export default function RouteButton({ place }: RouteButtonProps) {
-  const { setDirectionData, setTrackingUserLocation } = useDirections();
+  const { setDirectionData } = useDirections();
   const { position, alpha, cardinal } = useUbication();
   const { setSelectedPlace } = useSidebar();
+  const { setNotification } = use(NotificationContext);
+  const status = useDirectionStatus(position, place);
 
   const handleDirections = async () => {
-    if (!navigator.geolocation || !position) {
-      alert("No podemos acceder a tu ubicación");
+    if (status.ok === false) {
+      setNotification(status.error ?? undefined, "error");
       return;
     }
-
-    if (!place) {
-      alert("No se puede calcular la ruta para este lugar");
-      return;
-    }
-
-    if (!["SJ", "LC", "SanJoaquin", "LoContador"].includes(place.properties.campus)) {
-      alert("No se puede calcular la ruta en este campus");
-      return;
-    }
-
-    let destination: [number, number];
-
-    if (place.geometry.type === "Point") {
-      destination = place.geometry.coordinates as [number, number];
-    } else if (place.geometry.type === "Polygon") {
-      destination = centroid(place.geometry).geometry.coordinates as [number, number];
-    } else {
-      alert("No se puede calcular la ruta para este lugar");
-      return;
-    }
-
-    if (getCampusBoundsFromPoint(position.geometry.coordinates[0], position.geometry.coordinates[1]) === null) {
-      alert("No se puede calcular la ruta si estas afuera del campus xd. Deja de buscar bugs");
-      return;
-    }
-    if (getCampusBoundsFromPoint(destination[0], destination[1]) === null) {
-      alert("El punto de destino no está dentro de algun campus, esto es muy raro, por favor reporta este bug");
-      return;
-    }
-
-    if (
-      getCampusNameFromPoint(destination[0], destination[1]) !==
-      getCampusNameFromPoint(position.geometry.coordinates[0], position.geometry.coordinates[1])
-    ) {
-      alert("No se puede calcular la ruta entre compus distintos");
-      return;
-    }
+    if (!position || !status.destination) return;
 
     try {
-      const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, destination);
+      const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, status.destination);
 
       if (!direction || !duration || !distance) {
-        alert("No logró obtener la ruta");
+        setNotification("No se logró obtener la ruta", "error");
         return;
       }
 
-      // Convierte la duración
-      const durationFormatted = convertSecondsToReadableFormat(duration);
-
-      setTrackingUserLocation(true);
-      setDirectionData(direction, durationFormatted, distance);
+      setDirectionData(direction, "xd", distance);
+      setNotification(`La ruta a ${place?.properties.name} es de ${distance} metros.`, "success");
       setSelectedPlace(null);
     } catch (error) {
-      console.log("Error fetching directions:", error);
-      alert("No se logró obtener la ruta");
+      setNotification("No se logró obtener la ruta", "error");
+      console.error("Error fetching directions:", error);
     }
   };
 
