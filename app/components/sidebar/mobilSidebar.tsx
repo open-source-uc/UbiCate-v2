@@ -264,8 +264,9 @@ export default function MobileSidebar() {
                     <div className="bg-brown-medium flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
-                          }`}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
+                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                        }`}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
                           <Icons.Map />
