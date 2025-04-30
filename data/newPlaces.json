@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61189353147923,
+                    -33.49992411902557
+                ]
+            },
+            "properties": {
+                "identifier": "Baño universal",
+                "name": "Baño universal",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    2,
+                    1,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61435488184686,
                     -33.498991709246624
                 ]
