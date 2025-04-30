@@ -24054,29 +24054,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Baño",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    7
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6120139,
-                    -33.5001276
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "name": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "information": "",
