@@ -29094,7 +29094,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vn8hia86k1b",
-                "name": "Centro de Reciclaje | OR",
+                "name": "Centro de Reciclaje",
                 "information": "Punto verde de Reciclaje común Oriente",
                 "categories": [
                     "trash"
@@ -29142,7 +29142,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2w476773ejyc",
-                "name": "Estacionamiento de Motos | OR",
+                "name": "Estacionamiento de Motos",
                 "information": "Estacionamiento exclusivo para motos",
                 "categories": [
                     "other"
@@ -29166,7 +29166,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2wfiviui123z",
-                "name": "Casino | OR",
+                "name": "Casino",
                 "information": "Casino del Centro de eventos",
                 "categories": [
                     "food_lunch"
@@ -29190,7 +29190,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2wlw7q3i0cca",
-                "name": "Baños | OR",
+                "name": "Baños",
                 "information": "",
                 "categories": [
                     "bath"
@@ -29214,7 +29214,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2wejmqlixzs7",
-                "name": "Casino | OR",
+                "name": "Casino",
                 "information": "Casino dentro sel Centro de eventos",
                 "categories": [
                     "other"
@@ -29238,7 +29238,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2wf31rk5xswh",
-                "name": "Reciclaje | OR",
+                "name": "Reciclaje",
                 "information": "Punto verde al interior del centro de eventos",
                 "categories": [
                     "trash"
@@ -29262,7 +29262,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2wgxbyz0gwjc",
-                "name": "Mesón UC | OR",
+                "name": "Mesón UC",
                 "information": "Mesón uc al interior del centro de eventos, campus oriente",
                 "categories": [
                     "food_lunch"
@@ -29286,7 +29286,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_26-OR",
-                "name": "Taller arte 26 | OR",
+                "name": "Taller arte 26",
                 "information": "Taller 26 de la escuela de arte",
                 "categories": [
                     "classroom"
@@ -29310,7 +29310,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_9-OR",
-                "name": "Taller arte 9 | OR",
+                "name": "Taller arte 9",
                 "information": "Taller número 9 de la escuela de artes",
                 "categories": [
                     "classroom"
@@ -29334,7 +29334,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_25-OR",
-                "name": "Taller arte 25 | OR",
+                "name": "Taller arte 25",
                 "information": "Taller 25 de la escuela de arte",
                 "categories": [
                     "classroom"
@@ -29358,7 +29358,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_8-OR",
-                "name": "Taller arte 8 | OR",
+                "name": "Taller arte 8",
                 "information": "Taller número 8 de la escuela de artes",
                 "categories": [
                     "classroom"
@@ -29381,8 +29381,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_7_|_OR-OR",
-                "name": "Taller Arte 7 | OR",
+                "identifier": "TALLER_ARTE_7-OR",
+                "name": "Taller Arte 7",
                 "information": "Sala Escuela de arte 7",
                 "categories": [
                     "classroom"
@@ -29405,8 +29405,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_24_|_OR-OR",
-                "name": "Taller Arte 24 | OR",
+                "identifier": "TALLER_ARTE_24-OR",
+                "name": "Taller Arte 24",
                 "information": "Sala escuela de arte 24",
                 "categories": [
                     "classroom"
@@ -29430,7 +29430,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_5-OR",
-                "name": "Taller arte 5 | OR",
+                "name": "Taller arte 5",
                 "information": "Taller número 5 de la escuela de Arte",
                 "categories": [
                     "classroom"
@@ -29454,7 +29454,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_6-OR",
-                "name": "Taller Arte 6 | OR",
+                "name": "Taller Arte 6",
                 "information": "Sala de arte 6,  Escuela dd Arte",
                 "categories": [
                     "classroom"
@@ -29477,8 +29477,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_DE_PERMANENCIA_10_|_OR-OR",
-                "name": "Taller de Permanencia 10 | OR",
+                "identifier": "TALLER_DE_PERMANENCIA_10-OR",
+                "name": "Taller de Permanencia 10",
                 "information": "Taller de Permanencia 10 campus Oriente",
                 "categories": [
                     "classroom"
@@ -29501,8 +29501,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_27_|_OR-OR",
-                "name": "Taller Arte 27 | OR",
+                "identifier": "TALLER_ARTE_27-OR",
+                "name": "Taller Arte 27",
                 "information": "Sala Escuela de Arte 27",
                 "categories": [
                     "classroom"
@@ -29526,7 +29526,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_ARTE_23-OR",
-                "name": "Taller arte 23 | OR",
+                "name": "Taller arte 23",
                 "information": "Taller 23 escuela de arte",
                 "categories": [
                     "classroom"
@@ -29550,7 +29550,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2zksnd5yhlvu",
-                "name": "Auditorio Filosofía | OR",
+                "name": "Auditorio Filosofía",
                 "information": "Auditorio Filosofía ",
                 "categories": [
                     "auditorium"
@@ -29574,7 +29574,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2zho69crynhm",
-                "name": "Reciclaje | OR",
+                "name": "Reciclaje",
                 "information": "Punto verde",
                 "categories": [
                     "trash"
@@ -29598,7 +29598,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2zh7nxqhfg72",
-                "name": "Punto de microondas | OR",
+                "name": "Punto de microondas",
                 "information": "Microondas",
                 "categories": [
                     "food_lunch"
@@ -29622,7 +29622,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2zecay26aqi0",
-                "name": "Estacionamiento de bicicletas | OR",
+                "name": "Estacionamiento de bicicletas",
                 "information": "Bicicletero",
                 "categories": [
                     "park_bicycle"
@@ -29646,7 +29646,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_22_ARTE-OR",
-                "name": "Taller arte 22  | OR",
+                "name": "Taller arte 22",
                 "information": "Taller 22 escuela de Arte",
                 "categories": [
                     "classroom"
@@ -29670,7 +29670,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TALLER_21_ARTE-OR",
-                "name": "Taller arte 21  | OR",
+                "name": "Taller arte 21",
                 "information": "Taller 21 escuela de arte",
                 "categories": [
                     "classroom"
@@ -29694,7 +29694,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2xc7n5n7prnx",
-                "name": "Sala Crisol | OR",
+                "name": "Sala Crisol",
                 "information": "Sala Crisol Oriente en el segundo piso",
                 "categories": [
                     "photocopy"
@@ -29717,8 +29717,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_4_|_OR-OR",
-                "name": "Taller Arte 4 | OR",
+                "identifier": "TALLER_ARTE_4-OR",
+                "name": "Taller Arte 4",
                 "information": "Sala Escuela de Arte 4",
                 "categories": [
                     "classroom"
@@ -29741,8 +29741,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_28_|_OR-OR",
-                "name": "Taller Arte 28 | OR",
+                "identifier": "TALLER_ARTE_28-OR",
+                "name": "Taller Arte 28",
                 "information": "Sala Escuela de Arte 28",
                 "categories": [
                     "classroom"
@@ -29765,8 +29765,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_29_|_OR-OR",
-                "name": "Taller Arte 29 | OR",
+                "identifier": "TALLER_ARTE_29-OR",
+                "name": "Taller Arte 29",
                 "information": "Sala Escuela de Arte 29",
                 "categories": [
                     "classroom"
@@ -29789,8 +29789,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_30_|_OR-OR",
-                "name": "Taller Arte 30 | OR",
+                "identifier": "TALLER_ARTE_30-OR",
+                "name": "Taller Arte 30",
                 "information": "Sala Escuela de Arte 30",
                 "categories": [
                     "classroom"
@@ -29814,7 +29814,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2xp903zzejvs",
-                "name": "LAITEC | OR",
+                "name": "LAITEC",
                 "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
                 "categories": [
                     "laboratory"
@@ -29837,8 +29837,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_32_|_OR-OR",
-                "name": "Taller Arte 32 | OR",
+                "identifier": "TALLER_ARTE_32-OR",
+                "name": "Taller Arte 32",
                 "information": "Sala Escuela de Arte 32",
                 "categories": [
                     "classroom"
@@ -29861,8 +29861,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_33_|_OR-OR",
-                "name": "Taller Arte 33 | OR",
+                "identifier": "TALLER_ARTE_33-OR",
+                "name": "Taller Arte 33",
                 "information": "Sala Escuela de Arte 33",
                 "categories": [
                     "classroom"
@@ -29885,8 +29885,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TALLER_ARTE_31_|_OR-OR",
-                "name": "Taller Arte 31 | OR",
+                "identifier": "TALLER_ARTE_31-OR",
+                "name": "Taller Arte 31",
                 "information": "Sala Escuela de Arte 31",
                 "categories": [
                     "classroom"
@@ -29910,7 +29910,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2xurvzfro06t",
-                "name": "Camarines escuela de teatro | OR",
+                "name": "Camarines escuela de teatro",
                 "information": "Camarines hombre y mujer separados. De la escuela de teatro.",
                 "categories": [
                     "other"
@@ -29934,7 +29934,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2waq2nqebjwa",
-                "name": "Zona segura N° 6 | OR",
+                "name": "Zona segura N° 6",
                 "information": "Zona segura",
                 "categories": [
                     "other"
@@ -29957,8 +29957,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_TECLADOS_|_OR-OR",
-                "name": "Sala de Teclados | OR",
+                "identifier": "SALA_DE_TECLADOS-OR",
+                "name": "Sala de Teclados",
                 "information": "Sala de Taclados",
                 "categories": [
                     "classroom"
@@ -29982,7 +29982,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2w988b7kp2ah",
-                "name": "Reciclaje | OR",
+                "name": "Reciclaje",
                 "information": "Punto Verde",
                 "categories": [
                     "trash"
@@ -30006,7 +30006,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2w6rg2dj0w6n",
-                "name": "Zona segura N° 5 | OR",
+                "name": "Zona segura N° 5",
                 "information": "Zona Segura",
                 "categories": [
                     "other"
@@ -30030,7 +30030,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2w20itjnxrxo",
-                "name": "Reciclaje | OR",
+                "name": "Reciclaje",
                 "information": "Punto Verde",
                 "categories": [
                     "trash"
@@ -30054,7 +30054,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2w11qun5p2ag",
-                "name": "Estacionamiento de bicicletas | OR",
+                "name": "Estacionamiento de bicicletas",
                 "information": "Bicicletero con estación de reparación",
                 "categories": [
                     "park_bicycle"
@@ -30078,7 +30078,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vyyp6pak6ge",
-                "name": "Qualitas | OR",
+                "name": "Qualitas",
                 "information": "Qualitas",
                 "categories": [
                     "other"
@@ -30102,7 +30102,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AULA_SAN_MATEO-OR",
-                "name": "Aula San Mateo | OR",
+                "name": "Aula San Mateo",
                 "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
                 "categories": [
                     "classroom"
@@ -30126,7 +30126,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALAS_IMUC-OR",
-                "name": "Salas IMUC | OR",
+                "name": "Salas IMUC",
                 "information": "Acceso a las salas del instituto de música UC",
                 "categories": [
                     "classroom"
@@ -30150,8 +30150,8 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vhte6op1sjn",
-                "name": "Estacionamiento | OR",
-                "information": "Estacionamiento | OR",
+                "name": "Estacionamiento",
+                "information": "Estacionamiento",
                 "categories": [
                     "other"
                 ],
@@ -30174,7 +30174,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vl18xdkmpbq",
-                "name": "Centro UC Síndrome de Down | OR",
+                "name": "Centro UC Síndrome de Down",
                 "information": "Centro UC Síndrome de Down",
                 "categories": [
                     "other"
@@ -30198,7 +30198,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2zomg0raykyu",
-                "name": "Reciclaje | OR",
+                "name": "Reciclaje",
                 "information": "Punto verde",
                 "categories": [
                     "trash"
@@ -30222,7 +30222,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_R6-OR",
-                "name": "Sala R6 | OR",
+                "name": "Sala R6",
                 "information": "Sala R6, segundo piso ",
                 "categories": [
                     "classroom"
@@ -30246,7 +30246,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_R5-OR",
-                "name": "Sala R5 | OR",
+                "name": "Sala R5",
                 "information": "Sala R5 segundo piso ",
                 "categories": [
                     "classroom"
@@ -30270,7 +30270,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_R4-OR",
-                "name": "Sala R4 | OR",
+                "name": "Sala R4",
                 "information": "Sala R4 segundo piso ",
                 "categories": [
                     "classroom"
@@ -30294,7 +30294,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
-                "name": "Aulas San Marcos y San Lucas | OR",
+                "name": "Aulas San Marcos y San Lucas",
                 "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
                 "categories": [
                     "classroom"
@@ -30318,7 +30318,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_R3-OR",
-                "name": "Sala R3 | OR",
+                "name": "Sala R3",
                 "information": "Sala R3 segundo piso",
                 "categories": [
                     "classroom"
@@ -30342,7 +30342,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_N1-OR",
-                "name": "Sala N1 | OR",
+                "name": "Sala N1",
                 "information": "Sala N1 Oriente en el segundo piso en pasillo con vista al patio de la Virgen",
                 "categories": [
                     "classroom"
@@ -30366,7 +30366,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_R2-OR",
-                "name": "Sala R2 | OR",
+                "name": "Sala R2",
                 "information": "Sala R2 segundo piso",
                 "categories": [
                     "classroom"
@@ -30390,7 +30390,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2ygvmuk9n1wk",
-                "name": "Dirección de Educación Continua | OR",
+                "name": "Dirección de Educación Continua",
                 "information": "Oficinas de la Dirección  de Educación Continua, segundo piso en pasillo con vista al patio de la Virgen",
                 "categories": [
                     "other"
@@ -30414,7 +30414,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_R1-OR",
-                "name": "Sala R1 | OR",
+                "name": "Sala R1",
                 "information": "Sala R1 segundo piso",
                 "categories": [
                     "classroom"
@@ -30438,7 +30438,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_FRAY_ANGÉLICO-OR",
-                "name": "Sala Fray Angélico | OR",
+                "name": "Sala Fray Angélico",
                 "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
                 "categories": [
                     "classroom"
@@ -30461,8 +30461,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_9_|_OR-OR",
-                "name": "Sala 9 | OR",
+                "identifier": "SALA_9-OR",
+                "name": "Sala 9",
                 "information": "Sala 9 Pedro Mortheiru\n(Posibles salas T)",
                 "categories": [
                     "classroom"
@@ -30486,7 +30486,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2xj22uhv890c",
-                "name": "Auditorium 3 | OR",
+                "name": "Auditorium 3",
                 "information": "Auditorium 3 en el segundo piso con vista al patio central",
                 "categories": [
                     "auditorium"
@@ -30510,7 +30510,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2xlvgb6avbmb",
-                "name": "Auditorium 1 | OR",
+                "name": "Auditorium 1",
                 "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
                 "categories": [
                     "auditorium"
@@ -30533,8 +30533,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_8_|_OR-OR",
-                "name": "Sala 8 | OR",
+                "identifier": "SALA_8-OR",
+                "name": "Sala 8",
                 "information": "Sala 8 Rodolfo Bravo\n(Posibles salas T)",
                 "categories": [
                     "classroom"
@@ -30558,7 +30558,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2z77wrx3dujq",
-                "name": "Salud y Bienestar Estudiantil | OR",
+                "name": "Salud y Bienestar Estudiantil",
                 "information": "Oficina de salud y bienestar estudiantil en campus oriente",
                 "categories": [
                     "other"
@@ -30582,7 +30582,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2z95pgfxqdpy",
-                "name": "Reciclaje | OR",
+                "name": "Reciclaje",
                 "information": "",
                 "categories": [
                     "trash"
@@ -30605,8 +30605,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_7_|_OR-OR",
-                "name": "Sala 7 | OR",
+                "identifier": "SALA_7-OR",
+                "name": "Sala 7",
                 "information": "Sala 7 Fernando Colina\n(Posibles salas T)",
                 "categories": [
                     "classroom"
@@ -30630,7 +30630,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2za5a3bfzpuz",
-                "name": "Subdirección dd Bienestar y Calidad de Vida | OR",
+                "name": "Subdirección dd Bienestar y Calidad de Vida",
                 "information": "",
                 "categories": [
                     "other"
@@ -30654,7 +30654,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2z8mjb97nylo",
-                "name": "DASE | OR",
+                "name": "DASE",
                 "information": "Oficina del departamento de asistencia socioeconomica (DASE) en campus oriente",
                 "categories": [
                     "other"
@@ -30678,7 +30678,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vnzpaopfefe",
-                "name": "Centro de Reciclaje | OR",
+                "name": "Centro de Reciclaje",
                 "information": "Centro de reciclaje OR",
                 "categories": [
                     "trash"
@@ -30702,7 +30702,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2z7vt8c89fgh",
-                "name": "Direacción de Informática | OR",
+                "name": "Direacción de Informática",
                 "information": "Dirección de Informática\nServicio técnico",
                 "categories": [
                     "other"
@@ -30726,7 +30726,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2zcda8cew0jm",
-                "name": "Estética UC | OR",
+                "name": "Estética UC",
                 "information": "",
                 "categories": [
                     "other"
@@ -30750,7 +30750,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_10-OR",
-                "name": "Sala 10 | OR",
+                "name": "Sala 10",
                 "information": "Sala 10 Bernardo Trumper\n(Posibles T)",
                 "categories": [
                     "classroom"
@@ -30773,8 +30773,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E205_|_OR-OR",
-                "name": "E205 | OR",
+                "identifier": "E205-OR",
+                "name": "E205",
                 "information": "Sala E205",
                 "categories": [
                     "classroom"
@@ -30798,7 +30798,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2y5z8gamux70",
-                "name": "Auditorium 2 | OR",
+                "name": "Auditorium 2",
                 "information": "Auditorium 2",
                 "categories": [
                     "auditorium"
@@ -30821,8 +30821,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E206_|_OR-OR",
-                "name": "E206 | OR",
+                "identifier": "E206-OR",
+                "name": "E206",
                 "information": "Sala E206",
                 "categories": [
                     "classroom"
@@ -30845,8 +30845,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E207_|_OR-OR",
-                "name": "E207 | OR",
+                "identifier": "E207-OR",
+                "name": "E207",
                 "information": "Sala E207",
                 "categories": [
                     "classroom"
@@ -30870,7 +30870,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vuhzlbxxd63",
-                "name": "Reciclaje Electrónicos y Eléctricos | OR",
+                "name": "Reciclaje Electrónicos y Eléctricos",
                 "information": "Punto Verde de Reciclaje de Electrónicos y Electricos",
                 "categories": [
                     "trash"
@@ -30893,8 +30893,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E208_|_OR-OR",
-                "name": "E208 | OR",
+                "identifier": "E208-OR",
+                "name": "E208",
                 "information": "Sala E208",
                 "categories": [
                     "classroom"
@@ -30918,7 +30918,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2yg13m1te7v4",
-                "name": "English UC | OR",
+                "name": "English UC",
                 "information": "",
                 "categories": [
                     "other"
@@ -30942,7 +30942,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2yukbx6k5njb",
-                "name": "Museo Casa Violeta Parra  | OR",
+                "name": "Museo Casa Violeta Parra",
                 "information": "Casa Violeta Parra\nVirtud de los Elementos",
                 "categories": [
                     "other"
@@ -30966,8 +30966,8 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vsi3g8xxi3m",
-                "name": "Reciclaje | OR",
-                "information": "Punto de Reciclaje | OR",
+                "name": "Reciclaje",
+                "information": "Punto de Reciclaje",
                 "categories": [
                     "trash"
                 ],
@@ -30989,8 +30989,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E201_|_OR-OR",
-                "name": "E201 | OR",
+                "identifier": "E201-OR",
+                "name": "E201",
                 "information": "Sala E201",
                 "categories": [
                     "classroom"
@@ -31013,8 +31013,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E202_|_OR-OR",
-                "name": "E202 | OR",
+                "identifier": "E202-OR",
+                "name": "E202",
                 "information": "Sala E202",
                 "categories": [
                     "classroom"
@@ -31038,8 +31038,8 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vsrrwpnnd1p",
-                "name": "Reciclaje | OR",
-                "information": "Punto de Reciclaje | OR",
+                "name": "Reciclaje",
+                "information": "Punto de Reciclaje",
                 "categories": [
                     "trash"
                 ],
@@ -31061,8 +31061,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E203_|_OR-OR",
-                "name": "E203 | OR",
+                "identifier": "E203-OR",
+                "name": "E203",
                 "information": "Sala E203.\n\nSala de streaming",
                 "categories": [
                     "classroom"
@@ -31086,7 +31086,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ma2vr6u56vk0gu",
-                "name": "Caja Estacionamiento | OR",
+                "name": "Caja Estacionamiento",
                 "information": "Caja de estacionamiento OR",
                 "categories": [
                     "other"
@@ -31109,8 +31109,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "E204_|_OR-OR",
-                "name": "E204 | OR",
+                "identifier": "E204-OR",
+                "name": "E204",
                 "information": "Sala E204 en el pasillo con vista al patio de la virgen",
                 "categories": [
                     "classroom"
