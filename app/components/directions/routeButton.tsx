@@ -8,6 +8,8 @@ import { useDirections } from "../../context/directionsCtx";
 import { useSidebar } from "../../context/sidebarCtx";
 import * as Icons from "../icons/icons";
 
+import DirectionErrorNotification from "./directionErrorNotification";
+import DirectionSuccessNotification from "./directionSuccessNotification";
 import { fetchDirection } from "./fetchDirection";
 
 interface RouteButtonProps {
@@ -22,7 +24,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
 
   const handleDirections = async () => {
     if (status.ok === false) {
-      setNotification(status.error);
+      setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
       return;
     }
     if (!position || !status.destination) return;
@@ -31,15 +33,17 @@ export default function RouteButton({ place }: RouteButtonProps) {
       const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, status.destination);
 
       if (!direction || !duration || !distance) {
-        setNotification("No se logró obtener la ruta");
+        setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
         return;
       }
 
       setDirectionData(direction, "xd", distance);
-      setNotification(`La ruta a ${place?.properties.name} es de ${distance} metros.`);
+      setNotification(
+        <DirectionSuccessNotification>{`La ruta a ${place?.properties.name} es de ${distance} metros.`}</DirectionSuccessNotification>,
+      );
       setSelectedPlace(null);
     } catch (error) {
-      setNotification("No se logró obtener la ruta");
+      setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
       console.error("Error fetching directions:", error);
     }
   };

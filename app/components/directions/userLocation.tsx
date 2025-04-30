@@ -8,6 +8,7 @@ import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getC
 
 import * as Icons from "../icons/icons";
 
+import DirectionErrorNotification from "./directionErrorNotification";
 import LocationButton from "./locationButton";
 
 export default function UserLocation() {
@@ -21,7 +22,7 @@ export default function UserLocation() {
 
   const handleLocationButtonClick = useCallback(() => {
     if (!position) {
-      setNotification("No podemos obtener tu ubicación");
+      setNotification(<DirectionErrorNotification>No podemos obtener tu ubicación</DirectionErrorNotification>);
       addCode("locationError");
       return;
     }
@@ -29,7 +30,11 @@ export default function UserLocation() {
     const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
 
     if (!campus) {
-      setNotification("Estas afuera del campus o no se ha podido determinar el campus");
+      setNotification(
+        <DirectionErrorNotification>
+          Estas afuera del campus o no se ha podido determinar el campus
+        </DirectionErrorNotification>,
+      );
       addCode("locationError");
       return;
     }

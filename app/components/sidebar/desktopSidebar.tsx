@@ -14,6 +14,7 @@ import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import NotificationBarDesktop from "./notificationsBarDesktop";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -81,6 +82,7 @@ export default function DesktopSidebar() {
   return (
     <>
       {/* Contenedor principal con flex row */}
+      <NotificationBarDesktop />
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
