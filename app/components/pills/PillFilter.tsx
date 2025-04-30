@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { categoryFilter, nameFilter, PlaceFilter } from "@/utils/placeFilters";
+import { categoryFilter, nameFilter, PlaceFilter } from "@/app/components/pills/placeFilters";
 
-import { useSidebar } from "../context/sidebarCtx";
+import { useSidebar } from "../../context/sidebarCtx";
+import * as Icons from "../icons/icons";
 
-import * as Icons from "./icons/icons";
 import Pill from "./pill";
 
 const pills: Array<{
@@ -17,13 +17,7 @@ const pills: Array<{
   { title: "Facultades", icon: <Icons.School />, bg: "bg-deep-red-option", filter: "faculty" },
   { title: "Salas de Estudio", icon: <Icons.Studyroom />, bg: "bg-red-option", filter: "studyroom" },
   { title: "Auditorios", icon: <Icons.Auditorium />, bg: "bg-green-option", filter: "auditorium" },
-  {
-    title: "Bibliotecas",
-    icon: <Icons.Library />,
-    bg: "bg-pink-option",
-    filter: "biblioteca",
-    isNameFilter: true,
-  },
+  { title: "Bibliotecas", icon: <Icons.Library />, bg: "bg-pink-option", filter: "biblioteca", isNameFilter: true },
   { title: "Baños", icon: <Icons.Wc />, bg: "bg-deep-cyan-option", filter: "bath" },
   { title: "Comida", icon: <Icons.Restaurant />, bg: "bg-orange-option", filter: "food_lunch" },
   { title: "Agua", icon: <Icons.Water />, bg: "bg-cyan-option", filter: "water" },

@@ -1,8 +1,8 @@
 import Image from "next/image";
 
+import * as Icons from "@/app/components/icons/icons";
 import { SubSidebarType } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
 export default function CampusList({
   handleCampusClick,
   setActiveSubSidebar,
@@ -12,7 +12,7 @@ export default function CampusList({
 }) {
   return (
     <>
-      <div className="flex w-full pb-2">
+      <div className="flex w-full px-2 py-2">
         <h3 className="font-bold text-lg">Campus</h3>
         <div className="flex w-full" />
         <button
@@ -23,7 +23,7 @@ export default function CampusList({
           <Icons.Close />
         </button>
       </div>{" "}
-      <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
+      <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4 px-2">
         {/* Botón Campus San Joaquín */}
         <button
           onClick={() => handleCampusClick("SanJoaquin")}

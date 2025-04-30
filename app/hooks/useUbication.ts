@@ -49,7 +49,7 @@ function updateLocation() {
             information: "",
             categories: [CategoryEnum.USER_LOCATION],
             campus: "",
-            faculties: "",
+            faculties: [],
             floors: [],
             needApproval: false,
           },
@@ -125,7 +125,7 @@ export function useUbication(options: Options = { cardinalPoints: 8, updateInter
   useEffect(() => {
     const unsubscribe = subscribeUserLocation(setData, options);
     return unsubscribe;
-  }, []);
+  }, [options]);
 
   return data;
 }

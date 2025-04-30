@@ -1,20 +1,19 @@
 "use client";
-import "../custom-landing-geocoder.css";
 
 import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
+import * as Icons from "@/app/components/icons/icons";
+import { useDirections } from "@/app/context/directionsCtx";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
-import { useDirections } from "../context/directionsCtx";
-import { useSidebar } from "../context/sidebarCtx";
-import PlaceInformation from "../map/placeInfo";
+import PillFilter from "../pills/PillFilter";
+import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import PillFilter from "./pillFilterBar";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -330,19 +329,24 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "placeInformation" && (
-                <PlaceInformation
+              {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
+                <PlaceMenu
                   place={selectedPlace}
-                  onClose={() => {
+                  onCloseMenu={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
                     setIsOpen(false);
                   }}
-                  onEdit={() => {
+                  onOpenCreate={() => {
                     setSidebarHeight(100);
                   }}
-                  onCloseEdit={() => {
-                    setSidebarHeight(60);
+                  onOpenEdit={() => {
+                    setSidebarHeight(40);
+                  }}
+                  onCloseCreate={() => {
+                    setSelectedPlace(null);
+                    toggleSubSidebar(null);
+                    setIsOpen(false);
                   }}
                 />
               )}

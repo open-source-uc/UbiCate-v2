@@ -1,20 +1,19 @@
 "use client";
-import "../custom-landing-geocoder.css";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
+import * as Icons from "@/app/components/icons/icons";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
-import { useSidebar } from "../context/sidebarCtx";
-import PlaceInfo from "../map/placeInfo";
+import PillFilter from "../pills/PillFilter";
+import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import PillFilter from "./pillFilterBar";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -86,7 +85,7 @@ export default function DesktopSidebar() {
         {/* Sidebar principal */}
         <section
           className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${
-            isOpen ? "w-60" : "w-20"
+            isOpen ? "w-54" : "w-20"
           }`}
         >
           <div className={`flex items-center p-4 ${isOpen ? "flex-row justify-between" : "flex-col py-8 space-y-6"}`}>
@@ -168,7 +167,7 @@ export default function DesktopSidebar() {
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
           className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${
-            activeSubSidebar !== null ? "w-80 opacity-100 p-4" : "w-0 opacity-0 p-0"
+            activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >
           <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
@@ -183,13 +182,18 @@ export default function DesktopSidebar() {
                 <ul className="space-y-2">Hello. This is not implemented.</ul>
               </>
             )}
-            {activeSubSidebar === "placeInformation" && (
+            {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
               <div className="w-full h-full">
-                <PlaceInfo
+                <PlaceMenu
                   place={selectedPlace}
-                  onClose={() => {
+                  onCloseMenu={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
+                  }}
+                  onCloseCreate={() => {
+                    setSelectedPlace(null);
+                    toggleSubSidebar(null);
+                    setIsOpen(false);
                   }}
                 />
               </div>

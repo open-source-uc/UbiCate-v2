@@ -2,10 +2,10 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
-import centroid from "@turf/centroid";
+import { centroid } from "@turf/centroid";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type {
   ViewState,
@@ -18,7 +18,7 @@ import type {
 } from "react-map-gl";
 import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
-import DebugMode from "@/app/components/debugMode";
+import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import {
@@ -30,13 +30,20 @@ import {
 import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
 import { Feature, PointFeature, CategoryEnum } from "@/utils/types";
 
+import DirectionsComponent from "../components/directions/component";
+import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";
+import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
-import DirectionsComponent from "../directions/component";
-import UserLocation from "../directions/userLocation";
-import useCustomPins from "../hooks/useCustomPins";
 
-import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
+import {
+  placesTextLayer,
+  campusBorderLayer,
+  sectionAreaLayer,
+  sectionStrokeLayer,
+  customPolygonSectionAreaLayer,
+  customPolygonStrokeLayer,
+} from "./layers";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -87,26 +94,8 @@ export default function MapComponent({
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
   const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
-  const { pins, addPin, handlePinDrag, clearPins } = useCustomPins({
-    maxPins: 20,
-  });
+  const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
   const mapRef = useRef<MapRef>(null);
-
-  useEffect(() => {
-    const campusName = params.get("campus");
-    if (campusName) {
-      localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
-        duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
-      });
-    }
-  }, [params]);
-
-  useEffect(() => {
-    handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
-  }, [selectedPlace]);
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options?: { openSidebar?: boolean; notSet?: boolean; fly?: boolean }) => {
@@ -120,6 +109,7 @@ export default function MapComponent({
         if (title) {
           title.textContent = "Ubicate UC - Mapa";
         }
+        setIsOpen(false);
         return;
       }
 
@@ -187,15 +177,15 @@ export default function MapComponent({
         });
       }
     },
-    [setSelectedPlace, setIsOpen],
+    [setSelectedPlace],
   );
 
   function onClickMap(e: MapLayerMouseEvent) {
-    handlePlaceSelection(null, { openSidebar: false });
     clearTimeout(timeoutId.current ?? undefined);
     timeoutId.current = setTimeout(() => {
+      handlePlaceSelection(null, { openSidebar: false });
       clearPins();
-    }, 300);
+    }, 150);
   }
 
   async function onLoad(e: MapEvent) {
@@ -242,14 +232,13 @@ export default function MapComponent({
       });
     }
 
-    e.target.on("click", ["red-area"], (e) => {
-      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["red-area"]);
+    e.target.on("click", ["area-polygon"], (e) => {
+      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
       if (!feature) return;
 
       setTimeout(() => {
-        setIsOpen(true);
         handlePlaceSelection(feature, { openSidebar: true });
-      }, 10);
+      }, 200);
     });
 
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
@@ -262,7 +251,7 @@ export default function MapComponent({
         setTimeout(() => {
           setIsOpen(true);
           handlePlaceSelection(feature, { openSidebar: true });
-        }, 10);
+        }, 200);
       });
       e.target.on("click", ["points-layer-3"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
@@ -271,10 +260,34 @@ export default function MapComponent({
         setTimeout(() => {
           setIsOpen(true);
           handlePlaceSelection(feature, { openSidebar: true });
-        }, 10);
+        }, 200);
+      });
+      e.target.on("click", ["debug-area-polygon"], (e) => {
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
+        if (!feature) return;
+
+        setTimeout(() => {
+          handlePlaceSelection(feature, { openSidebar: true });
+        }, 200);
       });
     }
   }
+
+  useEffect(() => {
+    const campusName = params.get("campus");
+    if (campusName) {
+      localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
+        duration: 0,
+        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
+      });
+    }
+  }, [params]);
+
+  useEffect(() => {
+    handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
+  }, [selectedPlace, handlePlaceSelection]);
 
   return (
     <>
@@ -302,9 +315,11 @@ export default function MapComponent({
         </Source>
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...sectionAreaLayer} />
-        </Source>
-        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...sectionStrokeLayer} />
+        </Source>
+        <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(polygon)}>
+          <Layer {...customPolygonSectionAreaLayer} />
+          <Layer {...customPolygonStrokeLayer} />
         </Source>
         <DebugMode />
         <UserLocation />

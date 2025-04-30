@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 
+import { booleanClockwise } from "@turf/boolean-clockwise";
 import type { MarkerDragEvent } from "react-map-gl";
 
 import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
-import { CategoryEnum, PointFeature } from "@/utils/types";
+import { CategoryEnum, PointFeature, PolygonFeature } from "@/utils/types";
 
 type CustomPin = PointFeature;
 
@@ -38,8 +39,9 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
           information: "",
           categories: [CategoryEnum.CUSTOM_MARK],
           campus: getCampusNameFromPoint(lng, lat) ?? "SJ",
-          faculties: "",
+          faculties: [],
           floors: [],
+          needApproval: false,
         },
         geometry: {
           type: "Point",
@@ -87,6 +89,41 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     [updatePinPosition],
   );
 
+  const polygon: null | PolygonFeature = useMemo(() => {
+    if (customPins.length < 3) return null;
+
+    const coordinates = customPins.map((pin) => pin.geometry.coordinates);
+
+    // Asegura que el polígono esté cerrado (el primer punto se repite al final)
+    const closedCoordinates =
+      coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
+      coordinates[0][1] === coordinates[coordinates.length - 1][1]
+        ? coordinates
+        : [...coordinates, coordinates[0]];
+
+    // Si no es en sentido antihorario, lo revertimos (para GeoJSON válido)
+    const isClockwise = booleanClockwise(closedCoordinates);
+    const orderedCoordinates = isClockwise ? closedCoordinates.slice().reverse() : closedCoordinates;
+
+    return {
+      type: "Feature",
+      properties: {
+        identifier: "custom-polygon",
+        name: "Área personalizada",
+        information: "",
+        categories: [CategoryEnum.CUSTOM_MARK],
+        campus: "",
+        faculties: [],
+        floors: [],
+        needApproval: false,
+      },
+      geometry: {
+        type: "Polygon",
+        coordinates: [orderedCoordinates],
+      },
+    };
+  }, [customPins]);
+
   return {
     pins: customPins,
     addPin,
@@ -94,6 +131,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     handlePinDrag,
     pinsCount: customPins.length,
     maxPins,
+    polygon,
   };
 }
 

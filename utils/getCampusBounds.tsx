@@ -1,42 +1,25 @@
+import PlacesJSON from "./places";
+import { point, polygon, booleanPointInPolygon } from "@turf/turf";
+
 interface CampusBounds {
   longitudeRange: [number, number];
   latitudeRange: [number, number];
 }
 
 export const campusBounds: Record<string, CampusBounds> = {
-  SanJoaquin: { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
-  LoContador: { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
-  Villarrica: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
-  CasaCentral: { longitudeRange: [-70.6424, -70.6386], latitudeRange: [-33.4427, -33.4403] },
-  Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
   SJ: { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
   LC: { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
   VR: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
   CC: { longitudeRange: [-70.6424, -70.6386], latitudeRange: [-33.4427, -33.4403] },
   OR: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
+  SanJoaquin: { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
+  LoContador: { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
+  Villarrica: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
+  CasaCentral: { longitudeRange: [-70.6424, -70.6386], latitudeRange: [-33.4427, -33.4403] },
+  Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
 };
 
 const campusMaxBounds: Record<string, CampusBounds> = {
-  SanJoaquin: {
-    longitudeRange: [-70.617503, -70.59431683064508],
-    latitudeRange: [-33.504828, -33.49094826798197]
-  },
-  LoContador: {
-    longitudeRange: [-70.619316, -70.612656],
-    latitudeRange: [-33.424452, -33.410765]
-  },
-  Villarrica: {
-    longitudeRange: [-72.22701952051408, -72.2242192943034],
-    latitudeRange: [-39.278605924710156, -39.276849411532424]
-  },
-  CasaCentral: {
-    longitudeRange: [-70.643948, -70.635644],
-    latitudeRange: [-33.446233, -33.434954]
-  },
-  Oriente: {
-    longitudeRange: [-70.597549, -70.589627],
-    latitudeRange: [-33.447784, -33.443034]
-  },
   SJ: {
     longitudeRange: [-70.617503, -70.59431683064508],
     latitudeRange: [-33.504828, -33.49094826798197]
@@ -54,6 +37,26 @@ const campusMaxBounds: Record<string, CampusBounds> = {
     latitudeRange: [-33.446233, -33.434954]
   },
   OR: {
+    longitudeRange: [-70.597549, -70.589627],
+    latitudeRange: [-33.447784, -33.443034]
+  },
+  SanJoaquin: {
+    longitudeRange: [-70.617503, -70.59431683064508],
+    latitudeRange: [-33.504828, -33.49094826798197]
+  },
+  LoContador: {
+    longitudeRange: [-70.619316, -70.612656],
+    latitudeRange: [-33.424452, -33.410765]
+  },
+  Villarrica: {
+    longitudeRange: [-72.22701952051408, -72.2242192943034],
+    latitudeRange: [-39.278605924710156, -39.276849411532424]
+  },
+  CasaCentral: {
+    longitudeRange: [-70.643948, -70.635644],
+    latitudeRange: [-33.446233, -33.434954]
+  },
+  Oriente: {
     longitudeRange: [-70.597549, -70.589627],
     latitudeRange: [-33.447784, -33.443034]
   },
@@ -144,4 +147,32 @@ export function getCampusNameFromPoint(longitude: number, latitude: number): str
   }
 
   return null
+}
+
+export function getFacultiesIdsFromPoint(longitude: number, latitude: number): string[] {
+  // Crea un punto con las coordenadas proporcionadas
+  const p = point([longitude, latitude]);
+
+  // Array para almacenar los nombres de las facultades
+  const facultyNames: string[] = [];
+
+  // Itera sobre los features y busca las facultades que tengan la categoría "faculty"
+  // y cuyo polígono contenga el punto.
+  for (const feature of PlacesJSON.features) {
+    // Verifica si la categoría incluye "faculty" y si la geometría es un Polígono
+    if (feature.properties.categories.includes("faculty") && feature.geometry.type === "Polygon") {
+      // Crea un polígono con las coordenadas del feature
+      const p2 = polygon(feature.geometry.coordinates);
+
+
+      // Verifica si el punto está dentro del polígono
+      if (booleanPointInPolygon(p, p2)) {
+        // Agrega el nombre de la facultad al array
+        facultyNames.push(feature.properties.identifier);
+      }
+    }
+  }
+
+  // Retorna el array de nombres de facultades (vacío si no hay coincidencias)
+  return facultyNames;
 }

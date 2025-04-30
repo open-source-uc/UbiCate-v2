@@ -1,4 +1,3 @@
-import React from "react";
 
 export interface PointGeometry {
   type: "Point";
@@ -39,7 +38,8 @@ export enum CategoryEnum {
   STUDYROOM = "studyroom",
   TRASH = "trash",
   WATER = "water",
-  USER_LOCATION = "user"
+  USER_LOCATION = "user",
+  YARD = "yard"
 }
 
 
@@ -49,9 +49,9 @@ export interface Properties {
   information: string;
   categories: string[];
   campus: string;
-  faculties?: string;
+  faculties?: string[];
   floors?: number[];
-  needApproval?: boolean;
+  needApproval: boolean;
 }
 
 export interface Feature {
@@ -136,9 +136,32 @@ export const CategoryToDisplayName: Map<CategoryEnum, string> = new Map([
   [CategoryEnum.FACULTY, "Facultad"],
   [CategoryEnum.BUILDING, "Edificio"],
   [CategoryEnum.OTHER, "Otro"],
-  [CategoryEnum.CUSTOM_MARK, "Marcador"]
+  [CategoryEnum.CUSTOM_MARK, "Marcador"],
+  [CategoryEnum.YARD, "Patio"],
 ]);
 
+export const CategoryOptions = [
+  CategoryEnum.CLASSROOM,
+  CategoryEnum.BATH,
+  CategoryEnum.FOOD_LUNCH,
+  CategoryEnum.STUDYROOM,
+  CategoryEnum.LIBRARY,
+  CategoryEnum.TRASH,
+  CategoryEnum.PARK_BICYCLE,
+  CategoryEnum.FINANCIAL,
+  CategoryEnum.LABORATORY,
+  CategoryEnum.WATER,
+  CategoryEnum.AUDITORIUM,
+  CategoryEnum.SPORTS_PLACE,
+  CategoryEnum.COMPUTERS,
+  CategoryEnum.PHOTOCOPY,
+  CategoryEnum.SHOP,
+  CategoryEnum.PARKING,
+  CategoryEnum.FACULTY,
+  CategoryEnum.BUILDING,
+  CategoryEnum.YARD,
+  CategoryEnum.OTHER,
+]
 
 export function getDisplayNameForCategory(category: CategoryEnum): string {
   return CategoryToDisplayName.get(category) || "Otro"; // Default display name

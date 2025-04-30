@@ -1,4 +1,4 @@
-import { useDirections } from "../context/directionsCtx";
+import { useDirections } from "../../context/directionsCtx";
 
 import RouteLayer from "./routeLayer";
 

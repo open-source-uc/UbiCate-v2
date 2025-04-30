@@ -4,9 +4,10 @@ import { Marker, useMap } from "react-map-gl";
 
 import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 
-import * as Icons from "../components/icons/icons";
-import LocationButton from "../components/locationButton";
-import { useUbication } from "../hooks/useUbication";
+import { useUbication } from "../../hooks/useUbication";
+import * as Icons from "../icons/icons";
+
+import LocationButton from "./locationButton";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
