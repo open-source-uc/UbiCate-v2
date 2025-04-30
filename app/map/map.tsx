@@ -95,6 +95,7 @@ export default function MapComponent({
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
   const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
+  const isLoaded = useRef(false);
   const mapRef = useRef<MapRef>(null);
 
   const handlePlaceSelection = useCallback(
@@ -185,7 +186,7 @@ export default function MapComponent({
     timeoutId.current = setTimeout(() => {
       handlePlaceSelection(null, { openSidebar: false });
       clearPins();
-    }, 150);
+    }, 300);
   }
 
   async function onLoad(e: MapEvent) {
@@ -193,40 +194,24 @@ export default function MapComponent({
     mapRef.current?.getMap().setMinZoom(15);
     const map = mapRef.current?.getMap();
     if (paramPlace) {
-      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
-      if (paramPlace.geometry.type === "Point") {
-        mapRef.current?.getMap().flyTo({
-          essential: true,
-          duration: 0,
-          zoom: 17,
-          center: [paramPlace.geometry.coordinates[0], paramPlace.geometry.coordinates[1]],
-        });
-      }
-      if (paramPlace.geometry.type === "Polygon") {
-        mapRef.current?.getMap()?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
-          zoom: 17,
-          duration: 0,
-        });
-      }
 
-      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
+      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       setPlaces([paramPlace]);
+      handlePlaceSelection(paramPlace, { openSidebar: true });
+      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
+
     } else if (paramLng && paramLat) {
+
       localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
       map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
-      mapRef.current?.getMap().flyTo({
-        essential: true,
-        duration: 0,
-        zoom: 17,
-        center: [paramLng, paramLat],
-      });
       handlePlaceSelection(addPin(parseFloat("" + paramLng), parseFloat("" + paramLat)), {
         openSidebar: true,
       });
+
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
       map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(defaultCampus), {
+      map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
       });
@@ -271,6 +256,8 @@ export default function MapComponent({
         }, 200);
       });
     }
+
+    isLoaded.current = true;
   }
 
   useEffect(() => {
@@ -286,7 +273,9 @@ export default function MapComponent({
   }, [params]);
 
   useEffect(() => {
-    handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
+    if (isLoaded.current) {
+      handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
+    }
   }, [selectedPlace, handlePlaceSelection]);
 
   return (
