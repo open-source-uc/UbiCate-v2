@@ -1,20 +1,15 @@
 import { use } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
-import { useUbication } from "@/app/hooks/useUbication";
 
 import * as Icon from "../icons/icons";
 
 export default function LocationButton({ onClick }: { onClick?: () => void }) {
-  const { code, setNotification } = use(NotificationContext);
-  const { position } = useUbication();
+  const { code } = use(NotificationContext);
 
   return (
     <button
       onClick={() => {
-        if (position === null) {
-          setNotification("No podemos obtener tu ubicación", "error", "locationError");
-        }
         onClick?.();
       }}
       className={`p-1 rounded-full ${

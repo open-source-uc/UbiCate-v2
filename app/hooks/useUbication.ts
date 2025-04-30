@@ -119,13 +119,16 @@ export function subscribeUserLocation(callback: Subscriber, options: Options = {
 /**
  * React hook to access user location & orientation
  */
-export function useUbication(options: Options = { cardinalPoints: 8, updateInterval: 1_500 }): LocationOrientationData {
+export function useUbication(): LocationOrientationData {
   const [data, setData] = useState<LocationOrientationData>(currentData);
 
   useEffect(() => {
-    const unsubscribe = subscribeUserLocation(setData, options);
+    const unsubscribe = subscribeUserLocation(setData, {
+      cardinalPoints: 8,
+      updateInterval: 500,
+    });
     return unsubscribe;
-  }, [options]);
+  }, []);
 
   return data;
 }

@@ -6,7 +6,6 @@ import { Feature } from "@/utils/types";
 
 import { useDirections } from "../../context/directionsCtx";
 import { useSidebar } from "../../context/sidebarCtx";
-import { useUbication } from "../../hooks/useUbication";
 import * as Icons from "../icons/icons";
 
 import { fetchDirection } from "./fetchDirection";
@@ -16,8 +15,7 @@ interface RouteButtonProps {
 }
 
 export default function RouteButton({ place }: RouteButtonProps) {
-  const { setDirectionData } = useDirections();
-  const { position, alpha, cardinal } = useUbication();
+  const { setDirectionData, position } = useDirections();
   const { setSelectedPlace } = useSidebar();
   const { setNotification } = use(NotificationContext);
   const status = useDirectionStatus(position, place);

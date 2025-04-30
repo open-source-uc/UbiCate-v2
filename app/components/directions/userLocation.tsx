@@ -2,10 +2,10 @@ import React, { use, useCallback, useMemo } from "react";
 
 import { Marker, useMap } from "react-map-gl";
 
+import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
-import { useUbication } from "../../hooks/useUbication";
 import * as Icons from "../icons/icons";
 
 import LocationButton from "./locationButton";
@@ -13,14 +13,17 @@ import LocationButton from "./locationButton";
 export default function UserLocation() {
   const { mainMap } = useMap();
   const { setNotification } = use(NotificationContext);
-  const { position, alpha } = useUbication();
+  const { position, alpha } = useDirections();
 
   const rotation = useMemo(() => {
     return (alpha - (mainMap?.getBearing() || 0) + 360) % 360;
   }, [alpha, mainMap]);
 
   const handleLocationButtonClick = useCallback(() => {
-    if (!position) return;
+    if (!position) {
+      setNotification("No podemos obtener tu ubicación", "error", "locationError");
+      return;
+    }
 
     const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
 
