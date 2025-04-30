@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.6121117624709,
+                            -33.49973958579216
+                        ],
+                        [
+                            -70.61176058780691,
+                            -33.49972990986026
+                        ],
+                        [
+                            -70.61179410757131,
+                            -33.49946000161975
+                        ],
+                        [
+                            -70.61212660295782,
+                            -33.4994864685919
+                        ],
+                        [
+                            -70.6121117624709,
+                            -33.49973958579216
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma4gbh359as09h",
+                "name": "Edificio Carreras Interdisciplinarias",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n\n## Carreras\n\n| #  | Carrera             |\n|----|---------------------|\n| 1  | Ciencia de Datos    |\n",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61310663836508,
                             -33.50037190676038
                         ],
