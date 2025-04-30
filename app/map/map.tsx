@@ -194,20 +194,16 @@ export default function MapComponent({
     mapRef.current?.getMap().setMinZoom(15);
     const map = mapRef.current?.getMap();
     if (paramPlace) {
-
       map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       setPlaces([paramPlace]);
       handlePlaceSelection(paramPlace, { openSidebar: true });
       localStorage.setItem("defaultCampus", paramPlace.properties.campus);
-
     } else if (paramLng && paramLat) {
-
       localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
       map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       handlePlaceSelection(addPin(parseFloat("" + paramLng), parseFloat("" + paramLat)), {
         openSidebar: true,
       });
-
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
       map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));

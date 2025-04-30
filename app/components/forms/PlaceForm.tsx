@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useActionState, useState } from "react";
+import { use, useActionState, useEffect, useState } from "react";
 
 import MarkDownComponent from "@/app/components/markDown";
 import { pinsContext } from "@/app/context/pinsCtx";
@@ -35,7 +35,6 @@ export default function PlaceForm({
   title?: string;
 }) {
   const { pins } = use(pinsContext);
-  console.log(pins.length);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [notification, setNotification] = useState<{
     type: "success" | "error";
@@ -55,6 +54,17 @@ export default function PlaceForm({
       floors: [],
     },
   );
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (method === "POST" && pins.length === 1) {
+        setData((prev) => ({
+          ...prev,
+          floors: [1],
+        }));
+      }
+    }, 0);
+  }, []);
 
   // Función para manejar el cambio de categoría
   const handleCategoryChange = (index: number, value: string) => {
