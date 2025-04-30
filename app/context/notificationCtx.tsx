@@ -1,35 +1,76 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode, useCallback } from "react";
 
-type notificationType = "success" | "error" | "info" | "warning" | null | undefined;
-type notificationCode = "locationError" | null | undefined;
+export type NotificationCode = "locationError" | null;
 
-export const NotificationContext = createContext<{
-  message: string | null | undefined;
-  setNotification: (message?: string | null, type?: notificationType, code?: notificationCode) => void;
-  type: notificationType;
-  code: notificationCode;
-}>({
-  message: null,
-  setNotification: (message?: string | null, type?: notificationType) => null,
-  type: null,
-  code: null,
-});
+interface NotificationContextType {
+  component: ReactNode | null;
+  setNotification: (component: ReactNode | null) => void;
+  clearNotification: () => void;
 
-export function NotificationProvider({ children }: { children: React.ReactNode }) {
-  const [message, setMessage] = useState<string | null | undefined>(undefined);
-  const [type, setType] = useState<notificationType>(undefined);
-  const [code, setCode] = useState<notificationCode>(undefined);
+  codes: Set<NotificationCode>;
+  addCode: (code: NotificationCode) => void;
+  removeCode: (code: NotificationCode) => void;
+  clearAllCodes: () => void;
+}
 
-  const setNotification = (message?: string | null | undefined, type?: notificationType, code?: notificationCode) => {
-    if (message !== undefined) setMessage(message);
-    if (type !== undefined) setType(type);
-    if (code !== undefined) setCode(code);
-  };
+const defaultContextValue: NotificationContextType = {
+  component: null,
+  setNotification: () => null,
+  clearNotification: () => null,
+  codes: new Set<NotificationCode>(),
+  addCode: () => null,
+  removeCode: () => null,
+  clearAllCodes: () => null,
+};
+
+export const NotificationContext = createContext<NotificationContextType>(defaultContextValue);
+
+export function NotificationProvider({ children }: { children: ReactNode }) {
+  const [component, setComponent] = useState<ReactNode | null>(null);
+  const [codes, setCodes] = useState<Set<NotificationCode>>(new Set<NotificationCode>());
+
+  const setNotification = useCallback((component: ReactNode | null) => {
+    setComponent(component);
+  }, []);
+
+  const clearNotification = useCallback(() => {
+    setComponent(null);
+  }, []);
+
+  const addCode = useCallback((code: NotificationCode): void => {
+    setCodes((prevCodes) => {
+      const newCodes = new Set(prevCodes);
+      newCodes.add(code);
+      return newCodes;
+    });
+  }, []);
+
+  const removeCode = useCallback((code: NotificationCode): void => {
+    setCodes((prevCodes) => {
+      const newCodes = new Set(prevCodes);
+      newCodes.delete(code);
+      return newCodes;
+    });
+  }, []);
+
+  const clearAllCodes = useCallback((): void => {
+    setCodes(new Set<NotificationCode>());
+  }, []);
 
   return (
-    <NotificationContext.Provider value={{ message, setNotification, type, code }}>
+    <NotificationContext.Provider
+      value={{
+        component,
+        setNotification,
+        clearNotification,
+        codes,
+        addCode,
+        removeCode,
+        clearAllCodes,
+      }}
+    >
       {children}
     </NotificationContext.Provider>
   );

@@ -12,7 +12,7 @@ import LocationButton from "./locationButton";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
-  const { setNotification } = use(NotificationContext);
+  const { setNotification, addCode, removeCode } = use(NotificationContext);
   const { position, alpha } = useDirections();
 
   const rotation = useMemo(() => {
@@ -21,16 +21,19 @@ export default function UserLocation() {
 
   const handleLocationButtonClick = useCallback(() => {
     if (!position) {
-      setNotification("No podemos obtener tu ubicación", "error", "locationError");
+      setNotification("No podemos obtener tu ubicación");
+      addCode("locationError");
       return;
     }
 
     const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
 
     if (!campus) {
-      setNotification("Estas afuera del campus o no se ha podido determinar el campus", "error", "locationError");
+      setNotification("Estas afuera del campus o no se ha podido determinar el campus");
+      addCode("locationError");
       return;
     }
+    removeCode("locationError");
 
     mainMap?.getMap().setMaxBounds(undefined);
     mainMap?.getMap().flyTo({

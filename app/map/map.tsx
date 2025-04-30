@@ -216,6 +216,10 @@ export default function MapComponent({
     e.target.on("click", ["area-polygon"], (e) => {
       const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
       if (!feature) return;
+      /*
+       Importante pues si no se borra se ejecute lo que esta en la funcion onClickMap,
+       lo que no permite abrir el menu del area, pues un click en el area tmb cuenta como click en el mapa 
+       */
       clearTimeout(timeoutId.current ?? undefined);
       setTimeout(() => {
         handlePlaceSelection(feature, { openSidebar: true });
@@ -228,7 +232,7 @@ export default function MapComponent({
       e.target.on("click", ["points-layer-2"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
         if (!feature) return;
-
+        clearTimeout(timeoutId.current ?? undefined);
         setTimeout(() => {
           setIsOpen(true);
           handlePlaceSelection(feature, { openSidebar: true });
@@ -237,7 +241,7 @@ export default function MapComponent({
       e.target.on("click", ["points-layer-3"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
         if (!feature) return;
-
+        clearTimeout(timeoutId.current ?? undefined);
         setTimeout(() => {
           setIsOpen(true);
           handlePlaceSelection(feature, { openSidebar: true });
@@ -246,7 +250,7 @@ export default function MapComponent({
       e.target.on("click", ["debug-area-polygon"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
         if (!feature) return;
-
+        clearTimeout(timeoutId.current ?? undefined);
         setTimeout(() => {
           handlePlaceSelection(feature, { openSidebar: true });
         }, 200);

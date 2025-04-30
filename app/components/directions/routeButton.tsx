@@ -22,7 +22,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
 
   const handleDirections = async () => {
     if (status.ok === false) {
-      setNotification(status.error ?? undefined, "error");
+      setNotification(status.error);
       return;
     }
     if (!position || !status.destination) return;
@@ -31,15 +31,15 @@ export default function RouteButton({ place }: RouteButtonProps) {
       const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, status.destination);
 
       if (!direction || !duration || !distance) {
-        setNotification("No se logró obtener la ruta", "error");
+        setNotification("No se logró obtener la ruta");
         return;
       }
 
       setDirectionData(direction, "xd", distance);
-      setNotification(`La ruta a ${place?.properties.name} es de ${distance} metros.`, "success");
+      setNotification(`La ruta a ${place?.properties.name} es de ${distance} metros.`);
       setSelectedPlace(null);
     } catch (error) {
-      setNotification("No se logró obtener la ruta", "error");
+      setNotification("No se logró obtener la ruta");
       console.error("Error fetching directions:", error);
     }
   };

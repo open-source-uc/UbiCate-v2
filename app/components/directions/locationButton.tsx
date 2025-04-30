@@ -5,7 +5,7 @@ import { NotificationContext } from "@/app/context/notificationCtx";
 import * as Icon from "../icons/icons";
 
 export default function LocationButton({ onClick }: { onClick?: () => void }) {
-  const { code } = use(NotificationContext);
+  const { codes } = use(NotificationContext);
 
   return (
     <button
@@ -13,7 +13,7 @@ export default function LocationButton({ onClick }: { onClick?: () => void }) {
         onClick?.();
       }}
       className={`p-1 rounded-full ${
-        code !== "locationError" ? "bg-brown-medium hover:bg-brown-light" : "bg-error hover:bg-deep-red-option"
+        !codes.has("locationError") ? "bg-brown-medium hover:bg-brown-light" : "bg-error hover:bg-deep-red-option"
       } border-brown-dark  border-1  text-white flex items-center justify-center w-12 h-12 pointer-events-auto cursor-pointer`}
     >
       <Icon.GPS className="w-6 h-6" />
