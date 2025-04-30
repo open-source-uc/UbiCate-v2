@@ -221,6 +221,9 @@ const placeSchema = z.object({
 
     floors: z
       .array(z.number({ invalid_type_error: "Cada piso debe ser un número" }))
+      .refine((arr) => arr === undefined || !arr.includes(0), {
+        message: "El piso 0 no está permitido",
+      })
       .optional()
       .transform((arr) => (arr ? [...new Set(arr)] : arr)),
   }),
