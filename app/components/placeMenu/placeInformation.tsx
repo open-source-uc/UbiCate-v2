@@ -50,14 +50,14 @@ export default function PlaceInformation({
 
   return (
     <div className="px-2 pt-4">
-      <section className="space-y-1 flex flex-col bg-brown-dark pt-2 pb-4">
+      <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
         <div className="flex items-center justify-between w-full">
           <div className="max-w-[2/3] pr-10">
             <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
           </div>
 
           <button
-            className="text-white-ubi bg-brown-light flex items-center rounded-full hover:text-brown-light hover:bg-brown-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+            className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             aria-label="Cerrar menú"
             onClick={(e) => onClose?.()}
           >
@@ -77,7 +77,7 @@ export default function PlaceInformation({
           aria-label="Comparte esta Ubicación"
           role="navigation"
           tabIndex={0}
-          className="p-1 w-full cursor-pointer bg-blue-location hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+          className="p-1 w-full cursor-pointer bg-primary hover:bg-accent text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
           <div className="flex justify-center items-center w-full h-10">
             <Icons.Share />
@@ -91,14 +91,14 @@ export default function PlaceInformation({
             aria-label="Comparte esta Ubicación"
             role="navigation"
             tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-brown-medium hover:bg-brown-light text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2"
+            className="p-1 w-full cursor-pointer bg-secondary hover:bg-accent text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             <div className="w-full flex justify-center items-center">
               <Icons.Options />
             </div>
             <p className="text-xs font-medium">Más</p>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-brown-medium rounded-lg shadow-lg px-2 py-2">
+          <DropdownMenuContent className="bg-secondary rounded-lg shadow-lg px-2 py-2">
             {isDebug.current === false && (
               <DropdownMenuItem>
                 {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
@@ -131,27 +131,27 @@ export default function PlaceInformation({
           </DropdownMenuContent>
         </DropdownMenu>
       </section>
-      <section className="divide-y divide-brown-light/30">
+      <section className="divide-y divide-accent/30">
         {place.properties?.floors && place.properties.floors.length > 0 ? (
-          <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-t-lg">
+          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-blue-location">
-                <Icons.Floor className="fill-blue-location" />
-                <span className="font-medium text-white-ubi">Piso</span>
+              <div className="flex items-center space-x-3 text-primary">
+                <Icons.Floor className="fill-primary" />
+                <span className="font-medium text-foreground">Piso</span>
               </div>
-              <span className="text-white-ubi font-light">{place.properties.floors.join(", ")}</span>
+              <span className="text-foreground font-light">{place.properties.floors.join(", ")}</span>
             </div>
           </div>
         ) : null}
 
         {place.properties?.campus ? (
-          <div className="py-4 px-2 transition-colors duration-200 hover:bg-brown-light/5 rounded-b-lg">
+          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-b-lg">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-blue-location">
-                <Icons.Map className="fill-blue-location" />
-                <span className="font-medium text-white-ubi">Campus</span>
+              <div className="flex items-center space-x-3 text-primary">
+                <Icons.Map className="fill-primary" />
+                <span className="font-medium text-foreground">Campus</span>
               </div>
-              <span className="text-white-ubi font-light">{siglas.get(place.properties.campus)}</span>
+              <span className="text-foreground font-light">{siglas.get(place.properties.campus)}</span>
             </div>
           </div>
         ) : null}
@@ -159,7 +159,7 @@ export default function PlaceInformation({
         {place.properties.information ? (
           <div className="space-y-2 py-4">
             <h3 className="text-xl font-semibold">Descripción</h3>
-            <div className="bg-brown-medium rounded-md">
+            <div className="bg-secondary rounded-md">
               <MarkDownComponent>{place.properties.information}</MarkDownComponent>
             </div>
           </div>

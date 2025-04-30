@@ -201,11 +201,14 @@ export default function MobileSidebar() {
 
       {/* Main Sidebar */}
       <section
-        className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
+        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
+        aria-expanded={isOpen}
+        role="dialog"
+        aria-label="Mobile Navigation"
       >
         {/* Drag handle that spans full width */}
         <div
@@ -216,8 +219,11 @@ export default function MobileSidebar() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           onClick={handleGrabBarClick}
+          role="button"
+          aria-label="Drag to resize sidebar"
+          tabIndex={0}
         >
-          <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto" />
+          <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
         </div>
 
         {isOpen ? (
@@ -226,15 +232,16 @@ export default function MobileSidebar() {
               <nav className="pb-5">
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
-                    <p className="text-md font-semibold text-white-ubi">Explora</p>
-                    <div className="bg-brown-medium flex rounded-lg p-2">
+                    <p className="text-md font-semibold text-foreground">Explora</p>
+                    <div className="bg-secondary flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
-                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                          activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
                         }`}
+                        aria-pressed={activeSubSidebar === "campus"}
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
                           <Icons.Map />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
@@ -242,8 +249,9 @@ export default function MobileSidebar() {
                       <button
                         disabled
                         className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
+                        aria-disabled="true"
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
                           <Icons.MenuBook />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Guías</p>
@@ -267,11 +275,13 @@ export default function MobileSidebar() {
         {/* Sub Sidebars */}
         {activeSubSidebar ? (
           <section
-            className="fixed pb-5 bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
+            className="fixed pb-5 bg-background/95 backdrop-blur-sm text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
               transition: enableTransition ? "all 300ms" : "none",
             }}
+            role="region"
+            aria-label={`${activeSubSidebar} panel`}
           >
             {/* Drag handle in subsidebar */}
             <div
@@ -281,8 +291,11 @@ export default function MobileSidebar() {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               onClick={handleGrabBarClick}
+              role="button"
+              aria-label="Drag to resize sidebar"
+              tabIndex={0}
             >
-              <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto" />
+              <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
             </div>
 
             <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">

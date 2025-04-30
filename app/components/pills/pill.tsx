@@ -16,9 +16,9 @@ function Pill({
   onClick,
   active,
   bg_color,
-  activateClassName = "bg-blue-location",
-  noActivateClassName = "bg-brown-dark desktop:bg-brown-medium text-white-ubi",
-  className = "w-full rounded-xl flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent",
+  activateClassName = "bg-primary",
+  noActivateClassName = "bg-background desktop:bg-secondary text-foreground",
+  className = "w-full rounded-xl flex items-center px-2 py-1.5 border-1 border-border desktop:border-transparent",
   icon,
 }: PillProps) {
   return (
@@ -28,7 +28,7 @@ function Pill({
       className={`${className} 
         ${active ? activateClassName : noActivateClassName} 
         pointer-events-auto cursor-pointer transition-colors duration-200
-        hover:bg-brown-light`}
+        hover:bg-accent`}
     >
       <div
         className={`flex items-center justify-center rounded-lg

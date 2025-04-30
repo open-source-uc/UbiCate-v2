@@ -14,7 +14,7 @@ export default function RouteLayer({ route }: RouteInfoMarkerProps) {
         id="route"
         type="line"
         paint={{
-          "line-color": "#f9f8f3",
+          "line-color": "var(--foreground)",
           "line-width": 2.5,
           "line-dasharray": [1, 1],
         }}
