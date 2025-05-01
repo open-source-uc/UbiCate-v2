@@ -12,7 +12,7 @@ export function useDirectionStatus(position: PointFeature | null, place: Feature
     }
 
     if (!place) {
-      return { ok: false, error: "No se puede calcular la ruta para este lugar" };
+      return { ok: false, error: "No podemos calcular la ruta para este lugar" };
     }
 
     const campus = place.properties?.campus;
@@ -27,7 +27,7 @@ export function useDirectionStatus(position: PointFeature | null, place: Feature
     } else if (place.geometry.type === "Polygon") {
       destination = centroid(place.geometry).geometry.coordinates as [number, number];
     } else {
-      return { ok: false, error: "No se puede calcular la ruta para este lugar" };
+      return { ok: false, error: "No podemos calcular la ruta para este lugar" };
     }
 
     const origin = position.geometry.coordinates;
@@ -36,18 +36,18 @@ export function useDirectionStatus(position: PointFeature | null, place: Feature
     const destCampus = getCampusBoundsFromPoint(destination[0], destination[1]);
 
     if (!originCampus) {
-      return { ok: false, error: "No se puede calcular la ruta si estás afuera del campus." };
+      return { ok: false, error: "No podemos calcular la ruta si te encuentras fuera del campus" };
     }
 
     if (!destCampus) {
       return {
         ok: false,
-        error: "El punto de destino no está dentro de algún campus, esto es muy raro, por favor reporta este bug",
+        error: "Hmm... el punto de destino no está dentro de algún campus, esto es muy raro, por favor reporta este bug",
       };
     }
 
     if (getCampusNameFromPoint(destination[0], destination[1]) !== getCampusNameFromPoint(origin[0], origin[1])) {
-      return { ok: false, error: "No se puede calcular la ruta entre campus distintos" };
+      return { ok: false, error: "No podemos calcular la ruta entre campus distintos" };
     }
 
     return { ok: true, destination };
