@@ -134,5 +134,3 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     polygon,
   };
 }
-
-export default useCustomPins;

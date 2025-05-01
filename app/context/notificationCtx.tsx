@@ -2,7 +2,7 @@
 
 import { createContext, useState, ReactNode, useCallback } from "react";
 
-export type NotificationCode = "locationError" | null;
+type NotificationCode = "locationError" | null;
 
 interface NotificationContextType {
   component: ReactNode | null;

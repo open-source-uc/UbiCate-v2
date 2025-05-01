@@ -6,7 +6,7 @@ interface CampusBounds {
   latitudeRange: [number, number];
 }
 
-export const campusBounds: Record<string, CampusBounds> = {
+const campusBounds: Record<string, CampusBounds> = {
   SJ: { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
   LC: { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
   VR: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },

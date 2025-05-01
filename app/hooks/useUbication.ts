@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 
 import { CATEGORIES, PointGeometry, Properties } from "@/utils/types";
 
-export type CardinalPoints = 4 | 8;
+type CardinalPoints = 4 | 8;
 
-export interface Options {
+interface Options {
   cardinalPoints?: CardinalPoints;
   updateInterval?: number;
 }
 
-export interface LocationOrientationData {
+interface LocationOrientationData {
   position: {
     type: string;
     properties: Properties;
@@ -104,7 +104,7 @@ function stopService() {
  * Subscribe to shared user location & orientation updates
  * @returns unsubscribe function
  */
-export function subscribeUserLocation(callback: Subscriber, options: Options = {}): () => void {
+function subscribeUserLocation(callback: Subscriber, options: Options = {}): () => void {
   subscribers.add(callback);
   if (subscribers.size === 1) startService(options);
   // Emit current state immediately

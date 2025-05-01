@@ -169,12 +169,3 @@ export const CategoryOptions = [
   CATEGORIES.YARD,
   CATEGORIES.OTHER,
 ]
-
-export function getDisplayNameForCategory(category: CATEGORIES): string {
-  return CategoryToDisplayName.get(category) || "Otro"; // Default display name
-}
-
-export enum METHOD {
-  CREATE = "create",
-  UPDATE = "update",
-}
