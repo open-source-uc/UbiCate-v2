@@ -143,19 +143,21 @@ export function UserLocation({ className, rotation = 0 }: { className?: string; 
         transformOrigin: "center",
       }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="currentColor"
-        className={className}
-      >
-        <path d="m200-120-40-40 320-720 320 720-40 40-280-120-280 120Zm84-124 196-84 196 84-196-440-196 440Zm196-84Z" />
+      <svg width="90px" height="90px" viewBox="0 0 338 537" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+        <path d="M169 338L22.6417 84.5L315.358 84.5L169 338Z" fill="url(#paint0_linear_6_6)"/>
+        <circle cx="168.5" cy="320.5" r="38.5" fill="#015FFF" stroke="#f9f8f3" stroke-width="9"/>
+        <defs>
+        <linearGradient id="paint0_linear_6_6" x1="169" y1="102" x2="169" y2="338" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#013999" stop-opacity="0"/>
+        <stop offset="1" stop-color="#015FFF"/>
+        </linearGradient>
+        </defs>
       </svg>
+
     </span>
   );
 }
+
 
 export function Directions({ className }: { className?: string }) {
   return (

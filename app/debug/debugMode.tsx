@@ -22,6 +22,29 @@ function DebugMode() {
   const [json, setJson] = useState<JSONFeatures | null>(null);
   const [debugMode, setDebugMode] = useState(1);
   const mainMap = useMap();
+  const [mapLayers, setMapLayers] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Log all layer IDs when the map is loaded
+    if (isDebugMode && mainMap.mainMap) {
+      const map = mainMap.mainMap.getMap();
+      
+      if (map && map.isStyleLoaded()) {
+        const layers = map.getStyle().layers;
+        const layerIds = layers.map((layer: any) => layer.id);
+        console.log("Available map layers:", layerIds);
+        setMapLayers(layerIds);
+      } else {
+        // If style isn't loaded yet, wait for the style.load event
+        map.once('style.load', () => {
+          const layers = map.getStyle().layers;
+          const layerIds = layers.map((layer: any) => layer.id);
+          console.log("Available map layers:", layerIds);
+          setMapLayers(layerIds);
+        });
+      }
+    }
+  }, [isDebugMode, mainMap.mainMap]);
 
   useEffect(() => {
     const fetchData = () => {
@@ -118,6 +141,19 @@ resize-x border-2 border-dashed pointer-events-auto"
             <span className="w-6 h-6 bg-[#716ADB] mr-2" /> Color por Defecto
           </li>
         </ul>
+
+        {mapLayers.length > 0 && (
+          <div className="mt-4">
+            <h3 className="text-lg font-bold">Layer IDs:</h3>
+            <div className="max-h-40 overflow-y-auto mt-2">
+              <ul className="list-disc list-inside">
+                {mapLayers.map((layerId) => (
+                  <li key={layerId} className="text-xs">{layerId}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
 
       {debugMode === 1 && (

@@ -39,7 +39,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
 
       setDirectionData(direction, "xd", distance);
       setNotification(
-        <DirectionSuccessNotification>{`La ruta a ${place?.properties.name} es de ${distance} metros.`}</DirectionSuccessNotification>,
+        <DirectionSuccessNotification>{`Te encuentras a ${Math.ceil(distance / 83.33)} minutos de ${place?.properties.name}`}</DirectionSuccessNotification>
       );
       setSelectedPlace(null);
     } catch (error) {
