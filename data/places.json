@@ -31487,6 +31487,48 @@
                 "campus": "SJ",
                 "faculties": []
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6140028432141,
+                            -33.49996410134889
+                        ],
+                        [
+                            -70.61396937378396,
+                            -33.50029333788814
+                        ],
+                        [
+                            -70.61381079744147,
+                            -33.500281706058495
+                        ],
+                        [
+                            -70.6138354739615,
+                            -33.49995962803046
+                        ],
+                        [
+                            -70.6140028432141,
+                            -33.49996410134889
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma77b2ewk5f4tl",
+                "name": "Edificio de Ingeniería Eléctrica y Transporte",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
