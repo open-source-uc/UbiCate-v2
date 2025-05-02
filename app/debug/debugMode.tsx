@@ -28,7 +28,7 @@ function DebugMode() {
     // Log all layer IDs when the map is loaded
     if (isDebugMode && mainMap.mainMap) {
       const map = mainMap.mainMap.getMap();
-      
+
       if (map && map.isStyleLoaded()) {
         const layers = map.getStyle().layers;
         const layerIds = layers.map((layer: any) => layer.id);
@@ -36,7 +36,7 @@ function DebugMode() {
         setMapLayers(layerIds);
       } else {
         // If style isn't loaded yet, wait for the style.load event
-        map.once('style.load', () => {
+        map.once("style.load", () => {
           const layers = map.getStyle().layers;
           const layerIds = layers.map((layer: any) => layer.id);
           console.log("Available map layers:", layerIds);
@@ -148,7 +148,9 @@ resize-x border-2 border-dashed pointer-events-auto"
             <div className="max-h-40 overflow-y-auto mt-2">
               <ul className="list-disc list-inside">
                 {mapLayers.map((layerId) => (
-                  <li key={layerId} className="text-xs">{layerId}</li>
+                  <li key={layerId} className="text-xs">
+                    {layerId}
+                  </li>
                 ))}
               </ul>
             </div>

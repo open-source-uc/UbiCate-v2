@@ -32,7 +32,7 @@ export default function UserLocation() {
     if (!campus) {
       setNotification(
         <DirectionErrorNotification>
-           No hemos podido determinar el campus en el que te encuentras o no estás en un campus UC.
+          No hemos podido determinar el campus en el que te encuentras o no estás en un campus UC.
         </DirectionErrorNotification>,
       );
       addCode("locationError");

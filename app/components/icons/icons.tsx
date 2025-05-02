@@ -143,21 +143,26 @@ export function UserLocation({ className, rotation = 0 }: { className?: string; 
         transformOrigin: "center",
       }}
     >
-      <svg width="90px" height="90px" viewBox="0 0 338 537" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-        <path d="M169 338L22.6417 84.5L315.358 84.5L169 338Z" fill="url(#paint0_linear_6_6)"/>
-        <circle cx="168.5" cy="320.5" r="38.5" fill="#015FFF" stroke="#f9f8f3" strokeWidth="9"/>
+      <svg
+        width="90px"
+        height="90px"
+        viewBox="0 0 338 537"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+      >
+        <path d="M169 338L22.6417 84.5L315.358 84.5L169 338Z" fill="url(#paint0_linear_6_6)" />
+        <circle cx="168.5" cy="320.5" r="38.5" fill="#015FFF" stroke="#f9f8f3" strokeWidth="9" />
         <defs>
-        <linearGradient id="paint0_linear_6_6" x1="169" y1="102" x2="169" y2="338" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#013999" stopOpacity="0"/>
-        <stop offset="1" stopColor="#015FFF"/>
-        </linearGradient>
+          <linearGradient id="paint0_linear_6_6" x1="169" y1="102" x2="169" y2="338" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#013999" stopOpacity="0" />
+            <stop offset="1" stopColor="#015FFF" />
+          </linearGradient>
         </defs>
       </svg>
-
     </span>
   );
 }
-
 
 export function Directions({ className }: { className?: string }) {
   return (

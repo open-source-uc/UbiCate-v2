@@ -9,16 +9,16 @@ interface DirectionSuccessNotificationProps {
   children?: React.ReactNode;
 }
 
-export default function DirectionSuccessNotification({ 
-  distance, 
-  placeName, 
-  children 
+export default function DirectionSuccessNotification({
+  distance,
+  placeName,
+  children,
 }: DirectionSuccessNotificationProps) {
   const { clearNotification, clearAllCodes } = use(NotificationContext);
-  
+
   // Calculate walking time if distance is available
   const walkingTimeMinutes = distance ? Math.ceil(distance / 83.33) : null;
-  
+
   return (
     <div className="w-full pointer-events-auto bg-primary text-foreground px-4 py-3 rounded-lg shadow-lg space-y-4">
       <div className="flex w-full items-center justify-between">
@@ -41,7 +41,9 @@ export default function DirectionSuccessNotification({
       <div className="flex-grow">
         {distance && placeName ? (
           <div className="space-y-1 flex">
-            <p className="font-light">Estás a <span className="font-bold">{walkingTimeMinutes} minutos</span> de esta ubicación</p>
+            <p className="font-light">
+              Estás a <span className="font-bold">{walkingTimeMinutes} minutos</span> de esta ubicación
+            </p>
           </div>
         ) : (
           children

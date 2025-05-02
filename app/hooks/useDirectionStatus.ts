@@ -42,7 +42,8 @@ export function useDirectionStatus(position: PointFeature | null, place: Feature
     if (!destCampus) {
       return {
         ok: false,
-        error: "Hmm... el punto de destino no está dentro de algún campus, esto es muy raro, por favor reporta este bug",
+        error:
+          "Hmm... el punto de destino no está dentro de algún campus, esto es muy raro, por favor reporta este bug",
       };
     }
 

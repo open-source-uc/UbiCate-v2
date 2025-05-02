@@ -10,7 +10,7 @@ interface RouteInfoMarkerProps {
 
 export default function RouteLayer({ route, beforeId }: RouteInfoMarkerProps) {
   const routeGeoJSON = featuresToGeoJSON(route);
-  
+
   return (
     <>
       {/* White border layer (rendered first) */}
@@ -29,7 +29,7 @@ export default function RouteLayer({ route, beforeId }: RouteInfoMarkerProps) {
           }}
         />
       </Source>
-      
+
       {/* Blue route line (rendered on top) */}
       <Source id="route" type="geojson" data={routeGeoJSON}>
         <Layer
