@@ -136,13 +136,7 @@ export function Start({ className }: { className?: string }) {
 
 export function UserLocation({ className, rotation = 0 }: { className?: string; rotation?: number }) {
   return (
-    <span
-      className={className}
-      style={{
-        transform: `rotate(${rotation}deg)`,
-        transformOrigin: "center",
-      }}
-    >
+    <span className={className}>
       <svg
         width="90px"
         height="90px"
@@ -151,8 +145,18 @@ export function UserLocation({ className, rotation = 0 }: { className?: string; 
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
-        <path d="M169 338L22.6417 84.5L315.358 84.5L169 338Z" fill="url(#paint0_linear_6_6)" />
+        {/* Grupo que contiene el triángulo que gira */}
+        <g
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            transformOrigin: "168.5px 320.5px", // Centro del círculo como punto de origen para la rotación
+          }}
+        >
+          <path d="M169 338L22.6417 84.5L315.358 84.5L169 338Z" fill="url(#paint0_linear_6_6)" />
+        </g>
+
         <circle cx="168.5" cy="320.5" r="38.5" fill="#015FFF" stroke="#f9f8f3" strokeWidth="9" />
+
         <defs>
           <linearGradient id="paint0_linear_6_6" x1="169" y1="102" x2="169" y2="338" gradientUnits="userSpaceOnUse">
             <stop stopColor="#013999" stopOpacity="0" />
