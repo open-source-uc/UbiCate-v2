@@ -33,7 +33,7 @@ export function useDirectionStatus(
       return { ok: false, error: "No podemos calcular la ruta para este lugar" };
     }
 
-    const validCampuses = ["SJ", "SanJoaquin"];
+    const validCampuses = ["SJ", "SanJoaquin", "LC", "LoContador"];
     if (!validCampuses.includes(destCampus)) {
       return { ok: false, error: `Las rutas en ${destCampus} no están activas.` };
     }
