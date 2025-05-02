@@ -42,48 +42,6 @@
                 "campus": "SJ",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61310663836508,
-                            -33.50037190676038
-                        ],
-                        [
-                            -70.61259616911954,
-                            -33.500326225172046
-                        ],
-                        [
-                            -70.61264713109105,
-                            -33.49967864336572
-                        ],
-                        [
-                            -70.6131636239622,
-                            -33.4997088381947
-                        ],
-                        [
-                            -70.61310663836508,
-                            -33.50037190676038
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "ma4g7jjzjhqpfh",
-                "name": "Patio Ingeniería",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
         }
     ]
 }
