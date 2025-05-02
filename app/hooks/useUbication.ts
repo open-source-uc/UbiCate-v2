@@ -80,7 +80,7 @@ let serviceOptions: Options = {
   cardinalPoints: 4,
   maximumAge: 0,
   enableHighAccuracy: true,
-  timeout: 5000
+  timeout: 5000,
 };
 
 // Notify all hooked components
@@ -94,15 +94,11 @@ function startService(options: Options = {}) {
   serviceOptions = { ...serviceOptions, ...options };
 
   if (navigator.geolocation) {
-    watchId = navigator.geolocation.watchPosition(
-      handlePositionUpdate,
-      handlePositionError,
-      {
-        enableHighAccuracy: serviceOptions.enableHighAccuracy,
-        maximumAge: serviceOptions.maximumAge,
-        timeout: serviceOptions.timeout
-      }
-    );
+    watchId = navigator.geolocation.watchPosition(handlePositionUpdate, handlePositionError, {
+      enableHighAccuracy: serviceOptions.enableHighAccuracy,
+      maximumAge: serviceOptions.maximumAge,
+      timeout: serviceOptions.timeout,
+    });
   }
 
   window.addEventListener("deviceorientation", handleOrientation);
@@ -147,7 +143,7 @@ export function useUbication(): LocationOrientationData {
       cardinalPoints: 8,
       enableHighAccuracy: true,
       maximumAge: 0,
-      timeout: 5000
+      timeout: 5000,
     });
     return unsubscribe;
   }, []);

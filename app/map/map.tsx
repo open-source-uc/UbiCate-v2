@@ -21,12 +21,7 @@ import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import {
-  getCampusBoundsFromName,
-  getCampusNameFromPoint,
-  getMaxCampusBoundsFromName,
-  getMaxCampusBoundsFromPoint,
-} from "@/utils/getCampusBounds";
+import { getCampusBoundsFromName, getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
 import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 

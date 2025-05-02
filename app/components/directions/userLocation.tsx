@@ -4,7 +4,7 @@ import { Marker, useMap } from "react-map-gl";
 
 import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
-import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
+import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 
 import * as Icons from "../icons/icons";
 
