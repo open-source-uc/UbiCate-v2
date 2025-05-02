@@ -41,7 +41,7 @@ export default function DirectionSuccessNotification({
       <div className="flex-grow">
         {distance && placeName ? (
           <div className="space-y-1 flex">
-            <p className="font-light">Estás a <span className="font-bold">{walkingTimeMinutes} minutos</span> de esta ubicación.</p>
+            <p className="font-light">Estás a <span className="font-bold">{walkingTimeMinutes} minutos</span> de esta ubicación</p>
           </div>
         ) : (
           children
