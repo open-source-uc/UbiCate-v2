@@ -104,9 +104,11 @@ export default function PlaceInformation({
                 {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
                   <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
                 ) : (
-                  <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
+                  <DropdownMenuItem onClick={onEdit}>
+                    Editar
+                    <Icons.Edit />
+                  </DropdownMenuItem>
                 )}
-                <Icons.Edit />
               </DropdownMenuItem>
             )}
             <DropdownMenuSeparator />

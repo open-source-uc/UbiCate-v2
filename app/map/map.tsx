@@ -186,7 +186,7 @@ export default function MapComponent({
     timeoutId.current = setTimeout(() => {
       handlePlaceSelection(null, { openSidebar: false });
       clearPins();
-    }, 300);
+    }, 350);
   }
 
   async function onLoad(e: MapEvent) {
