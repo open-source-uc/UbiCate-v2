@@ -4148,30 +4148,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "salaestudio9",
-                "name": "Sala de Estudio Raúl Devés",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61285108327866,
-                    -33.499631944817004
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "sports_place-32763859",
                 "name": "Sala Corporal 2",
                 "information": "",
@@ -31372,6 +31348,31 @@
                     "building"
                 ],
                 "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61285108327866,
+                    -33.499631944817004
+                ]
+            },
+            "properties": {
+                "identifier": "salaestudio9",
+                "name": "Sala de Estudio Raúl Devés",
+                "information": "",
+                "categories": [
+                    "classroom",
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
                 "needApproval": false,
                 "campus": "SJ",
                 "faculties": []
