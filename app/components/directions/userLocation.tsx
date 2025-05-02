@@ -4,6 +4,7 @@ import { Marker, useMap } from "react-map-gl";
 
 import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
+import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import * as Icons from "../icons/icons";
 
@@ -26,17 +27,17 @@ export default function UserLocation() {
       return;
     }
 
-    // const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
+    const campus = getCampusNameFromPoint(position.geometry.coordinates[0], position?.geometry.coordinates[1]);
 
-    // if (!campus) {
-    //   setNotification(
-    //     <DirectionErrorNotification>
-    //       No hemos podido determinar el campus en el que te encuentras o no estás en un campus UC.
-    //     </DirectionErrorNotification>,
-    //   );
-    //   addCode("locationError");
-    //   return;
-    // }
+    if (!campus) {
+      setNotification(
+        <DirectionErrorNotification>
+          No hemos podido determinar el campus en el que te encuentras o no estás en un campus UC.
+        </DirectionErrorNotification>,
+      );
+      addCode("locationError");
+      return;
+    }
     removeCode("locationError");
 
     mainMap?.getMap().setMaxBounds(undefined);
@@ -47,7 +48,7 @@ export default function UserLocation() {
     });
 
     setTimeout(() => {
-      // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
+      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
     }, 600);
   }, [mainMap, position, setNotification, addCode, removeCode]);
 
