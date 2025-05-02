@@ -14161,29 +14161,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "food_lunch-23546766",
-                "name": "Copper",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61423309021697,
-                    -33.49989013336953
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bath-23514256",
                 "name": "Baño",
                 "information": "",
@@ -31250,6 +31227,30 @@
                 "faculties": [
                     "LET"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            },
+            "properties": {
+                "identifier": "food_lunch-23546766",
+                "name": "Copper",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
