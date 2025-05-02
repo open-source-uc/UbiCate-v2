@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.61443401161924,
+                            -33.50045063161104
+                        ],
+                        [
+                            -70.61441040837651,
+                            -33.500598250017624
+                        ],
+                        [
+                            -70.61352313274607,
+                            -33.50053115077917
+                        ],
+                        [
+                            -70.61354566369502,
+                            -33.50038800554893
+                        ],
+                        [
+                            -70.61443401161924,
+                            -33.50045063161104
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma779nbrj6ldmh",
+                "name": "Departamento de Ingeniería Mecánica y Metalúrgica",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61330640299987,
                             -33.499564971601416
                         ],
