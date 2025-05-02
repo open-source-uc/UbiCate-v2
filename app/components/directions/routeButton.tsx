@@ -38,9 +38,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
       }
 
       setDirectionData(direction, "xd", distance);
-      setNotification(
-        <DirectionSuccessNotification>{`La ruta a ${place?.properties.name} es de ${distance} metros.`}</DirectionSuccessNotification>,
-      );
+      // Pass raw data to DirectionSuccessNotification
+      setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
       setSelectedPlace(null);
     } catch (error) {
       setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
@@ -56,8 +55,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
       role="button"
       tabIndex={0}
       className={`p-1 w-full cursor-pointer ${
-        !navigator.geolocation ? "bg-gray-400" : "bg-blue-location hover:bg-brown-light"
-      } text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-location focus:ring-offset-2`}
+        !navigator.geolocation ? "bg-muted/50" : "bg-primary hover:bg-accent"
+      } text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
     >
       <div className="flex justify-center items-center w-full h-10">
         <Icons.Directions />

@@ -86,7 +86,7 @@ export default function DesktopSidebar() {
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
-          className={`bg-brown-dark/95 backdrop-blur-sm text-white-ubi flex flex-col z-40 h-full transition-all duration-200 pb-4 ${
+          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full transition-all duration-200 pb-4 ${
             isOpen ? "w-54" : "w-20"
           }`}
         >
@@ -98,7 +98,7 @@ export default function DesktopSidebar() {
 
             {/* Toggle button */}
             <div className={`${isOpen ? "" : "flex justify-center"}`}>
-              <button onClick={toggleSidebar} className="hover:text-brown-medium pointer-events-auto cursor-pointer">
+              <button onClick={toggleSidebar} className="hover:text-muted pointer-events-auto cursor-pointer">
                 <Icons.DockToRight className="w-6 h-6" />
               </button>
             </div>
@@ -111,14 +111,14 @@ export default function DesktopSidebar() {
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("buscar") : handleCollapsedClick("buscar"))}
                 className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-brown-medium" : ""
+                  isOpen ? "w-full p-2 rounded-md hover:bg-secondary" : ""
                 } flex items-center pointer-events-auto cursor-pointer ${
                   !isOpen ? "justify-center px-4 py-3" : "space-x-4"
                 }`}
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "buscar" ? "bg-blue-location" : "bg-brown-light"
+                    activeSubSidebar === "buscar" ? "bg-primary" : "bg-accent"
                   }`}
                 >
                   <Icons.Search />
@@ -130,14 +130,14 @@ export default function DesktopSidebar() {
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
                 className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-brown-light/18" : ""
+                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
                 } flex items-center pointer-events-auto cursor-pointer ${
                   !isOpen ? "justify-center px-4 py-3" : "space-x-4"
                 }`}
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "campus" ? "bg-blue-location" : "bg-brown-light"
+                    activeSubSidebar === "campus" ? "bg-primary" : "bg-accent"
                   }`}
                 >
                   <Icons.Map />
@@ -152,7 +152,7 @@ export default function DesktopSidebar() {
                   !isOpen ? "justify-center px-4 py-3 opacity-50" : "space-x-4"
                 }`}
               >
-                <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
                   <Icons.MenuBook />
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Guías</span>
@@ -168,7 +168,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-brown-dark/95 backdrop-blur-sm text-white-ubi transition-all duration-200 border-l-1 border-brown-light ${
+          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground transition-all duration-200 border-l-1 border-border ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >

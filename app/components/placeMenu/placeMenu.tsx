@@ -85,7 +85,7 @@ export default function PlaceMenu({
   };
 
   return (
-    <div className="flex flex-col gap-2 py-2">
+    <div className="flex flex-col gap-2 py-2 bg-background text-foreground">
       {mode === "information" && (
         <PlaceInformation
           place={place}

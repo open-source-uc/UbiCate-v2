@@ -14,7 +14,7 @@
   outline: 1px solid #150a04;
   width: 100%;
   min-width: 240px;
-  max-width: 500px;
+  max-width: 500px !important;
   z-index: 1;
   border-radius: 1rem;
   transition: width 0.25s, min-width 0.25s;

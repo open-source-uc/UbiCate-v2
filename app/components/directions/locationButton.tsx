@@ -13,8 +13,8 @@ export default function LocationButton({ onClick }: { onClick?: () => void }) {
         onClick?.();
       }}
       className={`p-1 rounded-full ${
-        !codes.has("locationError") ? "bg-brown-medium hover:bg-brown-light" : "bg-error hover:bg-deep-red-option"
-      } border-brown-dark  border-1  text-white flex items-center justify-center w-12 h-12 pointer-events-auto cursor-pointer`}
+        !codes.has("locationError") ? "bg-secondary hover:bg-accent" : "bg-destructive hover:bg-destructive/80"
+      } border-border border-1 text-foreground flex items-center justify-center w-12 h-12 pointer-events-auto cursor-pointer`}
     >
       <Icon.GPS className="w-6 h-6" />
     </button>
