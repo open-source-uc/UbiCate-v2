@@ -16231,29 +16231,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bano21",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "CCL",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614356,
-                    -33.499114
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bano22",
                 "name": "Baño",
                 "information": "",
@@ -31251,6 +31228,32 @@
                 "needApproval": false,
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61435488184686,
+                    -33.498991709246624
+                ]
+            },
+            "properties": {
+                "identifier": "bano21",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
             }
         }
     ]
