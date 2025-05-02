@@ -116,48 +116,6 @@
                 "coordinates": [
                     [
                         [
-                            -70.61506600785856,
-                            -33.499607796230805
-                        ],
-                        [
-                            -70.61502512592429,
-                            -33.499842473339434
-                        ],
-                        [
-                            -70.6148137680502,
-                            -33.499829053376
-                        ],
-                        [
-                            -70.61487599549673,
-                            -33.49961433370343
-                        ],
-                        [
-                            -70.61506600785856,
-                            -33.499607796230805
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "ma77gcyp2prjfg",
-                "name": "Edificio hernan briones",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
                             -70.6140028432141,
                             -33.49996410134889
                         ],
