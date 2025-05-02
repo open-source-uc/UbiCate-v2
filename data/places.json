@@ -13011,29 +13011,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bath-26255348",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61355662891036,
-                    -33.49886889440568
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "C302-SJ",
                 "name": "C302",
                 "information": "",
@@ -31248,6 +31225,35 @@
                 ],
                 "floors": [
                     1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61355662891036,
+                    -33.49886889440568
+                ]
+            },
+            "properties": {
+                "identifier": "bath-26255348",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    2,
+                    3,
+                    4,
+                    5
                 ],
                 "needApproval": false,
                 "campus": "SJ",
