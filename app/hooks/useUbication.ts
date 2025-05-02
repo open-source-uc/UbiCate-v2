@@ -6,7 +6,9 @@ type CardinalPoints = 4 | 8;
 
 interface Options {
   cardinalPoints?: CardinalPoints;
-  updateInterval?: number;
+  maximumAge?: number;
+  enableHighAccuracy?: boolean;
+  timeout?: number;
 }
 
 interface LocationOrientationData {
@@ -23,7 +25,7 @@ type Subscriber = (data: LocationOrientationData) => void;
 
 const subscribers = new Set<Subscriber>();
 let currentData: LocationOrientationData = { position: null, alpha: 0, cardinal: "N" };
-let intervalId: ReturnType<typeof setInterval> | null = null;
+let watchId: number | null = null;
 
 function calculateCardinal(angle: number, points: CardinalPoints): string {
   const divisions = points;
@@ -35,32 +37,31 @@ function calculateCardinal(angle: number, points: CardinalPoints): string {
   return divisions === 8 ? labels8[index] : labels4[index];
 }
 
-function updateLocation() {
-  if (!navigator.geolocation) return;
-  navigator.geolocation.getCurrentPosition(
-    ({ coords }) => {
-      currentData = {
-        ...currentData,
-        position: {
-          type: "Feature",
-          properties: {
-            identifier: "user_loc",
-            name: "Usuario",
-            information: "",
-            categories: [CATEGORIES.USER_LOCATION],
-            campus: "",
-            faculties: [],
-            floors: [],
-            needApproval: false,
-          },
-          geometry: { type: "Point", coordinates: [coords.longitude, coords.latitude] },
-        },
-      };
-      notifySubscribers();
+// Handle location position updates
+function handlePositionUpdate({ coords }: GeolocationPosition) {
+  currentData = {
+    ...currentData,
+    position: {
+      type: "Feature",
+      properties: {
+        identifier: "user_loc",
+        name: "Usuario",
+        information: "",
+        categories: [CATEGORIES.USER_LOCATION],
+        campus: "",
+        faculties: [],
+        floors: [],
+        needApproval: false,
+      },
+      geometry: { type: "Point", coordinates: [coords.longitude, coords.latitude] },
     },
-    (error) => {},
-    { enableHighAccuracy: true, maximumAge: 0 },
-  );
+  };
+  notifySubscribers();
+}
+
+// Handle location error
+function handlePositionError(error: GeolocationPositionError) {
+  console.error("Error getting location:", error.message);
 }
 
 // Handle device orientation events
@@ -75,28 +76,44 @@ function handleOrientation(event: DeviceOrientationEvent) {
 }
 
 // Keep track of options for the running service
-let serviceOptions: Options = { cardinalPoints: 4, updateInterval: 2000 };
+let serviceOptions: Options = {
+  cardinalPoints: 4,
+  maximumAge: 0,
+  enableHighAccuracy: true,
+  timeout: 5000
+};
 
 // Notify all hooked components
 function notifySubscribers() {
   subscribers.forEach((cb) => cb(currentData));
 }
 
-// Start the shared service (only one interval and listener)
+// Start the shared service (only one watcher and orientation listener)
 function startService(options: Options = {}) {
-  if (intervalId) return;
+  if (watchId) return;
   serviceOptions = { ...serviceOptions, ...options };
 
-  updateLocation();
-  intervalId = setInterval(updateLocation, serviceOptions.updateInterval!);
+  if (navigator.geolocation) {
+    watchId = navigator.geolocation.watchPosition(
+      handlePositionUpdate,
+      handlePositionError,
+      {
+        enableHighAccuracy: serviceOptions.enableHighAccuracy,
+        maximumAge: serviceOptions.maximumAge,
+        timeout: serviceOptions.timeout
+      }
+    );
+  }
+
   window.addEventListener("deviceorientation", handleOrientation);
 }
 
 // Stop the shared service when no subscribers remain
 function stopService() {
-  if (!intervalId) return;
-  clearInterval(intervalId);
-  intervalId = null;
+  if (watchId !== null) {
+    navigator.geolocation.clearWatch(watchId);
+    watchId = null;
+  }
   window.removeEventListener("deviceorientation", handleOrientation);
 }
 
@@ -107,6 +124,7 @@ function stopService() {
 function subscribeUserLocation(callback: Subscriber, options: Options = {}): () => void {
   subscribers.add(callback);
   if (subscribers.size === 1) startService(options);
+
   // Emit current state immediately
   callback(currentData);
 
@@ -127,7 +145,9 @@ export function useUbication(): LocationOrientationData {
   useEffect(() => {
     const unsubscribe = subscribeUserLocation(setData, {
       cardinalPoints: 8,
-      updateInterval: 500,
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 5000
     });
     return unsubscribe;
   }, []);
