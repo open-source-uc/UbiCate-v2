@@ -19154,29 +19154,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RaulDeves",
-                "name": "Edificio Raul Deves",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "ING",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612735,
-                    -33.499616
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "eletro_qim",
                 "name": "Eletroquímica",
                 "information": "",
@@ -31311,7 +31288,9 @@
                 ],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
@@ -31377,7 +31356,9 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
@@ -31419,7 +31400,9 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
@@ -31485,7 +31468,9 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
@@ -31527,7 +31512,9 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
@@ -31569,7 +31556,9 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
@@ -31611,7 +31600,9 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         }
     ]
