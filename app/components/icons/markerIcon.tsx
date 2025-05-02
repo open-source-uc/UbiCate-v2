@@ -28,9 +28,21 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.WATER]: Icons.Water,
   [CATEGORIES.USER_LOCATION]: Icons.UserLocation,
   [CATEGORIES.YARD]: Icons.Default,
+  [CATEGORIES.SPECIAL_PLACES]: Icons.Default,
 };
 
-export default function MarkerIcon({ label }: { label: CATEGORIES }) {
+export default function MarkerIcon({
+  label,
+  customIcon,
+}: {
+  label: CATEGORIES;
+  customIcon?: { icon: string; size?: string };
+}) {
+  if (customIcon?.icon) {
+    const Icon = Icons[customIcon.icon as keyof typeof Icons] ?? Icons.Default;
+    return <Icon className={customIcon.size ?? "w-8 h-8"} />;
+  }
+
   const Icon = categoryIcons[label] ?? Icons.Default;
   return <Icon className="w-3 h-3" />;
 }

@@ -321,7 +321,7 @@ export default function MapComponent({
               key={place.properties.identifier}
               place={place as PointFeature}
               onClick={() => handlePlaceSelection(place, { openSidebar: true })}
-              icon={<MarkerIcon label={primaryCategory} />}
+              icon={<MarkerIcon label={primaryCategory} customIcon={place.properties.customIcon} />}
             />
           );
         })}
@@ -332,7 +332,7 @@ export default function MapComponent({
               key={pin.properties.identifier}
               place={pin as PointFeature}
               onClick={() => handlePlaceSelection(pin, { openSidebar: true })}
-              icon={<MarkerIcon label={primaryCategory} />}
+              icon={<MarkerIcon label={primaryCategory} customIcon={pin.properties.customIcon} />}
               draggable
               onDrag={(e: MarkerDragEvent) => {
                 handlePinDrag(e, pin.properties.identifier);
