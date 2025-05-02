@@ -6980,30 +6980,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Baño universal",
-                "name": "Baño universal",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61189353147923,
-                    -33.49992411902557
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "laboratory-26254958",
                 "name": "C100",
                 "information": "Entre el edificio de las salas E y C",
@@ -31280,6 +31256,33 @@
                 ],
                 "floors": [
                     -3
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189353466034,
+                    -33.49992410876524
+                ]
+            },
+            "properties": {
+                "identifier": "Baño universal",
+                "name": "Baño universal",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4
                 ],
                 "needApproval": false,
                 "campus": "SJ",
