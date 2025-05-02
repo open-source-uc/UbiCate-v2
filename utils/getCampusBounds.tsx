@@ -176,3 +176,16 @@ export function getFacultiesIdsFromPoint(longitude: number, latitude: number): s
   // Retorna el array de nombres de facultades (vacío si no hay coincidencias)
   return facultyNames;
 }
+
+export function getCampusEntryPoint(campus: string | null): [number, number] | null {
+  // Solo son dos pues a fecha de 2 de mayo del 2025, son los unicos campus que tienen rutas
+  if (!campus) return null;
+  const campusEntryPoints: Record<string, [number, number]> = {
+    SJ: [-70.61564953541995, -33.498485323162896],
+    LC: [-70.61785030163261, -33.41986777583937],
+    SanJoaquin: [-70.61564953541995, -33.498485323162896],
+    LoContador: [-70.61785030163261, -33.41986777583937],
+  };
+
+  return campusEntryPoints[campus] ?? null;
+}
