@@ -23295,29 +23295,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo2",
-                "name": "Casino Humanidades",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "LET",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61358,
-                    -33.497342
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "almuerzo3",
                 "name": "Caprioli",
                 "information": "",
@@ -31246,6 +31223,32 @@
                 "campus": "SJ",
                 "faculties": [
                     "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61358,
+                    -33.497342
+                ]
+            },
+            "properties": {
+                "identifier": "almuerzo2",
+                "name": "Casino Humanidades",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         }
