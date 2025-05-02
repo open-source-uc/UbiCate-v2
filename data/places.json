@@ -31330,6 +31330,48 @@
                 "campus": "SJ",
                 "faculties": []
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61211213469505,
+                            -33.49974014344677
+                        ],
+                        [
+                            -70.6117607653141,
+                            -33.49973007846366
+                        ],
+                        [
+                            -70.61179429292679,
+                            -33.49946056014734
+                        ],
+                        [
+                            -70.61212688684464,
+                            -33.49948628184861
+                        ],
+                        [
+                            -70.61211213469505,
+                            -33.49974014344677
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma4gbh359as09h",
+                "name": "Edificio Carreras Interdisciplinarias",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n\n## Carreras\n\n| #  | Carrera             |\n|----|---------------------|\n| 1  | Ciencia de Datos    |\n| 2 | Administración Pública |\n",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
