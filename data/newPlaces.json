@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.61443392187357,
+                            -33.500450560548245
+                        ],
+                        [
+                            -70.61441045254469,
+                            -33.500598178954604
+                        ],
+                        [
+                            -70.61338420981451,
+                            -33.50051183052432
+                        ],
+                        [
+                            -70.61340781305762,
+                            -33.50036868526597
+                        ],
+                        [
+                            -70.61443392187357,
+                            -33.500450560548245
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma779nbrj6ldmh",
+                "name": "Edificio de Ingeniería Mecánica y Metalúrgica",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61474405229092,
                             -33.50047823901861
                         ],
@@ -207,48 +249,6 @@
             "properties": {
                 "identifier": "ma77b2ewk5f4tl",
                 "name": "Edificio de Ingeniería Eléctrica y Transporte",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61443401161924,
-                            -33.50045063161104
-                        ],
-                        [
-                            -70.61441040837651,
-                            -33.500598250017624
-                        ],
-                        [
-                            -70.61352313274607,
-                            -33.50053115077917
-                        ],
-                        [
-                            -70.61354566369502,
-                            -33.50038800554893
-                        ],
-                        [
-                            -70.61443401161924,
-                            -33.50045063161104
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "ma779nbrj6ldmh",
-                "name": "Departamento de Ingeniería Mecánica y Metalúrgica",
                 "information": "",
                 "categories": [
                     "building"
