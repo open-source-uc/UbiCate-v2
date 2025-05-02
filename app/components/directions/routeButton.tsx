@@ -28,18 +28,22 @@ export default function RouteButton({ place }: RouteButtonProps) {
       return;
     }
     if (!position || !status.destination) return;
-
+  
     try {
       const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, status.destination);
-
+  
       if (!direction || !duration || !distance) {
         setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
         return;
       }
-
+  
       setDirectionData(direction, "xd", distance);
+      // Pass raw data to DirectionSuccessNotification
       setNotification(
-        <DirectionSuccessNotification>{`Te encuentras a ${Math.ceil(distance / 83.33)} minutos de ${place?.properties.name}`}</DirectionSuccessNotification>
+        <DirectionSuccessNotification 
+          distance={distance} 
+          placeName={place?.properties.name}
+        />
       );
       setSelectedPlace(null);
     } catch (error) {

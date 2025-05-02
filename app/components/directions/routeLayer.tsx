@@ -35,6 +35,7 @@ export default function RouteLayer({ route, beforeId }: RouteInfoMarkerProps) {
         <Layer
           id="route"
           type="line"
+          beforeId={beforeId}
           layout={{
             "line-cap": "round",
             "line-join": "round",
