@@ -1,4 +1,47 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61330640299987,
+                            -33.499564971601416
+                        ],
+                        [
+                            -70.61327740225586,
+                            -33.49968277939017
+                        ],
+                        [
+                            -70.61244020343511,
+                            -33.499624626165385
+                        ],
+                        [
+                            -70.61246633494035,
+                            -33.4995068182318
+                        ],
+                        [
+                            -70.61330640299987,
+                            -33.499564971601416
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma777zkc956j8i",
+                "name": "Edificio Raúl Devés",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
+    ]
 }
