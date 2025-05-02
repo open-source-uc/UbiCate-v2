@@ -6980,30 +6980,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Baño universal",
-                "name": "Baño universal",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61189353147923,
-                    -33.49992411902557
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "laboratory-26254958",
                 "name": "C100",
                 "information": "Entre el edificio de las salas E y C",
@@ -7743,6 +7719,30 @@
                     -70.610165,
                     -33.498158
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60772779487648,
+                    -33.49912925233011
+                ]
+            },
+            "properties": {
+                "identifier": "ma6c3xisriq3by",
+                "name": "WK1199",
+                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source UC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -3
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -13011,29 +13011,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bath-26255348",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61355662891036,
-                    -33.49886889440568
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "C302-SJ",
                 "name": "C302",
                 "information": "",
@@ -14155,29 +14132,6 @@
                 "coordinates": [
                     -70.61363276621337,
                     -33.49714374488435
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "food_lunch-23546766",
-                "name": "Copper",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61423309021697,
-                    -33.49989013336953
                 ]
             }
         },
@@ -16248,29 +16202,6 @@
                 "coordinates": [
                     -70.613033,
                     -33.498957
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bano21",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "CCL",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614356,
-                    -33.499114
                 ]
             }
         },
@@ -23295,29 +23226,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo2",
-                "name": "Casino Humanidades",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "LET",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61358,
-                    -33.497342
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "almuerzo3",
                 "name": "Caprioli",
                 "information": "",
@@ -24048,29 +23956,6 @@
                 "coordinates": [
                     -70.61193384,
                     -33.5001874
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "Baño",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    7
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6120139,
-                    -33.5001276
                 ]
             }
         },
@@ -31274,6 +31159,222 @@
                 "faculties": [
                     "ING"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61358,
+                    -33.497342
+                ]
+            },
+            "properties": {
+                "identifier": "almuerzo2",
+                "name": "Casino Humanidades",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            },
+            "properties": {
+                "identifier": "food_lunch-23546766",
+                "name": "Copper",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61435488184686,
+                    -33.498991709246624
+                ]
+            },
+            "properties": {
+                "identifier": "bano21",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61355662891036,
+                    -33.49886889440568
+                ]
+            },
+            "properties": {
+                "identifier": "bath-26255348",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189353466034,
+                    -33.49992410876524
+                ]
+            },
+            "properties": {
+                "identifier": "Baño universal",
+                "name": "Baño universal",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61310663836508,
+                            -33.50037190676038
+                        ],
+                        [
+                            -70.61259616911954,
+                            -33.500326225172046
+                        ],
+                        [
+                            -70.61264713109105,
+                            -33.49967864336572
+                        ],
+                        [
+                            -70.6131636239622,
+                            -33.4997088381947
+                        ],
+                        [
+                            -70.61310663836508,
+                            -33.50037190676038
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma4g7jjzjhqpfh",
+                "name": "Patio Ingeniería",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61211213469505,
+                            -33.49974014344677
+                        ],
+                        [
+                            -70.6117607653141,
+                            -33.49973007846366
+                        ],
+                        [
+                            -70.61179429292679,
+                            -33.49946056014734
+                        ],
+                        [
+                            -70.61212688684464,
+                            -33.49948628184861
+                        ],
+                        [
+                            -70.61211213469505,
+                            -33.49974014344677
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma4gbh359as09h",
+                "name": "Edificio Carreras Interdisciplinarias",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n\n## Carreras\n\n| #  | Carrera             |\n|----|---------------------|\n| 1  | Ciencia de Datos    |\n| 2 | Administración Pública |\n",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
