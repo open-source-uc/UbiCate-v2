@@ -48,7 +48,7 @@ export default function UserLocation() {
     });
 
     setTimeout(() => {
-      mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
+      // mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
     }, 600);
   }, [mainMap, position, setNotification, addCode, removeCode]);
 

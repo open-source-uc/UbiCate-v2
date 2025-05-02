@@ -143,7 +143,7 @@ export default function MapComponent({
       const map = mapRef.current?.getMap();
       map?.setMaxBounds(undefined);
       setTimeout(() => {
-        map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
+        // map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
       }, 600);
       if (options?.fly === false) {
         console.log("center", center);
@@ -194,19 +194,19 @@ export default function MapComponent({
     mapRef.current?.getMap().setMinZoom(15);
     const map = mapRef.current?.getMap();
     if (paramPlace) {
-      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
+      // map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       setPlaces([paramPlace]);
       handlePlaceSelection(paramPlace, { openSidebar: true });
       localStorage.setItem("defaultCampus", paramPlace.properties.campus);
     } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
-      map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      // map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
       handlePlaceSelection(addPin(parseFloat("" + paramLng), parseFloat("" + paramLat)), {
         openSidebar: true,
       });
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-      map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+      // map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
       map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
@@ -264,7 +264,7 @@ export default function MapComponent({
     const campusName = params.get("campus");
     if (campusName) {
       localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      // mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
