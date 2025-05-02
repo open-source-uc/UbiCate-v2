@@ -27,10 +27,10 @@ export default function RouteButton({ place }: RouteButtonProps) {
       setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
       return;
     }
-    if (!position || !status.destination) return;
+    if (!status.origin || !status.destination) return;
 
     try {
-      const { direction, duration, distance } = await fetchDirection(position.geometry.coordinates, status.destination);
+      const { direction, duration, distance } = await fetchDirection(status.origin, status.destination);
 
       if (!direction || !duration || !distance) {
         setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
