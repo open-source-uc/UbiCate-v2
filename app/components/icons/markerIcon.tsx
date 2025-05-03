@@ -39,7 +39,7 @@ export default function MarkerIcon({
   customIcon?: { icon: string; size?: string };
 }) {
   if (customIcon?.icon) {
-    const Icon = Icons[customIcon.icon as keyof typeof Icons] ?? Icons.Default;
+    const Icon = (Icons as any)[customIcon.icon] ?? Icons.Default;
     return <Icon className={customIcon.size ?? "w-8 h-8"} />;
   }
 
