@@ -5,7 +5,12 @@ export const placesTextLayer: LayerProps = {
   type: "symbol",
   source: "places",
   layout: {
-    "text-field": ["get", "name"],
+    "text-field": [
+      "case",
+      ["has", "customIcon"],
+      ["case", ["get", "showName", ["get", "customIcon"]], ["get", "name"], "\u00A0"],
+      ["get", "name"],
+    ],
     "text-font": ["Open Sans Semibold"],
     "text-size": 11,
     "text-anchor": "top",

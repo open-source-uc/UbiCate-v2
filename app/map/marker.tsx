@@ -43,6 +43,7 @@ export default function Marker({
   offset = [0, 0],
 }: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
+  const customIcon = place.properties.customIcon;
 
   const color =
     primaryCategory && categoryToColorMap[primaryCategory] ? categoryToColorMap[primaryCategory] : "bg-brown-light";
@@ -59,6 +60,17 @@ export default function Marker({
     "bg-gray-option",
   ];
   const textColorClass = darkBackgrounds.includes(color) ? "text-white-ubi" : "text-brown-dark";
+
+  const markerClasses = [
+    "flex items-center justify-center rounded-full pointer-events-auto cursor-pointer",
+    customIcon?.showRing !== false ? color : "",
+    textColorClass,
+    customIcon?.showRing !== false ? "ring-brown-dark ring-1" : "",
+    customIcon?.size || "w-4 h-4",
+    "z-50",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <MapboxMarker
@@ -81,11 +93,7 @@ export default function Marker({
           if (onMouseEnter) onMouseEnter(null);
         }}
       >
-        <div
-          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ${color} ${textColorClass} ring-brown-dark ring-1 w-4 h-4 z-50`}
-        >
-          {icon}
-        </div>
+        <div className={markerClasses}>{icon}</div>
       </div>
     </MapboxMarker>
   );
