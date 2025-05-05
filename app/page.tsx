@@ -3,9 +3,14 @@ import { Metadata } from "next";
 import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
-import NavigationSidebar from "./components/NavigationSidebar";
+import NavigationSidebar from "./components/sidebar/NavigationSidebar";
+import { DirectionsProvider } from "./context/directionsCtx";
+import { NotificationProvider } from "./context/notificationCtx";
+import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
-import MapComponent from "./map/map";
+import MapPage from "./map/mapPage";
+
+import "@/app/custom-landing-geocoder.css";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
@@ -86,10 +91,16 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   return (
     <>
       <SidebarProvider>
-        <main spellCheck="false" className="h-full w-full relative flex">
-          <NavigationSidebar />
-          <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-        </main>
+        <DirectionsProvider>
+          <PinsProvider>
+            <NotificationProvider>
+              <main spellCheck="false" className="h-full w-full relative flex">
+                <NavigationSidebar />
+                <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+              </main>
+            </NotificationProvider>
+          </PinsProvider>
+        </DirectionsProvider>
       </SidebarProvider>
     </>
   );

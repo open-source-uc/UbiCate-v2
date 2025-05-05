@@ -110,14 +110,6 @@ export function Parking({ className }: { className?: string }) {
   );
 }
 
-export function UserLocation({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
-      <path d="M443-54v-77q-123.5-13-211.25-100.75T131-443H54v-75h77q13-123.5 100.75-210.75T443-829v-77h75v77q123.5 13 210.75 100.25T829-518h77v75h-77q-13 123.5-100.25 211.25T518-131v77h-75Zm38-150q114.5 0 194.75-81.25T756-481q0-114.5-80.25-194.75T481-756q-114.5 0-195.75 80.25T204-481q0 114.5 81.25 195.75T481-204Zm-1-122q-64 0-109-45t-45-109q0-64 45-109t109-45q64 0 109 45t45 109q0 64-45 109t-109 45Z" />
-    </svg>
-  );
-}
-
 export function Default({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
@@ -130,6 +122,93 @@ export function GPS({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
       <path d="M440-42v-80q-125-14-214.5-103.5T122-440H42v-80h80q14-125 103.5-214.5T440-838v-80h80v80q125 14 214.5 103.5T838-520h80v80h-80q-14 125-103.5 214.5T520-122v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm0-80Z" />
+    </svg>
+  );
+}
+
+export function Start({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className={className}>
+      <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z" />
+    </svg>
+  );
+}
+
+export function UserLocation({ className, rotation = 0 }: { className?: string; rotation?: number }) {
+  return (
+    <span className={className}>
+      <svg
+        width="90px"
+        height="90px"
+        viewBox="0 0 338 537"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+      >
+        {/* Grupo que contiene el triángulo que gira */}
+        <g
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            transformOrigin: "168.5px 320.5px", // Centro del círculo como punto de origen para la rotación
+          }}
+        >
+          <path d="M169 338L22.6417 84.5L315.358 84.5L169 338Z" fill="url(#paint0_linear_6_6)" />
+        </g>
+
+        <circle cx="168.5" cy="320.5" r="38.5" fill="#015FFF" stroke="#f9f8f3" strokeWidth="9" />
+
+        <defs>
+          <linearGradient id="paint0_linear_6_6" x1="169" y1="102" x2="169" y2="338" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#013999" stopOpacity="0" />
+            <stop offset="1" stopColor="#015FFF" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </span>
+  );
+}
+
+export function Directions({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M322.5-362.5h75v-120h145v96.5l134-134-134-134v96.5H360q-15.5 0-26.5 11t-11 26.5v157.5ZM480-90.5q-14.5 0-27.75-5.5t-24.75-16.5l-315-315q-11-11.5-16.5-24.75T90.5-480q0-14.5 5.5-28t16.5-24.5l315-315q11.5-11.5 24.75-16.75T480-869.5q14.5 0 28 5.25t24.5 16.75l315 315q11.5 11 16.75 24.5t5.25 28q0 14.5-5.25 27.75T847.5-427.5l-315 315q-11 11-24.5 16.5t-28 5.5Z" />
+    </svg>
+  );
+}
+
+export function Error({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M479.89-285Q496-285 507-295.89q11-10.9 11-27Q518-339 507.11-350q-10.9-11-27-11Q464-361 453-350.11q-11 10.9-11 27Q442-307 452.89-296q10.9 11 27 11ZM443-440h75v-236h-75v236Zm37 350q-80.91 0-152.07-30.76-71.15-30.77-123.79-83.5Q151.5-257 120.75-328.09 90-399.17 90-480q0-80.91 30.76-152.07 30.77-71.15 83.5-123.79Q257-808.5 328.09-839.25 399.17-870 480-870q80.91 0 152.07 30.76 71.15 30.77 123.79 83.5Q808.5-703 839.25-631.91 870-560.83 870-480q0 80.91-30.76 152.07-30.77 71.15-83.5 123.79Q703-151.5 631.91-120.75 560.83-90 480-90Z" />
+    </svg>
+  );
+}
+
+export function Walking({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      className={className}
+    >
+      <path d="m280-40 112-564-72 28v136h-80v-188l202-86q14-6 29.5-7t29.5 4q14 5 26.5 14t20.5 23l40 64q26 42 70.5 69T760-520v80q-70 0-125-29t-94-74l-25 123 84 80v300h-80v-260l-84-64-72 324h-84Zm260-700q-33 0-56.5-23.5T460-820q0-33 23.5-56.5T540-900q33 0 56.5 23.5T620-820q0 33-23.5 56.5T540-740Z" />
     </svg>
   );
 }

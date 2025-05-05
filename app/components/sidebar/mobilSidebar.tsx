@@ -1,32 +1,34 @@
 "use client";
-import "../custom-landing-geocoder.css";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
+import * as Icons from "@/app/components/icons/icons";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import * as Icons from "../components/icons/icons";
-import { useSidebar } from "../context/sidebarCtx";
-import MenuInformation from "../map/menuInformation";
+import PillFilter from "../pills/PillFilter";
+import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import PillFilter from "./pillFilterBar";
+import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, toggleSidebar, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
-  const searchParams = useSearchParams();
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
   const handleToggleSidebar = () => {
     toggleSidebar();
   };
@@ -150,8 +152,8 @@ export default function MobileSidebar() {
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("menuInformation");
-      setSidebarHeight(60);
+      setActiveSubSidebar("placeInformation");
+      setSidebarHeight(33);
     } else {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
@@ -195,47 +197,18 @@ export default function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <section className="fixed top-0 right-0 w-full justify-center z-50 py-2 px-4 flex flex-col">
-        <div ref={refSearchContainer} className="w-full" />
-        {/* <div className="w-full h-16 py-2 items-center justify-center">
-          <Pill
-            title={"¡Ubícate en la UC y gana premios! 🎊"}
-            className="w-full truncate rounded-xl flex items-center px-2 py-1.5 border-1 border-brown-medium desktop:border-transparent"
-            icon={<Icons.OSUC />}
-            bg_color="bg-blue-location"
-            onClick={() =>
-              setSelectedPlace({
-                type: "Feature",
-                properties: {
-                  identifier: "26032025",
-                  name: "Concurso de Open Source UC",
-                  information:
-                    "## ¿Quieres ganar una [figurita](https://thegithubshop.com/collections/collectibles/products/1539178-00-mona-figurine-5-5) de Mona de GitHub? ¡Entonces participa de este concurso!\n\nPara participar, debes:\n- Ir a una ubicación del campus que te encante\n- Sacar una fotografía (no es necesario que tú salgas en esta)\n- Subir la fotografía a una historia de Instagram haciendo tag a @opensource_euc y utilizando el hashtag #ubicateuc\n\nPuedes tomar fotografías de la entrada al Campus, de nuestro patio de Ingeniería, de nuestra Alameda principal o edificios; ¡lo importante es que sea un lugar que te encante de nuestros campus! 💖\n\n**¡Participa de este concurso y gana!**",
-                  categories: ["event"],
-                  campus: "SJ",
-                  faculties: "ING",
-                  floors: [1],
-                  needApproval: false,
-                },
-                geometry: {
-                  type: "Point",
-                  coordinates: [-70.61305934398541, -33.50019582185146],
-                },
-              })
-            }
-            active={false}
-            noActivateClassName="bg-brown-dark desktop:bg-brown-medium text-white-ubi"
-          />
-        </div> */}
-      </section>
+      <TopMobileSidebar refSearchContainer={refSearchContainer} />
 
       {/* Main Sidebar */}
       <section
-        className="fixed bg-brown-dark/95 backdrop-blur-sm text-white-ubi z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
+        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
+        aria-expanded={isOpen}
+        role="dialog"
+        aria-label="Mobile Navigation"
       >
         {/* Drag handle that spans full width */}
         <div
@@ -246,8 +219,11 @@ export default function MobileSidebar() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           onClick={handleGrabBarClick}
+          role="button"
+          aria-label="Drag to resize sidebar"
+          tabIndex={0}
         >
-          <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto" />
+          <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
         </div>
 
         {isOpen ? (
@@ -256,15 +232,16 @@ export default function MobileSidebar() {
               <nav className="pb-5">
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
-                    <p className="text-md font-semibold text-white-ubi">Explora</p>
-                    <div className="bg-brown-medium flex rounded-lg p-2">
+                    <p className="text-md font-semibold text-foreground">Explora</p>
+                    <div className="bg-secondary flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-brown-light/18 ${
-                          activeSubSidebar === "campus" ? "bg-blue-location" : "bg-transparent"
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                          activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
                         }`}
+                        aria-pressed={activeSubSidebar === "campus"}
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
                           <Icons.Map />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
@@ -272,8 +249,9 @@ export default function MobileSidebar() {
                       <button
                         disabled
                         className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
+                        aria-disabled="true"
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-brown-light">
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
                           <Icons.MenuBook />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Guías</p>
@@ -297,11 +275,13 @@ export default function MobileSidebar() {
         {/* Sub Sidebars */}
         {activeSubSidebar ? (
           <section
-            className="fixed pb-5 bg-brown-dark/95 backdrop-blur-sm text-white-ubi transform z-60 inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
+            className="fixed pb-5 bg-background/95 backdrop-blur-sm text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
               transition: enableTransition ? "all 300ms" : "none",
             }}
+            role="region"
+            aria-label={`${activeSubSidebar} panel`}
           >
             {/* Drag handle in subsidebar */}
             <div
@@ -311,8 +291,11 @@ export default function MobileSidebar() {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               onClick={handleGrabBarClick}
+              role="button"
+              aria-label="Drag to resize sidebar"
+              tabIndex={0}
             >
-              <div className="w-1/4 h-1.5 bg-brown-light rounded-full mx-auto" />
+              <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
             </div>
 
             <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
@@ -325,19 +308,24 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "menuInformation" && (
-                <MenuInformation
+              {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
+                <PlaceMenu
                   place={selectedPlace}
-                  onClose={() => {
+                  onCloseMenu={() => {
                     setSelectedPlace(null);
                     toggleSubSidebar(null);
                     setIsOpen(false);
                   }}
-                  onEdit={() => {
+                  onOpenCreate={() => {
                     setSidebarHeight(100);
                   }}
-                  onCloseEdit={() => {
-                    setSidebarHeight(60);
+                  onOpenEdit={() => {
+                    setSidebarHeight(40);
+                  }}
+                  onCloseCreate={() => {
+                    setSelectedPlace(null);
+                    toggleSubSidebar(null);
+                    setIsOpen(false);
                   }}
                 />
               )}

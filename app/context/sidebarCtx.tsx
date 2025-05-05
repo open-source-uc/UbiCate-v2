@@ -7,7 +7,6 @@ import useGeocoder from "../hooks/useGeocoder";
 
 interface SidebarContextType {
   isOpen: boolean;
-  toggleSidebar: () => void;
   setIsOpen: (e: boolean) => void;
   places: Feature[];
   points: PointFeature[];
@@ -17,29 +16,23 @@ interface SidebarContextType {
   refFunctionClickOnResult: RefObject<((e: Feature) => void) | null>;
   selectedPlace: Feature | null;
   setSelectedPlace: (place: Feature | null) => void;
+  pointsName: PointFeature[];
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
-  "use client";
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const refFunctionClickOnResult = useRef<((e: Feature) => void) | null>(null);
 
-  const [places, points, polygons, setPlaces, geocoder] = useGeocoder(null, refFunctionClickOnResult);
-
-  const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
-
-  const toggleSidebar = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const [places, points, polygons, setPlaces, geocoder, selectedPlace, setSelectedPlace, pointsName] =
+    useGeocoder(null);
 
   return (
     <SidebarContext.Provider
       value={{
         isOpen,
         setIsOpen,
-        toggleSidebar,
         places,
         points,
         polygons,
@@ -48,6 +41,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         refFunctionClickOnResult,
         selectedPlace,
         setSelectedPlace,
+        pointsName,
       }}
     >
       {children}

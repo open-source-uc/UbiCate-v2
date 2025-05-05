@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 /* ---break---*/
-@plugin 'tailwindcss-animate';
 /* ---break---*/
 @custom-variant dark (&:is(.dark *));
 
@@ -22,6 +21,7 @@
   --color-light-4: #c1c8d7;
   --color-sidebar-color: rgb(35, 55, 75, 90%);
 
+  /* Important Colors */
   --color-blue-location: #015fff;
   --color-brown-dark: #150a04;
   --color-brown-medium: #39302b;
@@ -58,6 +58,7 @@
       var(--tw-gradient-stops));
 
   --radius-menu: 2.1rem;
+  
 }
 
 /*

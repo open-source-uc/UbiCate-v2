@@ -2,7 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Source, Layer } from "react-map-gl";
+import { Source, Layer, useMap } from "react-map-gl";
+
+import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
+import Places from "@/utils/places";
+import { JSONFeatures } from "@/utils/types";
 
 import {
   allPointsLayer,
@@ -10,15 +14,37 @@ import {
   approvalPointsLayer,
   allPlacesTextApprovalLayer,
   redLineLayerDebug,
-} from "@/app/map/layers";
-import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import Places from "@/utils/places";
-import { JSONFeatures } from "@/utils/types";
+  sectionAreaLayerDebug,
+} from "./layers";
 
 function DebugMode() {
   const isDebugMode = sessionStorage.getItem("debugMode") === "true";
   const [json, setJson] = useState<JSONFeatures | null>(null);
   const [debugMode, setDebugMode] = useState(1);
+  const mainMap = useMap();
+  const [mapLayers, setMapLayers] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Log all layer IDs when the map is loaded
+    if (isDebugMode && mainMap.mainMap) {
+      const map = mainMap.mainMap.getMap();
+
+      if (map && map.isStyleLoaded()) {
+        const layers = map.getStyle().layers;
+        const layerIds = layers.map((layer: any) => layer.id);
+        console.log("Available map layers:", layerIds);
+        setMapLayers(layerIds);
+      } else {
+        // If style isn't loaded yet, wait for the style.load event
+        map.once("style.load", () => {
+          const layers = map.getStyle().layers;
+          const layerIds = layers.map((layer: any) => layer.id);
+          console.log("Available map layers:", layerIds);
+          setMapLayers(layerIds);
+        });
+      }
+    }
+  }, [isDebugMode, mainMap.mainMap]);
 
   useEffect(() => {
     const fetchData = () => {
@@ -115,17 +141,32 @@ resize-x border-2 border-dashed pointer-events-auto"
             <span className="w-6 h-6 bg-[#716ADB] mr-2" /> Color por Defecto
           </li>
         </ul>
+
+        {mapLayers.length > 0 && (
+          <div className="mt-4">
+            <h3 className="text-lg font-bold">Layer IDs:</h3>
+            <div className="max-h-40 overflow-y-auto mt-2">
+              <ul className="list-disc list-inside">
+                {mapLayers.map((layerId) => (
+                  <li key={layerId} className="text-xs">
+                    {layerId}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
-      <Source
-        id="debug-1"
-        type="geojson"
-        data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Polygon"))}
-      >
-        <Layer {...redLineLayerDebug} />
-      </Source>
 
       {debugMode === 1 && (
         <>
+          <Source
+            id="debug-1"
+            type="geojson"
+            data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Polygon"))}
+          >
+            <Layer {...redLineLayerDebug} />
+          </Source>
           <Source
             id="debug-2"
             type="geojson"
@@ -146,6 +187,14 @@ resize-x border-2 border-dashed pointer-events-auto"
           >
             <Layer {...approvalPointsLayer} />
             <Layer {...allPlacesTextApprovalLayer} />
+          </Source>
+          <Source
+            id="debug-8"
+            type="geojson"
+            data={featuresToGeoJSON(json.features.filter((e) => e.geometry.type === "Polygon"))}
+          >
+            <Layer {...sectionAreaLayerDebug} />
+            <Layer {...redLineLayerDebug} />
           </Source>
         </>
       ) : null}

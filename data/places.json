@@ -4148,30 +4148,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "salaestudio9",
-                "name": "Sala de Estudio Raúl Devés",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61285108327866,
-                    -33.499631944817004
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "sports_place-32763859",
                 "name": "Sala Corporal 2",
                 "information": "",
@@ -6980,30 +6956,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Baño universal",
-                "name": "Baño universal",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61189353147923,
-                    -33.49992411902557
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "laboratory-26254958",
                 "name": "C100",
                 "information": "Entre el edificio de las salas E y C",
@@ -7743,6 +7695,30 @@
                     -70.610165,
                     -33.498158
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60772779487648,
+                    -33.49912925233011
+                ]
+            },
+            "properties": {
+                "identifier": "ma6c3xisriq3by",
+                "name": "WK1199",
+                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source UC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -3
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -13011,29 +12987,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "bath-26255348",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61355662891036,
-                    -33.49886889440568
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "C302-SJ",
                 "name": "C302",
                 "information": "",
@@ -14161,29 +14114,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "food_lunch-23546766",
-                "name": "Copper",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61423309021697,
-                    -33.49989013336953
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "bath-23514256",
                 "name": "Baño",
                 "information": "",
@@ -14454,29 +14384,6 @@
                 "coordinates": [
                     -70.61019001073926,
                     -33.49672743680977
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "OSUC",
-                "name": "(OSUC) Open Source UC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61333266525133,
-                    -33.500222000070764
                 ]
             }
         },
@@ -16271,29 +16178,6 @@
                 "coordinates": [
                     -70.613033,
                     -33.498957
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "bano21",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "CCL",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614356,
-                    -33.499114
                 ]
             }
         },
@@ -19264,29 +19148,6 @@
                 "coordinates": [
                     -70.617716,
                     -33.419849
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RaulDeves",
-                "name": "Edificio Raul Deves",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "ING",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612735,
-                    -33.499616
                 ]
             }
         },
@@ -23318,29 +23179,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "almuerzo2",
-                "name": "Casino Humanidades",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "campus": "SJ",
-                "faculties": "LET",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61358,
-                    -33.497342
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "almuerzo3",
                 "name": "Caprioli",
                 "information": "",
@@ -24077,29 +23915,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Baño",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    7
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6120139,
-                    -33.5001276
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "name": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "information": "",
@@ -24571,78 +24386,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CDI",
-                "name": "Centro de Innovación UC - Anacleto Angelini",
-                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
-                "categories": [
-                    "building"
-                ],
-                "campus": "SJ",
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.615494,
-                            -33.497752
-                        ],
-                        [
-                            -70.615174,
-                            -33.497696
-                        ],
-                        [
-                            -70.615226,
-                            -33.497579
-                        ],
-                        [
-                            -70.615018,
-                            -33.497547
-                        ],
-                        [
-                            -70.614928,
-                            -33.497891
-                        ],
-                        [
-                            -70.615057,
-                            -33.497916
-                        ],
-                        [
-                            -70.61503,
-                            -33.498027
-                        ],
-                        [
-                            -70.615094,
-                            -33.498039
-                        ],
-                        [
-                            -70.615096,
-                            -33.497976
-                        ],
-                        [
-                            -70.615579,
-                            -33.498042
-                        ],
-                        [
-                            -70.615526,
-                            -33.497991
-                        ],
-                        [
-                            -70.615441,
-                            -33.497975
-                        ],
-                        [
-                            -70.615494,
-                            -33.497752
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "LA_Y",
                 "campus": "SJ",
                 "name": "Centro Desarrollo Docente",
@@ -24840,70 +24583,6 @@
                         [
                             -70.611723,
                             -33.498246
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SAN_AGUSTIN",
-                "campus": "SJ",
-                "name": "Edificio San Agustín",
-                "information": "",
-                "needApproval": false,
-                "categories": [
-                    "building"
-                ]
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.615267,
-                            -33.49897
-                        ],
-                        [
-                            -70.615121,
-                            -33.498744
-                        ],
-                        [
-                            -70.615091,
-                            -33.498869
-                        ],
-                        [
-                            -70.614526,
-                            -33.498831
-                        ],
-                        [
-                            -70.614454,
-                            -33.499179
-                        ],
-                        [
-                            -70.614419,
-                            -33.499326
-                        ],
-                        [
-                            -70.61447,
-                            -33.499576
-                        ],
-                        [
-                            -70.614438,
-                            -33.499846
-                        ],
-                        [
-                            -70.614958,
-                            -33.499895
-                        ],
-                        [
-                            -70.615059,
-                            -33.499871
-                        ],
-                        [
-                            -70.615267,
-                            -33.49897
                         ]
                     ]
                 ]
@@ -25176,6 +24855,10 @@
                         [
                             -70.611907,
                             -33.497176
+                        ],
+                        [
+                            -70.611882,
+                            -33.497332
                         ]
                     ]
                 ]
@@ -29140,13 +28823,13 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ma09kdsao8yazn",
-                "name": "Punto Impresión",
-                "information": "# Punto Impresión Quisko ",
+                "identifier": "ma2v2384spiauf",
+                "name": "Sala de Estudio",
+                "information": "Sala de estudio alumnos",
                 "categories": [
-                    "photocopy"
+                    "studyroom"
                 ],
-                "campus": "SJ",
+                "campus": "OR",
                 "faculties": "",
                 "floors": [
                     1
@@ -29156,8 +28839,2769 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61311064037827,
-                    -33.49802535991121
+                    -70.594209490551,
+                    -33.44634257891822
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2v6p21mo5n6j",
+                "name": "Sala de oración Templo",
+                "information": "Sala de oración",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5937996815866,
+                    -33.4461424729108
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vn8hia86k1b",
+                "name": "Centro de Reciclaje",
+                "information": "Punto verde de Reciclaje común Oriente",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59337788427646,
+                    -33.44698855107464
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2v4rm1ispnyp",
+                "name": "FEUC",
+                "information": "Sala de atención FEUC",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59402295476008,
+                    -33.446032178621714
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2w476773ejyc",
+                "name": "Estacionamiento de Motos",
+                "information": "Estacionamiento exclusivo para motos",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59291299820958,
+                    -33.44602383342191
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wfiviui123z",
+                "name": "Casino",
+                "information": "Casino del Centro de eventos",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5936454934885,
+                    -33.445046940048435
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wlw7q3i0cca",
+                "name": "Baños",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59363316085623,
+                    -33.44500168161219
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wejmqlixzs7",
+                "name": "Casino",
+                "information": "Casino dentro sel Centro de eventos",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59364806209831,
+                    -33.445062239153096
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wf31rk5xswh",
+                "name": "Reciclaje",
+                "information": "Punto verde al interior del centro de eventos",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373682364821,
+                    -33.445099275348916
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2wgxbyz0gwjc",
+                "name": "Mesón UC",
+                "information": "Mesón uc al interior del centro de eventos, campus oriente",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59375911951065,
+                    -33.44509969498771
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_26-OR",
+                "name": "Taller arte 26",
+                "information": "Taller 26 de la escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59408232569695,
+                    -33.44518809884821
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_9-OR",
+                "name": "Taller arte 9",
+                "information": "Taller número 9 de la escuela de artes",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59408416971564,
+                    -33.44520810160795
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_25-OR",
+                "name": "Taller arte 25",
+                "information": "Taller 25 de la escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59406170621514,
+                    -33.44525985697888
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_8-OR",
+                "name": "Taller arte 8",
+                "information": "Taller número 8 de la escuela de artes",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59406623244286,
+                    -33.44526824973881
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_7-OR",
+                "name": "Taller Arte 7",
+                "information": "Sala Escuela de arte 7",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5940870829752,
+                    -33.445307316794846
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_24-OR",
+                "name": "Taller Arte 24",
+                "information": "Sala escuela de arte 24",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59411618858576,
+                    -33.445335112030676
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_5-OR",
+                "name": "Taller arte 5",
+                "information": "Taller número 5 de la escuela de Arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5942365527153,
+                    -33.445320005073846
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_6-OR",
+                "name": "Taller Arte 6",
+                "information": "Sala de arte 6,  Escuela dd Arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59415692463517,
+                    -33.44536882291562
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_DE_PERMANENCIA_10-OR",
+                "name": "Taller de Permanencia 10",
+                "information": "Taller de Permanencia 10 campus Oriente",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59424559757349,
+                    -33.445491708424235
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_27-OR",
+                "name": "Taller Arte 27",
+                "information": "Sala Escuela de Arte 27",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59412078806756,
+                    -33.445448009674685
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_23-OR",
+                "name": "Taller arte 23",
+                "information": "Taller 23 escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59424141421914,
+                    -33.44554437108807
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zksnd5yhlvu",
+                "name": "Auditorio Filosofía",
+                "information": "Auditorio Filosofía ",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59467198925982,
+                    -33.44603949900526
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zho69crynhm",
+                "name": "Reciclaje",
+                "information": "Punto verde",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59455277474083,
+                    -33.44589818672231
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zh7nxqhfg72",
+                "name": "Punto de microondas",
+                "information": "Microondas",
+                "categories": [
+                    "food_lunch"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59453820568223,
+                    -33.445877248561324
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zecay26aqi0",
+                "name": "Estacionamiento de bicicletas",
+                "information": "Bicicletero",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59439101221486,
+                    -33.4460733909955
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_22_ARTE-OR",
+                "name": "Taller arte 22",
+                "information": "Taller 22 escuela de Arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59430561959743,
+                    -33.44566942271695
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_21_ARTE-OR",
+                "name": "Taller arte 21",
+                "information": "Taller 21 escuela de arte",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59438223019242,
+                    -33.44574495717055
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xc7n5n7prnx",
+                "name": "Sala Crisol",
+                "information": "Sala Crisol Oriente en el segundo piso",
+                "categories": [
+                    "photocopy"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594439056197,
+                    -33.445790442601925
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_4-OR",
+                "name": "Taller Arte 4",
+                "information": "Sala Escuela de Arte 4",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59410150780234,
+                    -33.445543605586415
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_28-OR",
+                "name": "Taller Arte 28",
+                "information": "Sala Escuela de Arte 28",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59399819732394,
+                    -33.44551394506582
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_29-OR",
+                "name": "Taller Arte 29",
+                "information": "Sala Escuela de Arte 29",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59390264768938,
+                    -33.44556612608999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_30-OR",
+                "name": "Taller Arte 30",
+                "information": "Sala Escuela de Arte 30",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59344461319736,
+                    -33.44543293152053
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xp903zzejvs",
+                "name": "LAITEC",
+                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
+                "categories": [
+                    "laboratory"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59333214536309,
+                    -33.445492895644826
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_32-OR",
+                "name": "Taller Arte 32",
+                "information": "Sala Escuela de Arte 32",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59335648814121,
+                    -33.445477946300436
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_33-OR",
+                "name": "Taller Arte 33",
+                "information": "Sala Escuela de Arte 33",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59334568661137,
+                    -33.44548427957816
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "TALLER_ARTE_31-OR",
+                "name": "Taller Arte 31",
+                "information": "Sala Escuela de Arte 31",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59339780396529,
+                    -33.445461385232754
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xurvzfro06t",
+                "name": "Camarines escuela de teatro",
+                "information": "Camarines hombre y mujer separados. De la escuela de teatro.",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59325335547328,
+                    -33.44561500989388
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2waq2nqebjwa",
+                "name": "Zona segura N° 6",
+                "information": "Zona segura",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59306748128736,
+                    -33.4454221397271
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_DE_TECLADOS-OR",
+                "name": "Sala de Teclados",
+                "information": "Sala de Taclados",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5931732473111,
+                    -33.44561313297835
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2w988b7kp2ah",
+                "name": "Reciclaje",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59299086253291,
+                    -33.445618874828455
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2w6rg2dj0w6n",
+                "name": "Zona segura N° 5",
+                "information": "Zona Segura",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59250386365363,
+                    -33.44576798871416
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2w20itjnxrxo",
+                "name": "Reciclaje",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59245317035295,
+                    -33.446097408124565
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2w11qun5p2ag",
+                "name": "Estacionamiento de bicicletas",
+                "information": "Bicicletero con estación de reparación",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59234092960935,
+                    -33.44635071381148
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vyyp6pak6ge",
+                "name": "Qualitas",
+                "information": "Qualitas",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59208704781666,
+                    -33.44655978421693
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AULA_SAN_MATEO-OR",
+                "name": "Aula San Mateo",
+                "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304548427463,
+                    -33.44596862269464
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALAS_IMUC-OR",
+                "name": "Salas IMUC",
+                "information": "Acceso a las salas del instituto de música UC",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59296434745193,
+                    -33.445984988442035
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vhte6op1sjn",
+                "name": "Estacionamiento",
+                "information": "Estacionamiento",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59287003599817,
+                    -33.44670541002475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vl18xdkmpbq",
+                "name": "Centro UC Síndrome de Down",
+                "information": "Centro UC Síndrome de Down",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59328705072403,
+                    -33.44702147948767
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zomg0raykyu",
+                "name": "Reciclaje",
+                "information": "Punto verde",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594318449597,
+                    -33.44630042705145
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R6-OR",
+                "name": "Sala R6",
+                "information": "Sala R6, segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5943813920021,
+                    -33.4458350389144
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R5-OR",
+                "name": "Sala R5",
+                "information": "Sala R5 segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59434467926621,
+                    -33.44587616315767
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R4-OR",
+                "name": "Sala R4",
+                "information": "Sala R4 segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59428935870528,
+                    -33.44591714750317
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "AULAS_SAN_MARCOS_Y_SAN_LUCAS-OR",
+                "name": "Aulas San Marcos y San Lucas",
+                "information": "Aulas San Marcos y San Lucas, en el segundo piso en el pasillo con vista al patio de la virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59328269213438,
+                    -33.44597100062394
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R3-OR",
+                "name": "Sala R3",
+                "information": "Sala R3 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59421878308058,
+                    -33.44595925085498
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_N1-OR",
+                "name": "Sala N1",
+                "information": "Sala N1 Oriente en el segundo piso en pasillo con vista al patio de la Virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5933541059494,
+                    -33.44592456105165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R2-OR",
+                "name": "Sala R2",
+                "information": "Sala R2 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59416463598609,
+                    -33.445966804278065
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2ygvmuk9n1wk",
+                "name": "Dirección de Educación Continua",
+                "information": "Oficinas de la Dirección  de Educación Continua, segundo piso en pasillo con vista al patio de la Virgen",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59322989629132,
+                    -33.44626343389387
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_R1-OR",
+                "name": "Sala R1",
+                "information": "Sala R1 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59411752969027,
+                    -33.44598582771106
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_FRAY_ANGÉLICO-OR",
+                "name": "Sala Fray Angélico",
+                "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59406589716673,
+                    -33.44606499871828
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_9-OR",
+                "name": "Sala 9",
+                "information": "Sala 9 Pedro Mortheiru\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59340104460716,
+                    -33.44560256068277
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xj22uhv890c",
+                "name": "Auditorium 3",
+                "information": "Auditorium 3 en el segundo piso con vista al patio central",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59403773397207,
+                    -33.44601366346211
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2xlvgb6avbmb",
+                "name": "Auditorium 1",
+                "information": "Auditorium 2 en el segundo piso entre los balcones al patio central y la virgen",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59392994269729,
+                    -33.446105703218606
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_8-OR",
+                "name": "Sala 8",
+                "information": "Sala 8 Rodolfo Bravo\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59362886473536,
+                    -33.44555178466841
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2z77wrx3dujq",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "Oficina de salud y bienestar estudiantil en campus oriente",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59427207445033,
+                    -33.44634649364675
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2z95pgfxqdpy",
+                "name": "Reciclaje",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5942600743323,
+                    -33.446338536765545
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_7-OR",
+                "name": "Sala 7",
+                "information": "Sala 7 Fernando Colina\n(Posibles salas T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59380605816841,
+                    -33.4456414469767
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2za5a3bfzpuz",
+                "name": "Subdirección dd Bienestar y Calidad de Vida",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    -1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59427663726358,
+                    -33.44633499866576
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2z8mjb97nylo",
+                "name": "DASE",
+                "information": "Oficina del departamento de asistencia socioeconomica (DASE) en campus oriente",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59430249541998,
+                    -33.44634099437342
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vnzpaopfefe",
+                "name": "Centro de Reciclaje",
+                "information": "Centro de reciclaje OR",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59337788427646,
+                    -33.44698855107464
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2z7vt8c89fgh",
+                "name": "Direacción de Informática",
+                "information": "Dirección de Informática\nServicio técnico",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5942295795486,
+                    -33.446309558149295
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2zcda8cew0jm",
+                "name": "Estética UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5943078053607,
+                    -33.44634284590845
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "SALA_10-OR",
+                "name": "Sala 10",
+                "information": "Sala 10 Bernardo Trumper\n(Posibles T)",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935562774539,
+                    -33.44586832996998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E205-OR",
+                "name": "E205",
+                "information": "Sala E205",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59385286390436,
+                    -33.44652418561454
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2y5z8gamux70",
+                "name": "Auditorium 2",
+                "information": "Auditorium 2",
+                "categories": [
+                    "auditorium"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59361101513589,
+                    -33.44586058424602
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E206-OR",
+                "name": "E206",
+                "information": "Sala E206",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59371764049956,
+                    -33.44658653306907
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E207-OR",
+                "name": "E207",
+                "information": "Sala E207",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59363763931873,
+                    -33.44663061163697
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vuhzlbxxd63",
+                "name": "Reciclaje Electrónicos y Eléctricos",
+                "information": "Punto Verde de Reciclaje de Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5930746850562,
+                    -33.446568805782285
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E208-OR",
+                "name": "E208",
+                "information": "Sala E208",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935708736472,
+                    -33.446646509610716
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2yg13m1te7v4",
+                "name": "English UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59332797664784,
+                    -33.44642745537523
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2yukbx6k5njb",
+                "name": "Museo Casa Violeta Parra",
+                "information": "Casa Violeta Parra\nVirtud de los Elementos",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59382169443194,
+                    -33.44619733995126
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vsi3g8xxi3m",
+                "name": "Reciclaje",
+                "information": "Punto de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59315552530066,
+                    -33.44654135840123
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E201-OR",
+                "name": "E201",
+                "information": "Sala E201",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5937325351794,
+                    -33.44618905852513
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E202-OR",
+                "name": "E202",
+                "information": "Sala E202",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59366887013516,
+                    -33.446229546174976
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vsrrwpnnd1p",
+                "name": "Reciclaje",
+                "information": "Punto de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59315552530066,
+                    -33.44654135840123
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E203-OR",
+                "name": "E203",
+                "information": "Sala E203.\n\nSala de streaming",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59356473051731,
+                    -33.446282881938
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "ma2vr6u56vk0gu",
+                "name": "Caja Estacionamiento",
+                "information": "Caja de estacionamiento OR",
+                "categories": [
+                    "other"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    1
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59320770538861,
+                    -33.44652353503939
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "E204-OR",
+                "name": "E204",
+                "information": "Sala E204 en el pasillo con vista al patio de la virgen",
+                "categories": [
+                    "classroom"
+                ],
+                "campus": "OR",
+                "faculties": "",
+                "floors": [
+                    2
+                ],
+                "needApproval": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5934267512712,
+                    -33.44639097060916
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61199385892925,
+                            -33.49991572370624
+                        ],
+                        [
+                            -70.61217879507329,
+                            -33.4999241262264
+                        ],
+                        [
+                            -70.61211407521138,
+                            -33.500532592110545
+                        ],
+                        [
+                            -70.61191174736129,
+                            -33.50057452683355
+                        ],
+                        [
+                            -70.61199385892925,
+                            -33.49991572370624
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma33khiba2bplu",
+                "name": "Patio STEM",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61546297758623,
+                            -33.497693530248114
+                        ],
+                        [
+                            -70.61542306247796,
+                            -33.4979557252816
+                        ],
+                        [
+                            -70.61552152580703,
+                            -33.49796833261923
+                        ],
+                        [
+                            -70.61550902776396,
+                            -33.498017898398
+                        ],
+                        [
+                            -70.61524241006427,
+                            -33.49798299616022
+                        ],
+                        [
+                            -70.61521974169378,
+                            -33.498065164147334
+                        ],
+                        [
+                            -70.61515369062317,
+                            -33.498058536487235
+                        ],
+                        [
+                            -70.61517907811108,
+                            -33.49797355975112
+                        ],
+                        [
+                            -70.61501089080923,
+                            -33.49796920249534
+                        ],
+                        [
+                            -70.61508910929986,
+                            -33.497637760631896
+                        ],
+                        [
+                            -70.61512258583868,
+                            -33.49764118448799
+                        ],
+                        [
+                            -70.61521798116756,
+                            -33.497659134341575
+                        ],
+                        [
+                            -70.61546297758623,
+                            -33.497693530248114
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CDI",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61333266525133,
+                    -33.500222000070764
+                ]
+            },
+            "properties": {
+                "identifier": "OSUC",
+                "name": "(OSUC) Open Source UC",
+                "information": "### Test 29042025\nHola rocka del futuro",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61358,
+                    -33.497342
+                ]
+            },
+            "properties": {
+                "identifier": "almuerzo2",
+                "name": "Casino Humanidades",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            },
+            "properties": {
+                "identifier": "food_lunch-23546766",
+                "name": "Copper",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61435488184686,
+                    -33.498991709246624
+                ]
+            },
+            "properties": {
+                "identifier": "bano21",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61355662891036,
+                    -33.49886889440568
+                ]
+            },
+            "properties": {
+                "identifier": "bath-26255348",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189353466034,
+                    -33.49992410876524
+                ]
+            },
+            "properties": {
+                "identifier": "Baño universal",
+                "name": "Baño universal",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61310663836508,
+                            -33.50037190676038
+                        ],
+                        [
+                            -70.61259616911954,
+                            -33.500326225172046
+                        ],
+                        [
+                            -70.61264713109105,
+                            -33.49967864336572
+                        ],
+                        [
+                            -70.6131636239622,
+                            -33.4997088381947
+                        ],
+                        [
+                            -70.61310663836508,
+                            -33.50037190676038
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma4g7jjzjhqpfh",
+                "name": "Patio Ingeniería",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61211213469505,
+                            -33.49974014344677
+                        ],
+                        [
+                            -70.6117607653141,
+                            -33.49973007846366
+                        ],
+                        [
+                            -70.61179429292679,
+                            -33.49946056014734
+                        ],
+                        [
+                            -70.61212688684464,
+                            -33.49948628184861
+                        ],
+                        [
+                            -70.61211213469505,
+                            -33.49974014344677
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma4gbh359as09h",
+                "name": "Edificio Carreras Interdisciplinarias",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n\n## Carreras\n\n| #  | Carrera             |\n|----|---------------------|\n| 1  | Ciencia de Datos    |\n| 2 | Administración Pública |\n",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61285108327866,
+                    -33.499631944817004
+                ]
+            },
+            "properties": {
+                "identifier": "salaestudio9",
+                "name": "Sala de Estudio Raúl Devés",
+                "information": "",
+                "categories": [
+                    "classroom",
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61522180686576,
+                            -33.49895787654073
+                        ],
+                        [
+                            -70.61510883271694,
+                            -33.499528498972154
+                        ],
+                        [
+                            -70.61489626765251,
+                            -33.49947481891747
+                        ],
+                        [
+                            -70.61493909637676,
+                            -33.499350836759014
+                        ],
+                        [
+                            -70.61497237533331,
+                            -33.499208934405814
+                        ],
+                        [
+                            -70.61501458181134,
+                            -33.498925257458694
+                        ],
+                        [
+                            -70.61497420820346,
+                            -33.498920878757794
+                        ],
+                        [
+                            -70.61497635377329,
+                            -33.49885825158475
+                        ],
+                        [
+                            -70.61500518146492,
+                            -33.49886595144639
+                        ],
+                        [
+                            -70.6150462667287,
+                            -33.49871401757651
+                        ],
+                        [
+                            -70.61522180686576,
+                            -33.49895787654073
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "SAN_AGUSTIN",
+                "name": "Edificio San Agustín",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61506600785856,
+                            -33.499607796230805
+                        ],
+                        [
+                            -70.61502512592429,
+                            -33.499842473339434
+                        ],
+                        [
+                            -70.6148137680502,
+                            -33.499829053376
+                        ],
+                        [
+                            -70.61487599549673,
+                            -33.49961433370343
+                        ],
+                        [
+                            -70.61506600785856,
+                            -33.499607796230805
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma77gcyp2prjfg",
+                "name": "Edificio hernan briones",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61474405229092,
+                            -33.50047823901861
+                        ],
+                        [
+                            -70.61453249305487,
+                            -33.500469292443306
+                        ],
+                        [
+                            -70.61455227434635,
+                            -33.50031049057763
+                        ],
+                        [
+                            -70.61438027769327,
+                            -33.50029707068832
+                        ],
+                        [
+                            -70.6144081056118,
+                            -33.50003538243072
+                        ],
+                        [
+                            -70.61460323631763,
+                            -33.500038737413384
+                        ],
+                        [
+                            -70.61460122466087,
+                            -33.50010136373265
+                        ],
+                        [
+                            -70.61486173421144,
+                            -33.50010583703943
+                        ],
+                        [
+                            -70.61484329402447,
+                            -33.50034459945363
+                        ],
+                        [
+                            -70.61476483941078,
+                            -33.50033565286451
+                        ],
+                        [
+                            -70.61474405229092,
+                            -33.50047823901861
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma77cms00biyuq",
+                "name": "Edificio de Ingeniería Química y Bioprocesos",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6140028432141,
+                            -33.49996410134889
+                        ],
+                        [
+                            -70.61396937378396,
+                            -33.50029333788814
+                        ],
+                        [
+                            -70.61381079744147,
+                            -33.500281706058495
+                        ],
+                        [
+                            -70.6138354739615,
+                            -33.49995962803046
+                        ],
+                        [
+                            -70.6140028432141,
+                            -33.49996410134889
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma77b2ewk5f4tl",
+                "name": "Edificio de Ingeniería Eléctrica y Transporte",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61330640299987,
+                            -33.499564971601416
+                        ],
+                        [
+                            -70.61327740225586,
+                            -33.49968277939017
+                        ],
+                        [
+                            -70.61244020343511,
+                            -33.499624626165385
+                        ],
+                        [
+                            -70.61246633494035,
+                            -33.4995068182318
+                        ],
+                        [
+                            -70.61330640299987,
+                            -33.499564971601416
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma777zkc956j8i",
+                "name": "Edificio Raúl Devés",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61443392187357,
+                            -33.500450560548245
+                        ],
+                        [
+                            -70.61441045254469,
+                            -33.500598178954604
+                        ],
+                        [
+                            -70.61338420981451,
+                            -33.50051183052432
+                        ],
+                        [
+                            -70.61340781305762,
+                            -33.50036868526597
+                        ],
+                        [
+                            -70.61443392187357,
+                            -33.500450560548245
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ma779nbrj6ldmh",
+                "name": "Edificio de Ingeniería Mecánica y Metalúrgica",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
             }
         }

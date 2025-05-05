@@ -2,38 +2,48 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
+import { centroid } from "@turf/centroid";
 import type { LngLatBoundsLike } from "mapbox-gl";
 import type {
-  MapRef,
   ViewState,
   PointLike,
   PaddingOptions,
   MarkerDragEvent,
   MapEvent,
   MapLayerMouseEvent,
+  MapRef,
 } from "react-map-gl";
 import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 
-import DebugMode from "@/app/components/debugMode";
+import DebugMode from "@/app/debug/debugMode";
+import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import {
   getCampusBoundsFromName,
-  getCampusFromPoint2,
+  getCampusNameFromPoint,
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/utils/getCampusBounds";
-import { siglas, Feature, PointFeature, Category } from "@/utils/types";
+import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
+import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 
-import Campus from "../../data/campuses.json";
-import * as Icons from "../components/icons/icons";
+import DirectionsComponent from "../components/directions/component";
+import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";
+import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 
-import ButtonMaps from "./buttonsMaps";
-import { placesTextLayer, campusBorderLayer, sectionAreaLayer, sectionStrokeLayer } from "./layers";
+import {
+  placesTextLayer,
+  campusBorderLayer,
+  sectionAreaLayer,
+  sectionStrokeLayer,
+  customPolygonSectionAreaLayer,
+  customPolygonStrokeLayer,
+} from "./layers";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -81,206 +91,140 @@ export default function MapComponent({
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
-  const mapRef = useRef<MapRef>(null);
-  const [tmpMark, setTmpMark] = useState<Feature | null>(null);
   const params = useSearchParams();
-  const { places, points, polygons, setPlaces, refFunctionClickOnResult, setSelectedPlace, selectedPlace, setIsOpen } =
-    useSidebar();
+  const timeoutId = useRef<NodeJS.Timeout | null>(null);
+  const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
+  const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
+  const isLoaded = useRef(false);
+  const mapRef = useRef<MapRef>(null);
 
-  useEffect(() => {
-    const campusName = params.get("campus");
-    if (campusName) {
-      localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-      mapRef.current?.fitBounds(getCampusBoundsFromName(campusName), {
-        duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
-      });
-    }
-  }, [params]);
+  const handlePlaceSelection = useCallback(
+    (place: Feature | null, options?: { openSidebar?: boolean; notSet?: boolean; fly?: boolean }) => {
+      if (options?.notSet === undefined || options?.notSet === false) {
+        setSelectedPlace(place);
+      }
 
-  const setMenu = useCallback(
-    (place: Feature | null) => {
-      setSelectedPlace(place);
-      if (place) {
-        if (place.properties.identifier === "42-ALL") {
-          window.history.replaceState(
-            null,
-            "",
-            `?lng=${place?.geometry.coordinates[0]}&lat=${place?.geometry.coordinates[1]}`,
-          );
-        } else {
-          window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+      const title = document.querySelector("title");
+      if (!place) {
+        window.history.replaceState(null, "", "?");
+        if (title) {
+          title.textContent = "Ubicate UC - Mapa";
+        }
+        setIsOpen(false);
+        return;
+      }
+
+      localStorage.setItem("defaultCampus", place.properties.campus);
+
+      if (title) {
+        title.textContent = place ? `${place.properties.name}` : "Ubicate UC - Mapa";
+      }
+
+      if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK)) {
+        window.history.replaceState(
+          null,
+          "",
+          `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
+        );
+      } else {
+        window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
+      }
+
+      let center: [number, number] = [0, 0];
+
+      if (place.geometry.type === "Polygon") {
+        center = centroid(place.geometry).geometry.coordinates as unknown as [number, number];
+      }
+
+      if (place.geometry.type === "Point")
+        center = [place.geometry.coordinates[0], place.geometry.coordinates[1]] as unknown as [number, number];
+
+      const [lng, lat] = center;
+      const map = mapRef.current?.getMap();
+      map?.setMaxBounds(undefined);
+      setTimeout(() => {
+        map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
+      }, 600);
+      if (options?.fly === false) {
+        console.log("center", center);
+        const bounds = map?.getBounds();
+        const margin = 0.001;
+
+        if (!map || !bounds) return;
+
+        const isOutside = !(
+          lng >= bounds.getWest() + margin &&
+          lng <= bounds.getEast() - margin &&
+          lat >= bounds.getSouth() + margin &&
+          lat <= bounds.getNorth() - margin
+        );
+        if (isOutside) {
+          const mapHeight = bounds.getNorth() - bounds.getSouth();
+          const offset = mapHeight * 0.25;
+
+          map.flyTo({
+            center: [lng, lat - offset],
+            essential: true,
+            duration: 400,
+          });
         }
       } else {
-        window.history.replaceState(null, "", "?");
+        map?.flyTo({
+          essential: true,
+          duration: 400,
+          zoom: 17,
+          center: [lng, lat],
+          offset: [0, -20],
+        });
       }
     },
-    [setSelectedPlace],
+    [setSelectedPlace, setIsOpen],
   );
-
-  function onClickMark(place: Feature) {
-    if (!mapRef.current?.getMap()) return;
-
-    setMenu(place);
-
-    if (place?.geometry.type !== "Point") return;
-    const coordinates = [place?.geometry.coordinates[0], place?.geometry.coordinates[1]];
-    const map = mapRef.current?.getMap();
-    const bounds = map?.getBounds();
-    const margin = 0.001;
-
-    if (!map || !bounds) return;
-
-    const isOutside = !(
-      coordinates[0] >= bounds.getWest() + margin &&
-      coordinates[0] <= bounds.getEast() - margin &&
-      coordinates[1] >= bounds.getSouth() + margin &&
-      coordinates[1] <= bounds.getNorth() - margin
-    );
-
-    if (isOutside) {
-      const mapHeight = bounds.getNorth() - bounds.getSouth();
-      const offset = mapHeight * 0.25; // Ajusta el valor para modificar la posición
-
-      map.flyTo({
-        center: [coordinates[0], coordinates[1] - offset], // Baja el centro
-        essential: true,
-        duration: 400,
-      });
-    }
-  }
 
   function onClickMap(e: MapLayerMouseEvent) {
-    setMenu(null);
-    setTmpMark(null);
-    setIsOpen(false);
-  }
-
-  const setCustomMark = useCallback(
-    (lng: number, lat: number, showMenu: boolean) => {
-      lng = +lng;
-      lat = +lat;
-      const newMark: Feature = {
-        type: "Feature",
-        properties: {
-          identifier: "42-ALL", // ID for unknow locations MAGIC STRING XD
-          name: `Lon: ${lng.toFixed(4)}, Lat: ${lat.toFixed(4)}`,
-          information: "",
-          categories: ["customMark"],
-          campus: "",
-          faculties: "",
-          floors: [],
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [lng, lat],
-        },
-      };
-      setTmpMark(newMark);
-      if (showMenu) setMenu(newMark);
-    },
-    [setTmpMark, setMenu],
-  );
-
-  function getFeatureOfLayerFromPoint(target: mapboxgl.Map, point: mapboxgl.Point, layers: string[]): Feature | null {
-    const features = target.queryRenderedFeatures(point, {
-      layers: layers,
-    });
-
-    const feature = features[0];
-    if (!feature) return null;
-
-    if (!feature.properties) return null;
-
-    const exit = {
-      type: "Feature",
-      properties: feature.properties,
-      geometry: feature.geometry,
-    };
-    exit.properties.categories = JSON.parse(exit.properties.categories);
-
-    if (feature.properties?.floors) exit.properties.floors = JSON.parse(exit.properties.floors);
-
-    return exit as unknown as Feature;
+    clearTimeout(timeoutId.current ?? undefined);
+    timeoutId.current = setTimeout(() => {
+      handlePlaceSelection(null, { openSidebar: false });
+      clearPins();
+    }, 350);
   }
 
   async function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
     mapRef.current?.getMap().setMinZoom(15);
+    const map = mapRef.current?.getMap();
     if (paramPlace) {
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
-      if (paramPlace.geometry.type === "Point") {
-        mapRef.current?.getMap().flyTo({
-          essential: true,
-          duration: 0,
-          zoom: 17,
-          center: [paramPlace.geometry.coordinates[0], paramPlace.geometry.coordinates[1]],
-        });
-      }
-      if (paramPlace.geometry.type === "Polygon") {
-        mapRef.current?.fitBounds(bbox(paramPlace.geometry) as LngLatBoundsLike, {
-          zoom: 17,
-          duration: 0,
-        });
-      }
-
-      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
+      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
       setPlaces([paramPlace]);
+      handlePlaceSelection(paramPlace, { openSidebar: true });
+      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
     } else if (paramLng && paramLat) {
-      localStorage.setItem("defaultCampus", getCampusFromPoint2(paramLng, paramLat));
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
-      mapRef.current?.getMap().flyTo({
-        essential: true,
-        duration: 0,
-        zoom: 17,
-        center: [paramLng, paramLat],
+      localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
+      map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      handlePlaceSelection(addPin(parseFloat("" + paramLng), parseFloat("" + paramLat)), {
+        openSidebar: true,
       });
-      setCustomMark(paramLng, paramLat, false);
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-      mapRef.current?.fitBounds(getCampusBoundsFromName(defaultCampus), {
+      map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+      map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
       });
     }
 
-    e.target.on("click", ["red-area"], (e) => {
-      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["red-area"]);
+    e.target.on("click", ["area-polygon"], (e) => {
+      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
       if (!feature) return;
-
-      setTmpMark(null);
+      /*
+       Importante pues si no se borra se ejecute lo que esta en la funcion onClickMap,
+       lo que no permite abrir el menu del area, pues un click en el area tmb cuenta como click en el mapa 
+       */
+      clearTimeout(timeoutId.current ?? undefined);
       setTimeout(() => {
-        setIsOpen(true);
-        setMenu(feature);
-      }, 10);
+        handlePlaceSelection(feature, { openSidebar: true });
+      }, 200);
     });
-
-    refFunctionClickOnResult.current = (place) => {
-      setMenu(null);
-      mapRef.current?.getMap().setMaxBounds(undefined);
-      localStorage.setItem("defaultCampus", place.properties.campus);
-      window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-
-      if (place?.geometry.type === "Point") {
-        mapRef.current?.getMap().flyTo({
-          essential: true,
-          duration: 400,
-          zoom: 18,
-          center: [place?.geometry.coordinates[0], place?.geometry.coordinates[1]],
-        });
-      }
-      if (place?.geometry.type === "Polygon") {
-        mapRef.current?.fitBounds(bbox(place?.geometry) as LngLatBoundsLike, {
-          zoom: 17,
-          duration: 400,
-        });
-      }
-      setTimeout(() => {
-        mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(place.properties.campus));
-      }, 400);
-    };
 
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
@@ -288,143 +232,114 @@ export default function MapComponent({
       e.target.on("click", ["points-layer-2"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
         if (!feature) return;
-
+        clearTimeout(timeoutId.current ?? undefined);
         setTimeout(() => {
           setIsOpen(true);
-          setMenu(feature);
-        }, 10);
+          handlePlaceSelection(feature, { openSidebar: true });
+        }, 200);
       });
       e.target.on("click", ["points-layer-3"], (e) => {
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
         if (!feature) return;
-
+        clearTimeout(timeoutId.current ?? undefined);
         setTimeout(() => {
           setIsOpen(true);
-          setMenu(feature);
-        }, 10);
+          handlePlaceSelection(feature, { openSidebar: true });
+        }, 200);
+      });
+      e.target.on("click", ["debug-area-polygon"], (e) => {
+        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
+        if (!feature) return;
+        clearTimeout(timeoutId.current ?? undefined);
+        setTimeout(() => {
+          handlePlaceSelection(feature, { openSidebar: true });
+        }, 200);
       });
     }
+
+    isLoaded.current = true;
   }
 
-  const onMarkerDrag = useCallback(
-    (event: MarkerDragEvent) => {
-      setMenu(null);
-      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-    },
-    [setCustomMark, setMenu],
-  );
-
-  const onMarkerDragEnd = useCallback(
-    (event: MarkerDragEvent) => {
-      setMenu(null);
-      setCustomMark(event.lngLat.lng, event.lngLat.lat, false);
-      mapRef.current?.flyTo({
-        center: [event.lngLat.lng, event.lngLat.lat],
+  useEffect(() => {
+    const campusName = params.get("campus");
+    if (campusName) {
+      localStorage.setItem("defaultCampus", campusName);
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
+        duration: 0,
+        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
-    },
-    [setCustomMark, setMenu],
-  );
+    }
+  }, [params]);
 
   useEffect(() => {
-    const title = document.querySelector("title");
-    if (title) {
-      title.textContent = selectedPlace
-        ? `${siglas.get(selectedPlace.properties.categories[0]) ?? "Ubicate"} - ${selectedPlace.properties.name}`
-        : "Ubicate UC - Mapa";
+    if (isLoaded.current) {
+      handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
     }
-    if (selectedPlace?.properties.identifier === "26032025" && selectedPlace?.geometry.type === "Point") {
-      mapRef.current?.getMap().flyTo({
-        essential: true,
-        duration: 400,
-        zoom: 18,
-        center: [
-          selectedPlace?.geometry.coordinates[0],
-          selectedPlace?.geometry.coordinates[1] - 0.0003, // Ajusta este valor según sea necesario
-        ],
-      });
-      setTmpMark(selectedPlace);
-    }
-  }, [selectedPlace]);
+  }, [selectedPlace, handlePlaceSelection]);
 
   return (
     <>
       <Map
+        id="mainMap"
         mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
         onDblClick={(e) => {
-          /*
-          IMPORTANTE
-          En el evento onLoad, desactiva la función doubleClickZoom. Esto se debe a un bug en Mapbox que impide detectar el doble clic en dispositivos móviles cuando esta opción está activada.
-  
-          En PC: Este problema no ocurre.
-          En móviles: Se encontró esta solución en una issue de la comunidad, pero no está documentada oficialmente.
-          Se ha probado en un iPhone 11 con Safari y Chrome, donde funciona correctamente. Sin embargo, el funcionamiento en otros dispositivos no está garantizado.
-          */
-          setCustomMark(e.lngLat.lng, e.lngLat.lat, false);
+          clearTimeout(timeoutId.current ?? undefined);
+          handlePlaceSelection(addPin(e.lngLat.lng, e.lngLat.lat), {
+            openSidebar: true,
+          });
         }}
         ref={mapRef}
       >
-        {/* <FullscreenControl position="top-left" /> */}
-
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON(places)}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
           <Layer {...placesTextLayer} />
         </Source>
-
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...sectionAreaLayer} />
-        </Source>
-        <Source id="lineas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...sectionStrokeLayer} />
         </Source>
+        <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(polygon)}>
+          <Layer {...customPolygonSectionAreaLayer} />
+          <Layer {...customPolygonStrokeLayer} />
+        </Source>
         <DebugMode />
-        {/*
-        El hover fue desactivado pues al clikear en telefonos 
-        se producia un mensaje pulsante, que molestaba
-        y no encontre la forma de desactivarlo en telefonos.             
-        */}
-        {/* {hover ? (
-          <Popup
-            longitude={hover.geometry.coordinates[0]}
-            latitude={hover.geometry.coordinates[1]}
-            closeButton={false}
-            closeOnClick={false}
-            className="place"
-            offset={new Point(0, -10)}
-          >
-            {hover.properties.name}
-          </Popup>
-        ) : null} */}
-        <ButtonMaps mapRef={mapRef} />
+        <UserLocation />
+        <DirectionsComponent />
+
         {points.map((place) => {
-          const primaryCategory = place.properties.categories[0] as Category;
+          const primaryCategory = place.properties.categories[0] as CATEGORIES;
           return (
             <Marker
               key={place.properties.identifier}
               place={place as PointFeature}
-              onClick={() => onClickMark(place)}
+              onClick={() => handlePlaceSelection(place, { openSidebar: true })}
               icon={<MarkerIcon label={primaryCategory} />}
             />
           );
         })}
-
-        {tmpMark && tmpMark.geometry.type === "Point" ? (
-          <Marker
-            draggable={true}
-            key={tmpMark.properties.identifier}
-            place={tmpMark as PointFeature}
-            onClick={() => onClickMark(tmpMark)}
-            onDrag={onMarkerDrag}
-            onDragEnd={onMarkerDragEnd}
-            icon={<Icons.Pin className="w-4 h-4" />}
-          />
-        ) : null}
+        {pins.map((pin) => {
+          const primaryCategory = pin.properties.categories[0] as CATEGORIES;
+          return (
+            <Marker
+              key={pin.properties.identifier}
+              place={pin as PointFeature}
+              onClick={() => handlePlaceSelection(pin, { openSidebar: true })}
+              icon={<MarkerIcon label={primaryCategory} />}
+              draggable
+              onDrag={(e: MarkerDragEvent) => {
+                handlePinDrag(e, pin.properties.identifier);
+              }}
+            />
+          );
+        })}
       </Map>
     </>
   );
