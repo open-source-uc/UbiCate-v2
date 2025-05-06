@@ -16,6 +16,25 @@ interface RouteButtonProps {
   place: Feature | null;
 }
 
+const getOptimalDirection = async (origin: [number, number], destination: [number, number]) => {
+  const results = await Promise.all([
+    fetchDirection(origin, destination, 0),
+    fetchDirection(origin, destination, -0.2),
+  ]);
+
+  const [defaultDirection, biasedDirection] = results;
+
+  if (
+    biasedDirection.duration &&
+    defaultDirection.duration &&
+    biasedDirection.duration < defaultDirection.duration
+  ) {
+    return biasedDirection;
+  }
+
+  return defaultDirection;
+};
+
 export default function RouteButton({ place }: RouteButtonProps) {
   const { setDirectionData, position } = useDirections();
   const { setSelectedPlace } = useSidebar();
@@ -30,7 +49,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
     if (!status.origin || !status.destination) return;
 
     try {
-      const { direction, duration, distance } = await fetchDirection(status.origin, status.destination);
+      const { direction, duration, distance } = await getOptimalDirection(status.origin, status.destination);
 
       if (!direction || !duration || !distance) {
         setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
@@ -38,7 +57,6 @@ export default function RouteButton({ place }: RouteButtonProps) {
       }
 
       setDirectionData(direction, "xd", distance);
-      // Pass raw data to DirectionSuccessNotification
       setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
       setSelectedPlace(null);
     } catch (error) {
