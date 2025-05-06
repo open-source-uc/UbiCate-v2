@@ -24,11 +24,7 @@ const getOptimalDirection = async (origin: [number, number], destination: [numbe
 
   const [defaultDirection, biasedDirection] = results;
 
-  if (
-    biasedDirection.duration &&
-    defaultDirection.duration &&
-    biasedDirection.duration < defaultDirection.duration
-  ) {
+  if (biasedDirection.duration && defaultDirection.duration && biasedDirection.duration < defaultDirection.duration) {
     return biasedDirection;
   }
 
