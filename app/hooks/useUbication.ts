@@ -130,7 +130,6 @@ function subscribeUserLocation(callback: Subscriber, options: Options = {}): () 
   };
 }
 
-
 export function useUbication(): LocationOrientationData {
   const [data, setData] = useState<LocationOrientationData>(currentData);
 
