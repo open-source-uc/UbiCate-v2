@@ -2,6 +2,7 @@ import { use } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
+import { useUbication } from "@/app/hooks/useUbication";
 import { Feature } from "@/utils/types";
 
 import { useDirections } from "../../context/directionsCtx";
@@ -32,7 +33,8 @@ const getOptimalDirection = async (origin: [number, number], destination: [numbe
 };
 
 export default function RouteButton({ place }: RouteButtonProps) {
-  const { setDirectionData, position } = useDirections();
+  const { position } = useUbication();
+  const { setDirectionData } = useDirections();
   const { setSelectedPlace } = useSidebar();
   const { setNotification } = use(NotificationContext);
   const status = useDirectionStatus(position, place);

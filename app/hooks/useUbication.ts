@@ -130,11 +130,6 @@ function subscribeUserLocation(callback: Subscriber, options: Options = {}): () 
   };
 }
 
-/**
- * React hook to access user location & orientation
- *
- * SOLO USAR EN EL CONEXTO DE DIRECCIONES
- */
 export function useUbication(): LocationOrientationData {
   const [data, setData] = useState<LocationOrientationData>(currentData);
 
