@@ -5,7 +5,7 @@ export const fetchDirection = async (
   end: [number, number],
 ): Promise<{ direction: LineFeature; duration: number; distance: number }> => {
   const response = await fetch(
-    `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&steps=true&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`,
+    `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&steps=true&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}&overview=full`,
     {
       cache: "force-cache",
     },
