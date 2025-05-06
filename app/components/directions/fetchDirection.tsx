@@ -3,9 +3,10 @@ import { LineFeature } from "@/utils/types";
 export const fetchDirection = async (
   start: [number, number],
   end: [number, number],
+  walkwayBias: number,
 ): Promise<{ direction: LineFeature; duration: number; distance: number }> => {
   const response = await fetch(
-    `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&steps=true&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}&overview=full`,
+    `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&steps=true&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}&walkway_bias=${walkwayBias}`,
     {
       cache: "force-cache",
     },
