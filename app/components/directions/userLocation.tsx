@@ -30,7 +30,7 @@ export default function UserLocation() {
   }, [mainMap, updateBearing]);
 
   const rotation = useMemo(() => {
-    return (alpha - (bearing || 0) + 360) % 360;
+    return -(alpha - (bearing || 0) + 360) % 360; // el menos es pues los angulos van en sentido anti-horario
   }, [alpha, bearing]);
 
   const handleLocationButtonClick = useCallback(() => {
