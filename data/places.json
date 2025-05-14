@@ -31574,30 +31574,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61422665201256,
-                    -33.4998855420027
-                ]
-            },
-            "properties": {
-                "identifier": "mae3v5o3fevj6m",
-                "name": "Café Copper",
-                "information": "Café Copper en el cComplejo Andrónico Luksic Abaroa",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": false,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61423309021697,
                     -33.49989013336953
                 ]
@@ -31614,7 +31590,9 @@
                 ],
                 "needApproval": false,
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
