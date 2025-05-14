@@ -1,31 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61242312663983,
-                    -33.50048372328011
-                ]
-            },
-            "properties": {
-                "identifier": "B25",
-                "name": "B25",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "ING"
-                ]
-            }
-        }
-    ]
+    "features": []
 }
