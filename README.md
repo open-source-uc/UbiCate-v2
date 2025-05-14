@@ -9,7 +9,6 @@
   <a href="#Descripción">Descripción</a> •
   <a href="#Uso">Uso</a> •
   <a href="#Contribuir">Contribuir</a> •
-  <a href="#Créditos">Créditos</a> •
   <a href="#Soporte">Soporte</a> •
   <a href="#licencia">Licencia</a>
 </p>
@@ -23,6 +22,16 @@ Proyecto Open Source desarrollado como un buscador de salas en los campus de la 
 Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://github.com/almapp/uc-maps-seeds)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+
+## Créditos.
+
+### Mantenedores
+
+- [MrBased](https://github.com/MrBased)
+- [mc-cari](https://github.com/mc-cari)
+- [ooscarr](https://github.com/ooscarr)
+- [vlermandac](https://github.com/vlermandac)
+- [dvictorerol](https://github.com/dvictorerol)
 
 ## Query Params
 
@@ -54,20 +63,47 @@ Donde `{Id sala}` puede ser:
 
 ### Instalación
 
-Agregar Api Key pública de Mapbox a variable de entorno en archivo ``.env.local``
-Agregar la URL base del proyecto, actualmente es `https://ubicate.osuc.dev/`
-> [!IMPORTANT]  
-> Debe **llamarse** `.env.local`
-```shell
-NEXT_PUBLIC_MAPBOX_TOKEN = <API_KEY>
-NEXT_PUBLIC_BASE_URL = <BASE_URL> // Opcional, en producción obligatorio
-GITHUB_TOKEN_USER = <TOKEN_USER> // Opcional, en producción obligatorio
-GITHUB_USER_EMAIL = <EMAIL> // Opcional, en producción obligatorio
-GITHUB_BRANCH_NAME = <EXISTING_BRANCH> // Opcional, en producción obligatorio
-API_UBICATE_SECRET = <API_UBICATE_SECRET> // Opcional, en producción obligatorio
+## 🔐 Configuración del archivo `.env.local`
+
+Para que la aplicación funcione correctamente, debes crear un archivo `.env.local` en la **raíz del proyecto** con las siguientes variables de entorno:
+
+```env
+NEXT_PUBLIC_MAPBOX_TOKEN=<API_KEY>
+NEXT_PUBLIC_BASE_URL=<BASE_URL> # Opcional, obligatorio en producción
+GITHUB_TOKEN_USER=<TOKEN_USER>  # Opcional, obligatorio en producción
+GITHUB_USER_EMAIL=<EMAIL>       # Opcional, obligatorio en producción
+GITHUB_BRANCH_NAME=<BRANCH>     # Opcional, obligatorio en producción
+API_UBICATE_SECRET=<SECRET>     # Opcional, obligatorio en producción
 ```
 
-### Instalar dependencias
+> \[!IMPORTANT]
+> El archivo debe llamarse **`.env.local`**, sin cambios.
+
+### 📍 Token de Mapbox
+
+* La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source UC**.
+* Si usas una clave distinta, **el estilo del mapa no se cargará correctamente**.
+* En ese caso, puedes modificar el estilo directamente en el componente:
+  `app/map/map.tsx`.
+
+## 🐳 Uso del Dev Container
+
+Para evitar problemas durante el desarrollo, se recomienda usar el Dev Container.
+
+### ▶️ ¿Cómo iniciarlo en Visual Studio Code?
+
+1. Asegúrate de tener Docker y la extensión “Dev Containers” instalados.
+2. Presiona `F1` o `Ctrl+Shift+P`.
+3. Ejecuta:
+
+   ```
+   Dev Containers: Reopen in Container
+   ```
+
+> [!NOTE]
+> Aunque puedes desarrollar sin el Dev Container, **en algunos casos raros podrían surgir errores inesperados**.
+
+## Instalar dependencias
 
 ```shell
 npm install
@@ -293,16 +329,6 @@ Versión incorrecta de Node.js: Asegúrate de que la versión de Node.js configu
 Fecha de compatibilidad obsoleta (Compatibility Date): Una fecha de compatibilidad muy antigua puede causar problemas con el entorno de ejecución de Cloudflare.
 
 ![alt text](image/image.png)
-
-
-## Créditos.
-### Mantenedores
-
-- [MrBased](https://github.com/MrBased)
-- [mc-cari](https://github.com/mc-cari)
-- [ooscarr](https://github.com/ooscarr)
-- [vlermandac](https://github.com/vlermandac)
-- [dvictorerol](https://github.com/dvictorerol)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 ## Licencia
