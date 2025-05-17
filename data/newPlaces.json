@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60908823238485,
+                    -33.497828367621075
+                ]
+            },
+            "properties": {
+                "identifier": "masd5tn4ekkmej",
+                "name": "Área de Estudio DAE",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61189293443381,
                     -33.49997754421856
                 ]
