@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61327872937629,
+                    -33.49990057479303
+                ]
+            },
+            "properties": {
+                "identifier": "m8qm6hw5gb4hys",
+                "name": "CAI - Centro de Almunos Ingeniería ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61189293443381,
                     -33.49997754421856
                 ]
