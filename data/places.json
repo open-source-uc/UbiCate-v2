@@ -23684,29 +23684,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio finanzas Itau",
-                "name": "Laboratorio finanzas Itau",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    5
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6123187,
-                    -33.500048
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "Laboratorio ingeniería de materiales",
                 "name": "Laboratorio ingeniería de materiales",
                 "information": "",
@@ -31645,6 +31622,30 @@
                 "faculties": [
                     "ING"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189293443381,
+                    -33.49997754421856
+                ]
+            },
+            "properties": {
+                "identifier": "Laboratorio finanzas Itau",
+                "name": "Laboratorio finanzas Itau",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    5
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
