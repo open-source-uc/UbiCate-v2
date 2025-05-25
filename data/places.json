@@ -23684,29 +23684,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio finanzas Itau",
-                "name": "Laboratorio finanzas Itau",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    5
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6123187,
-                    -33.500048
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "Laboratorio ingeniería de materiales",
                 "name": "Laboratorio ingeniería de materiales",
                 "information": "",
@@ -27641,30 +27618,6 @@
                 "coordinates": [
                     -70.6104993974682,
                     -33.49996823501344
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m8qm6hw5gb4hys",
-                "name": "CAI",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61327872937629,
-                    -33.49990057479303
                 ]
             }
         },
@@ -31619,6 +31572,80 @@
                 "faculties": [
                     "ING"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60908823238485,
+                    -33.497828367621075
+                ]
+            },
+            "properties": {
+                "identifier": "masd5tn4ekkmej",
+                "name": "Área de Estudio DAE",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61327872937629,
+                    -33.49990057479303
+                ]
+            },
+            "properties": {
+                "identifier": "m8qm6hw5gb4hys",
+                "name": "CAI - Centro de Almunos Ingeniería ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189293443381,
+                    -33.49997754421856
+                ]
+            },
+            "properties": {
+                "identifier": "Laboratorio finanzas Itau",
+                "name": "Laboratorio finanzas Itau",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    5
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
