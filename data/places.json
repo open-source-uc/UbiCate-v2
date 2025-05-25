@@ -27647,30 +27647,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "m8qm6hw5gb4hys",
-                "name": "CAI",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61327872937629,
-                    -33.49990057479303
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "D202",
                 "name": "D202",
                 "information": "",
@@ -31643,6 +31619,32 @@
                 "needApproval": false,
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61327872937629,
+                    -33.49990057479303
+                ]
+            },
+            "properties": {
+                "identifier": "m8qm6hw5gb4hys",
+                "name": "CAI - Centro de Almunos Ingeniería ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
             }
         }
     ]
