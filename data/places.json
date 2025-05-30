@@ -13193,29 +13193,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "studyroom-26254946",
-                "name": "Sala de estudio.",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61425230835081,
-                    -33.49901289274482
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "C001-SJ",
                 "name": "C001",
                 "information": "",
@@ -31646,6 +31623,32 @@
                 "needApproval": false,
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61430218414037,
+                    -33.49884888896909
+                ]
+            },
+            "properties": {
+                "identifier": "studyroom-26254946",
+                "name": "Sala de estudio.",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
             }
         }
     ]
