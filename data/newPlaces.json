@@ -1,31 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613473685326,
-                    -33.498759738225395
-                ]
-            },
-            "properties": {
-                "identifier": "mc0r91jq5k5xfq",
-                "name": "Sala de estudio",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "CCL"
-                ]
-            }
-        }
-    ]
+    "features": []
 }
