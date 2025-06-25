@@ -20,10 +20,10 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Verificar si hay cambios con respecto a main
+      - name: Verificar si hay cambios en data/places.json respecto a main
         run: |
           git fetch origin main
-          if git diff --quiet origin/main -- data/places.json; then
+          if git diff --quiet origin/main..HEAD -- data/places.json; then
             echo "No hay cambios en data/places.json respecto a main. Abortando."
             exit 0
           fi
