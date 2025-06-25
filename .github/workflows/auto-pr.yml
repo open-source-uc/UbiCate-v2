@@ -24,8 +24,8 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Auto PR: cambio detectado en archivo"
-          branch: bot-update-locations
+          branch: pr-bot-update-locations-${{ github.run_id }}
           title: "Cambio automático en archivo específico"
           body: |
-            Este PR fue generado automáticamente porque se modificó `path/to/your/file.txt`.
+            Este PR fue generado automáticamente porque se modificó `data/places.json`.
           base: main
