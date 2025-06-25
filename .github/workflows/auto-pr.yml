@@ -12,33 +12,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repo (branch with changes)
         uses: actions/checkout@v4
         with:
-          ref: bot-update-locations  # asegurar checkout de la rama con cambios
+          ref: bot-update-locations
 
       - name: Set up Git user
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Verificar si hay cambios en data/places.json respecto a main
+      - name: Check if data/places.json changed vs main
         run: |
           git fetch origin main
           if git diff --quiet origin/main..HEAD -- data/places.json; then
             echo "No hay cambios en data/places.json respecto a main. Abortando."
             exit 0
           else
-            echo "Cambios detectados en data/places.json, se continuará con el PR."
+            echo "Cambios detectados, continuando con el PR"
           fi
 
-      - name: Create Pull Request2
+      - name: Create Pull Requestss
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Auto PR: cambio detectado en data/places.json"
-          branch: bot-update-locations-pr  # usar una rama fija para PR
+          branch: bot-update-locations-pr
           title: "Cambio automático en data/places.json"
           body: |
             Este PR fue generado automáticamente porque se modificó `data/places.json`.
           base: main
-          head: bot-update-locations  # rama con los cambios
+          head: bot-update-locations
