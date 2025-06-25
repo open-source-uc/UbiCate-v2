@@ -20,13 +20,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Verificar si hay cambios en data/places.json respecto a main
+      - name: Mostrar diferencias de data/places.json con main
         run: |
           git fetch origin main
-          if git diff --quiet origin/main..HEAD -- data/places.json; then
-            echo "No hay cambios en data/places.json respecto a main. Abortando."
-            exit 0
-          fi
+          git diff --stat origin/main..HEAD -- data/places.json || echo "No hay diferencias"
+
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
