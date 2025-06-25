@@ -1,0 +1,35 @@
+name: Auto PR on File Change
+
+on:
+  push:
+    branches:
+      - bot-update-locations
+    paths:
+      - data/places.json
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Make changes (opcional)
+        run: |
+          echo "Cambios automáticos opcionales" >> path/to/your/file.txt
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Auto PR: cambio detectado en archivo"
+          branch: auto/file-change-pr
+          title: "Cambio automático en archivo específico"
+          body: |
+            Este PR fue generado automáticamente porque se modificó `path/to/your/file.txt`.
+          base: main
