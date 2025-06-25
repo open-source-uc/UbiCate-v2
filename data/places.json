@@ -31700,6 +31700,31 @@
                     "CCL"
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6128889343655,
+                    -33.499657833490005
+                ]
+            },
+            "properties": {
+                "identifier": "mcc8txggx0fgzc",
+                "name": "Sala Raúl Déves ",
+                "information": "",
+                "categories": [
+                    "auditorium",
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
