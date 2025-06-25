@@ -32,7 +32,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Auto PR: cambio detectado en data/places.json"
-          branch: pr-bot-update-locations-${{ github.run_id }}
+          branch: bot-update-locations
           title: "Cambio automático en data/places.json"
           body: |
             Este PR fue generado automáticamente porque se modificó `data/places.json`.
