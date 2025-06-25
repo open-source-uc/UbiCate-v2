@@ -7675,30 +7675,6 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60772779487648,
-                    -33.49912925233011
-                ]
-            },
-            "properties": {
-                "identifier": "ma6c3xisriq3by",
-                "name": "WK1199",
-                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source UC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    -3
-                ],
-                "needApproval": false,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
             "properties": {
                 "identifier": "N2",
                 "name": "N8",
@@ -13187,29 +13163,6 @@
                 "coordinates": [
                     -70.613442,
                     -33.498967
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "studyroom-26254946",
-                "name": "Sala de estudio.",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61425230835081,
-                    -33.49901289274482
                 ]
             }
         },
@@ -31642,6 +31595,131 @@
                 ],
                 "floors": [
                     5
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61430218414037,
+                    -33.49884888896909
+                ]
+            },
+            "properties": {
+                "identifier": "studyroom-26254946",
+                "name": "Sala de estudio.",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61307978348046,
+                    -33.49803512546782
+                ]
+            },
+            "properties": {
+                "identifier": "mc92m5e2k3io9s",
+                "name": "quiosco crisol",
+                "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.613473685326,
+                    -33.498759738225395
+                ]
+            },
+            "properties": {
+                "identifier": "mc0r91jq5k5xfq",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6128889343655,
+                    -33.499657833490005
+                ]
+            },
+            "properties": {
+                "identifier": "mcc8txggx0fgzc",
+                "name": "Sala Raúl Déves ",
+                "information": "",
+                "categories": [
+                    "auditorium",
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60772779487648,
+                    -33.49912925233011
+                ]
+            },
+            "properties": {
+                "identifier": "ma6c3xisriq3by",
+                "name": "Ñ99Ñ11",
+                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source UC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -3
                 ],
                 "needApproval": false,
                 "campus": "SJ",

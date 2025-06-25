@@ -20,15 +20,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Make changes (opcional)
-        run: |
-          echo "Cambios automáticos opcionales" >> path/to/your/file.txt
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Auto PR: cambio detectado en archivo"
-          branch: auto/file-change-pr
+          branch: bot-update-locations
           title: "Cambio automático en archivo específico"
           body: |
             Este PR fue generado automáticamente porque se modificó `path/to/your/file.txt`.
