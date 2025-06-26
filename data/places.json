@@ -6644,30 +6644,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SAI",
-                "name": "Sala ayudantes ingeniería",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    3
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61195440171485,
-                    -33.50007953290675
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "k300",
                 "name": "k300",
                 "information": "",
@@ -31720,6 +31696,30 @@
                 ],
                 "floors": [
                     -3
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61195440171485,
+                    -33.50007953290675
+                ]
+            },
+            "properties": {
+                "identifier": "SAI",
+                "name": "SAI - Sala de Ayudantes Ingeniería",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    3
                 ],
                 "needApproval": false,
                 "campus": "SJ",
