@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61195440171485,
-                    -33.50007953290675
-                ]
-            },
-            "properties": {
-                "identifier": "SAI",
-                "name": "SAI - Sala de Ayudantes Ingeniería",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        }
-    ]
+    "features": []
 }
