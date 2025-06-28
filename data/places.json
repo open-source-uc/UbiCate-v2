@@ -31725,6 +31725,48 @@
                 "campus": "SJ",
                 "faculties": []
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61391664494012,
+                            -33.497245234666
+                        ],
+                        [
+                            -70.61334533441827,
+                            -33.497196026654294
+                        ],
+                        [
+                            -70.61340166080767,
+                            -33.49681130849444
+                        ],
+                        [
+                            -70.61395151365627,
+                            -33.49686051672562
+                        ],
+                        [
+                            -70.61391664494012,
+                            -33.497245234666
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "mcggboxx0r023g",
+                "name": "Patio humanidades",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
