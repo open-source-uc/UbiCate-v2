@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CATEGORIES, PointGeometry, Properties } from "@/utils/types";
 import { Geolocation } from "@capacitor/geolocation";
+import { Capacitor } from "@capacitor/core";
 
 type CardinalPoints = 4 | 8;
 
@@ -88,10 +89,9 @@ async function startService(options: Options = {}) {
   if (watchId || capacitorWatchId) return;
   serviceOptions = { ...serviceOptions, ...options };
 
-  // Detectar si estamos en entorno Capacitor
-  const isCapacitor = !!(window as any).Capacitor;
+  const isNative = Capacitor.getPlatform() !== "web";
 
-  if (isCapacitor) {
+  if (isNative) {
     try {
       await Geolocation.requestPermissions();
       capacitorWatchId = (await Geolocation.watchPosition(

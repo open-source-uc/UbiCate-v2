@@ -9,6 +9,7 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 
 import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
+import { Share } from "@capacitor/share";
 
 import RouteButton from "../directions/routeButton";
 import * as Icons from "../icons/icons";
@@ -34,17 +35,19 @@ export default function PlaceInformation({
   const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
 
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          url: window.location.href,
-        });
+    const shareData = {
+      url: window.location.href,
+    };
+
+    try {
+      if (await Share.canShare()) {
+        await Share.share(shareData);
         console.log("Contenido compartido con éxito");
-      } catch (error) {
-        console.error("Error al compartir:", error);
+      } else {
+        console.warn("La función de compartir no está disponible en esta plataforma.");
       }
-    } else {
-      console.warn("La API de compartir no está soportada en este navegador.");
+    } catch (error) {
+      console.error("Error al compartir:", error);
     }
   };
 
