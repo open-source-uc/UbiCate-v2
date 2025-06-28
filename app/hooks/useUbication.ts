@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-
 import { CATEGORIES, PointGeometry, Properties } from "@/utils/types";
+import { Geolocation } from "@capacitor/geolocation";
 
 type CardinalPoints = 4 | 8;
 
@@ -26,6 +26,7 @@ type Subscriber = (data: LocationOrientationData) => void;
 const subscribers = new Set<Subscriber>();
 let currentData: LocationOrientationData = { position: null, alpha: 0, cardinal: "N" };
 let watchId: number | null = null;
+let capacitorWatchId: string | null = null;
 
 function calculateCardinal(angle: number, points: CardinalPoints): string {
   const divisions = points;
@@ -37,8 +38,7 @@ function calculateCardinal(angle: number, points: CardinalPoints): string {
   return divisions === 8 ? labels8[index] : labels4[index];
 }
 
-// Handle location position updates
-function handlePositionUpdate({ coords }: GeolocationPosition) {
+function handlePositionUpdateWeb({ coords }: GeolocationPosition) {
   currentData = {
     ...currentData,
     position: {
@@ -59,12 +59,10 @@ function handlePositionUpdate({ coords }: GeolocationPosition) {
   notifySubscribers();
 }
 
-// Handle location error
-function handlePositionError(error: GeolocationPositionError) {
+function handlePositionErrorWeb(error: GeolocationPositionError) {
   console.error("Error getting location:", error.message);
 }
 
-// Handle device orientation events
 function handleOrientation(event: DeviceOrientationEvent) {
   if (event.alpha == null) return;
   currentData = {
@@ -75,7 +73,6 @@ function handleOrientation(event: DeviceOrientationEvent) {
   notifySubscribers();
 }
 
-// Keep track of options for the running service
 let serviceOptions: Options = {
   cardinalPoints: 4,
   maximumAge: 0,
@@ -83,18 +80,54 @@ let serviceOptions: Options = {
   timeout: 5000,
 };
 
-// Notify all hooked components
 function notifySubscribers() {
   subscribers.forEach((cb) => cb(currentData));
 }
 
-// Start the shared service (only one watcher and orientation listener)
-function startService(options: Options = {}) {
-  if (watchId) return;
+async function startService(options: Options = {}) {
+  if (watchId || capacitorWatchId) return;
   serviceOptions = { ...serviceOptions, ...options };
 
-  if (navigator.geolocation) {
-    watchId = navigator.geolocation.watchPosition(handlePositionUpdate, handlePositionError, {
+  // Detectar si estamos en entorno Capacitor
+  const isCapacitor = !!(window as any).Capacitor;
+
+  if (isCapacitor) {
+    try {
+      await Geolocation.requestPermissions();
+      capacitorWatchId = (await Geolocation.watchPosition(
+        { enableHighAccuracy: serviceOptions.enableHighAccuracy },
+        (pos, err) => {
+          if (err) {
+            console.error("Capacitor Geolocation error:", err.message);
+            return;
+          }
+          if (pos) {
+            currentData = {
+              ...currentData,
+              position: {
+                type: "Feature",
+                properties: {
+                  identifier: "user_loc",
+                  name: "Usuario",
+                  information: "",
+                  categories: [CATEGORIES.USER_LOCATION],
+                  campus: "",
+                  faculties: [],
+                  floors: [],
+                  needApproval: false,
+                },
+                geometry: { type: "Point", coordinates: [pos.coords.longitude, pos.coords.latitude] },
+              },
+            };
+            notifySubscribers();
+          }
+        }
+      )) as string;
+    } catch (e) {
+      console.error("Capacitor Geolocation permission error:", e);
+    }
+  } else if (navigator.geolocation) {
+    watchId = navigator.geolocation.watchPosition(handlePositionUpdateWeb, handlePositionErrorWeb, {
       enableHighAccuracy: serviceOptions.enableHighAccuracy,
       maximumAge: serviceOptions.maximumAge,
       timeout: serviceOptions.timeout,
@@ -104,24 +137,22 @@ function startService(options: Options = {}) {
   window.addEventListener("deviceorientation", handleOrientation);
 }
 
-// Stop the shared service when no subscribers remain
 function stopService() {
   if (watchId !== null) {
     navigator.geolocation.clearWatch(watchId);
     watchId = null;
   }
+  if (capacitorWatchId !== null) {
+    Geolocation.clearWatch({ id: capacitorWatchId });
+    capacitorWatchId = null;
+  }
   window.removeEventListener("deviceorientation", handleOrientation);
 }
 
-/**
- * Subscribe to shared user location & orientation updates
- * @returns unsubscribe function
- */
 function subscribeUserLocation(callback: Subscriber, options: Options = {}): () => void {
   subscribers.add(callback);
   if (subscribers.size === 1) startService(options);
 
-  // Emit current state immediately
   callback(currentData);
 
   return () => {
