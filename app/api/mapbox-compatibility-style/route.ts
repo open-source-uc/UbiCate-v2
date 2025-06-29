@@ -77,9 +77,7 @@ export async function GET() {
     for (const sourceKey in cleanedNoName.sources) {
       const source = cleanedNoName.sources[sourceKey];
       if (source.tiles) {
-        source.tiles = source.tiles.map((tileUrl: string) =>
-          tileUrl.replace(/^http:\/\//, "https://")
-        );
+        source.tiles = source.tiles.map((tileUrl: string) => tileUrl.replace(/^http:\/\//, "https://"));
       }
       if (source.url && typeof source.url === "string") {
         source.url = source.url.replace(/^http:\/\//, "https://");
