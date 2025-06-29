@@ -1,6 +1,7 @@
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Fuse from "fuse.js";
-import Mapbox from "mapbox-gl";
+import * as Mapbox from "mapbox-gl";
+
 
 import { Feature, JSONFeatures } from "./types";
 
