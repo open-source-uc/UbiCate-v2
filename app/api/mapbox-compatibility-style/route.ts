@@ -72,6 +72,27 @@ export async function GET() {
   const styleJson = await res.json();
   const cleaned = removePitch(styleJson);
   const cleanedNoName = removeNameProperties(cleaned);
+
+  if (cleanedNoName.sources) {
+    for (const sourceKey in cleanedNoName.sources) {
+      const source = cleanedNoName.sources[sourceKey];
+      if (source.tiles) {
+        source.tiles = source.tiles.map((tileUrl: string) =>
+          tileUrl.replace(/^http:\/\//, "https://")
+        );
+      }
+      if (source.url && typeof source.url === "string") {
+        source.url = source.url.replace(/^http:\/\//, "https://");
+      }
+    }
+  }
+  if (cleanedNoName.sprite && typeof cleanedNoName.sprite === "string") {
+    cleanedNoName.sprite = cleanedNoName.sprite.replace(/^http:\/\//, "https://");
+  }
+  if (cleanedNoName.glyphs && typeof cleanedNoName.glyphs === "string") {
+    cleanedNoName.glyphs = cleanedNoName.glyphs.replace(/^http:\/\//, "https://");
+  }
+
   return NextResponse.json(cleanedNoName);
 }
 
