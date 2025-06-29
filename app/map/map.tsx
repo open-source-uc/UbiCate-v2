@@ -28,8 +28,9 @@ import {
   getMaxCampusBoundsFromPoint,
 } from "@/utils/getCampusBounds";
 import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
-import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 import mapboxTransformRequest from "@/utils/mapboxTransformRequest";
+import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
+
 import DirectionsComponent from "../components/directions/component";
 import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";

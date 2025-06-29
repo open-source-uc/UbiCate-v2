@@ -6,8 +6,7 @@ const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 function removePitch(obj: any): any {
   if (Array.isArray(obj)) {
-    let arr = obj.filter(item => !(Array.isArray(item) && item[0] === "pitch")).map(removePitch);
-
+    let arr = obj.filter((item) => !(Array.isArray(item) && item[0] === "pitch")).map(removePitch);
 
     if (arr[0] === "step") {
       if (typeof arr[1] === "boolean") {
@@ -17,14 +16,14 @@ function removePitch(obj: any): any {
         arr = arr.slice(0, -1);
       }
     }
-    return arr.filter(x => x !== null);
+    return arr.filter((x) => x !== null);
   } else if (typeof obj === "object" && obj !== null) {
     const newObj: any = {};
     for (const key in obj) {
       if (key === "filter") {
         const cleaned = removePitch(obj[key]);
         newObj[key] = Array.isArray(cleaned)
-          ? cleaned.filter(item => !(Array.isArray(item) && item[0] === "pitch"))
+          ? cleaned.filter((item) => !(Array.isArray(item) && item[0] === "pitch"))
           : cleaned;
       } else if (key === "layout") {
         if (typeof obj[key] === "object" && obj[key] !== null) {
@@ -75,3 +74,5 @@ export async function GET() {
   const cleanedNoName = removeNameProperties(cleaned);
   return NextResponse.json(cleanedNoName);
 }
+
+export const runtime = "edge";
