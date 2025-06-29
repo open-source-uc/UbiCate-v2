@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Source, Layer, useMap } from "react-map-gl";
+import { Source, Layer, useMap } from "react-map-gl/maplibre";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import Places from "@/utils/places";

@@ -1,6 +1,8 @@
 "use client";
 import { createContext, useContext, ReactNode, useState, useRef, RefObject } from "react";
 
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+
 import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
 
 import useGeocoder from "../hooks/useGeocoder";
