@@ -6,7 +6,8 @@ import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import { centroid } from "@turf/centroid";
-import type { LngLatBoundsLike } from "mapbox-gl";
+import type { LngLatBoundsLike } from "maplibre-gl";
+import { isMapboxURL, transformMapboxUrl } from "maplibregl-mapbox-request-transformer";
 import type {
   ViewState,
   PointLike,
@@ -15,8 +16,8 @@ import type {
   MapEvent,
   MapLayerMouseEvent,
   MapRef,
-} from "react-map-gl";
-import { Map, Source, Layer, ScaleControl } from "react-map-gl";
+} from "react-map-gl/maplibre";
+import { Map, Source, Layer, ScaleControl } from "react-map-gl/maplibre";
 
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
@@ -277,13 +278,21 @@ export default function MapComponent({
       handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
     }
   }, [selectedPlace, handlePlaceSelection]);
+  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  const transformRequest = (url: string, resourceType?: string) => {
+    if (isMapboxURL(url)) {
+      return transformMapboxUrl(url, resourceType || "", MAPBOX_TOKEN ?? "");
+    }
+
+    return { url };
+  };
 
   return (
     <>
       <Map
         id="mainMap"
-        mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+        mapStyle="/api/mapbox-compatibility-style"
+        transformRequest={transformRequest}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}

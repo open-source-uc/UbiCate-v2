@@ -1,7 +1,7 @@
 import { Instrument_Sans } from "next/font/google";
 
 import "./globals.css";
-import "mapbox-gl/dist/mapbox-gl.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 import { Metadata } from "next";
 import type { Viewport } from "next";

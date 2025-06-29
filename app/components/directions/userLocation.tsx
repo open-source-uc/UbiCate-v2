@@ -1,6 +1,6 @@
 import { use, useCallback, useMemo, useState, useEffect } from "react";
 
-import { Marker, useMap } from "react-map-gl";
+import { Marker, useMap } from "react-map-gl/maplibre";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { useUbication } from "@/app/hooks/useUbication";
