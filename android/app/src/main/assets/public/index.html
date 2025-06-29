@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UbiCate · Sin conexión</title>
+  <style>
+    body {
+      background: #150b04;
+      color: #fff;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .error-container {
+      background: #39302b;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 32px #00000033;
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 350px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #be6069;
+    }
+    .error-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      color: #be6069;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #be6069;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      font-weight: 400;
+    }
+    .retry-btn {
+      background: #015FFF;
+      color: #fff;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .retry-btn:hover {
+      background: #003e99;
+    }
+    @media (max-width: 500px) {
+      .error-container {
+        padding: 1.5rem 0.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <svg class="error-icon" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="4" fill="none"/>
+      <rect x="22" y="13" width="4" height="15" rx="2" fill="currentColor"/>
+      <rect x="22" y="32" width="4" height="4" rx="2" fill="currentColor"/>
+    </svg>
+    <h1>¡Sin conexión!</h1>
+    <p>No pudimos cargar UbiCate.<br>
+    Por favor, revisa tu conexión a internet e intenta nuevamente.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[
+	{
+		"pkg": "@capacitor/geolocation",
+		"classpath": "com.capacitorjs.plugins.geolocation.GeolocationPlugin"
+	},
+	{
+		"pkg": "@capacitor/share",
+		"classpath": "com.capacitorjs.plugins.share.SharePlugin"
+	}
+]
