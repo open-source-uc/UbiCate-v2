@@ -6,6 +6,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
+import SWRegister from "./components/SWRegister";
+
 const instrument_sans = Instrument_Sans({
   subsets: ["latin"],
   display: "swap",
@@ -17,6 +19,12 @@ export const metadata: Metadata = {
 
   description:
     "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+
+  manifest: "/manifest.json",
+
+  icons: {
+    apple: "/icons/icon-192x192.png",
+  },
 
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
@@ -49,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${instrument_sans.variable}`}>
       <body className="h-full pb-[-12px] dark:bg-dark-1">
+        <SWRegister />
         <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">{children}</div>
       </body>
     </html>
