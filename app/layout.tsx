@@ -1,6 +1,6 @@
 import { Instrument_Sans } from "next/font/google";
 
-import "./globals.css";
+import "./styles/globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import { Metadata } from "next";

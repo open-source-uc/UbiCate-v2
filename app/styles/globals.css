@@ -1,0 +1,23 @@
+/* Import external dependencies */
+@import 'tailwindcss';
+
+/* Import our CSS components */
+@import "./variables.css";
+
+/* ---break---*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Añadirlo en base permite ser sobreescrito */
+@layer base {
+  [data-slot="icon"] {
+    @apply w-6 h-6 fill-foreground flex justify-center items-center;
+  }
+}
