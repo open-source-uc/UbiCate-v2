@@ -62,15 +62,22 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshot-mobile.png",
+      "src": "/screenshots/screenshot-mobile-0.png",
       "sizes": "628x1280",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Mapa interactivo de la UC"
     },
     {
-      "src": "/opengraph-image.png",
-      "sizes": "1200x630",
+      "src": "/screenshots/screenshot-mobile-1.png",
+      "sizes": "628x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Descubre los edificios de la UC"
+    },
+    {
+      "src": "/screenshots/screenshot-desktop-0.png",
+      "sizes": "1280x640",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Banner de UbiCate"
