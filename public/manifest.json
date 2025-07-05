@@ -62,18 +62,18 @@
   ],
   "screenshots": [
     {
-      "src": "/opengraph-image.png",
-      "sizes": "1200x630",
+      "src": "/screenshot-mobile.png",
+      "sizes": "628x1280",
       "type": "image/png",
-      "form_factor": "wide",
+      "form_factor": "narrow",
       "label": "Mapa interactivo de la UC"
     },
     {
       "src": "/opengraph-image.png",
       "sizes": "1200x630",
       "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Mapa interactivo de la UC"
+      "form_factor": "wide",
+      "label": "Banner de UbiCate"
     }
   ]
 }
