@@ -47,12 +47,6 @@ export const navigationItems = [
     label: "Campus",
     icon: "Map",
   },
-  {
-    id: "guías",
-    label: "Guías",
-    icon: "MenuBook",
-    disabled: true,
-  },
 ] as const;
 
 export type NavigationItemId = (typeof navigationItems)[number]["id"];

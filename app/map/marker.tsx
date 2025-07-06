@@ -3,7 +3,8 @@ import React from "react";
 import { Marker as MapboxMarker } from "react-map-gl";
 import type { MarkerDragEvent } from "react-map-gl";
 
-import { Feature, PointFeature } from "@/utils/types";
+import { getMarkerColorByCategory } from "@/app/components/sidebar/category/categoryConfig";
+import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 
 interface MarkerProps {
   place: PointFeature;
@@ -15,22 +16,6 @@ interface MarkerProps {
   onDragEnd?: (e: MarkerDragEvent) => void;
   offset?: [number, number]; // Added offset prop
 }
-
-// Mapeo de nombres a colores
-const categoryToColorMap: Record<string, string> = {
-  auditorium: "bg-green-option",
-  water: "bg-cyan-option",
-  bath: "bg-deep-cyan-option",
-  food_lunch: "bg-orange-option",
-  computers: "bg-purple-option",
-  Facultad: "bg-deep-red-option",
-  library: "bg-pink-option",
-  studyroom: "bg-red-option",
-  sports_place: "bg-deep-green-option",
-  parking: "bg-gray-option",
-  userLocation: "bg-cyan-option",
-  customMark: "bg-pink-option",
-};
 
 export default function Marker({
   place,
@@ -44,8 +29,19 @@ export default function Marker({
 }: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
 
-  const color =
-    primaryCategory && categoryToColorMap[primaryCategory] ? categoryToColorMap[primaryCategory] : "bg-brown-light";
+  // Use centralized color mapping
+  const getMarkerColor = (category: string): string => {
+    // Try to match with CATEGORIES enum
+    const categoryEnum = Object.values(CATEGORIES).find((cat) => cat === category);
+    if (categoryEnum) {
+      return getMarkerColorByCategory(categoryEnum);
+    }
+    
+    // Fallback to default color
+    return "bg-brown-light";
+  };
+
+  const color = primaryCategory ? getMarkerColor(primaryCategory) : "bg-brown-light";
 
   {
     /* Checks if the background color is too dark or too white, in order to change the icon color and make more accesible the map*/

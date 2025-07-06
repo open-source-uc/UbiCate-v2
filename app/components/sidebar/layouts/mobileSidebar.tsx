@@ -8,7 +8,7 @@ import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import PillFilter from "../../pills/PillFilter";
+import PillFilter from "../category/categoryFilter";
 import PlaceMenu from "../../placeMenu/placeMenu";
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";

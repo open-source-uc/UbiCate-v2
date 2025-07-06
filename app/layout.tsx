@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   ],
 };
 
+// Configuración para asegurar que se la página se vea correctamente en Iphones
 export const viewport: Viewport = {
   themeColor: [{ color: "#150a04" }],
 };

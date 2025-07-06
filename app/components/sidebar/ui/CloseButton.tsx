@@ -6,11 +6,7 @@ interface CloseButtonProps {
   className?: string;
 }
 
-export default function CloseButton({
-  onClick,
-  ariaLabel = "Cerrar menú",
-  className = "",
-}: CloseButtonProps) {
+export default function CloseButton({ onClick, ariaLabel = "Cerrar menú", className = "" }: CloseButtonProps) {
   return (
     <button
       onClick={onClick}
