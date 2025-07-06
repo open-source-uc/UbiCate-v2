@@ -36,12 +36,12 @@ export default function Marker({
     if (categoryEnum) {
       return getMarkerColorByCategory(categoryEnum);
     }
-    
+
     // Fallback to default color
-    return "bg-brown-light";
+    return "bg-background";
   };
 
-  const color = primaryCategory ? getMarkerColor(primaryCategory) : "bg-brown-light";
+  const color = primaryCategory ? getMarkerColor(primaryCategory) : "bg-primary";
 
   {
     /* Checks if the background color is too dark or too white, in order to change the icon color and make more accesible the map*/

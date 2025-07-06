@@ -13,6 +13,8 @@ import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/type
 import RouteButton from "../directions/routeButton";
 import * as Icons from "../icons/icons";
 import MarkDownComponent from "../markDown";
+import { SidebarCloseButton } from "../sidebar/ui";
+import { ActionButton, InfoCard } from "../ui";
 
 export default function PlaceInformation({
   place,
@@ -49,122 +51,157 @@ export default function PlaceInformation({
   };
 
   return (
-    <div className="px-2 pt-4">
-      <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
-        <div className="flex items-center justify-between w-full">
-          <div className="max-w-[2/3] pr-10">
-            <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
+    <div className="bg-background min-h-full">
+      {/* Header Section */}
+      <section className="relative px-4 pt-6 pb-4 bg-gradient-to-b from-background to-card border-b border-border/20">
+        <div className="flex items-start justify-between w-full">
+          <div className="flex-1 pr-4">
+            <h1 className="font-bold text-2xl text-foreground leading-tight mb-2 break-words">
+              {place.properties.name}
+            </h1>
+            {place.properties?.categories?.[0] ? (
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                <span className="text-sm font-medium text-primary">
+                  {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
+                </span>
+              </div>
+            ) : null}
           </div>
 
-          <button
-            className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            aria-label="Cerrar menú"
-            onClick={(e) => onClose?.()}
-          >
-            <Icons.Close />
-          </button>
+          <SidebarCloseButton
+            onClick={() => onClose?.()}
+            ariaLabel="Cerrar información del lugar"
+            className="!w-10 !h-10 !p-2 bg-card hover:bg-accent shadow-sm"
+          />
         </div>
-        {place.properties?.categories?.[0] ? (
-          <div className="font-light text-md mt-1">
-            {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
-          </div>
-        ) : null}
       </section>
-      <section className="flex space-x-2">
-        <button
-          onClick={handleShare}
-          onKeyDown={(e) => e.key === "Enter" && handleShare}
-          aria-label="Comparte esta Ubicación"
-          role="navigation"
-          tabIndex={0}
-          className="p-1 w-full cursor-pointer bg-primary hover:bg-accent text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-        >
-          <div className="flex justify-center items-center w-full h-10">
-            <Icons.Share />
+      {/* Action Buttons */}
+      <section className="px-4 py-3 bg-card/50 border-b border-border/20">
+        <div className="grid grid-cols-3 gap-2">
+          <ActionButton
+            onClick={handleShare}
+            onKeyDown={(e) => e.key === "Enter" && handleShare()}
+            ariaLabel="Comparte esta Ubicación"
+            icon={<Icons.Share className="w-5 h-5" />}
+            label="Compartir"
+          />
+
+          <div className="flex flex-col items-center justify-center py-3 px-2">
+            <RouteButton place={place} />
           </div>
-          <p className="text-xs font-medium">Compartir</p>
-        </button>
-        <RouteButton place={place} />
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            onKeyDown={(e) => e.key === "Enter" && handleShare}
-            aria-label="Comparte esta Ubicación"
-            role="navigation"
-            tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-secondary hover:bg-accent text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          >
-            <div className="w-full flex justify-center items-center">
-              <Icons.Options />
-            </div>
-            <p className="text-xs font-medium">Más</p>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-secondary rounded-lg shadow-lg px-2 py-2">
-            {isDebug.current === false && (
-              <DropdownMenuItem>
-                {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
-                  <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
-                ) : (
-                  <DropdownMenuItem onClick={onEdit}>
-                    Editar
-                    <Icons.Edit />
-                  </DropdownMenuItem>
-                )}
-              </DropdownMenuItem>
-            )}
-            <DropdownMenuSeparator />
-            {isDebug.current && place.properties.needApproval === true ? (
-              <>
-                <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
-                <DropdownMenuItem onClick={onApprove}>Aprobar</DropdownMenuItem>
-                <DropdownMenuItem onClick={onReject}>Rechazar</DropdownMenuItem>
-              </>
-            ) : null}
-            {isDebug.current && !place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
-              <>
-                <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
-                <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
-              </>
-            ) : null}
-            {isDebug.current && place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
-              <>
-                <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
-              </>
-            ) : null}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </section>
-      <section className="divide-y divide-accent/30">
-        {place.properties?.floors && place.properties.floors.length > 0 ? (
-          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-primary">
-                <Icons.Floor className="fill-primary" />
-                <span className="font-medium text-foreground">Piso</span>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              aria-label="Más opciones"
+              role="button"
+              tabIndex={0}
+              className="flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-background hover:bg-accent/10 text-foreground transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+            >
+              <div className="w-8 h-8 mb-2 flex items-center justify-center">
+                <Icons.Options className="w-5 h-5" />
               </div>
-              <span className="text-foreground font-light">{place.properties.floors.join(", ")}</span>
-            </div>
-          </div>
+              <span className="text-xs font-medium">Más</span>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-popover border border-border rounded-xl shadow-lg px-1 py-1 min-w-48">
+              {isDebug.current === false && (
+                <DropdownMenuItem>
+                  {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
+                    <DropdownMenuItem
+                      onClick={onCreate}
+                      className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-accent cursor-pointer"
+                    >
+                      <span>Agregar</span>
+                    </DropdownMenuItem>
+                  ) : (
+                    <DropdownMenuItem
+                      onClick={onEdit}
+                      className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-accent cursor-pointer"
+                    >
+                      <span>Editar</span>
+                      <Icons.Edit className="w-4 h-4" />
+                    </DropdownMenuItem>
+                  )}
+                </DropdownMenuItem>
+              )}
+              <DropdownMenuSeparator className="my-1 border-t border-border/30" />
+              {isDebug.current && place.properties.needApproval === true ? (
+                <>
+                  <DropdownMenuItem
+                    onClick={onEdit}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-accent cursor-pointer"
+                  >
+                    <span>Editar</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={onApprove}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-green/10 text-green cursor-pointer"
+                  >
+                    <span>Aprobar</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={onReject}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-red/10 text-red cursor-pointer"
+                  >
+                    <span>Rechazar</span>
+                  </DropdownMenuItem>
+                </>
+              ) : null}
+              {isDebug.current && !place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
+                <>
+                  <DropdownMenuItem
+                    onClick={onDelete}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-red/10 text-red cursor-pointer"
+                  >
+                    <span>Eliminar</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={onEdit}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-accent cursor-pointer"
+                  >
+                    <span>Editar</span>
+                  </DropdownMenuItem>
+                </>
+              ) : null}
+              {isDebug.current && place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
+                <>
+                  <DropdownMenuItem
+                    onClick={onCreate}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-accent cursor-pointer"
+                  >
+                    <span>Agregar</span>
+                  </DropdownMenuItem>
+                </>
+              ) : null}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </section>
+      {/* Location Details */}
+      <section className="px-4 py-3 space-y-3">
+        {place.properties?.floors && place.properties.floors.length > 0 ? (
+          <InfoCard
+            icon={<Icons.Floor className="w-5 h-5 fill-primary" />}
+            title="Piso"
+            subtitle="Nivel del edificio"
+            value={place.properties.floors.join(", ")}
+          />
         ) : null}
 
         {place.properties?.campus ? (
-          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-b-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-primary">
-                <Icons.Map className="fill-primary" />
-                <span className="font-medium text-foreground">Campus</span>
-              </div>
-              <span className="text-foreground font-light">{siglas.get(place.properties.campus)}</span>
-            </div>
-          </div>
+          <InfoCard
+            icon={<Icons.Map className="w-5 h-5 fill-primary" />}
+            title="Campus"
+            subtitle="Sede universitaria"
+            value={siglas.get(place.properties.campus)}
+          />
         ) : null}
 
         {place.properties.information ? (
-          <div className="space-y-2 py-4">
-            <h3 className="text-xl font-semibold">Descripción</h3>
-            <div className="bg-secondary rounded-md">
+          <InfoCard icon={<span className="text-primary text-sm">ℹ</span>} title="Descripción">
+            <div className="bg-background/50 rounded-lg p-3 border border-border/10">
               <MarkDownComponent>{place.properties.information}</MarkDownComponent>
             </div>
-          </div>
+          </InfoCard>
         ) : null}
       </section>
     </div>
