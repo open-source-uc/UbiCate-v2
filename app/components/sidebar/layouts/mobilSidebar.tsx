@@ -10,11 +10,11 @@ import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../../pills/PillFilter";
 import PlaceMenu from "../../placeMenu/placeMenu";
-
 import CampusList from "../sections/campusList";
-import DragHandle from "../ui/dragHandle";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
+import DragHandle from "../ui/dragHandle";
 import SidebarMobileNavigationButton from "../ui/sidebarMobileNavigationButton";
+
 import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {

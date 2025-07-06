@@ -11,12 +11,12 @@ import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../../pills/PillFilter";
 import PlaceMenu from "../../placeMenu/placeMenu";
-
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
-import NotificationBarDesktop from "./notificationsBarDesktop";
 import SidebarNavigationButton from "../ui/sidebarNavigationButton";
 import SidebarToggleButton from "../ui/sidebarToggleButton";
+
+import NotificationBarDesktop from "./notificationsBarDesktop";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();

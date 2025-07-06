@@ -30,9 +30,7 @@ export default function SidebarNavigationButton({
       } ${disabled ? "opacity-50" : ""} ${className}`}
     >
       <span
-        className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-          isActive ? "bg-primary" : "bg-accent"
-        }`}
+        className={`w-10 h-10 rounded-lg flex items-center justify-center ${isActive ? "bg-primary" : "bg-accent"}`}
       >
         {icon}
       </span>

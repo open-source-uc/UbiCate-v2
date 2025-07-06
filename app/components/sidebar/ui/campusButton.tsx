@@ -8,13 +8,7 @@ interface CampusButtonProps {
   className?: string;
 }
 
-export default function CampusButton({
-  campusKey,
-  campusName,
-  imageSrc,
-  onClick,
-  className = "",
-}: CampusButtonProps) {
+export default function CampusButton({ campusKey, campusName, imageSrc, onClick, className = "" }: CampusButtonProps) {
   return (
     <button
       onClick={() => onClick(campusKey)}

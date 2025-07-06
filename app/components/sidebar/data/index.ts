@@ -1,2 +1,2 @@
 // Data and Configuration
-export * from './config';
+export * from "./config";
