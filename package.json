@@ -20,6 +20,7 @@
     "@turf/centroid": "^7.2.0",
     "@turf/turf": "^7.2.0",
     "clsx": "^2.1.1",
+    "eslint-plugin-tailwindcss": "^3.18.0",
     "fuse.js": "^7.0.0",
     "mapbox-gl": "^2.15.0",
     "maplibre-gl": "^3.1.0",
