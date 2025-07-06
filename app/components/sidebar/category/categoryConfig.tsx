@@ -8,7 +8,6 @@ export interface CategoryConfig {
   title: string;
   icon: React.ComponentType<{ className?: string }>;
   bg: string;
-  filter: string;
   isNameFilter?: boolean;
   category: CATEGORIES;
 }
@@ -20,7 +19,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Facultades",
     icon: Icons.School,
     bg: "bg-red",
-    filter: "faculty",
     category: CATEGORIES.FACULTY,
   },
   {
@@ -28,7 +26,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Salas de Estudio",
     icon: Icons.Studyroom,
     bg: "bg-red",
-    filter: "studyroom",
     category: CATEGORIES.STUDYROOM,
   },
   {
@@ -36,7 +33,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Auditorios",
     icon: Icons.Auditorium,
     bg: "bg-green",
-    filter: "auditorium",
     category: CATEGORIES.AUDITORIUM,
   },
   {
@@ -44,7 +40,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Bibliotecas",
     icon: Icons.Library,
     bg: "bg-pink",
-    filter: "biblioteca",
     isNameFilter: true,
     category: CATEGORIES.LIBRARY,
   },
@@ -53,7 +48,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Baños",
     icon: Icons.Wc,
     bg: "bg-cyan",
-    filter: "bath",
     category: CATEGORIES.BATH,
   },
   {
@@ -61,7 +55,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Comida",
     icon: Icons.Restaurant,
     bg: "bg-orange",
-    filter: "food_lunch",
     category: CATEGORIES.FOOD_LUNCH,
   },
   {
@@ -69,7 +62,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Agua",
     icon: Icons.Water,
     bg: "bg-cyan",
-    filter: "water",
     category: CATEGORIES.WATER,
   },
   {
@@ -77,7 +69,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Puntos de Reciclaje",
     icon: Icons.Recycle,
     bg: "bg-green",
-    filter: "trash",
     category: CATEGORIES.TRASH,
   },
   {
@@ -85,7 +76,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Deportes",
     icon: Icons.Sport,
     bg: "bg-deep-green-option",
-    filter: "sports_place",
     category: CATEGORIES.SPORTS_PLACE,
   },
   {
@@ -93,7 +83,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Crisol",
     icon: Icons.Print,
     bg: "bg-purple",
-    filter: "crisol",
     isNameFilter: true,
     category: CATEGORIES.PHOTOCOPY,
   },
@@ -102,7 +91,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Estacionamiento de Vehículos",
     icon: Icons.Car,
     bg: "bg-red",
-    filter: "parking",
     category: CATEGORIES.PARKING,
   },
   {
@@ -110,7 +98,6 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Estacionamiento de Bicicletas",
     icon: Icons.Bicycle,
     bg: "bg-green",
-    filter: "park_bicycle",
     category: CATEGORIES.PARK_BICYCLE,
   },
   {
@@ -118,15 +105,14 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Servicios Financieros",
     icon: Icons.Bank,
     bg: "bg-green-light",
-    filter: "financial",
     category: CATEGORIES.FINANCIAL,
   },
 ];
 
-// Create a map for quick lookup by filter name
+// Create a map for quick lookup by key name
 export const categoryToConfigMap = categoryConfigs.reduce(
   (map, config) => {
-    map[config.filter] = config;
+    map[config.key] = config;
     return map;
   },
   {} as Record<string, CategoryConfig>,
@@ -144,7 +130,7 @@ export const categoryToConfigByCategoryMap = categoryConfigs.reduce(
 // Create a map for marker colors by category
 export const categoryToColorMap = categoryConfigs.reduce(
   (map, config) => {
-    map[config.filter] = config.bg;
+    map[config.key] = config.bg;
     return map;
   },
   {} as Record<string, string>,
@@ -170,7 +156,6 @@ export const getCategoryConfig = (category: CATEGORIES): CategoryConfig => {
     title: "Otros",
     icon: Icons.Default,
     bg: "bg-background",
-    filter: "other",
     category: CATEGORIES.OTHER,
   };
 };

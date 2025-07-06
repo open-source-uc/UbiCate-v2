@@ -60,14 +60,14 @@ function CategoriesFilter() {
           }
         `}</style>
 
-        {categoryConfigs.map(({ title, icon: IconComponent, bg, filter, isNameFilter }) => (
+        {categoryConfigs.map(({ title, icon: IconComponent, bg, key, isNameFilter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px] desktop:min-w-0">
             <Category
               title={title}
               icon={<IconComponent />}
               bg_color={bg}
-              onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
-              active={activeFilter === filter}
+              onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, key)}
+              active={activeFilter === key}
             />
           </div>
         ))}
