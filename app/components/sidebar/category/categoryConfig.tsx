@@ -1,7 +1,6 @@
 import React from "react";
 
 import { CATEGORIES } from "../../../../utils/types";
-
 import * as Icons from "../../icons/icons";
 
 export interface CategoryConfig {
@@ -195,7 +194,7 @@ export const categoryToIconComponentMap: Record<CATEGORIES, React.ComponentType<
 export const getCategoryConfig = (category: CATEGORIES): Partial<CategoryConfig> => {
   const config = categoryConfigs.find((c) => c.category === category);
   if (config) return config;
-  
+
   // Return default configuration for unmapped categories
   return {
     icon: <Icons.Default />,

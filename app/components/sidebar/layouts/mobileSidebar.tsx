@@ -2,14 +2,13 @@
 
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
-import * as Icons from "@/app/components/icons/icons";
-import { useSidebar } from "@/app/context/sidebarCtx";
-import { SubSidebarType } from "@/utils/types";
-
-import PillFilter from "../category/categoryFilter";
+import { SubSidebarType } from "../../../../utils/types";
+import { useSidebar } from "../../../context/sidebarCtx";
+import * as Icons from "../../icons/icons";
 import PlaceMenu from "../../placeMenu/placeMenu";
+import PillFilter from "../category/categoryFilter";
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
 import DragHandle from "../ui/dragHandle";
@@ -18,12 +17,11 @@ import SidebarMobileNavigationButton from "../ui/mobileNavigationButton";
 import TopMobileSidebar from "./mobileNotifications";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, setPlaces } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
-  const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
@@ -39,11 +37,17 @@ export default function MobileSidebar() {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
-  const handleSearchSelection = () => {
+  const handleSearchSelection = (result: any) => {
+    // Handle search result selection
     handleToggleSidebar();
     setActiveSubSidebar(null);
     const activeElement = document.activeElement as HTMLElement;
     activeElement?.blur();
+
+    // Set the selected place and update the places array to display the marker
+    setSelectedPlace(result.feature);
+    // This is important - we need to also call setPlaces to update the map
+    setPlaces(result.feature);
   };
 
   const handleCampusClick = (campusName: string) => {
@@ -63,24 +67,27 @@ export default function MobileSidebar() {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    e.preventDefault();
-    if (!isDragging.current || dragStartY.current === null) return;
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
+      if (!isDragging.current || dragStartY.current === null) return;
 
-    const windowHeight = window.innerHeight;
-    const dragDelta = dragStartY.current - e.clientY;
-    const heightPercentDelta = (dragDelta / windowHeight) * 100;
+      const windowHeight = window.innerHeight;
+      const dragDelta = dragStartY.current - e.clientY;
+      const heightPercentDelta = (dragDelta / windowHeight) * 100;
 
-    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
-    setSidebarHeight(newHeight);
+      const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
+      setSidebarHeight(newHeight);
 
-    // Ensure sidebar is open when dragging
-    if (newHeight > 10 && !isOpen) {
-      setIsOpen(true);
-    }
-  };
+      // Ensure sidebar is open when dragging
+      if (newHeight > 10 && !isOpen) {
+        setIsOpen(true);
+      }
+    },
+    [isOpen, setIsOpen],
+  );
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     isDragging.current = false;
     dragStartY.current = null;
     setEnableTransition(true);
@@ -99,7 +106,7 @@ export default function MobileSidebar() {
       setSidebarHeight(80);
       setIsOpen(true);
     }
-  };
+  }, [sidebarHeight, setIsOpen, handleMouseMove]);
 
   // Handlers for drag functionality (mobile)
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -162,24 +169,6 @@ export default function MobileSidebar() {
     }
   }, [selectedPlace, setIsOpen]);
 
-  // Set up geocoder
-  useEffect(() => {
-    let current: null | MapboxGeocoder = null;
-    const interval = setInterval(() => {
-      if (geocoder.current !== null && refSearchContainer.current !== null) {
-        geocoder.current.addTo(refSearchContainer.current);
-        clearInterval(interval);
-        geocoder.current?.on("result", handleSearchSelection);
-        current = geocoder.current;
-      }
-    }, 100);
-
-    return () => {
-      current?.off("result", handleSearchSelection);
-      clearInterval(interval);
-    };
-  }, []);
-
   // Handle sidebar close
   useEffect(() => {
     if (isOpen === false) {
@@ -190,16 +179,19 @@ export default function MobileSidebar() {
 
   // Clean up event listeners
   useEffect(() => {
+    const handleMouseMoveGlobal = handleMouseMove;
+    const handleMouseUpGlobal = handleMouseUp;
+
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMoveGlobal);
+      document.removeEventListener("mouseup", handleMouseUpGlobal);
     };
-  }, []);
+  }, [handleMouseMove, handleMouseUp]);
 
   return (
     <>
       {/* Search Container */}
-      <TopMobileSidebar refSearchContainer={refSearchContainer} />
+      <TopMobileSidebar onSearchResult={handleSearchSelection} />
 
       {/* Main Sidebar */}
       <section
@@ -208,8 +200,7 @@ export default function MobileSidebar() {
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
-        aria-expanded={isOpen}
-        role="dialog"
+        role="region"
         aria-label="Mobile Navigation"
       >
         {/* Drag handle that spans full width */}

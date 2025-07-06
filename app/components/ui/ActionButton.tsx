@@ -21,7 +21,7 @@ export default function ActionButton({
 }: ActionButtonProps) {
   const baseClasses =
     "flex flex-col items-center justify-center py-3 px-2 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-sm hover:shadow-md hover:scale-105 active:scale-95";
-  
+
   const variantClasses = {
     primary: "bg-primary hover:bg-primary/90 text-primary-foreground",
     secondary: "bg-background hover:bg-accent/10 text-foreground",

@@ -1,6 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import { SubSidebarType } from "../../../../utils/types";
+import { useSidebar } from "../../../context/sidebarCtx";
+import CustomSearchInput from "../../search/CustomSearchInput";
 import CategoriesFilter from "../category/categoryFilter";
 import SidebarCloseButton from "../ui/CloseButton";
 import SidebarHeader from "../ui/sidebarHeader";
@@ -13,36 +15,16 @@ interface SearchSubsidebarProps {
 
 export default function SearchSubsidebar({ geocoder, setActiveSubSidebar, onSearchSelection }: SearchSubsidebarProps) {
   const refSearchContainer = useRef<HTMLDivElement | null>(null);
-
-  // Add geocoder to container when component mounts
-  useEffect(() => {
-    const container = refSearchContainer.current;
-    if (container && geocoder.current) {
-      // Check if geocoder is already attached to avoid duplication
-      if (!container.hasChildNodes()) {
-        geocoder.current.addTo(container);
-      }
-    }
-
-    // Cleanup function to clear container when component unmounts
-    return () => {
-      if (container) {
-        container.innerHTML = "";
-      }
-    };
-  }, [geocoder]);
+  const { setSelectedPlace, setPlaces } = useSidebar();
 
   // Handle search result selection
-  useEffect(() => {
-    let current: MapboxGeocoder | null = null;
-    if (geocoder.current) {
-      geocoder.current.on("result", onSearchSelection);
-      current = geocoder.current;
-    }
-    return () => {
-      current?.off("result", onSearchSelection);
-    };
-  }, [geocoder, onSearchSelection]);
+  const handleSearchResult = (result: any) => {
+    // Set the selected place and update the places array to display the marker
+    setSelectedPlace(result.feature);
+    setPlaces(result.feature);
+    // Handle the selected search result
+    onSearchSelection();
+  };
 
   return (
     <div className="w-full h-full flex flex-col">
@@ -54,7 +36,7 @@ export default function SearchSubsidebar({ geocoder, setActiveSubSidebar, onSear
       <div className="flex-1 overflow-auto space-y-4 px-2">
         {/* Search Container */}
         <div className="w-full">
-          <section ref={refSearchContainer} />
+          <CustomSearchInput onResult={handleSearchResult} placeholder="Buscar lugares en UC" autoFocus />
         </div>
 
         {/* Place Filters */}
