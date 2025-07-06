@@ -8,13 +8,13 @@ import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import PillFilter from "../pills/PillFilter";
-import PlaceMenu from "../placeMenu/placeMenu";
+import PillFilter from "../../pills/PillFilter";
+import PlaceMenu from "../../placeMenu/placeMenu";
 
-import CampusList from "./campusList";
-import DragHandle from "./dragHandle";
-import FooterOptionsSidebar from "./footerOptionsSidebar";
-import SidebarMobileNavigationButton from "./sidebarMobileNavigationButton";
+import CampusList from "../sections/campusList";
+import DragHandle from "../ui/dragHandle";
+import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
+import SidebarMobileNavigationButton from "../ui/sidebarMobileNavigationButton";
 import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {

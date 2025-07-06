@@ -1,38 +1,9 @@
 import { SubSidebarType } from "@/utils/types";
 
-import CampusButton from "./campusButton";
-import SidebarCloseButton from "./sidebarCloseButton";
-import SidebarHeader from "./sidebarHeader";
-
-// Campus data for better maintainability
-const campuses = [
-  {
-    key: "SanJoaquin",
-    name: "San Joaquín",
-    imageSrc: "/images/campus/san_joaquin.jpg",
-  },
-  {
-    key: "CasaCentral",
-    name: "Casa Central",
-    imageSrc: "/images/campus/casa_central.jpg",
-  },
-  {
-    key: "Oriente",
-    name: "Oriente",
-    imageSrc: "/images/campus/oriente.jpg",
-  },
-  {
-    key: "LoContador",
-    name: "Lo Contador",
-    imageSrc: "/images/campus/lo_contador.jpg",
-  },
-  {
-    key: "Villarrica",
-    name: "Villarrica",
-    imageSrc: "/images/campus/villarrica.png",
-    className: "col-span-2 md:col-span-1",
-  },
-];
+import { campuses } from "../data/config";
+import CampusButton from "../ui/campusButton";
+import SidebarCloseButton from "../ui/sidebarCloseButton";
+import SidebarHeader from "../ui/sidebarHeader";
 
 export default function CampusList({
   handleCampusClick,
@@ -60,7 +31,7 @@ export default function CampusList({
             campusName={campus.name}
             imageSrc={campus.imageSrc}
             onClick={handleCampusClick}
-            className={campus.className || ""}
+            className={campus.className}
           />
         ))}
       </div>

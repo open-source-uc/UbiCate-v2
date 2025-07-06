@@ -9,14 +9,14 @@ import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import PillFilter from "../pills/PillFilter";
-import PlaceMenu from "../placeMenu/placeMenu";
+import PillFilter from "../../pills/PillFilter";
+import PlaceMenu from "../../placeMenu/placeMenu";
 
-import CampusList from "./campusList";
-import FooterOptionsSidebar from "./footerOptionsSidebar";
+import CampusList from "../sections/campusList";
+import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
 import NotificationBarDesktop from "./notificationsBarDesktop";
-import SidebarNavigationButton from "./sidebarNavigationButton";
-import SidebarToggleButton from "./sidebarToggleButton";
+import SidebarNavigationButton from "../ui/sidebarNavigationButton";
+import SidebarToggleButton from "../ui/sidebarToggleButton";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();

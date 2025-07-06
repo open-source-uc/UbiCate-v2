@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
-import NavigationSidebar from "./components/sidebar/NavigationSidebar";
+import NavigationSidebar from "./components/sidebar/layouts/NavigationSidebar";
 import { DirectionsProvider } from "./context/directionsCtx";
 import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
