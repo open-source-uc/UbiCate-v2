@@ -1,4 +1,4 @@
-import { Instrument_Sans } from "next/font/google";
+import { Roboto } from "next/font/google";
 
 import "./styles/globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -6,10 +6,11 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Metadata } from "next";
 import type { Viewport } from "next";
 
-const instrument_sans = Instrument_Sans({
+const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-instrument-sans",
+  variable: "--font-roboto",
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,9 +48,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${instrument_sans.variable}`}>
-      <body className="h-full pb-[-12px] dark:bg-dark-1">
-        <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">{children}</div>
+    <html lang="es" className={`${roboto.variable}`}>
+      <body className="h-full">
+        <div className="w-full h-dvh flex-col justify-between">{children}</div>
       </body>
     </html>
   );
