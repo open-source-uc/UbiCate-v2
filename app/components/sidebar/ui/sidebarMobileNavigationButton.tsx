@@ -27,9 +27,7 @@ export default function SidebarMobileNavigationButton({
       aria-pressed={isActive}
       aria-disabled={disabled}
     >
-      <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-        {icon}
-      </span>
+      <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">{icon}</span>
       <p className="text-sm tablet:text-md mt-1">{label}</p>
     </button>
   );

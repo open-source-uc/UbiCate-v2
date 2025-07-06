@@ -16,12 +16,7 @@ export default function CampusList({
     <>
       <SidebarHeader
         title="Campus"
-        rightContent={
-          <SidebarCloseButton
-            onClick={() => setActiveSubSidebar(null)}
-            ariaLabel="Cerrar menú"
-          />
-        }
+        rightContent={<SidebarCloseButton onClick={() => setActiveSubSidebar(null)} ariaLabel="Cerrar menú" />}
       />
       <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4 px-2">
         {campuses.map((campus) => (

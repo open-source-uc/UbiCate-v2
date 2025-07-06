@@ -33,7 +33,7 @@ export const campuses = [
 ] as const;
 
 // Type for campus keys
-export type CampusKey = typeof campuses[number]['key'];
+export type CampusKey = (typeof campuses)[number]["key"];
 
 // Navigation items configuration
 export const navigationItems = [
@@ -55,4 +55,4 @@ export const navigationItems = [
   },
 ] as const;
 
-export type NavigationItemId = typeof navigationItems[number]['id'];
+export type NavigationItemId = (typeof navigationItems)[number]["id"];
