@@ -58,7 +58,7 @@
   --red: oklch(0.6122 0.2313 22.61);
   --red-light: oklch(0.95 0.2313 22.61);
   --green: oklch(0.6122 0.2004 126.3);
-  --green-light: oklch(0.95 0.2004 126.3);
+  --green-light: oklch(0.6122 0.4004 126.3);
   --cyan: oklch(0.6122 0.1212 187.13);
   --cyan-light: oklch(0.95 0.1212 187.13);
   --purple: oklch(0.6122 0.0785 329.75);

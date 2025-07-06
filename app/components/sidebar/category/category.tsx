@@ -18,25 +18,33 @@ function Category({
   bg_color,
   activateClassName = "bg-primary",
   noActivateClassName = "bg-muted text-foreground",
-  className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border desktop:border-transparent",
+  className = "w-full h-14 rounded-lg flex items-center px-2 py-1.5 desktop:flex-col desktop:p-3 desktop:text-center desktop:h-28",
   icon,
 }: CategoryProps) {
   return (
     <button
       onClick={onClick}
       type="button"
-      className={`${className} 
-        ${active ? activateClassName : noActivateClassName} 
-        pointer-events-auto cursor-pointer transition-colors duration-200
-        hover:bg-accent`}
+      className={`${className} ${
+        active ? activateClassName : noActivateClassName
+      } pointer-events-auto cursor-pointer transition-colors duration-200
+      hover:bg-accent`}
     >
       <div
         className={`flex items-center justify-center rounded-lg
-        min-w-[24px] min-h-[24px] desktop:min-w-[28px] desktop:min-h-[28px]`}
+        min-w-[24px] min-h-[24px] desktop:min-w-[32px] desktop:min-h-[32px] desktop:mb-2`}
       >
-        <div className={`${bg_color} w-8 h-8 rounded-md flex justify-center items-center`}>{icon}</div>
+        <div
+          className={`${bg_color} ${
+            active ? "border-border border-1" : "border-none"
+          } w-8 h-8 rounded-md flex justify-center items-center desktop:w-10 desktop:h-10`}
+        >
+          {icon}
+        </div>
       </div>
-      <span className="px-2 whitespace-nowrap text-xs font-medium desktop:text-sm desktop:font-normal">{title}</span>
+      <span className="px-2 text-xs font-medium desktop:px-0 flex-1 flex items-center justify-center desktop:justify-center">
+        {title}
+      </span>
     </button>
   );
 }

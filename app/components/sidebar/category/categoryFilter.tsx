@@ -45,7 +45,7 @@ function CategoriesFilter() {
   return (
     <div className="relative w-full max-w-full overflow-hidden">
       <div
-        className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:p-1 no-scrollbar"
+        className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:grid desktop:grid-cols-3 desktop:gap-3 desktop:p-1 no-scrollbar"
         ref={categoriesContainer}
       >
         <style jsx>{`
@@ -61,7 +61,7 @@ function CategoriesFilter() {
         `}</style>
 
         {categoryConfigs.map(({ title, icon, bg, filter, isNameFilter }) => (
-          <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
+          <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px] desktop:min-w-0">
             <Category
               title={title}
               icon={icon}

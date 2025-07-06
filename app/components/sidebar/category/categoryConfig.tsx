@@ -11,7 +11,6 @@ export interface CategoryConfig {
   bg: string;
   filter: string;
   isNameFilter?: boolean;
-  markerColor: string;
   category: CATEGORIES;
 }
 
@@ -24,7 +23,6 @@ export const categoryConfigs: CategoryConfig[] = [
     iconComponent: Icons.School,
     bg: "bg-red",
     filter: "faculty",
-    markerColor: "bg-deep-red-option",
     category: CATEGORIES.FACULTY,
   },
   {
@@ -32,9 +30,8 @@ export const categoryConfigs: CategoryConfig[] = [
     title: "Salas de Estudio",
     icon: <Icons.Studyroom />,
     iconComponent: Icons.Studyroom,
-    bg: "",
+    bg: "bg-red",
     filter: "studyroom",
-    markerColor: "bg-red-option",
     category: CATEGORIES.STUDYROOM,
   },
   {
@@ -44,7 +41,6 @@ export const categoryConfigs: CategoryConfig[] = [
     iconComponent: Icons.Auditorium,
     bg: "bg-green",
     filter: "auditorium",
-    markerColor: "bg-green-option",
     category: CATEGORIES.AUDITORIUM,
   },
   {
@@ -55,7 +51,6 @@ export const categoryConfigs: CategoryConfig[] = [
     bg: "bg-pink",
     filter: "biblioteca",
     isNameFilter: true,
-    markerColor: "bg-pink-option",
     category: CATEGORIES.LIBRARY,
   },
   {
@@ -65,7 +60,6 @@ export const categoryConfigs: CategoryConfig[] = [
     iconComponent: Icons.Wc,
     bg: "bg-cyan",
     filter: "bath",
-    markerColor: "bg-deep-cyan-option",
     category: CATEGORIES.BATH,
   },
   {
@@ -75,7 +69,6 @@ export const categoryConfigs: CategoryConfig[] = [
     iconComponent: Icons.Restaurant,
     bg: "bg-orange",
     filter: "food_lunch",
-    markerColor: "bg-orange-option",
     category: CATEGORIES.FOOD_LUNCH,
   },
   {
@@ -85,17 +78,24 @@ export const categoryConfigs: CategoryConfig[] = [
     iconComponent: Icons.Water,
     bg: "bg-cyan",
     filter: "water",
-    markerColor: "bg-cyan-option",
     category: CATEGORIES.WATER,
+  },
+  {
+    key: "trash",
+    title: "Puntos de Reciclaje",
+    icon: <Icons.Recycle />,
+    iconComponent: Icons.Recycle,
+    bg: "bg-green",
+    filter: "trash",
+    category: CATEGORIES.TRASH,
   },
   {
     key: "sports_place",
     title: "Deportes",
     icon: <Icons.Sport />,
     iconComponent: Icons.Sport,
-    bg: "",
+    bg: "bg-deep-green-option",
     filter: "sports_place",
-    markerColor: "bg-deep-green-option",
     category: CATEGORIES.SPORTS_PLACE,
   },
   {
@@ -106,48 +106,34 @@ export const categoryConfigs: CategoryConfig[] = [
     bg: "bg-purple",
     filter: "crisol",
     isNameFilter: true,
-    markerColor: "bg-purple-option",
     category: CATEGORIES.PHOTOCOPY,
   },
   {
     key: "parking",
-    title: "Estacionamientos de Vehículos",
-    icon: <Icons.Parking />,
-    iconComponent: Icons.Parking,
-    bg: "bg-gray",
+    title: "Estacionamiento de Vehículos",
+    icon: <Icons.Car />,
+    iconComponent: Icons.Car,
+    bg: "bg-red",
     filter: "parking",
-    markerColor: "bg-gray-option",
     category: CATEGORIES.PARKING,
   },
   {
     key: "park_bicycle",
     title: "Estacionamiento de Bicicletas",
-    icon: <Icons.Default />,
-    iconComponent: Icons.Default,
-    bg: "",
+    icon: <Icons.Bicycle />,
+    iconComponent: Icons.Bicycle,
+    bg: "bg-green",
     filter: "park_bicycle",
-    markerColor: "bg-brown-light",
     category: CATEGORIES.PARK_BICYCLE,
   },
   {
     key: "financial",
     title: "Servicios Financieros",
-    icon: <Icons.Default />,
-    iconComponent: Icons.Default,
-    bg: "",
+    icon: <Icons.Bank />,
+    iconComponent: Icons.Bank,
+    bg: "bg-green-light",
     filter: "financial",
-    markerColor: "bg-brown-light",
     category: CATEGORIES.FINANCIAL,
-  },
-  {
-    key: "trash",
-    title: "Basura",
-    icon: <Icons.Default />,
-    iconComponent: Icons.Default,
-    bg: "",
-    filter: "trash",
-    markerColor: "bg-brown-light",
-    category: CATEGORIES.TRASH,
   },
 ];
 
@@ -172,7 +158,7 @@ export const categoryToConfigByCategoryMap = categoryConfigs.reduce(
 // Create a map for marker colors by category
 export const categoryToColorMap = categoryConfigs.reduce(
   (map, config) => {
-    map[config.filter] = config.markerColor;
+    map[config.filter] = config.bg;
     return map;
   },
   {} as Record<string, string>,
@@ -198,9 +184,8 @@ export const getCategoryConfig = (category: CATEGORIES): CategoryConfig => {
     title: "Otros",
     icon: <Icons.Default />,
     iconComponent: Icons.Default,
-    bg: "",
+    bg: "bg-background",
     filter: "other",
-    markerColor: "bg-background",
     category: CATEGORIES.OTHER,
   };
 };
@@ -208,7 +193,7 @@ export const getCategoryConfig = (category: CATEGORIES): CategoryConfig => {
 // Helper function to get marker color by category
 export const getMarkerColorByCategory = (category: CATEGORIES): string => {
   const config = categoryToConfigByCategoryMap[category];
-  return config?.markerColor || "bg-background";
+  return config?.bg || "bg-background";
 };
 
 // Helper function to get icon component by category
