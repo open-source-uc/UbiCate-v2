@@ -16,7 +16,7 @@ import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
 import SidebarNavigationButton from "../ui/desktopNavigationButton";
 import SidebarToggleButton from "../ui/sidebarToggleButton";
 
-import NotificationBarDesktop from "./notificationsBarDesktop";
+import NotificationBarDesktop from "./desktopNotifications";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();

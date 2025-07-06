@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PlacesJSON from "@/utils/places";
 import { Feature } from "@/utils/types";
 
-import NavigationSidebar from "./components/sidebar/layouts/NavigationSidebar";
+import Sidebar from "./components/sidebar/layouts/Sidebar";
 import { DirectionsProvider } from "./context/directionsCtx";
 import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
@@ -95,7 +95,7 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
           <PinsProvider>
             <NotificationProvider>
               <main spellCheck="false" className="h-full w-full relative flex">
-                <NavigationSidebar />
+                <Sidebar />
                 <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
               </main>
             </NotificationProvider>
