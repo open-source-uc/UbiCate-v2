@@ -8,8 +8,8 @@ import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import PillFilter from "../category/categoryFilter";
 import PlaceMenu from "../../placeMenu/placeMenu";
+import PillFilter from "../category/categoryFilter";
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
 import DragHandle from "../ui/dragHandle";

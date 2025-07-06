@@ -36,7 +36,7 @@ export default function Marker({
     if (categoryEnum) {
       return getMarkerColorByCategory(categoryEnum);
     }
-    
+
     // Fallback to default color
     return "bg-brown-light";
   };

@@ -15,12 +15,12 @@
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@tailwindcss/cli": "^4.0.0",
     "@turf/bbox": "^7.2.0",
     "@turf/boolean-clockwise": "^7.2.0",
     "@turf/centroid": "^7.2.0",
     "@turf/turf": "^7.2.0",
     "clsx": "^2.1.1",
-    "eslint-plugin-tailwindcss": "^3.18.0",
     "fuse.js": "^7.0.0",
     "mapbox-gl": "^2.15.0",
     "maplibre-gl": "^3.1.0",
@@ -31,6 +31,7 @@
     "react-markdown": "^9.0.3",
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.0.1",
+    "tailwindcss": "^4.0.0",
     "zod": "^3.24.3"
   },
   "devDependencies": {
