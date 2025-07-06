@@ -3,31 +3,31 @@ export const campuses = [
   {
     key: "SanJoaquin",
     name: "San Joaquín",
-    imageSrc: "/images/campus/san_joaquin.jpg",
+    imageSrc: "/images/campus/san_joaquin.webp",
     className: "",
   },
   {
     key: "CasaCentral",
     name: "Casa Central",
-    imageSrc: "/images/campus/casa_central.jpg",
+    imageSrc: "/images/campus/casa_central.webp",
     className: "",
   },
   {
     key: "Oriente",
     name: "Oriente",
-    imageSrc: "/images/campus/oriente.jpg",
+    imageSrc: "/images/campus/oriente.webp",
     className: "",
   },
   {
     key: "LoContador",
     name: "Lo Contador",
-    imageSrc: "/images/campus/lo_contador.jpg",
+    imageSrc: "/images/campus/lo_contador.webp",
     className: "",
   },
   {
     key: "Villarrica",
     name: "Villarrica",
-    imageSrc: "/images/campus/villarrica.png",
+    imageSrc: "/images/campus/villarrica.webp",
     className: "col-span-2 md:col-span-1",
   },
 ] as const;

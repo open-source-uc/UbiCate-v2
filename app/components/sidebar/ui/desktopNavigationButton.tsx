@@ -24,7 +24,7 @@ export default function DesktopNavigationButton({
       onClick={onClick}
       disabled={disabled}
       className={`${
-        isExpanded ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
+        isExpanded ? "w-full p-2 rounded-md hover:bg-muted" : ""
       } flex items-center pointer-events-auto cursor-pointer ${
         !isExpanded ? "justify-center px-4 py-3" : "space-x-4"
       } ${disabled ? "opacity-50" : ""} ${className}`}

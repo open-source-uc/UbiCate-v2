@@ -7,8 +7,8 @@ interface SidebarToggleButtonProps {
 
 export default function SidebarToggleButton({ onClick, className = "" }: SidebarToggleButtonProps) {
   return (
-    <button onClick={onClick} className={`hover:text-muted-foreground pointer-events-auto cursor-pointer ${className}`}>
-      <Icons.DockToRight className="w-6 h-6" />
+    <button onClick={onClick} className={`pointer-events-auto cursor-pointer ${className}`}>
+      <Icons.DockToRight className="hover:fill-accent" />
     </button>
   );
 }

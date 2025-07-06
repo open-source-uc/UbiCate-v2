@@ -13,7 +13,7 @@ import PillFilter from "../../pills/PillFilter";
 import PlaceMenu from "../../placeMenu/placeMenu";
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
-import SidebarNavigationButton from "../ui/desktopNavigationButton";
+import DesktopNavigationButton from "../ui/desktopNavigationButton";
 import SidebarToggleButton from "../ui/sidebarToggleButton";
 
 import NotificationBarDesktop from "./desktopNotifications";
@@ -88,27 +88,27 @@ export default function DesktopSidebar() {
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
-          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full transition-all duration-200 pb-4 ${
+          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full transition-discrete duration-200 pb-4 ${
             isOpen ? "w-54" : "w-20"
           }`}
         >
           <div className={`flex items-center p-4 ${isOpen ? "flex-row justify-between" : "flex-col py-8 space-y-6"}`}>
-            {/* Logo - visible only when expanded */}
+            {/* Logo - visible solo cuando expandido */}
             <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>
               <img src="/long-logo.svg" className="pl-2" alt="Logo" width="118" />
             </Link>
 
-            {/* Toggle button */}
+            {/* Botón para Expandir */}
             <div className={`${isOpen ? "" : "flex justify-center"}`}>
               <SidebarToggleButton onClick={toggleSidebar} />
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navegación */}
           <nav className="flex-1">
-            <div className={`${isOpen ? "pt-5 px-4" : ""} flex flex-col`}>
-              {/* Search button */}
-              <SidebarNavigationButton
+            <div className={`${isOpen ? "pt-5 px-4" : ""}`}>
+              {/* Botón de Búsqueda */}
+              <DesktopNavigationButton
                 icon={<Icons.Search />}
                 label="Buscar"
                 isActive={activeSubSidebar === "buscar"}
@@ -117,7 +117,7 @@ export default function DesktopSidebar() {
               />
 
               {/* Campus button */}
-              <SidebarNavigationButton
+              <DesktopNavigationButton
                 icon={<Icons.Map />}
                 label="Campus"
                 isActive={activeSubSidebar === "campus"}
@@ -126,7 +126,7 @@ export default function DesktopSidebar() {
               />
 
               {/* Guides button */}
-              <SidebarNavigationButton
+              <DesktopNavigationButton
                 icon={<Icons.MenuBook />}
                 label="Guías"
                 isActive={false}
