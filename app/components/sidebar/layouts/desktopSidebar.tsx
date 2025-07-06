@@ -13,7 +13,7 @@ import PillFilter from "../../pills/PillFilter";
 import PlaceMenu from "../../placeMenu/placeMenu";
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
-import SidebarNavigationButton from "../ui/sidebarNavigationButton";
+import SidebarNavigationButton from "../ui/desktopNavigationButton";
 import SidebarToggleButton from "../ui/sidebarToggleButton";
 
 import NotificationBarDesktop from "./notificationsBarDesktop";

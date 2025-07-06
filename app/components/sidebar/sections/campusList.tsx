@@ -2,7 +2,7 @@ import { SubSidebarType } from "@/utils/types";
 
 import { campuses } from "../data/config";
 import CampusButton from "../ui/campusButton";
-import SidebarCloseButton from "../ui/sidebarCloseButton";
+import SidebarCloseButton from "../ui/CloseButton";
 import SidebarHeader from "../ui/sidebarHeader";
 
 export default function CampusList({

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface SidebarMobileNavigationButtonProps {
+interface MobileNavigationButtonProps {
   icon: ReactNode;
   label: string;
   isActive: boolean;
@@ -9,14 +9,14 @@ interface SidebarMobileNavigationButtonProps {
   className?: string;
 }
 
-export default function SidebarMobileNavigationButton({
+export default function MobileNavigationButton({
   icon,
   label,
   isActive,
   onClick,
   disabled = false,
   className = "",
-}: SidebarMobileNavigationButtonProps) {
+}: MobileNavigationButtonProps) {
   return (
     <button
       onClick={onClick}

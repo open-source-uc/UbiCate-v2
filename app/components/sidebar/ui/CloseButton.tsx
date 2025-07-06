@@ -1,16 +1,16 @@
 import * as Icons from "@/app/components/icons/icons";
 
-interface SidebarCloseButtonProps {
+interface CloseButtonProps {
   onClick: () => void;
   ariaLabel?: string;
   className?: string;
 }
 
-export default function SidebarCloseButton({
+export default function CloseButton({
   onClick,
   ariaLabel = "Cerrar menú",
   className = "",
-}: SidebarCloseButtonProps) {
+}: CloseButtonProps) {
   return (
     <button
       onClick={onClick}

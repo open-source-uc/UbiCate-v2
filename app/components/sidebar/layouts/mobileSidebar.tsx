@@ -13,7 +13,7 @@ import PlaceMenu from "../../placeMenu/placeMenu";
 import CampusList from "../sections/campusList";
 import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
 import DragHandle from "../ui/dragHandle";
-import SidebarMobileNavigationButton from "../ui/sidebarMobileNavigationButton";
+import SidebarMobileNavigationButton from "../ui/mobileNavigationButton";
 
 import TopMobileSidebar from "./mobileNotifications";
 

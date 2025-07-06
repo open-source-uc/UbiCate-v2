@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface SidebarNavigationButtonProps {
+interface DesktopNavigationButtonProps {
   icon: ReactNode;
   label: string;
   isActive: boolean;
@@ -10,7 +10,7 @@ interface SidebarNavigationButtonProps {
   className?: string;
 }
 
-export default function SidebarNavigationButton({
+export default function DesktopNavigationButton({
   icon,
   label,
   isActive,
@@ -18,7 +18,7 @@ export default function SidebarNavigationButton({
   onClick,
   disabled = false,
   className = "",
-}: SidebarNavigationButtonProps) {
+}: DesktopNavigationButtonProps) {
   return (
     <button
       onClick={onClick}
