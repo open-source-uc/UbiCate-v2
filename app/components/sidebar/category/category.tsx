@@ -17,7 +17,7 @@ function Category({
   active,
   bg_color,
   activateClassName = "bg-primary",
-  noActivateClassName = "bg-muted text-foreground",
+  noActivateClassName = "bg-accent text-foreground",
   className = "w-full h-14 rounded-lg flex items-center px-2 py-1.5 desktop:flex-col desktop:p-3 desktop:text-center desktop:h-28",
   icon,
 }: CategoryProps) {
@@ -28,7 +28,7 @@ function Category({
       className={`${className} ${
         active ? activateClassName : noActivateClassName
       } pointer-events-auto cursor-pointer transition-colors duration-200
-      hover:bg-accent`}
+      hover:bg-muted`}
     >
       <div
         className={`flex items-center justify-center rounded-lg

@@ -27,7 +27,7 @@ export default function DragHandle({
       aria-label="Drag to resize sidebar"
       tabIndex={0}
     >
-      <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
+      <div className="w-1/4 h-1.5 bg-foreground rounded-full mx-auto" />
     </div>
   );
 }
