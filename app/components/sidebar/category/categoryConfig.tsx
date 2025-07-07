@@ -13,7 +13,6 @@ export interface CategoryConfig {
 }
 
 export const categoryConfigs: CategoryConfig[] = [
-  // Main interactive categories (shown in UI)
   {
     key: "faculty",
     title: "Facultades",
@@ -25,7 +24,7 @@ export const categoryConfigs: CategoryConfig[] = [
     key: "studyroom",
     title: "Salas de Estudio",
     icon: Icons.Studyroom,
-    bg: "bg-red",
+    bg: "bg-orange-dark",
     category: CATEGORIES.STUDYROOM,
   },
   {
@@ -47,7 +46,7 @@ export const categoryConfigs: CategoryConfig[] = [
     key: "bath",
     title: "Baños",
     icon: Icons.Wc,
-    bg: "bg-cyan",
+    bg: "bg-cyan-dark",
     category: CATEGORIES.BATH,
   },
   {
@@ -75,7 +74,7 @@ export const categoryConfigs: CategoryConfig[] = [
     key: "sports_place",
     title: "Deportes",
     icon: Icons.Sport,
-    bg: "bg-deep-green-option",
+    bg: "bg-purple-dark",
     category: CATEGORIES.SPORTS_PLACE,
   },
   {
@@ -90,21 +89,21 @@ export const categoryConfigs: CategoryConfig[] = [
     key: "parking",
     title: "Estacionamiento de Vehículos",
     icon: Icons.Car,
-    bg: "bg-red",
+    bg: "bg-gray",
     category: CATEGORIES.PARKING,
   },
   {
     key: "park_bicycle",
     title: "Estacionamiento de Bicicletas",
     icon: Icons.Bicycle,
-    bg: "bg-green",
+    bg: "bg-pink-dark",
     category: CATEGORIES.PARK_BICYCLE,
   },
   {
     key: "financial",
     title: "Servicios Financieros",
     icon: Icons.Bank,
-    bg: "bg-green-light",
+    bg: "bg-green-dark",
     category: CATEGORIES.FINANCIAL,
   },
 ];
