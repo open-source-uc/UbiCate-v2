@@ -84,7 +84,7 @@ export default function PlaceInformation({
           </div>
           <p className="text-xs font-medium">Compartir</p>
         </button>
-        <RouteButton place={place} />
+        {/* <RouteButton place={place} /> */}
         <DropdownMenu>
           <DropdownMenuTrigger
             onKeyDown={(e) => e.key === "Enter" && handleShare}
