@@ -282,7 +282,7 @@ export default function MapComponent({
     <>
       <Map
         id="mainMap"
-        mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
+        mapStyle="mapbox://styles/ubicate/cmcsfk9f700mw01qv63b10n6g"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
