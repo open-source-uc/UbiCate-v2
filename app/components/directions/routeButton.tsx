@@ -71,8 +71,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
       role="button"
       tabIndex={0}
       className={`p-1 w-full cursor-pointer ${
-        !navigator.geolocation ? "bg-muted/50" : "bg-primary hover:bg-accent"
-      } text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
+        !navigator.geolocation ? "bg-muted/50" : "bg-primary hover:bg-muted"
+      } text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
     >
       <div className="flex justify-center items-center w-full h-10">
         <Icons.Directions />
