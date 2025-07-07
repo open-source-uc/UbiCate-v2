@@ -6404,30 +6404,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "B25",
-                "name": "B25",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "SJ",
-                "faculties": "ING",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61242312663983,
-                    -33.50048372328011
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "B24",
                 "name": "B24",
                 "information": "",
@@ -6662,30 +6638,6 @@
                 "coordinates": [
                     -70.6125554549745,
                     -33.49995917447102
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "SAI",
-                "name": "Sala ayudantes ingeniería",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    3
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61195440171485,
-                    -33.50007953290675
                 ]
             }
         },
@@ -7695,30 +7647,6 @@
                     -70.610165,
                     -33.498158
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60772779487648,
-                    -33.49912925233011
-                ]
-            },
-            "properties": {
-                "identifier": "ma6c3xisriq3by",
-                "name": "WK1199",
-                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source UC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    -3
-                ],
-                "needApproval": false,
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
@@ -13211,29 +13139,6 @@
                 "coordinates": [
                     -70.613442,
                     -33.498967
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "studyroom-26254946",
-                "name": "Sala de estudio.",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61425230835081,
-                    -33.49901289274482
                 ]
             }
         },
@@ -23708,29 +23613,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "Laboratorio finanzas Itau",
-                "name": "Laboratorio finanzas Itau",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    5
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6123187,
-                    -33.500048
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "Laboratorio ingeniería de materiales",
                 "name": "Laboratorio ingeniería de materiales",
                 "information": "",
@@ -25494,54 +25376,6 @@
                         [
                             -70.614852,
                             -33.497808
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "MAT",
-                "campus": "SJ",
-                "name": "Facultad de Matemática",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.610958,
-                            -33.499755
-                        ],
-                        [
-                            -70.610001,
-                            -33.499669
-                        ],
-                        [
-                            -70.609966,
-                            -33.499975
-                        ],
-                        [
-                            -70.610313,
-                            -33.500013
-                        ],
-                        [
-                            -70.610334,
-                            -33.4999
-                        ],
-                        [
-                            -70.610965,
-                            -33.499958
-                        ],
-                        [
-                            -70.610958,
-                            -33.499755
                         ]
                     ]
                 ]
@@ -27713,30 +27547,6 @@
                 "coordinates": [
                     -70.6104993974682,
                     -33.49996823501344
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "m8qm6hw5gb4hys",
-                "name": "CAI",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "campus": "SJ",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61327872937629,
-                    -33.49990057479303
                 ]
             }
         },
@@ -31035,8 +30845,8 @@
             },
             "properties": {
                 "identifier": "OSUC",
-                "name": "(OSUC) Open Source UC",
-                "information": "### Test 29042025\nHola rocka del futuro",
+                "name": "(OSUC) Open Source eUC",
+                "information": "### Test 2904ws20s25\nHola rocka del futuro.",
                 "categories": [
                     "classroom"
                 ],
@@ -31074,30 +30884,6 @@
                 "faculties": [
                     "LET"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61423309021697,
-                    -33.49989013336953
-                ]
-            },
-            "properties": {
-                "identifier": "food_lunch-23546766",
-                "name": "Copper",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": false,
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
@@ -31286,74 +31072,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": false,
-                "campus": "SJ",
-                "faculties": [
-                    "ING"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61522180686576,
-                            -33.49895787654073
-                        ],
-                        [
-                            -70.61510883271694,
-                            -33.499528498972154
-                        ],
-                        [
-                            -70.61489626765251,
-                            -33.49947481891747
-                        ],
-                        [
-                            -70.61493909637676,
-                            -33.499350836759014
-                        ],
-                        [
-                            -70.61497237533331,
-                            -33.499208934405814
-                        ],
-                        [
-                            -70.61501458181134,
-                            -33.498925257458694
-                        ],
-                        [
-                            -70.61497420820346,
-                            -33.498920878757794
-                        ],
-                        [
-                            -70.61497635377329,
-                            -33.49885825158475
-                        ],
-                        [
-                            -70.61500518146492,
-                            -33.49886595144639
-                        ],
-                        [
-                            -70.6150462667287,
-                            -33.49871401757651
-                        ],
-                        [
-                            -70.61522180686576,
-                            -33.49895787654073
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "SAN_AGUSTIN",
-                "name": "Edificio San Agustín",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
                 "faculties": [
@@ -31603,6 +31321,453 @@
                 "faculties": [
                     "ING"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6109587412028,
+                            -33.49973577807815
+                        ],
+                        [
+                            -70.61093463304793,
+                            -33.499912518502676
+                        ],
+                        [
+                            -70.61066922391328,
+                            -33.49988919372999
+                        ],
+                        [
+                            -70.61066211904165,
+                            -33.49992571790612
+                        ],
+                        [
+                            -70.61053358543788,
+                            -33.49991201714421
+                        ],
+                        [
+                            -70.61052636538354,
+                            -33.50003023863094
+                        ],
+                        [
+                            -70.60996515139124,
+                            -33.49998923783574
+                        ],
+                        [
+                            -70.6100009009242,
+                            -33.49966912937426
+                        ],
+                        [
+                            -70.6109587412028,
+                            -33.49973577807815
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MAT",
+                "name": "Facultad de Matemática",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            },
+            "properties": {
+                "identifier": "food_lunch-23546766",
+                "name": "Café Copper",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61242312663983,
+                    -33.50048372328011
+                ]
+            },
+            "properties": {
+                "identifier": "B25",
+                "name": "B25",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60908823238485,
+                    -33.497828367621075
+                ]
+            },
+            "properties": {
+                "identifier": "masd5tn4ekkmej",
+                "name": "Área de Estudio DAE",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61327872937629,
+                    -33.49990057479303
+                ]
+            },
+            "properties": {
+                "identifier": "m8qm6hw5gb4hys",
+                "name": "CAI - Centro de Almunos Ingeniería ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61189293443381,
+                    -33.49997754421856
+                ]
+            },
+            "properties": {
+                "identifier": "Laboratorio finanzas Itau",
+                "name": "Laboratorio finanzas Itau",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    5
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61430218414037,
+                    -33.49884888896909
+                ]
+            },
+            "properties": {
+                "identifier": "studyroom-26254946",
+                "name": "Sala de estudio.",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61307978348046,
+                    -33.49803512546782
+                ]
+            },
+            "properties": {
+                "identifier": "mc92m5e2k3io9s",
+                "name": "quiosco crisol",
+                "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.613473685326,
+                    -33.498759738225395
+                ]
+            },
+            "properties": {
+                "identifier": "mc0r91jq5k5xfq",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6128889343655,
+                    -33.499657833490005
+                ]
+            },
+            "properties": {
+                "identifier": "mcc8txggx0fgzc",
+                "name": "Sala Raúl Déves ",
+                "information": "",
+                "categories": [
+                    "auditorium",
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60772779487648,
+                    -33.49912925233011
+                ]
+            },
+            "properties": {
+                "identifier": "ma6c3xisriq3by",
+                "name": "Ñ99Ñ11",
+                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source UC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -3
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61195440171485,
+                    -33.50007953290675
+                ]
+            },
+            "properties": {
+                "identifier": "SAI",
+                "name": "SAI - Sala de Ayudantes Ingeniería",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61391664494012,
+                            -33.497245234666
+                        ],
+                        [
+                            -70.61334533441827,
+                            -33.497196026654294
+                        ],
+                        [
+                            -70.61340166080767,
+                            -33.49681130849444
+                        ],
+                        [
+                            -70.61395151365627,
+                            -33.49686051672562
+                        ],
+                        [
+                            -70.61391664494012,
+                            -33.497245234666
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "mcggboxx0r023g",
+                "name": "Patio humanidades",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ],
+                        [
+                            -70.61515802687313,
+                            -33.499533045497266
+                        ],
+                        [
+                            -70.61489626765251,
+                            -33.49947481891747
+                        ],
+                        [
+                            -70.61496062195494,
+                            -33.499309019902185
+                        ],
+                        [
+                            -70.61498568032937,
+                            -33.49922421389841
+                        ],
+                        [
+                            -70.61502269037888,
+                            -33.498939763257724
+                        ],
+                        [
+                            -70.61500580568352,
+                            -33.498940419616616
+                        ],
+                        [
+                            -70.6150153270649,
+                            -33.49890442509619
+                        ],
+                        [
+                            -70.61510026804,
+                            -33.49891842463834
+                        ],
+                        [
+                            -70.61513680396605,
+                            -33.498750380357635
+                        ],
+                        [
+                            -70.61514999328097,
+                            -33.49875023544604
+                        ],
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "SAN_AGUSTIN",
+                "name": "Edificio San Agustín",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]

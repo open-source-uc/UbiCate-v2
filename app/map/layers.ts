@@ -23,7 +23,7 @@ export const campusBorderLayer: LayerProps = {
   type: "line",
   paint: {
     "line-color": "#f9f8f3",
-    "line-width": 1.4,
+    "line-width": ["interpolate", ["linear"], ["zoom"], 15, 1, 20, 2],
     "line-dasharray": [2, 1],
   },
 };
@@ -33,7 +33,7 @@ export const sectionStrokeLayer: LayerProps = {
   type: "line",
   paint: {
     "line-color": "#015FFF",
-    "line-width": 0.7,
+    "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0.5, 20, 1.5],
     "line-dasharray": [4, 2],
   },
 };
@@ -52,7 +52,7 @@ export const customPolygonStrokeLayer: LayerProps = {
   type: "line",
   paint: {
     "line-color": "#FF0000",
-    "line-width": 0.7,
+    "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0.5, 20, 1.5],
     "line-dasharray": [4, 2],
   },
 };

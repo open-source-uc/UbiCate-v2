@@ -1,0 +1,16 @@
+{
+    "name": "v2-ubicate-rocka",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu", // base Ubuntu
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "22.12.0"
+        }
+    },
+    "forwardPorts": [
+        3000,
+        5173,
+        8080
+    ],
+    "postCreateCommand": "npm install",
+    "remoteUser": "vscode"
+}

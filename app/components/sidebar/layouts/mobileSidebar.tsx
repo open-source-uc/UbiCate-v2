@@ -8,12 +8,14 @@ import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import PillFilter from "../pills/PillFilter";
-import PlaceMenu from "../placeMenu/placeMenu";
+import PlaceMenu from "../../placeMenu/placeMenu";
+import PillFilter from "../category/categoryFilter";
+import CampusList from "../sections/campusList";
+import FooterOptionsSidebar from "../sections/footerOptionsSidebar";
+import DragHandle from "../ui/dragHandle";
+import SidebarMobileNavigationButton from "../ui/mobileNavigationButton";
 
-import CampusList from "./campusList";
-import FooterOptionsSidebar from "./footerOptionsSidebar";
-import TopMobileSidebar from "./topMobilSidebar";
+import TopMobileSidebar from "./mobileNotifications";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
@@ -211,20 +213,13 @@ export default function MobileSidebar() {
         aria-label="Mobile Navigation"
       >
         {/* Drag handle that spans full width */}
-        <div
-          className="w-full h-7 cursor-grab active:cursor-grabbing 
-    flex justify-center items-center rounded-t-lg touch-pan-x"
+        <DragHandle
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           onClick={handleGrabBarClick}
-          role="button"
-          aria-label="Drag to resize sidebar"
-          tabIndex={0}
-        >
-          <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
-        </div>
+        />
 
         {isOpen ? (
           <div className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto">
@@ -233,29 +228,20 @@ export default function MobileSidebar() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
                     <p className="text-md font-semibold text-foreground">Explora</p>
-                    <div className="bg-secondary flex rounded-lg p-2">
-                      <button
+                    <div className="bg-accent/20 flex rounded-lg p-2">
+                      <SidebarMobileNavigationButton
+                        icon={<Icons.Map />}
+                        label="Campus"
+                        isActive={activeSubSidebar === "campus"}
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
-                          activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
-                        }`}
-                        aria-pressed={activeSubSidebar === "campus"}
-                      >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-                          <Icons.Map />
-                        </span>
-                        <p className="text-sm tablet:text-md mt-1">Campus</p>
-                      </button>
-                      <button
+                      />
+                      <SidebarMobileNavigationButton
+                        icon={<Icons.MenuBook />}
+                        label="Guías"
+                        isActive={false}
+                        onClick={() => {}}
                         disabled
-                        className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
-                        aria-disabled="true"
-                      >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-                          <Icons.MenuBook />
-                        </span>
-                        <p className="text-sm tablet:text-md mt-1">Guías</p>
-                      </button>
+                      />
                     </div>
                   </div>
 
@@ -284,19 +270,13 @@ export default function MobileSidebar() {
             aria-label={`${activeSubSidebar} panel`}
           >
             {/* Drag handle in subsidebar */}
-            <div
-              className="w-full h-7 cursor-grab active:cursor-grabbing flex justify-center items-center rounded-t-lg touch-pan-x"
+            <DragHandle
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               onClick={handleGrabBarClick}
-              role="button"
-              aria-label="Drag to resize sidebar"
-              tabIndex={0}
-            >
-              <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
-            </div>
+            />
 
             <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
               {activeSubSidebar === "campus" && (

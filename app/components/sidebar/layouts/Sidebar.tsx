@@ -1,5 +1,5 @@
 import DesktopSidebar from "./desktopSidebar";
-import MobileSidebar from "./mobilSidebar";
+import MobileSidebar from "./mobileSidebar";
 
 export default function Sidebar() {
   return (

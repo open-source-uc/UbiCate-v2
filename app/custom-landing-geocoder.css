@@ -10,7 +10,7 @@
   font-size: 1rem;
   line-height: 24px;
   position: relative;
-  background-color: #39302B;
+  background-color: #202733;
   outline: 1px solid #150a04;
   width: 100%;
   min-width: 240px;
@@ -73,7 +73,7 @@
 
 /* Suggestions */
 .mapboxgl-ctrl-geocoder .suggestions {
-  background-color: #39302B;
+  background-color: #202733;
   border-radius: 12px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -106,7 +106,7 @@
 
 .mapboxgl-ctrl-geocoder .suggestions>.active>a,
 .mapboxgl-ctrl-geocoder .suggestions>li>a:hover {
-  background-color: #2424241f;
+  background-color: #202733;
   text-decoration: none;
   cursor: pointer;
 }
@@ -143,7 +143,7 @@
   margin: 0;
   border: none;
   cursor: pointer;
-  background: #39302B;
+  background: #202733;
   line-height: 1;
 }
 

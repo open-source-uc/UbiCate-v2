@@ -47,8 +47,9 @@ export default function getGeocoder(
     mapboxgl: Mapbox,
     placeholder: "Buscar en Ubicate",
     limit: 10,
-    zoom: 18,
+    zoom: 16,
     marker: false,
+    flyTo: false,
     types: "poi",
     language: "es-CL",
     render: (item) => {

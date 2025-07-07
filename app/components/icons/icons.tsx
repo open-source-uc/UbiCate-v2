@@ -102,10 +102,34 @@ export function Sport({ className }: { className?: string }) {
   );
 }
 
-export function Parking({ className }: { className?: string }) {
+export function Bicycle({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
-      <path d="M248-130v-700h272q96 0 164 68.5T752-597q0 96-68 164.5T520-364H398v234H248Zm150-384h125q34.24 0 58.62-24.38Q606-562.76 606-597q0-34.24-24.38-58.62Q557.24-680 523-680H398v166Z" />
+      <path d="M194-170q-82.54 0-135.27-52.73Q6-275.46 6-358q0-81 52.73-135.27 52.73-54.27 135.27-54.27 72.54 0 125.38 47.89 52.85 47.88 61.7 117.65h62.61l-85.84-236H292v-50h172v50h-51.23l23.85 70.46h232.61L602-726.15q-2.31-6.93-7.69-10.39Q588.92-740 582-740h-86v-50h90q20.08 0 38.46 10.54 18.39 10.54 25.08 31.15L722.15-548H766q78.54 0 133.27 54.73Q954-438.54 954-360q0 78.77-55.12 133.62-55.11 54.84-132.88 54.84-69.92 0-122.69-45.38-52.77-45.39-64.39-115.08H381.08q-8.85 71-62.93 116.5Q264.08-170 194-170Zm16-162h120.15v-50H210v50Zm288.15-50h80.77q3.46-27.62 18.93-61.92 15.46-34.31 44.92-53.62h-188L498.15-382Zm236.16 17.85 47.54-18.16-41.54-110.61-45.54 16.15 39.54 112.62Z" />
+    </svg>
+  );
+}
+
+export function Car({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M211.23-226v56q0 10.2-7.75 17.1-7.75 6.9-18.55 6.9H170.3q-10.8 0-18.55-6.9T144-170v-305.85L227.38-710q3.57-11.34 13.58-17.67 10-6.33 22.27-6.33h436.62q11.11 0 20.18 6.6t12.59 17.4L816-475.85V-170q0 10.2-7.75 17.1-7.75 6.9-18.55 6.9h-14.63q-10.8 0-18.55-6.9t-7.75-17.1v-56H211.23Zm3.39-299.85h530.76L688.46-684H271.54l-56.92 158.15Zm80.48 197.54q19.67 0 34.05-14.56 14.39-14.57 14.39-34.23 0-19.67-14.57-34.05-14.56-14.39-34.23-14.39-19.66 0-34.05 14.57-14.38 14.56-14.38 34.23 0 19.66 14.56 34.05 14.57 14.38 34.23 14.38Zm370.16 0q19.66 0 34.05-14.56 14.38-14.57 14.38-34.23 0-19.67-14.56-34.05-14.57-14.39-34.23-14.39-19.67 0-34.05 14.57-14.39 14.56-14.39 34.23 0 19.66 14.57 34.05 14.56 14.38 34.23 14.38Z" />
+    </svg>
+  );
+}
+
+export function Recycle({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="m367.92-592 89.93-145.92-59.54-98.39q-11.69-18.92-34.62-18.92-22.92 0-34.99 18.97l-96.24 163.34L367.92-592Zm385.66 271.46-88.04-146.92L804-547.15l63 106.07q9.69 17.7 11.08 38.12 1.38 20.42-7.08 38.34-10.46 20.7-30.27 32.39-19.81 11.69-42.2 11.69h-44.95ZM639.38-41.61 480-201l159.38-159.38v79.69h188.77l-57.07 115.15q-10.31 19.92-29.89 32.08-19.57 12.15-42.04 12.15h-59.77v79.7Zm-385.73-79.7q-19.96 0-35.77-10.07-15.8-10.08-24.26-27.7-6.47-16.77-7.35-34.07-.89-17.31 8.73-32.04l33.77-55.5h171.54v159.38H253.65ZM155-234.62l-65-130q-10.23-18.69-8.35-39.11 1.89-20.42 12.01-37.35l15.26-26.38-67.23-40.85 218.16-55.54 54.53 219.16-68.23-41.85L155-234.62Zm537.92-340.69-218.3-55.51L544-671.49l-124.77-206.9h140.31q20.77 0 38.92 10.35 18.16 10.34 29.46 28.5l52.31 86.92 67.23-41.84-54.54 219.15Z" />
+    </svg>
+  );
+}
+
+export function Bank({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M460-300h40v-40h49.23q13.08 0 21.92-8.85 8.85-8.84 8.85-21.92v-98.46q0-13.08-8.85-21.92-8.84-8.85-21.92-8.85H420v-80h160v-40h-80v-40h-40v40h-49.23q-13.08 0-21.92 8.85-8.85 8.84-8.85 21.92v98.46q0 13.08 8.85 21.92 8.84 8.85 21.92 8.85H540v80H380v40h80v40ZM184.62-176q-38.35 0-64.48-26.14Q94-228.27 94-266.62v-426.76q0-38.35 26.14-64.48Q146.27-784 184.62-784h590.76q38.35 0 64.48 26.14Q866-731.73 866-693.38v426.76q0 38.35-26.14 64.48Q813.73-176 775.38-176H184.62Z" />
     </svg>
   );
 }
@@ -137,14 +161,7 @@ export function Start({ className }: { className?: string }) {
 export function UserLocation({ className, rotation = 0 }: { className?: string; rotation?: number }) {
   return (
     <span className={className}>
-      <svg
-        width="90px"
-        height="90px"
-        viewBox="0 0 338 537"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={className}
-      >
+      <svg width="90px" height="90px" viewBox="0 0 338 537" xmlns="http://www.w3.org/2000/svg" className={className}>
         {/* Grupo que contiene el triángulo que gira */}
         <g
           style={{
@@ -170,14 +187,7 @@ export function UserLocation({ className, rotation = 0 }: { className?: string; 
 
 export function Directions({ className }: { className?: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="24px"
-      viewBox="0 -960 960 960"
-      width="24px"
-      fill="currentColor"
-      className={className}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
       <path d="M322.5-362.5h75v-120h145v96.5l134-134-134-134v96.5H360q-15.5 0-26.5 11t-11 26.5v157.5ZM480-90.5q-14.5 0-27.75-5.5t-24.75-16.5l-315-315q-11-11.5-16.5-24.75T90.5-480q0-14.5 5.5-28t16.5-24.5l315-315q11.5-11.5 24.75-16.75T480-869.5q14.5 0 28 5.25t24.5 16.75l315 315q11.5 11 16.75 24.5t5.25 28q0 14.5-5.25 27.75T847.5-427.5l-315 315q-11 11-24.5 16.5t-28 5.5Z" />
     </svg>
   );
@@ -185,14 +195,7 @@ export function Directions({ className }: { className?: string }) {
 
 export function Error({ className }: { className?: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="24px"
-      viewBox="0 -960 960 960"
-      width="24px"
-      fill="currentColor"
-      className={className}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
       <path d="M479.89-285Q496-285 507-295.89q11-10.9 11-27Q518-339 507.11-350q-10.9-11-27-11Q464-361 453-350.11q-11 10.9-11 27Q442-307 452.89-296q10.9 11 27 11ZM443-440h75v-236h-75v236Zm37 350q-80.91 0-152.07-30.76-71.15-30.77-123.79-83.5Q151.5-257 120.75-328.09 90-399.17 90-480q0-80.91 30.76-152.07 30.77-71.15 83.5-123.79Q257-808.5 328.09-839.25 399.17-870 480-870q80.91 0 152.07 30.76 71.15 30.77 123.79 83.5Q808.5-703 839.25-631.91 870-560.83 870-480q0 80.91-30.76 152.07-30.77 71.15-83.5 123.79Q703-151.5 631.91-120.75 560.83-90 480-90Z" />
     </svg>
   );
@@ -200,14 +203,7 @@ export function Error({ className }: { className?: string }) {
 
 export function Walking({ className }: { className?: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      height="24px"
-      viewBox="0 -960 960 960"
-      width="24px"
-      className={className}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
       <path d="m280-40 112-564-72 28v136h-80v-188l202-86q14-6 29.5-7t29.5 4q14 5 26.5 14t20.5 23l40 64q26 42 70.5 69T760-520v80q-70 0-125-29t-94-74l-25 123 84 80v300h-80v-260l-84-64-72 324h-84Zm260-700q-33 0-56.5-23.5T460-820q0-33 23.5-56.5T540-900q33 0 56.5 23.5T620-820q0 33-23.5 56.5T540-740Z" />
     </svg>
   );

@@ -1,9 +1,9 @@
-import React, { use, useCallback, useMemo } from "react";
+import { use, useCallback, useMemo, useState, useEffect } from "react";
 
 import { Marker, useMap } from "react-map-gl";
 
-import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
+import { useUbication } from "@/app/hooks/useUbication";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import * as Icons from "../icons/icons";
@@ -14,11 +14,24 @@ import LocationButton from "./locationButton";
 export default function UserLocation() {
   const { mainMap } = useMap();
   const { setNotification, addCode, removeCode } = use(NotificationContext);
-  const { position, alpha } = useDirections();
+  const { position, alpha } = useUbication();
+  const [bearing, setBearing] = useState(0);
+
+  const updateBearing = useCallback(() => {
+    setBearing(mainMap?.getBearing?.() || 0);
+  }, [mainMap]);
+
+  useEffect(() => {
+    mainMap?.on("move", updateBearing);
+
+    return () => {
+      mainMap?.off("move", updateBearing);
+    };
+  }, [mainMap, updateBearing]);
 
   const rotation = useMemo(() => {
-    return (alpha - (mainMap?.getBearing() || 0) + 360) % 360;
-  }, [alpha, mainMap]);
+    return -(alpha - (bearing || 0) + 360) % 360; // el menos es pues los angulos van en sentido anti-horario
+  }, [alpha, bearing]);
 
   const handleLocationButtonClick = useCallback(() => {
     if (!position) {
@@ -43,7 +56,7 @@ export default function UserLocation() {
     mainMap?.getMap().setMaxBounds(undefined);
     mainMap?.getMap().flyTo({
       center: position?.geometry.coordinates as [number, number],
-      zoom: 17,
+      zoom: 16,
       duration: 400,
     });
 
