@@ -137,10 +137,10 @@ export default function MapComponent({
 
       const [lng, lat] = center;
       const map = mapRef.current?.getMap();
-      
+
       // Remove restrictive bounds to allow free exploration
       map?.setMaxBounds(undefined);
-      
+
       if (options?.fly === false) {
         console.log("center", center);
         const bounds = map?.getBounds();
@@ -189,24 +189,24 @@ export default function MapComponent({
     e.target.doubleClickZoom.disable();
     mapRef.current?.getMap().setMinZoom(10); // Allow more zoom out
     const map = mapRef.current?.getMap();
-    
+
     // Configure high-quality rendering
     if (map) {
       // Set pixel ratio for crisp rendering on high-DPI displays
       map.getCanvas().style.imageRendering = "auto";
       map.getCanvas().style.imageRendering = "-webkit-optimize-contrast";
-      
+
       // Ensure proper pixel ratio
       const pixelRatio = window.devicePixelRatio || 1;
       map.getCanvas().width = map.getCanvas().offsetWidth * pixelRatio;
       map.getCanvas().height = map.getCanvas().offsetHeight * pixelRatio;
       map.resize();
-      
+
       // Apply advanced quality enhancements
       enhanceMapQuality(map);
       setupMapQualityObserver(map);
     }
-    
+
     if (paramPlace) {
       // Don't set restrictive bounds, just focus on the place
       setPlaces([paramPlace]);
