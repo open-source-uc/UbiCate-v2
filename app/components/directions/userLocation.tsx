@@ -56,7 +56,7 @@ export default function UserLocation() {
     mainMap?.getMap().setMaxBounds(undefined);
     mainMap?.getMap().flyTo({
       center: position?.geometry.coordinates as [number, number],
-      zoom: 17,
+      zoom: 16,
       duration: 400,
     });
 

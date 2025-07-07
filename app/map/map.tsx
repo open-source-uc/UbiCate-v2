@@ -61,7 +61,7 @@ function createInitialViewState(
   paramLat: number | null | undefined,
 ): InitialViewState {
   const initialViewState: InitialViewState = {
-    zoom: 17,
+    zoom: 16,
   };
   if (paramPlace) {
     if (paramPlace?.geometry.type === "Point") {
@@ -74,7 +74,7 @@ function createInitialViewState(
   } else if (paramLng && paramLat) {
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
-    initialViewState.zoom = 17;
+    initialViewState.zoom = 16;
   } else if (campusName) {
     initialViewState.bounds = getCampusBoundsFromName(campusName);
   }
@@ -172,7 +172,7 @@ export default function MapComponent({
         map?.flyTo({
           essential: true,
           duration: 400,
-          zoom: 17,
+          zoom: 16,
           center: [lng, lat],
           offset: [0, -20],
         });
@@ -209,7 +209,7 @@ export default function MapComponent({
       map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
       map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
-        zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
+        zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 16,
       });
     }
 
@@ -267,7 +267,7 @@ export default function MapComponent({
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
+        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 16,
       });
     }
   }, [params]);
@@ -282,7 +282,7 @@ export default function MapComponent({
     <>
       <Map
         id="mainMap"
-        mapStyle="mapbox://styles/ubicate/cm7nhvwia00av01sm66n40918"
+        mapStyle="mapbox://styles/ubicate/cmcsfk9f700mw01qv63b10n6g"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
@@ -294,6 +294,8 @@ export default function MapComponent({
           });
         }}
         ref={mapRef}
+        antialias={true}
+        preserveDrawingBuffer={true}
       >
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
