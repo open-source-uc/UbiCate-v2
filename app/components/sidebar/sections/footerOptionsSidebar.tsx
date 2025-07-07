@@ -23,7 +23,7 @@ export default function FooterOptionsSidebar() {
         <div className="text-xs p-4">
           Desarrollado por
           <Link href="/creditos" className="font-semibold block hover:underline">
-            Open Source UC
+            Open Source UC. New
           </Link>
         </div>
       </div>
