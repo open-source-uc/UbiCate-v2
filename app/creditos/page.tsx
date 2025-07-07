@@ -25,9 +25,9 @@ export default async function Page() {
           <Link href="/" className="inline-block mb-8 hover:opacity-80 transition-opacity">
             <Image src="/logo-osuc.svg" alt="Open Source UC Logo" width={120} height={120} className="mx-auto" />
           </Link>
-          
+
           <h1 className="text-3xl font-bold mb-8 text-foreground">Créditos</h1>
-          
+
           <div className="bg-background/95 backdrop-blur-sm border border-border rounded-xl p-6 mb-8">
             <div className="space-y-4 text-foreground/90">
               <p className="text-lg leading-relaxed">
@@ -42,7 +42,7 @@ export default async function Page() {
                 </a>
                 , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
               </p>
-              
+
               <p className="text-lg leading-relaxed">
                 El código de este proyecto es{" "}
                 <a
@@ -62,7 +62,7 @@ export default async function Page() {
         {/* Contributors Section */}
         <div className="bg-background/95 backdrop-blur-sm border border-border rounded-xl p-6">
           <h2 className="text-2xl font-bold mb-6 text-foreground text-center">Contribuidores</h2>
-          
+
           <div className="min-h-[200px] flex items-center justify-center">
             {contributors.length > 0 ? (
               <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 w-full">
