@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 
 import "./styles/globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+import "./styles/mapbox-quality.css";
 
 import { Metadata } from "next";
 import type { Viewport } from "next";

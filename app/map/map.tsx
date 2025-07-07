@@ -21,13 +21,9 @@ import { Map, Source, Layer, ScaleControl } from "react-map-gl";
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import {
-  getCampusBoundsFromName,
-  getCampusNameFromPoint,
-  getMaxCampusBoundsFromName,
-  getMaxCampusBoundsFromPoint,
-} from "@/utils/getCampusBounds";
+import { getCampusBoundsFromName, getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
+import { enhanceMapQuality, setupMapQualityObserver } from "@/utils/mapQuality";
 import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 
 import DirectionsComponent from "../components/directions/component";
@@ -141,10 +137,10 @@ export default function MapComponent({
 
       const [lng, lat] = center;
       const map = mapRef.current?.getMap();
+      
+      // Remove restrictive bounds to allow free exploration
       map?.setMaxBounds(undefined);
-      setTimeout(() => {
-        map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
-      }, 600);
+      
       if (options?.fly === false) {
         console.log("center", center);
         const bounds = map?.getBounds();
@@ -191,22 +187,40 @@ export default function MapComponent({
 
   async function onLoad(e: MapEvent) {
     e.target.doubleClickZoom.disable();
-    mapRef.current?.getMap().setMinZoom(15);
+    mapRef.current?.getMap().setMinZoom(10); // Allow more zoom out
     const map = mapRef.current?.getMap();
+    
+    // Configure high-quality rendering
+    if (map) {
+      // Set pixel ratio for crisp rendering on high-DPI displays
+      map.getCanvas().style.imageRendering = "auto";
+      map.getCanvas().style.imageRendering = "-webkit-optimize-contrast";
+      
+      // Ensure proper pixel ratio
+      const pixelRatio = window.devicePixelRatio || 1;
+      map.getCanvas().width = map.getCanvas().offsetWidth * pixelRatio;
+      map.getCanvas().height = map.getCanvas().offsetHeight * pixelRatio;
+      map.resize();
+      
+      // Apply advanced quality enhancements
+      enhanceMapQuality(map);
+      setupMapQualityObserver(map);
+    }
+    
     if (paramPlace) {
-      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
+      // Don't set restrictive bounds, just focus on the place
       setPlaces([paramPlace]);
       handlePlaceSelection(paramPlace, { openSidebar: true });
       localStorage.setItem("defaultCampus", paramPlace.properties.campus);
     } else if (paramLng && paramLat) {
       localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
-      map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
+      // Don't set restrictive bounds, just focus on the location
       handlePlaceSelection(addPin(parseFloat("" + paramLng), parseFloat("" + paramLat)), {
         openSidebar: true,
       });
     } else {
       const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-      map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
+      // Only set initial view, don't restrict bounds
       map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
         duration: 0,
         zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 16,
@@ -264,7 +278,7 @@ export default function MapComponent({
     const campusName = params.get("campus");
     if (campusName) {
       localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
+      // Only set initial view, don't restrict bounds
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 16,
@@ -277,6 +291,23 @@ export default function MapComponent({
       handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
     }
   }, [selectedPlace, handlePlaceSelection]);
+
+  // Handle window resize to maintain map quality
+  useEffect(() => {
+    const handleResize = () => {
+      if (mapRef.current) {
+        const map = mapRef.current.getMap();
+        setTimeout(() => {
+          map.resize();
+          // Re-apply high-quality settings after resize
+          enhanceMapQuality(map);
+        }, 100);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -296,6 +327,7 @@ export default function MapComponent({
         ref={mapRef}
         antialias={true}
         preserveDrawingBuffer={true}
+        maxZoom={20}
       >
         <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>

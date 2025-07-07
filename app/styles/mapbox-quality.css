@@ -1,0 +1,45 @@
+/* Mapbox Quality Enhancement CSS */
+
+/* Ensure high-quality rendering for the map canvas */
+.mapboxgl-canvas {
+  image-rendering: auto !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: pixelated !important;
+}
+
+/* Override any CSS that might interfere with map rendering */
+.mapboxgl-map {
+  image-rendering: auto !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Ensure map container maintains quality */
+#mainMap {
+  image-rendering: auto !important;
+}
+
+/* Prevent any global CSS from affecting map quality */
+.mapboxgl-canvas,
+.mapboxgl-canvas-container {
+  image-rendering: auto !important;
+  -webkit-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+  will-change: transform !important;
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mapboxgl-canvas {
+    image-rendering: auto !important;
+    image-rendering: -webkit-optimize-contrast !important;
+  }
+}
+
+/* Ensure text labels are crisp */
+.mapboxgl-canvas .mapboxgl-marker {
+  image-rendering: auto !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
