@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61075686882087,
+                    -33.498917105045635
+                ]
+            },
+            "properties": {
+                "identifier": "mcxqj9zo9t1mjb",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64027398824692,
                     -33.44063294468911
                 ]
