@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59422220591799,
+                    -33.44593945465703
+                ]
+            },
+            "properties": {
+                "identifier": "other-28654754",
+                "name": "Oficina de Transformación Digital",
+                "information": "Oficina Trasnformación Digital ",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    11
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61075686882087,
                     -33.498917105045635
                 ]
