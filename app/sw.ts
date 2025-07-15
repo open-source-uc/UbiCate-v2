@@ -1,6 +1,5 @@
-import { defaultCache } from "@serwist/next/worker";
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
-import { Serwist } from "serwist";
+import { Serwist, CacheFirst, StaleWhileRevalidate } from "serwist";
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
@@ -15,7 +14,20 @@ const serwist = new Serwist({
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,
-  runtimeCaching: defaultCache,
+  runtimeCaching: [
+    {
+      matcher({ request }) {
+        return request.destination === "image";
+      },
+      handler: new StaleWhileRevalidate({ cacheName: "images" }),
+    },
+    {
+      matcher({ request }) {
+        return request.destination === "script" || request.destination === "style";
+      },
+      handler: new CacheFirst({ cacheName: "static-resources" }),
+    },
+  ],
 });
 
 serwist.addEventListeners();
