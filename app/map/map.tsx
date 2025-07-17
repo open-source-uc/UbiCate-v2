@@ -280,7 +280,6 @@ export default function MapComponent({
     }
   }, [selectedPlace, handlePlaceSelection]);
 
-
   return (
     <>
       <Map

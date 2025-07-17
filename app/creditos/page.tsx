@@ -14,7 +14,7 @@ async function fetchContributors() {
 }
 
 export default async function Page() {
-  const contributors = await fetchContributors();
+  const contributors: any = await fetchContributors();
 
   return (
     <main spellCheck="false" className="min-h-screen w-full bg-brown-dark text-white-ubi pb-7">

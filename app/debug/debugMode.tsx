@@ -57,7 +57,7 @@ function DebugMode() {
           }
           return response.json();
         })
-        .then((data) => {
+        .then((data: any) => {
           setJson(data.new_places);
           console.log(data);
         })
