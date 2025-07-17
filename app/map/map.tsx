@@ -7,7 +7,6 @@ import React, { use, useCallback, useEffect, useRef } from "react";
 import { bbox } from "@turf/bbox";
 import { centroid } from "@turf/centroid";
 import type { LngLatBoundsLike } from "maplibre-gl";
-import { isMapboxURL, transformMapboxUrl } from "maplibregl-mapbox-request-transformer";
 import type {
   ViewState,
   PointLike,
@@ -280,14 +279,7 @@ export default function MapComponent({
       handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
     }
   }, [selectedPlace, handlePlaceSelection]);
-  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-  const transformRequest = (url: string, resourceType?: string) => {
-    if (isMapboxURL(url)) {
-      return transformMapboxUrl(url, resourceType || "", MAPBOX_TOKEN ?? "");
-    }
 
-    return { url };
-  };
 
   return (
     <>
@@ -302,6 +294,13 @@ export default function MapComponent({
           handlePlaceSelection(addPin(e.lngLat.lng, e.lngLat.lat), {
             openSidebar: true,
           });
+        }}
+        transformRequest={(url, type) => {
+          if (type === "Tile") {
+            const baseUrl = window.location.origin;
+            return { url: baseUrl + url };
+          }
+          return { url };
         }}
         ref={mapRef}
       >

@@ -41,3 +41,6 @@ next-env.d.ts
 # Serwist
 public/sw*
 public/swe-worker*
+
+# maps
+*.pbf

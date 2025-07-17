@@ -9,8 +9,7 @@ export const MAP_STYLE: StyleSpecification = {
       type: "vector",
       tiles: [
         // Repository URL for self-hosted tiles
-        // https://github.com/open-source-uc/ubicate-v2-self-host-map
-        "https://self-hosted-map.osuc.dev/{z}/{x}/{y}.pbf",
+        "/api/{z}/{x}/{y}",
       ],
       minzoom: 0,
       maxzoom: 14,
