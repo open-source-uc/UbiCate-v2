@@ -37,6 +37,10 @@
   border-radius: 2rem;
 }
 
+.maplibregl-ctrl-bottom-right {
+  z-index: 1000;
+}
+
 .mapboxgl-ctrl-geocoder--input::-ms-clear {
   display: none;
   /* hide input clear button in IE */

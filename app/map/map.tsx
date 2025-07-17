@@ -17,7 +17,7 @@ import type {
   MapLayerMouseEvent,
   MapRef,
 } from "react-map-gl/maplibre";
-import { Map, Source, Layer, ScaleControl } from "react-map-gl/maplibre";
+import { Map, Source, Layer, AttributionControl } from "react-map-gl/maplibre";
 
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
@@ -261,6 +261,7 @@ export default function MapComponent({
     }
 
     isLoaded.current = true;
+
   }
 
   useEffect(() => {
@@ -305,7 +306,6 @@ export default function MapComponent({
         }}
         ref={mapRef}
       >
-        <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
         </Source>
