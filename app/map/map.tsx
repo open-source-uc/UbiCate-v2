@@ -46,6 +46,7 @@ import {
   customPolygonStrokeLayer,
 } from "./layers";
 import Marker from "./marker";
+import { MAP_STYLE } from "./mapStyle";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -64,6 +65,7 @@ function createInitialViewState(
   const initialViewState: InitialViewState = {
     zoom: 17,
   };
+
   if (paramPlace) {
     if (paramPlace?.geometry.type === "Point") {
       initialViewState.longitude = paramPlace?.geometry.coordinates[0];
@@ -76,7 +78,7 @@ function createInitialViewState(
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
     initialViewState.zoom = 17;
-  } else if (campusName) {
+  } else {
     initialViewState.bounds = getCampusBoundsFromName(campusName);
   }
 
@@ -291,8 +293,7 @@ export default function MapComponent({
     <>
       <Map
         id="mainMap"
-        mapStyle="/api/mapbox-compatibility-style"
-        transformRequest={transformRequest}
+        mapStyle={MAP_STYLE}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
