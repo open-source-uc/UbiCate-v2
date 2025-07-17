@@ -45,8 +45,8 @@ import {
   customPolygonSectionAreaLayer,
   customPolygonStrokeLayer,
 } from "./layers";
-import Marker from "./marker";
 import { MAP_STYLE } from "./mapStyle";
+import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
