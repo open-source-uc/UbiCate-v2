@@ -14,7 +14,7 @@ export const MAP_STYLE: StyleSpecification = {
       ],
       minzoom: 0,
       maxzoom: 14,
-      attribution: "© OpenStreetMap contributors, © Open Source eUC contributors",
+      attribution: "© OpenStreetMap contributors, © OSUC contributors",
     },
   },
   layers: [
