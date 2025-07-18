@@ -10,7 +10,6 @@ import {
 
 import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
 
-import RouteButton from "../directions/routeButton";
 import * as Icons from "../icons/icons";
 import MarkDownComponent from "../markDown";
 

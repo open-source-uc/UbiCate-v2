@@ -1,4 +1,4 @@
-import { Layer, Source } from "react-map-gl";
+import { Layer, Source } from "react-map-gl/maplibre";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { LineFeature } from "@/utils/types";

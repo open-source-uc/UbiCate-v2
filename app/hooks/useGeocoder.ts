@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo, RefObject, useCallback } from "react";
 
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+
 import PlacesJSON from "@/utils/places";
 import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
 

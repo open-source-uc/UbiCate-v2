@@ -41,7 +41,7 @@ export default function PlaceMenu({
         if (!res.ok) {
           res
             .json()
-            .then((data) => {
+            .then((data: any) => {
               alert("Hubo un error: " + data.message);
             })
             .catch(() => {

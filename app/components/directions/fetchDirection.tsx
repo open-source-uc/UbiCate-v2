@@ -11,7 +11,7 @@ export const fetchDirection = async (
       cache: "force-cache",
     },
   );
-  const data = await response.json();
+  const data: any = await response.json();
   const code = data.code;
 
   if (code !== "Ok") {

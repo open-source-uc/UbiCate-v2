@@ -143,7 +143,7 @@ export default function PlaceForm({
           onClose?.();
         }, 1000);
       } else {
-        const errorData = await response.json();
+        const errorData: any = await response.json();
         setNotification({
           type: "error",
           message: `${errorData.message || "Ha ocurrido un error"}`,
