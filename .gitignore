@@ -43,4 +43,5 @@ public/sw*
 public/swe-worker*
 
 # maps
-*.pbf
+*.osm.pbf
+*.mbtiles
