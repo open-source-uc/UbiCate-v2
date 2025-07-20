@@ -21,6 +21,20 @@ function useGeocoder(
   const geocoder = useRef<MapboxGeocoder | null>(null);
   const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
 
+  const setPlaces = useCallback((e: Feature[] | Feature | null) => {
+    const alwaysVisiblePlaces = PlacesJSON.features.filter((place) => place.properties.always_visible === true);
+
+    if (Array.isArray(e)) {
+      const newPlaces = [...alwaysVisiblePlaces, ...e];
+      setFindPlaces(newPlaces);
+    } else if (e) {
+      const newPlaces = [...alwaysVisiblePlaces, e];
+      setFindPlaces(newPlaces);
+    } else {
+      setFindPlaces(alwaysVisiblePlaces);
+    }
+  }, []);
+
   useEffect(() => {
     let mounted = true;
 
@@ -28,17 +42,20 @@ function useGeocoder(
       const { default: getGeocoder } = await loadGeocoder();
       if (!mounted) return;
 
+      const initialPlaces = PlacesJSON.features.filter((place) => place.properties.always_visible === true);
+      setFindPlaces(initialPlaces);
+
       geocoder.current = getGeocoder(
         PlacesJSON,
         (result: { result: Feature }) => {
-          setFindPlaces([result.result]);
+          setPlaces([result.result]);
           setSelectedPlace(result.result);
         },
         (results: { features: Feature[] | null | undefined; config: any }) => {
           if (!mounted) return;
-          setFindPlaces(results.features ?? []);
+          setPlaces(results.features ?? []);
         },
-        () => setFindPlaces([]),
+        () => setPlaces(null),
       );
       if (ref?.current) geocoder.current.addTo(ref.current);
     };
@@ -51,19 +68,6 @@ function useGeocoder(
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const setPlaces = useCallback(
-    (e: Feature[] | Feature | null) => {
-      if (Array.isArray(e)) {
-        setFindPlaces(e);
-      } else if (e) {
-        setFindPlaces([e]);
-      } else {
-        setFindPlaces([]);
-      }
-    },
-    [setFindPlaces],
-  );
 
   const PointsName = useMemo(
     () =>
@@ -80,7 +84,10 @@ function useGeocoder(
             ...e,
             properties: {
               ...e.properties,
-              name: `${e.properties.name}\n ${pisoTexto}: ${str}`,
+              name:
+                e.properties.floors?.length === 1 && e.properties.floors[0] === 1
+                  ? e.properties.name
+                  : `${e.properties.name}\n ${pisoTexto}: ${str}`,
             },
           };
 

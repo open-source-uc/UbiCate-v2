@@ -1,4 +1,3 @@
-
 export interface PointGeometry {
   type: "Point";
   coordinates: [number, number];
@@ -39,7 +38,8 @@ export enum CATEGORIES {
   TRASH = "trash",
   WATER = "water",
   USER_LOCATION = "user",
-  YARD = "yard"
+  YARD = "yard",
+  SPECIAL_PLACES = "special_places"
 }
 
 
@@ -52,6 +52,13 @@ export interface Properties {
   faculties?: string[];
   floors?: number[];
   needApproval: boolean;
+  always_visible?: boolean;
+  customIcon?: {
+    icon: string;
+    size?: string;
+    showName?: boolean;
+    showRing?: boolean;
+  };
 }
 
 export interface Feature {
@@ -120,6 +127,7 @@ export const siglas = new Map<string, string>([
   ["building", "Edificio"],
   ["other", "Otro"],
   ["event", "Evento"],
+  ["special_places", "Especiales"]
 ]);
 
 export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
@@ -144,6 +152,7 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.OTHER, "Otro"],
   [CATEGORIES.CUSTOM_MARK, "Marcador"],
   [CATEGORIES.YARD, "Patio"],
+  [CATEGORIES.SPECIAL_PLACES, "Especiales"]
 ]);
 
 // Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK
@@ -168,4 +177,5 @@ export const CategoryOptions = [
   CATEGORIES.BUILDING,
   CATEGORIES.YARD,
   CATEGORIES.OTHER,
+  CATEGORIES.SPECIAL_PLACES,
 ]
