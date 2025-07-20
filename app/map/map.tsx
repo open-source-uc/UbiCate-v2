@@ -95,7 +95,7 @@ export default function MapComponent({
 }) {
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
-  const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
+  const { points, polygons, setPlaces, setSelectedPlace, isOpen, selectedPlace, setIsOpen, pointsName } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
   const isLoaded = useRef(false);
   const mapRef = useRef<MapRef>(null);
@@ -280,8 +280,34 @@ export default function MapComponent({
     }
   }, [selectedPlace, handlePlaceSelection]);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+
+    const observer = new ResizeObserver(() => {
+      if (timeout) clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        if (mapRef.current) {
+          mapRef.current.resize();
+          console.log("Map resized");
+        }
+      }, 175); // 200 para evitar resize excesivos, debido a la animación de la sidebar que dura 150ms
+    });
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
+
   return (
-    <>
+    <div className="w-full h-full" ref={containerRef}>
       <Map
         id="mainMap"
         mapStyle={MAP_STYLE}
@@ -352,6 +378,6 @@ export default function MapComponent({
           );
         })}
       </Map>
-    </>
+    </div>
   );
 }
