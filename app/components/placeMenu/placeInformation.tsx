@@ -10,6 +10,7 @@ import {
 
 import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
 
+import RouteButton from "../directions/routeButton";
 import * as Icons from "../icons/icons";
 import MarkDownComponent from "../markDown";
 
@@ -83,7 +84,8 @@ export default function PlaceInformation({
           </div>
           <p className="text-xs font-medium">Compartir</p>
         </button>
-        {/* <RouteButton place={place} /> */}
+        {/* Rutas */}
+        <RouteButton place={place} />
         <DropdownMenu>
           <DropdownMenuTrigger
             onKeyDown={(e) => e.key === "Enter" && handleShare}

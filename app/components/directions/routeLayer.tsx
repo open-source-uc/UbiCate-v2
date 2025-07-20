@@ -8,7 +8,7 @@ interface RouteInfoMarkerProps {
   beforeId?: string;
 }
 
-export default function RouteLayer({ route, beforeId }: RouteInfoMarkerProps) {
+export default function RouteLayer({ route }: RouteInfoMarkerProps) {
   const routeGeoJSON = featuresToGeoJSON(route);
 
   return (
@@ -18,7 +18,6 @@ export default function RouteLayer({ route, beforeId }: RouteInfoMarkerProps) {
         <Layer
           id="route-border"
           type="line"
-          beforeId={beforeId}
           layout={{
             "line-cap": "round",
             "line-join": "round",
@@ -35,7 +34,6 @@ export default function RouteLayer({ route, beforeId }: RouteInfoMarkerProps) {
         <Layer
           id="route"
           type="line"
-          beforeId={beforeId}
           layout={{
             "line-cap": "round",
             "line-join": "round",
