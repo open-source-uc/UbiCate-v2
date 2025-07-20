@@ -37,10 +37,6 @@ const serwist = new Serwist({
       }),
     },
     {
-      matcher: ({ url }) => url.pathname.startsWith("/_next/static/"),
-      handler: new StaleWhileRevalidate({ cacheName: "next-static-chunks" }),
-    },
-    {
       matcher: ({ request }) => request.mode === "navigate",
       handler: new StaleWhileRevalidate({ cacheName: "pages" }),
     },
