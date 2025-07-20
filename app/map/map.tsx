@@ -299,6 +299,10 @@ export default function MapComponent({
             const baseUrl = window.location.origin;
             return { url: baseUrl + url };
           }
+          if (type === "Glyphs") {
+            const baseUrl = window.location.origin;
+            return { url: baseUrl + url };
+          }
           return { url };
         }}
         ref={mapRef}

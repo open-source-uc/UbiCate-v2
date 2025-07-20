@@ -10,8 +10,6 @@ import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import MapPage from "./map/mapPage";
 
-import "@/app/custom-landing-geocoder.css";
-
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {

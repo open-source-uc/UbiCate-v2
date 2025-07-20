@@ -23,9 +23,15 @@ interface LocationOrientationData {
 
 type Subscriber = (data: LocationOrientationData) => void;
 
-const subscribers = new Set<Subscriber>();
+interface SubscriberData {
+  callback: Subscriber;
+  tracking: boolean;
+}
+
+const subscribers = new Map<Subscriber, SubscriberData>();
 let currentData: LocationOrientationData = { position: null, alpha: 0, cardinal: "N" };
 let watchId: number | null = null;
+let orientationListenerActive = false;
 
 function calculateCardinal(angle: number, points: CardinalPoints): string {
   const divisions = points;
@@ -56,12 +62,29 @@ function handlePositionUpdate({ coords }: GeolocationPosition) {
       geometry: { type: "Point", coordinates: [coords.longitude, coords.latitude] },
     },
   };
-  notifySubscribers();
+  notifyActiveSubscribers();
 }
 
 // Handle location error
 function handlePositionError(error: GeolocationPositionError) {
-  console.error("Error getting location:", error.message);
+  currentData = {
+    ...currentData,
+    position: {
+      type: "Feature",
+      properties: {
+        identifier: "user_loc",
+        name: "Usuario",
+        information: "",
+        categories: [CATEGORIES.USER_LOCATION],
+        campus: "",
+        faculties: [],
+        floors: [],
+        needApproval: false,
+      },
+      geometry: { type: "Point", coordinates: [0, 0] },
+    },
+  };
+  notifyActiveSubscribers();
 }
 
 // Handle device orientation events
@@ -72,7 +95,7 @@ function handleOrientation(event: DeviceOrientationEvent) {
     alpha: event.alpha,
     cardinal: calculateCardinal(event.alpha, serviceOptions.cardinalPoints!),
   };
-  notifySubscribers();
+  notifyActiveSubscribers();
 }
 
 // Keep track of options for the running service
@@ -83,14 +106,26 @@ let serviceOptions: Options = {
   timeout: 5000,
 };
 
-// Notify all hooked components
-function notifySubscribers() {
-  subscribers.forEach((cb) => cb(currentData));
+// Notify only subscribers that have tracking enabled
+function notifyActiveSubscribers() {
+  subscribers.forEach(({ callback, tracking }) => {
+    if (tracking) {
+      callback(currentData);
+    }
+  });
+}
+
+// Check if any subscriber has tracking enabled
+function hasActiveSubscribers(): boolean {
+  for (const { tracking } of subscribers.values()) {
+    if (tracking) return true;
+  }
+  return false;
 }
 
 // Start the shared service (only one watcher and orientation listener)
 function startService(options: Options = {}) {
-  if (watchId) return;
+  if (watchId || !hasActiveSubscribers()) return;
   serviceOptions = { ...serviceOptions, ...options };
 
   if (navigator.geolocation) {
@@ -101,47 +136,102 @@ function startService(options: Options = {}) {
     });
   }
 
-  window.addEventListener("deviceorientation", handleOrientation);
+  if (!orientationListenerActive) {
+    window.addEventListener("deviceorientation", handleOrientation);
+    orientationListenerActive = true;
+  }
 }
 
-// Stop the shared service when no subscribers remain
+// Stop the shared service when no active subscribers remain
 function stopService() {
-  if (watchId !== null) {
-    navigator.geolocation.clearWatch(watchId);
-    watchId = null;
+  if (!hasActiveSubscribers()) {
+    if (watchId !== null) {
+      navigator.geolocation.clearWatch(watchId);
+      watchId = null;
+    }
+    if (orientationListenerActive) {
+      window.removeEventListener("deviceorientation", handleOrientation);
+      orientationListenerActive = false;
+    }
   }
-  window.removeEventListener("deviceorientation", handleOrientation);
+}
+
+// Update tracking status for a subscriber
+function updateSubscriberTracking(callback: Subscriber, tracking: boolean, options: Options = {}) {
+  const subscriber = subscribers.get(callback);
+  if (!subscriber) return;
+
+  subscriber.tracking = tracking;
+
+  if (tracking) {
+    startService(options);
+    // Emit current state immediately when tracking is enabled
+    callback(currentData);
+  } else {
+    stopService();
+  }
 }
 
 /**
  * Subscribe to shared user location & orientation updates
- * @returns unsubscribe function
+ * @returns object with unsubscribe function and setTracking function
  */
-function subscribeUserLocation(callback: Subscriber, options: Options = {}): () => void {
-  subscribers.add(callback);
-  if (subscribers.size === 1) startService(options);
+function subscribeUserLocation(callback: Subscriber, options: Options = {}) {
+  const subscriberData: SubscriberData = { callback, tracking: false };
+  subscribers.set(callback, subscriberData);
 
-  // Emit current state immediately
-  callback(currentData);
-
-  return () => {
-    subscribers.delete(callback);
-    if (subscribers.size === 0) stopService();
+  const setTracking = (tracking: boolean) => {
+    updateSubscriberTracking(callback, tracking, options);
   };
+
+  const unsubscribe = () => {
+    subscribers.delete(callback);
+    stopService();
+  };
+
+  return { unsubscribe, setTracking };
 }
 
-export function useUbication(): LocationOrientationData {
+export function useUbication(initialTracking: boolean = false): LocationOrientationData & {
+  setTracking: (tracking: boolean) => void;
+} {
   const [data, setData] = useState<LocationOrientationData>(currentData);
+  // eslint-disable-next-line
+  const [tracking, setTrackingState] = useState(initialTracking);
 
   useEffect(() => {
-    const unsubscribe = subscribeUserLocation(setData, {
+    const { unsubscribe, setTracking: setServiceTracking } = subscribeUserLocation(setData, {
       cardinalPoints: 8,
       enableHighAccuracy: true,
       maximumAge: 0,
       timeout: 5000,
     });
-    return unsubscribe;
-  }, []);
 
-  return data;
+    // Set initial tracking state
+    setServiceTracking(initialTracking);
+
+    return unsubscribe;
+  }, [initialTracking]);
+
+  const setTracking = (newTracking: boolean) => {
+    setTrackingState(newTracking);
+    // The effect will handle the service update through the dependency
+  };
+
+  // Update service tracking when tracking state changes
+  useEffect(() => {
+    const { setTracking: setServiceTracking } = subscribeUserLocation(setData, {
+      cardinalPoints: 8,
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 5000,
+    });
+
+    setServiceTracking(tracking);
+  }, [tracking]);
+
+  return {
+    ...data,
+    setTracking,
+  };
 }

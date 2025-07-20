@@ -3,7 +3,7 @@ import { StyleSpecification } from "maplibre-gl";
 export const MAP_STYLE: StyleSpecification = {
   version: 8,
   name: "Ubicate-Style-MapLibre",
-  glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  glyphs: "/api/font/{fontstack}/{range}",
   sources: {
     localtiles: {
       type: "vector",

@@ -3,9 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
-
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import { useEffect, useState } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
@@ -13,16 +11,16 @@ import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../pills/PillFilter";
 import PlaceMenu from "../placeMenu/placeMenu";
+import { SearchDropdown } from "../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import NotificationBarDesktop from "./notificationsBarDesktop";
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, setPlaces } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
-  const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -40,18 +38,12 @@ export default function DesktopSidebar() {
     toggleSubSidebar(type);
   };
 
-  const handleSearchSelection = () => {
-    handleToggleSidebar();
-    setActiveSubSidebar(null);
-  };
-
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
     handleToggleSidebar();
     setActiveSubSidebar(null);
   };
 
-  // Cuando se selecciona un lugar, muestra "placeInformation"
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
@@ -61,25 +53,6 @@ export default function DesktopSidebar() {
       setIsOpen(false);
     }
   }, [selectedPlace, setIsOpen]);
-
-  // Añade el geocoder cuando se abre el subsidebar "buscar"
-  useEffect(() => {
-    if (activeSubSidebar === "buscar" && refSearchContainer.current) {
-      geocoder.current?.addTo(refSearchContainer.current);
-    }
-  }, [activeSubSidebar, geocoder]);
-
-  // Cierra el sidebar al seleccionar un resultado de búsqueda
-  useEffect(() => {
-    let current: null | MapboxGeocoder = null;
-    if (activeSubSidebar === "buscar" && geocoder.current) {
-      geocoder.current?.on("result", handleSearchSelection);
-      current = geocoder.current;
-    }
-    return () => {
-      current?.off("result", handleSearchSelection);
-    };
-  }, [activeSubSidebar, geocoder]);
 
   return (
     <>
@@ -206,7 +179,7 @@ export default function DesktopSidebar() {
               <div className="w-full h-full overflow-auto space-y-2">
                 <h3 className="font-bold text-lg">Buscar</h3>
                 <div className="p-1">
-                  <section ref={refSearchContainer} />
+                  <SearchDropdown />
                 </div>
                 <div>
                   <h4 className="font-semibold text-md">Filtra por lugares</h4>

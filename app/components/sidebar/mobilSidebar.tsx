@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-
 import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { SubSidebarType } from "@/utils/types";
@@ -18,12 +16,11 @@ import FooterOptionsSidebar from "./footerOptionsSidebar";
 import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
-  const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
@@ -37,13 +34,6 @@ export default function MobileSidebar() {
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
-  };
-
-  const handleSearchSelection = () => {
-    handleToggleSidebar();
-    setActiveSubSidebar(null);
-    const activeElement = document.activeElement as HTMLElement;
-    activeElement?.blur();
   };
 
   const handleCampusClick = (campusName: string) => {
@@ -162,24 +152,6 @@ export default function MobileSidebar() {
     }
   }, [selectedPlace, setIsOpen]);
 
-  // Set up geocoder
-  useEffect(() => {
-    let current: null | MapboxGeocoder = null;
-    const interval = setInterval(() => {
-      if (geocoder.current !== null && refSearchContainer.current !== null) {
-        geocoder.current.addTo(refSearchContainer.current);
-        clearInterval(interval);
-        geocoder.current?.on("result", handleSearchSelection);
-        current = geocoder.current;
-      }
-    }, 100);
-
-    return () => {
-      current?.off("result", handleSearchSelection);
-      clearInterval(interval);
-    };
-  }, []);
-
   // Handle sidebar close
   useEffect(() => {
     if (isOpen === false) {
@@ -199,7 +171,7 @@ export default function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <TopMobileSidebar refSearchContainer={refSearchContainer} />
+      <TopMobileSidebar />
 
       {/* Main Sidebar */}
       <section
