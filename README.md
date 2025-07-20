@@ -43,12 +43,12 @@ https://ubicate.osuc.dev/form-geo?campus={Nombre campus}
 ```
 
 Donde `{Nombre campus}` puede ser:
+
 - SanJoaquin
 - CasaCentral
 - Oriente
 - LoContador
 - Villarrica
-
 
 Además se puede centrar el mapa en la ubicación de una sala dado su identificador
 
@@ -57,13 +57,14 @@ https://ubicate.osuc.dev/map?place={Id sala}
 ```
 
 Donde `{Id sala}` puede ser:
+
 - B12
 
 ## Developing
 
 ### Instalación
 
-## 🔐 Configuración del archivo `.env.local`
+## 1. 🔐 Configuración del archivo `.env.local`
 
 Para que la aplicación funcione correctamente, debes crear un archivo `.env.local` en la **raíz del proyecto** con las siguientes variables de entorno:
 
@@ -81,9 +82,9 @@ API_UBICATE_SECRET=<SECRET>     # Opcional, obligatorio en producción
 
 ### 📍 Token de Mapbox
 
-* La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source UC**.
-* Si usas una clave distinta, **el estilo del mapa no se cargará correctamente**.
-* En ese caso, puedes modificar el estilo directamente en el componente:
+- La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source UC**.
+- Si usas una clave distinta, **el estilo del mapa no se cargará correctamente**.
+- En ese caso, puedes modificar el estilo directamente en el componente:
   `app/map/map.tsx`.
 
 ## 🐳 Uso del Dev Container
@@ -103,81 +104,117 @@ Para evitar problemas durante el desarrollo, se recomienda usar el Dev Container
 > [!NOTE]
 > Aunque puedes desarrollar sin el Dev Container, **en algunos casos raros podrían surgir errores inesperados**.
 
-## Instalar dependencias
+## 2. Instalar dependencias
 
 ```shell
 npm install
 ```
-## Scripts Disponibles  
 
-### `npm run dev`  
+## 3. Self-host map
+
+### 🛠️ Instrucciones para cargar el mapa en R2 (localmente)
+
+1. Ve a la carpeta `self-host-map`.
+
+2. Descomprime los archivos `.zip` que se encuentran dentro.
+
+3. Abre una terminal y navega hasta la carpeta `self-host-map`.
+
+4. Ejecuta el script:
+
+   ```bash
+   ./upload-local.bash
+   ```
+
+5. Si ocurre algún error durante el proceso, contacta con el equipo de OSUC.
+
+## Scripts Disponibles
+
+### `npm run dev`
+
 Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con `NODE_OPTIONS='--inspect'`.  
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run dev
-```  
+```
 
-### `npm run build`  
+### `npm run build`
+
 Compila la aplicación para producción, optimizándola para su implementación.  
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run build
-```  
+```
 
-### `npm run pages:build`  
+### `npm run pages:build`
+
 Usa `@cloudflare/next-on-pages` para generar una versión de la aplicación compatible con Cloudflare Pages.  
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run pages:build
-```  
+```
 
-### `npm run preview`  
-Compila la aplicación con `pages:build` y la previsualiza localmente utilizando `wrangler pages dev`. Ideal para probar cambios antes de la implementación.  
+### `npm run preview`
+
+Compila la aplicación con `pages:build` y la previsualiza localmente utilizando `wrangler pages dev`. Ideal para probar cambios antes de la implementación.
+
 > [!NOTE]
 > Este comando es especialmente útil para identificar problemas antes de la implementación en Cloudflare Pages. Por ejemplo, ha permitido detectar errores como el **Error 500** mencionado más adelante en este documento.
 
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run preview
-```  
+```
 
-### `npm run knip`  
-En bluesky que se recomienda https://knip.dev/ en repos para ir detectando que cosas no se están usando, tanto código como librerías. Lo corrí aquí y parece que funcionó perfect, eliminando varias librerías que no se usaron con la v2 del front.**Uso:**  
+### `npm run knip`
+
+En bluesky que se recomienda https://knip.dev/ en repos para ir detectando que cosas no se están usando, tanto código como librerías. Lo corrí aquí y parece que funcionó perfect, eliminando varias librerías que no se usaron con la v2 del front.**Uso:**
+
 ```bash
 npm run knip
-```  
+```
 
-### `npm run start`  
+### `npm run start`
+
 Inicia la aplicación previamente construida en modo producción usando **Next.js**.  
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run start
-```  
+```
 
-### `npm run lint`  
+### `npm run lint`
+
 Ejecuta el linter de **Next.js** para identificar errores y problemas de estilo en el código.  
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run lint
-```  
+```
 
-### `npm run lint:fix`  
-Ejecuta el linter y corrige automáticamente los problemas solucionables de forma segura.  
+### `npm run lint:fix`
+
+Ejecuta el linter y corrige automáticamente los problemas solucionables de forma segura.
 
 > [!NOTE]
-> Asegúrate de ejecutar este comando antes de realizar una build o subirlo a cloudflare, ya que de lo contrario el build podría fallar. 
+> Asegúrate de ejecutar este comando antes de realizar una build o subirlo a cloudflare, ya que de lo contrario el build podría fallar.
 
-**Uso:**  
+**Uso:**
+
 ```bash
 npm run lint:fix
-```  
+```
 
 ## Deployment
 
 ### Cloudflare (automatic)
 
 Es necesario que el proyecto pueda realizar correctamente un `build` (`npm run build`) antes de intentar desplegarlo en Cloudflare.  
-Si el build funciona localmente pero falla en Cloudflare, utiliza el comando `npm run preview` para identificar posibles problemas en un entorno de previsualización local de Cloudflare. 
+Si el build funciona localmente pero falla en Cloudflare, utiliza el comando `npm run preview` para identificar posibles problemas en un entorno de previsualización local de Cloudflare.
 
 ```shell
 npm run build:cloudflare
@@ -278,10 +315,10 @@ systemctl enable --now ubicate.service
 
 ####
 
-
 ## Agregar Nuevas Salas y Áreas
 
-Las salas subidas a través del formulario se cargan automáticamente a una rama de Git especificada en el archivo `.env.local`, bajo la variable `GITHUB_BRANCH_NAME`. Estas salas se añaden al archivo `data/places.json`. 
+Las salas subidas a través del formulario se cargan automáticamente a una rama de Git especificada en el archivo `.env.local`, bajo la variable `GITHUB_BRANCH_NAME`. Estas salas se añaden al archivo `data/places.json`.
+
 > [!IMPORTANT]  
 > La rama de Git debe existir antes de usar el formulario. Además, asegúrate de configurar el token de GitHub en `GITHUB_TOKEN_USER` y el correo asociado a la cuenta en `GITHUB_USER_EMAIL`. Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
 
@@ -291,7 +328,7 @@ Es posible agregar ubicaciones manualmente siguiendo el **formato GeoJSON**. Ade
 
 En caso de querer agregar campus, estos deben incluirse en el archivo `campus.json`.
 
-> [!CAUTION] 
+> [!CAUTION]
 > Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
 
 > [!NOTE]
@@ -307,11 +344,9 @@ Utilice las **issues** para informar cualquier bug o solicitud.
 
 ### Workflow
 
-
 > PR a development -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a development
 
 La información detallada sobre cómo contribuir se puede encontrar en [contributing.md](contributing.md).
-
 
 ## Necesitas contactarnos
 
@@ -322,6 +357,7 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 ## Bugs
 
 ### Error del servidor 500
+
 Si este error ocurre en Cloudflare, es muy probable que se deba a uno de los siguientes motivos:
 
 Versión incorrecta de Node.js: Asegúrate de que la versión de Node.js configurada sea compatible con tu aplicación.
