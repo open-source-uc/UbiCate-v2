@@ -36,7 +36,7 @@ export default async function Page() {
               href="https://osuc.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-success transition-all underline"
+              className="font-semibold transition-all underline"
             >
               Open Source UC
             </a>
@@ -49,7 +49,7 @@ export default async function Page() {
               href="https://github.com/open-source-uc/UbiCate-v2"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-success transition-all underline"
+              className="font-semibold transition-all underline"
             >
               código abierto
             </a>

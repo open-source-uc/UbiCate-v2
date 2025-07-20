@@ -46,7 +46,7 @@ function DebugPage() {
         </label>
       </section>
       <section>
-        <Link href="/" className="font-semibold text-success transition-all underline text-lg py-2">
+        <Link href="/" className="font-semibold transition-all underline text-lg py-2">
           Regresar al inicio
         </Link>
       </section>

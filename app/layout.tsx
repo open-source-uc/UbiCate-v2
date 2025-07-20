@@ -56,9 +56,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${instrument_sans.variable}`}>
-      <body className="h-full pb-[-12px] dark:bg-dark-1">
+      <body className="h-full pb-[-12px]">
         <SWRegister />
-        <div className="w-full h-dvh flex-col justify-between dark:bg-dark-1">{children}</div>
+        <div className="w-full h-dvh flex-col justify-between">{children}</div>
       </body>
     </html>
   );

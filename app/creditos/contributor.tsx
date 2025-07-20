@@ -13,7 +13,7 @@ function Contribuir({ login, avatar_url, html_url }: ContributorProps) {
         <img
           src={avatar_url}
           alt={login}
-          className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-light-2 shadow-lg"
+          className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-border shadow-lg"
         />
         <p className="text-lg font-medium text-white-ubi dark:text-yellow-400">{login}</p>
       </a>
