@@ -1,5 +1,9 @@
 ###
 
+Los mapas usados actualmente y la font estan en los zip, usar unzip
+
+###
+
 Para ver si un archivo es gzip
 file nombre_archivo
 
