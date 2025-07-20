@@ -4,7 +4,7 @@ import { CATEGORIES } from "@/utils/types";
 
 import * as Icons from "./icons";
 
-const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string }>> = {
+export const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string }>> = {
   [CATEGORIES.AUDITORIUM]: Icons.Auditorium,
   [CATEGORIES.BATH]: Icons.Wc,
   [CATEGORIES.BUILDING]: Icons.Default,
@@ -30,7 +30,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.YARD]: Icons.Default,
 };
 
-export default function MarkerIcon({ label }: { label: CATEGORIES }) {
+export default function MarkerIcon({ label, classname = "w-3 h-3" }: { label: CATEGORIES; classname?: string }) {
   const Icon = categoryIcons[label] ?? Icons.Default;
-  return <Icon className="w-3 h-3" />;
+  return <Icon className={classname} />;
 }

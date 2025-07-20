@@ -6,7 +6,7 @@ import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import { centroid } from "@turf/centroid";
-import type { LngLatBoundsLike } from "mapbox-gl";
+import type { LngLatBoundsLike } from "maplibre-gl";
 import type {
   ViewState,
   PointLike,
@@ -15,8 +15,8 @@ import type {
   MapEvent,
   MapLayerMouseEvent,
   MapRef,
-} from "react-map-gl";
-import { Map, Source, Layer, ScaleControl } from "react-map-gl";
+} from "react-map-gl/maplibre";
+import { Map, Source, Layer } from "react-map-gl/maplibre";
 
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
@@ -44,6 +44,7 @@ import {
   customPolygonSectionAreaLayer,
   customPolygonStrokeLayer,
 } from "./layers";
+import { MAP_STYLE } from "./mapStyle";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -63,6 +64,7 @@ function createInitialViewState(
   const initialViewState: InitialViewState = {
     zoom: 17,
   };
+
   if (paramPlace) {
     if (paramPlace?.geometry.type === "Point") {
       initialViewState.longitude = paramPlace?.geometry.coordinates[0];
@@ -75,7 +77,7 @@ function createInitialViewState(
     initialViewState.longitude = paramLng;
     initialViewState.latitude = paramLat;
     initialViewState.zoom = 17;
-  } else if (campusName) {
+  } else {
     initialViewState.bounds = getCampusBoundsFromName(campusName);
   }
 
@@ -93,7 +95,7 @@ export default function MapComponent({
 }) {
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
-  const { points, polygons, setPlaces, setSelectedPlace, selectedPlace, setIsOpen, pointsName } = useSidebar();
+  const { points, polygons, setPlaces, setSelectedPlace, isOpen, selectedPlace, setIsOpen, pointsName } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
   const isLoaded = useRef(false);
   const mapRef = useRef<MapRef>(null);
@@ -278,12 +280,37 @@ export default function MapComponent({
     }
   }, [selectedPlace, handlePlaceSelection]);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+
+    const observer = new ResizeObserver(() => {
+      if (timeout) clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        if (mapRef.current) {
+          mapRef.current.resize();
+          console.log("Map resized");
+        }
+      }, 175); // 200 para evitar resize excesivos, debido a la animación de la sidebar que dura 150ms
+    });
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
+
   return (
-    <>
+    <div className="w-full h-full" ref={containerRef}>
       <Map
         id="mainMap"
-        mapStyle="mapbox://styles/ubicate/cm8pcya3i004001qth3hz02rw"
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+        mapStyle={MAP_STYLE}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
@@ -293,9 +320,19 @@ export default function MapComponent({
             openSidebar: true,
           });
         }}
+        transformRequest={(url, type) => {
+          if (type === "Tile") {
+            const baseUrl = window.location.origin;
+            return { url: baseUrl + url };
+          }
+          if (type === "Glyphs") {
+            const baseUrl = window.location.origin;
+            return { url: baseUrl + url };
+          }
+          return { url };
+        }}
         ref={mapRef}
       >
-        <ScaleControl />
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...campusBorderLayer} />
         </Source>
@@ -341,6 +378,6 @@ export default function MapComponent({
           );
         })}
       </Map>
-    </>
+    </div>
   );
 }

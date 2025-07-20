@@ -1,4 +1,4 @@
-import type { LayerProps } from "react-map-gl";
+import type { LayerProps } from "react-map-gl/maplibre";
 
 export const placesTextLayer: LayerProps = {
   id: "places-text",

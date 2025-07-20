@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Marker as MapboxMarker } from "react-map-gl";
-import type { MarkerDragEvent } from "react-map-gl";
+import { Marker as MapboxMarker } from "react-map-gl/maplibre";
+import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
 import { Feature, PointFeature } from "@/utils/types";
 

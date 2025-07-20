@@ -18,6 +18,9 @@ export function useDirectionStatus(
     if (!place) {
       return { ok: false, error: "No podemos calcular la ruta para este lugar." };
     }
+    if (!position) {
+      return { ok: false, error: "No podemos calcular la ruta si no tenemos tu ubicación." };
+    }
 
     let destination: [number, number] | null = null;
     if (place.geometry.type === "Point") {
