@@ -6,6 +6,7 @@ import { NotificationContext } from "@/app/context/notificationCtx";
 import { useUbication } from "@/app/hooks/useUbication";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
+import DangerButton from "../danger/dangerButton";
 import * as Icons from "../icons/icons";
 
 import DirectionErrorNotification from "./directionErrorNotification";
@@ -135,7 +136,8 @@ export default function UserLocation() {
           <Icons.UserLocation rotation={rotation} />
         </Marker>
       ) : null}
-      <div className="fixed z-40 bottom-17 desktop:bottom-9 right-0 p-2 desktop:p-1">
+      <div className="fixed z-40 bottom-17 desktop:bottom-9 right-0 p-2 desktop:p-1 flex flex-col gap-2">
+        <DangerButton onClick={() => setTracking(false)} />
         <LocationButton onClick={handleLocationButtonClick} />
       </div>
     </>

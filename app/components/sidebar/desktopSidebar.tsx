@@ -157,6 +157,15 @@ export default function DesktopSidebar() {
           <div className={`flex flex-col space-y-4 px-4 ${isOpen ? "block" : "hidden"}`}>
             <FooterOptionsSidebar />
           </div>
+          <div className={`flex justify-center ${!isOpen ? "block" : "hidden"}`}>
+            <div className="w-10 h-10 rounded-xl bg-primary">
+              <Link href="/creditos" className="font-semibold block hover:underline">
+                <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
+                  <Icons.OSUC />
+                </span>{" "}
+              </Link>
+            </div>
+          </div>
         </section>
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
