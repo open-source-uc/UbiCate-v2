@@ -3,6 +3,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import Fuse from "fuse.js";
 
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { getCategoryColor } from "@/utils/categoryToColors";
 import PlacesJSON from "@/utils/places";
 import { CATEGORIES, Feature, siglas } from "@/utils/types";
 
@@ -118,21 +119,26 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
     inputRef.current?.focus();
   };
 
-  const highlightMatch = (text: string, searchTerm: string): React.ReactNode => {
-    if (!searchTerm.trim()) return text;
+  // Función para determinar el tamaño del ícono basado en la longitud del texto
+  const getIconSize = (text: string) => {
+    if (text.length > 50) return "w-4 h-4"; // Texto muy largo
+    if (text.length > 30) return "w-5 h-5"; // Texto largo
+    return "w-6 h-6"; // Texto normal
+  };
 
-    const regex = new RegExp(`(${searchTerm})`, "gi");
-    const parts = text.split(regex);
-
-    return parts.map((part, index) => (regex.test(part) ? <span key={index}>{part}</span> : part));
+  // Función para determinar el tamaño del contenedor del ícono
+  const getIconContainerSize = (text: string) => {
+    if (text.length > 50) return "w-6 h-6"; // Más pequeño para texto muy largo
+    if (text.length > 30) return "w-7 h-7"; // Mediano para texto largo
+    return "w-8 h-8"; // Normal
   };
 
   return (
     <div className="relative" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative bg-brown-medium outline-1 outline-brown-dark rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
+      <div className="relative bg-secondary outline-1 outline-secondary rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
         {/* Input */}
-        <div className="relative">
+        <div className="relative text-tertiary">
           <input
             ref={inputRef}
             type="text"
@@ -141,14 +147,14 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             onKeyDown={handleKeyDown}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
-            className="w-full border-none bg-transparent m-0 h-12 text-brown-light px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:text-white focus:outline-blue-600 focus:outline-1 focus:outline-offset-[-1px] focus:shadow-[0_0_0_2px_#015FFF]"
+            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:outline-blue-600 focus:outline-1 focus:outline-offset-[-1px] focus:shadow-[0_0_0_2px_#015FFF]"
             placeholder="Buscar lugares por nombre..."
             autoComplete="off"
           />
 
           {/* Ícono de búsqueda */}
           <div className="absolute top-3 left-3 w-6 h-6 pointer-events-none">
-            <svg className="w-full h-full text-brown-light" viewBox="0 0 24 24">
+            <svg className="w-full h-full" viewBox="0 0 24 24">
               <path
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 stroke="currentColor"
@@ -164,12 +170,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
           {query ? (
             <button
               onClick={handleClearInput}
-              className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-brown-medium leading-none"
+              className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-secondary leading-none"
             >
-              <svg
-                className="w-5 h-5 mt-2 mr-1 text-brown-light hover:text-white transition-colors"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5 mt-2 mr-1" viewBox="0 0 24 24">
                 <path
                   d="M6 18L18 6M6 6l12 12"
                   stroke="currentColor"
@@ -187,31 +190,66 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {/* Sugerencias */}
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
-          <div className="bg-brown-medium rounded-xl rounded-t-lg overflow-hidden text-base border border-brown-dark">
+          <div className="bg-secondary rounded-xl rounded-t-lg overflow-hidden text-base border border-secondary">
             <ul ref={listRef} className="list-none m-0 p-0">
               {matchingFeatures.map((feature, index) => {
+                const primaryCategory = feature.properties.categories[0];
+                const color = getCategoryColor(primaryCategory.toLowerCase().trim());
+                const placeName = feature.properties.name;
+                const campusName = siglas.get(feature.properties.campus);
+
+                // Determinar si necesita texto más pequeño
+                const needsSmallText = placeName.length > 30;
+                const needsVerySmallText = placeName.length > 50;
+
                 return (
                   <li
                     key={index}
                     className={`
-                    ${index === selectedIndex ? "bg-brown-dark" : "hover:bg-brown-dark/50"}
-                  `}
+                      ${index === selectedIndex ? "bg-secundary" : "hover:bg-secundary/50"}
+                    `}
                   >
                     <a
-                      className="cursor-pointer block py-1.5 px-3 text-brown-light no-underline"
+                      className="cursor-pointer block py-2 px-3 no-underline"
                       onClick={() => handleSelect(feature)}
                       onMouseEnter={() => setSelectedIndex(index)}
                     >
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 flex items-center justify-center rounded text-brown-light text-sm">
-                          <MarkerIcon classname="w-8 h-8" label={feature.properties.categories[0] as CATEGORIES} />
+                      <div className="flex items-start gap-3">
+                        {/* Contenedor del ícono con tamaño adaptativo */}
+                        <div
+                          className={`${getIconContainerSize(
+                            placeName,
+                          )} flex items-center justify-center rounded text-xs flex-shrink-0 mt-1 ${color}`}
+                        >
+                          <MarkerIcon
+                            classname={getIconSize(placeName)}
+                            label={feature.properties.categories[0] as CATEGORIES}
+                          />
                         </div>
-                        <div className="flex-1">
-                          <div className="font-bold text-ellipsis overflow-hidden whitespace-nowrap">
-                            {highlightMatch(feature.properties.name, query)}
+
+                        {/* Contenedor de texto */}
+                        <div className="flex-1 min-w-0">
+                          <div
+                            className={`font-bold text-left leading-tight ${
+                              needsVerySmallText
+                                ? "text-xs break-words"
+                                : needsSmallText
+                                ? "text-sm break-words"
+                                : "text-base"
+                            }`}
+                          >
+                            {placeName}
                           </div>
-                          <div className="text-sm text-brown-light/60 text-ellipsis overflow-hidden whitespace-nowrap">
-                            {siglas.get(feature.properties.campus)}
+                          <div
+                            className={`text-left leading-tight mt-0.5 ${
+                              needsVerySmallText
+                                ? "text-xs break-words opacity-75"
+                                : needsSmallText
+                                ? "text-xs break-words opacity-75"
+                                : "text-sm opacity-75"
+                            }`}
+                          >
+                            {campusName}
                           </div>
                         </div>
                       </div>
@@ -220,19 +258,6 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                 );
               })}
             </ul>
-          </div>
-        </div>
-      ) : null}
-
-      {/* Estado sin resultados */}
-      {isOpen && query && matchingFeatures.length === 0 ? (
-        <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
-          <div className="bg-brown-medium rounded-xl rounded-t-lg overflow-hidden border border-brown-dark">
-            <div className="text-brown-light py-1.5 px-3 text-base text-center">
-              <div className="text-4xl mb-2">🔍</div>
-              <div className="text-sm">No se encontraron resultados</div>
-              <div className="text-xs text-brown-light/60 mt-1">Intenta con otros términos de búsqueda</div>
-            </div>
           </div>
         </div>
       ) : null}

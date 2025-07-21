@@ -35,16 +35,8 @@ import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
+import { useMapStyle } from "../hooks/useMapStyle";
 
-import {
-  placesTextLayer,
-  campusBorderLayer,
-  sectionAreaLayer,
-  sectionStrokeLayer,
-  customPolygonSectionAreaLayer,
-  customPolygonStrokeLayer,
-} from "./layers";
-import { MAP_STYLE } from "./mapStyle";
 import Marker from "./marker";
 
 interface InitialViewState extends Partial<ViewState> {
@@ -306,11 +298,12 @@ export default function MapComponent({
     };
   }, []);
 
+  const mapConfig = useMapStyle();
   return (
     <div className="w-full h-full" ref={containerRef}>
       <Map
         id="mainMap"
-        mapStyle={MAP_STYLE}
+        mapStyle={mapConfig.mapStyle}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
@@ -334,18 +327,18 @@ export default function MapComponent({
         ref={mapRef}
       >
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
-          <Layer {...campusBorderLayer} />
+          <Layer {...mapConfig.campusBorderLayer} />
         </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
-          <Layer {...placesTextLayer} />
+          <Layer {...mapConfig.placesTextLayer} />
         </Source>
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
-          <Layer {...sectionAreaLayer} />
-          <Layer {...sectionStrokeLayer} />
+          <Layer {...mapConfig.sectionAreaLayer} />
+          <Layer {...mapConfig.sectionStrokeLayer} />
         </Source>
         <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(polygon)}>
-          <Layer {...customPolygonSectionAreaLayer} />
-          <Layer {...customPolygonStrokeLayer} />
+          <Layer {...mapConfig.customPolygonSectionAreaLayer} />
+          <Layer {...mapConfig.customPolygonStrokeLayer} />
         </Source>
         <DebugMode />
         <UserLocation />

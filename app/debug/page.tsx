@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { useState, useEffect } from "react";
 
-function DebugPage() {
+export default function DebugPage() {
   const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function DebugPage() {
         <label className="flex items-center space-x-2 text-xl">
           <input
             type="password"
-            className="bg-brown-light rounded-2xl p-2 disabled:bg-brown-medium"
+            className="bg-secondary rounded-2xl p-2 disabled:bg-secondary"
             disabled={!isDebugMode}
             onChange={(e) => {
               sessionStorage.setItem("ubicateToken", e.target.value ?? null);
@@ -46,7 +46,7 @@ function DebugPage() {
         </label>
       </section>
       <section>
-        <Link href="/" className="font-semibold text-success transition-all underline text-lg py-2">
+        <Link href="/" className="font-semibold transition-all underline text-lg py-2">
           Regresar al inicio
         </Link>
       </section>
@@ -54,4 +54,4 @@ function DebugPage() {
   );
 }
 
-export default DebugPage;
+export const runtime = "edge";

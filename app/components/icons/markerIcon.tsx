@@ -4,7 +4,7 @@ import { CATEGORIES } from "@/utils/types";
 
 import * as Icons from "./icons";
 
-export const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string }>> = {
+const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string }>> = {
   [CATEGORIES.AUDITORIUM]: Icons.Auditorium,
   [CATEGORIES.BATH]: Icons.Wc,
   [CATEGORIES.BUILDING]: Icons.Default,

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../pills/PillFilter";
@@ -16,9 +17,11 @@ import { SearchDropdown } from "../search/SearchDropdown";
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import NotificationBarDesktop from "./notificationsBarDesktop";
+import ThemesList from "./themesList";
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, setPlaces } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
+  const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
 
@@ -61,20 +64,20 @@ export default function DesktopSidebar() {
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
-          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full transition-all duration-150 pb-4 ${
-            isOpen ? "w-54" : "w-20"
+          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full pb-4 ${
+            isOpen ? "w-44" : "w-20"
           }`}
         >
-          <div className={`flex items-center p-4 ${isOpen ? "flex-row justify-between" : "flex-col py-8 space-y-6"}`}>
+          <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-4" : "flex-col py-8 space-y-6"}`}>
             {/* Logo - visible only when expanded */}
             <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>
-              <img src="/long-logo.svg" className="pl-2" alt="Logo" width="118" />
+              <img src="/logo.svg" className="pl-2 w-16 h-16" alt="Logo" />
             </Link>
 
             {/* Toggle button */}
             <div className={`${isOpen ? "" : "flex justify-center"}`}>
               <button onClick={toggleSidebar} className="hover:text-muted pointer-events-auto cursor-pointer">
-                <Icons.DockToRight className="w-6 h-6" />
+                <Icons.DockToRight className="w-8 h-8" />
               </button>
             </div>
           </div>
@@ -100,7 +103,6 @@ export default function DesktopSidebar() {
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Buscar</span>
               </button>
-
               {/* Campus button */}
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
@@ -119,7 +121,23 @@ export default function DesktopSidebar() {
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Campus</span>
               </button>
-
+              <button
+                onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
+                className={`${
+                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
+                } flex items-center pointer-events-auto cursor-pointer ${
+                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
+                }`}
+              >
+                <span
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
+                  }`}
+                >
+                  <Icons.Brush />
+                </span>
+                <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Temas</span>
+              </button>
               {/* Guides button */}
               <button
                 disabled
@@ -143,7 +161,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground transition-all duration-150 border-l-1 border-border ${
+          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground border-l-1 border-border ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >
@@ -185,6 +203,11 @@ export default function DesktopSidebar() {
                   <h4 className="font-semibold text-md">Filtra por lugares</h4>
                   <PillFilter />
                 </div>
+              </div>
+            )}
+            {activeSubSidebar === "temas" && (
+              <div className="w-full h-full space-y-4">
+                <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
           </div>

@@ -9,7 +9,7 @@ const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 function MarkDownComponent(props: { children: string }) {
   return (
     <ReactMarkdown
-      className="text-foreground text-prose dark:prose-invert p-2"
+      className="text-foreground text-prose p-2"
       remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ node, ...restProps }) => <h1 className="text-xl font-bold my-1" {...restProps} />,
