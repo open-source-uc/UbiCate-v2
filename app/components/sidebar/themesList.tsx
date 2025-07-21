@@ -21,7 +21,7 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
       id: "pink-coquette",
       name: "Coquette",
       emoji: "🌸",
-      description: "Dulce y coqueta",
+      description: "Pink pony club 🎵",
     },
     {
       id: "",
