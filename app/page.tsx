@@ -9,6 +9,7 @@ import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import MapPage from "./map/mapPage";
+import { ThemeProvider } from "./context/themeCtx";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
@@ -92,10 +93,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
         <DirectionsProvider>
           <PinsProvider>
             <NotificationProvider>
+              <ThemeProvider>
               <main spellCheck="false" className="h-full w-full relative flex">
                 <NavigationSidebar />
                 <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
               </main>
+              </ThemeProvider>
             </NotificationProvider>
           </PinsProvider>
         </DirectionsProvider>

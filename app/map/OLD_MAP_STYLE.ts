@@ -1,6 +1,6 @@
 import { StyleSpecification } from "maplibre-gl";
 
-export const MAP_STYLE: StyleSpecification = {
+export const OLD_MAP_STYLE: StyleSpecification = {
   version: 8,
   name: "Ubicate-Style-MapLibre",
   glyphs: "/api/font/{fontstack}/{range}",

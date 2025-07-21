@@ -6,24 +6,25 @@ import { useSidebar } from "../../context/sidebarCtx";
 import * as Icons from "../icons/icons";
 
 import Pill from "./pill";
+import { getCategoryColor } from "@/utils/categoryToColors";
 
 const pills: Array<{
   title: string;
   icon: React.ReactNode;
-  bg: string;
   filter: string;
   isNameFilter?: boolean;
 }> = [
-  { title: "Facultades", icon: <Icons.School />, bg: "bg-deep-red-option", filter: "faculty" },
-  { title: "Salas de Estudio", icon: <Icons.Studyroom />, bg: "bg-red-option", filter: "studyroom" },
-  { title: "Auditorios", icon: <Icons.Auditorium />, bg: "bg-green-option", filter: "auditorium" },
-  { title: "Bibliotecas", icon: <Icons.Library />, bg: "bg-pink-option", filter: "biblioteca", isNameFilter: true },
-  { title: "Baños", icon: <Icons.Wc />, bg: "bg-deep-cyan-option", filter: "bath" },
-  { title: "Comida", icon: <Icons.Restaurant />, bg: "bg-orange-option", filter: "food_lunch" },
-  { title: "Agua", icon: <Icons.Water />, bg: "bg-cyan-option", filter: "water" },
-  { title: "Deportes", icon: <Icons.Sport />, bg: "bg-deep-green-option", filter: "sports_place" },
-  { title: "Crisol", icon: <Icons.Print />, bg: "bg-purple-option", filter: "crisol", isNameFilter: true },
-  { title: "Estacionamientos", icon: <Icons.Parking />, bg: "bg-gray-option", filter: "parking" },
+  { title: "Facultades", icon: <Icons.School />, filter: "faculty" },
+  { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: "studyroom" },
+  { title: "Auditorios", icon: <Icons.Auditorium />, filter: "auditorium" },
+  { title: "Bibliotecas", icon: <Icons.Library />, filter: "biblioteca", isNameFilter: true },
+  { title: "Baños", icon: <Icons.Wc />,  filter: "bath" },
+  { title: "Comida", icon: <Icons.Restaurant />,  filter: "food_lunch" },
+  { title: "Agua", icon: <Icons.Water />,  filter: "water" },
+  { title: "Deportes", icon: <Icons.Sport />,  filter: "sports_place" },
+  { title: "Crisol", icon: <Icons.Print />, filter: "crisol", isNameFilter: true },
+  { title: "Estacionamientos", icon: <Icons.Parking />,  filter: "parking" },
+  { title: "Impresoras", icon: <Icons.Print />,  filter: "photocopy" },
 ];
 
 function PillFilter() {
@@ -80,12 +81,12 @@ function PillFilter() {
           }
         `}</style>
 
-        {pills.map(({ title, icon, bg, filter, isNameFilter }) => (
+        {pills.map(({ title, icon, filter, isNameFilter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill
               title={title}
               icon={icon}
-              bg_color={bg}
+              bg_color={getCategoryColor(filter.toLowerCase())}
               onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
               active={activeFilter === filter}
             />

@@ -12,9 +12,10 @@ export const placesTextLayer: LayerProps = {
     "text-offset": [0, 1],
   },
   paint: {
-    "text-color": "#f9f8f3",
-    "text-halo-color": "#150a04",
-    "text-halo-width": 1,
+"text-color": "#2a2a2a",             // Gris neutro oscuro, legible en fondos claros y rosa
+"text-halo-color": "rgba(255,255,255,0.75)",  // Halo blanco semi-transparente
+"text-halo-width": 1.5
+
   },
 };
 
