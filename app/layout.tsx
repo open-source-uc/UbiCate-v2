@@ -1,11 +1,11 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
+import Head from "next/head";
 import { cookies } from "next/headers";
 
 import { Metadata } from "next";
 
 import SWRegister from "./components/SWRegister";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),
