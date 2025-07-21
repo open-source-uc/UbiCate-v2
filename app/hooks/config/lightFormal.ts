@@ -57,11 +57,9 @@ export const placesTextLayer: LayerProps = {
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["Open Sans Semibold"],
-    "text-size": 12, // Incrementé ligeramente el tamaño para mejor visibilidad
-    "text-anchor": "center", // Cambié a center para mejor posicionamiento
-    "text-offset": [0, 0], // Sin offset para centrar mejor
-    "text-allow-overlap": false, // Evita superposición de texto
-    "text-ignore-placement": false,
+    "text-size": 11,
+    "text-anchor": "top",
+    "text-offset": [0, 1],
   },
   paint: {
     "text-color": "#1a202c", // Texto más oscuro para mejor contraste

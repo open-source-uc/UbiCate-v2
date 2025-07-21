@@ -59,5 +59,3 @@ export default function Marker({
     </MapboxMarker>
   );
 }
-
-/* <Image className="" src={svgPath} alt={place.properties.name} width={20} height={29} /> */
