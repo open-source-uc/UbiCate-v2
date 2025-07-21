@@ -96,6 +96,11 @@
   --palette-soft-gray-800: #262626;
   --palette-soft-gray-900: #171717;
 
+  /* ========= COLORES DESTRUCTIVOS PROFESIONALES ========= */
+  --palette-professional-red-light: #dc2626;
+  --palette-professional-red-medium: #fed7d7;
+  --palette-professional-red-dark: #991b1b;
+
   /* ============== TEMA ACTUAL ============== */
   /* Tokens semánticos - Usar con clases de Tailwind */
   
@@ -250,7 +255,8 @@
   --theme-accent: var(--palette-soft-gray-300);
   --theme-accent-foreground: var(--palette-soft-gray-700);
   
-  --theme-destructive: var(--palette-red-500);
+  /* MEJORA: Color destructivo más profesional y armonioso */
+  --theme-destructive: var(--palette-professional-red-medium);
   --theme-destructive-foreground: var(--palette-white-primary);
   
   --theme-border: var(--palette-soft-gray-300);
@@ -267,7 +273,7 @@
   --theme-chart-6: var(--palette-pink-500);
   --theme-chart-7: var(--palette-cyan-800);
   --theme-chart-8: var(--palette-green-800);
-  --theme-chart-9: var(--palette-red-500);
+  --theme-chart-9: var(--palette-professional-red-medium);
   --theme-chart-10: var(--palette-soft-gray-400);
 }
 
@@ -345,4 +351,21 @@
 
 [data-theme="light-formal"] .bg-background\/95 {
   background-color: rgb(249 248 243 / 0.98);
+}
+
+/* =============================================== */
+/*        ESTILOS ESPECÍFICOS PARA DESTRUCTIVE     */
+/* =============================================== */
+
+/* Estados hover y focus para elementos destructivos en tema claro */
+[data-theme="light-formal"] .bg-destructive:hover {
+  background-color: var(--palette-professional-red-dark);
+}
+
+[data-theme="light-formal"] .text-destructive:hover {
+  color: var(--palette-professional-red-dark);
+}
+
+[data-theme="light-formal"] .border-destructive:hover {
+  border-color: var(--palette-professional-red-dark);
 }
