@@ -34,9 +34,27 @@ export const metadata: Metadata = {
   ],
 };
 
-export const viewport: Viewport = {
-  themeColor: [{ color: "#150a04" }],
-};
+// Función para obtener el color del tema basado en la cookie
+// Sacar los colores de la configuración de Tailwind
+function getThemeColor(theme?: string): string {
+  switch (theme) {
+    case "pink-coquette":
+      return "#ec4899"; // --palette-pastel-pink-500
+    case "light-formal":
+      return "#015fff"; // --palette-blue-primary
+    default:
+      return "#150a04"; // --palette-brown-900 (tema por defecto)
+  }
+}
+
+export async function generateViewport(): Promise<Viewport> {
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get("ubicate-theme")?.value;
+
+  return {
+    themeColor: [{ color: getThemeColor(themeCookie) }],
+  };
+}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
@@ -44,9 +62,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
-      <body className="h-full pb-[-12px]">
+      <head />
+      <body className="h-full">
         <SWRegister />
-        <div className="w-full h-dvh flex-col justify-between">{children}</div>
+        <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
       </body>
     </html>
   );
