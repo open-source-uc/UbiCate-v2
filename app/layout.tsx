@@ -5,13 +5,13 @@ import { cookies } from "next/headers";
 import { Metadata } from "next";
 
 import SWRegister from "./components/SWRegister";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),
   title: "Ubicate UC",
   description:
     "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
-  manifest: "/manifest.json",
   icons: {
     apple: "/icons/icon-192x192.png",
   },
@@ -39,6 +39,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
+      <Head>
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <body className="h-full">
         <SWRegister />
         <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
