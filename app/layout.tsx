@@ -1,8 +1,9 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { cookies } from "next/headers";
+
 import { Metadata } from "next";
 import type { Viewport } from "next";
-import { cookies } from "next/headers";
 
 import SWRegister from "./components/SWRegister";
 
@@ -44,7 +45,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [{ color: "#150a04" }],
 };
-
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();

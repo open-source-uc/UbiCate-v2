@@ -12,8 +12,8 @@ export const placesTextLayer: LayerProps = {
     "text-offset": [0, 1],
   },
   paint: {
-    "text-color": "#2a2a2a", // Gris neutro oscuro, legible en fondos claros y rosa
-    "text-halo-color": "rgba(255,255,255,0.75)", // Halo blanco semi-transparente
+    "text-color": "#ffffff", // Blanco para buen contraste en fondo oscuro
+    "text-halo-color": "rgba(0, 0, 0, 0.75)", // Halo negro semi-transparente
     "text-halo-width": 1.5,
   },
 };
