@@ -1,7 +1,5 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
-import Head from "next/head";
-import { cookies } from "next/headers";
 
 import { Metadata } from "next";
 
@@ -12,6 +10,7 @@ export const metadata: Metadata = {
   title: "Ubicate UC",
   description:
     "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+  manifest: "/manifest.json",
   icons: {
     apple: "/icons/icon-192x192.png",
   },
@@ -33,15 +32,9 @@ export const metadata: Metadata = {
   ],
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("ubicate-theme")?.value;
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
-      <Head>
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
+    <html lang="es">
       <body className="h-full">
         <SWRegister />
         <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
