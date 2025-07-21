@@ -98,8 +98,6 @@
 
   /* ========= COLORES DESTRUCTIVOS PROFESIONALES ========= */
   --palette-professional-red-light: #dc2626;
-  --palette-professional-red-medium: #fed7d7;
-  --palette-professional-red-dark: #991b1b;
 
   /* ============== TEMA ACTUAL ============== */
   /* Tokens semánticos - Usar con clases de Tailwind */
@@ -217,7 +215,7 @@
   
   --theme-border: var(--palette-pastel-pink-300);
   --theme-input: var(--palette-pastel-pink-200);
-  --theme-ring: var(--palette-pastel-pink-400);
+  --theme-ring: var(--palette-pastel-pink-600);
 
   /* Chart Colors - Paleta Pastel */
   --theme-chart-0: var(--palette-pastel-pink-300);
@@ -256,7 +254,7 @@
   --theme-accent-foreground: var(--palette-soft-gray-700);
   
   /* MEJORA: Color destructivo más profesional y armonioso */
-  --theme-destructive: var(--palette-professional-red-medium);
+  --theme-destructive: var(--palette-professional-red-light);
   --theme-destructive-foreground: var(--palette-white-primary);
   
   --theme-border: var(--palette-soft-gray-300);
@@ -311,9 +309,11 @@
 /*            RESPETAR LICENSIA DE OSM             */
 /* =============================================== */
 
+/* Prueba con más especificidad y !important */
 .maplibregl-ctrl-bottom-right {
-  z-index: 1000;
+  z-index: 10000 !important;
 }
+
 
 /* =============================================== */
 /*              UTILIDADES DE TEMA                 */
@@ -352,21 +352,4 @@
 
 [data-theme="light-formal"] .bg-background\/95 {
   background-color: rgb(249 248 243 / 0.98);
-}
-
-/* =============================================== */
-/*        ESTILOS ESPECÍFICOS PARA DESTRUCTIVE     */
-/* =============================================== */
-
-/* Estados hover y focus para elementos destructivos en tema claro */
-[data-theme="light-formal"] .bg-destructive:hover {
-  background-color: var(--palette-professional-red-dark);
-}
-
-[data-theme="light-formal"] .text-destructive:hover {
-  color: var(--palette-professional-red-dark);
-}
-
-[data-theme="light-formal"] .border-destructive:hover {
-  border-color: var(--palette-professional-red-dark);
 }

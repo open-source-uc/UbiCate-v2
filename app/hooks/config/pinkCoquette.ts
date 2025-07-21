@@ -78,7 +78,7 @@ export const PINK_COQUETTE_MAP_COLORS = {
   scrub: "#bbf7d0", // Verde matorral más saturado
   crop: "#d1fae5", // Verde cultivo suave
 
-  // Landuse - Campus con verde que contraste bien con rosa
+  // Landuse - Campus con verde más oscuro que contraste mejor
   park: "#a7f3d0", // Verde parque más vibrante
   residential: "#fce7f3", // Rosa residencial coquette
   commercial: "#fbcfe8", // Rosa comercial más visible
@@ -87,21 +87,21 @@ export const PINK_COQUETTE_MAP_COLORS = {
   hospital: "#fbcfe8", // Rosa hospital más saturado
   school: "#a7f3d0", // Verde escuela vibrante
   airport: "#f3f4f6", // Gris aeropuerto neutro
-  campus: "#d1fae5", // Verde campus VIBRANTE para contrastar con rosas - COQUETTE POWER
+  campus: "#86efac", // Verde campus MÁS OSCURO - mejor contraste con rosa coquette
 
   // Building - Rosa coquette más saturado pero elegante
-  building: "#f9a8d4", // Rosa coquette vibrante - RECOVER THE PINK!
+  building: "#f9a8d4", // Rosa coquette vibrante
   buildingOutline: "rgba(236, 72, 153, 0.6)", // Contorno rosa más definido
 
-  // Transportation - Progresión de rosas muy suaves
-  path: "#f5f5f5", // Sendero gris muy claro
+  // Transportation - Paths morados y progresión mejorada
+  path: "#c084fc", // Sendero MORADO CLARO coquette ✨
   minor: "#fef7f7", // Calle menor rosa muy suave
-  secondary: "#f3e8ff", // Secundaria lavanda suave - MEJORADO
-  primary: "#e9d5ff", // Primaria lavanda un poco más visible - MEJORADO
-  trunk: "#d8b4fe", // Troncal lavanda medio - MEJORADO
-  motorway: "#c084fc", // Autopista lavanda más fuerte - MEJORADO
-  railStart: "#f3e8ff", // Inicio ferrocarril - MEJORADO
-  railEnd: "#e9d5ff", // Fin ferrocarril - MEJORADO
+  secondary: "#e9d5ff", // Secundaria lavanda suave
+  primary: "#d8b4fe", // Primaria lavanda más visible
+  trunk: "#c084fc", // Troncal lavanda medio
+  motorway: "#a855f7", // Autopista morada más fuerte
+  railStart: "#f3e8ff", // Inicio ferrocarril
+  railEnd: "#e9d5ff", // Fin ferrocarril
 
   // Text - Contraste mejorado
   roadText: "#525252", // Texto carretera gris medio
@@ -111,9 +111,10 @@ export const PINK_COQUETTE_MAP_COLORS = {
   poiTextHalo: "#fdf2f8", // Halo POI rosa muy claro
   placeText: "#525252", // Texto lugar gris medio
   placeTextHalo: "#fdf2f8", // Halo lugar rosa muy claro
-  buildingText: "#6b21a8", // Texto edificios púrpura oscuro - NUEVO para mejor contraste
-  campusText: "#14532d", // Texto campus verde muy oscuro - NUEVO
+  buildingText: "#6b21a8", // Texto edificios púrpura oscuro
+  campusText: "#065f46", // Texto campus verde MÁS OSCURO para mejor legibilidad
+  pathText: "#6b21a8", // Texto paths morado oscuro - NUEVO
 
   // Boundary - Lavanda muy discreto
-  boundary: "#f3e8ff", // Límite lavanda muy suave - MEJORADO
+  boundary: "#f3e8ff", // Límite lavanda muy suave
 };
