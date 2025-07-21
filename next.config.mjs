@@ -8,7 +8,11 @@ const withSerwist = withSerwistInit({
 });
 
 if (process.env.NODE_ENV === 'development') {
-    await setupDevPlatform();
+  await setupDevPlatform();
 }
 
-export default withSerwist({});
+export default withSerwist({
+  experimental: {
+    appDir: true,
+  },
+});
