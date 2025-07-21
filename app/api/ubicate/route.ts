@@ -61,11 +61,11 @@ async function createGithubFile(path: string, initialContent: Places): Promise<G
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
+      const errorData: any = await response.json();
       throw new Error(`Failed to create file ${path}: ${errorData.message}`);
     }
 
-    const data = await response.json();
+    const data: any = await response.json();
 
     return {
       url,
@@ -110,7 +110,7 @@ async function githubFileOperation(
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
+      const errorData: any = await response.json();
       // Si es un error de SHA, podría ser una condición de carrera
       if (errorData.message && errorData.message.includes("SHA")) {
         throw new Error(`Concurrent modification detected: ${errorData.message}`);
@@ -148,7 +148,7 @@ async function fetchGithubFile(path: string): Promise<GithubFileResponse> {
       throw new Error(`Error fetching data: ${response.status} ${response.statusText}`);
     }
 
-    const fileData = await response.json();
+    const fileData: any = await response.json();
     let parsedData: Places;
 
     try {

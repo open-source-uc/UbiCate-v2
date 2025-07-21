@@ -1,6 +1,7 @@
+import type { Map, PointLike } from "maplibre-gl";
 import { Feature } from "./types";
 
-export function getFeatureOfLayerFromPoint(target: mapboxgl.Map, point: mapboxgl.Point, layers: string[]): Feature | null {
+export function getFeatureOfLayerFromPoint(target: Map, point: PointLike, layers: string[]): Feature | null {
     const features = target.queryRenderedFeatures(point, {
         layers: layers,
     });

@@ -1,9 +1,9 @@
 "use client";
-import { createContext, useContext, ReactNode, useState, useRef, RefObject } from "react";
+import { createContext, useContext, ReactNode, useState } from "react";
 
 import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
 
-import useGeocoder from "../hooks/useGeocoder";
+import usePlaces from "../hooks/usePlaces";
 
 interface SidebarContextType {
   isOpen: boolean;
@@ -12,8 +12,6 @@ interface SidebarContextType {
   points: PointFeature[];
   polygons: PolygonFeature[];
   setPlaces: (e: Feature[] | Feature | null) => void;
-  geocoder: RefObject<MapboxGeocoder | null>;
-  refFunctionClickOnResult: RefObject<((e: Feature) => void) | null>;
   selectedPlace: Feature | null;
   setSelectedPlace: (place: Feature | null) => void;
   pointsName: PointFeature[];
@@ -23,25 +21,17 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const refFunctionClickOnResult = useRef<((e: Feature) => void) | null>(null);
 
-  const [places, points, polygons, setPlaces, geocoder, selectedPlace, setSelectedPlace, pointsName] =
-    useGeocoder(null);
+  const o = usePlaces();
 
   return (
     <SidebarContext.Provider
       value={{
         isOpen,
         setIsOpen,
-        places,
-        points,
-        polygons,
-        setPlaces,
-        geocoder,
-        refFunctionClickOnResult,
-        selectedPlace,
-        setSelectedPlace,
-        pointsName,
+        ...o,
+        places: o.findPlaces,
+        pointsName: o.PointsName,
       }}
     >
       {children}

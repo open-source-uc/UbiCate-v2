@@ -1,7 +1,7 @@
 {
   "name": "UbiCate",
   "short_name": "UbiCate",
-  "description": "Tu mapa en la UC",
+  "description": "Mapa para dar mayor accesibilidad a ubicación de salas, baños y puntos de interés en los distintos campus de la universidad.",
   "orientation": "portrait",
   "start_url": "/",
   "id": "/",

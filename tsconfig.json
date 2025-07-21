@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es2024",
     "lib": [
       "dom",
       "dom.iterable",
@@ -14,7 +14,7 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -30,7 +30,8 @@
       ]
     },
     "types": [
-      "@serwist/next/typings"
+      "@serwist/next/typings",
+      "./env.d.ts",
     ],
   },
   "include": [

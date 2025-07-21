@@ -3,24 +3,27 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../pills/PillFilter";
 import PlaceMenu from "../placeMenu/placeMenu";
+import { SearchDropdown } from "../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import NotificationBarDesktop from "./notificationsBarDesktop";
+import ThemesList from "./themesList";
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
+  const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
-  const refSearchContainer = useRef<HTMLDivElement | null>(null);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -38,18 +41,12 @@ export default function DesktopSidebar() {
     toggleSubSidebar(type);
   };
 
-  const handleSearchSelection = () => {
-    handleToggleSidebar();
-    setActiveSubSidebar(null);
-  };
-
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
     handleToggleSidebar();
     setActiveSubSidebar(null);
   };
 
-  // Cuando se selecciona un lugar, muestra "placeInformation"
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
@@ -60,25 +57,6 @@ export default function DesktopSidebar() {
     }
   }, [selectedPlace, setIsOpen]);
 
-  // Añade el geocoder cuando se abre el subsidebar "buscar"
-  useEffect(() => {
-    if (activeSubSidebar === "buscar" && refSearchContainer.current) {
-      geocoder.current?.addTo(refSearchContainer.current);
-    }
-  }, [activeSubSidebar, geocoder]);
-
-  // Cierra el sidebar al seleccionar un resultado de búsqueda
-  useEffect(() => {
-    let current: null | MapboxGeocoder = null;
-    if (activeSubSidebar === "buscar" && geocoder.current) {
-      geocoder.current?.on("result", handleSearchSelection);
-      current = geocoder.current;
-    }
-    return () => {
-      current?.off("result", handleSearchSelection);
-    };
-  }, [activeSubSidebar, geocoder]);
-
   return (
     <>
       {/* Contenedor principal con flex row */}
@@ -86,20 +64,20 @@ export default function DesktopSidebar() {
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
-          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full transition-all duration-200 pb-4 ${
-            isOpen ? "w-54" : "w-20"
+          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full pb-4 ${
+            isOpen ? "w-44" : "w-20"
           }`}
         >
-          <div className={`flex items-center p-4 ${isOpen ? "flex-row justify-between" : "flex-col py-8 space-y-6"}`}>
+          <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-4" : "flex-col py-8 space-y-6"}`}>
             {/* Logo - visible only when expanded */}
             <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>
-              <img src="/long-logo.svg" className="pl-2" alt="Logo" width="118" />
+              <img src="/logo.svg" className="pl-2 w-16 h-16" alt="Logo" />
             </Link>
 
             {/* Toggle button */}
             <div className={`${isOpen ? "" : "flex justify-center"}`}>
               <button onClick={toggleSidebar} className="hover:text-muted pointer-events-auto cursor-pointer">
-                <Icons.DockToRight className="w-6 h-6" />
+                <Icons.DockToRight className="w-8 h-8" />
               </button>
             </div>
           </div>
@@ -125,7 +103,6 @@ export default function DesktopSidebar() {
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Buscar</span>
               </button>
-
               {/* Campus button */}
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
@@ -144,7 +121,23 @@ export default function DesktopSidebar() {
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Campus</span>
               </button>
-
+              <button
+                onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
+                className={`${
+                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
+                } flex items-center pointer-events-auto cursor-pointer ${
+                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
+                }`}
+              >
+                <span
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
+                  }`}
+                >
+                  <Icons.Brush />
+                </span>
+                <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Temas</span>
+              </button>
               {/* Guides button */}
               <button
                 disabled
@@ -164,11 +157,20 @@ export default function DesktopSidebar() {
           <div className={`flex flex-col space-y-4 px-4 ${isOpen ? "block" : "hidden"}`}>
             <FooterOptionsSidebar />
           </div>
+          <div className={`flex justify-center ${!isOpen ? "block" : "hidden"}`}>
+            <div className="w-10 h-10 rounded-xl bg-primary">
+              <Link href="/creditos" className="font-semibold block hover:underline">
+                <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
+                  <Icons.OSUC />
+                </span>{" "}
+              </Link>
+            </div>
+          </div>
         </section>
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground transition-all duration-200 border-l-1 border-border ${
+          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground border-l-1 border-border ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >
@@ -204,12 +206,17 @@ export default function DesktopSidebar() {
               <div className="w-full h-full overflow-auto space-y-2">
                 <h3 className="font-bold text-lg">Buscar</h3>
                 <div className="p-1">
-                  <section ref={refSearchContainer} />
+                  <SearchDropdown />
                 </div>
                 <div>
                   <h4 className="font-semibold text-md">Filtra por lugares</h4>
                   <PillFilter />
                 </div>
+              </div>
+            )}
+            {activeSubSidebar === "temas" && (
+              <div className="w-full h-full space-y-4">
+                <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
           </div>
