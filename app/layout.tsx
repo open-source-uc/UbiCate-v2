@@ -1,9 +1,9 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Instrument_Sans } from "next/font/google";
 import { cookies } from "next/headers";
 
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import type { Viewport } from "next";
 
 import SWRegister from "./components/SWRegister";
 
@@ -35,18 +35,16 @@ export const metadata: Metadata = {
   ],
 };
 
-const instrument_sans = Instrument_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-instrument-sans",
-});
+export const viewport: Viewport = {
+  themeColor: [{ color: "#150a04" }],
+};
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
   const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
-    <html className={`${instrument_sans.variable}`} lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
+    <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
       <body className="h-full pb-[-12px]">
         <SWRegister />
         <div className="w-full h-dvh flex-col justify-between">{children}</div>
