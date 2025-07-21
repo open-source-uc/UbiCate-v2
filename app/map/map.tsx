@@ -45,8 +45,8 @@ import {
   customPolygonStrokeLayer,
 } from "./layers";
 import Marker from "./marker";
-import { createMapLibreStyle } from "../hooks/mapStyle";
-import { OLD_MAP_STYLE } from "./OLD_MAP_STYLE";
+import { useMapStyle } from "../hooks/useMapStyle";
+
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -308,11 +308,12 @@ export default function MapComponent({
   }, []);
 
 
+  const {mapStyle} = useMapStyle();
   return (
     <div className="w-full h-full" ref={containerRef}>
       <Map
         id="mainMap"
-        mapStyle={OLD_MAP_STYLE}
+        mapStyle={mapStyle}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}

@@ -94,10 +94,10 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
           <PinsProvider>
             <NotificationProvider>
               <ThemeProvider>
-              <main spellCheck="false" className="h-full w-full relative flex">
-                <NavigationSidebar />
-                <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-              </main>
+                <main spellCheck="false" className="h-full w-full relative flex">
+                  <NavigationSidebar />
+                  <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+                </main>
               </ThemeProvider>
             </NotificationProvider>
           </PinsProvider>
