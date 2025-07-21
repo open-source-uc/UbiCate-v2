@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { useState, useEffect } from "react";
 
-function DebugPage() {
+export default function DebugPage() {
   const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
 
   useEffect(() => {
@@ -54,4 +54,4 @@ function DebugPage() {
   );
 }
 
-export default DebugPage;
+export const runtime = 'edge';
