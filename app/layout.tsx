@@ -3,7 +3,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { cookies } from "next/headers";
 
 import { Metadata } from "next";
-import type { Viewport } from "next";
 
 import SWRegister from "./components/SWRegister";
 
@@ -34,35 +33,12 @@ export const metadata: Metadata = {
   ],
 };
 
-// Función para obtener el color del tema basado en la cookie
-// Sacar los colores de la configuración de Tailwind
-function getThemeColor(theme?: string): string {
-  switch (theme) {
-    case "pink-coquette":
-      return "#ec4899"; // --palette-pastel-pink-500
-    case "light-formal":
-      return "#015fff"; // --palette-blue-primary
-    default:
-      return "#150a04"; // --palette-brown-900 (tema por defecto)
-  }
-}
-
-export async function generateViewport(): Promise<Viewport> {
-  const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("ubicate-theme")?.value;
-
-  return {
-    themeColor: [{ color: getThemeColor(themeCookie) }],
-  };
-}
-
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
   const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
-      <head />
       <body className="h-full">
         <SWRegister />
         <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
