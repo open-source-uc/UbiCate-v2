@@ -329,9 +329,6 @@ export default function MapComponent({
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...mapConfig.campusBorderLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
-          <Layer {...mapConfig.placesTextLayer} />
-        </Source>
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...mapConfig.sectionAreaLayer} />
           <Layer {...mapConfig.sectionStrokeLayer} />
@@ -339,6 +336,9 @@ export default function MapComponent({
         <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(polygon)}>
           <Layer {...mapConfig.customPolygonSectionAreaLayer} />
           <Layer {...mapConfig.customPolygonStrokeLayer} />
+        </Source>
+        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
+          <Layer {...mapConfig.placesTextLayer} />
         </Source>
         <DebugMode />
         <UserLocation />

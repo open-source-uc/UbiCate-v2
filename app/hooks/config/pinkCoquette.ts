@@ -7,14 +7,14 @@ export const placesTextLayer: LayerProps = {
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["Open Sans Semibold"],
-    "text-size": 11,
+    "text-size": 12, // Aumentado para mejor legibilidad
     "text-anchor": "top",
     "text-offset": [0, 1],
   },
   paint: {
-    "text-color": "#374151", // Texto más oscuro para mejor contraste sobre rosa
-    "text-halo-color": "rgba(253, 242, 248, 0.95)", // Halo rosa muy claro más opaco
-    "text-halo-width": 2,
+    "text-color": "#1f2937", // Gris muy oscuro para máximo contraste sobre verde campus
+    "text-halo-color": "rgba(255, 255, 255, 0.9)", // Halo blanco más opaco
+    "text-halo-width": 2.5, // Halo más ancho para mejor definición
   },
 };
 

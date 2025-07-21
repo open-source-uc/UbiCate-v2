@@ -1,23 +1,24 @@
 import type { LayerProps } from "react-map-gl/maplibre";
 
-export const placesTextLayer: LayerProps = {
-  id: "places-text",
-  type: "symbol",
-  source: "places",
-  layout: {
-    "text-field": ["get", "name"],
-    "text-font": ["Open Sans Semibold"],
-    "text-size": 11,
-    "text-anchor": "top",
-    "text-offset": [0, 1],
-  },
+export const sectionAreaLayer: LayerProps = {
+  id: "area-polygon",
+  type: "fill",
+  source: "states",
   paint: {
-    "text-color": "#2d3748", // Texto más oscuro para mejor contraste
-    "text-halo-color": "rgba(255, 255, 255, 0.9)", // Halo blanco más opaco
-    "text-halo-width": 2,
+    "fill-color": "rgba(237, 137, 54, 0.15)", // Amarillo anaranjado muy sutil para relleno
   },
 };
 
+export const customPolygonSectionAreaLayer: LayerProps = {
+  id: "custom-area-polygon",
+  type: "fill",
+  source: "states",
+  paint: {
+    "fill-color": "rgba(66, 153, 225, 0.18)", // Celeste muy sutil para relleno personalizado
+  },
+};
+
+// === CAPAS DE CONTORNOS (MEDIO) ===
 export const campusBorderLayer: LayerProps = {
   id: "campus-border",
   type: "line",
@@ -38,15 +39,6 @@ export const sectionStrokeLayer: LayerProps = {
   },
 };
 
-export const sectionAreaLayer: LayerProps = {
-  id: "area-polygon",
-  type: "fill",
-  source: "states",
-  paint: {
-    "fill-color": "rgba(237, 137, 54, 0.15)", // Amarillo anaranjado muy sutil para relleno
-  },
-};
-
 export const customPolygonStrokeLayer: LayerProps = {
   id: "custom-area-stroke",
   type: "line",
@@ -57,12 +49,24 @@ export const customPolygonStrokeLayer: LayerProps = {
   },
 };
 
-export const customPolygonSectionAreaLayer: LayerProps = {
-  id: "custom-area-polygon",
-  type: "fill",
-  source: "states",
+// === CAPAS DE TEXTO (FRENTE) ===
+export const placesTextLayer: LayerProps = {
+  id: "places-text",
+  type: "symbol",
+  source: "places",
+  layout: {
+    "text-field": ["get", "name"],
+    "text-font": ["Open Sans Semibold"],
+    "text-size": 12, // Incrementé ligeramente el tamaño para mejor visibilidad
+    "text-anchor": "center", // Cambié a center para mejor posicionamiento
+    "text-offset": [0, 0], // Sin offset para centrar mejor
+    "text-allow-overlap": false, // Evita superposición de texto
+    "text-ignore-placement": false,
+  },
   paint: {
-    "fill-color": "rgba(66, 153, 225, 0.18)", // Celeste muy sutil para relleno personalizado
+    "text-color": "#1a202c", // Texto más oscuro para mejor contraste
+    "text-halo-color": "rgba(255, 255, 255, 0.95)", // Halo blanco más opaco
+    "text-halo-width": 2.5, // Halo más ancho para mejor legibilidad
   },
 };
 

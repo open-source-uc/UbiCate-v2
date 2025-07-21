@@ -138,7 +138,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {/* Contenedor principal del geocoder */}
       <div className="relative bg-secondary outline-1 outline-secondary rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
         {/* Input */}
-        <div className="relative text-tertiary">
+        <div className="relative text-ring font-medium">
           <input
             ref={inputRef}
             type="text"

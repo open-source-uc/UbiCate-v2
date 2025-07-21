@@ -169,7 +169,7 @@
   
   --theme-border: var(--palette-brown-600);
   --theme-input: var(--palette-brown-400);
-  --theme-ring: var(--palette-blue-primary);
+  --theme-ring: var(--palette-brown-200);
 
   /* Chart Colors - Originales */
   --theme-chart-0: var(--palette-gray-300);
