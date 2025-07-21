@@ -3,8 +3,8 @@ import React from "react";
 import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
-import { Feature, PointFeature } from "@/utils/types";
 import { getCategoryColor } from "@/utils/categoryToColors";
+import { Feature, PointFeature } from "@/utils/types";
 
 interface MarkerProps {
   place: PointFeature;
@@ -16,7 +16,6 @@ interface MarkerProps {
   onDragEnd?: (e: MarkerDragEvent) => void;
   offset?: [number, number]; // Added offset prop
 }
-
 
 export default function Marker({
   place,

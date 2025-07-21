@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, nameFilter, PlaceFilter } from "@/app/components/pills/placeFilters";
+import { getCategoryColor } from "@/utils/categoryToColors";
 
 import { useSidebar } from "../../context/sidebarCtx";
 import * as Icons from "../icons/icons";
 
 import Pill from "./pill";
-import { getCategoryColor } from "@/utils/categoryToColors";
 
 const pills: Array<{
   title: string;
@@ -18,13 +18,13 @@ const pills: Array<{
   { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: "studyroom" },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: "auditorium" },
   { title: "Bibliotecas", icon: <Icons.Library />, filter: "biblioteca", isNameFilter: true },
-  { title: "Baños", icon: <Icons.Wc />,  filter: "bath" },
-  { title: "Comida", icon: <Icons.Restaurant />,  filter: "food_lunch" },
-  { title: "Agua", icon: <Icons.Water />,  filter: "water" },
-  { title: "Deportes", icon: <Icons.Sport />,  filter: "sports_place" },
+  { title: "Baños", icon: <Icons.Wc />, filter: "bath" },
+  { title: "Comida", icon: <Icons.Restaurant />, filter: "food_lunch" },
+  { title: "Agua", icon: <Icons.Water />, filter: "water" },
+  { title: "Deportes", icon: <Icons.Sport />, filter: "sports_place" },
   { title: "Crisol", icon: <Icons.Print />, filter: "crisol", isNameFilter: true },
-  { title: "Estacionamientos", icon: <Icons.Parking />,  filter: "parking" },
-  { title: "Impresoras", icon: <Icons.Print />,  filter: "photocopy" },
+  { title: "Estacionamientos", icon: <Icons.Parking />, filter: "parking" },
+  { title: "Impresoras", icon: <Icons.Print />, filter: "photocopy" },
 ];
 
 function PillFilter() {

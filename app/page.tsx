@@ -8,8 +8,8 @@ import { DirectionsProvider } from "./context/directionsCtx";
 import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
-import MapPage from "./map/mapPage";
 import { ThemeProvider } from "./context/themeCtx";
+import MapPage from "./map/mapPage";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 

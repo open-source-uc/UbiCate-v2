@@ -35,6 +35,7 @@ import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
+import { useMapStyle } from "../hooks/useMapStyle";
 
 import {
   placesTextLayer,
@@ -45,8 +46,6 @@ import {
   customPolygonStrokeLayer,
 } from "./layers";
 import Marker from "./marker";
-import { useMapStyle } from "../hooks/useMapStyle";
-
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -307,8 +306,7 @@ export default function MapComponent({
     };
   }, []);
 
-
-  const {mapStyle} = useMapStyle();
+  const { mapStyle } = useMapStyle();
   return (
     <div className="w-full h-full" ref={containerRef}>
       <Map

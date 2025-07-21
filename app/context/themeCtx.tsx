@@ -1,14 +1,8 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-type Theme = "light-formal" | "pink-coquette" | "";
+export type Theme = "light-formal" | "pink-coquette" | "";
 
 const themeOptions: Theme[] = ["light-formal", "pink-coquette", ""];
 
@@ -22,6 +16,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // eslint-disable-next-line
   const [theme, setThemeState] = useState<Theme>("");
 
   const setTheme = (newTheme: Theme) => {
@@ -34,7 +29,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (typeof window !== "undefined") {
       localStorage.setItem("theme", newTheme);
       //@ts-ignore
-      cookieStore?.set("ubicate-theme", newTheme)
+      cookieStore?.set("ubicate-theme", newTheme);
     }
   };
 
@@ -53,8 +48,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme") as Theme | null;
-      const initial =
-        saved || (document.documentElement.getAttribute("data-theme") as Theme) || "";
+      const initial = saved || (document.documentElement.getAttribute("data-theme") as Theme) || "";
       setTheme(initial);
     }
   }, []);

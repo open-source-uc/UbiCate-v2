@@ -3,11 +3,11 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import Fuse from "fuse.js";
 
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { getCategoryColor } from "@/utils/categoryToColors";
 import PlacesJSON from "@/utils/places";
 import { CATEGORIES, Feature, siglas } from "@/utils/types";
 
 import MarkerIcon from "../icons/markerIcon";
-import { getCategoryColor } from "@/utils/categoryToColors";
 
 interface SearchDropdownProps {
   numberOfShowResults?: number;
@@ -172,10 +172,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
               onClick={handleClearInput}
               className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-secondary leading-none"
             >
-              <svg
-                className="w-5 h-5 mt-2 mr-1"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5 mt-2 mr-1" viewBox="0 0 24 24">
                 <path
                   d="M6 18L18 6M6 6l12 12"
                   stroke="currentColor"
@@ -200,11 +197,11 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                 const color = getCategoryColor(primaryCategory.toLowerCase().trim());
                 const placeName = feature.properties.name;
                 const campusName = siglas.get(feature.properties.campus);
-                
+
                 // Determinar si necesita texto más pequeño
                 const needsSmallText = placeName.length > 30;
                 const needsVerySmallText = placeName.length > 50;
-              
+
                 return (
                   <li
                     key={index}
@@ -219,31 +216,39 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                     >
                       <div className="flex items-start gap-3">
                         {/* Contenedor del ícono con tamaño adaptativo */}
-                        <div className={`${getIconContainerSize(placeName)} flex items-center justify-center rounded text-xs flex-shrink-0 mt-1 ${color}`}>
-                          <MarkerIcon 
-                            classname={getIconSize(placeName)} 
-                            label={feature.properties.categories[0] as CATEGORIES} 
+                        <div
+                          className={`${getIconContainerSize(
+                            placeName,
+                          )} flex items-center justify-center rounded text-xs flex-shrink-0 mt-1 ${color}`}
+                        >
+                          <MarkerIcon
+                            classname={getIconSize(placeName)}
+                            label={feature.properties.categories[0] as CATEGORIES}
                           />
                         </div>
-                        
+
                         {/* Contenedor de texto */}
                         <div className="flex-1 min-w-0">
-                          <div className={`font-bold text-left leading-tight ${
-                            needsVerySmallText 
-                              ? "text-xs break-words" 
-                              : needsSmallText 
-                                ? "text-sm break-words" 
+                          <div
+                            className={`font-bold text-left leading-tight ${
+                              needsVerySmallText
+                                ? "text-xs break-words"
+                                : needsSmallText
+                                ? "text-sm break-words"
                                 : "text-base"
-                          }`}>
+                            }`}
+                          >
                             {placeName}
                           </div>
-                          <div className={`text-left leading-tight mt-0.5 ${
-                            needsVerySmallText 
-                              ? "text-xs break-words opacity-75" 
-                              : needsSmallText 
-                                ? "text-xs break-words opacity-75" 
+                          <div
+                            className={`text-left leading-tight mt-0.5 ${
+                              needsVerySmallText
+                                ? "text-xs break-words opacity-75"
+                                : needsSmallText
+                                ? "text-xs break-words opacity-75"
                                 : "text-sm opacity-75"
-                          }`}>
+                            }`}
+                          >
                             {campusName}
                           </div>
                         </div>

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../pills/PillFilter";
@@ -16,11 +17,11 @@ import { SearchDropdown } from "../search/SearchDropdown";
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import NotificationBarDesktop from "./notificationsBarDesktop";
-import { useTheme } from "@/app/context/themeCtx";
+import ThemesList from "./themesList";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
-  const { rotateTheme} = useTheme()
+  const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
 
@@ -121,15 +122,17 @@ export default function DesktopSidebar() {
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Campus</span>
               </button>
               <button
-                onClick={() => (rotateTheme())}
+                onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
                 className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-secondary" : ""
+                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
                 } flex items-center pointer-events-auto cursor-pointer ${
                   !isOpen ? "justify-center px-4 py-3" : "space-x-4"
                 }`}
               >
                 <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center bg-accent`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
+                  }`}
                 >
                   <Icons.Brush />
                 </span>
@@ -200,6 +203,11 @@ export default function DesktopSidebar() {
                   <h4 className="font-semibold text-md">Filtra por lugares</h4>
                   <PillFilter />
                 </div>
+              </div>
+            )}
+            {activeSubSidebar === "temas" && (
+              <div className="w-full h-full space-y-4">
+                <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
           </div>

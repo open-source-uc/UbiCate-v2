@@ -13,6 +13,7 @@ import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import ThemesList from "./themesList";
 import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {
@@ -221,6 +222,22 @@ export default function MobileSidebar() {
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
                       <button
+                        onClick={() => toggleSubSidebar("temas")}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                          activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
+                        }`}
+                        aria-pressed={activeSubSidebar === "temas"}
+                      >
+                        <span
+                          className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                            activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
+                          }`}
+                        >
+                          <Icons.Brush />
+                        </span>
+                        <span className="text-sm tablet:text-md mt-1">Temas</span>
+                      </button>
+                      <button
                         disabled
                         className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
                         aria-disabled="true"
@@ -281,6 +298,11 @@ export default function MobileSidebar() {
                   <h3 className="font-bold text-lg">Guías</h3>
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
+              )}
+              {activeSubSidebar === "temas" && (
+                <div className="w-full h-full space-y-4">
+                  <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
+                </div>
               )}
               {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
                 <PlaceMenu

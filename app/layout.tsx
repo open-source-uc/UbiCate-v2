@@ -1,10 +1,8 @@
-import { Instrument_Sans } from "next/font/google";
-
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
-
 import { Metadata } from "next";
 import type { Viewport } from "next";
+import { cookies } from "next/headers";
 
 import SWRegister from "./components/SWRegister";
 
@@ -47,22 +45,13 @@ export const viewport: Viewport = {
   themeColor: [{ color: "#150a04" }],
 };
 
-// app/layout.tsx
-import { cookies } from 'next/headers';
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
-  const themeCookie = cookieStore.get('ubicate-theme')?.value;
+  const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
-    <html
-      lang="es"
-      {...(themeCookie ? { 'data-theme': themeCookie } : {})}
-    >
+    <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
       <body className="h-full pb-[-12px]">
         <SWRegister />
         <div className="w-full h-dvh flex-col justify-between">{children}</div>
