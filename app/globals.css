@@ -264,17 +264,18 @@
   --theme-ring: var(--palette-blue-primary);
 
   /* Chart Colors - Profesionales y Limpios */
-  --theme-chart-0: var(--palette-blue-primary);
-  --theme-chart-1: var(--palette-soft-gray-600);
-  --theme-chart-2: var(--palette-cyan-500);
-  --theme-chart-3: var(--palette-green-500);
-  --theme-chart-4: var(--palette-orange-500);
-  --theme-chart-5: var(--palette-purple-500);
-  --theme-chart-6: var(--palette-pink-500);
-  --theme-chart-7: var(--palette-cyan-800);
-  --theme-chart-8: var(--palette-green-800);
-  --theme-chart-9: var(--palette-professional-red-medium);
-  --theme-chart-10: var(--palette-soft-gray-400);
+/* Chart Colors - Vibrantes y con buen contraste para fondo claro */
+  --theme-chart-0: var(--palette-pastel-pink-300);
+  --theme-chart-1: var(--palette-pastel-lavender);
+  --theme-chart-2: var(--palette-pastel-peach);
+  --theme-chart-3: var(--palette-pastel-mint);
+  --theme-chart-4: var(--palette-pastel-lilac);
+  --theme-chart-5: var(--palette-pastel-coral);
+  --theme-chart-6: var(--palette-pastel-sky);
+  --theme-chart-7: var(--palette-pastel-cream);
+  --theme-chart-8: var(--palette-pastel-pink-400);
+  --theme-chart-9: var(--palette-pastel-peach);
+  --theme-chart-10: var(--palette-pastel-pink-200);
 }
 
 /* =============================================== */
