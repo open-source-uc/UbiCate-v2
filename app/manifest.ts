@@ -70,14 +70,14 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "628x1080",
         type: "image/png",
         form_factor: "narrow",
-        label: "Mapa interactivo de la UC",
+        label: "Mapa interactivo",
       },
       {
         src: "/screenshots/screenshot-mobile-1.png",
         sizes: "628x1080",
         type: "image/png",
         form_factor: "narrow",
-        label: "Descubre los edificios de la UC",
+        label: "Rutas",
       },
     ],
   };

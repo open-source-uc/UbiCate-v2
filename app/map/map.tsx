@@ -285,7 +285,6 @@ export default function MapComponent({
       timeout = setTimeout(() => {
         if (mapRef.current) {
           mapRef.current.resize();
-          console.log("Map resized");
         }
       }, 175); // 200 para evitar resize excesivos, debido a la animación de la sidebar que dura 150ms
     });
