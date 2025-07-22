@@ -555,7 +555,7 @@ export async function PATCH(request: NextRequest) {
 
     // Eliminar la marca de necesidad de aprobación
     if ("needApproval" in placeToApprove.properties) {
-      delete placeToApprove.properties.needApproval;
+     
     }
 
     try {
@@ -638,9 +638,13 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
-    // Validación con Zod para DELETE
+    // Validación con Zod para DELETE - ahora incluye el origen
     const deleteSchema = z.object({
       identifier: z.string({ required_error: "El identificador es obligatorio" }),
+      source: z.enum(["approved", "pending"], { 
+        required_error: "El origen es obligatorio",
+        invalid_type_error: "El origen debe ser 'approved' o 'pending'"
+      }),
     });
 
     const body = await request.json();
@@ -652,63 +656,74 @@ export async function DELETE(request: NextRequest) {
     }
 
     const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
+    const { source } = result.data;
 
     try {
-      // Verificar en lugares aprobados
-      const {
-        url: approvedPlacesUrl,
-        fileData: approvedPlaces,
-        file_sha: approvedPlacesSha,
-      } = await fetchApprovedPlaces();
-
-      const approvedIndex = approvedPlaces.features.findIndex(
-        (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-      );
-
-      // Si existe en lugares aprobados, eliminarlo
       let deleted = false;
-      if (approvedIndex !== -1) {
-        const placeToDelete = approvedPlaces.features[approvedIndex];
-        approvedPlaces.features.splice(approvedIndex, 1);
+      let deletedFrom = "";
 
-        await githubFileOperation(
-          approvedPlacesUrl,
-          placeToDelete.properties.identifier,
-          approvedPlaces,
-          approvedPlacesSha,
-          "DELETE",
+      if (source === "approved") {
+        // Solo buscar y eliminar de lugares aprobados
+        const {
+          url: approvedPlacesUrl,
+          fileData: approvedPlaces,
+          file_sha: approvedPlacesSha,
+        } = await fetchApprovedPlaces();
+
+        const approvedIndex = approvedPlaces.features.findIndex(
+          (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
         );
-        deleted = true;
+
+        if (approvedIndex !== -1) {
+          const placeToDelete = approvedPlaces.features[approvedIndex];
+          approvedPlaces.features.splice(approvedIndex, 1);
+
+          await githubFileOperation(
+            approvedPlacesUrl,
+            placeToDelete.properties.identifier,
+            approvedPlaces,
+            approvedPlacesSha,
+            "DELETE",
+          );
+          deleted = true;
+          deletedFrom = "lugares aprobados";
+        }
+      } else if (source === "pending") {
+        // Solo buscar y eliminar de lugares pendientes
+        const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
+
+        const newPlacesIndex = newPlaces.features.findIndex(
+          (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
+        );
+
+        if (newPlacesIndex !== -1) {
+          const placeToDelete = newPlaces.features[newPlacesIndex];
+          newPlaces.features.splice(newPlacesIndex, 1);
+
+          await githubFileOperation(
+            newPlacesUrl,
+            placeToDelete.properties.identifier,
+            newPlaces,
+            newPlacesSha,
+            "DELETE_FROM_NEW",
+          );
+          deleted = true;
+          deletedFrom = "lugares pendientes de aprobación";
+        }
       }
 
-      const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
-
-      const newPlacesIndex = newPlaces.features.findIndex(
-        (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-      );
-
-      // Si existe en lugares nuevos, eliminarlo
-      if (newPlacesIndex !== -1) {
-        const placeToDelete = newPlaces.features[newPlacesIndex];
-        newPlaces.features.splice(newPlacesIndex, 1);
-
-        await githubFileOperation(
-          newPlacesUrl,
-          placeToDelete.properties.identifier,
-          newPlaces,
-          newPlacesSha,
-          "DELETE_FROM_NEW",
-        );
-        deleted = true;
-      }
       if (deleted) {
         return NextResponse.json(
-          { message: "¡El lugar fue borrado de lugares pendientes de aprobación!" },
+          { message: `¡El lugar fue borrado de ${deletedFrom}!` },
           { status: 200 },
         );
       } else {
-        // Si no está en ningún archivo
-        return NextResponse.json({ message: "¡El lugar NO existe!" }, { status: 404 });
+        // Si no está en el archivo especificado
+        const sourceText = source === "approved" ? "lugares aprobados" : "lugares pendientes de aprobación";
+        return NextResponse.json(
+          { message: `¡El lugar NO existe en ${sourceText}!` },
+          { status: 404 }
+        );
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes("Concurrent modification")) {

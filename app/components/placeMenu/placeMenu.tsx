@@ -57,7 +57,7 @@ export default function PlaceMenu({
       });
   };
 
-  const deletePlace = () => {
+  const deletePlace = (source: "approved" | "pending") => {
     const confirmacion =
       confirm("Estas seguro de BORRAR el lugar " + (sessionStorage.getItem("ubicateToken") ?? "")) ?? false;
     if (!confirmacion) return;
@@ -65,10 +65,11 @@ export default function PlaceMenu({
     fetch("api/ubicate", {
       method: "DELETE",
       headers: {
-        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
+        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? ""
       },
       body: JSON.stringify({
         identifier: place?.properties.identifier,
+        source: source
       }),
     })
       .then((res) => {
@@ -112,13 +113,13 @@ export default function PlaceMenu({
             onOpenEdit?.();
           }}
           onReject={() => {
-            deletePlace();
+            deletePlace("pending");
           }}
           onApprove={() => {
             approvePlace();
           }}
           onDelete={() => {
-            deletePlace();
+            deletePlace("approved");
           }}
         />
       )}
