@@ -78,7 +78,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         form_factor: "narrow",
         label: "Descubre los edificios de la UC",
-      }
+      },
     ],
   };
 }
