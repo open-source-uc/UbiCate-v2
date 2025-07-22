@@ -17356,31 +17356,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CENTRAL_APUNTES_ENF",
-                "name": "Central de Apuntes",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "ENF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613187,
-                    -33.498854
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CEARQ",
                 "name": "Centro de Alumnos de Arquitectura",
                 "campus": "LC",
@@ -31728,6 +31703,32 @@
                 ],
                 "floors": [
                     1
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.613187,
+                    -33.498854
+                ]
+            },
+            "properties": {
+                "identifier": "CENTRAL_APUNTES_ENF",
+                "name": "Central de Apuntes",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ENF"
                 ]
             }
         }
