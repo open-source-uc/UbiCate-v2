@@ -38,8 +38,15 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
     if (!query.trim()) return [];
 
     const results = fuse.search(query);
-    return results.slice(0, numberOfShowResults).map((result) => result.item);
+    return results.slice(0, 20).map((result) => result.item);
   }, [query, fuse]);
+
+  // Calcular la altura dinámica basada en numberOfShowResults
+  const dropdownHeight = useMemo(() => {
+    const itemHeight = 56; // Altura aproximada de cada item en pixels
+    const maxHeight = numberOfShowResults * itemHeight;
+    return `${maxHeight}px`;
+  }, [numberOfShowResults]);
 
   useEffect(() => {
     setIsOpen(query.trim().length > 0 && matchingFeatures.length > 0);
@@ -61,6 +68,19 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Auto-scroll para mantener el elemento seleccionado visible
+  useEffect(() => {
+    if (selectedIndex >= 0 && listRef.current) {
+      const selectedElement = listRef.current.children[selectedIndex] as HTMLElement;
+      if (selectedElement) {
+        selectedElement.scrollIntoView({
+          block: "nearest",
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [selectedIndex]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -190,8 +210,11 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {/* Sugerencias */}
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
-          <div className="bg-secondary rounded-xl rounded-t-lg overflow-hidden text-base border border-secondary">
-            <ul ref={listRef} className="list-none m-0 p-0">
+          <div
+            className="bg-secondary rounded-xl rounded-t-lg overflow-hidden text-base border border-secondary"
+            style={{ maxHeight: dropdownHeight }}
+          >
+            <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
               {matchingFeatures.map((feature, index) => {
                 const primaryCategory = feature.properties.categories[0];
                 const color = getCategoryColor(primaryCategory.toLowerCase().trim());
