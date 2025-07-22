@@ -31769,6 +31769,32 @@
                 "campus": "SJ",
                 "faculties": []
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61075686882087,
+                    -33.498917105045635
+                ]
+            },
+            "properties": {
+                "identifier": "mcxqj9zo9t1mjb",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
         }
     ]
 }
