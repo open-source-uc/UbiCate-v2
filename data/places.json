@@ -172,30 +172,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "park_bicycle-34032745",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6419183697138,
-                    -33.44165728846105
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "S32-CC",
                 "name": "S32",
                 "information": "",
@@ -31807,6 +31783,30 @@
                 "floors": [],
                 "needApproval": false,
                 "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6419183697138,
+                    -33.44165728846105
+                ]
+            },
+            "properties": {
+                "identifier": "park_bicycle-34032745",
+                "name": "Bicicletero",
+                "information": "Es cerrado y cuenta con guardia de seguridad de punto fijo",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "CC",
                 "faculties": []
             }
         }
