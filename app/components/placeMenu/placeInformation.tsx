@@ -84,6 +84,7 @@ export default function PlaceInformation({
           </div>
           <p className="text-xs font-medium">Compartir</p>
         </button>
+        {/* Rutas */}
         <RouteButton place={place} />
         <DropdownMenu>
           <DropdownMenuTrigger

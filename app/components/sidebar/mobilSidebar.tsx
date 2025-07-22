@@ -13,15 +13,15 @@ import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import ThemesList from "./themesList";
 import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, geocoder, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
   const router = useRouter();
-  const refSearchContainer = useRef<HTMLDivElement | null>(null);
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
@@ -35,13 +35,6 @@ export default function MobileSidebar() {
 
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
-  };
-
-  const handleSearchSelection = () => {
-    handleToggleSidebar();
-    setActiveSubSidebar(null);
-    const activeElement = document.activeElement as HTMLElement;
-    activeElement?.blur();
   };
 
   const handleCampusClick = (campusName: string) => {
@@ -160,24 +153,6 @@ export default function MobileSidebar() {
     }
   }, [selectedPlace, setIsOpen]);
 
-  // Set up geocoder
-  useEffect(() => {
-    let current: null | MapboxGeocoder = null;
-    const interval = setInterval(() => {
-      if (geocoder.current !== null && refSearchContainer.current !== null) {
-        geocoder.current.addTo(refSearchContainer.current);
-        clearInterval(interval);
-        geocoder.current?.on("result", handleSearchSelection);
-        current = geocoder.current;
-      }
-    }, 100);
-
-    return () => {
-      current?.off("result", handleSearchSelection);
-      clearInterval(interval);
-    };
-  }, []);
-
   // Handle sidebar close
   useEffect(() => {
     if (isOpen === false) {
@@ -197,7 +172,7 @@ export default function MobileSidebar() {
   return (
     <>
       {/* Search Container */}
-      <TopMobileSidebar refSearchContainer={refSearchContainer} />
+      <TopMobileSidebar />
 
       {/* Main Sidebar */}
       <section
@@ -245,6 +220,22 @@ export default function MobileSidebar() {
                           <Icons.Map />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
+                      </button>
+                      <button
+                        onClick={() => toggleSubSidebar("temas")}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                          activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
+                        }`}
+                        aria-pressed={activeSubSidebar === "temas"}
+                      >
+                        <span
+                          className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                            activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
+                          }`}
+                        >
+                          <Icons.Brush />
+                        </span>
+                        <span className="text-sm tablet:text-md mt-1">Temas</span>
                       </button>
                       <button
                         disabled
@@ -307,6 +298,11 @@ export default function MobileSidebar() {
                   <h3 className="font-bold text-lg">Guías</h3>
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
+              )}
+              {activeSubSidebar === "temas" && (
+                <div className="w-full h-full space-y-4">
+                  <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
+                </div>
               )}
               {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
                 <PlaceMenu

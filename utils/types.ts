@@ -14,7 +14,7 @@ interface LineGeometry {
   coordinates: [number, number][];
 }
 
-export type SubSidebarType = "buscar" | "campus" | "guías" | "placeInformation" | null;
+export type SubSidebarType = "temas" | "buscar" | "campus" | "guías" | "placeInformation" | null;
 
 export enum CATEGORIES {
   AUDITORIUM = "auditorium",

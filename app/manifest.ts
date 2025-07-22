@@ -1,0 +1,84 @@
+import { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "UbiCate",
+    short_name: "UbiCate",
+    description:
+      "Mapa para dar mayor accesibilidad a la ubicación de salas, baños y puntos de interés en los distintos campus de la universidad.",
+    orientation: "portrait",
+    start_url: "/",
+    id: "/",
+    display: "standalone",
+    lang: "es",
+    background_color: "#150a04",
+    display_override: ["window-controls-overlay"],
+    theme_color: "#fff",
+    icons: [
+      {
+        src: "/icons/icon-72x72.png",
+        sizes: "72x72",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-96x96.png",
+        sizes: "96x96",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-128x128.png",
+        sizes: "128x128",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-144x144.png",
+        sizes: "144x144",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-152x152.png",
+        sizes: "152x152",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-384x384.png",
+        sizes: "384x384",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/screenshots/screenshot-mobile-0.png",
+        sizes: "628x1080",
+        type: "image/png",
+        form_factor: "narrow",
+        label: "Mapa interactivo de la UC",
+      },
+      {
+        src: "/screenshots/screenshot-mobile-1.png",
+        sizes: "628x1080",
+        type: "image/png",
+        form_factor: "narrow",
+        label: "Descubre los edificios de la UC",
+      },
+    ],
+  };
+}

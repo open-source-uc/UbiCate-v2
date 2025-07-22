@@ -8,17 +8,17 @@ import { DirectionsProvider } from "./context/directionsCtx";
 import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
+import { ThemeProvider } from "./context/themeCtx";
 import MapPage from "./map/mapPage";
-
-import "@/app/custom-landing-geocoder.css";
 
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const searchParams = await props.searchParams;
   const paramPlaceId: string | undefined = searchParams?.place;
-  const paramPlace: Feature | null =
-    PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null;
+  const paramPlace: Feature | null = paramPlaceId
+    ? PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null
+    : null;
 
   const defaultDescription =
     "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la " +
@@ -27,12 +27,13 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     "¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC";
 
   let title = "Ubicate · Tu mapa en la UC";
-  let floor = paramPlace?.properties.floors?.[0];
+  let floor = undefined;
   if (paramPlace) {
     title =
       `Ubicate · ${paramPlace.properties.name}` +
       (floor ? ` · Piso ${floor}` : "") +
       ` · Campus ${paramPlace.properties.campus}`;
+    floor = paramPlace?.properties.floors?.[0];
   }
 
   let placeDescription = "";
@@ -52,7 +53,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     alternates: {
       canonical: `${baseUrl}/`,
     },
-    authors: [{ name: "Open Source UC" }],
+    authors: [{ name: "Open Source eUC" }],
     twitter: {
       card: "summary_large_image",
     },
@@ -94,10 +95,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
         <DirectionsProvider>
           <PinsProvider>
             <NotificationProvider>
-              <main spellCheck="false" className="h-full w-full relative flex">
-                <NavigationSidebar />
-                <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-              </main>
+              <ThemeProvider>
+                <main spellCheck="false" className="h-full w-full relative flex">
+                  <NavigationSidebar />
+                  <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+                </main>
+              </ThemeProvider>
             </NotificationProvider>
           </PinsProvider>
         </DirectionsProvider>

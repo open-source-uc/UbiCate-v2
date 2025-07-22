@@ -14,16 +14,16 @@ async function fetchContributors() {
 }
 
 export default async function Page() {
-  const contributors = await fetchContributors();
+  const contributors: any = await fetchContributors();
 
   return (
-    <main spellCheck="false" className="min-h-screen w-full bg-brown-dark text-white-ubi pb-7">
+    <main spellCheck="false" className="min-h-screen w-full pb-7">
       <div className="w-full text-center px-4">
         <div className="w-full text-center px-4">
           <div className="py-8">
             <Image
               src="/logo-osuc.svg"
-              alt="Open Source UC Logo"
+              alt="Open Source eUC Logo"
               width={192}
               height={192}
               className="mx-auto drop-shadow-lg"
@@ -36,9 +36,9 @@ export default async function Page() {
               href="https://osuc.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-success transition-all underline"
+              className="font-semibold transition-all underline text-muted"
             >
-              Open Source UC
+              Open Source eUC
             </a>
             , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
           </p>
@@ -49,7 +49,7 @@ export default async function Page() {
               href="https://github.com/open-source-uc/UbiCate-v2"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-success transition-all underline"
+              className="font-semibold transition-all underline text-muted"
             >
               código abierto
             </a>

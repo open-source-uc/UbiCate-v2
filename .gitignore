@@ -34,7 +34,14 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-
 # environment
 .env
 .wrangler
+
+# Serwist
+public/sw*
+public/swe-worker*
+
+# maps
+*.osm.pbf
+*.mbtiles

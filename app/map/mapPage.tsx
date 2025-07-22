@@ -1,5 +1,5 @@
 "use client";
-import { MapProvider } from "react-map-gl";
+import { MapProvider } from "react-map-gl/maplibre";
 
 import { Feature } from "@/utils/types";
 
