@@ -19595,31 +19595,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "fotocopia7",
-                "name": "Fotocopias",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "CCL"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613669,
-                    -33.49898
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "fotocopia8",
                 "name": "Fotocopias",
                 "campus": "SJ",
