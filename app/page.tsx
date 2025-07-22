@@ -16,9 +16,9 @@ type SearchParams = { campus?: string; place?: string; lng?: number; lat?: numbe
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const searchParams = await props.searchParams;
   const paramPlaceId: string | undefined = searchParams?.place;
-  const paramPlace: Feature | null = paramPlaceId ?
-      PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null
-      : null;
+  const paramPlace: Feature | null = paramPlaceId
+    ? PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null
+    : null;
 
   const defaultDescription =
     "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la " +
@@ -33,7 +33,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
       `Ubicate · ${paramPlace.properties.name}` +
       (floor ? ` · Piso ${floor}` : "") +
       ` · Campus ${paramPlace.properties.campus}`;
-    floor = paramPlace?.properties.floors?.[0]
+    floor = paramPlace?.properties.floors?.[0];
   }
 
   let placeDescription = "";
