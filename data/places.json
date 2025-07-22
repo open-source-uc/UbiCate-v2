@@ -5900,30 +5900,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "JGUZMAN2",
-                "name": "Sala A101",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "campus": "CC",
-                "faculties": "",
-                "floors": [
-                    1
-                ],
-                "needApproval": false
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64027398824692,
-                    -33.44063294468911
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA 17",
                 "name": "Auditorio Patricio Aylwin",
                 "information": "",
@@ -31801,6 +31777,30 @@
                 "information": "Es cerrado y cuenta con guardia de seguridad de punto fijo",
                 "categories": [
                     "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": false,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64027398824692,
+                    -33.44063294468911
+                ]
+            },
+            "properties": {
+                "identifier": "JGUZMAN2",
+                "name": "Sala B104",
+                "information": "",
+                "categories": [
+                    "classroom"
                 ],
                 "floors": [
                     1
