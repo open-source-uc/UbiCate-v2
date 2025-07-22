@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 
 import { Metadata } from "next";
 
+import ManifestFixer from "./components/ManifestFixer";
 import SWRegister from "./components/SWRegister";
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
       <body className="h-full">
         <SWRegister />
+        <ManifestFixer />
         <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
       </body>
     </html>
