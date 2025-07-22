@@ -19570,31 +19570,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "fotocopia6",
-                "name": "Fotocopias",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "ENF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613184,
-                    -33.498856
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "fotocopia8",
                 "name": "Fotocopias",
                 "campus": "SJ",
