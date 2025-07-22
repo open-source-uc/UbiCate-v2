@@ -27,32 +27,6 @@
                     "SOC"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613187,
-                    -33.498854
-                ]
-            },
-            "properties": {
-                "identifier": "CENTRAL_APUNTES_ENF",
-                "name": "Central de Apuntes",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "ENF"
-                ]
-            }
         }
     ]
 }
