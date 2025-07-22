@@ -59,7 +59,7 @@ export default function PlaceMenu({
 
   const deletePlace = (source: "approved" | "pending") => {
     const confirmacion =
-      confirm("Estas seguro de BORRAR el lugar " + (sessionStorage.getItem("ubicateToken") ?? "")) ?? false;
+      confirm("Estas seguro de " + (source === "approved" ? "eliminar" : "rechazar") + " el lugar") ?? false;
     if (!confirmacion) return;
 
     fetch("api/ubicate", {
@@ -77,7 +77,7 @@ export default function PlaceMenu({
           alert("Hubo un error");
           return;
         }
-        alert("Se borro");
+        alert("Se " + (source === "approved" ? "eliminó" : "rechazó") + " el lugar");
         document.location.reload();
       })
       .catch(() => {
