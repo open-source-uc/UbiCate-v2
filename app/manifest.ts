@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "UbiCate",
     short_name: "UbiCate",
     description:
-      "Mapa para dar mayor accesibilidad a ubicación de salas, baños y puntos de interés en los distintos campus de la universidad.",
+      "Mapa para dar mayor accesibilidad a la ubicación de salas, baños y puntos de interés en los distintos campus de la universidad.",
     orientation: "portrait",
     start_url: "/",
     id: "/",
@@ -67,25 +67,18 @@ export default function manifest(): MetadataRoute.Manifest {
     screenshots: [
       {
         src: "/screenshots/screenshot-mobile-0.png",
-        sizes: "628x1280",
+        sizes: "628x1080",
         type: "image/png",
         form_factor: "narrow",
         label: "Mapa interactivo de la UC",
       },
       {
         src: "/screenshots/screenshot-mobile-1.png",
-        sizes: "628x1280",
+        sizes: "628x1080",
         type: "image/png",
         form_factor: "narrow",
         label: "Descubre los edificios de la UC",
-      },
-      {
-        src: "/screenshots/screenshot-desktop-0.png",
-        sizes: "1280x640",
-        type: "image/png",
-        form_factor: "wide",
-        label: "Banner de UbiCate",
-      },
+      }
     ],
   };
 }
