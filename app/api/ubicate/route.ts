@@ -371,6 +371,7 @@ export async function POST(request: NextRequest) {
       nuevo_punto.properties.identifier = generateRandomIdWithTimestamp();
     }
 
+    nuevo_punto.properties.identifier = normalizeIdentifier(nuevo_punto.properties.identifier);
     const normalizedIdentifier = normalizeIdentifier(nuevo_punto.properties.identifier);
 
     // Verificar si el lugar ya existe en lugares aprobados
