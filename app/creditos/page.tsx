@@ -23,7 +23,7 @@ export default async function Page() {
           <div className="py-8">
             <Image
               src="/logo-osuc.svg"
-              alt="Open Source UC Logo"
+              alt="Open Source eUC Logo"
               width={192}
               height={192}
               className="mx-auto drop-shadow-lg"
@@ -38,7 +38,7 @@ export default async function Page() {
               rel="noopener noreferrer"
               className="font-semibold transition-all underline text-muted"
             >
-              Open Source UC
+              Open Source eUC
             </a>
             , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
           </p>

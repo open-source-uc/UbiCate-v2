@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  authors: [{ name: "Open Source UC" }],
+  authors: [{ name: "Open Source eUC" }],
   twitter: {
     card: "summary_large_image",
   },

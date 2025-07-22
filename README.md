@@ -82,7 +82,7 @@ API_UBICATE_SECRET=<SECRET>     # Opcional, obligatorio en producción
 
 ### 📍 Token de Mapbox
 
-- La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source UC**.
+- La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source eUC**.
 - Si usas una clave distinta, **el estilo del mapa no se cargará correctamente**.
 - En ese caso, puedes modificar el estilo directamente en el componente:
   `app/map/map.tsx`.
@@ -350,7 +350,7 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 ## Necesitas contactarnos
 
-**Comuníquese con nosotros a través de [Open Source UC](https://www.instagram.com/opensource_euc/).**
+**Comuníquese con nosotros a través de [Open Source eUC](https://www.instagram.com/opensource_euc/).**
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 

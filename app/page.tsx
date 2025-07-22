@@ -16,8 +16,9 @@ type SearchParams = { campus?: string; place?: string; lng?: number; lat?: numbe
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const searchParams = await props.searchParams;
   const paramPlaceId: string | undefined = searchParams?.place;
-  const paramPlace: Feature | null =
-    PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null;
+  const paramPlace: Feature | null = paramPlaceId ?
+      PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null
+      : null;
 
   const defaultDescription =
     "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la " +
@@ -26,12 +27,13 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     "¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC";
 
   let title = "Ubicate · Tu mapa en la UC";
-  let floor = paramPlace?.properties.floors?.[0];
+  let floor = undefined;
   if (paramPlace) {
     title =
       `Ubicate · ${paramPlace.properties.name}` +
       (floor ? ` · Piso ${floor}` : "") +
       ` · Campus ${paramPlace.properties.campus}`;
+    floor = paramPlace?.properties.floors?.[0]
   }
 
   let placeDescription = "";
@@ -51,7 +53,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     alternates: {
       canonical: `${baseUrl}/`,
     },
-    authors: [{ name: "Open Source UC" }],
+    authors: [{ name: "Open Source eUC" }],
     twitter: {
       card: "summary_large_image",
     },
