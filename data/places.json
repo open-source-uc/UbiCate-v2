@@ -19420,31 +19420,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "fotocopia1",
-                "name": "Fotocopias",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "TTF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610703,
-                    -33.497615
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "fotocopia11",
                 "name": "Fotocopias",
                 "campus": "SJ",
