@@ -19445,31 +19445,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "fotocopia2",
-                "name": "Fotocopias",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61104,
-                    -33.500526
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "fotocopia4",
                 "name": "Fotocopias",
                 "campus": "SJ",
