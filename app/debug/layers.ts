@@ -4,7 +4,6 @@ export const approvalPointsLayer: LayerProps = {
   id: "points-layer-3",
   type: "circle",
   source: "points",
-  filter: ["==", ["get", "needApproval"], true],
   paint: {
     "circle-radius": 7,
     "circle-color": "#32CD32",
@@ -78,7 +77,6 @@ export const allPlacesTextApprovalLayer: LayerProps = {
   id: "places-text-127879",
   type: "symbol",
   source: "places",
-  filter: ["==", ["get", "needApproval"], true],
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
     "text-font": ["Open Sans Semibold"],

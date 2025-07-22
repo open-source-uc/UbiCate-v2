@@ -49,9 +49,11 @@ export interface Properties {
   information: string;
   categories: string[];
   campus: string;
-  faculties?: string[];
+  faculties: string[];
   floors?: number[];
-  needApproval: boolean;
+  needApproval?: boolean; 
+  // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
+  // needApproval sera SIEMPRE undefined en places.json
 }
 
 export interface Feature {

@@ -100,36 +100,30 @@ export default function PlaceInformation({
             <p className="text-xs font-medium">Más</p>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-secondary rounded-lg shadow-lg px-2 py-2">
-            {isDebug.current === false && (
-              <DropdownMenuItem>
-                {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
-                  <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
-                ) : (
-                  <DropdownMenuItem onClick={onEdit}>
-                    Editar
-                    <Icons.Edit />
-                  </DropdownMenuItem>
-                )}
+            {place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
+              <DropdownMenuItem onClick={onCreate} className="flex items-center gap-2">
+                <Icons.Edit />
+                <span>Agregar</span>
+              </DropdownMenuItem>
+            ) : (
+              <DropdownMenuItem onClick={onEdit} className="flex items-center gap-2">
+                <Icons.Edit />
+                <span>Editar</span>
               </DropdownMenuItem>
             )}
             <DropdownMenuSeparator />
-            {isDebug.current && place.properties.needApproval === true ? (
+            {isDebug.current &&
+            !place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) &&
+            place.properties.needApproval === true ? (
               <>
-                <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
                 <DropdownMenuItem onClick={onApprove}>Aprobar</DropdownMenuItem>
                 <DropdownMenuItem onClick={onReject}>Rechazar</DropdownMenuItem>
               </>
             ) : null}
-            {isDebug.current && !place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
-              <>
-                <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
-                <DropdownMenuItem onClick={onEdit}>Editar</DropdownMenuItem>
-              </>
-            ) : null}
-            {isDebug.current && place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) ? (
-              <>
-                <DropdownMenuItem onClick={onCreate}>Agregar</DropdownMenuItem>
-              </>
+            {isDebug.current &&
+            !place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) &&
+            place.properties.needApproval !== true ? (
+              <DropdownMenuItem onClick={onDelete}>Eliminar</DropdownMenuItem>
             ) : null}
           </DropdownMenuContent>
         </DropdownMenu>

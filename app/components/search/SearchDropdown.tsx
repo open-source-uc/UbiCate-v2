@@ -24,11 +24,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   const { setSelectedPlace, setPlaces } = useSidebar();
 
   const fuse = useMemo(() => {
-    const filteredFeatures = PlacesJSON.features.filter(
-      (result) => result.properties.needApproval === false || result.properties.needApproval === undefined,
-    );
-
-    return new Fuse(filteredFeatures, {
+    return new Fuse(PlacesJSON.features, {
       keys: ["properties.name"],
       threshold: 0.3,
     });

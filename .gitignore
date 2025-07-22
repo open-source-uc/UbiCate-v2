@@ -45,3 +45,6 @@ public/swe-worker*
 # maps
 *.osm.pbf
 *.mbtiles
+
+# python env
+.venv

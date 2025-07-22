@@ -554,7 +554,9 @@ export async function PATCH(request: NextRequest) {
     const placeToApprove = { ...newPlaces.features[newPlacesIndex] };
 
     // Eliminar la marca de necesidad de aprobación
-    placeToApprove.properties.needApproval = false;
+    if ("needApproval" in placeToApprove.properties) {
+      delete placeToApprove.properties.needApproval;
+    }
 
     try {
       // Ejecutar operaciones como una transacción (lo mejor posible sin soporte nativo)

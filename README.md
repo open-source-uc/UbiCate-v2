@@ -331,9 +331,6 @@ En caso de querer agregar campus, estos deben incluirse en el archivo `campus.js
 > [!CAUTION]
 > Es fundamental que cualquier ubicación agregada manualmente se realice en la rama especificada para evitar conflictos.
 
-> [!NOTE]
-> Los puntos o áreas que no tengan el campo `needApproval` establecido en `false`, o que no incluyan este campo, no serán mostrados en el mapa.
-
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## Contribuir

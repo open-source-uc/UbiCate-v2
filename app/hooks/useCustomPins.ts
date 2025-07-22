@@ -41,7 +41,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
           campus: getCampusNameFromPoint(lng, lat) ?? "SJ",
           faculties: [],
           floors: [],
-          needApproval: false,
         },
         geometry: {
           type: "Point",
@@ -115,7 +114,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
         campus: "",
         faculties: [],
         floors: [],
-        needApproval: false,
       },
       geometry: {
         type: "Polygon",
