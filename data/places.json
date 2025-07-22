@@ -16895,31 +16895,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL3",
-                "name": "CRISOL",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610188,
-                    -33.497959
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CRISOL5",
                 "name": "CRISOL",
                 "campus": "OR",
@@ -31729,6 +31704,33 @@
                 "campus": "SJ",
                 "faculties": [
                     "ENF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610188,
+                    -33.497959
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL3",
+                "name": "CRISOL",
+                "information": "",
+                "categories": [
+                    "computers",
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         }
