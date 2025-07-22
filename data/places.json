@@ -11274,29 +11274,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "other-28654754",
-                "name": "Oficina de Transformación Digital",
-                "information": "Oficina",
-                "categories": [
-                    "other"
-                ],
-                "campus": "OR",
-                "faculties": "",
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59422220591799,
-                    -33.44593945465703
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "other-27009347",
                 "name": "Departamento de Fruticultura y Enología",
                 "information": "",
@@ -31807,6 +31784,30 @@
                 ],
                 "needApproval": false,
                 "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59422220591799,
+                    -33.44593945465703
+                ]
+            },
+            "properties": {
+                "identifier": "other-28654754",
+                "name": "Oficina de Transformación Digital",
+                "information": "Oficina Trasnformación Digital ",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    11
+                ],
+                "needApproval": false,
+                "campus": "OR",
                 "faculties": []
             }
         }
