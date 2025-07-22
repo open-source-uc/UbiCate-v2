@@ -65,11 +65,11 @@ export default function PlaceMenu({
     fetch("api/ubicate", {
       method: "DELETE",
       headers: {
-        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? ""
+        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
       },
       body: JSON.stringify({
         identifier: place?.properties.identifier,
-        source: source
+        source: source,
       }),
     })
       .then((res) => {

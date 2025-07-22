@@ -555,7 +555,6 @@ export async function PATCH(request: NextRequest) {
 
     // Eliminar la marca de necesidad de aprobación
     if ("needApproval" in placeToApprove.properties) {
-     
     }
 
     try {
@@ -641,9 +640,9 @@ export async function DELETE(request: NextRequest) {
     // Validación con Zod para DELETE - ahora incluye el origen
     const deleteSchema = z.object({
       identifier: z.string({ required_error: "El identificador es obligatorio" }),
-      source: z.enum(["approved", "pending"], { 
+      source: z.enum(["approved", "pending"], {
         required_error: "El origen es obligatorio",
-        invalid_type_error: "El origen debe ser 'approved' o 'pending'"
+        invalid_type_error: "El origen debe ser 'approved' o 'pending'",
       }),
     });
 
@@ -713,17 +712,11 @@ export async function DELETE(request: NextRequest) {
       }
 
       if (deleted) {
-        return NextResponse.json(
-          { message: `¡El lugar fue borrado de ${deletedFrom}!` },
-          { status: 200 },
-        );
+        return NextResponse.json({ message: `¡El lugar fue borrado de ${deletedFrom}!` }, { status: 200 });
       } else {
         // Si no está en el archivo especificado
         const sourceText = source === "approved" ? "lugares aprobados" : "lugares pendientes de aprobación";
-        return NextResponse.json(
-          { message: `¡El lugar NO existe en ${sourceText}!` },
-          { status: 404 }
-        );
+        return NextResponse.json({ message: `¡El lugar NO existe en ${sourceText}!` }, { status: 404 });
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes("Concurrent modification")) {
