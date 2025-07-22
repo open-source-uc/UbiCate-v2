@@ -24,30 +24,6 @@
                 "campus": "OR",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64027398824692,
-                    -33.44063294468911
-                ]
-            },
-            "properties": {
-                "identifier": "JGUZMAN2",
-                "name": "Sala B104",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
         }
     ]
 }
