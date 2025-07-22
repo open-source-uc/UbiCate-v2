@@ -1,32 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61026040345818,
-                    -33.499117855719746
-                ]
-            },
-            "properties": {
-                "identifier": "mde3ppargs0ygl",
-                "name": "Impresora",
-                "information": "Nunca falla y es barata",
-                "categories": [
-                    "photocopy",
-                    "shop"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        }
-    ]
+    "features": []
 }
