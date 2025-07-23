@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614197,
+                    -33.499906
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_LUKSIC",
+                "name": "Auditorio Luksic",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
+    ]
 }
