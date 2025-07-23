@@ -6,7 +6,7 @@ import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import { centroid } from "@turf/centroid";
-import type { LngLatBoundsLike, MapLayerTouchEvent } from "maplibre-gl";
+import type { LngLatBoundsLike } from "maplibre-gl";
 import type {
   ViewState,
   PointLike,
@@ -87,6 +87,10 @@ export default function MapComponent({
 }) {
   const params = useSearchParams();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
+  const holdTimeoutId = useRef<NodeJS.Timeout | null>(null);
+  const mouseDownPosition = useRef<{ lng: number; lat: number } | null>(null);
+  const isMouseDown = useRef<boolean>(false);
+
   const { points, polygons, setPlaces, setSelectedPlace, isOpen, selectedPlace, setIsOpen, pointsName } = useSidebar();
   const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
   const isLoaded = useRef(false);
@@ -220,6 +224,53 @@ export default function MapComponent({
       }, 200);
     });
 
+    // Agregar event listeners para hold-to-pin
+    e.target.on("mousedown", (event) => {
+      isMouseDown.current = true;
+      mouseDownPosition.current = { lng: event.lngLat.lng, lat: event.lngLat.lat };
+
+      // Limpiar timeout anterior si existe
+      if (holdTimeoutId.current) {
+        clearTimeout(holdTimeoutId.current);
+      }
+
+      // Configurar timeout para detectar mantener presionado (800ms)
+      holdTimeoutId.current = setTimeout(() => {
+        if (isMouseDown.current && mouseDownPosition.current) {
+          // Crear pin en la posición donde se hizo mousedown
+          const newPin = addPin(mouseDownPosition.current.lng, mouseDownPosition.current.lat);
+          handlePlaceSelection(newPin, { openSidebar: true });
+        }
+      }, 800); // 800ms para activar el pin
+    });
+
+    e.target.on("mouseup", () => {
+      isMouseDown.current = false;
+      mouseDownPosition.current = null;
+
+      // Limpiar timeout si el usuario suelta antes de tiempo
+      if (holdTimeoutId.current) {
+        clearTimeout(holdTimeoutId.current);
+        holdTimeoutId.current = null;
+      }
+    });
+
+    e.target.on("mousemove", () => {
+      // Si el mouse se mueve mientras está presionado, cancelar la acción de hold
+      if (isMouseDown.current && holdTimeoutId.current) {
+        clearTimeout(holdTimeoutId.current);
+        holdTimeoutId.current = null;
+      }
+    });
+
+    e.target.on("touchmove", () => {
+      // Si el usuario toca y mueve, cancelar la acción de hold
+      if (isMouseDown.current && holdTimeoutId.current) {
+        clearTimeout(holdTimeoutId.current);
+        holdTimeoutId.current = null;
+      }
+    });
+
     const isDebugMode = sessionStorage.getItem("debugMode") === "true";
 
     if (isDebugMode) {
@@ -297,55 +348,19 @@ export default function MapComponent({
     };
   }, []);
 
+  // Cleanup de timeouts al desmontar el componente
+  useEffect(() => {
+    return () => {
+      if (holdTimeoutId.current) {
+        clearTimeout(holdTimeoutId.current);
+      }
+      if (timeoutId.current) {
+        clearTimeout(timeoutId.current);
+      }
+    };
+  }, []);
+
   const mapConfig = useMapStyle();
-
-  const longPressCoordinates = useRef<{ lng: number; lat: number } | null>(null);
-  const longPressTimeoutId = useRef<NodeJS.Timeout | null>(null);
-
-  const createPinAtCoordinates = useCallback(
-    (lng: number, lat: number) => {
-      handlePlaceSelection(addPin(lng, lat), {
-        openSidebar: true,
-      });
-    },
-    [addPin, handlePlaceSelection],
-  );
-
-  const handleTouchStart = useCallback(
-    (e: MapLayerTouchEvent) => {
-      if (e.originalEvent.touches && e.originalEvent.touches.length !== 1) return;
-
-      longPressCoordinates.current = {
-        lng: e.lngLat.lng,
-        lat: e.lngLat.lat,
-      };
-
-      longPressTimeoutId.current = setTimeout(() => {
-        if (longPressCoordinates.current) {
-          createPinAtCoordinates(longPressCoordinates.current.lng, longPressCoordinates.current.lat);
-          longPressCoordinates.current = null;
-        }
-      }, 3000);
-    },
-    [createPinAtCoordinates],
-  );
-
-  const handleTouchEnd = useCallback(() => {
-    if (longPressTimeoutId.current) {
-      clearTimeout(longPressTimeoutId.current);
-      longPressTimeoutId.current = null;
-    }
-    longPressCoordinates.current = null;
-  }, []);
-
-  const handleTouchMove = useCallback(() => {
-    if (longPressTimeoutId.current) {
-      clearTimeout(longPressTimeoutId.current);
-      longPressTimeoutId.current = null;
-    }
-    longPressCoordinates.current = null;
-  }, []);
-
   return (
     <div className="w-full h-full" ref={containerRef}>
       <Map
@@ -354,9 +369,6 @@ export default function MapComponent({
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
-        onTouchStart={(e) => handleTouchStart(e)}
-        onTouchEnd={(e) => handleTouchEnd()}
-        onTouchMove={(e) => handleTouchMove()}
         onDblClick={(e) => {
           clearTimeout(timeoutId.current ?? undefined);
           handlePlaceSelection(addPin(e.lngLat.lng, e.lngLat.lat), {
