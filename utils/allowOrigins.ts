@@ -1,4 +1,4 @@
-function getAllowedOrigin(origin: string | null): string | null {
+export function getAllowedOrigin(origin: string | null): string | null {
   if (!origin) return null;
   
   try {

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
+import { getAllowedOrigin } from "@/utils/allowOrigins";
+
 export async function GET(request: NextRequest, { params }: { params: Promise<{ x: string; y: string; z: string }> }) {
   try {
     const { x, y, z } = await params;
