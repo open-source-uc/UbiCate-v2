@@ -75,6 +75,7 @@ GITHUB_TOKEN_USER=<TOKEN_USER>  # Opcional, obligatorio en producción
 GITHUB_USER_EMAIL=<EMAIL>       # Opcional, obligatorio en producción
 GITHUB_BRANCH_NAME=<BRANCH>     # Opcional, obligatorio en producción
 API_UBICATE_SECRET=<SECRET>     # Opcional, obligatorio en producción
+NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE"> # Si es true se pide a si mismo el mapa (self-host-map), si no es "TRUE" se pide a los servidores de OSUC
 ```
 
 > \[!IMPORTANT]
