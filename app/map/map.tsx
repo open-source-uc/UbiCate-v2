@@ -6,7 +6,7 @@ import React, { use, useCallback, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import { centroid } from "@turf/centroid";
-import type { LngLatBoundsLike } from "maplibre-gl";
+import type { LngLatBoundsLike, MapLayerTouchEvent } from "maplibre-gl";
 import type {
   ViewState,
   PointLike,
@@ -298,6 +298,54 @@ export default function MapComponent({
   }, []);
 
   const mapConfig = useMapStyle();
+
+  const longPressCoordinates = useRef<{ lng: number; lat: number } | null>(null);
+  const longPressTimeoutId = useRef<NodeJS.Timeout | null>(null);
+
+  const createPinAtCoordinates = useCallback(
+    (lng: number, lat: number) => {
+      handlePlaceSelection(addPin(lng, lat), {
+        openSidebar: true,
+      });
+    },
+    [addPin, handlePlaceSelection],
+  );
+
+  const handleTouchStart = useCallback(
+    (e: MapLayerTouchEvent) => {
+      if (e.originalEvent.touches && e.originalEvent.touches.length !== 1) return;
+
+      longPressCoordinates.current = {
+        lng: e.lngLat.lng,
+        lat: e.lngLat.lat,
+      };
+
+      longPressTimeoutId.current = setTimeout(() => {
+        if (longPressCoordinates.current) {
+          createPinAtCoordinates(longPressCoordinates.current.lng, longPressCoordinates.current.lat);
+          longPressCoordinates.current = null;
+        }
+      }, 3000);
+    },
+    [createPinAtCoordinates],
+  );
+
+  const handleTouchEnd = useCallback(() => {
+    if (longPressTimeoutId.current) {
+      clearTimeout(longPressTimeoutId.current);
+      longPressTimeoutId.current = null;
+    }
+    longPressCoordinates.current = null;
+  }, []);
+
+  const handleTouchMove = useCallback(() => {
+    if (longPressTimeoutId.current) {
+      clearTimeout(longPressTimeoutId.current);
+      longPressTimeoutId.current = null;
+    }
+    longPressCoordinates.current = null;
+  }, []);
+
   return (
     <div className="w-full h-full" ref={containerRef}>
       <Map
@@ -306,6 +354,9 @@ export default function MapComponent({
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
         onClick={(e) => onClickMap(e)}
         onLoad={(e) => onLoad(e)}
+        onTouchStart={(e) => handleTouchStart(e)}
+        onTouchEnd={(e) => handleTouchEnd()}
+        onTouchMove={(e) => handleTouchMove()}
         onDblClick={(e) => {
           clearTimeout(timeoutId.current ?? undefined);
           handlePlaceSelection(addPin(e.lngLat.lng, e.lngLat.lat), {
