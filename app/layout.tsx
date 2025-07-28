@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 import ManifestFixer from "./components/ManifestFixer";
 import SWRegister from "./components/SWRegister";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),
@@ -42,7 +43,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="h-full">
         <SWRegister />
         <ManifestFixer />
-        <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
+        <Providers>
+          <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
+        </Providers>
       </body>
     </html>
   );
