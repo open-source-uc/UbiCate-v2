@@ -80,9 +80,9 @@ export const PINK_COQUETTE_MAP_COLORS = {
 
   // Landuse - Campus con verde más oscuro que contraste mejor
   park: "#a7f3d0", // Verde parque más vibrante
-  residential: "#fce7f3", // Rosa residencial coquette
+  residential: "#f5f5f5", // Rosa residencial coquette
   commercial: "#fbcfe8", // Rosa comercial más visible
-  industrial: "#fce7f3", // Rosa industrial coquette
+  industrial: "#f5f5f5", // Rosa industrial coquette
   cemetery: "#d1fae5", // Verde cementerio claro
   hospital: "#fbcfe8", // Rosa hospital más saturado
   school: "#a7f3d0", // Verde escuela vibrante
