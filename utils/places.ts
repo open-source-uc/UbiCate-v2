@@ -1,6 +1,15 @@
-import Places from "@/data/places.json"
-import { JSONFeatures } from "./types"
+import rawPlaces from "@/data/places.json";
 
-const PlacesJSON: JSONFeatures = (Places as unknown as JSONFeatures)
+import { ALWAYS_VISIBLE_IDS } from "./constants";
+import { JSONFeatures, Feature, PointFeature } from "./types";
 
-export default PlacesJSON
+const PlacesJSON: JSONFeatures = rawPlaces as JSONFeatures;
+
+export const allPlaces: Feature[] = PlacesJSON.features;
+
+export const alwaysVisiblePlaces: PointFeature[] = PlacesJSON.features.filter(
+  (place: Feature): place is PointFeature =>
+    place.geometry.type === "Point" && ALWAYS_VISIBLE_IDS.has(place.properties.identifier),
+);
+
+export default PlacesJSON;
