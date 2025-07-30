@@ -45,7 +45,10 @@ export default function usePlaces(): {
             ...e,
             properties: {
               ...e.properties,
-              name: `${e.properties.name}\n ${pisoTexto}: ${str}`,
+              name:
+                e.properties.floors?.length === 1 && e.properties.floors[0] === 1
+                  ? e.properties.name
+                  : `${e.properties.name}\n ${pisoTexto}: ${str}`,
             },
           };
 
