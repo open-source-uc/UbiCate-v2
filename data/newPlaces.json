@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61589472048354,
+                    -33.49868816418174
+                ]
+            },
+            "properties": {
+                "identifier": "MDPL1UYF7LTTWI",
+                "name": "Metro San Joaquin",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61214395174134,
                     -33.49918525634129
                 ]
