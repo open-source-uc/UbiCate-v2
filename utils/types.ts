@@ -1,4 +1,3 @@
-
 export interface PointGeometry {
   type: "Point";
   coordinates: [number, number];
@@ -39,9 +38,8 @@ export enum CATEGORIES {
   TRASH = "trash",
   WATER = "water",
   USER_LOCATION = "user",
-  YARD = "yard"
+  YARD = "yard",
 }
-
 
 export interface Properties {
   identifier: string;
@@ -51,7 +49,7 @@ export interface Properties {
   campus: string;
   faculties: string[];
   floors?: number[];
-  needApproval?: boolean; 
+  needApproval?: boolean;
   // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
   // needApproval sera SIEMPRE undefined en places.json
 }
@@ -170,4 +168,4 @@ export const CategoryOptions = [
   CATEGORIES.BUILDING,
   CATEGORIES.YARD,
   CATEGORIES.OTHER,
-]
+];

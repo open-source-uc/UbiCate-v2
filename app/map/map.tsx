@@ -38,6 +38,7 @@ import { useSidebar } from "../context/sidebarCtx";
 import { useMapStyle } from "../hooks/useMapStyle";
 
 import Marker from "./marker";
+import SpecialMarkers from "./SpecialMarkers";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -313,13 +314,13 @@ export default function MapComponent({
           });
         }}
         transformRequest={(url, type) => {
-          if (type === "Tile") {
-            const baseUrl = window.location.origin;
-            return { url: baseUrl + url };
-          }
-          if (type === "Glyphs") {
-            const baseUrl = window.location.origin;
-            return { url: baseUrl + url };
+          if (type === "Tile" || type === "Glyphs") {
+            if (process.env.NEXT_PUBLIC_IS_SELF_HOST === "TRUE") {
+              return { url: window.location.origin + url };
+            } else {
+              console.log("OSUC SERVER MAP");
+              return { url: `https://ubicate.osuc.dev${url}` };
+            }
           }
           return { url };
         }}
@@ -342,7 +343,7 @@ export default function MapComponent({
         <DebugMode />
         <UserLocation />
         <DirectionsComponent />
-
+        <SpecialMarkers />
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as CATEGORIES;
           return (

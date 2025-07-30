@@ -1,4 +1,54 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61214395174134,
+                    -33.49918525634129
+                ]
+            },
+            "properties": {
+                "identifier": "IMC",
+                "name": "(IMC) Instituto de Ingeniería Matemática y Computacional",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    5,
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614197,
+                    -33.499906
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_LUKSIC",
+                "name": "Auditorio Luksic",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
+    ]
 }

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
+import { getAllowedOrigin } from "@/utils/allowOrigins";
+
 // app/api/[z]/[x]/[y]/route.ts
 export async function GET(request: NextRequest, { params }: { params: Promise<{ range: string }> }) {
   try {
@@ -28,6 +30,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: "Empty tile data" }, { status: 500 });
     }
 
+    const origin = request.headers.get("origin");
+    const allowedOrigin = getAllowedOrigin(origin);
+
     const headers = new Headers({
       "Content-Type": "application/x-protobuf",
       "Content-Encoding": "identity",
@@ -40,6 +45,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       Vary: "Accept-Encoding",
     });
 
+    if (allowedOrigin) {
+      headers.set("Access-Control-Allow-Origin", allowedOrigin);
+    }
+
     return new NextResponse(data, {
       status: 200,
       headers: headers,
@@ -48,6 +57,26 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     console.error("Error processing tile:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
+}
+
+export async function OPTIONS(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  const allowedOrigin = getAllowedOrigin(origin);
+
+  const headers: Record<string, string> = {
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+    "Access-Control-Max-Age": "86400", // Cache preflight por 24 horas
+  };
+
+  if (allowedOrigin) {
+    headers["Access-Control-Allow-Origin"] = allowedOrigin;
+  }
+
+  return new NextResponse(null, {
+    status: 200,
+    headers,
+  });
 }
 
 export const runtime = "edge";

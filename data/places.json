@@ -30612,31 +30612,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61333266525133,
-                    -33.500222000070764
-                ]
-            },
-            "properties": {
-                "identifier": "OSUC",
-                "name": "(OSUC) Open Source eUC",
-                "campus": "SJ",
-                "information": "### Test 2904ws20s25\nHola rocka del futuro.",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61358,
                     -33.497342
                 ]
@@ -31732,6 +31707,76 @@
                 "faculties": [
                     "SOC"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61333266525133,
+                    -33.500222000070764
+                ]
+            },
+            "properties": {
+                "identifier": "OSUC",
+                "name": "(OSUC) Open Source eUC",
+                "information": "### Test 2904ws20s25\nHola rocka del futuro.\ntest 22",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61175793290926,
+                            -33.49648975930145
+                        ],
+                        [
+                            -70.61171233535667,
+                            -33.49687000541415
+                        ],
+                        [
+                            -70.61129927516812,
+                            -33.49684763804185
+                        ],
+                        [
+                            -70.6113475549299,
+                            -33.496458444839014
+                        ],
+                        [
+                            -70.61175793290926,
+                            -33.49648975930145
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MDF83672FIG5ZH",
+                "name": "Zócalo comercial",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
