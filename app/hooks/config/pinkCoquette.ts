@@ -22,8 +22,8 @@ export const campusBorderLayer: LayerProps = {
   id: "campus-border",
   type: "line",
   paint: {
-    "line-color": "#059669", // Verde esmeralda que contrasta perfectamente con rosa
-    "line-width": 1.4,
+    "line-color": "#a21caf", // Verde esmeralda que contrasta perfectamente con rosa
+    "line-width": 1.8,
     "line-dasharray": [2, 1],
   },
 };
@@ -67,7 +67,7 @@ export const customPolygonSectionAreaLayer: LayerProps = {
 };
 export const PINK_COQUETTE_MAP_COLORS = {
   // Base - Rosa coquette más vibrante
-  background: "#fce7f3", // Rosa coquette base más saturado
+  background: "#f5f5f5", // Rosa coquette base más saturado
   water: "#a5b4fc", // Azul periwinkle más vibrante
   waterway: "#818cf8", // Azul lavanda más definido
 
@@ -80,14 +80,14 @@ export const PINK_COQUETTE_MAP_COLORS = {
 
   // Landuse - Campus con verde más oscuro que contraste mejor
   park: "#a7f3d0", // Verde parque más vibrante
-  residential: "#fce7f3", // Rosa residencial coquette
+  residential: "#f5f5f5", // Rosa residencial coquette
   commercial: "#fbcfe8", // Rosa comercial más visible
-  industrial: "#fce7f3", // Rosa industrial coquette
+  industrial: "#f5f5f5", // Rosa industrial coquette
   cemetery: "#d1fae5", // Verde cementerio claro
   hospital: "#fbcfe8", // Rosa hospital más saturado
   school: "#a7f3d0", // Verde escuela vibrante
   airport: "#f3f4f6", // Gris aeropuerto neutro
-  campus: "#86efac", // Verde campus MÁS OSCURO - mejor contraste con rosa coquette
+  campus: "#fce7f3", // Verde campus MÁS OSCURO - mejor contraste con rosa coquette
 
   // Building - Rosa coquette más saturado pero elegante
   building: "#f9a8d4", // Rosa coquette vibrante
