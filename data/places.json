@@ -14700,29 +14700,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AUDITORIO_LUKSIC",
-                "name": "Auditorio Luksic",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614197,
-                    -33.499906
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AUDITORIO_ASTRO",
                 "name": "Auditorio Ninoslav Bralic",
                 "campus": "SJ",
@@ -31797,6 +31774,30 @@
                 "floors": [
                     5,
                     6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614197,
+                    -33.499906
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_LUKSIC",
+                "name": "Auditorio Luksic",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -2
                 ],
                 "needApproval": true,
                 "campus": "SJ",
