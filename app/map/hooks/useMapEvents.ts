@@ -34,7 +34,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   const { addPin, clearPins } = use(pinsContext);
 
   const handlePlaceSelection = useCallback(
-    (place: Feature | null, options?: HandlePlaceSelectionOptions) => {
+    (place: Feature | null, options: HandlePlaceSelectionOptions) => {
       setSelectedPlace(place);
       const title = document.querySelector("title");
       if (!place) {
@@ -124,7 +124,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [setSelectedPlace, setIsOpen, mapRef],
   );
   useEffect(() => {
-    handlePlaceSelection(selectedPlace, { openSidebar: true, flyMode: "ifOutside" });
+    handlePlaceSelection(selectedPlace, { openSidebar: true, flyMode: "always" });
   }, [selectedPlace, handlePlaceSelection]);
 
   const handleMapLoad = useCallback(
@@ -170,7 +170,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
             },
             400,
           );
-          handlePlaceSelection(null);
+          handlePlaceSelection(null, { openSidebar: false, flyMode: "never" });
         }
       });
 
