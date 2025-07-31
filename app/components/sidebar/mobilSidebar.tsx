@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
 import { SubSidebarType } from "@/utils/types";
 
 import PillFilter from "../pills/PillFilter";
@@ -21,6 +22,7 @@ export default function MobileSidebar() {
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
+  const { create } = useTimeoutManager();
   const router = useRouter();
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
@@ -169,6 +171,21 @@ export default function MobileSidebar() {
     };
   }, []);
 
+  useEffect(() => {
+    const firstTime = !sessionStorage.getItem("first_2131321");
+    if (firstTime) {
+      create(
+        "firstTime",
+        () => {
+          sessionStorage.setItem("first_2131321", "true");
+          setSidebarHeight(45);
+          setIsOpen(true);
+        },
+        50,
+      );
+    }
+  }, []);
+
   return (
     <>
       {/* Search Container */}
@@ -254,7 +271,7 @@ export default function MobileSidebar() {
                     <PillFilter />
                   </div>
 
-                  <div className="flex flex-row gap-2 pb-5 pt-4">
+                  <div className="flex flex-row gap-2 pb-5">
                     <FooterOptionsSidebar />
                   </div>
                 </div>

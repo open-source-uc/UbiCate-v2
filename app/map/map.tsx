@@ -2,32 +2,17 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { use, useCallback, useEffect, useRef } from "react";
+import React, { use, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
-import { centroid } from "@turf/centroid";
 import type { LngLatBoundsLike } from "maplibre-gl";
-import type {
-  ViewState,
-  PointLike,
-  PaddingOptions,
-  MarkerDragEvent,
-  MapEvent,
-  MapLayerMouseEvent,
-  MapRef,
-} from "react-map-gl/maplibre";
+import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapRef } from "react-map-gl/maplibre";
 import { Map, Source, Layer } from "react-map-gl/maplibre";
 
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import {
-  getCampusBoundsFromName,
-  getCampusNameFromPoint,
-  getMaxCampusBoundsFromName,
-  getMaxCampusBoundsFromPoint,
-} from "@/utils/getCampusBounds";
-import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
+import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 
 import DirectionsComponent from "../components/directions/component";
@@ -35,8 +20,9 @@ import UserLocation from "../components/directions/userLocation";
 import MarkerIcon from "../components/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
-import { useMapStyle } from "../hooks/useMapStyle";
 
+import { HandlePlaceSelectionOptions, useMapEvents } from "./hooks/useMapEvents";
+import { useMapStyle } from "./hooks/useMapStyle";
 import Marker from "./marker";
 import SpecialMarkers from "./SpecialMarkers";
 
@@ -86,192 +72,30 @@ export default function MapComponent({
   paramLng?: number | null;
   paramLat?: number | null;
 }) {
-  const params = useSearchParams();
-  const timeoutId = useRef<NodeJS.Timeout | null>(null);
-  const { points, polygons, setPlaces, setSelectedPlace, isOpen, selectedPlace, setIsOpen, pointsName } = useSidebar();
-  const { pins, addPin, handlePinDrag, clearPins, polygon } = use(pinsContext);
-  const isLoaded = useRef(false);
   const mapRef = useRef<MapRef>(null);
-
-  const handlePlaceSelection = useCallback(
-    (place: Feature | null, options?: { openSidebar?: boolean; notSet?: boolean; fly?: boolean }) => {
-      if (options?.notSet === undefined || options?.notSet === false) {
-        setSelectedPlace(place);
-      }
-
-      const title = document.querySelector("title");
-      if (!place) {
-        window.history.replaceState(null, "", "?");
-        if (title) {
-          title.textContent = "Ubicate UC - Mapa";
-        }
-        setIsOpen(false);
-        return;
-      }
-
-      localStorage.setItem("defaultCampus", place.properties.campus);
-
-      if (title) {
-        title.textContent = place ? `${place.properties.name}` : "Ubicate UC - Mapa";
-      }
-
-      if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK)) {
-        window.history.replaceState(
-          null,
-          "",
-          `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
-        );
-      } else {
-        window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-      }
-
-      let center: [number, number] = [0, 0];
-
-      if (place.geometry.type === "Polygon") {
-        center = centroid(place.geometry).geometry.coordinates as unknown as [number, number];
-      }
-
-      if (place.geometry.type === "Point")
-        center = [place.geometry.coordinates[0], place.geometry.coordinates[1]] as unknown as [number, number];
-
-      const [lng, lat] = center;
-      const map = mapRef.current?.getMap();
-      map?.setMaxBounds(undefined);
-      setTimeout(() => {
-        map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
-      }, 600);
-      if (options?.fly === false) {
-        console.log("center", center);
-        const bounds = map?.getBounds();
-        const margin = 0.001;
-
-        if (!map || !bounds) return;
-
-        const isOutside = !(
-          lng >= bounds.getWest() + margin &&
-          lng <= bounds.getEast() - margin &&
-          lat >= bounds.getSouth() + margin &&
-          lat <= bounds.getNorth() - margin
-        );
-        if (isOutside) {
-          const mapHeight = bounds.getNorth() - bounds.getSouth();
-          const offset = mapHeight * 0.25;
-
-          map.flyTo({
-            center: [lng, lat - offset],
-            essential: true,
-            duration: 400,
-          });
-        }
-      } else {
-        map?.flyTo({
-          essential: true,
-          duration: 400,
-          zoom: 17,
-          center: [lng, lat],
-          offset: [0, -20],
-        });
-      }
-    },
-    [setSelectedPlace, setIsOpen],
-  );
-
-  function onClickMap(e: MapLayerMouseEvent) {
-    clearTimeout(timeoutId.current ?? undefined);
-    timeoutId.current = setTimeout(() => {
-      handlePlaceSelection(null, { openSidebar: false });
-      clearPins();
-    }, 350);
-  }
-
-  async function onLoad(e: MapEvent) {
-    e.target.doubleClickZoom.disable();
-    mapRef.current?.getMap().setMinZoom(15);
-    const map = mapRef.current?.getMap();
-    if (paramPlace) {
-      map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
-      setPlaces([paramPlace]);
-      handlePlaceSelection(paramPlace, { openSidebar: true });
-      localStorage.setItem("defaultCampus", paramPlace.properties.campus);
-    } else if (paramLng && paramLat) {
-      localStorage.setItem("defaultCampus", getCampusNameFromPoint(paramLng, paramLat) ?? "SanJoaquin");
-      map?.setMaxBounds(getMaxCampusBoundsFromPoint(paramLng, paramLat));
-      handlePlaceSelection(addPin(parseFloat("" + paramLng), parseFloat("" + paramLat)), {
-        openSidebar: true,
-      });
-    } else {
-      const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
-      map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-      map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
-        duration: 0,
-        zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
-      });
-    }
-
-    e.target.on("click", ["area-polygon"], (e) => {
-      const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
-      if (!feature) return;
-      /*
-       Importante pues si no se borra se ejecute lo que esta en la funcion onClickMap,
-       lo que no permite abrir el menu del area, pues un click en el area tmb cuenta como click en el mapa 
-       */
-      clearTimeout(timeoutId.current ?? undefined);
-      setTimeout(() => {
-        handlePlaceSelection(feature, { openSidebar: true });
-      }, 200);
-    });
-
-    const isDebugMode = sessionStorage.getItem("debugMode") === "true";
-
-    if (isDebugMode) {
-      e.target.on("click", ["points-layer-2"], (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
-        if (!feature) return;
-        clearTimeout(timeoutId.current ?? undefined);
-        setTimeout(() => {
-          setIsOpen(true);
-          handlePlaceSelection(feature, { openSidebar: true });
-        }, 200);
-      });
-      e.target.on("click", ["points-layer-3"], (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
-        if (!feature) return;
-        clearTimeout(timeoutId.current ?? undefined);
-        setTimeout(() => {
-          setIsOpen(true);
-          handlePlaceSelection(feature, { openSidebar: true });
-        }, 200);
-      });
-      e.target.on("click", ["debug-area-polygon"], (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
-        if (!feature) return;
-        clearTimeout(timeoutId.current ?? undefined);
-        setTimeout(() => {
-          handlePlaceSelection(feature, { openSidebar: true });
-        }, 200);
-      });
-    }
-
-    isLoaded.current = true;
-  }
+  const params = useSearchParams();
+  const { points, polygons, pointsName } = useSidebar();
+  const { pins, handlePinDrag, polygon } = use(pinsContext);
+  const { handleMapLoad, handlePlaceSelection } = useMapEvents({
+    mapRef,
+    paramPlace,
+    paramLng,
+    paramLat,
+  });
+  const mapConfig = useMapStyle();
 
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
+      mapRef.current?.getMap()?.setMaxBounds(undefined);
       localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
         zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
       });
+      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
     }
   }, [params]);
-
-  useEffect(() => {
-    if (isLoaded.current) {
-      handlePlaceSelection(selectedPlace, { openSidebar: true, notSet: true, fly: true });
-    }
-  }, [selectedPlace, handlePlaceSelection]);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -298,21 +122,13 @@ export default function MapComponent({
     };
   }, []);
 
-  const mapConfig = useMapStyle();
   return (
     <div className="w-full h-full" ref={containerRef}>
       <Map
         id="mainMap"
         mapStyle={mapConfig.mapStyle}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
-        onClick={(e) => onClickMap(e)}
-        onLoad={(e) => onLoad(e)}
-        onDblClick={(e) => {
-          clearTimeout(timeoutId.current ?? undefined);
-          handlePlaceSelection(addPin(e.lngLat.lng, e.lngLat.lat), {
-            openSidebar: true,
-          });
-        }}
+        onLoad={(e) => handleMapLoad(e)}
         transformRequest={(url, type) => {
           if (type === "Tile" || type === "Glyphs") {
             if (process.env.NEXT_PUBLIC_IS_SELF_HOST === "TRUE") {
@@ -350,18 +166,24 @@ export default function MapComponent({
             <Marker
               key={place.properties.identifier}
               place={place as PointFeature}
-              onClick={() => handlePlaceSelection(place, { openSidebar: true })}
+              onClick={() => handlePlaceSelection(place, { openSidebar: true, flyMode: "ifOutside" })}
               icon={<MarkerIcon label={primaryCategory} />}
             />
           );
         })}
         {pins.map((pin) => {
           const primaryCategory = pin.properties.categories[0] as CATEGORIES;
+          let config: HandlePlaceSelectionOptions;
+          if (pins.length === 1) {
+            config = { openSidebar: true, flyMode: "always" };
+          } else {
+            config = { openSidebar: false, flyMode: "never" };
+          }
           return (
             <Marker
               key={pin.properties.identifier}
               place={pin as PointFeature}
-              onClick={() => handlePlaceSelection(pin, { openSidebar: true })}
+              onClick={() => handlePlaceSelection(pin, config)}
               icon={<MarkerIcon label={primaryCategory} />}
               draggable
               onDrag={(e: MarkerDragEvent) => {

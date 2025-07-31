@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 
+import { useTheme } from "@/app/context/themeCtx";
 import { createMapLibreStyle } from "@/utils/createMapLibreStyle";
-
-import { useTheme } from "../context/themeCtx";
 
 import * as lightFormal from "./config/lightFormal";
 import * as normal from "./config/normal";
