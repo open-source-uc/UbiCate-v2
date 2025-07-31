@@ -193,29 +193,29 @@ export default function MobileSidebar() {
 
       {/* Main Sidebar */}
       <section
-        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
+        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-pan-x"
         style={{
-          height: isOpen ? `${sidebarHeight}dvh` : "4rem",
+          height: isOpen ? `${sidebarHeight}dvh` : "3rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
         role="dialog"
         aria-label="Mobile Navigation"
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onClick={handleGrabBarClick}
       >
         {/* Drag handle that spans full width */}
         <div
           className="w-full h-7 cursor-grab active:cursor-grabbing 
     flex justify-center items-center rounded-t-lg touch-pan-x"
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onClick={handleGrabBarClick}
           role="button"
           aria-label="Drag to resize sidebar"
           tabIndex={0}
         >
-          <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
+          <div className="w-2/5 h-2 bg-muted rounded-full mx-auto" />
         </div>
 
         {isOpen ? (
