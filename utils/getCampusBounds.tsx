@@ -21,44 +21,44 @@ const campusBounds: Record<string, CampusBounds> = {
 
 const campusMaxBounds: Record<string, CampusBounds> = {
   SJ: {
-    longitudeRange: [-70.617503, -70.59431683064508],
-    latitudeRange: [-33.504828, -33.49094826798197]
+    longitudeRange: [-70.6205028, -70.5913170],
+    latitudeRange: [-33.5078278, -33.4879484]
   },
   LC: {
-    longitudeRange: [-70.619316, -70.612656],
-    latitudeRange: [-33.424452, -33.410765]
+    longitudeRange: [-70.6223158, -70.6096562],
+    latitudeRange: [-33.4286518, -33.4065652]
   },
   VR: {
     longitudeRange: [-72.22701952051408, -72.2242192943034],
     latitudeRange: [-39.278605924710156, -39.276849411532424]
   },
   CC: {
-    longitudeRange: [-70.643948, -70.639467],
-    latitudeRange: [-33.446233, -33.434954]
+    longitudeRange: [-70.6470478, -70.6323672],
+    latitudeRange: [-33.4500328, -33.4311542]
   },
   OR: {
-    longitudeRange: [-70.597549, -70.589627],
-    latitudeRange: [-33.447784, -33.443034]
+    longitudeRange: [-70.60228168760007, -70.58052647213087],
+    latitudeRange: [-33.45132213922094, -33.44061912671008]
   },
   SanJoaquin: {
-    longitudeRange: [-70.617503, -70.59431683064508],
-    latitudeRange: [-33.504828, -33.49094826798197]
+    longitudeRange: [-70.6205028, -70.5913170],
+    latitudeRange: [-33.5078278, -33.4879484]
   },
   LoContador: {
-    longitudeRange: [-70.619316, -70.612656],
-    latitudeRange: [-33.424452, -33.410765]
+    longitudeRange: [-70.6223158, -70.6096562],
+    latitudeRange: [-33.4286518, -33.4065652]
   },
   Villarrica: {
     longitudeRange: [-72.22701952051408, -72.2242192943034],
     latitudeRange: [-39.278605924710156, -39.276849411532424]
   },
   CasaCentral: {
-    longitudeRange: [-70.643948, -70.635644],
-    latitudeRange: [-33.446233, -33.434954]
+    longitudeRange: [-70.6470478, -70.6323672],
+    latitudeRange: [-33.4500328, -33.4311542]
   },
   Oriente: {
-    longitudeRange: [-70.597549, -70.589627],
-    latitudeRange: [-33.447784, -33.443034]
+    longitudeRange: [-70.60228168760007, -70.58052647213087],
+    latitudeRange: [-33.45132213922094, -33.44061912671008]
   },
 };
 

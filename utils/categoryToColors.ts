@@ -14,7 +14,7 @@ const categoryToColorMap = new Map<string, string>([
   ["library", "bg-chart-4"],
   ["userLocation", "bg-primary"],
   ["customMark", "bg-chart-4"],
-  ["photocopy", "bg-chart-9"],
+  ["photocopy", "bg-chart-3"],
 ]);
 
 export const getCategoryColor = (category: string): string => {

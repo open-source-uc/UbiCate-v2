@@ -11,7 +11,7 @@ export default function usePlaces(): {
   polygons: PolygonFeature[];
   setPlaces: (places: Feature[] | Feature | null) => void;
   selectedPlace: Feature | null;
-  setSelectedPlace: (place: Feature | null) => void;
+  setSelectedPlace: (place: Feature | null | ((prev: Feature | null) => Feature | null)) => void;
   PointsName: PointFeature[];
 } {
   const [findPlaces, setFindPlaces] = useState<Feature[]>([]);

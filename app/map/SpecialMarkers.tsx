@@ -53,7 +53,7 @@ export default function SpecialMarkers() {
   return (
     <>
       {alwaysVisiblePlaces.map((place) => (
-        <SpecialMarker key={place.properties.identifier} place={place} onClick={setSelectedPlace} />
+        <SpecialMarker key={place.properties.identifier} place={place} onClick={() => setSelectedPlace(place)} />
       ))}
     </>
   );
