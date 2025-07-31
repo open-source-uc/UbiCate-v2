@@ -23951,31 +23951,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "IMC",
-                "name": "(IMC) Instituto de Ingeniería Matemática y Computacional",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61497841845777,
-                    -33.49964476408786
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AP502",
                 "name": "AP502",
                 "campus": "SJ",
@@ -31797,6 +31772,31 @@
                 ],
                 "floors": [
                     1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61214395174134,
+                    -33.49918525634129
+                ]
+            },
+            "properties": {
+                "identifier": "IMC",
+                "name": "(IMC) Instituto de Ingeniería Matemática y Computacional",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    5,
+                    6
                 ],
                 "needApproval": true,
                 "campus": "SJ",
