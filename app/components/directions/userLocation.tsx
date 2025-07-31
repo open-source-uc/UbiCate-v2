@@ -136,7 +136,7 @@ export default function UserLocation() {
           <Icons.UserLocation rotation={rotation} />
         </Marker>
       ) : null}
-      <div className="fixed z-40 bottom-12 desktop:bottom-9 right-0 p-2 desktop:p-1 flex flex-col gap-2">
+      <div className="fixed z-40 bottom-17 desktop:bottom-9 right-0 p-2 desktop:p-1 flex flex-col gap-2">
         <DangerButton onClick={() => setTracking(false)} />
         <LocationButton onClick={handleLocationButtonClick} />
       </div>

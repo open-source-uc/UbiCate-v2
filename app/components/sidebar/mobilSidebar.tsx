@@ -195,7 +195,7 @@ export default function MobileSidebar() {
       <section
         className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-pan-x"
         style={{
-          height: isOpen ? `${sidebarHeight}dvh` : "3rem",
+          height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
