@@ -91,7 +91,6 @@ export default function PlaceMenu({
         <PlaceInformation
           place={place}
           onClose={() => {
-            clearPins();
             onCloseMenu?.();
           }}
           onCreate={() => {
