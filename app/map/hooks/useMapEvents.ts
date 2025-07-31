@@ -7,6 +7,7 @@ import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
 import {
+  getCampusBoundsFromName,
   getCampusNameFromPoint,
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
@@ -147,7 +148,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       } else {
         const defaultCampus = localStorage.getItem("defaultCampus") ?? "SanJoaquin";
         map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
-        map?.fitBounds(getMaxCampusBoundsFromName(defaultCampus), {
+        map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
           duration: 0,
           zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
         });
