@@ -53,6 +53,11 @@ export default function RouteButton({ place }: RouteButtonProps) {
 
     if (!shouldCalculateRoute) return;
 
+    if (!status.ok && status.error) {
+      setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
+      return;
+    }
+
     if (directionError) {
       setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
       console.error("Error fetching directions:", directionError);
@@ -61,7 +66,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
 
     if (!optimalDirection) {
       setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
-      console.error("Optimal direction not defined:", directionError);
+      console.error("Optimal direction not defined:", optimalDirection);
       return;
     }
 
@@ -80,19 +85,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
     directionError,
     setSelectedPlace,
     place,
+    status,
   ]);
-
-  useEffect(() => {
-    if (!status.ok && status.error) {
-      setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
-      return;
-    }
-
-    if (!status.origin || !status.destination) {
-      setNotification(<DirectionErrorNotification>No se pudo determinar la ruta</DirectionErrorNotification>);
-      return;
-    }
-  }, [status, setNotification]);
 
   const handleDirections = async () => {
     // Si está esperando ubicación, cancelar
