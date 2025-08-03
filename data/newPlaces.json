@@ -54,33 +54,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610188,
-                    -33.497959
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL3",
-                "name": "CRISOL",
-                "information": "",
-                "categories": [
-                    "crisol",
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.612116,
                     -33.499133
                 ]
