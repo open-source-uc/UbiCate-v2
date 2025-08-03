@@ -8222,29 +8222,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORY-32379115",
-                "name": "Crisol CS 102",
-                "campus": "SJ",
-                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61036383562251,
-                    -33.500581081425665
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "LABORATORY-32379076",
                 "name": "Crisol CS 101",
                 "campus": "SJ",
@@ -31699,6 +31676,29 @@
                 "faculties": [
                     "ARTE"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61036383562251,
+                    -33.500581081425665
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-32379115",
+                "name": "Crisol CS 102",
+                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
