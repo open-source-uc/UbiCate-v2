@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618064,
-                    -33.419254
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL7",
-                "name": "CRISOL Alfero",
-                "information": "",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": []
-            }
-        }
-    ]
+    "features": []
 }
