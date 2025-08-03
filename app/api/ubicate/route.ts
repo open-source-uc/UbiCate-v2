@@ -34,10 +34,6 @@ function generateRandomIdWithTimestamp() {
   return timestamp + randomPart; // Concatenate timestamp and random part
 }
 
-function getID(place: Feature) {
-  return place.properties.name + "-" + place.properties.categories + "-" + place.properties.campus;
-}
-
 // Función para crear un archivo nuevo en GitHub
 async function createGithubFile(path: string, initialContent: Places): Promise<GithubFileResponse> {
   const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}`;
@@ -81,7 +77,7 @@ async function createGithubFile(path: string, initialContent: Places): Promise<G
 // Función mejorada para interactuar con archivos en GitHub
 async function githubFileOperation(
   url: string,
-  identifier: string,
+  feature: Feature,
   file_places: Places,
   file_sha: string,
   operationType: string,
@@ -98,7 +94,7 @@ async function githubFileOperation(
         Accept: "application/vnd.github+json",
       },
       body: JSON.stringify({
-        message: `${operationType}: ${identifier}`,
+        message: `${operationType}: ${feature.properties.name} (${feature.properties.identifier})`,
         committer: {
           name: "BOT-PLACES",
           email: GITHUB_USER_EMAIL,
@@ -399,7 +395,7 @@ export async function POST(request: NextRequest) {
 
     // Añadir el nuevo lugar al archivo de lugares nuevos
     newPlaces.features.unshift(nuevo_punto);
-    await githubFileOperation(newPlacesUrl, getID(nuevo_punto), newPlaces, newPlacesSha, "CREATE");
+    await githubFileOperation(newPlacesUrl, nuevo_punto, newPlaces, newPlacesSha, "CREATE");
     return NextResponse.json({
       message: "¡El lugar fue creado! Ahora debe esperar a que sea aprobado (máximo 1 semana).",
       identifier: nuevo_punto.properties.identifier,
@@ -474,11 +470,11 @@ export async function PUT(request: NextRequest) {
       if (newPlacesIndex !== -1) {
         newPlaces.features.splice(newPlacesIndex, 1);
         newPlaces.features.unshift(actualizado_punto);
-        await githubFileOperation(newPlacesUrl, getID(actualizado_punto), newPlaces, newPlacesSha, "UPDATE");
+        await githubFileOperation(newPlacesUrl, actualizado_punto, newPlaces, newPlacesSha, "UPDATE");
       } else {
         // Si solo existe en lugares aprobados, agregarlo a lugares nuevos
         newPlaces.features.unshift(actualizado_punto);
-        await githubFileOperation(newPlacesUrl, getID(actualizado_punto), newPlaces, newPlacesSha, "UPDATE");
+        await githubFileOperation(newPlacesUrl, actualizado_punto, newPlaces, newPlacesSha, "UPDATE");
       }
 
       return NextResponse.json(
@@ -582,25 +578,13 @@ export async function PATCH(request: NextRequest) {
       approvedPlaces.features.push(placeToApprove);
 
       // 5. Actualizar archivo de lugares aprobados
-      await githubFileOperation(
-        approvedPlacesUrl,
-        placeToApprove.properties.identifier,
-        approvedPlaces,
-        approvedPlacesSha,
-        "APPROVE",
-      );
+      await githubFileOperation(approvedPlacesUrl, placeToApprove, approvedPlaces, approvedPlacesSha, "APPROVE");
 
       // 6. Actualizar newPlaces (remover el lugar aprobado)
       newPlaces.features.splice(newPlacesIndex, 1);
 
       // 7. Guardar cambios en newPlaces
-      await githubFileOperation(
-        newPlacesUrl,
-        placeToApprove.properties.identifier,
-        newPlaces,
-        newPlacesSha,
-        "REMOVE_FROM_NEW",
-      );
+      await githubFileOperation(newPlacesUrl, placeToApprove, newPlaces, newPlacesSha, "REMOVE_FROM_NEW");
 
       return NextResponse.json(
         { message: "¡El lugar fue APROBADO y agregado al final de la lista de lugares aprobados!" },
@@ -678,13 +662,7 @@ export async function DELETE(request: NextRequest) {
           const placeToDelete = approvedPlaces.features[approvedIndex];
           approvedPlaces.features.splice(approvedIndex, 1);
 
-          await githubFileOperation(
-            approvedPlacesUrl,
-            placeToDelete.properties.identifier,
-            approvedPlaces,
-            approvedPlacesSha,
-            "DELETE",
-          );
+          await githubFileOperation(approvedPlacesUrl, placeToDelete, approvedPlaces, approvedPlacesSha, "DELETE");
           deleted = true;
           deletedFrom = "lugares aprobados";
         }
@@ -700,13 +678,7 @@ export async function DELETE(request: NextRequest) {
           const placeToDelete = newPlaces.features[newPlacesIndex];
           newPlaces.features.splice(newPlacesIndex, 1);
 
-          await githubFileOperation(
-            newPlacesUrl,
-            placeToDelete.properties.identifier,
-            newPlaces,
-            newPlacesSha,
-            "DELETE_FROM_NEW",
-          );
+          await githubFileOperation(newPlacesUrl, placeToDelete, newPlaces, newPlacesSha, "DELETE_FROM_NEW");
           deleted = true;
           deletedFrom = "lugares pendientes de aprobación";
         }
