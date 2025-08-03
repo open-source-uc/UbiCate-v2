@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { categoryFilter, nameFilter, PlaceFilter } from "@/app/components/pills/placeFilters";
+import { categoryFilter, PlaceFilter } from "@/app/components/pills/placeFilters";
 import { getCategoryColor } from "@/utils/categoryToColors";
 import { CATEGORIES } from "@/utils/types";
 
@@ -9,23 +9,13 @@ import * as Icons from "../icons/icons";
 
 import Pill from "./pill";
 
-type NameFilter = {
-  title: string;
-  icon: React.ReactNode;
-  filter: string;
-  isNameFilter: true;
-};
-
 type CategoryFilter = {
   title: string;
   icon: React.ReactNode;
   filter: CATEGORIES;
-  isNameFilter?: false;
 };
 
-type FilterOption = NameFilter | CategoryFilter;
-
-const pills: Array<FilterOption> = [
+const pills: Array<CategoryFilter> = [
   { title: "Facultades", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
   { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
@@ -34,7 +24,7 @@ const pills: Array<FilterOption> = [
   { title: "Comida", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
   { title: "Agua", icon: <Icons.Water />, filter: CATEGORIES.WATER },
   { title: "Deportes", icon: <Icons.Sport />, filter: CATEGORIES.SPORTS_PLACE },
-  { title: "Crisol", icon: <Icons.PersonalComputer />, filter: "crisol", isNameFilter: true },
+  { title: "Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
   { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
   { title: "Impresoras", icon: <Icons.Print />, filter: CATEGORIES.PHOTOCOPY },
   { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
@@ -96,13 +86,13 @@ function PillFilter() {
           }
         `}</style>
 
-        {pills.map(({ title, icon, filter, isNameFilter }) => (
+        {pills.map(({ title, icon, filter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill
               title={title}
               icon={icon}
-              bg_color={isNameFilter ? "bg-chart-9" : getCategoryColor(filter)}
-              onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
+              bg_color={getCategoryColor(filter)}
+              onClick={() => applyFilter(categoryFilter, filter)}
               active={activeFilter === filter}
             />
           </div>
