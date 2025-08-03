@@ -28,6 +28,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.WATER]: Icons.Water,
   [CATEGORIES.USER_LOCATION]: Icons.UserLocation,
   [CATEGORIES.YARD]: Icons.Default,
+  [CATEGORIES.CRISOL]: Icons.PersonalComputer,
 };
 
 export default function MarkerIcon({ label, classname = "w-3 h-3" }: { label: CATEGORIES; classname?: string }) {

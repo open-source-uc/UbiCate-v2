@@ -9,23 +9,34 @@ import * as Icons from "../icons/icons";
 
 import Pill from "./pill";
 
-const pills: Array<{
+type NameFilter = {
   title: string;
   icon: React.ReactNode;
   filter: string;
-  isNameFilter?: boolean;
-}> = [
-  { title: "Facultades", icon: <Icons.School />, filter: "faculty" },
-  { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: "studyroom" },
-  { title: "Auditorios", icon: <Icons.Auditorium />, filter: "auditorium" },
+  isNameFilter: true;
+};
+
+type CategoryFilter = {
+  title: string;
+  icon: React.ReactNode;
+  filter: CATEGORIES;
+  isNameFilter?: false;
+};
+
+type FilterOption = NameFilter | CategoryFilter;
+
+const pills: Array<FilterOption> = [
+  { title: "Facultades", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
+  { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
+  { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
   { title: "Bibliotecas", icon: <Icons.Library />, filter: CATEGORIES.LIBRARY },
-  { title: "Baños", icon: <Icons.Wc />, filter: "bath" },
-  { title: "Comida", icon: <Icons.Restaurant />, filter: "food_lunch" },
-  { title: "Agua", icon: <Icons.Water />, filter: "water" },
-  { title: "Deportes", icon: <Icons.Sport />, filter: "sports_place" },
+  { title: "Baños", icon: <Icons.Wc />, filter: CATEGORIES.BATH },
+  { title: "Comida", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
+  { title: "Agua", icon: <Icons.Water />, filter: CATEGORIES.WATER },
+  { title: "Deportes", icon: <Icons.Sport />, filter: CATEGORIES.SPORTS_PLACE },
   { title: "Crisol", icon: <Icons.PersonalComputer />, filter: "crisol", isNameFilter: true },
-  { title: "Estacionamientos", icon: <Icons.Parking />, filter: "parking" },
-  { title: "Impresoras", icon: <Icons.Print />, filter: "photocopy" },
+  { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
+  { title: "Impresoras", icon: <Icons.Print />, filter: CATEGORIES.PHOTOCOPY },
   { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
   { title: "Tiendas", icon: <Icons.Shop />, filter: CATEGORIES.SHOP },
   { title: "Bicicletas", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
@@ -90,7 +101,7 @@ function PillFilter() {
             <Pill
               title={title}
               icon={icon}
-              bg_color={getCategoryColor(filter.toLowerCase())}
+              bg_color={isNameFilter ? "bg-chart-9" : getCategoryColor(filter)}
               onClick={() => applyFilter(isNameFilter ? nameFilter : categoryFilter, filter)}
               active={activeFilter === filter}
             />
