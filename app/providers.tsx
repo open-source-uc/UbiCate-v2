@@ -28,8 +28,11 @@ export default function Providers({ children }: ProvidersProps) {
   );
 
   if (!queryClient) {
-    console.error("Oh no esto no debería pasar D:, QueryClient is not initialized");
-    return <div>Error: Unable to initialize QueryClient</div>;
+    return (
+      <div>
+        Oh no esto no debería pasar D: POR FAVOR REPORTA ESTO AL IG: @opensource_euc, QueryClient is not initialized
+      </div>
+    );
   }
 
   return (
