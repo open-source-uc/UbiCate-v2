@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61259260204014,
+                    -33.498008484055276
+                ]
+            },
+            "properties": {
+                "identifier": "MDV7O6B1G7EVQF",
+                "name": "test",
+                "information": "",
+                "categories": [
+                    "parking"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61225732591375,
                     -33.497507460120815
                 ]
