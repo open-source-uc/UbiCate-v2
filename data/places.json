@@ -16728,31 +16728,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL7",
-                "name": "CRISOL Alfero",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618064,
-                    -33.419254
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CS-301",
                 "name": "CS-301",
                 "campus": "SJ",
@@ -31685,6 +31660,29 @@
             "properties": {
                 "identifier": "CRISOL6",
                 "name": "CRISOL Piwonka",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.618064,
+                    -33.419254
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL7",
+                "name": "CRISOL Alfero",
                 "information": "",
                 "categories": [
                     "crisol"
