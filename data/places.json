@@ -17093,31 +17093,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CAJERO3",
-                "name": "Cajero",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613563,
-                    -33.499624
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CAJERO4",
                 "name": "Cajero",
                 "campus": "SJ",
