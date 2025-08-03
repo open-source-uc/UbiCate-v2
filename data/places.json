@@ -8521,31 +8521,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ALMUERZO7",
-                "name": "Quiosco",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609826,
-                    -33.497868
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "DAE",
                 "name": "DAE",
                 "campus": "SJ",
