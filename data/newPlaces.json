@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61324171286553,
+                    -33.5000064743076
+                ]
+            },
+            "properties": {
+                "identifier": "MDVWI0PI611OVZ",
+                "name": "Test",
+                "information": "Test",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61531960628942,
                     -33.49841930788353
                 ]
