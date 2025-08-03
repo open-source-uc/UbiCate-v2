@@ -10,7 +10,8 @@ export function getAllowedOrigin(origin: string | null): string | null {
     }
 
     if (hostname === 'osuc.dev' || hostname.endsWith('.osuc.dev') ||
-        hostname === 'uc.cl' || hostname.endsWith('.uc.cl')) {
+        hostname === 'uc.cl' || hostname.endsWith('.uc.cl') ||
+        hostname === 'ubicate-v2.pages.dev' || hostname.endsWith('.ubicate-v2.pages.dev')) {
       return origin;
     }
   } catch (error) {
