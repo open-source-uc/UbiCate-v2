@@ -2,11 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 
+import { useQuery } from "@tanstack/react-query";
 import { Source, Layer, useMap } from "react-map-gl/maplibre";
 
 import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import Places from "@/utils/places";
 import { JSONFeatures } from "@/utils/types";
+import { apiClient } from "@/utils/ubicateApiClient";
 
 import {
   allPointsLayer,
@@ -19,10 +21,24 @@ import {
 
 function DebugMode() {
   const isDebugMode = sessionStorage.getItem("debugMode") === "true";
-  const [json, setJson] = useState<JSONFeatures | null>(null);
   const [debugMode, setDebugMode] = useState(1);
   const mainMap = useMap();
   const [mapLayers, setMapLayers] = useState<string[]>([]);
+
+  const {
+    data: ubicateData,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["ubicate-debug"],
+    queryFn: async () => {
+      const response = await apiClient("/api/ubicate");
+      return response;
+    },
+    enabled: isDebugMode,
+    staleTime: 5 * 60 * 1000,
+  });
 
   useEffect(() => {
     // Log all layer IDs when the map is loaded
@@ -46,32 +62,20 @@ function DebugMode() {
     }
   }, [isDebugMode, mainMap.mainMap]);
 
-  useEffect(() => {
-    const fetchData = () => {
-      if (!isDebugMode) return;
-
-      fetch("/api/ubicate")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch GeoJSON data " + response.status);
-          }
-          return response.json();
-        })
-        .then((data: any) => {
-          setJson(data.new_places);
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching GeoJSON data:", error);
-        });
-    };
-
-    fetchData();
-  }, [isDebugMode]);
-
   if (!isDebugMode) {
     return null;
   }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    throw new Error("Failed to fetch GeoJSON data " + error?.message);
+  }
+
+  const json: JSONFeatures | null = ubicateData?.new_places;
+  console.log(json);
 
   return (
     <>

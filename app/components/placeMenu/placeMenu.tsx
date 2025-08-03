@@ -1,7 +1,10 @@
 import { use, useState } from "react";
 
+import { useMutation } from "@tanstack/react-query";
+
 import { pinsContext } from "@/app/context/pinsCtx";
 import { Feature } from "@/utils/types";
+import { apiClient } from "@/utils/ubicateApiClient";
 
 import PlaceForm from "../forms/PlaceForm";
 
@@ -24,65 +27,53 @@ export default function PlaceMenu({
   const { clearPins, addPin } = use(pinsContext);
   const [editPlace, setEditPlace] = useState<Feature | null>(null);
 
-  const approvePlace = () => {
-    const confirmacion = confirm("Estas seguro de APROBAR el lugar") ?? false;
+  const approveMutation = useMutation({
+    mutationFn: (identifier: string) =>
+      apiClient("/api/ubicate", {
+        method: "PATCH",
+        body: { identifier },
+      }),
+    onSuccess: () => {
+      alert("Se aprobó el lugar");
+      document.location.reload();
+    },
+    onError: (error: Error) => {
+      alert("Hubo un error: " + error.message);
+    },
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: ({ identifier, source }: { identifier: string; source: "approved" | "pending" }) =>
+      apiClient("/api/ubicate", {
+        method: "DELETE",
+        body: { identifier, source },
+      }),
+    onSuccess: (_, variables) => {
+      const action = variables.source === "approved" ? "eliminó" : "rechazó";
+      alert(`Se ${action} el lugar`);
+      document.location.reload();
+    },
+    onError: (error: Error) => {
+      alert("Hubo un error: " + error.message);
+    },
+  });
+
+  const handleApprove = () => {
+    const confirmacion = confirm("Estas seguro de APROBAR el lugar?") ?? false;
     if (!confirmacion) return;
 
-    fetch("api/ubicate", {
-      method: "PATCH",
-      headers: {
-        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
-      },
-      body: JSON.stringify({
-        identifier: place?.properties.identifier,
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          res
-            .json()
-            .then((data: any) => {
-              alert("Hubo un error: " + data.message);
-            })
-            .catch(() => {
-              alert("Hubo un error: " + res.status);
-            });
-          return;
-        }
-        alert("Se aprobo");
-        document.location.reload();
-      })
-      .catch(() => {
-        alert("Hubo un error");
-      });
+    approveMutation.mutate(place?.properties.identifier);
   };
 
-  const deletePlace = (source: "approved" | "pending") => {
-    const confirmacion =
-      confirm("Estas seguro de " + (source === "approved" ? "eliminar" : "rechazar") + " el lugar") ?? false;
+  const handleDelete = (source: "approved" | "pending") => {
+    const action = source === "approved" ? "eliminar" : "rechazar";
+    const confirmacion = confirm(`¿Estás seguro de ${action} el lugar?`) ?? false;
     if (!confirmacion) return;
 
-    fetch("api/ubicate", {
-      method: "DELETE",
-      headers: {
-        "ubicate-token": sessionStorage.getItem("ubicateToken") ?? "",
-      },
-      body: JSON.stringify({
-        identifier: place?.properties.identifier,
-        source: source,
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          alert("Hubo un error");
-          return;
-        }
-        alert("Se " + (source === "approved" ? "eliminó" : "rechazó") + " el lugar");
-        document.location.reload();
-      })
-      .catch(() => {
-        alert("Hubo un error");
-      });
+    deleteMutation.mutate({
+      identifier: place?.properties.identifier,
+      source,
+    });
   };
 
   return (
@@ -111,15 +102,9 @@ export default function PlaceMenu({
             }
             onOpenEdit?.();
           }}
-          onReject={() => {
-            deletePlace("pending");
-          }}
-          onApprove={() => {
-            approvePlace();
-          }}
-          onDelete={() => {
-            deletePlace("approved");
-          }}
+          onReject={() => handleDelete("pending")}
+          onApprove={() => handleApprove()}
+          onDelete={() => handleDelete("approved")}
         />
       )}
       {mode === "create" && (

@@ -193,7 +193,7 @@ export default function MobileSidebar() {
 
       {/* Main Sidebar */}
       <section
-        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-lg touch-manipulation"
+        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
@@ -204,8 +204,8 @@ export default function MobileSidebar() {
       >
         {/* Drag handle that spans full width */}
         <div
-          className="w-full h-7 cursor-grab active:cursor-grabbing 
-    flex justify-center items-center rounded-t-lg touch-pan-x"
+          className={`w-full ${isOpen ? "h-8" : "h-16"} cursor-grab active:cursor-grabbing 
+    flex justify-center items-start pt-3 rounded-t-lg touch-pan-x`}
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -215,7 +215,7 @@ export default function MobileSidebar() {
           aria-label="Drag to resize sidebar"
           tabIndex={0}
         >
-          <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
+          <div className="w-2/5 h-2 bg-muted rounded-full mx-auto" />
         </div>
 
         {isOpen ? (

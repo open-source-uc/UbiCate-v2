@@ -32,14 +32,14 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 - [ooscarr](https://github.com/ooscarr)
 - [vlermandac](https://github.com/vlermandac)
 - [dvictorerol](https://github.com/dvictorerol)
+- [Utmite](https://github.com/Utmite)
 
 ## Query Params
 
 Para centrar el mapa o la ubicación en el formulario en un campus específico, se puede agregar un parámetro en la URL con el nombre del campus:
 
 ```
-https://ubicate.osuc.dev/map?campus={Nombre campus}
-https://ubicate.osuc.dev/form-geo?campus={Nombre campus}
+https://ubicate.osuc.dev/?campus={Nombre campus}
 ```
 
 Donde `{Nombre campus}` puede ser:
@@ -53,12 +53,14 @@ Donde `{Nombre campus}` puede ser:
 Además se puede centrar el mapa en la ubicación de una sala dado su identificador
 
 ```
-https://ubicate.osuc.dev/map?place={Id sala}
+https://ubicate.osuc.dev/?place={Id ubicación}
 ```
 
-Donde `{Id sala}` puede ser:
+Donde `{Id ubicación}` puede ser:
 
 - B12
+- MA777ZKC956J8I
+- ...
 
 ## Developing
 
@@ -69,13 +71,13 @@ Donde `{Id sala}` puede ser:
 Para que la aplicación funcione correctamente, debes crear un archivo `.env.local` en la **raíz del proyecto** con las siguientes variables de entorno:
 
 ```env
-NEXT_PUBLIC_MAPBOX_TOKEN=<API_KEY>
-NEXT_PUBLIC_BASE_URL=<BASE_URL> # Opcional, obligatorio en producción
-GITHUB_TOKEN_USER=<TOKEN_USER>  # Opcional, obligatorio en producción
-GITHUB_USER_EMAIL=<EMAIL>       # Opcional, obligatorio en producción
-GITHUB_BRANCH_NAME=<BRANCH>     # Opcional, obligatorio en producción
-API_UBICATE_SECRET=<SECRET>     # Opcional, obligatorio en producción
-NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE"> # Si es true se pide a si mismo el mapa (self-host-map), si no es "TRUE" se pide a los servidores de OSUC
+NEXT_PUBLIC_MAPBOX_TOKEN=<API_KEY>              # Requerido. Sin esto no funcionan las rutas en el mapa.
+NEXT_PUBLIC_BASE_URL=<BASE_URL>                 # Opcional en desarrollo. Obligatorio en producción, es para establecer la URL canónica en las meta tags.
+GITHUB_TOKEN_USER=<TOKEN_USER>                  # Opcional en desarrollo. Obligatorio en producción para permitir proponer ubicaciones mediante el formulario.
+GITHUB_USER_EMAIL=<EMAIL>                       # Opcional en desarrollo. Obligatorio en producción.
+GITHUB_BRANCH_NAME=<BRANCH>                     # Opcional en desarrollo. Obligatorio en producción.
+API_UBICATE_SECRET=<SECRET>                     # Opcional en desarrollo. Obligatorio en producción. Se usa en /debug para aprobar o borrar ubicaciones.
+NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE">     # Si es "TRUE", se usa un mapa autohospedado. Si no, se usa el mapa desde los servidores de OSUC.
 ```
 
 > \[!IMPORTANT]
@@ -83,10 +85,10 @@ NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE"> # Si es true se pide a si mismo el m
 
 ### 📍 Token de Mapbox
 
-- La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source eUC**.
-- Si usas una clave distinta, **el estilo del mapa no se cargará correctamente**.
-- En ese caso, puedes modificar el estilo directamente en el componente:
-  `app/map/map.tsx`.
+- La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source eUC** o generada por usted.
+
+> [!NOTE]
+> En la sección de Contacto del sitio encontrarás la forma de comunicarte con nosotros.
 
 ## 🐳 Uso del Dev Container
 
@@ -111,7 +113,7 @@ Para evitar problemas durante el desarrollo, se recomienda usar el Dev Container
 npm install
 ```
 
-## 3. Self-host map
+## 3. Self-host map (Solo si quieres desarrollar y necesitas modificar los tiles del mapa)
 
 ### 🛠️ Instrucciones para cargar el mapa en R2 (localmente)
 
@@ -348,7 +350,10 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 ## Necesitas contactarnos
 
-**Comuníquese con nosotros a través de [Open Source eUC](https://www.instagram.com/opensource_euc/).**
+Puedes comunicarte con nosotros a través de los siguientes canales:
+
+- Instagram: [Open Source eUC](https://www.instagram.com/opensource_euc/)
+- Correo electrónico: [ubicate@osuc.dev](mailto:ubicate@osuc.dev)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
