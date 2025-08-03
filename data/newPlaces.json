@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61531960628942,
+                    -33.49841930788353
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-34012515",
+                "name": "Baticristo",
+                "information": "Balticristo.",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60861399979045,
                     -33.50109497584726
                 ]
