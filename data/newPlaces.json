@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61313490273693,
+                    -33.498148476504745
+                ]
+            },
+            "properties": {
+                "identifier": "BANCO1",
+                "name": "Banco Santander",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
+    ]
 }
