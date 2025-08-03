@@ -10,6 +10,30 @@ import { SidebarProvider } from "./context/sidebarCtx";
 import { ThemeProvider } from "./context/themeCtx";
 import { UbicationProvider } from "./context/ubicationCtx";
 
+class UbicationErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(_error: Error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error("UbicationProvider error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // Fallback UI - render children without UbicationProvider
+      return this.props.children;
+    }
+
+    return <UbicationProvider>{this.props.children}</UbicationProvider>;
+  }
+}
+
 interface ProvidersProps {
   children: React.ReactNode;
 }
@@ -37,17 +61,17 @@ export default function Providers({ children }: ProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <UbicationProvider>
-          <SidebarProvider>
-            <DirectionsProvider>
-              <PinsProvider>
-                <NotificationProvider>{children}</NotificationProvider>
-              </PinsProvider>
-            </DirectionsProvider>
-          </SidebarProvider>
-        </UbicationProvider>
-      </ThemeProvider>
+      <UbicationErrorBoundary>
+        <SidebarProvider>
+          <DirectionsProvider>
+            <PinsProvider>
+              <NotificationProvider>
+                <ThemeProvider>{children}</ThemeProvider>
+              </NotificationProvider>
+            </PinsProvider>
+          </DirectionsProvider>
+        </SidebarProvider>
+      </UbicationErrorBoundary>
     </QueryClientProvider>
   );
 }

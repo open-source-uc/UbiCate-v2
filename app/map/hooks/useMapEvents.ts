@@ -196,7 +196,14 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       });
 
       // Event listeners para debug mode
-      const isDebugMode = sessionStorage.getItem("debugMode") === "true";
+      let isDebugMode = false;
+      try {
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          isDebugMode = sessionStorage.getItem("debugMode") === "true";
+        }
+      } catch (error) {
+        console.warn("Unable to access sessionStorage:", error);
+      }
       if (isDebugMode) {
         e.target.on("click", ["points-layer-2"], (e) => {
           const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);

@@ -172,17 +172,27 @@ export default function MobileSidebar() {
   }, []);
 
   useEffect(() => {
-    const firstTime = !sessionStorage.getItem("first_2131321");
-    if (firstTime) {
-      create(
-        "firstTime",
-        () => {
-          sessionStorage.setItem("first_2131321", "true");
-          setSidebarHeight(45);
-          setIsOpen(true);
-        },
-        50,
-      );
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        const firstTime = !sessionStorage.getItem("first_2131321");
+        if (firstTime) {
+          create(
+            "firstTime",
+            () => {
+              try {
+                sessionStorage.setItem("first_2131321", "true");
+              } catch (storageError) {
+                console.warn("Unable to set sessionStorage:", storageError);
+              }
+              setSidebarHeight(45);
+              setIsOpen(true);
+            },
+            50,
+          );
+        }
+      }
+    } catch (error) {
+      console.warn("Unable to access sessionStorage:", error);
     }
   }, []);
 
