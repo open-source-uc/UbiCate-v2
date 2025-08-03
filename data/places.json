@@ -10799,31 +10799,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL1",
-                "name": "Crisol Educación",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "EDU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6138039380312,
-                    -33.49813895766858
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SHOP-32133342",
                 "name": "Farmacia Cruz Verde",
                 "campus": "SJ",
@@ -31694,6 +31669,31 @@
                 ],
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6138039380312,
+                    -33.49813895766858
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL1",
+                "name": "Crisol Educación",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
             }
         }
     ]
