@@ -16847,29 +16847,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL5",
-                "name": "CRISOL",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.594471,
-                    -33.445834
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CRISOL6",
                 "name": "CRISOL Piwonka",
                 "campus": "LC",
@@ -31697,6 +31674,31 @@
                 ],
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594471,
+                    -33.445834
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL5",
+                "name": "CRISOL",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "ARTE"
+                ]
             }
         }
     ]
