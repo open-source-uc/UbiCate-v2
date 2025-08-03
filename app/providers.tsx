@@ -9,6 +9,7 @@ import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import { ThemeProvider } from "./context/themeCtx";
+import { UbicationProvider } from "./context/ubicationCtx";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -40,15 +41,17 @@ export default function Providers({ children }: ProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SidebarProvider>
-        <DirectionsProvider>
-          <PinsProvider>
-            <NotificationProvider>
-              <ThemeProvider>{children}</ThemeProvider>
-            </NotificationProvider>
-          </PinsProvider>
-        </DirectionsProvider>
-      </SidebarProvider>
+      <UbicationProvider>
+        <SidebarProvider>
+          <DirectionsProvider>
+            <PinsProvider>
+              <NotificationProvider>
+                <ThemeProvider>{children}</ThemeProvider>
+              </NotificationProvider>
+            </PinsProvider>
+          </DirectionsProvider>
+        </SidebarProvider>
+      </UbicationProvider>
     </QueryClientProvider>
   );
 }
