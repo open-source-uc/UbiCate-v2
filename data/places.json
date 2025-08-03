@@ -18788,31 +18788,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "BICI2",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614255,
-                    -33.499361
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "BICI4",
                 "name": "Estacionamiento de Bicicletas",
                 "campus": "SJ",
@@ -31693,6 +31668,29 @@
                 ],
                 "floors": [
                     -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61420135582085,
+                    -33.49918653936197
+                ]
+            },
+            "properties": {
+                "identifier": "BICI2",
+                "name": "Estacionamiento de Bicicletas",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
                 ],
                 "campus": "SJ",
                 "faculties": []
