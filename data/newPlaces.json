@@ -48,32 +48,6 @@
                 "campus": "LC",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61389840040871,
-                    -33.497392415033836
-                ]
-            },
-            "properties": {
-                "identifier": "COMPUTERS-32217130",
-                "name": "Crisol Humanidades",
-                "information": "",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "LET"
-                ]
-            }
         }
     ]
 }
