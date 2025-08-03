@@ -31815,7 +31815,7 @@
             },
             "properties": {
                 "identifier": "MDV6DF97WDK6VQ",
-                "name": "Pileta Docente Luís Zegarra Agramont",
+                "name": "Pileta Docente Luís Zegarra Agramont.",
                 "information": "",
                 "categories": [
                     "other"
@@ -31823,7 +31823,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
