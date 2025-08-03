@@ -1,8 +1,7 @@
 "use client";
+import React, { useState } from "react";
 
-import React from "react";
-
-import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { DirectionsProvider } from "./context/directionsCtx";
 import { NotificationProvider } from "./context/notificationCtx";
@@ -61,7 +60,25 @@ interface ProvidersProps {
 }
 
 export default function Providers({ children }: ProvidersProps) {
-  const queryClient = getQueryClient();
+  // eslint-disable-next-line
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+          },
+        },
+      }),
+  );
+
+  if (!queryClient) {
+    return (
+      <div>
+        Oh no esto no debería pasar D: POR FAVOR REPORTA ESTO AL IG: @opensource_euc, QueryClient is not initialized
+      </div>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
