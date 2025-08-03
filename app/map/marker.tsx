@@ -4,7 +4,7 @@ import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
 import { getCategoryColor } from "@/utils/categoryToColors";
-import { Feature, PointFeature } from "@/utils/types";
+import { CATEGORIES, Feature, PointFeature } from "@/utils/types";
 
 interface MarkerProps {
   place: PointFeature;
@@ -28,7 +28,7 @@ export default function Marker({
   offset = [0, 0],
 }: MarkerProps) {
   const primaryCategory = place.properties.categories[0];
-  const color = getCategoryColor(primaryCategory.toLowerCase().trim());
+  const color = getCategoryColor(primaryCategory.toLowerCase().trim() as CATEGORIES);
   return (
     <MapboxMarker
       latitude={place.geometry.coordinates[1]}

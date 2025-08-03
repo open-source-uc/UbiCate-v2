@@ -213,7 +213,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
               {matchingFeatures.map((feature, index) => {
                 const primaryCategory = feature.properties.categories[0];
-                const color = getCategoryColor(primaryCategory.toLowerCase().trim());
+                const color = getCategoryColor(primaryCategory as CATEGORIES);
                 const placeName = feature.properties.name;
                 const campusName = siglas.get(feature.properties.campus);
 

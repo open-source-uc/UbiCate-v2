@@ -46,7 +46,7 @@ export interface Properties {
   identifier: string;
   name: string;
   information: string;
-  categories: string[];
+  categories: string[]; // NO ES EL ENUM PUES EN EL PLACES.JSON PUES EN LA API DE CREAR LUGARES PASAN COSAS EXTRAÑAS Y HAY QUE ASEGURAR QUE PLACES.JSON SEA CONSISTENTE (TRABAJO A FUTURO 2026-08-03)
   campus: string;
   faculties: string[];
   floors?: number[];
