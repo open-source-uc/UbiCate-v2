@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.618316,
+                    -33.419267
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL6",
+                "name": "CRISOL Piwonka",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.594471,
                     -33.445834
                 ]
