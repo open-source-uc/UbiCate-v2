@@ -17139,29 +17139,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CAJERO7",
-                "name": "Cajero",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.594578,
-                    -33.446624
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CAMPUS_SALUDABLE",
                 "name": "Campus Saludable",
                 "campus": "SJ",
