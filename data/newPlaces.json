@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61225732591375,
-                    -33.497507460120815
-                ]
-            },
-            "properties": {
-                "identifier": "MDV6DF97WDK6VQ",
-                "name": "Pileta Docente Luís Zegarra Agramont.",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        }
-    ]
+    "features": []
 }
