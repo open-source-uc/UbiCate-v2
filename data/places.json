@@ -16924,29 +16924,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CAJERO4",
-                "name": "Cajero",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613097,
-                    -33.498126
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CAJERO5",
                 "name": "Cajero",
                 "campus": "SJ",
@@ -31685,6 +31662,29 @@
             "properties": {
                 "identifier": "BANCO1",
                 "name": "Banco Santander",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61318873320823,
+                    -33.49807377175928
+                ]
+            },
+            "properties": {
+                "identifier": "CAJERO4",
+                "name": "Cajero",
                 "information": "",
                 "categories": [
                     "financial"
