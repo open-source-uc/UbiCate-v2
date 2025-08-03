@@ -2,6 +2,7 @@ import { use, useState, useEffect, useRef } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
+import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
 import { useUbication } from "@/app/hooks/useUbication";
 import { Feature } from "@/utils/types";
 
@@ -11,7 +12,6 @@ import * as Icons from "../icons/icons";
 
 import DirectionErrorNotification from "./directionErrorNotification";
 import DirectionSuccessNotification from "./directionSuccessNotification";
-import { useOptimalDirection } from "./useOptimalDirection";
 
 interface RouteButtonProps {
   place: Feature | null;
