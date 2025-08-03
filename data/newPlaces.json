@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61420135582085,
+                    -33.49918653936197
+                ]
+            },
+            "properties": {
+                "identifier": "BICI2",
+                "name": "Estacionamiento de Bicicletas",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61026040345818,
                     -33.499117855719746
                 ]
