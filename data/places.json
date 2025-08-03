@@ -10492,29 +10492,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "COMPUTERS-32217130",
-                "name": "Crisol Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61389840040871,
-                    -33.497392415033836
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "R6",
                 "name": "R6",
                 "campus": "SJ",
@@ -31694,6 +31671,31 @@
                 ],
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61389840040871,
+                    -33.497392415033836
+                ]
+            },
+            "properties": {
+                "identifier": "COMPUTERS-32217130",
+                "name": "Crisol Humanidades",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
             }
         }
     ]
