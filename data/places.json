@@ -18982,29 +18982,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "BICI7",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611902,
-                    -33.499442
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "BICI8",
                 "name": "Estacionamiento de Bicicletas",
                 "campus": "CC",
