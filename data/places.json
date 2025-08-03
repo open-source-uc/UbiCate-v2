@@ -4075,31 +4075,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL4",
-                "name": "CRISOL",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612116,
-                    -33.499133
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "STUDYROOM-32761081",
                 "name": "Sala de estudio",
                 "campus": "CC",
@@ -31698,6 +31673,29 @@
                 "faculties": [
                     "SOC"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612116,
+                    -33.499133
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL4",
+                "name": "CRISOL",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
