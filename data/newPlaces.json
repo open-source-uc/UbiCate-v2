@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61026040345818,
+                    -33.499117855719746
+                ]
+            },
+            "properties": {
+                "identifier": "MDE3PPARGS0YGL",
+                "name": "Impresora",
+                "information": "Nunca falla y es barata",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61036383562251,
                     -33.500581081425665
                 ]
@@ -150,32 +176,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61026040345818,
-                    -33.499117855719746
-                ]
-            },
-            "properties": {
-                "identifier": "MDE3PPARGS0YGL",
-                "name": "Impresora",
-                "information": "Nunca falla y es barata",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
             }
         },
         {
