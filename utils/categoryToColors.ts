@@ -1,3 +1,5 @@
+import { CATEGORIES } from "./types";
+
 const categoryToColorMap = new Map<string, string>([
   ["faculty", "bg-chart-1"],
   ["studyroom", "bg-chart-2"],
@@ -14,7 +16,10 @@ const categoryToColorMap = new Map<string, string>([
   ["library", "bg-chart-4"],
   ["userLocation", "bg-primary"],
   ["customMark", "bg-chart-4"],
-  ["photocopy", "bg-chart-3"],
+  ["photocopy", "bg-chart-1"],
+  [CATEGORIES.FINANCIAL, "bg-chart-3"],
+  [CATEGORIES.SHOP, "bg-chart-2"],
+  [CATEGORIES.PARK_BICYCLE, "bg-chart-5"],
 ]);
 
 export const getCategoryColor = (category: string): string => {
