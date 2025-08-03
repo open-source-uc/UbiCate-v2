@@ -31627,7 +31627,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": [
                     "ENF"
@@ -31654,7 +31653,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": [
                     "SOC"
@@ -31680,7 +31678,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": [
                     "ING"
@@ -31726,7 +31723,6 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
@@ -31750,7 +31746,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
@@ -31775,7 +31770,6 @@
                     5,
                     6
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
@@ -31799,7 +31793,29 @@
                 "floors": [
                     -2
                 ],
-                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61225732591375,
+                    -33.497507460120815
+                ]
+            },
+            "properties": {
+                "identifier": "MDV6DF97WDK6VQ",
+                "name": "Pileta Docente Luís Zegarra Agramont",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
                 "campus": "SJ",
                 "faculties": []
             }

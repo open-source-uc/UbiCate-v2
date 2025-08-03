@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+"use client";
+
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 import { CATEGORIES, PointGeometry, Properties } from "@/utils/types";
 
@@ -190,12 +192,20 @@ function subscribeUserLocation(callback: Subscriber, options: Options = {}) {
   return { unsubscribe, setTracking };
 }
 
-export function useUbication(initialTracking: boolean = false): LocationOrientationData & {
+interface UbicationContextType extends LocationOrientationData {
   setTracking: (tracking: boolean) => void;
-} {
+}
+
+const UbicationContext = createContext<UbicationContextType | undefined>(undefined);
+
+interface UbicationProviderProps {
+  children: ReactNode;
+}
+
+export function UbicationProvider({ children }: UbicationProviderProps) {
   const [data, setData] = useState<LocationOrientationData>(currentData);
   // eslint-disable-next-line
-  const [tracking, setTrackingState] = useState(initialTracking);
+  const [tracking, setTrackingState] = useState(false);
 
   useEffect(() => {
     const { unsubscribe, setTracking: setServiceTracking } = subscribeUserLocation(setData, {
@@ -206,10 +216,10 @@ export function useUbication(initialTracking: boolean = false): LocationOrientat
     });
 
     // Set initial tracking state
-    setServiceTracking(initialTracking);
+    setServiceTracking(false);
 
     return unsubscribe;
-  }, [initialTracking]);
+  }, []);
 
   const setTracking = (newTracking: boolean) => {
     setTrackingState(newTracking);
@@ -226,10 +236,22 @@ export function useUbication(initialTracking: boolean = false): LocationOrientat
     });
 
     setServiceTracking(tracking);
-  }, [tracking]);
+  }, [tracking, setData]);
 
-  return {
+  const value: UbicationContextType = {
     ...data,
     setTracking,
   };
+
+  return <UbicationContext.Provider value={value}>{children}</UbicationContext.Provider>;
 }
+
+export function useUbication(): UbicationContextType {
+  const context = useContext(UbicationContext);
+  if (context === undefined) {
+    throw new Error("useUbication must be used within a UbicationProvider");
+  }
+  return context;
+}
+
+export { UbicationContext };

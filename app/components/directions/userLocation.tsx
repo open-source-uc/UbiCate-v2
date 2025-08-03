@@ -3,7 +3,7 @@ import { use, useCallback, useMemo, useState, useEffect, useRef } from "react";
 import { Marker, useMap } from "react-map-gl/maplibre";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
-import { useUbication } from "@/app/hooks/useUbication";
+import { useUbication } from "@/app/context/ubicationCtx";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import DangerButton from "../danger/dangerButton";
@@ -15,7 +15,7 @@ import LocationButton from "./locationButton";
 export default function UserLocation() {
   const { mainMap } = useMap();
   const { setNotification, addCode, removeCode } = use(NotificationContext);
-  const { position, alpha, setTracking } = useUbication(false); // Inicia desactivado
+  const { position, alpha, setTracking } = useUbication();
   const [bearing, setBearing] = useState(0);
   const [isWaitingForLocation, setIsWaitingForLocation] = useState(false);
   const pendingTeleportRef = useRef(false);
@@ -122,7 +122,6 @@ export default function UserLocation() {
       mainMap?.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
     }, 600);
   }, [mainMap, position, setNotification, addCode, removeCode, setTracking, isWaitingForLocation]);
-
   return (
     <>
       {position ? (

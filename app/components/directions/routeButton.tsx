@@ -1,8 +1,9 @@
-import { use, useState, useEffect, useRef, useCallback } from "react";
+import { use, useState, useEffect, useRef } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
+import { useUbication } from "@/app/context/ubicationCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
-import { useUbication } from "@/app/hooks/useUbication";
+import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
 import { Feature } from "@/utils/types";
 
 import { useDirections } from "../../context/directionsCtx";
@@ -11,90 +12,91 @@ import * as Icons from "../icons/icons";
 
 import DirectionErrorNotification from "./directionErrorNotification";
 import DirectionSuccessNotification from "./directionSuccessNotification";
-import { fetchDirection } from "./fetchDirection";
 
 interface RouteButtonProps {
   place: Feature | null;
 }
 
-const getOptimalDirection = async (origin: [number, number], destination: [number, number]) => {
-  const results = await Promise.all([
-    fetchDirection(origin, destination, 0),
-    fetchDirection(origin, destination, -0.2),
-  ]);
-
-  const [defaultDirection, biasedDirection] = results;
-
-  if (biasedDirection.duration && defaultDirection.duration && biasedDirection.duration < defaultDirection.duration) {
-    return biasedDirection;
-  }
-
-  return defaultDirection;
-};
-
 export default function RouteButton({ place }: RouteButtonProps) {
-  const { position, setTracking } = useUbication(false); // Inicia desactivado
+  const { position, setTracking } = useUbication();
+
   const { setDirectionData } = useDirections();
   const { setSelectedPlace } = useSidebar();
   const { setNotification } = use(NotificationContext);
   const status = useDirectionStatus(position, place);
+  const [shouldCalculateRoute, setShouldCalculateRoute] = useState(false);
 
   const [isWaitingForLocation, setIsWaitingForLocation] = useState(false);
-  const [isCalculatingRoute, setIsCalculatingRoute] = useState(false);
-  const pendingRouteRef = useRef(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const {
+    data: optimalDirection,
+    error: directionError,
+    isLoading: isCalculatingRoute,
+  } = useOptimalDirection(status.origin!, status.destination!, shouldCalculateRoute && status.ok);
 
   // Efecto para calcular ruta automáticamente cuando se obtiene la ubicación
   useEffect(() => {
-    if (position && pendingRouteRef.current) {
-      pendingRouteRef.current = false;
-      setIsWaitingForLocation(false);
-      calculateRoute();
-    }
-  }, [position]);
-
-  const calculateRoute = useCallback(async () => {
-    if (!position || !place) return;
-
-    // Usar el status que ya se calculó en el nivel superior
-    if (status.ok === false) {
-      setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
-      setIsCalculatingRoute(false);
-      return;
-    }
-
-    if (!status.origin || !status.destination) {
-      setNotification(<DirectionErrorNotification>No se pudo determinar la ruta</DirectionErrorNotification>);
-      setIsCalculatingRoute(false);
-      return;
-    }
-
-    setIsCalculatingRoute(true);
-
-    try {
-      const { direction, duration, distance } = await getOptimalDirection(status.origin, status.destination);
-
-      if (!direction || !duration || !distance) {
-        setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
-        return;
+    if (position && isWaitingForLocation) {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
 
-      setDirectionData(direction, "xd", distance);
-      setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
-      setSelectedPlace(null);
-    } catch (error) {
-      setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
-      console.error("Error fetching directions:", error);
-    } finally {
-      setIsCalculatingRoute(false);
+      setIsWaitingForLocation(false);
+      setShouldCalculateRoute(true);
     }
-  }, [position, place, status, setDirectionData, setNotification, setSelectedPlace]);
+  }, [position, status, isWaitingForLocation]);
+
+  useEffect(() => {
+    if (isCalculatingRoute) return;
+
+    if (!shouldCalculateRoute) return;
+
+    if (!status.ok && status.error) {
+      setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
+      return;
+    }
+
+    if (directionError) {
+      setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
+      console.error("Error fetching directions:", directionError);
+      return;
+    }
+
+    if (!optimalDirection) {
+      setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
+      console.error("Optimal direction not defined:", optimalDirection);
+      return;
+    }
+
+    const { direction, duration, distance } = optimalDirection;
+
+    setDirectionData(direction, "xd", distance);
+    setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
+    setSelectedPlace(null);
+    setShouldCalculateRoute(false);
+  }, [
+    optimalDirection,
+    isCalculatingRoute,
+    shouldCalculateRoute,
+    setDirectionData,
+    setNotification,
+    directionError,
+    setSelectedPlace,
+    place,
+    status,
+  ]);
 
   const handleDirections = async () => {
     // Si está esperando ubicación, cancelar
     if (isWaitingForLocation) {
       setTracking(false);
       setIsWaitingForLocation(false);
-      pendingRouteRef.current = false;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
       return;
     }
 
@@ -107,28 +109,32 @@ export default function RouteButton({ place }: RouteButtonProps) {
     if (!position) {
       setTracking(true);
       setIsWaitingForLocation(true);
-      pendingRouteRef.current = true;
 
-      // Timeout de seguridad
-      setTimeout(() => {
-        if (pendingRouteRef.current && !position) {
-          setNotification(
-            <DirectionErrorNotification>
-              No podemos obtener tu ubicación. Verifica que los permisos de ubicación estén habilitados.
-            </DirectionErrorNotification>,
-          );
-          setIsWaitingForLocation(false);
-          pendingRouteRef.current = false;
-          setTracking(false);
-        }
-      }, 10000); // 10 segundos timeout
+      timeoutRef.current = setTimeout(() => {
+        setNotification(
+          <DirectionErrorNotification>
+            No podemos obtener tu ubicación. Verifica que los permisos de ubicación estén habilitados.
+          </DirectionErrorNotification>,
+        );
+        setIsWaitingForLocation(false);
+        setTracking(false);
+        timeoutRef.current = null;
+      }, 10000);
 
       return;
     }
 
-    // Si ya hay ubicación, calcular ruta inmediatamente
-    await calculateRoute();
+    // Si ya tenemos la ubicación, calcular ruta
+    setShouldCalculateRoute(true);
   };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const getButtonContent = () => {
     if (isWaitingForLocation) {
