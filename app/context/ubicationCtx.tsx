@@ -1,8 +1,8 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 
-import { CATEGORIES, PointGeometry, Properties } from "@/utils/types";
+import { CATEGORIES, PointGeometry, Properties } from "../../utils/types";
 
 type CardinalPoints = 4 | 8;
 
@@ -23,17 +23,25 @@ interface LocationOrientationData {
   cardinal: string;
 }
 
-type Subscriber = (data: LocationOrientationData) => void;
-
-interface SubscriberData {
-  callback: Subscriber;
-  tracking: boolean;
+interface UbicationContextType extends LocationOrientationData {
+  setTracking: (tracking: boolean) => void;
+  isTracking: boolean;
+  error: GeolocationPositionError | null;
 }
 
-const subscribers = new Map<Subscriber, SubscriberData>();
-let currentData: LocationOrientationData = { position: null, alpha: 0, cardinal: "N" };
-let watchId: number | null = null;
-let orientationListenerActive = false;
+const UbicationContext = createContext<UbicationContextType | undefined>(undefined);
+
+interface UbicationProviderProps {
+  children: ReactNode;
+  options?: Options;
+}
+
+const defaultOptions: Options = {
+  cardinalPoints: 8,
+  enableHighAccuracy: true,
+  maximumAge: 0,
+  timeout: 5000,
+};
 
 function calculateCardinal(angle: number, points: CardinalPoints): string {
   const divisions = points;
@@ -45,202 +53,185 @@ function calculateCardinal(angle: number, points: CardinalPoints): string {
   return divisions === 8 ? labels8[index] : labels4[index];
 }
 
-// Handle location position updates
-function handlePositionUpdate({ coords }: GeolocationPosition) {
-  currentData = {
-    ...currentData,
-    position: {
-      type: "Feature",
-      properties: {
-        identifier: "user_loc",
-        name: "Usuario",
-        information: "",
-        categories: [CATEGORIES.USER_LOCATION],
-        campus: "",
-        faculties: [],
-        floors: [],
-      },
-      geometry: { type: "Point", coordinates: [coords.longitude, coords.latitude] },
-    },
-  };
-  notifyActiveSubscribers();
-}
-
-// Handle location error
-function handlePositionError(error: GeolocationPositionError) {
-  currentData = {
-    ...currentData,
-    position: {
-      type: "Feature",
-      properties: {
-        identifier: "user_loc",
-        name: "Usuario",
-        information: "",
-        categories: [CATEGORIES.USER_LOCATION],
-        campus: "",
-        faculties: [],
-        floors: [],
-      },
-      geometry: { type: "Point", coordinates: [0, 0] },
-    },
-  };
-  notifyActiveSubscribers();
-}
-
-// Handle device orientation events
-function handleOrientation(event: DeviceOrientationEvent) {
-  if (event.alpha == null) return;
-  currentData = {
-    ...currentData,
-    alpha: event.alpha,
-    cardinal: calculateCardinal(event.alpha, serviceOptions.cardinalPoints!),
-  };
-  notifyActiveSubscribers();
-}
-
-// Keep track of options for the running service
-let serviceOptions: Options = {
-  cardinalPoints: 4,
-  maximumAge: 0,
-  enableHighAccuracy: true,
-  timeout: 5000,
-};
-
-// Notify only subscribers that have tracking enabled
-function notifyActiveSubscribers() {
-  subscribers.forEach(({ callback, tracking }) => {
-    if (tracking) {
-      callback(currentData);
-    }
+export function UbicationProvider({ children, options = defaultOptions }: UbicationProviderProps) {
+  const [data, setData] = useState<LocationOrientationData>({
+    position: null,
+    alpha: 0,
+    cardinal: "N",
   });
-}
+  const [isTracking, setIsTracking] = useState(false);
+  const [error, setError] = useState<GeolocationPositionError | null>(null);
+  const [watchId, setWatchId] = useState<number | null>(null);
+  const [orientationListenerActive, setOrientationListenerActive] = useState(false);
 
-// Check if any subscriber has tracking enabled
-function hasActiveSubscribers(): boolean {
-  for (const { tracking } of subscribers.values()) {
-    if (tracking) return true;
-  }
-  return false;
-}
-
-// Start the shared service (only one watcher and orientation listener)
-function startService(options: Options = {}) {
-  if (watchId || !hasActiveSubscribers()) return;
-  serviceOptions = { ...serviceOptions, ...options };
-
-  if (navigator.geolocation) {
-    watchId = navigator.geolocation.watchPosition(handlePositionUpdate, handlePositionError, {
-      enableHighAccuracy: serviceOptions.enableHighAccuracy,
-      maximumAge: serviceOptions.maximumAge,
-      timeout: serviceOptions.timeout,
-    });
-  }
-
-  if (!orientationListenerActive) {
-    window.addEventListener("deviceorientation", handleOrientation);
-    orientationListenerActive = true;
-  }
-}
-
-// Stop the shared service when no active subscribers remain
-function stopService() {
-  if (!hasActiveSubscribers()) {
-    if (watchId !== null) {
-      navigator.geolocation.clearWatch(watchId);
-      watchId = null;
-    }
-    if (orientationListenerActive) {
-      window.removeEventListener("deviceorientation", handleOrientation);
-      orientationListenerActive = false;
-    }
-  }
-}
-
-// Update tracking status for a subscriber
-function updateSubscriberTracking(callback: Subscriber, tracking: boolean, options: Options = {}) {
-  const subscriber = subscribers.get(callback);
-  if (!subscriber) return;
-
-  subscriber.tracking = tracking;
-
-  if (tracking) {
-    startService(options);
-    // Emit current state immediately when tracking is enabled
-    callback(currentData);
-  } else {
-    stopService();
-  }
-}
-
-/**
- * Subscribe to shared user location & orientation updates
- * @returns object with unsubscribe function and setTracking function
- */
-function subscribeUserLocation(callback: Subscriber, options: Options = {}) {
-  const subscriberData: SubscriberData = { callback, tracking: false };
-  subscribers.set(callback, subscriberData);
-
-  const setTracking = (tracking: boolean) => {
-    updateSubscriberTracking(callback, tracking, options);
-  };
-
-  const unsubscribe = () => {
-    subscribers.delete(callback);
-    stopService();
-  };
-
-  return { unsubscribe, setTracking };
-}
-
-interface UbicationContextType extends LocationOrientationData {
-  setTracking: (tracking: boolean) => void;
-}
-
-const UbicationContext = createContext<UbicationContextType | undefined>(undefined);
-
-interface UbicationProviderProps {
-  children: ReactNode;
-}
-
-export function UbicationProvider({ children }: UbicationProviderProps) {
-  const [data, setData] = useState<LocationOrientationData>(currentData);
-  // eslint-disable-next-line
-  const [tracking, setTrackingState] = useState(false);
-
-  useEffect(() => {
-    const { unsubscribe, setTracking: setServiceTracking } = subscribeUserLocation(setData, {
-      cardinalPoints: 8,
-      enableHighAccuracy: true,
-      maximumAge: 0,
-      timeout: 5000,
-    });
-
-    // Set initial tracking state
-    setServiceTracking(false);
-
-    return unsubscribe;
+  const isGeolocationAvailable = useCallback(() => {
+    return (
+      typeof navigator !== "undefined" &&
+      navigator.geolocation &&
+      typeof navigator.geolocation.watchPosition === "function"
+    );
   }, []);
 
-  const setTracking = (newTracking: boolean) => {
-    setTrackingState(newTracking);
-    // The effect will handle the service update through the dependency
-  };
+  // Handle location position updates
+  const handlePositionUpdate = useCallback(({ coords }: GeolocationPosition) => {
+    setError(null);
+    setData((prev) => ({
+      ...prev,
+      position: {
+        type: "Feature",
+        properties: {
+          identifier: "user_loc",
+          name: "Usuario",
+          information: "",
+          categories: [CATEGORIES.USER_LOCATION],
+          campus: "",
+          faculties: [],
+          floors: [],
+        },
+        geometry: { type: "Point", coordinates: [coords.longitude, coords.latitude] },
+      },
+    }));
+  }, []);
 
-  // Update service tracking when tracking state changes
+  // Handle location error
+  const handlePositionError = useCallback((positionError: GeolocationPositionError) => {
+    setError(positionError);
+    setData((prev) => ({
+      ...prev,
+      position: {
+        type: "Feature",
+        properties: {
+          identifier: "user_loc",
+          name: "Usuario",
+          information: "",
+          categories: [CATEGORIES.USER_LOCATION],
+          campus: "",
+          faculties: [],
+          floors: [],
+        },
+        geometry: { type: "Point", coordinates: [0, 0] },
+      },
+    }));
+  }, []);
+
+  // Handle device orientation events
+  const handleOrientation = useCallback(
+    (event: DeviceOrientationEvent) => {
+      if (event.alpha == null) return;
+      setData((prev) => ({
+        ...prev,
+        alpha: event.alpha!,
+        cardinal: calculateCardinal(event.alpha!, options.cardinalPoints || 8),
+      }));
+    },
+    [options.cardinalPoints],
+  );
+
+  // Start location tracking
+  const startTracking = useCallback(() => {
+    if (watchId || !isGeolocationAvailable()) {
+      if (!isGeolocationAvailable()) {
+        setError({
+          code: 2,
+          message: "Geolocation is not available",
+        } as GeolocationPositionError);
+      }
+      return;
+    }
+
+    try {
+      const id = navigator.geolocation.watchPosition(handlePositionUpdate, handlePositionError, {
+        enableHighAccuracy: options.enableHighAccuracy,
+        maximumAge: options.maximumAge,
+        timeout: options.timeout,
+      });
+
+      setWatchId(id);
+
+      // Add orientation listener if not already active
+      if (!orientationListenerActive && typeof window !== "undefined") {
+        window.addEventListener("deviceorientation", handleOrientation);
+        setOrientationListenerActive(true);
+      }
+    } catch (err) {
+      setError({
+        code: 2,
+        message: "Failed to start location tracking",
+      } as GeolocationPositionError);
+    }
+  }, [
+    watchId,
+    isGeolocationAvailable,
+    handlePositionUpdate,
+    handlePositionError,
+    handleOrientation,
+    orientationListenerActive,
+    options.enableHighAccuracy,
+    options.maximumAge,
+    options.timeout,
+  ]);
+
+  // Stop location tracking
+  const stopTracking = useCallback(() => {
+    if (watchId !== null && isGeolocationAvailable()) {
+      try {
+        navigator.geolocation.clearWatch(watchId);
+        setWatchId(null);
+      } catch (err) {
+        console.warn("Failed to clear geolocation watch:", err);
+        setWatchId(null);
+      }
+    }
+
+    if (orientationListenerActive && typeof window !== "undefined") {
+      try {
+        window.removeEventListener("deviceorientation", handleOrientation);
+        setOrientationListenerActive(false);
+      } catch (err) {
+        console.warn("Failed to remove orientation listener:", err);
+        setOrientationListenerActive(false);
+      }
+    }
+  }, [watchId, isGeolocationAvailable, orientationListenerActive, handleOrientation]);
+
+  // Set tracking function
+  const setTracking = useCallback(
+    (tracking: boolean) => {
+      setIsTracking(tracking);
+      if (tracking) {
+        startTracking();
+      } else {
+        stopTracking();
+      }
+    },
+    [startTracking, stopTracking],
+  );
+
+  // Effect to handle tracking state changes
   useEffect(() => {
-    const { setTracking: setServiceTracking } = subscribeUserLocation(setData, {
-      cardinalPoints: 8,
-      enableHighAccuracy: true,
-      maximumAge: 0,
-      timeout: 5000,
-    });
+    if (isTracking) {
+      startTracking();
+    } else {
+      stopTracking();
+    }
 
-    setServiceTracking(tracking);
-  }, [tracking, setData]);
+    return () => {
+      stopTracking();
+    };
+  }, [isTracking, startTracking, stopTracking]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      stopTracking();
+    };
+  }, [stopTracking]);
 
   const value: UbicationContextType = {
     ...data,
     setTracking,
+    isTracking,
+    error,
   };
 
   return <UbicationContext.Provider value={value}>{children}</UbicationContext.Provider>;
@@ -251,6 +242,19 @@ export function useUbication(): UbicationContextType {
   if (context === undefined) {
     throw new Error("useUbication must be used within a UbicationProvider");
   }
+
+  if (typeof window === "undefined") {
+    console.warn("useUbication should only be used on the client side");
+    return {
+      position: null,
+      alpha: 0,
+      cardinal: "N",
+      setTracking: () => {},
+      isTracking: false,
+      error: null,
+    };
+  }
+
   return context;
 }
 
