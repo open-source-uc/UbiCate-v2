@@ -552,6 +552,7 @@ export async function PATCH(request: NextRequest) {
 
     // Eliminar la marca de necesidad de aprobación
     if ("needApproval" in placeToApprove.properties) {
+      delete placeToApprove.properties.needApproval;
     }
 
     try {
