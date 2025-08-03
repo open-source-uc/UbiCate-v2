@@ -14769,29 +14769,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "BANCO1",
-                "name": "Banco Santander",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613188,
-                    -33.498113
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE1",
                 "name": "Basurero de reciclaje",
                 "campus": "SJ",
@@ -31694,6 +31671,29 @@
                 "faculties": [
                     "EDU"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61313490273693,
+                    -33.498148476504745
+                ]
+            },
+            "properties": {
+                "identifier": "BANCO1",
+                "name": "Banco Santander",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
