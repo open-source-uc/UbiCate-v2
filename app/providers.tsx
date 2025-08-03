@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useState } from "react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -10,22 +10,27 @@ import { SidebarProvider } from "./context/sidebarCtx";
 import { ThemeProvider } from "./context/themeCtx";
 import { UbicationProvider } from "./context/ubicationCtx";
 
-function makeQueryClient() {
-  return new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 60 * 1000,
-      },
-    },
-  });
-}
-
 interface ProvidersProps {
   children: React.ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {
-  const queryClient = useMemo(() => makeQueryClient(), []);
+  // eslint-disable-next-line
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+          },
+        },
+      }),
+  );
+
+  if (!queryClient) {
+    console.error("Oh no esto no debería pasar D:, QueryClient is not initialized");
+    return <div>Error: Unable to initialize QueryClient</div>;
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
