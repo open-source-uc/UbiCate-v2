@@ -81,32 +81,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6136066620074,
-                    -33.497233103322664
-                ]
-            },
-            "properties": {
-                "identifier": "STUDYROOM-32218197",
-                "name": "Crisol Humanidades",
-                "information": "",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "LET"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64055450040323,
                     -33.4414790561554
                 ]
