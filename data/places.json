@@ -4075,31 +4075,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL4",
-                "name": "CRISOL",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612116,
-                    -33.499133
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "STUDYROOM-32761081",
                 "name": "Sala de estudio",
                 "campus": "CC",
@@ -8222,29 +8197,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORY-32379115",
-                "name": "Crisol CS 102",
-                "campus": "SJ",
-                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61036383562251,
-                    -33.500581081425665
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "LABORATORY-32379076",
                 "name": "Crisol CS 101",
                 "campus": "SJ",
@@ -8515,31 +8467,6 @@
                 "coordinates": [
                     -70.61078021340818,
                     -33.50057973782143
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "ALMUERZO7",
-                "name": "Quiosco",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609826,
-                    -33.497868
                 ]
             }
         },
@@ -9908,29 +9835,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "STUDYROOM-32218197",
-                "name": "Sala CRISOL Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6136066620074,
-                    -33.497233103322664
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALAESTUDIO4",
                 "name": "Sala de Estudio",
                 "campus": "SJ",
@@ -10565,29 +10469,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "COMPUTERS-32217130",
-                "name": "Crisol Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61389840040871,
-                    -33.497392415033836
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "R6",
                 "name": "R6",
                 "campus": "SJ",
@@ -10866,31 +10747,6 @@
                 "coordinates": [
                     -70.61510834615939,
                     -33.49786027748056
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CRISOL1",
-                "name": "Crisol Educación",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "EDU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6138039380312,
-                    -33.49813895766858
                 ]
             }
         },
@@ -14867,29 +14723,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "BANCO1",
-                "name": "Banco Santander",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613188,
-                    -33.498113
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE1",
                 "name": "Basurero de reciclaje",
                 "campus": "SJ",
@@ -16872,79 +16705,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CRISOL5",
-                "name": "CRISOL",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.594471,
-                    -33.445834
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CRISOL6",
-                "name": "CRISOL Piwonka",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618316,
-                    -33.419267
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CRISOL7",
-                "name": "CRISOL Alfero",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618064,
-                    -33.419254
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CS-301",
                 "name": "CS-301",
                 "campus": "SJ",
@@ -17068,79 +16828,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CAJERO2",
-                "name": "Cajero",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [
-                    "EA"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611207,
-                    -33.497082
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CAJERO3",
-                "name": "Cajero",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613563,
-                    -33.499624
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CAJERO4",
-                "name": "Cajero",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613097,
-                    -33.498126
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CAJERO5",
                 "name": "Cajero",
                 "campus": "SJ",
@@ -17183,29 +16870,6 @@
                 "coordinates": [
                     -70.640889,
                     -33.441244
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CAJERO7",
-                "name": "Cajero",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.594578,
-                    -33.446624
                 ]
             }
         },
@@ -18957,31 +18621,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "BICI2",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614255,
-                    -33.499361
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "BICI4",
                 "name": "Estacionamiento de Bicicletas",
                 "campus": "SJ",
@@ -19049,29 +18688,6 @@
                 "coordinates": [
                     -70.608004,
                     -33.500706
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "BICI7",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611902,
-                    -33.499442
                 ]
             }
         },
@@ -31587,32 +31203,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61026040345818,
-                    -33.499117855719746
-                ]
-            },
-            "properties": {
-                "identifier": "MDE3PPARGS0YGL",
-                "name": "Impresora",
-                "campus": "SJ",
-                "information": "Nunca falla y es barata",
-                "categories": [
-                    "photocopy",
-                    "shop"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.613187,
                     -33.498854
                 ]
@@ -31627,37 +31217,9 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": [
                     "ENF"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610188,
-                    -33.497959
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL3",
-                "name": "CRISOL",
-                "information": "",
-                "categories": [
-                    "computers",
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
                 ]
             }
         },
@@ -31680,7 +31242,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": [
                     "ING"
@@ -31726,7 +31287,6 @@
                 "floors": [
                     -1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
@@ -31750,7 +31310,6 @@
                 "floors": [
                     1
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
@@ -31775,7 +31334,6 @@
                     5,
                     6
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }
@@ -31799,9 +31357,343 @@
                 "floors": [
                     -2
                 ],
-                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61225732591375,
+                    -33.497507460120815
+                ]
+            },
+            "properties": {
+                "identifier": "MDV6DF97WDK6VQ",
+                "name": "Pileta Docente Luís Zegarra Agramont.",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594471,
+                    -33.445834
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL5",
+                "name": "CRISOL",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "ARTE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026040345818,
+                    -33.499117855719746
+                ]
+            },
+            "properties": {
+                "identifier": "MDE3PPARGS0YGL",
+                "name": "Impresora",
+                "information": "Nunca falla y es barata",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61420135582085,
+                    -33.49918653936197
+                ]
+            },
+            "properties": {
+                "identifier": "BICI2",
+                "name": "Estacionamiento de Bicicletas",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6138039380312,
+                    -33.49813895766858
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL1",
+                "name": "Crisol Educación",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61313490273693,
+                    -33.498148476504745
+                ]
+            },
+            "properties": {
+                "identifier": "BANCO1",
+                "name": "Banco Santander",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61318873320823,
+                    -33.49807377175928
+                ]
+            },
+            "properties": {
+                "identifier": "CAJERO4",
+                "name": "Cajero",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61389840040871,
+                    -33.497392415033836
+                ]
+            },
+            "properties": {
+                "identifier": "COMPUTERS-32217130",
+                "name": "Crisol Humanidades",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.618316,
+                    -33.419267
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL6",
+                "name": "CRISOL Piwonka",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.618064,
+                    -33.419254
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL7",
+                "name": "CRISOL Alfero",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6136066620074,
+                    -33.497233103322664
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32218197",
+                "name": "Crisol Humanidades",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612116,
+                    -33.499133
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL4",
+                "name": "Crisol Citeduc",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61036383562251,
+                    -33.500581081425665
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-32379115",
+                "name": "Crisol Carreras de la Salud",
+                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610188,
+                    -33.497959
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL3",
+                "name": "Crisol San Joaquín",
+                "information": "1 y 2",
+                "categories": [
+                    "crisol",
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
             }
         }
     ]
