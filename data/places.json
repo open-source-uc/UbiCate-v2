@@ -31439,32 +31439,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610188,
-                    -33.497959
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL3",
-                "name": "CRISOL",
-                "information": "",
-                "categories": [
-                    "crisol",
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61420135582085,
                     -33.49918653936197
                 ]
@@ -31694,6 +31668,32 @@
                 ],
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610188,
+                    -33.497959
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL3",
+                "name": "Sala Crisol San Joaquín",
+                "information": "1 y 2",
+                "categories": [
+                    "crisol",
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
             }
         }
     ]
