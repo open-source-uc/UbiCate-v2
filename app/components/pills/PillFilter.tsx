@@ -7,6 +7,7 @@ import { useSidebar } from "../../context/sidebarCtx";
 import * as Icons from "../icons/icons";
 
 import Pill from "./pill";
+import { CATEGORIES } from "@/utils/types";
 
 const pills: Array<{
   title: string;
@@ -25,6 +26,9 @@ const pills: Array<{
   { title: "Crisol", icon: <Icons.Print />, filter: "crisol", isNameFilter: true },
   { title: "Estacionamientos", icon: <Icons.Parking />, filter: "parking" },
   { title: "Impresoras", icon: <Icons.Print />, filter: "photocopy" },
+  { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
+  { title: "Tiendas", icon: <Icons.Shop />, filter: CATEGORIES.SHOP },
+  { title: "Bicicletas", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
 ];
 
 function PillFilter() {
