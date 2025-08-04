@@ -39,13 +39,14 @@ export enum CATEGORIES {
   WATER = "water",
   USER_LOCATION = "user",
   YARD = "yard",
+  CRISOL = "crisol",
 }
 
 export interface Properties {
   identifier: string;
   name: string;
   information: string;
-  categories: string[];
+  categories: string[]; // NO ES EL ENUM PUES EN EL PLACES.JSON PUES EN LA API DE CREAR LUGARES PASAN COSAS EXTRAÑAS Y HAY QUE ASEGURAR QUE PLACES.JSON SEA CONSISTENTE (TRABAJO A FUTURO 2026-08-03)
   campus: string;
   faculties: string[];
   floors?: number[];
@@ -84,10 +85,11 @@ export interface JSONFeatures {
 }
 
 /*
-NO USAR PARA CATEGORIAS, EN ESE CASO USAR EL ENUM
-NO SE BORRAN AUN PUES ALGO SE PUEDE ROMPER
+SOLO USAR PARA CAMPUS!!!
 
-SOLO USAR PARA CAMPUS, NO INTENTEN HACER ENUM DE CAMPUS YA ES MUY TARDE, EN EL JSON ESTA SJ y SanJoaquin
+NO HAY ENUM DE CAMPUS PUES EN EL PLACES.JSON ESTA SJ junto con SanJoaquin, ETC. HABRIA
+QUE LIMPIAR EL PLACES.JSON PARA QUE NO HAYA REPETICIONES, LO QUE MODIFICARIA
+LA API DE LUGARES, LOS FORMS DE CREACION/EDICION, Y OTRAS COSAS. ASI QUE MEJOR DEJARLO ASI, PUES DUDO QUE EN 30 AÑOS LA UC CREE UN NUEVO CAMPUS XD
 */
 export const siglas = new Map<string, string>([
   ["SanJoaquin", "SJ"],
@@ -100,26 +102,6 @@ export const siglas = new Map<string, string>([
   ["VR", "Villarrica"],
   ["CC", "Casa Central"],
   ["OR", "Oriente"],
-  ["classroom", "Sala"],
-  ["bath", "Baño"],
-  ["food_lunch", "Comida"],
-  ["studyroom", "Sala de estudio"],
-  ["library", "Biblioteca"],
-  ["trash", "Reciclaje"],
-  ["park_bicycle", "Bicicletero"],
-  ["financial", "Banco / Cajero automático"],
-  ["laboratory", "Laboratorio"],
-  ["water", "Punto de agua"],
-  ["auditorium", "Auditorio"],
-  ["sports_place", "Deporte"],
-  ["computers", "Sala de computadores"],
-  ["photocopy", "Fotocopias / Impresoras"],
-  ["shop", "Tienda"],
-  ["parking", "Estacionamiento"],
-  ["faculty", "Facultad"],
-  ["building", "Edificio"],
-  ["other", "Otro"],
-  ["event", "Evento"],
 ]);
 
 export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
@@ -144,28 +126,30 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.OTHER, "Otro"],
   [CATEGORIES.CUSTOM_MARK, "Marcador"],
   [CATEGORIES.YARD, "Patio"],
+  [CATEGORIES.CRISOL, "Crisol"],
 ]);
 
 // Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK
 export const CategoryOptions = [
   CATEGORIES.CLASSROOM,
+  CATEGORIES.LABORATORY,
+  CATEGORIES.STUDYROOM,
   CATEGORIES.BATH,
   CATEGORIES.FOOD_LUNCH,
-  CATEGORIES.STUDYROOM,
-  CATEGORIES.LIBRARY,
+  CATEGORIES.WATER,
   CATEGORIES.TRASH,
   CATEGORIES.PARK_BICYCLE,
+  CATEGORIES.FACULTY,
   CATEGORIES.FINANCIAL,
-  CATEGORIES.LABORATORY,
-  CATEGORIES.WATER,
   CATEGORIES.AUDITORIUM,
   CATEGORIES.SPORTS_PLACE,
   CATEGORIES.COMPUTERS,
   CATEGORIES.PHOTOCOPY,
   CATEGORIES.SHOP,
   CATEGORIES.PARKING,
-  CATEGORIES.FACULTY,
   CATEGORIES.BUILDING,
   CATEGORIES.YARD,
+  CATEGORIES.LIBRARY,
+  CATEGORIES.CRISOL,
   CATEGORIES.OTHER,
 ];

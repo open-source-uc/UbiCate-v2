@@ -8,7 +8,7 @@ const categoryToColorMap = new Map<string, string>([
   [CATEGORIES.FOOD_LUNCH, "bg-chart-6"],
   [CATEGORIES.WATER, "bg-chart-7"],
   [CATEGORIES.SPORTS_PLACE, "bg-chart-8"],
-  // [CATEGORIES.CRISOL, "bg-chart-9"],
+  [CATEGORIES.CRISOL, "bg-chart-9"],
   [CATEGORIES.PARKING, "bg-chart-10"],
   [CATEGORIES.COMPUTERS, "bg-chart-9"],
   [CATEGORIES.FACULTY, "bg-chart-6"],
