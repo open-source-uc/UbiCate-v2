@@ -31488,29 +31488,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.612116,
-                    -33.499133
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL4",
-                "name": "CRISOL",
-                "information": "",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    -1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61420135582085,
                     -33.49918653936197
                 ]
@@ -31694,6 +31671,29 @@
                 "faculties": [
                     "LET"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612116,
+                    -33.499133
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL4",
+                "name": "Crisol Citeduc",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
