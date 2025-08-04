@@ -9835,29 +9835,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "STUDYROOM-32218197",
-                "name": "Sala CRISOL Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6136066620074,
-                    -33.497233103322664
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALAESTUDIO4",
                 "name": "Sala de Estudio",
                 "campus": "SJ",
@@ -31437,29 +31414,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61036383562251,
-                    -33.500581081425665
-                ]
-            },
-            "properties": {
-                "identifier": "LABORATORY-32379115",
-                "name": "Crisol CS 102",
-                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61026040345818,
                     -33.499117855719746
                 ]
@@ -31478,55 +31432,6 @@
                 "faculties": [
                     "SOC"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610188,
-                    -33.497959
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL3",
-                "name": "CRISOL",
-                "information": "",
-                "categories": [
-                    "crisol",
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612116,
-                    -33.499133
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL4",
-                "name": "CRISOL",
-                "information": "",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    -1
-                ],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
@@ -31692,6 +31597,103 @@
                 ],
                 "campus": "LC",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6136066620074,
+                    -33.497233103322664
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32218197",
+                "name": "Crisol Humanidades",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612116,
+                    -33.499133
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL4",
+                "name": "Crisol Citeduc",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61036383562251,
+                    -33.500581081425665
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-32379115",
+                "name": "Crisol Carreras de la Salud",
+                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610188,
+                    -33.497959
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL3",
+                "name": "Crisol San Joaquín",
+                "information": "1 y 2",
+                "categories": [
+                    "crisol",
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
             }
         }
     ]

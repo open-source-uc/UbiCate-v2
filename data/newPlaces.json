@@ -1,4 +1,31 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64055450040323,
+                    -33.4414790561554
+                ]
+            },
+            "properties": {
+                "identifier": "COM308-CC",
+                "name": "COM309",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        }
+    ]
 }
