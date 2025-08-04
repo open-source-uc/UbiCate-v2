@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.612116,
+                    -33.499133
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL4",
+                "name": "Crisol Citeduc",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6136066620074,
                     -33.497233103322664
                 ]
