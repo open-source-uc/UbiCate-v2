@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61022045694459,
-                    -33.49649920326455
-                ]
-            },
-            "properties": {
-                "identifier": "AP301-SJ",
-                "name": "D202",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64055450040323,
                     -33.4414790561554
                 ]
