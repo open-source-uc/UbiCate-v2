@@ -1,9 +1,9 @@
 import { use, useState, useEffect, useRef } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
+import { useUbication } from "@/app/context/ubicationCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
 import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
-import { useUbication } from "@/app/hooks/useUbication";
 import { Feature } from "@/utils/types";
 
 import { useDirections } from "../../context/directionsCtx";

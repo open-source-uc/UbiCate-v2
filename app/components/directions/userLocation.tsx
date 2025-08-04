@@ -3,7 +3,7 @@ import { use, useCallback, useMemo, useState, useEffect, useRef } from "react";
 import { Marker, useMap } from "react-map-gl/maplibre";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
-import { useUbication } from "@/app/hooks/useUbication";
+import { useUbication } from "@/app/context/ubicationCtx";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
 import DangerButton from "../danger/dangerButton";
