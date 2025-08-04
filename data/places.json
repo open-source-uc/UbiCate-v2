@@ -9835,29 +9835,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "STUDYROOM-32218197",
-                "name": "Sala CRISOL Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6136066620074,
-                    -33.497233103322664
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALAESTUDIO4",
                 "name": "Sala de Estudio",
                 "campus": "SJ",
@@ -31692,6 +31669,31 @@
                 ],
                 "campus": "LC",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6136066620074,
+                    -33.497233103322664
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32218197",
+                "name": "Crisol Humanidades",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
             }
         }
     ]
