@@ -5,7 +5,7 @@ import { Feature } from "@/utils/types";
 
 import NavigationSidebar from "./components/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";
-
+import Providers from "./providers";
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
@@ -86,10 +86,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   return (
     <>
-      <main spellCheck="false" className="h-full w-full relative flex">
-        <NavigationSidebar />
-        <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-      </main>
+      <Providers>
+        <main spellCheck="false" className="h-full w-full relative flex">
+          <NavigationSidebar />
+          <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+        </main>
+      </Providers>
     </>
   );
 }

@@ -8,29 +8,43 @@ import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import { ThemeProvider } from "./context/themeCtx";
-import { UbicationProvider } from "./context/ubicationCtx";
 
-class UbicationErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error?: Error }> {
   constructor(props: { children: React.ReactNode }) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(_error: Error) {
-    return { hasError: true };
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error("UbicationProvider error:", error, errorInfo);
+    console.error("Application error:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // Fallback UI - render children without UbicationProvider
-      return this.props.children;
+      return (
+        <div style={{ padding: "20px", textAlign: "center" }}>
+          <h2>POR FAVOR REPORTA ESTO AL IG: @opensource_euc</h2>
+          <p>Algo salió MUY mal D:</p>
+          <details style={{ marginTop: "10px", textAlign: "left" }}>
+            <summary>Detalles del error</summary>
+            <pre style={{ fontSize: "12px", overflow: "auto" }}>
+              {this.state.error?.message}
+              {"\n"}
+              {this.state.error?.stack}
+            </pre>
+          </details>
+          <button onClick={() => window.location.reload()} style={{ marginTop: "10px", padding: "8px 16px" }}>
+            Recargar página
+          </button>
+        </div>
+      );
     }
 
-    return <UbicationProvider>{this.props.children}</UbicationProvider>;
+    return this.props.children;
   }
 }
 
@@ -60,8 +74,8 @@ export default function Providers({ children }: ProvidersProps) {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <UbicationErrorBoundary>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
         <SidebarProvider>
           <DirectionsProvider>
             <PinsProvider>
@@ -71,7 +85,7 @@ export default function Providers({ children }: ProvidersProps) {
             </PinsProvider>
           </DirectionsProvider>
         </SidebarProvider>
-      </UbicationErrorBoundary>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
