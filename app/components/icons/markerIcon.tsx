@@ -9,7 +9,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.BATH]: Icons.Wc,
   [CATEGORIES.BUILDING]: Icons.Default,
   [CATEGORIES.CAMPUS]: Icons.Default,
-  [CATEGORIES.CLASSROOM]: Icons.Default,
+  [CATEGORIES.CLASSROOM]: Icons.School,
   [CATEGORIES.COMPUTERS]: Icons.PersonalComputer,
   [CATEGORIES.CUSTOM_MARK]: Icons.Pin,
   [CATEGORIES.FACULTY]: Icons.Default,
