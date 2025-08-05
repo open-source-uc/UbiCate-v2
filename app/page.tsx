@@ -86,12 +86,12 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   return (
     <>
-      <Providers>
-        <main spellCheck="false" className="h-full w-full relative flex">
+      <main spellCheck="false" className="h-full w-full relative flex">
+        <Providers>
           <NavigationSidebar />
           <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-        </main>
-      </Providers>
+        </Providers>
+      </main>
     </>
   );
 }
