@@ -4,6 +4,7 @@ import Fuse from "fuse.js";
 
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { getCategoryColor } from "@/utils/categoryToColors";
+import { emitPlaceSelectedEvent } from "@/utils/customEvents";
 import PlacesJSON from "@/utils/places";
 import { CATEGORIES, Feature, siglas } from "@/utils/types";
 
@@ -21,7 +22,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { setSelectedPlace, setPlaces } = useSidebar();
+  const { setPlaces } = useSidebar();
 
   const fuse = useMemo(() => {
     return new Fuse(PlacesJSON.features, {
@@ -123,7 +124,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
     setQuery(feature.properties.name);
     setIsOpen(false);
     setSelectedIndex(-1);
-    setSelectedPlace(feature);
+    emitPlaceSelectedEvent(feature); // Emitir el evento personalizado, pues el fly solo se puede hacer desde el mapa, se escuhará en el hook useMapEvents
     setPlaces([feature]);
     x.current = feature.properties.identifier;
   };
