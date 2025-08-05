@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61207332554795,
+                    -33.49918781688772
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_Y",
+                "name": "Auditorio J",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60951529866767,
                     -33.49984032526088
                 ]
@@ -19,30 +43,6 @@
                 ],
                 "floors": [
                     2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61207332554795,
-                    -33.49918781688772
-                ]
-            },
-            "properties": {
-                "identifier": "AUDITORIO_Y",
-                "name": "NT202",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    -1
                 ],
                 "needApproval": true,
                 "campus": "SJ",
