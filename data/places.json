@@ -23197,29 +23197,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "DILAB",
-                "name": "Dilab",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "faculties": [],
-                "floors": [
-                    5
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612064,
-                    -33.50015
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "IHEALTH",
                 "name": "Instituto Milenio Ihealth",
                 "campus": "SJ",
@@ -31694,6 +31671,30 @@
                 "faculties": [
                     "SOC"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61199911660702,
+                    -33.499632090131826
+                ]
+            },
+            "properties": {
+                "identifier": "DILAB",
+                "name": "Dilab",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
