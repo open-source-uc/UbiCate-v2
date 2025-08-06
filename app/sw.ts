@@ -1,5 +1,5 @@
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
-import { Serwist, StaleWhileRevalidate } from "serwist";
+import { NetworkFirst, Serwist, StaleWhileRevalidate } from "serwist";
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
@@ -20,7 +20,9 @@ const serwist = new Serwist({
     },
     {
       matcher: ({ request }) => request.destination === "script" || request.destination === "style",
-      handler: new StaleWhileRevalidate({ cacheName: "static-resources" }),
+      handler: new NetworkFirst({
+        cacheName: "static-resources",
+      }),
     },
     {
       matcher: ({ url }) => url.pathname.startsWith("/api/"),
