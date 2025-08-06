@@ -19,14 +19,18 @@ interface LocationOrientationData {
     properties: Properties;
     geometry: PointGeometry;
   } | null;
-  alpha: number;
-  cardinal: string;
+  alpha: number | null;
+  cardinal: string | null;
+  isCalibrated: boolean;
+  hasLocation: boolean;
+  error: string | null;
 }
 
 interface UbicationContextType extends LocationOrientationData {
-  setTracking: (tracking: boolean) => void;
+  calibrateCompass: () => void;
+  setTracking: (enabled: boolean) => void;
   isTracking: boolean;
-  error: GeolocationPositionError | null;
+  requestLocation: () => Promise<void>;
 }
 
 const UbicationContext = createContext<UbicationContextType | undefined>(undefined);
@@ -39,8 +43,8 @@ interface UbicationProviderProps {
 const defaultOptions: Options = {
   cardinalPoints: 8,
   enableHighAccuracy: true,
-  maximumAge: 0,
-  timeout: 5000,
+  maximumAge: 60000,
+  timeout: 15000,
 };
 
 function calculateCardinal(angle: number, points: CardinalPoints): string {
@@ -53,16 +57,27 @@ function calculateCardinal(angle: number, points: CardinalPoints): string {
   return divisions === 8 ? labels8[index] : labels4[index];
 }
 
+function normalizeAngle(angle: number): number {
+  let normalized = angle % 360;
+  if (normalized < 0) normalized += 360;
+  return normalized;
+}
+
 export function UbicationProvider({ children, options = defaultOptions }: UbicationProviderProps) {
-  const [data, setData] = useState<LocationOrientationData>({
-    position: null,
-    alpha: 0,
-    cardinal: "N",
-  });
-  const [isTracking, setIsTracking] = useState(false);
-  const [error, setError] = useState<GeolocationPositionError | null>(null);
+  const [position, setPosition] = useState<{
+    type: string;
+    properties: Properties;
+    geometry: PointGeometry;
+  } | null>(null);
+  const [alpha, setAlpha] = useState<number | null>(null);
+  const [isCalibrated, setIsCalibrated] = useState(false);
+  const [hasLocation, setHasLocation] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [watchId, setWatchId] = useState<number | null>(null);
-  const [orientationListenerActive, setOrientationListenerActive] = useState(false);
+  const [orientationActive, setOrientationActive] = useState(false);
+  const [calibrationOffset, setCalibrationOffset] = useState<number>(0);
+  const [isTracking, setIsTracking] = useState(false);
+  const [permissionGranted, setPermissionGranted] = useState(false);
 
   const isGeolocationAvailable = useCallback(() => {
     return (
@@ -74,70 +89,178 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
 
   // Handle location position updates
   const handlePositionUpdate = useCallback(({ coords }: GeolocationPosition) => {
-    setError(null);
-    setData((prev) => ({
-      ...prev,
-      position: {
-        type: "Feature",
-        properties: {
-          identifier: "user_loc",
-          name: "Usuario",
-          information: "",
-          categories: [CATEGORIES.USER_LOCATION],
-          campus: "",
-          faculties: [],
-          floors: [],
-        },
-        geometry: { type: "Point", coordinates: [coords.longitude, coords.latitude] },
+    console.log("Location updated:", coords.latitude, coords.longitude);
+
+    const newPosition = {
+      type: "Feature" as const,
+      properties: {
+        identifier: "user_loc",
+        name: "Usuario",
+        information: "",
+        categories: [CATEGORIES.USER_LOCATION],
+        campus: "",
+        faculties: [],
+        floors: [],
       },
-    }));
+      geometry: {
+        type: "Point" as const,
+        coordinates: [coords.longitude, coords.latitude] as [number, number],
+      },
+    };
+
+    setPosition(newPosition);
+    setHasLocation(true);
+    setError(null);
   }, []);
 
   // Handle location error
   const handlePositionError = useCallback((positionError: GeolocationPositionError) => {
-    setError(positionError);
-    setData((prev) => ({
-      ...prev,
-      position: {
-        type: "Feature",
-        properties: {
-          identifier: "user_loc",
-          name: "Usuario",
-          information: "",
-          categories: [CATEGORIES.USER_LOCATION],
-          campus: "",
-          faculties: [],
-          floors: [],
-        },
-        geometry: { type: "Point", coordinates: [0, 0] },
-      },
-    }));
+    console.error("Location error:", positionError);
+
+    let errorMessage = "Error desconocido";
+    switch (positionError.code) {
+      case positionError.PERMISSION_DENIED:
+        errorMessage = "Permisos de ubicación denegados";
+        break;
+      case positionError.POSITION_UNAVAILABLE:
+        errorMessage = "Ubicación no disponible";
+        break;
+      case positionError.TIMEOUT:
+        errorMessage = "Tiempo de espera agotado";
+        break;
+    }
+
+    setError(errorMessage);
+    setHasLocation(false);
   }, []);
 
-  // Handle device orientation events
+  // FIJO: Handle device orientation events - Versión simplificada como la original
   const handleOrientation = useCallback(
     (event: DeviceOrientationEvent) => {
       if (event.alpha == null) return;
-      setData((prev) => ({
-        ...prev,
-        alpha: event.alpha!,
-        cardinal: calculateCardinal(event.alpha!, options.cardinalPoints || 8),
-      }));
+
+      let finalAlpha = event.alpha;
+
+      // Solo aplicar calibración si está calibrado
+      if (isCalibrated) {
+        finalAlpha = normalizeAngle(event.alpha - calibrationOffset);
+      } else {
+        finalAlpha = normalizeAngle(event.alpha);
+      }
+
+      setAlpha(finalAlpha);
     },
-    [options.cardinalPoints],
+    [isCalibrated, calibrationOffset],
   );
 
-  // Start location tracking
-  const startTracking = useCallback(() => {
-    if (watchId || !isGeolocationAvailable()) {
-      if (!isGeolocationAvailable()) {
-        setError({
-          code: 2,
-          message: "Geolocation is not available",
-        } as GeolocationPositionError);
+  // FIJO: Función para solicitar permisos de orientación
+  const requestOrientationPermission = useCallback(async (): Promise<boolean> => {
+    if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
+      try {
+        const permissionState = await (DeviceOrientationEvent as any).requestPermission();
+        const granted = permissionState === "granted";
+        setPermissionGranted(granted);
+        if (!granted) {
+          setError("Permisos de orientación denegados");
+        }
+        return granted;
+      } catch (error) {
+        console.error("Failed to request orientation permission:", error);
+        setError("Error al solicitar permisos de orientación");
+        return false;
       }
+    }
+    // En dispositivos que no requieren permisos explícitos
+    setPermissionGranted(true);
+    return true;
+  }, []);
+
+  // FIJO: Iniciar listener de orientación
+  const startOrientationListener = useCallback(async () => {
+    if (orientationActive || typeof window === "undefined") return;
+
+    console.log("Starting orientation listener...");
+
+    // Solicitar permisos primero
+    const hasPermission = await requestOrientationPermission();
+    if (!hasPermission) return;
+
+    // Agregar listener
+    window.addEventListener("deviceorientation", handleOrientation);
+    setOrientationActive(true);
+    setError(null);
+
+    console.log("Orientation listener started successfully");
+  }, [orientationActive, handleOrientation, requestOrientationPermission]);
+
+  // FIJO: Detener listener de orientación
+  const stopOrientationListener = useCallback(() => {
+    if (!orientationActive || typeof window === "undefined") return;
+
+    console.log("Stopping orientation listener...");
+    window.removeEventListener("deviceorientation", handleOrientation);
+    setOrientationActive(false);
+  }, [orientationActive, handleOrientation]);
+
+  // FIJO: Calibrar la brújula - Mucho más simple
+  const calibrateCompass = useCallback(() => {
+    if (!orientationActive) {
+      setError("Orientación no disponible para calibrar");
       return;
     }
+
+    if (alpha === null) {
+      setError("No hay datos de orientación disponibles");
+      return;
+    }
+
+    console.log("Calibrating compass with current alpha:", alpha);
+
+    // Usar el valor actual como offset de calibración
+    setCalibrationOffset(alpha);
+    setIsCalibrated(true);
+    setError(null);
+
+    console.log("Compass calibrated successfully");
+  }, [alpha, orientationActive]);
+
+  // Función para solicitar ubicación una sola vez
+  const requestLocation = useCallback(async () => {
+    if (!isGeolocationAvailable()) {
+      setError("Geolocalización no disponible");
+      return;
+    }
+
+    console.log("Requesting location...");
+    setError(null);
+
+    return new Promise<void>((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          handlePositionUpdate(position);
+          resolve();
+        },
+        (error) => {
+          handlePositionError(error);
+          reject(error);
+        },
+        {
+          enableHighAccuracy: options.enableHighAccuracy,
+          maximumAge: options.maximumAge,
+          timeout: options.timeout,
+        },
+      );
+    });
+  }, [isGeolocationAvailable, handlePositionUpdate, handlePositionError, options]);
+
+  const startTracking = useCallback(() => {
+    if (watchId || !isGeolocationAvailable()) {
+      console.warn("Already tracking or geolocation not available");
+      return;
+    }
+
+    console.log("Starting location tracking...");
+    setError(null);
 
     try {
       const id = navigator.geolocation.watchPosition(handlePositionUpdate, handlePositionError, {
@@ -147,91 +270,72 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
       });
 
       setWatchId(id);
-
-      // Add orientation listener if not already active
-      if (!orientationListenerActive && typeof window !== "undefined") {
-        window.addEventListener("deviceorientation", handleOrientation);
-        setOrientationListenerActive(true);
-      }
+      setIsTracking(true);
     } catch (err) {
-      setError({
-        code: 2,
-        message: "Failed to start location tracking",
-      } as GeolocationPositionError);
+      console.error("Failed to start location tracking:", err);
+      setError("Error al iniciar seguimiento de ubicación");
     }
-  }, [
-    watchId,
-    isGeolocationAvailable,
-    handlePositionUpdate,
-    handlePositionError,
-    handleOrientation,
-    orientationListenerActive,
-    options.enableHighAccuracy,
-    options.maximumAge,
-    options.timeout,
-  ]);
+  }, [watchId, isGeolocationAvailable, handlePositionUpdate, handlePositionError, options]);
 
-  // Stop location tracking
   const stopTracking = useCallback(() => {
     if (watchId !== null && isGeolocationAvailable()) {
+      console.log("Stopping location tracking...");
       try {
         navigator.geolocation.clearWatch(watchId);
         setWatchId(null);
+        setIsTracking(false);
       } catch (err) {
         console.warn("Failed to clear geolocation watch:", err);
-        setWatchId(null);
       }
     }
+  }, [watchId, isGeolocationAvailable]);
 
-    if (orientationListenerActive && typeof window !== "undefined") {
-      try {
-        window.removeEventListener("deviceorientation", handleOrientation);
-        setOrientationListenerActive(false);
-      } catch (err) {
-        console.warn("Failed to remove orientation listener:", err);
-        setOrientationListenerActive(false);
-      }
-    }
-  }, [watchId, isGeolocationAvailable, orientationListenerActive, handleOrientation]);
-
-  // Set tracking function
   const setTracking = useCallback(
-    (tracking: boolean) => {
-      setIsTracking(tracking);
-      if (tracking) {
+    (enabled: boolean) => {
+      if (enabled && !isTracking) {
         startTracking();
-      } else {
+      } else if (!enabled && isTracking) {
         stopTracking();
       }
     },
-    [startTracking, stopTracking],
+    [isTracking, startTracking, stopTracking],
   );
 
-  // Effect to handle tracking state changes
+  // FIJO: Iniciar orientación automáticamente al montar
   useEffect(() => {
-    if (isTracking) {
-      startTracking();
-    } else {
-      stopTracking();
-    }
+    startOrientationListener();
 
     return () => {
-      stopTracking();
+      stopOrientationListener();
     };
-  }, [isTracking, startTracking, stopTracking]);
+  }, []); // Solo ejecutar una vez al montar
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      stopTracking();
+      if (watchId !== null && isGeolocationAvailable()) {
+        try {
+          navigator.geolocation.clearWatch(watchId);
+        } catch (err) {
+          console.warn("Failed to clear geolocation watch:", err);
+        }
+      }
     };
-  }, [stopTracking]);
+  }, [watchId, isGeolocationAvailable]);
+
+  const cardinal = alpha !== null ? calculateCardinal(alpha, options.cardinalPoints || 8) : null;
 
   const value: UbicationContextType = {
-    ...data,
+    position,
+    alpha,
+    cardinal,
+    isCalibrated,
+    hasLocation,
+    error,
+    calibrateCompass,
     setTracking,
     isTracking,
-    error,
+    requestLocation,
   };
 
   return <UbicationContext.Provider value={value}>{children}</UbicationContext.Provider>;
@@ -247,11 +351,15 @@ export function useUbication(): UbicationContextType {
     console.warn("useUbication should only be used on the client side");
     return {
       position: null,
-      alpha: 0,
-      cardinal: "N",
+      alpha: null,
+      cardinal: null,
+      isCalibrated: false,
+      hasLocation: false,
+      error: null,
+      calibrateCompass: () => {},
       setTracking: () => {},
       isTracking: false,
-      error: null,
+      requestLocation: async () => {},
     };
   }
 
