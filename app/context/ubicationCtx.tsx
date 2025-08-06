@@ -365,5 +365,3 @@ export function useUbication(): UbicationContextType {
 
   return context;
 }
-
-export { UbicationContext };
