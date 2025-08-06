@@ -89,8 +89,6 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
 
   // Handle location position updates
   const handlePositionUpdate = useCallback(({ coords }: GeolocationPosition) => {
-    console.log("Location updated:", coords.latitude, coords.longitude);
-
     const newPosition = {
       type: "Feature" as const,
       properties: {
@@ -179,8 +177,6 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
   const startOrientationListener = useCallback(async () => {
     if (orientationActive || typeof window === "undefined") return;
 
-    console.log("Starting orientation listener...");
-
     // Solicitar permisos primero
     const hasPermission = await requestOrientationPermission();
     if (!hasPermission) return;
@@ -189,15 +185,12 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
     window.addEventListener("deviceorientation", handleOrientation);
     setOrientationActive(true);
     setError(null);
-
-    console.log("Orientation listener started successfully");
   }, [orientationActive, handleOrientation, requestOrientationPermission]);
 
   // FIJO: Detener listener de orientación
   const stopOrientationListener = useCallback(() => {
     if (!orientationActive || typeof window === "undefined") return;
 
-    console.log("Stopping orientation listener...");
     window.removeEventListener("deviceorientation", handleOrientation);
     setOrientationActive(false);
   }, [orientationActive, handleOrientation]);
@@ -214,14 +207,10 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
       return;
     }
 
-    console.log("Calibrating compass with current alpha:", alpha);
-
     // Usar el valor actual como offset de calibración
     setCalibrationOffset(alpha);
     setIsCalibrated(true);
     setError(null);
-
-    console.log("Compass calibrated successfully");
   }, [alpha, orientationActive]);
 
   // Función para solicitar ubicación una sola vez
@@ -231,7 +220,6 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
       return;
     }
 
-    console.log("Requesting location...");
     setError(null);
 
     return new Promise<void>((resolve, reject) => {
@@ -259,7 +247,6 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
       return;
     }
 
-    console.log("Starting location tracking...");
     setError(null);
 
     try {
@@ -279,7 +266,6 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
 
   const stopTracking = useCallback(() => {
     if (watchId !== null && isGeolocationAvailable()) {
-      console.log("Stopping location tracking...");
       try {
         navigator.geolocation.clearWatch(watchId);
         setWatchId(null);

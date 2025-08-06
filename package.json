@@ -29,6 +29,7 @@
     "ofetch": "^1.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.0.0",
     "react-map-gl": "^8.0.4",
     "react-markdown": "^9.0.3",
     "remark-gfm": "^4.0.1",

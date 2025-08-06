@@ -9,13 +9,13 @@ import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
 import { SubSidebarType } from "@/utils/types";
 
+import { NotificationErrorBoundary } from "../appErrors/NotificationErrorBoundary";
 import PillFilter from "../pills/PillFilter";
 import PlaceMenu from "../placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import ThemesList from "./themesList";
-import TopMobileSidebar from "./topMobilSidebar";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
@@ -198,9 +198,6 @@ export default function MobileSidebar() {
 
   return (
     <>
-      {/* Search Container */}
-      <TopMobileSidebar />
-
       {/* Main Sidebar */}
       <section
         className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
@@ -332,25 +329,27 @@ export default function MobileSidebar() {
                 </div>
               )}
               {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
-                <PlaceMenu
-                  place={selectedPlace}
-                  onCloseMenu={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                    setIsOpen(false);
-                  }}
-                  onOpenCreate={() => {
-                    setSidebarHeight(100);
-                  }}
-                  onOpenEdit={() => {
-                    setSidebarHeight(40);
-                  }}
-                  onCloseCreate={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                    setIsOpen(false);
-                  }}
-                />
+                <NotificationErrorBoundary>
+                  <PlaceMenu
+                    place={selectedPlace}
+                    onCloseMenu={() => {
+                      setSelectedPlace(null);
+                      toggleSubSidebar(null);
+                      setIsOpen(false);
+                    }}
+                    onOpenCreate={() => {
+                      setSidebarHeight(100);
+                    }}
+                    onOpenEdit={() => {
+                      setSidebarHeight(40);
+                    }}
+                    onCloseCreate={() => {
+                      setSelectedPlace(null);
+                      toggleSubSidebar(null);
+                      setIsOpen(false);
+                    }}
+                  />
+                </NotificationErrorBoundary>
               )}
             </div>
           </section>

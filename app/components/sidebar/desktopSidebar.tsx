@@ -10,13 +10,13 @@ import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 
+import { NotificationErrorBoundary } from "../appErrors/NotificationErrorBoundary";
 import PillFilter from "../pills/PillFilter";
 import PlaceMenu from "../placeMenu/placeMenu";
 import { SearchDropdown } from "../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import NotificationBarDesktop from "./notificationsBarDesktop";
 import ThemesList from "./themesList";
 
 export default function DesktopSidebar() {
@@ -60,7 +60,6 @@ export default function DesktopSidebar() {
   return (
     <>
       {/* Contenedor principal con flex row */}
-      <NotificationBarDesktop />
       <div className="flex h-screen">
         {/* Sidebar principal */}
         <section
@@ -188,18 +187,20 @@ export default function DesktopSidebar() {
             )}
             {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
               <div className="w-full h-full">
-                <PlaceMenu
-                  place={selectedPlace}
-                  onCloseMenu={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                  }}
-                  onCloseCreate={() => {
-                    setSelectedPlace(null);
-                    toggleSubSidebar(null);
-                    setIsOpen(false);
-                  }}
-                />
+                <NotificationErrorBoundary>
+                  <PlaceMenu
+                    place={selectedPlace}
+                    onCloseMenu={() => {
+                      setSelectedPlace(null);
+                      toggleSubSidebar(null);
+                    }}
+                    onCloseCreate={() => {
+                      setSelectedPlace(null);
+                      toggleSubSidebar(null);
+                      setIsOpen(false);
+                    }}
+                  />
+                </NotificationErrorBoundary>
               </div>
             )}
             {activeSubSidebar === "buscar" && (

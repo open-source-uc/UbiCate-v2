@@ -76,7 +76,6 @@ export default function UserLocation() {
     if (!position || !mainMap) return;
 
     const [longitude, latitude] = position.geometry.coordinates;
-    console.log("Teleporting to user location:", { longitude, latitude });
     const campus = getCampusNameFromPoint(longitude, latitude);
 
     if (!campus) {

@@ -2,8 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+import { NotificationErrorBoundary } from "../appErrors/NotificationErrorBoundary";
+
 import DesktopSidebar from "./desktopSidebar";
 import MobileSidebar from "./mobilSidebar";
+import NotificationBarDesktop from "./notificationsBarDesktop";
+import TopMobileSidebar from "./topMobilSidebar";
 
 export default function Sidebar() {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -30,12 +34,20 @@ export default function Sidebar() {
     <>
       {isDesktop ? (
         <aside>
-          <DesktopSidebar />
+          <NotificationBarDesktop />
+          <NotificationErrorBoundary>
+            <DesktopSidebar />
+          </NotificationErrorBoundary>
         </aside>
       ) : (
-        <footer>
-          <MobileSidebar />
-        </footer>
+        <>
+          <TopMobileSidebar />
+          <footer>
+            <NotificationErrorBoundary>
+              <MobileSidebar />
+            </NotificationErrorBoundary>
+          </footer>
+        </>
       )}
     </>
   );

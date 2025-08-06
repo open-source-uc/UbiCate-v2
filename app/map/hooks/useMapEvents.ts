@@ -247,7 +247,6 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
   useEffect(() => {
     let config: HandlePlaceSelectionOptions;
-    console.log(pins.length);
     if (pins.length === 1) {
       config = { openSidebar: true, flyMode: "always" };
     } else {
