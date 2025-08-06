@@ -28,7 +28,7 @@ export default function Providers({ children }: ProvidersProps) {
   );
 
   return (
-    <QueryClientProvider client={undefined as unknown as QueryClient}>
+    <QueryClientProvider client={queryClient}>
       <UbicationProvider>
         <SidebarProvider>
           <DirectionsProvider>

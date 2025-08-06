@@ -11,7 +11,6 @@ declare const self: ServiceWorkerGlobalScope;
 const serwist = new Serwist({
   precacheEntries: [
     ...(self.__SW_MANIFEST || []),
-    "/", // precache root page
   ],
   skipWaiting: true,
   clientsClaim: true,
