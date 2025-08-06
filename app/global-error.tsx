@@ -7,6 +7,26 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
     console.error("🚨 Global Error:", error);
     console.error("Error digest:", error.digest);
     console.error("Stack trace:", error.stack);
+
+    const clearAllCaches = async () => {
+      try {
+        const cacheNames = await caches.keys();
+        await Promise.all(cacheNames.map((cache) => caches.delete(cache)));
+
+        if ("serviceWorker" in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          for (const reg of registrations) {
+            await reg.unregister();
+          }
+        }
+
+        console.info("✅ Caché y service workers limpiados correctamente.");
+      } catch (err) {
+        console.warn("⚠️ No se pudo limpiar la caché:", err);
+      }
+    };
+
+    clearAllCaches();
   }, [error]);
 
   return (
