@@ -22,6 +22,7 @@ const serwist = new Serwist({
       matcher: ({ request }) => request.destination === "script" || request.destination === "style",
       handler: new NetworkFirst({
         cacheName: "static-resources",
+        networkTimeoutSeconds: 3,
       }),
     },
     {
