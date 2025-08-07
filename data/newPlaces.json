@@ -154,30 +154,6 @@
                 "campus": "SJ",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60951529866767,
-                    -33.49984032526088
-                ]
-            },
-            "properties": {
-                "identifier": "NT203-SJ",
-                "name": "A4",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
         }
     ]
 }
