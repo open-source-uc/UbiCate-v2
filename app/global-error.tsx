@@ -32,7 +32,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
   return (
     <html>
       <body>
-        <h1>🚨 ERROR CRÍTICO DE LA APLICACIÓN</h1>
+        <h1>🚨 ERROR CRÍTICO DE LA APLICACIÓN D:</h1>
 
         <p>
           <strong>Mensaje del error:</strong>
