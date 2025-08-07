@@ -6,33 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59434851259621,
-                    -33.44567641752636
-                ]
-            },
-            "properties": {
-                "identifier": "(LAT)_LABORATORIO_DE_ARTE_Y_TECNOLOGÍA-OR",
-                "name": "(LAT) Laboratorio de arte y tecnología",
-                "information": "",
-                "categories": [
-                    "classroom",
-                    "laboratory"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": [
-                    "ARTE"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.614412,
                     -33.498096
                 ]
