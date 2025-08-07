@@ -60,30 +60,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60861399979045,
-                    -33.50109497584726
-                ]
-            },
-            "properties": {
-                "identifier": "SPORTS_PLACE-32757419",
-                "name": "B24",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.614412,
                     -33.498096
                 ]
