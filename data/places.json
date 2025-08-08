@@ -31818,6 +31818,29 @@
                 "campus": "SJ",
                 "faculties": []
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61195023562519,
+                    -33.49961314106689
+                ]
+            },
+            "properties": {
+                "identifier": "ID300-SJ",
+                "name": "ID300",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
