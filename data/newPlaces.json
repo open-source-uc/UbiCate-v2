@@ -6,18 +6,19 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61191350227861,
-                    -33.49963326422614
+                    -70.61189353466034,
+                    -33.499694711222055
                 ]
             },
             "properties": {
-                "identifier": "DILAB",
-                "name": "Dilab - Sala Major Ingeniería, Diseño e Innovación",
+                "identifier": "ME35YVCAFZPKZW",
+                "name": "Baño",
                 "information": "",
                 "categories": [
-                    "laboratory"
+                    "bath"
                 ],
                 "floors": [
+                    3,
                     2
                 ],
                 "needApproval": true,
@@ -30,19 +31,18 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61206216570349,
-                    -33.49965304997035
+                    -70.61191350227861,
+                    -33.49963326422614
                 ]
             },
             "properties": {
-                "identifier": "ME35YVCAFZPKZW",
-                "name": "Baño",
+                "identifier": "DILAB",
+                "name": "Dilab - Sala Major Ingeniería, Diseño e Innovación",
                 "information": "",
                 "categories": [
-                    "bath"
+                    "laboratory"
                 ],
                 "floors": [
-                    3,
                     2
                 ],
                 "needApproval": true,
