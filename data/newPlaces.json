@@ -1,31 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610636,
-                    -33.500633
-                ]
-            },
-            "properties": {
-                "identifier": "D306",
-                "name": "D306",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "D"
-                ]
-            }
-        }
-    ]
+    "features": []
 }
