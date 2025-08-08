@@ -22746,31 +22746,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "T1220",
-                "name": "T1220",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "EDU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614412,
-                    -33.498096
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "T2222",
                 "name": "T2222",
                 "campus": "SJ",
@@ -31736,6 +31711,31 @@
             "properties": {
                 "identifier": "T1221",
                 "name": "T1221",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614412,
+                    -33.498096
+                ]
+            },
+            "properties": {
+                "identifier": "T1220",
+                "name": "T1220",
                 "information": "",
                 "categories": [
                     "classroom"
