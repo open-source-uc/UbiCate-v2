@@ -17566,31 +17566,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "D306",
-                "name": "D306",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610636,
-                    -33.500633
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "DAE_CC",
                 "name": "DAE",
                 "campus": "CC",
@@ -31909,6 +31884,31 @@
                 ],
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610636,
+                    -33.500633
+                ]
+            },
+            "properties": {
+                "identifier": "D306",
+                "name": "D306",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
             }
         }
     ]
