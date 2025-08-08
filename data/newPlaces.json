@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6119600292078,
+                    -33.49955663443814
+                ]
+            },
+            "properties": {
+                "identifier": "ME35D0LMHWK2V7",
+                "name": "Instituto Éticas Aplicadas",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61189345302894,
                     -33.49969472527328
                 ]
@@ -68,30 +92,6 @@
                 "floors": [
                     4,
                     3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61190577647793,
-                    -33.49954696117308
-                ]
-            },
-            "properties": {
-                "identifier": "ME35D0LMHWK2V7",
-                "name": "Instituto Éticas Aplicadas",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    6
                 ],
                 "needApproval": true,
                 "campus": "SJ",
