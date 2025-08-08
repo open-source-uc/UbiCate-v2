@@ -6,18 +6,19 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61198648677596,
-                    -33.49963562962299
+                    -70.6119923006945,
+                    -33.499680382172855
                 ]
             },
             "properties": {
-                "identifier": "ME367ZV2WNUH5C",
-                "name": "Oficina de proyectos Ingeniería en Diseño",
+                "identifier": "ME35YVCAFZPKZW",
+                "name": "Baño",
                 "information": "",
                 "categories": [
-                    "other"
+                    "bath"
                 ],
                 "floors": [
+                    3,
                     2
                 ],
                 "needApproval": true,
@@ -30,19 +31,18 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61189353466034,
-                    -33.499694711222055
+                    -70.61198648677596,
+                    -33.49963562962299
                 ]
             },
             "properties": {
-                "identifier": "ME35YVCAFZPKZW",
-                "name": "Baño",
+                "identifier": "ME367ZV2WNUH5C",
+                "name": "Oficina de proyectos Ingeniería en Diseño",
                 "information": "",
                 "categories": [
-                    "bath"
+                    "other"
                 ],
                 "floors": [
-                    3,
                     2
                 ],
                 "needApproval": true,
