@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61198648677596,
+                    -33.49963562962299
+                ]
+            },
+            "properties": {
+                "identifier": "ME367ZV2WNUH5C",
+                "name": "Oficina de proyectos Ingeniería en Diseño",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61189353466034,
                     -33.499694711222055
                 ]
