@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61199466513261,
+                    -33.499594431679085
+                ]
+            },
+            "properties": {
+                "identifier": "ME35UOD3G99P8D",
+                "name": "Administración Pública",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    4,
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61190577647793,
                     -33.49954696117308
                 ]
