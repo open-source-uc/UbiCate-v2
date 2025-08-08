@@ -31748,6 +31748,29 @@
                     "EDU"
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61037815840568,
+                    -33.50058522866009
+                ]
+            },
+            "properties": {
+                "identifier": "ME383CI1PWGXP9",
+                "name": "Crisol 102",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
