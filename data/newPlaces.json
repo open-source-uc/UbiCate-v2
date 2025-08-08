@@ -79,31 +79,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6119923006945,
-                    -33.499680382172855
-                ]
-            },
-            "properties": {
-                "identifier": "ME35YVCAFZPKZW",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "floors": [
-                    3,
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61198648677596,
                     -33.49963562962299
                 ]
