@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61206216570349,
+                    -33.49965304997035
+                ]
+            },
+            "properties": {
+                "identifier": "ME35YVCAFZPKZW",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    3,
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6119600292078,
                     -33.49955663443814
                 ]
@@ -19,30 +44,6 @@
                 ],
                 "floors": [
                     6
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61189345302894,
-                    -33.49969472527328
-                ]
-            },
-            "properties": {
-                "identifier": "ME35YVCAFZPKZW",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "floors": [
-                    3
                 ],
                 "needApproval": true,
                 "campus": "SJ",
