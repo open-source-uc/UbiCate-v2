@@ -55,30 +55,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61199042279775,
-                    -33.49964298593248
-                ]
-            },
-            "properties": {
-                "identifier": "ME358GSNMOM7GM",
-                "name": "Azotea Edificio Carreras Interdisciplinarias",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    10
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.610636,
                     -33.500633
                 ]
