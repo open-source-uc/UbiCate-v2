@@ -10563,31 +10563,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "T1221",
-                "name": "T1221",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "EDU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6143960653318,
-                    -33.49806968262684
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ED219-SJ",
                 "name": "ED219",
                 "campus": "SJ",
@@ -31746,6 +31721,31 @@
                 "campus": "OR",
                 "faculties": [
                     "ARTE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6143960653318,
+                    -33.49806968262684
+                ]
+            },
+            "properties": {
+                "identifier": "T1221",
+                "name": "T1221",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
                 ]
             }
         }
