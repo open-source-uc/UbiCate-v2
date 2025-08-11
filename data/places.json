@@ -17441,31 +17441,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "D301",
-                "name": "D301",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611225,
-                    -33.500581
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "D302",
                 "name": "D302",
                 "campus": "SJ",
@@ -31898,6 +31873,31 @@
             "properties": {
                 "identifier": "D306",
                 "name": "D306",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611225,
+                    -33.500581
+                ]
+            },
+            "properties": {
+                "identifier": "D301",
+                "name": "D301",
                 "information": "",
                 "categories": [
                     "classroom"
