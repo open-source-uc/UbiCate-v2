@@ -10563,31 +10563,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "T1221",
-                "name": "T1221",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "EDU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6143960653318,
-                    -33.49806968262684
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ED219-SJ",
                 "name": "ED219",
                 "campus": "SJ",
@@ -17466,81 +17441,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "D301",
-                "name": "D301",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611225,
-                    -33.500581
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "D302",
-                "name": "D302",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611166,
-                    -33.500579
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "D303",
-                "name": "D303",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611072,
-                    -33.50059
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "D304",
                 "name": "D304",
                 "campus": "SJ",
@@ -17585,31 +17485,6 @@
                 "coordinates": [
                     -70.610737,
                     -33.500618
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "D306",
-                "name": "D306",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "D"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610636,
-                    -33.500633
                 ]
             }
         },
@@ -22771,31 +22646,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "T1220",
-                "name": "T1220",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "EDU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614412,
-                    -33.498096
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "T2222",
                 "name": "T2222",
                 "campus": "SJ",
@@ -23191,29 +23041,6 @@
                 "coordinates": [
                     -70.611845,
                     -33.5004462
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "DILAB",
-                "name": "Dilab",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "faculties": [],
-                "floors": [
-                    5
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612064,
-                    -33.50015
                 ]
             }
         },
@@ -31693,6 +31520,394 @@
                 "campus": "SJ",
                 "faculties": [
                     "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61341606018777,
+                    -33.50002567236702
+                ]
+            },
+            "properties": {
+                "identifier": "ME1DJIY4ZRYIIS",
+                "name": "Sala de estudio CAI",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1,
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59434851259621,
+                    -33.44567641752636
+                ]
+            },
+            "properties": {
+                "identifier": "(LAT)_LABORATORIO_DE_ARTE_Y_TECNOLOGÍA-OR",
+                "name": "(LAT) Laboratorio de arte y tecnología",
+                "information": "",
+                "categories": [
+                    "classroom",
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "ARTE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6143960653318,
+                    -33.49806968262684
+                ]
+            },
+            "properties": {
+                "identifier": "T1221",
+                "name": "T1221",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614412,
+                    -33.498096
+                ]
+            },
+            "properties": {
+                "identifier": "T1220",
+                "name": "T1220",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61037815840568,
+                    -33.50058522866009
+                ]
+            },
+            "properties": {
+                "identifier": "ME383CI1PWGXP9",
+                "name": "Crisol 102",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6119923006945,
+                    -33.499680382172855
+                ]
+            },
+            "properties": {
+                "identifier": "ME35YVCAFZPKZW",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    3,
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61198648677596,
+                    -33.49963562962299
+                ]
+            },
+            "properties": {
+                "identifier": "ME367ZV2WNUH5C",
+                "name": "Oficina de proyectos Ingeniería en Diseño",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61195023562519,
+                    -33.49961314106689
+                ]
+            },
+            "properties": {
+                "identifier": "ID300-SJ",
+                "name": "ID300",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61188575378978,
+                    -33.49965989834066
+                ]
+            },
+            "properties": {
+                "identifier": "ME35D0LMHWK2V7",
+                "name": "Instituto Éticas Aplicadas",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    6
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61199042279775,
+                    -33.49964298593248
+                ]
+            },
+            "properties": {
+                "identifier": "ME358GSNMOM7GM",
+                "name": "Azotea Edificio Carreras Interdisciplinarias",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    10
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61190846620163,
+                    -33.49965707630012
+                ]
+            },
+            "properties": {
+                "identifier": "ME35UOD3G99P8D",
+                "name": "Administración Pública",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    4,
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61191350227861,
+                    -33.49963326422614
+                ]
+            },
+            "properties": {
+                "identifier": "DILAB",
+                "name": "Dilab - Sala Major Ingeniería, Diseño e Innovación",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610636,
+                    -33.500633
+                ]
+            },
+            "properties": {
+                "identifier": "D306",
+                "name": "D306",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611225,
+                    -33.500581
+                ]
+            },
+            "properties": {
+                "identifier": "D301",
+                "name": "D301",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611166,
+                    -33.500579
+                ]
+            },
+            "properties": {
+                "identifier": "D302",
+                "name": "D302",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611072,
+                    -33.50059
+                ]
+            },
+            "properties": {
+                "identifier": "D303",
+                "name": "D303",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
                 ]
             }
         }
