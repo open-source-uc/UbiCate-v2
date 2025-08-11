@@ -1,17 +1,16 @@
 import { use, useState, useEffect, useRef } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
-import { useUbication } from "@/app/context/ubicationCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
 import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
+import { useUbication } from "@/app/hooks/useUbication";
 import { Feature } from "@/utils/types";
 
 import { useDirections } from "../../context/directionsCtx";
 import { useSidebar } from "../../context/sidebarCtx";
 import * as Icons from "../icons/icons";
-
-import DirectionErrorNotification from "./directionErrorNotification";
-import DirectionSuccessNotification from "./directionSuccessNotification";
+import DirectionSuccessNotification from "../notifications/directionSuccessNotification";
+import DirectionErrorNotification from "../notifications/ErrorNotification";
 
 interface RouteButtonProps {
   place: Feature | null;

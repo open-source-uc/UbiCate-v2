@@ -23,7 +23,7 @@ export default function DirectionErrorNotification({ children }: { children: Rea
           <Icons.Close />
         </button>
       </div>
-      <div className="flex-grow">{children}</div>
+      <div className="flex-grow overflow-y-auto max-h-52 break-words hyphens-auto">{children}</div>
     </div>
   );
 }

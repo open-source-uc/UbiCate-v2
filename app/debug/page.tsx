@@ -8,14 +8,27 @@ export default function DebugPage() {
   const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
 
   useEffect(() => {
-    const debugModeFromLocalStorage = sessionStorage.getItem("debugMode") === "true";
-    setIsDebugMode(debugModeFromLocalStorage);
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        const debugModeFromLocalStorage = sessionStorage.getItem("debugMode") === "true";
+        setIsDebugMode(debugModeFromLocalStorage);
+      }
+    } catch (error) {
+      console.warn("Unable to access sessionStorage:", error);
+      setIsDebugMode(false);
+    }
   }, []);
 
   const toggleDebugMode = () => {
     const newDebugMode = !isDebugMode;
     setIsDebugMode(newDebugMode);
-    sessionStorage.setItem("debugMode", newDebugMode.toString());
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        sessionStorage.setItem("debugMode", newDebugMode.toString());
+      }
+    } catch (error) {
+      console.warn("Unable to set sessionStorage:", error);
+    }
   };
 
   return (
@@ -40,7 +53,13 @@ export default function DebugPage() {
             className="bg-secondary rounded-2xl p-2 disabled:bg-secondary"
             disabled={!isDebugMode}
             onChange={(e) => {
-              sessionStorage.setItem("ubicateToken", e.target.value ?? null);
+              try {
+                if (typeof window !== "undefined" && window.sessionStorage) {
+                  sessionStorage.setItem("ubicateToken", e.target.value ?? "");
+                }
+              } catch (error) {
+                console.warn("Unable to set sessionStorage:", error);
+              }
             }}
           />
         </label>

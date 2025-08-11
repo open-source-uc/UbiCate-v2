@@ -5,6 +5,7 @@ import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre
 
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { usePlaceSelectedListener } from "@/app/hooks/usePlaceSelectedListener";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
 import {
   getCampusBoundsFromName,
@@ -28,10 +29,10 @@ export interface HandlePlaceSelectionOptions {
 }
 
 export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapEventsProps) {
-  const { setPlaces, setSelectedPlace, setIsOpen, selectedPlace } = useSidebar();
+  const { setPlaces, setSelectedPlace, setIsOpen } = useSidebar();
   const [isLoaded, setIsLoaded] = useState(false);
   const { create, cancel } = useTimeoutManager();
-  const { addPin, clearPins } = use(pinsContext);
+  const { addPin, clearPins, pins } = use(pinsContext);
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -79,15 +80,11 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       }, 600);
 
       const flyMode = options?.flyMode || "always";
-      console.log("flyMode", flyMode);
       if (flyMode === "never") {
-        // No hacer fly bajo ninguna circunstancia
         return;
       }
 
       if (flyMode === "ifOutside") {
-        // Solo hacer fly si el punto está fuera de los bounds actuales
-        console.log("center", center);
         const bounds = map?.getBounds();
         const margin = 0.001;
 
@@ -123,9 +120,11 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     },
     [setSelectedPlace, setIsOpen, mapRef],
   );
-  useEffect(() => {
-    handlePlaceSelection(selectedPlace, { openSidebar: true, flyMode: "always" });
-  }, [selectedPlace, handlePlaceSelection]);
+
+  usePlaceSelectedListener((feature) => {
+    if (!feature) return;
+    handlePlaceSelection(feature, { openSidebar: true, flyMode: "always" });
+  });
 
   const handleMapLoad = useCallback(
     async (e: MapEvent) => {
@@ -176,10 +175,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       e.target.on("dblclick", (e: MapLayerMouseEvent) => {
         cancel("deletePins");
-        const newPin = addPin(e.lngLat.lng, e.lngLat.lat);
-        if (newPin) {
-          handlePlaceSelection(newPin, { openSidebar: true, flyMode: "always" });
-        }
+        addPin(e.lngLat.lng, e.lngLat.lat);
       });
 
       // Event listeners para áreas
@@ -196,7 +192,14 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       });
 
       // Event listeners para debug mode
-      const isDebugMode = sessionStorage.getItem("debugMode") === "true";
+      let isDebugMode = false;
+      try {
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          isDebugMode = sessionStorage.getItem("debugMode") === "true";
+        }
+      } catch (error) {
+        console.warn("Unable to access sessionStorage:", error);
+      }
       if (isDebugMode) {
         e.target.on("click", ["points-layer-2"], (e) => {
           const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
@@ -241,6 +244,18 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       cancel,
     ],
   );
+
+  useEffect(() => {
+    let config: HandlePlaceSelectionOptions;
+    if (pins.length === 1) {
+      config = { openSidebar: true, flyMode: "always" };
+    } else {
+      config = { openSidebar: false, flyMode: "never" };
+    }
+    if (pins.length > 0) {
+      handlePlaceSelection(pins[pins.length - 1] ?? null, config);
+    }
+  }, [pins]);
 
   return {
     handlePlaceSelection,

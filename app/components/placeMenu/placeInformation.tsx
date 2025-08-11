@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useEffect } from "react";
 
 import {
   DropdownMenu,
@@ -31,7 +31,21 @@ export default function PlaceInformation({
   onApprove?: () => void;
   onReject?: () => void;
 }) {
-  const isDebug = useRef<boolean>(sessionStorage.getItem("debugMode") === "true");
+  const [isDebug, setIsDebug] = useState<boolean>(false);
+
+  // Safely check for debug mode on client side only
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        const debugMode = sessionStorage.getItem("debugMode") === "true";
+        setIsDebug(debugMode);
+      }
+    } catch (error) {
+      // Storage access might be blocked in incognito mode or PWA
+      console.warn("Unable to access sessionStorage:", error);
+      setIsDebug(false);
+    }
+  }, []);
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -60,7 +74,7 @@ export default function PlaceInformation({
     availableOptions.push({ action: onEdit, icon: Icons.Edit, label: "Editar" });
   }
 
-  if (isDebug.current && !isCustomMark) {
+  if (isDebug && !isCustomMark) {
     if (needsApproval) {
       availableOptions.push({ action: onApprove, icon: null, label: "Aprobar" });
       availableOptions.push({ action: onReject, icon: null, label: "Rechazar" });

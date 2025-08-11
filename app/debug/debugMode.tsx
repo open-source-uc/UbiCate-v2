@@ -20,10 +20,23 @@ import {
 } from "./layers";
 
 function DebugMode() {
-  const isDebugMode = sessionStorage.getItem("debugMode") === "true";
+  const [isDebugMode, setIsDebugMode] = useState(false);
   const [debugMode, setDebugMode] = useState(1);
   const mainMap = useMap();
   const [mapLayers, setMapLayers] = useState<string[]>([]);
+
+  // Safely check for debug mode on client side only
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        const debugModeFromStorage = sessionStorage.getItem("debugMode") === "true";
+        setIsDebugMode(debugModeFromStorage);
+      }
+    } catch (error) {
+      console.warn("Unable to access sessionStorage:", error);
+      setIsDebugMode(false);
+    }
+  }, []);
 
   const {
     data: ubicateData,
