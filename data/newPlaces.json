@@ -1,5 +1,29 @@
 {
     "type": "FeatureCollection",
     "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61531960628942,
+                    -33.49841930788353
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-34012515",
+                "name": "Cristo",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
     ]
 }
