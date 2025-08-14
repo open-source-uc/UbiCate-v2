@@ -6,7 +6,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 
-import DirectionErrorNotification from "../directions/directionErrorNotification";
+import DirectionErrorNotification from "../notifications/ErrorNotification";
 
 function NullFallback() {
   return null;
