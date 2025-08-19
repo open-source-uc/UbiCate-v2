@@ -14508,29 +14508,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AUDITORIO_ASTRO",
-                "name": "Auditorio Ninoslav Bralic",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611156,
-                    -33.499841
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "AULAMAGNA_CC",
                 "name": "Aula Magna",
                 "campus": "CC",
