@@ -60,7 +60,7 @@ export default function DesktopSidebar() {
   return (
     <>
       {/* Contenedor principal con flex row */}
-      <div className="flex h-screen">
+      <div className="flex h-screen overflow-y-auto">
         {/* Sidebar principal */}
         <section
           className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full pb-4 ${
