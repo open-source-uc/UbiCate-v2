@@ -9,9 +9,8 @@ import { Feature } from "@/utils/types";
 import { useDirections } from "../../context/directionsCtx";
 import { useSidebar } from "../../context/sidebarCtx";
 import * as Icons from "../icons/icons";
-
-import DirectionErrorNotification from "./directionErrorNotification";
-import DirectionSuccessNotification from "./directionSuccessNotification";
+import DirectionSuccessNotification from "../notifications/directionSuccessNotification";
+import DirectionErrorNotification from "../notifications/ErrorNotification";
 
 interface RouteButtonProps {
   place: Feature | null;

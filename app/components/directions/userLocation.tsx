@@ -8,8 +8,8 @@ import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getC
 
 import DangerButton from "../danger/dangerButton";
 import * as Icons from "../icons/icons";
+import DirectionErrorNotification from "../notifications/ErrorNotification";
 
-import DirectionErrorNotification from "./directionErrorNotification";
 import LocationButton from "./locationButton";
 
 export default function UserLocation() {
