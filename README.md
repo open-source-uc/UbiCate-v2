@@ -135,7 +135,7 @@ npm install
 
 ### `npm run dev`
 
-Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con `NODE_OPTIONS='--inspect'`.  
+Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con: `NODE_OPTIONS='--inspect'`.  
 **Uso:**
 
 ```bash
