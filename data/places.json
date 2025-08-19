@@ -31910,6 +31910,31 @@
                 "campus": "SJ",
                 "faculties": []
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61081536698991,
+                    -33.49980367737651
+                ]
+            },
+            "properties": {
+                "identifier": "MEBRAI6E0WCJHA",
+                "name": "Auditorio Ninoslav Bralic",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
+                ]
+            }
         }
     ]
 }
