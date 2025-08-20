@@ -1,4 +1,29 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61271599989935,
+                    -33.49943388850391
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-32467011",
+                "name": "Meones no :|",
+                "information": "LORE: El que se pone entre los meones está destinado a echarse el semestre ",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
+    ]
 }
