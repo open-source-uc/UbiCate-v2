@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.611173,
+                    -33.500553
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_COLLEGE",
+                "name": "Auditorio San Agustin de Ingenieria",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61271599989935,
                     -33.49943388850391
                 ]
