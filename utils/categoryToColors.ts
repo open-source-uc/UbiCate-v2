@@ -11,7 +11,6 @@ const categoryToColorMap = new Map<CATEGORIES, string>([
   [CATEGORIES.CRISOL, "bg-chart-9"],
   [CATEGORIES.PARKING, "bg-chart-10"],
   [CATEGORIES.COMPUTERS, "bg-chart-9"],
-  [CATEGORIES.FACULTY, "bg-chart-6"],
   [CATEGORIES.LIBRARY, "bg-chart-4"],
   [CATEGORIES.USER_LOCATION, "bg-primary"],
   [CATEGORIES.CUSTOM_MARK, "bg-chart-4"],

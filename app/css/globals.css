@@ -277,6 +277,50 @@
 }
 
 /* =============================================== */
+/*                 TEMA UC                         */
+/* =============================================== */
+
+[data-theme="uc"] {
+  --theme-background: #0176DE;
+  --theme-foreground: var(--palette-white-primary);
+  
+  --theme-primary: var(--palette-white-primary);
+  --theme-primary-foreground: #0176DE;
+  
+  --theme-secondary: #173F8A;
+  --theme-secondary-foreground: var(--palette-white-primary);
+
+  --theme-tertiary: #03122E;
+  --theme-tertiary-foreground: var(--palette-white-primary);
+  
+  --theme-muted: #173F8A;
+  --theme-muted-foreground: var(--palette-white-primary);
+  
+  --theme-accent: var(--palette-white-primary);
+  --theme-accent-foreground: #0176DE;
+  
+  --theme-destructive: var(--palette-professional-red-light);
+  --theme-destructive-foreground: var(--palette-white-primary);
+  
+  --theme-border: var(--palette-white-primary);
+  --theme-input: var(--palette-white-primary);
+  --theme-ring: var(--palette-white-primary);
+
+  /* Chart Colors - Solo colores de la paleta UC */
+  --theme-chart-0: var(--palette-gray-300);
+  --theme-chart-1: var(--palette-red-800);
+  --theme-chart-2: var(--palette-red-500);
+  --theme-chart-3: var(--palette-green-500);
+  --theme-chart-4: var(--palette-pink-500);
+  --theme-chart-5: var(--palette-cyan-800);
+  --theme-chart-6: var(--palette-orange-500);
+  --theme-chart-7: var(--palette-cyan-500);
+  --theme-chart-8: var(--palette-green-800);
+  --theme-chart-9: var(--palette-purple-500);
+  --theme-chart-10: var(--palette-gray-500);
+}
+
+/* =============================================== */
 /*                  BASE STYLES                    */
 /* =============================================== */
 

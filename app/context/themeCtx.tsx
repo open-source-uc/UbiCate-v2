@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-export type Theme = "light-formal" | "pink-coquette" | "";
+export type Theme = "uc" | "light-formal" | "pink-coquette" | "";
 
 const themeOptions: Theme[] = ["light-formal", "pink-coquette", ""];
 
@@ -10,6 +10,7 @@ const VIEWPORT_COLORS = {
   "": "#150a04", // brown-900 (tema por defecto)
   "pink-coquette": "#fdf2f8", // pink-coquette
   "light-formal": "#f9f8f3", // white-primary
+  "uc": "#03122E"
 } as const;
 
 interface ThemeContextType {

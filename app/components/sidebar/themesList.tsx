@@ -29,6 +29,12 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
       emoji: "🌙",
       description: "Equilibrio perfecto",
     },
+    {
+      id: "uc",
+      name: "UC",
+      emoji: "🏛️",
+      description: "",
+    },
   ];
 
   return (
