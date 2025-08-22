@@ -25,10 +25,10 @@ export function FloorsField({ floors, onChange, disabled }: FloorsFieldProps) {
 
   return (
     <div className="space-y-4">
-      <label className="flex items-center justify-center text-md font-medium text-foreground" htmlFor="floor">
+      <label className="flex items-center justify-center text-md font-medium text-content-primary" htmlFor="floor">
         Piso/s
       </label>
-      <p className="text-xs text-foreground/80 text-center italic">
+      <p className="text-xs text-content-secondary text-center italic">
         Si corresponde, selecciona el piso en el que se encuentra la ubicación
       </p>
       {floors.map((floor, index) => (
@@ -75,7 +75,7 @@ export function FloorsField({ floors, onChange, disabled }: FloorsFieldProps) {
       <button
         type="button"
         onClick={addFloor}
-        className="text-sm text-primary hover:underline self-start disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:no-underline"
+        className="text-sm text-interactive-primary hover:underline self-start disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:no-underline"
         disabled={disabled}
       >
         + Agregar otro piso

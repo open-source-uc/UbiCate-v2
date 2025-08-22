@@ -79,7 +79,7 @@ export default function PlaceForm({
       <form className="space-y-4 text-md px-3 py-5" onSubmit={handleSubmit}>
         <button
           type="button"
-          className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-accent disabled:hover:text-foreground"
+          className="text-content-primary bg-interactive-accent flex items-center rounded-full hover:text-interactive-accent-foreground hover:bg-surface cursor-pointer focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-interactive-accent disabled:hover:text-content-primary"
           aria-label="Cerrar menú"
           onClick={(e) => onClose?.()}
           disabled={isLoading}

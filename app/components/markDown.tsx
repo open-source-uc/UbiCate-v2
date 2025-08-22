@@ -16,7 +16,7 @@ function MarkDownComponent(props: { children: string }) {
         h2: ({ node, ...restProps }) => <h2 className="text-lg font-bold my-0.5" {...restProps} />,
         h3: ({ node, ...restProps }) => <h3 className="text-md font-bold" {...restProps} />,
         a: ({ node, ...props }) => (
-          <a {...props} className="text-primary underline" target="_blank" rel="noopener noreferrer" />
+          <a {...props} className="text-interactive-primary underline" target="_blank" rel="noopener noreferrer" />
         ),
         ul: ({ node, ...props }) => <ul className="list-disc list-inside my-2" {...props} />,
         ol: ({ node, ...props }) => <ol className="list-decimal list-inside my-2" {...props} />,
@@ -33,7 +33,7 @@ function MarkDownComponent(props: { children: string }) {
           <thead className="bg-muted/10 backdrop-blur-sm text-foreground font-semibold">{props.children}</thead>
         ),
         tbody: ({ node, ...props }) => <tbody className="divide-y divide-border/10">{props.children}</tbody>,
-        tr: ({ node, ...props }) => <tr className="hover:bg-accent/5" {...props} />,
+        tr: ({ node, ...props }) => <tr className="hover:bg-interactive-accent/5" {...props} />,
         th: ({ node, ...props }) => <th className="px-4 py-2 border-b border-border/20" {...props} />,
         td: ({ node, ...props }) => <td className="px-4 py-2 border-b border-border/10" {...props} />,
       }}

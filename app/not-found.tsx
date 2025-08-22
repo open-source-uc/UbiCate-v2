@@ -8,7 +8,7 @@ export default function NotFound() {
         <p className="text-base sm:text-lg text-gray-300 mb-6">Parece que te perdiste en el camino...</p>
         <Link
           href="/"
-          className="inline-block w-full sm:w-auto px-6 py-3 text-base sm:text-lg font-semibold text-black-ubi bg-primary rounded-lg shadow-md transition-transform transform hover:scale-105"
+          className="inline-block w-full sm:w-auto px-6 py-3 text-base sm:text-lg font-semibold text-interactive-primary-foreground bg-interactive-primary rounded-lg shadow-md transition-transform transform hover:scale-105"
         >
           Regresar al inicio
         </Link>

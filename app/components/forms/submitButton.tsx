@@ -13,7 +13,7 @@ export function SubmitButton({ children, fallback = "Procesando..." }: SubmitBut
   return (
     <button
       type="submit"
-      className="w-full p-3 text-foreground bg-transparent border border-border rounded-lg hover:bg-accent/10 focus:ring-primary focus:outline-hidden focus:ring-2"
+      className="w-full p-3 text-content-primary bg-transparent border border-border rounded-lg hover:bg-interactive-accent/10 focus:ring-interactive-primary focus:outline-hidden focus:ring-2"
       disabled={pending}
     >
       {pending ? fallback : children}

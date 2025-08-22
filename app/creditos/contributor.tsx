@@ -8,7 +8,7 @@ interface ContributorProps {
 
 function Contribuir({ login, avatar_url, html_url }: ContributorProps) {
   return (
-    <li className="bg-secondary rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+    <li className="bg-surface rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
       <a href={html_url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center">
         <img
           src={avatar_url}

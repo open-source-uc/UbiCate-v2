@@ -50,7 +50,7 @@ export default function DebugPage() {
         <label className="flex items-center space-x-2 text-xl">
           <input
             type="password"
-            className="bg-secondary rounded-2xl p-2 disabled:bg-secondary"
+            className="bg-surface rounded-2xl p-2 disabled:bg-surface"
             disabled={!isDebugMode}
             onChange={(e) => {
               try {

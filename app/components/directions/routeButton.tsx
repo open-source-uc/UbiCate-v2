@@ -168,8 +168,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
       tabIndex={0}
       disabled={isDisabled}
       className={`p-1 w-full cursor-pointer ${
-        isDisabled ? "bg-muted/50 cursor-not-allowed" : isLoading ? "bg-accent" : "bg-primary hover:bg-accent"
-      } text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors`}
+        isDisabled ? "bg-surface-low cursor-not-allowed" : isLoading ? "bg-interactive-accent text-interactive-accent-foreground" : "bg-interactive-primary text-interactive-primary-foreground hover:bg-interactive-accent hover:text-interactive-accent-foreground"
+      } rounded-lg focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:ring-offset-2 transition-colors`}
     >
       <div className="flex justify-center items-center w-full h-10">{icon}</div>
       <p className="text-xs font-medium">{text}</p>
