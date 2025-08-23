@@ -675,59 +675,6 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Transición automática para elementos reactivos al tema */
-.theme-aware {
-  transition: background-color 0.3s ease, 
-              color 0.3s ease, 
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
-}
-
-/* Transición específica para elementos interactivos */
-.interactive-transition {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.interactive-transition:hover {
-  transform: translateY(-1px);
-}
-
-/**
- * ================================================================
- *               ESTILOS ESPECÍFICOS POR TEMA                    
- * ================================================================
- * 
- * Personalizaciones que solo se aplican en temas específicos.
- */
-
-/* Efectos especiales para tema coquette */
-[data-theme="pink-coquette"] .theme-transition {
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-[data-theme="pink-coquette"] .interactive-transition:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.15);
-}
-
-/* Sombras profesionales para tema formal */
-[data-theme="light-formal"] .shadow-elevated {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
-}
-
-/* Efectos dorados para tema UC */
-[data-theme="uc"] .interactive-transition:hover {
-  box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
-}
-
-/* Solución específica para íconos del sidebar en tema UC */
-[data-theme="uc"] .sidebar-icon-inactive {
-  color: var(--palette-uc-blue-dark) !important;
-}
-
-[data-theme="uc"] .sidebar-icon-active {
-  color: var(--palette-uc-blue-primary) !important;
-}
 
 /**
  * ================================================================
