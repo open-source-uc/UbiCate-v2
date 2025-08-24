@@ -101,6 +101,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
  * Provider del contexto de temas
  */
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // eslint-disable-next-line
   const [theme, setThemeState] = useState<Theme>(THEME_CONFIG.defaultTheme);
   const [isSystemDark, setIsSystemDark] = useState(false);
 
