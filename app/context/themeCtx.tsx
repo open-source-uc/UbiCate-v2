@@ -4,18 +4,18 @@ import { createContext, useContext, useEffect, useState, ReactNode } from "react
 
 /**
  * ================================================================
- *                      SISTEMA DE TEMAS                         
+ *                      SISTEMA DE TEMAS
  * ================================================================
- * 
+ *
  * Context provider para el sistema de temas semántico de UbiCate v2.
- * 
+ *
  * CARACTERÍSTICAS:
  * - Temas semánticos con nomenclatura clara
  * - Cambio dinámico y persistencia
  * - Configuración de viewport para PWA
  * - Rotación automática entre temas
  * - Metadatos descriptivos
- * 
+ *
  * FILOSOFÍA:
  * Los temas se nombran por su propósito/estética, no por colores específicos:
  * - "": Tema original marrón elegante
@@ -32,10 +32,10 @@ export type Theme = "uc" | "light-formal" | "pink-coquette" | "";
 const THEME_CONFIG = {
   // Temas para rotación automática (excluye UC por ser institucional)
   rotationThemes: ["light-formal", "pink-coquette", ""] as const,
-  
+
   // Todos los temas disponibles
   allThemes: ["", "light-formal", "pink-coquette", "uc"] as const,
-  
+
   // Tema por defecto
   defaultTheme: "" as Theme,
 } as const;
@@ -45,10 +45,10 @@ const THEME_CONFIG = {
  * Deben coincidir con --theme-canvas de cada tema
  */
 const VIEWPORT_COLORS: Record<Theme, string> = {
-  "": "#150a04",           // neutral-brown-900
+  "": "#150a04", // neutral-brown-900
   "pink-coquette": "#fdf2f8", // pastel-pink-50
-  "light-formal": "#f9f8f3",  // brand-cream
-  "uc": "#0176DE"             // uc-blue-primary
+  "light-formal": "#f9f8f3", // brand-cream
+  uc: "#0176DE", // uc-blue-primary
 } as const;
 
 /**
@@ -60,26 +60,26 @@ export const THEME_METADATA = {
     name: "Marrón Elegante",
     description: "Tema oscuro original con tonos marrones cálidos y elegantes",
     category: "oscuro",
-    icon: "🤎"
+    icon: "🤎",
   },
   "light-formal": {
-    name: "Formal Claro", 
+    name: "Formal Claro",
     description: "Tema claro profesional con alto contraste y excelente legibilidad",
     category: "claro",
-    icon: "☀️"
+    icon: "☀️",
   },
   "pink-coquette": {
     name: "Rosa Coquette",
-    description: "Tema pastel aesthetic con tonos rosas suaves y cremosos", 
+    description: "Tema pastel aesthetic con tonos rosas suaves y cremosos",
     category: "pastel",
-    icon: "🌸"
+    icon: "🌸",
   },
-  "uc": {
+  uc: {
     name: "UC Institucional",
     description: "Colores oficiales de la Pontificia Universidad Católica",
     category: "institucional",
-    icon: "🏛️"
-  }
+    icon: "🏛️",
+  },
 } as const;
 
 /**
@@ -116,16 +116,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     // Theme color principal
     updateOrCreateMetaTag("theme-color", color);
-    
+
     // Status bar para iOS
-    updateOrCreateMetaTag(
-      "apple-mobile-web-app-status-bar-style", 
-      isLightTheme ? "default" : "black-translucent"
-    );
-    
+    updateOrCreateMetaTag("apple-mobile-web-app-status-bar-style", isLightTheme ? "default" : "black-translucent");
+
     // Navigation button para Windows
     updateOrCreateMetaTag("msapplication-navbutton-color", color);
-    
+
     // Tile color para Windows
     updateOrCreateMetaTag("msapplication-TileColor", color);
   };
@@ -174,13 +171,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     try {
       // localStorage para persistencia local
       localStorage.setItem("ubicate-theme", theme);
-      
+
       // Cookie para SSR (si está disponible)
-      if ('cookieStore' in window) {
+      if ("cookieStore" in window) {
         // @ts-ignore - cookieStore es experimental pero funcional
         cookieStore?.set("ubicate-theme", theme, {
           expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 año
-          sameSite: "lax"
+          sameSite: "lax",
         });
       }
     } catch (error) {
@@ -243,14 +240,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       const initialTheme = savedTheme || domTheme || THEME_CONFIG.defaultTheme;
 
       // Validar y aplicar tema inicial
-      const validTheme = THEME_CONFIG.allThemes.includes(initialTheme as any) 
-        ? initialTheme 
+      const validTheme = THEME_CONFIG.allThemes.includes(initialTheme as any)
+        ? initialTheme
         : THEME_CONFIG.defaultTheme;
 
       setThemeState(validTheme);
       document.documentElement.setAttribute("data-theme", validTheme);
       updateViewportMetaTags(validTheme);
-
     } catch (error) {
       console.warn("[ThemeProvider] Error al cargar preferencia de tema:", error);
       setThemeState(THEME_CONFIG.defaultTheme);
@@ -275,11 +271,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     availableThemes: THEME_CONFIG.allThemes,
   };
 
-  return (
-    <ThemeContext.Provider value={contextValue}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 }
 
 /**
@@ -296,7 +288,7 @@ export function useTheme() {
 
 /**
  * ================================================================
- *                     UTILIDADES DE TEMA                        
+ *                     UTILIDADES DE TEMA
  * ================================================================
  */
 
@@ -312,7 +304,7 @@ export const themeUtils = {
   },
 
   /**
-   * Verifica si un tema es oscuro  
+   * Verifica si un tema es oscuro
    */
   isDarkTheme: (theme: Theme): boolean => {
     return theme === "" || theme === "uc";
@@ -329,9 +321,7 @@ export const themeUtils = {
    * Obtiene todos los temas de una categoría específica
    */
   getThemesByCategory: (category: string): Theme[] => {
-    return THEME_CONFIG.allThemes.filter(
-      theme => THEME_METADATA[theme].category === category
-    );
+    return THEME_CONFIG.allThemes.filter((theme) => THEME_METADATA[theme].category === category);
   },
 
   /**
@@ -346,12 +336,12 @@ export const themeUtils = {
    */
   getRecommendedTheme: (): Theme => {
     const hour = new Date().getHours();
-    
+
     // Tema oscuro para horarios nocturnos
     if (hour >= 20 || hour <= 6) {
       return "";
     }
-    
+
     // Tema claro para horarios diurnos
     return "light-formal";
   },
@@ -371,5 +361,5 @@ export const themeUtils = {
       default:
         return "medium";
     }
-  }
+  },
 };

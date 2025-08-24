@@ -37,7 +37,9 @@ export function DescriptionField({ value, onChange, disabled }: DescriptionField
         <button
           type="button"
           className={`px-3 py-1 rounded-md text-sm disabled:opacity-50 disabled:cursor-not-allowed ${
-            isPreviewMode ? "bg-interactive-primary text-interactive-primary-foreground" : "bg-transparent border border-border text-content-primary"
+            isPreviewMode
+              ? "bg-interactive-primary text-interactive-primary-foreground"
+              : "bg-transparent border border-border text-content-primary"
           }`}
           onClick={() => setIsPreviewMode(true)}
           disabled={disabled}

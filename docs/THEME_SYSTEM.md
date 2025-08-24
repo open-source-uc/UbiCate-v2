@@ -482,38 +482,6 @@ const color = getCategoryColor(category); // "bg-category-faculty"
 <div className="bg-surface text-canvas-foreground">
 ```
 
-### 4. Utiliza Clases Helper Predefinidas
-
-```tsx
-// ✅ CORRECTO - Usa clases helper
-<div className="card-surface">
-<button className="btn-primary">
-<input className="input-field">
-
-// En lugar de repetir clases manualmente
-```
-
-### 5. Agrupa Elementos Relacionados
-
-```tsx
-// ✅ CORRECTO - Agrupa lógicamente
-<div className="bg-canvas text-canvas-foreground">
-  {" "}
-  {/* App background */}
-  <header className="bg-surface text-surface-foreground">
-    {" "}
-    {/* Navigation */}
-    <h1 className="text-content-primary">Título</h1>
-    <p className="text-content-secondary">Subtítulo</p>
-  </header>
-  <main className="bg-surface-low text-surface-low-foreground">
-    {" "}
-    {/* Content area */}
-    <button className="bg-interactive-primary text-interactive-primary-foreground">Acción</button>
-  </main>
-</div>
-```
-
 ## 📚 API Reference
 
 ### Funciones de Utilidad

@@ -17,7 +17,7 @@ export default function CampusList({
         <div className="flex w-full" />
         <button
           onClick={() => setActiveSubSidebar(null)}
-          className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-50 w-7 h-7 p-1"
+          className="bg-accent text-accent-foreground flex items-center rounded-full hover:bg-interactive-secondary hover:text-interactive-secondary-foreground pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 z-50 w-7 h-7 p-1"
           aria-label="Cerrar menú"
         >
           <Icons.Close />
@@ -31,7 +31,7 @@ export default function CampusList({
           aria-label="Navega a Campus San Joaquín"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
         >
           <Image
             src="/images/campus/san_joaquin.jpg"
@@ -40,10 +40,10 @@ export default function CampusList({
             className="object-cover rounded-lg transition-transform duration-300"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/100 rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
           <div className="absolute inset-0 bg-accent/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
           <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-            <span className="text-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
+            <span className="text-canvas-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
               San Joaquín
             </span>
           </div>
@@ -55,7 +55,7 @@ export default function CampusList({
           aria-label="Navega a Campus Casa Central"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
         >
           <Image
             src="/images/campus/casa_central.jpg"
@@ -64,10 +64,10 @@ export default function CampusList({
             className="object-cover rounded-lg transition-transform duration-300"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/100 rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
           <div className="absolute inset-0 bg-accent/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
           <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-            <span className="text-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
+            <span className="text-canvas-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
               Casa Central
             </span>
           </div>
@@ -79,7 +79,7 @@ export default function CampusList({
           aria-label="Navega a Campus Oriente"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
         >
           <Image
             src="/images/campus/oriente.jpg"
@@ -88,10 +88,10 @@ export default function CampusList({
             className="object-cover rounded-lg transition-transform duration-300"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/100 rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
           <div className="absolute inset-0 bg-accent/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
           <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-            <span className="text-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
+            <span className="text-canvas-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
               Oriente
             </span>
           </div>
@@ -103,7 +103,7 @@ export default function CampusList({
           aria-label="Navega a Campus Lo Contador"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
         >
           <Image
             src="/images/campus/lo_contador.jpg"
@@ -112,10 +112,10 @@ export default function CampusList({
             className="object-cover rounded-lg transition-transform duration-300"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/100 rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
           <div className="absolute inset-0 bg-accent/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg" />
           <div className="absolute bottom-0 left-0 p-2 tablet:p-3">
-            <span className="text-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
+            <span className="text-canvas-foreground text-sm tablet:text-md font-semibold" aria-hidden="true">
               Lo Contador
             </span>
           </div>

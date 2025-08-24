@@ -89,7 +89,7 @@ export default function PlaceInformation({
 
     return (
       <div className="px-2 pt-4">
-        <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
+        <section className="space-y-1 flex flex-col pt-2 pb-4">
           <div className="flex items-center justify-between w-full">
             <div className="max-w-[2/3] pr-10">
               <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>

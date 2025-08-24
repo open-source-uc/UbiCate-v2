@@ -73,6 +73,12 @@
   --palette-brand-cream: #f9f8f3;
 
   /* Escala de marrones (tema original) */
+  --palette-brown-200: #c4bfba;
+  --palette-brown-400: #8a817c;
+  --palette-brown-600: #39302b;
+  --palette-brown-900: #150a04;
+  
+  /* Escala de marrones neutros (legacy) */
   --palette-neutral-brown-50: #f0ede8;
   --palette-neutral-brown-100: #e2ddd8;
   --palette-neutral-brown-200: #c4bfba;
@@ -119,7 +125,7 @@
   --palette-uc-blue-primary: #0176DE;
   --palette-uc-blue-secondary: #173F8A;
   --palette-uc-blue-dark: #03122E;
-  --palette-uc-gold: #F4B942;
+  --palette-uc-yellow: #FEC60D;
 
   /* Colores vibrantes para categorías */
   --palette-vibrant-red: #ef4444;
@@ -307,15 +313,15 @@
 
 :root {
   /* Canvas: Fondo principal */
-  --theme-canvas: var(--palette-neutral-brown-900);
+  --theme-canvas: var(--palette-brown-900);
   --theme-canvas-foreground: var(--palette-brand-cream);
 
   /* Surface: Superficies elevadas */
-  --theme-surface: var(--palette-neutral-brown-600);
+  --theme-surface: var(--palette-brown-900);
   --theme-surface-foreground: var(--palette-brand-cream);
-  --theme-surface-low: var(--palette-neutral-brown-700);
+  --theme-surface-low: var(--palette-brown-600);
   --theme-surface-low-foreground: var(--palette-brand-cream);
-  --theme-surface-high: var(--palette-neutral-brown-500);
+  --theme-surface-high: var(--palette-brown-400);
   --theme-surface-high-foreground: var(--palette-brand-cream);
 
   /* Brand: Colores de marca */
@@ -324,28 +330,28 @@
 
   /* Content: Jerarquía de texto */
   --theme-content-primary: var(--palette-brand-cream);
-  --theme-content-secondary: var(--palette-neutral-brown-200);
-  --theme-content-tertiary: var(--palette-neutral-brown-400);
+  --theme-content-secondary: var(--palette-brown-200);
+  --theme-content-tertiary: var(--palette-brown-400);
 
   /* Interactive: Elementos interactivos */
   --theme-interactive-primary: var(--palette-brand-blue);
   --theme-interactive-primary-foreground: var(--palette-brand-cream);
   --theme-interactive-primary-hover: #0066ff;
   
-  --theme-interactive-secondary: var(--palette-neutral-brown-600);
+  --theme-interactive-secondary: var(--palette-brown-600);
   --theme-interactive-secondary-foreground: var(--palette-brand-cream);
-  --theme-interactive-secondary-hover: var(--palette-neutral-brown-500);
+  --theme-interactive-secondary-hover: var(--palette-brown-400);
   
   --theme-interactive-tertiary: transparent;
-  --theme-interactive-tertiary-foreground: var(--palette-neutral-brown-200);
-  --theme-interactive-tertiary-hover: var(--palette-neutral-brown-700);
+  --theme-interactive-tertiary-foreground: var(--palette-brown-200);
+  --theme-interactive-tertiary-hover: var(--palette-brown-600);
 
   /* Accent: Elementos decorativos */
-  --theme-accent: var(--palette-neutral-brown-400);
-  --theme-accent-foreground: var(--palette-neutral-brown-900);
+  --theme-accent: var(--palette-brown-400);
+  --theme-accent-foreground: var(--palette-brand-cream);
 
   /* Feedback: Estados */
-  --theme-feedback-success: var(--palette-vibrant-green);
+  --theme-feedback-success: var(--palette-brand-blue);
   --theme-feedback-success-foreground: var(--palette-brand-cream);
   --theme-feedback-warning: var(--palette-vibrant-amber);
   --theme-feedback-warning-foreground: var(--palette-neutral-brown-900);
@@ -355,9 +361,9 @@
   --theme-feedback-info-foreground: var(--palette-brand-cream);
 
   /* Border & Input */
-  --theme-border: var(--palette-neutral-brown-600);
-  --theme-border-subtle: var(--palette-neutral-brown-700);
-  --theme-input: var(--palette-neutral-brown-700);
+  --theme-border: var(--palette-brown-600);
+  --theme-border-subtle: var(--palette-brown-400);
+  --theme-input: var(--palette-brown-600);
   --theme-input-foreground: var(--palette-brand-cream);
   --theme-focus-ring: var(--palette-brand-blue);
 
@@ -371,7 +377,7 @@
   --theme-category-water: var(--palette-vibrant-sky);
   --theme-category-sports: var(--palette-vibrant-lime);
   --theme-category-crisol: var(--palette-vibrant-violet);
-  --theme-category-parking: var(--palette-neutral-brown-400);
+  --theme-category-parking: var(--palette-brown-400);
   --theme-category-computers: var(--palette-vibrant-indigo);
   --theme-category-photocopy: var(--palette-vibrant-yellow);
   --theme-category-financial: var(--palette-vibrant-teal);
@@ -426,8 +432,8 @@
   --theme-accent-foreground: var(--palette-neutral-gray-700);
 
   /* Feedback */
-  --theme-feedback-success: var(--palette-pastel-mint);
-  --theme-feedback-success-foreground: var(--palette-neutral-gray-700);
+  --theme-feedback-success: var(--palette-pastel-pink-600);
+  --theme-feedback-success-foreground: #ffffff;
   --theme-feedback-warning: var(--palette-pastel-peach);
   --theme-feedback-warning-foreground: var(--palette-neutral-gray-700);
   --theme-feedback-danger: var(--palette-pastel-coral);
@@ -507,7 +513,7 @@
   --theme-accent-foreground: var(--palette-neutral-gray-700);
 
   /* Feedback */
-  --theme-feedback-success: var(--palette-vibrant-green);
+  --theme-feedback-success: var(--palette-brand-blue);
   --theme-feedback-success-foreground: #ffffff;
   --theme-feedback-warning: var(--palette-vibrant-amber);
   --theme-feedback-warning-foreground: #ffffff;
@@ -562,8 +568,8 @@
   --theme-surface-high-foreground: var(--palette-uc-blue-primary);
 
   /* Brand */
-  --theme-brand: #ffffff;
-  --theme-brand-foreground: var(--palette-uc-blue-primary);
+  --theme-brand: var(--palette-uc-blue-primary);
+  --theme-brand-foreground: #ffffff;
 
   /* Content */
   --theme-content-primary: #ffffff;
@@ -571,9 +577,9 @@
   --theme-content-tertiary: rgba(255, 255, 255, 0.6);
 
   /* Interactive */
-  --theme-interactive-primary: #ffffff;
-  --theme-interactive-primary-foreground: var(--palette-uc-blue-primary);
-  --theme-interactive-primary-hover: rgba(255, 255, 255, 0.9);
+  --theme-interactive-primary: var(--palette-uc-blue-primary);
+  --theme-interactive-primary-foreground: #ffffff;
+  --theme-interactive-primary-hover: var(--palette-uc-blue-secondary);
   
   --theme-interactive-secondary: var(--palette-uc-blue-secondary);
   --theme-interactive-secondary-foreground: #ffffff;
@@ -584,13 +590,13 @@
   --theme-interactive-tertiary-hover: rgba(255, 255, 255, 0.1);
 
   /* Accent */
-  --theme-accent: var(--palette-uc-gold);
+  --theme-accent: var(--palette-uc-yellow);
   --theme-accent-foreground: var(--palette-uc-blue-dark);
 
   /* Feedback */
-  --theme-feedback-success: var(--palette-vibrant-green);
-  --theme-feedback-success-foreground: #ffffff;
-  --theme-feedback-warning: var(--palette-uc-gold);
+  --theme-feedback-success: var(--palette-uc-yellow);
+  --theme-feedback-success-foreground: var(--palette-uc-blue-dark);
+  --theme-feedback-warning: var(--palette-uc-yellow);
   --theme-feedback-warning-foreground: var(--palette-uc-blue-dark);
   --theme-feedback-danger: var(--palette-vibrant-red);
   --theme-feedback-danger-foreground: #ffffff;
@@ -602,21 +608,21 @@
   --theme-border-subtle: rgba(255, 255, 255, 0.2);
   --theme-input: rgba(255, 255, 255, 0.1);
   --theme-input-foreground: #ffffff;
-  --theme-focus-ring: #ffffff;
+  --theme-focus-ring: var(--palette-uc-blue-primary);
 
-  /* Categorías: Combinación UC + acentos */
-  --theme-category-faculty: var(--palette-uc-gold);
-  --theme-category-studyroom: #ffffff;
+  /* Categorías: Solo colores UC oficiales + colores vibrantes para categorías */
+  --theme-category-faculty: var(--palette-uc-yellow);
+  --theme-category-studyroom: var(--palette-uc-blue-primary);
   --theme-category-auditorium: var(--palette-uc-blue-secondary);
-  --theme-category-library: var(--palette-uc-gold);
+  --theme-category-library: var(--palette-uc-yellow);
   --theme-category-bath: var(--palette-vibrant-cyan);
   --theme-category-food: var(--palette-vibrant-amber);
   --theme-category-water: var(--palette-vibrant-sky);
   --theme-category-sports: var(--palette-vibrant-lime);
   --theme-category-crisol: var(--palette-vibrant-violet);
   --theme-category-parking: rgba(255, 255, 255, 0.7);
-  --theme-category-computers: #ffffff;
-  --theme-category-photocopy: var(--palette-uc-gold);
+  --theme-category-computers: var(--palette-uc-blue-primary);
+  --theme-category-photocopy: var(--palette-uc-yellow);
   --theme-category-financial: var(--palette-vibrant-teal);
   --theme-category-shop: var(--palette-vibrant-pink);
   --theme-category-bicycle: var(--palette-vibrant-cyan);

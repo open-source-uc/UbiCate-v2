@@ -63,7 +63,7 @@ export default function DesktopSidebar() {
       <div className="flex h-screen overflow-y-auto">
         {/* Sidebar principal */}
         <section
-          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full pb-4 ${
+          className={`bg-surface/95 backdrop-blur-sm text-surface-foreground flex flex-col z-40 h-full pb-4 ${
             isOpen ? "w-44" : "w-20"
           }`}
         >
@@ -75,7 +75,10 @@ export default function DesktopSidebar() {
 
             {/* Toggle button */}
             <div className={`${isOpen ? "" : "flex justify-center"}`}>
-              <button onClick={toggleSidebar} className="hover:text-muted pointer-events-auto cursor-pointer">
+              <button
+                onClick={toggleSidebar}
+                className="text-content-secondary hover:text-content-primary pointer-events-auto cursor-pointer"
+              >
                 <Icons.DockToRight className="w-8 h-8" />
               </button>
             </div>
@@ -88,14 +91,16 @@ export default function DesktopSidebar() {
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("buscar") : handleCollapsedClick("buscar"))}
                 className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-secondary" : ""
+                  isOpen ? "w-full p-2 rounded-md hover:bg-interactive-tertiary" : ""
                 } flex items-center pointer-events-auto cursor-pointer ${
                   !isOpen ? "justify-center px-4 py-3" : "space-x-4"
                 }`}
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "buscar" ? "bg-primary" : "bg-accent"
+                    activeSubSidebar === "buscar"
+                      ? "bg-interactive-primary text-interactive-primary-foreground"
+                      : "bg-accent text-accent-foreground"
                   }`}
                 >
                   <Icons.Search />
@@ -106,14 +111,16 @@ export default function DesktopSidebar() {
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
                 className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
+                  isOpen ? "w-full p-2 rounded-md hover:bg-interactive-tertiary" : ""
                 } flex items-center pointer-events-auto cursor-pointer ${
                   !isOpen ? "justify-center px-4 py-3" : "space-x-4"
                 }`}
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "campus" ? "bg-primary" : "bg-accent"
+                    activeSubSidebar === "campus"
+                      ? "bg-interactive-primary text-interactive-primary-foreground"
+                      : "bg-accent text-accent-foreground"
                   }`}
                 >
                   <Icons.Map />
@@ -123,14 +130,16 @@ export default function DesktopSidebar() {
               <button
                 onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
                 className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
+                  isOpen ? "w-full p-2 rounded-md hover:bg-interactive-tertiary" : ""
                 } flex items-center pointer-events-auto cursor-pointer ${
                   !isOpen ? "justify-center px-4 py-3" : "space-x-4"
                 }`}
               >
                 <span
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
+                    activeSubSidebar === "temas"
+                      ? "bg-interactive-primary text-interactive-primary-foreground"
+                      : "bg-accent text-accent-foreground"
                   }`}
                 >
                   <Icons.Brush />
@@ -144,7 +153,7 @@ export default function DesktopSidebar() {
                   !isOpen ? "justify-center px-4 py-3 opacity-50" : "space-x-4"
                 }`}
               >
-                <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
+                <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent text-accent-foreground">
                   <Icons.MenuBook />
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Guías</span>
@@ -157,7 +166,7 @@ export default function DesktopSidebar() {
             <FooterOptionsSidebar />
           </div>
           <div className={`flex justify-center ${!isOpen ? "block" : "hidden"}`}>
-            <div className="w-10 h-10 rounded-xl bg-primary">
+            <div className="w-10 h-10 rounded-xl bg-brand">
               <Link href="/creditos" className="font-semibold block hover:underline">
                 <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
                   <Icons.OSUC />
@@ -169,7 +178,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground border-l-1 border-border ${
+          className={`shadow-lg h-full overflow-hidden bg-surface/95 backdrop-blur-sm text-surface-foreground border-l-1 border-border ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >
@@ -205,12 +214,12 @@ export default function DesktopSidebar() {
             )}
             {activeSubSidebar === "buscar" && (
               <div className="w-full h-full overflow-auto space-y-2">
-                <h3 className="font-bold text-lg">Buscar</h3>
+                <h3 className="font-bold text-lg text-content-primary">Buscar</h3>
                 <div className="p-1">
                   <SearchDropdown />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-md">Filtra por lugares</h4>
+                  <h4 className="font-semibold text-md text-content-secondary">Filtra por lugares</h4>
                   <PillFilter />
                 </div>
               </div>

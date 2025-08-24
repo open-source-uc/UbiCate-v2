@@ -153,7 +153,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   return (
     <div className="relative" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative bg-surface outline-1 outline-border rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
+      <div className="relative bg-surface-low outline-1 outline-border rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
         {/* Input */}
         <div className="relative text-ring font-medium">
           <input
@@ -187,7 +187,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
           {query ? (
             <button
               onClick={handleClearInput}
-              className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-surface leading-none"
+              className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-surface-low leading-none"
             >
               <svg className="w-5 h-5 mt-2 mr-1" viewBox="0 0 24 24">
                 <path
@@ -208,7 +208,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
           <div
-            className="bg-surface rounded-xl rounded-t-lg overflow-hidden text-base border border-border"
+            className="bg-surface-low rounded-xl rounded-t-lg overflow-hidden text-base border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
             <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
