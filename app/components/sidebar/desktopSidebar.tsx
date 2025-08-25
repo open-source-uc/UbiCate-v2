@@ -63,7 +63,7 @@ export default function DesktopSidebar() {
       <div className="flex h-screen overflow-y-auto">
         {/* Sidebar principal */}
         <section
-          className={`bg-surface/95 backdrop-blur-sm text-surface-foreground flex flex-col z-40 h-full pb-4 ${
+          className={`bg-canvas/95 backdrop-blur-sm text-canvas-foreground flex flex-col z-40 h-full pb-4 ${
             isOpen ? "w-44" : "w-20"
           }`}
         >
@@ -178,7 +178,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-surface/95 backdrop-blur-sm text-surface-foreground border-l-1 border-border ${
+          className={`shadow-lg h-full overflow-hidden bg-canvas/95 backdrop-blur-sm text-canvas-foreground border-l-1 border-border ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >

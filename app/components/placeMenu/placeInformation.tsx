@@ -132,7 +132,7 @@ export default function PlaceInformation({
             aria-label={singleOption.label}
             role="navigation"
             tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-surface hover:bg-interactive-accent text-content-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:ring-offset-2"
+            className="p-1 w-full cursor-pointer bg-interactive-primary hover:bg-interactive-accent text-interactive-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:ring-offset-2"
           >
             <div className="w-full flex justify-center items-center h-10">
               {singleOption.icon ? <singleOption.icon /> : <Icons.Options />}

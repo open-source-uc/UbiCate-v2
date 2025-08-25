@@ -114,7 +114,7 @@ bg-surface-low text-surface-low-foreground
 bg-surface-high text-surface-high-foreground
 ```
 
-**Uso**: Tarjetas, modales, sidebars, dropdowns
+**Uso**: Tarjetas, modales, paneles elevados, dropdowns
 
 ```tsx
 <div className="bg-surface text-surface-foreground rounded-lg p-4">

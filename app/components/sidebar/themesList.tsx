@@ -85,7 +85,7 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
               {/* Contenido del botón */}
               <div className="flex items-center gap-3">
                 {/* Icono emoji */}
-                <div className="w-12 h-12 bg-accent text-accent-foreground rounded-xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
+                <div className="w-12 h-12 bg-accent text-accent-foreground rounded-xl flex items-center justify-center shadow-sm transition-transform duration-200 no-hover">
                   <span className="text-2xl">{themeOption.emoji}</span>
                 </div>
 

@@ -212,10 +212,11 @@
   /* 
    * ACCENT: Elementos decorativos y de énfasis
    * - Usado en: badges, pills, elementos destacados sin acción
-   * - Clases: bg-accent, text-accent-foreground
+   * - Clases: bg-accent, text-accent-foreground, bg-accent-hover
    */
   --color-accent: var(--theme-accent);
   --color-accent-foreground: var(--theme-accent-foreground);
+  --color-accent-hover: var(--theme-accent-hover);
 
   /* 
    * FEEDBACK: Estados de respuesta al usuario
@@ -317,7 +318,7 @@
   --theme-canvas-foreground: var(--palette-brand-cream);
 
   /* Surface: Superficies elevadas */
-  --theme-surface: var(--palette-brown-900);
+  --theme-surface: var(--palette-brown-600);
   --theme-surface-foreground: var(--palette-brand-cream);
   --theme-surface-low: var(--palette-brown-600);
   --theme-surface-low-foreground: var(--palette-brand-cream);
@@ -349,6 +350,7 @@
   /* Accent: Elementos decorativos */
   --theme-accent: var(--palette-brown-400);
   --theme-accent-foreground: var(--palette-brand-cream);
+  --theme-accent-hover: var(--palette-brown-600);
 
   /* Feedback: Estados */
   --theme-feedback-success: var(--palette-brand-blue);
@@ -430,6 +432,7 @@
   /* Accent */
   --theme-accent: var(--palette-pastel-pink-300);
   --theme-accent-foreground: var(--palette-neutral-gray-700);
+  --theme-accent-hover: var(--palette-pastel-pink-400);
 
   /* Feedback */
   --theme-feedback-success: var(--palette-pastel-pink-600);
@@ -511,6 +514,7 @@
   /* Accent */
   --theme-accent: var(--palette-neutral-gray-200);
   --theme-accent-foreground: var(--palette-neutral-gray-700);
+  --theme-accent-hover: var(--palette-neutral-gray-300);
 
   /* Feedback */
   --theme-feedback-success: var(--palette-brand-blue);
@@ -560,15 +564,15 @@
   --theme-canvas-foreground: #ffffff;
 
   /* Surface */
-  --theme-surface: var(--palette-uc-blue-secondary);
+  --theme-surface: var(--palette-uc-blue-dark);
   --theme-surface-foreground: #ffffff;
-  --theme-surface-low: var(--palette-uc-blue-dark);
+  --theme-surface-low: var(--palette-uc-blue-secondary);
   --theme-surface-low-foreground: #ffffff;
-  --theme-surface-high: #ffffff;
-  --theme-surface-high-foreground: var(--palette-uc-blue-primary);
+  --theme-surface-high: var(--palette-uc-blue-primary);
+  --theme-surface-high-foreground: #ffffff;
 
   /* Brand */
-  --theme-brand: var(--palette-uc-blue-primary);
+  --theme-brand: var(--palette-uc-blue-dark);
   --theme-brand-foreground: #ffffff;
 
   /* Content */
@@ -576,26 +580,27 @@
   --theme-content-secondary: rgba(255, 255, 255, 0.8);
   --theme-content-tertiary: rgba(255, 255, 255, 0.6);
 
-  /* Interactive */
-  --theme-interactive-primary: var(--palette-uc-blue-primary);
-  --theme-interactive-primary-foreground: #ffffff;
-  --theme-interactive-primary-hover: var(--palette-uc-blue-secondary);
+  /* Interactive - Estado activo amarillo UC, botones normales azul secundario */
+  --theme-interactive-primary: var(--palette-uc-yellow);
+  --theme-interactive-primary-foreground: var(--palette-uc-blue-dark);
+  --theme-interactive-primary-hover: rgba(254, 198, 13, 0.9);
   
   --theme-interactive-secondary: var(--palette-uc-blue-secondary);
   --theme-interactive-secondary-foreground: #ffffff;
-  --theme-interactive-secondary-hover: var(--palette-uc-blue-dark);
+  --theme-interactive-secondary-hover: var(--palette-uc-blue-primary);
   
   --theme-interactive-tertiary: transparent;
   --theme-interactive-tertiary-foreground: rgba(255, 255, 255, 0.8);
-  --theme-interactive-tertiary-hover: rgba(255, 255, 255, 0.1);
+  --theme-interactive-tertiary-hover: var(--palette-uc-yellow);
 
   /* Accent */
-  --theme-accent: var(--palette-uc-yellow);
-  --theme-accent-foreground: var(--palette-uc-blue-dark);
+  --theme-accent: var(--palette-uc-blue-secondary);
+  --theme-accent-foreground: #ffffff;
+  --theme-accent-hover: var(--palette-uc-blue-dark);
 
   /* Feedback */
-  --theme-feedback-success: var(--palette-uc-yellow);
-  --theme-feedback-success-foreground: var(--palette-uc-blue-dark);
+  --theme-feedback-success: var(--palette-uc-blue-primary);
+  --theme-feedback-success-foreground: #ffffff;
   --theme-feedback-warning: var(--palette-uc-yellow);
   --theme-feedback-warning-foreground: var(--palette-uc-blue-dark);
   --theme-feedback-danger: var(--palette-vibrant-red);
@@ -693,5 +698,42 @@
 /* Asegurar visibilidad de atribución OSM */
 .maplibregl-ctrl-bottom-right {
   z-index: 10000 !important;
+}
+
+/* Hover states para accent elements (pills) */
+.bg-accent:hover:not(.no-hover) {
+  background-color: var(--color-accent-hover);
+}
+
+.bg-accent-hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* 
+ * TEMA UC: Asegurar que el texto sea oscuro cuando el hover del sidebar es amarillo
+ */
+[data-theme="uc"] .hover\\:bg-interactive-tertiary:hover {
+  color: var(--palette-uc-blue-dark) !important;
+}
+
+/* 
+ * TEMA UC: Botones del menú de lugar usan azul secundario en lugar de amarillo
+ * Aplica solo a botones con clases específicas del menú
+ */
+[data-theme="uc"] .p-1.w-full.cursor-pointer.bg-interactive-primary:not(:hover) {
+  background-color: var(--palette-uc-blue-secondary) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="uc"] .p-1.w-full.cursor-pointer.bg-interactive-primary:hover {
+  background-color: var(--palette-uc-yellow) !important;
+  color: var(--palette-uc-blue-dark) !important;
+}
+
+/* 
+ * TEMA UC: Fondo de la descripción/readme del lugar usa azul secundario
+ */
+[data-theme="uc"] .bg-surface.rounded-md {
+  background-color: var(--palette-uc-blue-secondary) !important;
 }
 
