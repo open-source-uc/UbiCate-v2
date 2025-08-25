@@ -121,11 +121,28 @@
   --palette-pastel-sky: #e8f4f8;
   --palette-pastel-sage: #c8d6c2;
 
-  /* Colores UC oficiales */
+  /* Colores UC oficiales - Paleta principal */
   --palette-uc-blue-primary: #0176DE;
   --palette-uc-blue-secondary: #173F8A;
   --palette-uc-blue-dark: #03122E;
   --palette-uc-yellow: #FEC60D;
+  --palette-uc-yellow-dark: #E3AE00;
+
+  /* Colores UC oficiales - Paleta secundaria */
+  --palette-uc-black: #000000;
+  --palette-uc-gray-dark-a: #707070;
+  --palette-uc-gray-dark-b: #9C9C9C;
+  --palette-uc-gray-dark-c: #C6C6C6;
+  --palette-uc-gray-light-a: #EAEAEA;
+  --palette-uc-gray-light-b: #F0F0F0;
+  --palette-uc-gray-light-c: #F6F6F6;
+  --palette-uc-white: #FFFFFF;
+
+  /* Colores UC oficiales - Feedback */
+  --palette-uc-success: #00AA00;
+  --palette-uc-warning: #E3AE00;
+  --palette-uc-error: #F24F4F;
+  --palette-uc-info: #0176DE;
 
   /* Colores vibrantes para categorías */
   --palette-vibrant-red: #ef4444;
@@ -553,83 +570,84 @@
 
 /**
  * TEMA: UC Institucional (data-theme="uc")
- * - Colores oficiales de la Universidad
- * - Identidad corporativa
- * - Para uso en contextos oficiales
+ * - Colores oficiales de la Universidad Católica
+ * - Identidad corporativa oficial
+ * - Para uso en contextos institucionales
+ * - Basado en la paleta oficial UC con contrastes optimizados
  */
 
 [data-theme="uc"] {
-  /* Canvas */
-  --theme-canvas: var(--palette-uc-blue-primary);
-  --theme-canvas-foreground: #ffffff;
+  /* Canvas: Fondo principal usando azul oscuro UC */
+  --theme-canvas: var(--palette-uc-blue-dark);
+  --theme-canvas-foreground: var(--palette-uc-white);
 
-  /* Surface */
-  --theme-surface: var(--palette-uc-blue-dark);
-  --theme-surface-foreground: #ffffff;
+  /* Surface: Superficies elevadas con azul secundario */
+  --theme-surface: var(--palette-uc-blue-secondary);
+  --theme-surface-foreground: var(--palette-uc-white);
   --theme-surface-low: var(--palette-uc-blue-secondary);
-  --theme-surface-low-foreground: #ffffff;
+  --theme-surface-low-foreground: var(--palette-uc-gray-light-a);
   --theme-surface-high: var(--palette-uc-blue-primary);
-  --theme-surface-high-foreground: #ffffff;
+  --theme-surface-high-foreground: var(--palette-uc-white);
 
-  /* Brand */
-  --theme-brand: var(--palette-uc-blue-dark);
-  --theme-brand-foreground: #ffffff;
+  /* Brand: Azul primario UC */
+  --theme-brand: var(--palette-uc-blue-primary);
+  --theme-brand-foreground: var(--palette-uc-white);
 
-  /* Content */
-  --theme-content-primary: #ffffff;
-  --theme-content-secondary: rgba(255, 255, 255, 0.8);
-  --theme-content-tertiary: rgba(255, 255, 255, 0.6);
+  /* Content: Jerarquía de texto con grises UC */
+  --theme-content-primary: var(--palette-uc-white);
+  --theme-content-secondary: var(--palette-uc-gray-light-a);
+  --theme-content-tertiary: var(--palette-uc-gray-dark-c);
 
-  /* Interactive - Estado activo amarillo UC, botones normales azul secundario */
+  /* Interactive: Elementos interactivos con colores UC */
   --theme-interactive-primary: var(--palette-uc-yellow);
-  --theme-interactive-primary-foreground: var(--palette-uc-blue-dark);
-  --theme-interactive-primary-hover: rgba(254, 198, 13, 0.9);
+  --theme-interactive-primary-foreground: var(--palette-uc-black);
+  --theme-interactive-primary-hover: var(--palette-uc-yellow-dark);
   
-  --theme-interactive-secondary: var(--palette-uc-blue-secondary);
-  --theme-interactive-secondary-foreground: #ffffff;
-  --theme-interactive-secondary-hover: var(--palette-uc-blue-primary);
+  --theme-interactive-secondary: var(--palette-uc-blue-primary);
+  --theme-interactive-secondary-foreground: var(--palette-uc-white);
+  --theme-interactive-secondary-hover: #0265d4;
   
   --theme-interactive-tertiary: transparent;
-  --theme-interactive-tertiary-foreground: rgba(255, 255, 255, 0.8);
-  --theme-interactive-tertiary-hover: var(--palette-uc-yellow);
+  --theme-interactive-tertiary-foreground: var(--palette-uc-gray-light-a);
+  --theme-interactive-tertiary-hover: var(--palette-uc-blue-secondary);
 
-  /* Accent */
-  --theme-accent: var(--palette-uc-blue-secondary);
-  --theme-accent-foreground: #ffffff;
-  --theme-accent-hover: var(--palette-uc-blue-dark);
+  /* Accent: Elementos decorativos con amarillo UC */
+  --theme-accent: var(--palette-uc-yellow);
+  --theme-accent-foreground: var(--palette-uc-black);
+  --theme-accent-hover: var(--palette-uc-yellow-dark);
 
-  /* Feedback */
-  --theme-feedback-success: var(--palette-uc-blue-primary);
-  --theme-feedback-success-foreground: #ffffff;
-  --theme-feedback-warning: var(--palette-uc-yellow);
-  --theme-feedback-warning-foreground: var(--palette-uc-blue-dark);
-  --theme-feedback-danger: var(--palette-vibrant-red);
-  --theme-feedback-danger-foreground: #ffffff;
-  --theme-feedback-info: #ffffff;
-  --theme-feedback-info-foreground: var(--palette-uc-blue-primary);
+  /* Feedback: Estados usando paleta oficial UC */
+  --theme-feedback-success: var(--palette-uc-success);
+  --theme-feedback-success-foreground: var(--palette-uc-white);
+  --theme-feedback-warning: var(--palette-uc-warning);
+  --theme-feedback-warning-foreground: var(--palette-uc-black);
+  --theme-feedback-danger: var(--palette-uc-error);
+  --theme-feedback-danger-foreground: var(--palette-uc-white);
+  --theme-feedback-info: var(--palette-uc-info);
+  --theme-feedback-info-foreground: var(--palette-uc-white);
 
-  /* Border & Input */
-  --theme-border: rgba(255, 255, 255, 0.3);
-  --theme-border-subtle: rgba(255, 255, 255, 0.2);
-  --theme-input: rgba(255, 255, 255, 0.1);
-  --theme-input-foreground: #ffffff;
-  --theme-focus-ring: var(--palette-uc-blue-primary);
+  /* Border & Input: Con grises UC */
+  --theme-border: var(--palette-uc-gray-dark-a);
+  --theme-border-subtle: var(--palette-uc-gray-dark-b);
+  --theme-input: var(--palette-uc-blue-secondary);
+  --theme-input-foreground: var(--palette-uc-white);
+  --theme-focus-ring: var(--palette-uc-yellow);
 
-  /* Categorías: Solo colores UC oficiales + colores vibrantes para categorías */
+  /* Categorías: Combinando colores UC con vibrantes para mejor diferenciación */
   --theme-category-faculty: var(--palette-uc-yellow);
   --theme-category-studyroom: var(--palette-uc-blue-primary);
-  --theme-category-auditorium: var(--palette-uc-blue-secondary);
-  --theme-category-library: var(--palette-uc-yellow);
+  --theme-category-auditorium: var(--palette-uc-success);
+  --theme-category-library: var(--palette-uc-yellow-dark);
   --theme-category-bath: var(--palette-vibrant-cyan);
-  --theme-category-food: var(--palette-vibrant-amber);
-  --theme-category-water: var(--palette-vibrant-sky);
-  --theme-category-sports: var(--palette-vibrant-lime);
+  --theme-category-food: var(--palette-uc-yellow);
+  --theme-category-water: var(--palette-uc-info);
+  --theme-category-sports: var(--palette-uc-success);
   --theme-category-crisol: var(--palette-vibrant-violet);
-  --theme-category-parking: rgba(255, 255, 255, 0.7);
+  --theme-category-parking: var(--palette-uc-gray-dark-a);
   --theme-category-computers: var(--palette-uc-blue-primary);
-  --theme-category-photocopy: var(--palette-uc-yellow);
-  --theme-category-financial: var(--palette-vibrant-teal);
-  --theme-category-shop: var(--palette-vibrant-pink);
+  --theme-category-photocopy: var(--palette-uc-yellow-dark);
+  --theme-category-financial: var(--palette-uc-success);
+  --theme-category-shop: var(--palette-uc-error);
   --theme-category-bicycle: var(--palette-vibrant-cyan);
 }
 
@@ -708,32 +726,3 @@
 .bg-accent-hover {
   background-color: var(--color-accent-hover);
 }
-
-/* 
- * TEMA UC: Asegurar que el texto sea oscuro cuando el hover del sidebar es amarillo
- */
-[data-theme="uc"] .hover\\:bg-interactive-tertiary:hover {
-  color: var(--palette-uc-blue-dark) !important;
-}
-
-/* 
- * TEMA UC: Botones del menú de lugar usan azul secundario en lugar de amarillo
- * Aplica solo a botones con clases específicas del menú
- */
-[data-theme="uc"] .p-1.w-full.cursor-pointer.bg-interactive-primary:not(:hover) {
-  background-color: var(--palette-uc-blue-secondary) !important;
-  color: #ffffff !important;
-}
-
-[data-theme="uc"] .p-1.w-full.cursor-pointer.bg-interactive-primary:hover {
-  background-color: var(--palette-uc-yellow) !important;
-  color: var(--palette-uc-blue-dark) !important;
-}
-
-/* 
- * TEMA UC: Fondo de la descripción/readme del lugar usa azul secundario
- */
-[data-theme="uc"] .bg-surface.rounded-md {
-  background-color: var(--palette-uc-blue-secondary) !important;
-}
-
