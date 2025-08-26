@@ -1,41 +1,19 @@
 import * as Icons from "@/app/components/icons/icons";
-import { Theme, useTheme } from "@/app/context/themeCtx";
+import { Theme, useTheme, THEME_METADATA } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 
 export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSidebar: (value: SubSidebarType) => void }) {
   const { setTheme, theme } = useTheme();
 
-  const themes: {
-    id: Theme;
-    name: string;
-    emoji: string;
-    description: string;
-  }[] = [
-    {
-      id: "light-formal",
-      name: "Tema Diurno Formal",
-      emoji: "☀️",
-      description: "Limpio y profesional",
-    },
-    {
-      id: "pink-coquette",
-      name: "Coquette",
-      emoji: "🌸",
-      description: "Pink pony club 🎵",
-    },
-    {
-      id: "",
-      name: "Tema Café Matte",
-      emoji: "🌙",
-      description: "Equilibrio perfecto",
-    },
-    {
-      id: "uc",
-      name: "UC",
-      emoji: "🏛️",
-      description: "",
-    },
-  ];
+  const themes: { id: Theme; name: string; description: string; emoji: string }[] = Object.values(
+    THEME_METADATA,
+  ).filter((meta) => {
+    const ALLOW_THEMES: Theme[] = ["uc", "uc-light"];
+    if (ALLOW_THEMES.includes(meta.id)) {
+      return true;
+    }
+    return false;
+  });
 
   return (
     <div className="flex flex-col h-full">

@@ -31,13 +31,13 @@ export default function CampusList({
           aria-label="Navega a Campus San Joaquín"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 hover:scale-[1.02]  transition-all duration-200"
         >
           <Image
             src="/images/campus/san_joaquin.jpg"
             alt="Campus San Joaquín"
             fill
-            className="object-cover rounded-lg transition-transform duration-300"
+            className="object-cover rounded-lg "
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
@@ -55,13 +55,13 @@ export default function CampusList({
           aria-label="Navega a Campus Casa Central"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 hover:scale-[1.02]  transition-all duration-200"
         >
           <Image
             src="/images/campus/casa_central.jpg"
             alt="Campus Casa Central"
             fill
-            className="object-cover rounded-lg transition-transform duration-300"
+            className="object-cover rounded-lg "
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
@@ -79,13 +79,13 @@ export default function CampusList({
           aria-label="Navega a Campus Oriente"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 hover:scale-[1.02]  transition-all duration-200"
         >
           <Image
             src="/images/campus/oriente.jpg"
             alt="Campus Oriente"
             fill
-            className="object-cover rounded-lg transition-transform duration-300"
+            className="object-cover rounded-lg "
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
@@ -103,13 +103,13 @@ export default function CampusList({
           aria-label="Navega a Campus Lo Contador"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 hover:scale-[1.02]  transition-all duration-200"
         >
           <Image
             src="/images/campus/lo_contador.jpg"
             alt="Campus Lo Contador"
             fill
-            className="object-cover rounded-lg transition-transform duration-300"
+            className="object-cover rounded-lg "
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-canvas/100 rounded-lg" />
@@ -127,13 +127,13 @@ export default function CampusList({
           aria-label="Navega a Campus Villarrica"
           role="navigation"
           tabIndex={0}
-          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] col-span-2 md:col-span-1 rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="relative w-full h-[80px] tablet:h-[90px] desktop:h-[100px] col-span-2 md:col-span-1 rounded-lg cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:scale-[1.02]  transition-all duration-200"
         >
           <Image
             src="/images/campus/villarrica.png"
             alt="Campus Villarrica"
             fill
-            className="object-cover rounded-lg transition-transform duration-300"
+            className="object-cover rounded-lg "
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/100 rounded-lg" />

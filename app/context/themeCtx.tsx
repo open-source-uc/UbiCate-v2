@@ -24,7 +24,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from "react
  * - "uc": Institucional Universidad Católica
  */
 
-export type Theme = "uc" | "light-formal" | "pink-coquette" | "";
+export type Theme = "uc" | "uc-light" | "light-formal" | "pink-coquette" | "";
 
 /**
  * Configuración centralizada de temas
@@ -34,7 +34,7 @@ const THEME_CONFIG = {
   rotationThemes: ["light-formal", "pink-coquette", ""] as const,
 
   // Todos los temas disponibles
-  allThemes: ["", "light-formal", "pink-coquette", "uc"] as const,
+  allThemes: ["", "light-formal", "pink-coquette", "uc", "uc-light"] as const,
 
   // Tema por defecto
   defaultTheme: "" as Theme,
@@ -48,7 +48,8 @@ const VIEWPORT_COLORS: Record<Theme, string> = {
   "": "#150a04", // neutral-brown-900
   "pink-coquette": "#fdf2f8", // pastel-pink-50
   "light-formal": "#f9f8f3", // brand-cream
-  uc: "#0176DE", // uc-blue-primary
+  uc: "#03122E", // uc-blue-dark
+  "uc-light": "#F0F0F0", // uc-gray-light-b
 } as const;
 
 /**
@@ -57,28 +58,39 @@ const VIEWPORT_COLORS: Record<Theme, string> = {
  */
 export const THEME_METADATA = {
   "": {
+    id: "",
     name: "Marrón Elegante",
     description: "Tema oscuro original con tonos marrones cálidos y elegantes",
     category: "oscuro",
-    icon: "🤎",
+    emoji: "🤎",
   },
   "light-formal": {
+    id: "light-formal",
     name: "Formal Claro",
     description: "Tema claro profesional con alto contraste y excelente legibilidad",
     category: "claro",
-    icon: "☀️",
+    emoji: "☀️",
   },
   "pink-coquette": {
+    id: "pink-coquette",
     name: "Rosa Coquette",
     description: "Tema pastel aesthetic con tonos rosas suaves y cremosos",
     category: "pastel",
-    icon: "🌸",
+    emoji: "🌸",
   },
   uc: {
-    name: "UC Institucional",
+    id: "uc",
+    name: "UC Dark",
     description: "Colores oficiales de la Pontificia Universidad Católica",
     category: "institucional",
-    icon: "🏛️",
+    emoji: "🏛️",
+  },
+  "uc-light": {
+    id: "uc-light",
+    name: "UC Light",
+    description: "Versión clara del tema UC oficial con fondo luminoso",
+    category: "institucional",
+    emoji: "🏛️",
   },
 } as const;
 

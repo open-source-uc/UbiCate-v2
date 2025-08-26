@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("ubicate-theme")?.value;
+  const themeCookie = cookieStore.get("ubicate-theme")?.value || "uc";
 
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>

@@ -16,7 +16,7 @@
  * - Accent: Elementos destacados y decorativos
  * - Feedback: Estados de la aplicación (éxito, error, advertencia)
  * 
- * NOMENCLATURA:
+ * TOKENS SEMÁNTICOS:
  * - canvas: Fondo principal de la app
  * - surface: Superficies elevadas (cards, modals, sidebars)
  * - brand: Color principal de la marca
@@ -605,7 +605,7 @@
   
   --theme-interactive-secondary: var(--palette-uc-blue-primary);
   --theme-interactive-secondary-foreground: var(--palette-uc-white);
-  --theme-interactive-secondary-hover: #0265d4;
+  --theme-interactive-secondary-hover: var(--palette-uc-blue-secondary);
   
   --theme-interactive-tertiary: transparent;
   --theme-interactive-tertiary-foreground: var(--palette-uc-gray-light-a);
@@ -633,22 +633,105 @@
   --theme-input-foreground: var(--palette-uc-white);
   --theme-focus-ring: var(--palette-uc-yellow);
 
-  /* Categorías: Combinando colores UC con vibrantes para mejor diferenciación */
-  --theme-category-faculty: var(--palette-uc-yellow);
-  --theme-category-studyroom: var(--palette-uc-blue-primary);
-  --theme-category-auditorium: var(--palette-uc-success);
-  --theme-category-library: var(--palette-uc-yellow-dark);
-  --theme-category-bath: var(--palette-vibrant-cyan);
-  --theme-category-food: var(--palette-uc-yellow);
-  --theme-category-water: var(--palette-uc-info);
-  --theme-category-sports: var(--palette-uc-success);
-  --theme-category-crisol: var(--palette-vibrant-violet);
-  --theme-category-parking: var(--palette-uc-gray-dark-a);
-  --theme-category-computers: var(--palette-uc-blue-primary);
-  --theme-category-photocopy: var(--palette-uc-yellow-dark);
-  --theme-category-financial: var(--palette-uc-success);
-  --theme-category-shop: var(--palette-uc-error);
-  --theme-category-bicycle: var(--palette-vibrant-cyan);
+  /* Categorías: Colores vibrantes que evitan #173F8A (fondo) y #FEC60D (hover) */
+  --theme-category-faculty: #FF6B35;
+  --theme-category-studyroom: #0176DE;
+  --theme-category-auditorium: #00AA00;
+  --theme-category-library: #E3AE00;
+  --theme-category-bath: #00D4AA;
+  --theme-category-food: #FF4757;
+  --theme-category-water: #3742FA;
+  --theme-category-sports: #2ED573;
+  --theme-category-crisol: #A55EEA;
+  --theme-category-parking: #747D8C;
+  --theme-category-computers: #5352ED;
+  --theme-category-photocopy: #FF9F43;
+  --theme-category-financial: #26DE81;
+  --theme-category-shop: #FC427B;
+  --theme-category-bicycle: #1DD1A1;
+}
+
+/**
+ * TEMA: UC Light Institucional (data-theme="uc-light")
+ * - Versión clara del tema UC oficial
+ * - Fondo claro con grises UC y celestes institucionales
+ * - Para uso en contextos que requieren más luminosidad
+ * - Mantiene identidad UC con mejor legibilidad en ambientes claros
+ */
+
+[data-theme="uc-light"] {
+  /* Canvas: Fondo principal usando gris claro UC pero no tan claro */
+  --theme-canvas: var(--palette-uc-gray-light-b);
+  --theme-canvas-foreground: var(--palette-uc-black);
+
+  /* Surface: Superficies elevadas con mejor contraste */
+  --theme-surface: var(--palette-uc-white);
+  --theme-surface-foreground: var(--palette-uc-black);
+  --theme-surface-low: var(--palette-uc-gray-dark-c);
+  --theme-surface-low-foreground: var(--palette-uc-black);
+  --theme-surface-high: var(--palette-uc-white);
+  --theme-surface-high-foreground: var(--palette-uc-black);
+
+  /* Brand: Azul primario UC */
+  --theme-brand: var(--palette-uc-blue-primary);
+  --theme-brand-foreground: var(--palette-uc-white);
+
+  /* Content: Jerarquía de texto con grises oscuros UC */
+  --theme-content-primary: var(--palette-uc-black);
+  --theme-content-secondary: var(--palette-uc-gray-dark-a);
+  --theme-content-tertiary: var(--palette-uc-gray-dark-b);
+
+  /* Interactive: Elementos interactivos con celestes UC más claros */
+  --theme-interactive-primary: var(--palette-uc-blue-primary);
+  --theme-interactive-primary-foreground: var(--palette-uc-white);
+  --theme-interactive-primary-hover: var(--palette-uc-blue-secondary);
+  
+  --theme-interactive-secondary: var(--palette-uc-gray-dark-c);
+  --theme-interactive-secondary-foreground: var(--palette-uc-black);
+  --theme-interactive-secondary-hover: var(--palette-uc-gray-dark-b);
+  
+  --theme-interactive-tertiary: transparent;
+  --theme-interactive-tertiary-foreground: var(--palette-uc-gray-dark-a);
+  --theme-interactive-tertiary-hover: var(--palette-uc-gray-light-c);
+
+  /* Accent: Usando gris más oscuro UC para mejor visibilidad de pills */
+  --theme-accent: var(--palette-uc-gray-dark-b);
+  --theme-accent-foreground: var(--palette-uc-blue-primary);
+  --theme-accent-hover: var(--palette-uc-yellow);
+
+  /* Feedback: Estados usando paleta oficial UC adaptada para fondo claro */
+  --theme-feedback-success: var(--palette-uc-success);
+  --theme-feedback-success-foreground: var(--palette-uc-white);
+  --theme-feedback-warning: var(--palette-uc-warning);
+  --theme-feedback-warning-foreground: var(--palette-uc-black);
+  --theme-feedback-danger: var(--palette-uc-error);
+  --theme-feedback-danger-foreground: var(--palette-uc-white);
+  --theme-feedback-info: var(--palette-uc-info);
+  --theme-feedback-info-foreground: var(--palette-uc-white);
+
+  /* Border & Input: Con mejor contraste */
+  --theme-border: var(--palette-uc-gray-dark-b);
+  --theme-border-subtle: var(--palette-uc-gray-dark-c);
+  --theme-input: var(--palette-uc-white);
+  --theme-input-foreground: var(--palette-uc-black);
+  --theme-focus-ring: var(--palette-uc-blue-primary);
+
+  /* Categorías: Colores claros y suaves que armonizan con fondo gris #C6C6C6 */
+  --theme-category-faculty: #3B82F6;
+  --theme-category-studyroom: #8B5CF6;
+  --theme-category-auditorium: #6B7280;
+  --theme-category-library: #F59E0B;
+  --theme-category-bath: #06B6D4;
+  --theme-category-food: #EF4444;
+  --theme-category-water: #2563EB;
+  --theme-category-sports: #10B981;
+  --theme-category-crisol: #A855F7;
+  --theme-category-parking: #64748B;
+  --theme-category-computers: #1D4ED8;
+  --theme-category-photocopy: #F97316;
+  --theme-category-financial: #059669;
+  --theme-category-shop: #EC4899;
+  --theme-category-bicycle: #84CC16;
 }
 
 /**
