@@ -314,7 +314,10 @@
   --color-muted-foreground: var(--color-surface-low-foreground);
   --color-destructive: var(--color-feedback-danger);
   --color-destructive-foreground: var(--color-feedback-danger-foreground);
+
 }
+@variant uc2 ([data-theme="uc-light"] &);
+
 
 /**
  * ================================================================
@@ -679,12 +682,12 @@
   /* Content: Jerarquía de texto con grises oscuros UC */
   --theme-content-primary: var(--palette-uc-black);
   --theme-content-secondary: var(--palette-uc-gray-dark-a);
-  --theme-content-tertiary: var(--palette-uc-gray-dark-b);
+  --theme-content-tertiary: var(--palette-uc-blue-dark);
 
   /* Interactive: Elementos interactivos con celestes UC más claros */
-  --theme-interactive-primary: var(--palette-uc-blue-primary);
+  --theme-interactive-primary: var(--palette-uc-yellow-dark);
   --theme-interactive-primary-foreground: var(--palette-uc-white);
-  --theme-interactive-primary-hover: var(--palette-uc-blue-secondary);
+  --theme-interactive-primary-hover: var(--palette-uc-yellow-dark);
   
   --theme-interactive-secondary: var(--palette-uc-gray-dark-c);
   --theme-interactive-secondary-foreground: var(--palette-uc-black);
@@ -695,7 +698,7 @@
   --theme-interactive-tertiary-hover: var(--palette-uc-gray-light-c);
 
   /* Accent: Usando gris más oscuro UC para mejor visibilidad de pills */
-  --theme-accent: var(--palette-uc-gray-dark-b);
+  --theme-accent: var(--palette-uc-yellow);
   --theme-accent-foreground: var(--palette-uc-blue-primary);
   --theme-accent-hover: var(--palette-uc-yellow);
 

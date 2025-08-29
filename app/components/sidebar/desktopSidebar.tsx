@@ -63,7 +63,7 @@ export default function DesktopSidebar() {
       <div className="flex h-screen overflow-y-auto">
         {/* Sidebar principal */}
         <section
-          className={`bg-canvas/95 backdrop-blur-sm text-canvas-foreground flex flex-col z-40 h-full pb-4 ${
+          className={`bg-canvas uc2:bg-brand backdrop-blur-sm text-canvas-foreground flex flex-col z-40 h-full pb-4 ${
             isOpen ? "w-44" : "w-20"
           }`}
         >
@@ -168,7 +168,7 @@ export default function DesktopSidebar() {
           <div className={`flex justify-center ${!isOpen ? "block" : "hidden"}`}>
             <div className="w-10 h-10 rounded-xl bg-brand">
               <Link href="/creditos" className="font-semibold block hover:underline">
-                <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
+                <span className={`w-10 h-10 rounded-lg flex items-center justify-center uc2:bg-content-tertiary`}>
                   <Icons.OSUC />
                 </span>{" "}
               </Link>
