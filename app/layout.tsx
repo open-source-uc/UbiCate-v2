@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./styles/globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { cookies } from "next/headers";
 

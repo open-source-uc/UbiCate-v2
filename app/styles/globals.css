@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+/* Import our CSS components */
+@import './variables.css';
+@import './base.css';

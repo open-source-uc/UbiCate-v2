@@ -1,0 +1,114 @@
+/* Base styles and resets */
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+
+	svg {
+		fill: currentColor !important;
+	}
+
+	html {
+		/* Improve text rendering for accessibility */
+		-webkit-text-size-adjust: 100%;
+		-moz-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+		/* Better font smoothing */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		/* Respect user's motion preferences */
+		scroll-behavior: smooth;
+	}
+
+	/* Respect user's reduced motion preference */
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	body {
+		@apply bg-background text-foreground;
+		font-family: 'Instrument Sans Variable', sans-serif;
+		line-height: 1.5;
+		overflow-x: hidden;
+	}
+
+	/* Enhanced focus styles for better accessibility */
+	*:focus {
+		outline: 2px solid var(--ring);
+		outline-offset: 2px;
+	}
+
+	/* Remove focus outline for mouse users but keep for keyboard users */
+	*:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	*:focus-visible {
+		outline: 2px solid var(--ring);
+		outline-offset: 2px;
+	}
+
+	/* Improve link accessibility */
+	a {
+		text-decoration-skip-ink: auto;
+	}
+
+	/* Make images responsive and accessible by default */
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	/* Improve form accessibility */
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	/* Remove default button styles but keep accessibility */
+	button {
+		cursor: pointer;
+	}
+
+	button:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+
+	/* Improve table accessibility */
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	/* Screen reader only class */
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+}
