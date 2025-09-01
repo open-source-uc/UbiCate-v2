@@ -352,7 +352,7 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 Puedes comunicarte con nosotros a través de los siguientes canales:
 
-- Instagram: [Open Source eUC](https://www.instagram.com/opensource_euc/)
+- Instagram: [Open Source eUC](https://www.instagram.com/osuc.dev/)
 - Correo electrónico: [ubicate@osuc.dev](mailto:ubicate@osuc.dev)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
