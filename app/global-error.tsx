@@ -78,8 +78,8 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
         <p>
           <small>
             Una solución temporal puede ser limpiar la caché del navegador o intentar usar el modo incógnito. Sin
-            embargo, por favor repórtalo a @osuc.dev en Instagram para que podamos resolver el problema. Asegúrate
-            de enviar el stack trace completo.
+            embargo, por favor repórtalo a @osuc.dev en Instagram para que podamos resolver el problema. Asegúrate de
+            enviar el stack trace completo.
           </small>
         </p>
       </body>
