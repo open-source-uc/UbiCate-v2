@@ -63,7 +63,10 @@ export interface Feature {
 
 export interface LineFeature {
   type: string;
-  properties: {};
+  properties: {
+    source?: "internal_graph" | "mapbox_api";
+    [key: string]: any;
+  };
   geometry: LineGeometry;
 }
 

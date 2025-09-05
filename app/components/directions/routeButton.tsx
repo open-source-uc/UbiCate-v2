@@ -72,7 +72,16 @@ export default function RouteButton({ place }: RouteButtonProps) {
     const { direction, duration, distance } = optimalDirection;
 
     setDirectionData(direction, "xd", distance);
-    setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
+    setNotification(
+      <DirectionSuccessNotification
+        distance={distance}
+        placeName={place?.properties.name}
+        routingSource={direction.properties?.source as "internal_graph" | "mapbox_api" | undefined}
+        startCoordinates={status.origin}
+        endCoordinates={status.destination}
+        campus={place?.properties.campus}
+      />,
+    );
     setSelectedPlace(null);
     setShouldCalculateRoute(false);
   }, [

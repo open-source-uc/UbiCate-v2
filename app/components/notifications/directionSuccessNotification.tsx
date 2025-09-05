@@ -1,18 +1,28 @@
 import { use } from "react";
 
 import * as Icons from "@/app/components/icons/icons";
+import ProposeRouteButton from "@/app/components/routes/ProposeRouteButton";
+import RoutingSourceIndicator from "@/app/components/routes/RoutingSourceIndicator";
 import { NotificationContext } from "@/app/context/notificationCtx";
 
 interface DirectionSuccessNotificationProps {
   distance?: number;
   placeName?: string;
   children?: React.ReactNode;
+  routingSource?: "internal_graph" | "mapbox_api";
+  startCoordinates?: [number, number];
+  endCoordinates?: [number, number];
+  campus?: string;
 }
 
 export default function DirectionSuccessNotification({
   distance,
   placeName,
   children,
+  routingSource,
+  startCoordinates,
+  endCoordinates,
+  campus,
 }: DirectionSuccessNotificationProps) {
   const { clearNotification, clearAllCodes } = use(NotificationContext);
 
@@ -38,12 +48,23 @@ export default function DirectionSuccessNotification({
         </button>
       </div>
 
-      <div className="flex-grow">
+      <div className="flex-grow space-y-3">
         {distance && placeName ? (
-          <div className="space-y-1 flex">
+          <div className="space-y-2">
             <p className="font-light">
               Estás a <span className="font-bold">{walkingTimeMinutes} minutos</span> de esta ubicación
             </p>
+            <div className="flex items-center justify-between">
+              <RoutingSourceIndicator source={routingSource} />
+              {routingSource === "mapbox_api" && startCoordinates && endCoordinates ? (
+                <ProposeRouteButton
+                  startCoordinates={startCoordinates}
+                  endCoordinates={endCoordinates}
+                  campus={campus}
+                  className="text-white bg-blue-600 border-blue-500 hover:bg-blue-700 hover:border-blue-600"
+                />
+              ) : null}
+            </div>
           </div>
         ) : (
           children
