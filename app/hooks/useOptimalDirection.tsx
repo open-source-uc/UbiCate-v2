@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
+import { campusGraphService } from "@/utils/campusGraphService";
+import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
 import { LineFeature } from "@/utils/types";
 
 export const fetchDirection = async (
@@ -7,6 +9,37 @@ export const fetchDirection = async (
   end: [number, number],
   walkwayBias: number,
 ): Promise<{ direction: LineFeature; duration: number; distance: number }> => {
+  // First, try to determine if both points are in the same campus
+  const startCampus = getCampusNameFromPoint(start[0], start[1]);
+  const endCampus = getCampusNameFromPoint(end[0], end[1]);
+
+  // If both points are in the same campus, try internal routing first
+  if (startCampus && endCampus && startCampus === endCampus) {
+    try {
+      const internalRoute = await campusGraphService.findInternalRoute(start, end, startCampus);
+
+      if (internalRoute) {
+        const direction: LineFeature = {
+          type: "Feature",
+          properties: { source: "internal_graph" },
+          geometry: {
+            type: "LineString",
+            coordinates: internalRoute.path.map((node) => node.coordinates),
+          },
+        };
+
+        return {
+          direction,
+          duration: internalRoute.estimatedTime,
+          distance: Math.floor(internalRoute.totalDistance),
+        };
+      }
+    } catch (error) {
+      console.log("Internal routing failed, falling back to external API:", error);
+    }
+  }
+
+  // Fallback to external Mapbox API
   const response = await fetch(
     `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&steps=true&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}&walkway_bias=${walkwayBias}`,
   );
@@ -22,7 +55,7 @@ export const fetchDirection = async (
 
   const direction: LineFeature = {
     type: "Feature",
-    properties: {},
+    properties: { source: "mapbox_api" },
     geometry: data.routes[0].geometry,
   };
 

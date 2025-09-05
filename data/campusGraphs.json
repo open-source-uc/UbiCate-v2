@@ -1,0 +1,174 @@
+{
+  "type": "CampusGraphCollection",
+  "graphs": {
+    "SJ": {
+      "nodes": [
+        {
+          "id": "sj_entrance_main",
+          "coordinates": [-70.61564953541995, -33.498485323162896],
+          "name": "Entrada Principal SJ",
+          "type": "building_entrance",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_plaza_central",
+          "coordinates": [-70.6135, -33.4985],
+          "name": "Plaza Central",
+          "type": "landmark",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_biblioteca",
+          "coordinates": [-70.6130, -33.4980],
+          "name": "Biblioteca",
+          "type": "building_entrance",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_ing_entrada",
+          "coordinates": [-70.6125, -33.4975],
+          "name": "Entrada Ingeniería",
+          "type": "building_entrance",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_comedor",
+          "coordinates": [-70.6140, -33.4990],
+          "name": "Comedor Central",
+          "type": "building_entrance",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_gym_entrada",
+          "coordinates": [-70.6120, -33.4995],
+          "name": "Entrada Gimnasio",
+          "type": "building_entrance",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_path_1",
+          "coordinates": [-70.6145, -33.4987],
+          "name": "Intersección Camino 1",
+          "type": "path_intersection",
+          "campus": "SJ"
+        },
+        {
+          "id": "sj_path_2",
+          "coordinates": [-70.6132, -33.4982],
+          "name": "Intersección Camino 2",
+          "type": "path_intersection",
+          "campus": "SJ"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_1",
+          "from": "sj_entrance_main",
+          "to": "sj_path_1",
+          "weight": 85,
+          "type": "walkway",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_2",
+          "from": "sj_path_1",
+          "to": "sj_plaza_central",
+          "weight": 120,
+          "type": "walkway",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_3",
+          "from": "sj_plaza_central",
+          "to": "sj_path_2",
+          "weight": 95,
+          "type": "walkway",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_4",
+          "from": "sj_path_2",
+          "to": "sj_biblioteca",
+          "weight": 75,
+          "type": "walkway",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_5",
+          "from": "sj_path_2",
+          "to": "sj_ing_entrada",
+          "weight": 110,
+          "type": "walkway",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_6",
+          "from": "sj_path_1",
+          "to": "sj_comedor",
+          "weight": 90,
+          "type": "covered_path",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_7",
+          "from": "sj_plaza_central",
+          "to": "sj_gym_entrada",
+          "weight": 180,
+          "type": "outdoor_path",
+          "bidirectional": true
+        },
+        {
+          "id": "edge_8",
+          "from": "sj_comedor",
+          "to": "sj_plaza_central",
+          "weight": 140,
+          "type": "walkway",
+          "bidirectional": true
+        }
+      ]
+    },
+    "LC": {
+      "nodes": [
+        {
+          "id": "lc_entrance_main",
+          "coordinates": [-70.61785030163261, -33.41986777583937],
+          "name": "Entrada Principal LC",
+          "type": "building_entrance",
+          "campus": "LC"
+        },
+        {
+          "id": "lc_plaza_central",
+          "coordinates": [-70.6175, -33.4195],
+          "name": "Plaza Central LC",
+          "type": "landmark",
+          "campus": "LC"
+        },
+        {
+          "id": "lc_biblioteca",
+          "coordinates": [-70.6170, -33.4190],
+          "name": "Biblioteca LC",
+          "type": "building_entrance",
+          "campus": "LC"
+        }
+      ],
+      "edges": [
+        {
+          "id": "lc_edge_1",
+          "from": "lc_entrance_main",
+          "to": "lc_plaza_central",
+          "weight": 100,
+          "type": "walkway",
+          "bidirectional": true
+        },
+        {
+          "id": "lc_edge_2",
+          "from": "lc_plaza_central",
+          "to": "lc_biblioteca",
+          "weight": 120,
+          "type": "walkway",
+          "bidirectional": true
+        }
+      ]
+    }
+  }
+}
