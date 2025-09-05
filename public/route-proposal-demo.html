@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Route Proposal Form Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Enhanced Route Proposal System</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Before: Poor Contrast Form -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4 text-red-600">Before: Poor Contrast</h2>
+                <div class="p-4 bg-white rounded-lg shadow-lg max-w-md mx-auto">
+                    <h3 class="text-lg font-semibold mb-4">Proponer nueva ruta</h3>
+
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Campus</label>
+                            <input
+                                type="text"
+                                value="SJ"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Tipo de ruta</label>
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="walkway">Sendero/Camino</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Descripción</label>
+                            <textarea
+                                rows="3"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            ></textarea>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button
+                                type="submit"
+                                class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+                            >
+                                Proponer ruta
+                            </button>
+                            <button
+                                type="button"
+                                class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- After: Enhanced Contrast & Interactive Form -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4 text-green-600">After: Enhanced Contrast & Interactive</h2>
+                <div class="p-6 bg-white rounded-lg shadow-lg max-w-lg mx-auto">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Proponer nueva ruta</h3>
+
+                    <form class="space-y-4">
+                        <!-- Proposal Type Selection -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Tipo de propuesta</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button
+                                    type="button"
+                                    class="p-3 rounded-md border-2 text-sm font-medium transition-colors bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100"
+                                >
+                                    <div class="font-semibold">Punto individual</div>
+                                    <div class="text-xs">Agregar un nuevo punto de interés</div>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="p-3 rounded-md border-2 text-sm font-medium transition-colors bg-blue-100 border-blue-600 text-blue-800"
+                                >
+                                    <div class="font-semibold">Ruta/Conexión</div>
+                                    <div class="text-xs">Conectar dos puntos con una ruta</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Point Selection -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Selección de puntos</label>
+                            <div class="space-y-2">
+                                <div class="text-sm text-gray-700 bg-blue-50 p-3 rounded border">
+                                    Selecciona dos puntos en el mapa para crear una ruta
+                                </div>
+                                
+                                <div class="flex gap-2">
+                                    <button
+                                        type="button"
+                                        class="flex-1 bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 font-medium transition-colors"
+                                    >
+                                        Iniciar selección
+                                    </button>
+                                </div>
+
+                                <div class="text-sm text-gray-800 bg-gray-100 p-3 rounded border">
+                                    <div class="font-medium mb-1">Puntos seleccionados:</div>
+                                    <div><strong>Inicio:</strong> -70.612123, -33.498765</div>
+                                    <div><strong>Final:</strong> -70.615234, -33.501876</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-1">Campus</label>
+                            <input
+                                type="text"
+                                value="SJ"
+                                class="w-full px-3 py-2 border-2 border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 bg-white"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-1">Tipo de ruta</label>
+                            <select class="w-full px-3 py-2 border-2 border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 bg-white">
+                                <option value="walkway">Sendero/Camino</option>
+                                <option value="stairs">Escaleras</option>
+                                <option value="elevator">Ascensor</option>
+                                <option value="covered_path">Camino cubierto</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-1">Descripción (opcional)</label>
+                            <textarea
+                                rows="3"
+                                placeholder="Describe la ruta propuesta, puntos de referencia, etc."
+                                class="w-full px-3 py-2 border-2 border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 bg-white resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button
+                                type="submit"
+                                class="flex-1 bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 font-medium transition-colors duration-200"
+                            >
+                                Proponer ruta
+                            </button>
+                            <button
+                                type="button"
+                                class="px-4 py-2 border-2 border-gray-400 text-gray-900 rounded-md hover:bg-gray-100 hover:border-gray-500 font-medium transition-colors duration-200"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="mt-12 bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Key Improvements</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Better Accessibility</h3>
+                    <p class="text-gray-600">Improved color contrast and typography for better readability and accessibility compliance.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Interactive Map Selection</h3>
+                    <p class="text-gray-600">Users can now click directly on the map to select points for route proposals.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Visual Feedback</h3>
+                    <p class="text-gray-600">Real-time preview lines and color-coded points provide immediate visual feedback during route creation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
