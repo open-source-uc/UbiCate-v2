@@ -4,7 +4,7 @@ import { createContext, ReactNode } from "react";
 
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
-import { PointFeature, PolygonFeature } from "@/utils/types";
+import { PointFeature, PolygonFeature } from "@/lib/types";
 
 import { useCustomPins } from "../hooks/useCustomPins";
 

@@ -1,9 +1,10 @@
 import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 
-import { PLACE_ICONS } from "../../utils/constants";
-import { alwaysVisiblePlaces } from "../../utils/places";
-import { Feature, PointFeature } from "../../utils/types";
-import * as Icons from "../components/icons/icons";
+import { PLACE_ICONS } from "@/lib/config/constants";
+import { alwaysVisiblePlaces } from "@/lib/places/data";
+import { Feature, PointFeature } from "@/lib/types";
+
+import * as Icons from "../components/ui/icons/icons";
 import { useSidebar } from "../context/sidebarCtx";
 
 interface SpecialMarkerProps {
