@@ -6,8 +6,8 @@
 @import 'tailwindcss';
 
 /* Import modular CSS files for better maintainability */
-@import '../styles/variables.css';
-@import '../styles/base.css';
+@import './styles/variables.css';
+@import './styles/base.css';
 
 /* =============================================== */
 /*           APPLICATION-SPECIFIC STYLES           */
