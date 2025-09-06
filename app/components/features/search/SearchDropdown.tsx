@@ -164,7 +164,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             onKeyDown={handleKeyDown}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
-            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:outline-blue-600 focus:outline-1 focus:outline-offset-[-1px] focus:shadow-[0_0_0_2px_#015FFF]"
+            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:outline-[color:var(--color-focus-indicator)] focus:outline-1 focus:outline-offset-[-1px] focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
             placeholder="Buscar lugares por nombre..."
             autoComplete="off"
           />

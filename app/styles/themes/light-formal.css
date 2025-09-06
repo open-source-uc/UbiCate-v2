@@ -1,0 +1,49 @@
+/* =============================================== */
+/*              LIGHT FORMAL THEME                */
+/* =============================================== */
+
+/* Light Formal theme variables */
+[data-theme="light-formal"] {
+  --theme-background: var(--palette-white-primary);
+  --theme-foreground: var(--palette-soft-gray-900);
+  
+  --theme-primary: var(--palette-blue-primary);
+  --theme-primary-foreground: var(--palette-white-primary);
+  
+  --theme-secondary: var(--palette-soft-gray-200);
+  --theme-secondary-foreground: var(--palette-soft-gray-800);
+
+  --theme-tertiary: var(--palette-soft-gray-50);
+  --theme-tertiary-foreground: var(--palette-soft-gray-800);
+  
+  --theme-muted: var(--palette-soft-gray-300);
+  --theme-muted-foreground: var(--palette-soft-gray-600);
+  
+  --theme-accent: var(--palette-soft-gray-300);
+  --theme-accent-foreground: var(--palette-soft-gray-700);
+  
+  --theme-destructive: var(--palette-professional-red-light);
+  --theme-destructive-foreground: var(--palette-white-primary);
+  
+  --theme-border: var(--palette-soft-gray-300);
+  --theme-input: var(--palette-soft-gray-200);
+  --theme-ring: var(--palette-blue-primary);
+
+  /* Functional colors for app-specific features */
+  --theme-route-primary: var(--palette-blue-primary);
+  --theme-route-border: var(--palette-cyan-800);
+  --theme-focus-indicator: var(--palette-blue-primary);
+
+  /* Chart Colors - Professional Palette */
+  --theme-chart-0: var(--palette-pastel-pink-300);
+  --theme-chart-1: var(--palette-pastel-lavender);
+  --theme-chart-2: var(--palette-pastel-peach);
+  --theme-chart-3: var(--palette-pastel-mint);
+  --theme-chart-4: var(--palette-pastel-lilac);
+  --theme-chart-5: var(--palette-pastel-coral);
+  --theme-chart-6: var(--palette-pastel-sky);
+  --theme-chart-7: var(--palette-pastel-cream);
+  --theme-chart-8: var(--palette-pastel-pink-400);
+  --theme-chart-9: var(--palette-pastel-peach);
+  --theme-chart-10: var(--palette-pastel-pink-200);
+}

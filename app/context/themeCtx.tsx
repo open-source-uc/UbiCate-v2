@@ -6,12 +6,6 @@ export type Theme = "light-formal" | "pink-coquette" | "";
 
 const themeOptions: Theme[] = ["light-formal", "pink-coquette", ""];
 
-const VIEWPORT_COLORS = {
-  "": "#150a04", // brown-900 (tema por defecto)
-  "pink-coquette": "#fdf2f8", // pink-coquette
-  "light-formal": "#f9f8f3", // white-primary
-} as const;
-
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
@@ -25,10 +19,20 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // eslint-disable-next-line
   const [theme, setThemeState] = useState<Theme>("");
 
+  const getViewportColor = () => {
+    if (typeof document === "undefined") return "#150a04"; // fallback
+
+    return getComputedStyle(document.documentElement).getPropertyValue("--color-background").trim();
+  };
+
   const updateViewportColor = (currentTheme: Theme) => {
     if (typeof document === "undefined") return;
 
-    const color = VIEWPORT_COLORS[currentTheme];
+    // Apply theme first to get correct CSS variable values
+    document.documentElement.setAttribute("data-theme", currentTheme);
+
+    // Get the color from CSS variable after theme is applied
+    const color = getViewportColor();
 
     let metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (!metaThemeColor) {
