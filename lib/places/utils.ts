@@ -1,7 +1,7 @@
 import { booleanClockwise } from "@turf/boolean-clockwise";
 import { centroid } from "@turf/centroid";
 
-import { getCampusNameFromPoint, getFacultiesIdsFromPoint } from "@/utils/getCampusBounds";
+import { getCampusNameFromPoint, getFacultiesIdsFromPoint } from "@/lib/campus/getCampusBounds";
 import { Feature } from "@/utils/types";
 
 // Normaliza identificadores para comparaciones consistentes
