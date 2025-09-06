@@ -34,6 +34,9 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 - [dvictorerol](https://github.com/dvictorerol)
 - [Utmite](https://github.com/Utmite)
 
+### Documentación by DeepWiki
+[Documentación](https://deepwiki.com/open-source-uc/UbiCate-v2)
+
 ## Query Params
 
 Para centrar el mapa o la ubicación en el formulario en un campus específico, se puede agregar un parámetro en la URL con el nombre del campus:
