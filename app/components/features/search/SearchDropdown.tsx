@@ -3,10 +3,10 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import Fuse from "fuse.js";
 
 import { useSidebar } from "@/app/context/sidebarCtx";
-import { getCategoryColor } from "@/utils/categoryToColors";
-import { emitPlaceSelectedEvent } from "@/utils/customEvents";
-import PlacesJSON from "@/utils/places";
-import { CATEGORIES, Feature, siglas } from "@/utils/types";
+import { emitPlaceSelectedEvent } from "@/lib/events/customEvents";
+import { getCategoryColor } from "@/lib/map/categoryToColors";
+import PlacesJSON from "@/lib/places/data";
+import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
 import MarkerIcon from "../../ui/icons/markerIcon";
 

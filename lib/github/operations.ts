@@ -1,4 +1,4 @@
-import { Feature } from "@/utils/types";
+import { Feature } from "@/lib/types";
 
 import { GITHUB_BRANCH_NAME, GITHUB_TOKEN_USER, GITHUB_USER_EMAIL } from "./config";
 import { GithubFileResponse, Places } from "./types";

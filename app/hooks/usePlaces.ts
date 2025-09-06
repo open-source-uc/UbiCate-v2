@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 
-import { Feature, PointFeature, PolygonFeature } from "@/utils/types";
+import { Feature, PointFeature, PolygonFeature } from "@/lib/types";
 
 /*
 Este hook solo se usa sidebarCtx 

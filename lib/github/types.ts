@@ -1,4 +1,4 @@
-import { Feature } from "@/utils/types";
+import { Feature } from "@/lib/types";
 
 export interface Places {
   type: string;

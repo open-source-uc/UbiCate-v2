@@ -1,6 +1,6 @@
 import { point, polygon, booleanPointInPolygon } from "@turf/turf";
 
-import PlacesJSON from "@/utils/places";
+import PlacesJSON from "@/lib/places/data";
 
 interface CampusBounds {
   longitudeRange: [number, number];

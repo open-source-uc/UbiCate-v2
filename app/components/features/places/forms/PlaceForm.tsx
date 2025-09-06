@@ -4,7 +4,7 @@ import { use, useEffect } from "react";
 
 import { pinsContext } from "@/app/context/pinsCtx";
 import { usePlaceForm } from "@/app/hooks/usePlaceForm";
-import { PointFeature } from "@/utils/types";
+import { PointFeature } from "@/lib/types";
 
 import * as Icons from "../../../ui/icons/icons";
 

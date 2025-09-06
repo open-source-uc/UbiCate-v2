@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CATEGORIES } from "@/utils/types";
+import { CATEGORIES } from "@/lib/types";
 
 import * as Icons from "./icons";
 

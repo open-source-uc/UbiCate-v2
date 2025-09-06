@@ -2,8 +2,8 @@ import { useMemo } from "react";
 
 import { centroid } from "@turf/turf";
 
-import { getCampusEntryPoint, getCampusNameFromPoint } from "@/utils/getCampusBounds";
-import { Feature, PointFeature } from "@/utils/types";
+import { getCampusEntryPoint, getCampusNameFromPoint } from "@/lib/campus/getCampusBounds";
+import { Feature, PointFeature } from "@/lib/types";
 
 export function useDirectionStatus(
   position: PointFeature | null,

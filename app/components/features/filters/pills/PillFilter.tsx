@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { categoryFilter, PlaceFilter } from "@/app/components/features/filters/pills/placeFilters";
 import { useSidebar } from "@/app/context/sidebarCtx";
-import { getCategoryColor } from "@/utils/categoryToColors";
-import { CATEGORIES } from "@/utils/types";
+import { getCategoryColor } from "@/lib/map/categoryToColors";
+import { CATEGORIES } from "@/lib/types";
 
 import * as Icons from "../../../ui/icons/icons";
 
@@ -42,7 +42,7 @@ function PillFilter() {
 
   useEffect(() => {
     const loadGeoJson = async () => {
-      const { default: data } = await import("@/utils/places");
+      const { default: data } = await import("@/lib/places/data");
       setPlacesGeoJson(data);
     };
 

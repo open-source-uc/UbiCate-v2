@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { fetchApprovedPlaces, fetchNewPlaces, githubFileOperation } from "@/lib/github/operations";
 import { createFeatureFromPoints, generateRandomIdWithTimestamp, normalizeIdentifier } from "@/lib/places/utils";
+import { Feature } from "@/lib/types";
 import { deleteSchema, patchSchema, placeSchema, putSchema } from "@/lib/validation/schemas";
-import { Feature } from "@/utils/types";
 
 const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
 

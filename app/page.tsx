@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
-import PlacesJSON from "@/utils/places";
-import { Feature } from "@/utils/types";
+import PlacesJSON from "@/lib/places/data";
+import { Feature } from "@/lib/types";
 
 import NavigationSidebar from "./components/features/navigation/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";

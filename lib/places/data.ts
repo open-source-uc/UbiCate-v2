@@ -1,7 +1,6 @@
 import rawPlaces from "@/data/places.json";
-
-import { ALWAYS_VISIBLE_IDS } from "./constants";
-import { JSONFeatures, Feature, PointFeature } from "./types";
+import { ALWAYS_VISIBLE_IDS } from "@/lib/config/constants";
+import { JSONFeatures, Feature, PointFeature } from "@/lib/types";
 
 const PlacesJSON: JSONFeatures = rawPlaces as JSONFeatures;
 

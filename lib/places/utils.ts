@@ -2,7 +2,7 @@ import { booleanClockwise } from "@turf/boolean-clockwise";
 import { centroid } from "@turf/centroid";
 
 import { getCampusNameFromPoint, getFacultiesIdsFromPoint } from "@/lib/campus/getCampusBounds";
-import { Feature } from "@/utils/types";
+import { Feature } from "@/lib/types";
 
 // Normaliza identificadores para comparaciones consistentes
 export function normalizeIdentifier(identifier: string): string {

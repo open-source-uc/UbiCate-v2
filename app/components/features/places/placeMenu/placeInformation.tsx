@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 
-import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
+import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/lib/types";
 
 import * as Icons from "../../../ui/icons/icons";
 import MarkDownComponent from "../../../ui/markDown";

@@ -1,7 +1,7 @@
 import { Layer, Source } from "react-map-gl/maplibre";
 
-import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { LineFeature } from "@/utils/types";
+import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
+import { LineFeature } from "@/lib/types";
 
 interface RouteInfoMarkerProps {
   route: LineFeature;

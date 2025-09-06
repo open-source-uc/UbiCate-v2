@@ -1,4 +1,4 @@
-import { CATEGORIES } from "@/utils/types";
+import { CATEGORIES } from "@/lib/types";
 
 const categoryToColorMap = new Map<CATEGORIES, string>([
   [CATEGORIES.FACULTY, "bg-chart-1"],

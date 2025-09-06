@@ -5,8 +5,8 @@ import { useState, useCallback, useRef, useMemo } from "react";
 import { booleanClockwise } from "@turf/boolean-clockwise";
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
-import { getCampusNameFromPoint } from "@/utils/getCampusBounds";
-import { CATEGORIES, PointFeature, PolygonFeature } from "@/utils/types";
+import { getCampusNameFromPoint } from "@/lib/campus/getCampusBounds";
+import { CATEGORIES, PointFeature, PolygonFeature } from "@/lib/types";
 
 type CustomPin = PointFeature;
 

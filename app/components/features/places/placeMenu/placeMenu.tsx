@@ -3,8 +3,8 @@ import { use, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 
 import { pinsContext } from "@/app/context/pinsCtx";
-import { Feature } from "@/utils/types";
-import { apiClient } from "@/utils/ubicateApiClient";
+import { apiClient } from "@/lib/api/ubicateApiClient";
+import { Feature } from "@/lib/types";
 
 import PlaceForm from "../forms/PlaceForm";
 

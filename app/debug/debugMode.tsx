@@ -5,10 +5,10 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Source, Layer, useMap } from "react-map-gl/maplibre";
 
-import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import Places from "@/utils/places";
-import { JSONFeatures } from "@/utils/types";
-import { apiClient } from "@/utils/ubicateApiClient";
+import { apiClient } from "@/lib/api/ubicateApiClient";
+import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
+import Places from "@/lib/places/data";
+import { JSONFeatures } from "@/lib/types";
 
 import {
   allPointsLayer,

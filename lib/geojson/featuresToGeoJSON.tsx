@@ -1,4 +1,4 @@
-import { Feature, LineFeature } from "@/utils/types";
+import { Feature, LineFeature } from "@/lib/types";
 
 export function featuresToGeoJSON(features: Feature[] | Feature | LineFeature | null): any {
   return {

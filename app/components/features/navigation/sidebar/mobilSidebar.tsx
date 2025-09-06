@@ -8,7 +8,7 @@ import { NotificationErrorBoundary } from "@/app/components/app/appErrors/Notifi
 import * as Icons from "@/app/components/ui/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
-import { SubSidebarType } from "@/utils/types";
+import { SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";

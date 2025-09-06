@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CategoryOptions, CategoryToDisplayName } from "@/utils/types";
+import { CategoryOptions, CategoryToDisplayName } from "@/lib/types";
 
 interface CategoriesFieldProps {
   categories: string[];

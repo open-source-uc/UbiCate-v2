@@ -2,7 +2,7 @@
 
 import { createContext, useContext, ReactNode, useState } from "react";
 
-import { LineFeature } from "@/utils/types";
+import { LineFeature } from "@/lib/types";
 
 interface DirectionsContextType {
   route: LineFeature | null;

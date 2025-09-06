@@ -1,6 +1,6 @@
 import type { Map, PointLike } from "maplibre-gl";
 
-import { Feature } from "@/utils/types";
+import { Feature } from "@/lib/types";
 
 export function getFeatureOfLayerFromPoint(target: Map, point: PointLike, layers: string[]): Feature | null {
   // Filtrar solo las capas que realmente existen en el mapa

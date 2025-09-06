@@ -4,7 +4,7 @@ import { Marker, useMap } from "react-map-gl/maplibre";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { useUbication } from "@/app/hooks/useUbication";
-import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
+import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 
 import DangerButton from "../../ui/danger/dangerButton";
 import * as Icons from "../../ui/icons/icons";

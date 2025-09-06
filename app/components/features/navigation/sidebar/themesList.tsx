@@ -1,6 +1,6 @@
 import * as Icons from "@/app/components/ui/icons/icons";
 import { Theme, useTheme } from "@/app/context/themeCtx";
-import { SubSidebarType } from "@/utils/types";
+import { SubSidebarType } from "@/lib/types";
 
 export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSidebar: (value: SubSidebarType) => void }) {
   const { setTheme, theme } = useTheme();
