@@ -257,19 +257,9 @@ export default function MobileSidebar() {
                             activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
                           }`}
                         >
-                          <Icons.Brush />
+                          <Icons.Palette />
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
-                      </button>
-                      <button
-                        disabled
-                        className="w-full flex flex-col items-center justify-center p-2 rounded-md opacity-50 cursor-not-allowed"
-                        aria-disabled="true"
-                      >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-                          <Icons.MenuBook />
-                        </span>
-                        <p className="text-sm tablet:text-md mt-1">Guías</p>
                       </button>
                     </div>
                   </div>

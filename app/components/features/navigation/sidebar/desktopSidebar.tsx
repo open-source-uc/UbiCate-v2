@@ -133,21 +133,9 @@ export default function DesktopSidebar() {
                     activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
                   }`}
                 >
-                  <Icons.Brush />
+                  <Icons.Palette />
                 </span>
                 <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Temas</span>
-              </button>
-              {/* Guides button */}
-              <button
-                disabled
-                className={`${isOpen ? "w-full p-2 rounded-md opacity-50" : ""} flex items-center ${
-                  !isOpen ? "justify-center px-4 py-3 opacity-50" : "space-x-4"
-                }`}
-              >
-                <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-                  <Icons.MenuBook />
-                </span>
-                <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Guías</span>
               </button>
             </div>
           </nav>

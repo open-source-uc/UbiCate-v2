@@ -25,7 +25,6 @@ import { useSidebar } from "../context/sidebarCtx";
 import { HandlePlaceSelectionOptions, useMapEvents } from "./hooks/useMapEvents";
 import { useMapStyle } from "./hooks/useMapStyle";
 import Marker from "./marker";
-import SpecialMarkers from "./SpecialMarkers";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -164,7 +163,6 @@ export default function MapComponent({
           <UserLocation />
         </SilentErrorBoundary>
         <DirectionsComponent />
-        <SpecialMarkers />
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as CATEGORIES;
           return (

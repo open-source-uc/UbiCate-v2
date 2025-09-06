@@ -1,3 +1,7 @@
+//
+// Deprecado: Los marcadores especiales no serán utilizados en el mediano plazo.
+//
+
 import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 
 import { PLACE_ICONS } from "@/lib/config/constants";
