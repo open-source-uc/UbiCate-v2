@@ -11,9 +11,14 @@ interface RouteInfoMarkerProps {
 export default function RouteLayer({ route }: RouteInfoMarkerProps) {
   const routeGeoJSON = featuresToGeoJSON(route);
 
+  // Get CSS variable values for route colors
+  const routeBorderColor = getComputedStyle(document.documentElement).getPropertyValue("--color-route-border").trim();
+
+  const routePrimaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-route-primary").trim();
+
   return (
     <>
-      {/* White border layer (rendered first) */}
+      {/* Border layer (rendered first) */}
       <Source id="route-border" type="geojson" data={routeGeoJSON}>
         <Layer
           id="route-border"
@@ -23,13 +28,13 @@ export default function RouteLayer({ route }: RouteInfoMarkerProps) {
             "line-join": "round",
           }}
           paint={{
-            "line-color": "#28536B",
+            "line-color": routeBorderColor,
             "line-width": 7,
           }}
         />
       </Source>
 
-      {/* Blue route line (rendered on top) */}
+      {/* Primary route line (rendered on top) */}
       <Source id="route" type="geojson" data={routeGeoJSON}>
         <Layer
           id="route"
@@ -39,7 +44,7 @@ export default function RouteLayer({ route }: RouteInfoMarkerProps) {
             "line-join": "round",
           }}
           paint={{
-            "line-color": "#015fff",
+            "line-color": routePrimaryColor,
             "line-width": 5,
           }}
         />
