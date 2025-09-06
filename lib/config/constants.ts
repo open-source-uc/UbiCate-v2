@@ -1,3 +1,7 @@
+//
+// Deprecado: Los marcadores especiales no serán utilizados en el mediano plazo.
+//
+
 // ID de los lugares fijos que siempre deben mostrarse
 export const ALWAYS_VISIBLE_IDS = new Set(["OTHER-34012515", "OTHER-32467011", "OTHER-26347017"]);
 
