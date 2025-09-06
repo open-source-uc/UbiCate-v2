@@ -1,0 +1,65 @@
+{
+  "osuc_contributors": [
+    {
+      "id": "mrbased",
+      "firstName": "Benjamín",
+      "lastName": "González",
+      "githubUsername": "MrBased",
+      "githubUrl": "https://github.com/MrBased",
+      "linkedinUrl": "https://linkedin.com/in/benjamingonzalezdev",
+      "avatarUrl": "https://github.com/MrBased.png",
+      "role": "Lead Developer & Maintainer"
+    },
+    {
+      "id": "mc-cari",
+      "firstName": "María Carmen",
+      "lastName": "Cárdenas",
+      "githubUsername": "mc-cari",
+      "githubUrl": "https://github.com/mc-cari",
+      "linkedinUrl": "https://linkedin.com/in/mc-cari",
+      "avatarUrl": "https://github.com/mc-cari.png",
+      "role": "Core Developer & Maintainer"
+    },
+    {
+      "id": "ooscarr",
+      "firstName": "Oscar",
+      "lastName": "Rodriguez",
+      "githubUsername": "ooscarr",
+      "githubUrl": "https://github.com/ooscarr",
+      "linkedinUrl": "https://linkedin.com/in/ooscarr",
+      "avatarUrl": "https://github.com/ooscarr.png",
+      "role": "Developer & Maintainer"
+    },
+    {
+      "id": "vlermandac",
+      "firstName": "Valentina",
+      "lastName": "Hermanda",
+      "githubUsername": "vlermandac",
+      "githubUrl": "https://github.com/vlermandac",
+      "linkedinUrl": "https://linkedin.com/in/vlermandac",
+      "avatarUrl": "https://github.com/vlermandac.png",
+      "role": "Developer & Maintainer"
+    },
+    {
+      "id": "dvictorerol",
+      "firstName": "Daniel",
+      "lastName": "Víctor",
+      "githubUsername": "dvictorerol",
+      "githubUrl": "https://github.com/dvictorerol",
+      "linkedinUrl": "https://linkedin.com/in/dvictorerol",
+      "avatarUrl": "https://github.com/dvictorerol.png",
+      "role": "Developer & Maintainer"
+    },
+    {
+      "id": "utmite",
+      "firstName": "Ulises",
+      "lastName": "Mite",
+      "githubUsername": "Utmite",
+      "githubUrl": "https://github.com/Utmite",
+      "linkedinUrl": "https://linkedin.com/in/utmite",
+      "avatarUrl": "https://github.com/Utmite.png",
+      "role": "Developer & Maintainer"
+    }
+  ],
+  "uc_contributors": []
+}
