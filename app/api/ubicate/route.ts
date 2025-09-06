@@ -1,295 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { booleanClockwise } from "@turf/boolean-clockwise";
-import { centroid } from "@turf/centroid";
-import { z } from "zod";
+import { fetchApprovedPlaces, fetchNewPlaces, githubFileOperation } from "@/lib/github/operations";
+import { createFeatureFromPoints, generateRandomIdWithTimestamp, normalizeIdentifier } from "@/lib/places/utils";
+import { deleteSchema, patchSchema, placeSchema, putSchema } from "@/lib/validation/schemas";
+import { Feature } from "@/utils/types";
 
-import { getCampusNameFromPoint, getFacultiesIdsFromPoint } from "@/utils/getCampusBounds";
-import { CATEGORIES, Feature } from "@/utils/types";
-
-const GITHUB_TOKEN_USER = process.env.GITHUB_TOKEN_USER;
-const GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
-const GITHUB_USER_EMAIL = process.env.GITHUB_USER_EMAIL;
 const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
-
-interface Places {
-  type: string;
-  features: Feature[];
-}
-
-interface GithubFileResponse {
-  url: string;
-  fileData: Places;
-  file_sha: string;
-}
-
-// Normaliza identificadores para comparaciones consistentes
-function normalizeIdentifier(identifier: string): string {
-  return identifier.trim().toUpperCase().replace(/\s+/g, "");
-}
-
-function generateRandomIdWithTimestamp() {
-  const timestamp = Date.now().toString(36); // Get timestamp in base-36
-  const randomPart = Math.random().toString(36).substring(2, 8); // Shorter random part
-  return timestamp + randomPart; // Concatenate timestamp and random part
-}
-
-// Función para crear un archivo nuevo en GitHub
-async function createGithubFile(path: string, initialContent: Places): Promise<GithubFileResponse> {
-  const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}`;
-
-  try {
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-        Accept: "application/vnd.github+json",
-      },
-      body: JSON.stringify({
-        message: `CREATE: Initial file structure for ${path}`,
-        committer: {
-          name: "BOT-PLACES",
-          email: GITHUB_USER_EMAIL,
-        },
-        content: Buffer.from(JSON.stringify(initialContent, null, 4)).toString("base64"),
-        branch: GITHUB_BRANCH_NAME,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData: any = await response.json();
-      throw new Error(`Failed to create file ${path}: ${errorData.message}`);
-    }
-
-    const data: any = await response.json();
-
-    return {
-      url,
-      fileData: initialContent,
-      file_sha: data.content.sha,
-    };
-  } catch (error) {
-    console.error(`Error creating file ${path}:`, error);
-    throw error;
-  }
-}
-
-// Función mejorada para interactuar con archivos en GitHub
-async function githubFileOperation(
-  url: string,
-  feature: Feature,
-  file_places: Places,
-  file_sha: string,
-  operationType: string,
-): Promise<any> {
-  try {
-    if (!file_sha && operationType !== "CREATE_FILE") {
-      throw new Error(`Cannot perform ${operationType} operation: Missing file SHA`);
-    }
-
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-        Accept: "application/vnd.github+json",
-      },
-      body: JSON.stringify({
-        message: `${operationType}: ${feature.properties.name} (${feature.properties.identifier})`,
-        committer: {
-          name: "BOT-PLACES",
-          email: GITHUB_USER_EMAIL,
-        },
-        content: Buffer.from(JSON.stringify(file_places, null, 4)).toString("base64"),
-        sha: file_sha,
-        branch: GITHUB_BRANCH_NAME,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData: any = await response.json();
-      // Si es un error de SHA, podría ser una condición de carrera
-      if (errorData.message && errorData.message.includes("SHA")) {
-        throw new Error(`Concurrent modification detected: ${errorData.message}`);
-      }
-      throw new Error(`GitHub API error (${response.status}): ${errorData.message}`);
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error(`Error in GitHub operation (${operationType}):`, error);
-    throw error;
-  }
-}
-
-// Función mejorada para obtener archivo de GitHub
-async function fetchGithubFile(path: string): Promise<GithubFileResponse> {
-  const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
-  const emptyCollection: Places = { type: "FeatureCollection", features: [] };
-
-  try {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
-        Accept: "application/vnd.github+json",
-      },
-    });
-
-    // Si el archivo no existe, crearlo
-    if (response.status === 404) {
-      console.log(`File ${path} not found. Creating new file.`);
-      return await createGithubFile(path, emptyCollection);
-    }
-
-    if (!response.ok) {
-      throw new Error(`Error fetching data: ${response.status} ${response.statusText}`);
-    }
-
-    const fileData: any = await response.json();
-    let parsedData: Places;
-
-    try {
-      parsedData = JSON.parse(Buffer.from(fileData.content, "base64").toString());
-
-      // Validar la estructura básica del archivo
-      if (!parsedData.type || !Array.isArray(parsedData.features)) {
-        console.warn(`File ${path} has invalid structure. Resetting.`);
-        parsedData = emptyCollection;
-      }
-    } catch (parseError) {
-      console.error(`Error parsing JSON from ${path}. Resetting file:`, parseError);
-      parsedData = emptyCollection;
-    }
-
-    return { url, fileData: parsedData, file_sha: fileData.sha };
-  } catch (error) {
-    console.error(`Error fetching file ${path}:`, error);
-    throw error;
-  }
-}
-
-// Obtener lugares aprobados con manejo de reintentos
-async function fetchApprovedPlaces(retryCount = 3): Promise<GithubFileResponse> {
-  try {
-    return await fetchGithubFile("data/places.json");
-  } catch (error) {
-    if (retryCount > 0) {
-      console.log(`Retrying fetchApprovedPlaces. Attempts remaining: ${retryCount - 1}`);
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Esperar 1 segundo antes de reintentar
-      return fetchApprovedPlaces(retryCount - 1);
-    }
-    throw error;
-  }
-}
-
-// Obtener lugares nuevos o en proceso de aprobación con manejo de reintentos
-async function fetchNewPlaces(retryCount = 3): Promise<GithubFileResponse> {
-  try {
-    return await fetchGithubFile("data/newPlaces.json");
-  } catch (error) {
-    if (retryCount > 0) {
-      console.log(`Retrying fetchNewPlaces. Attempts remaining: ${retryCount - 1}`);
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Esperar 1 segundo antes de reintentar
-      return fetchNewPlaces(retryCount - 1);
-    }
-    throw error;
-  }
-}
-
-// Esquema de validación común para POST y PUT
-const placeSchema = z.object({
-  data: z.object({
-    name: z
-      .string({ required_error: "El nombre es obligatorio" })
-      .min(2, "El nombre debe tener al menos 2 caracteres")
-      .max(60, "El nombre debe tener como máximo 60 caracteres"),
-
-    information: z
-      .string({ required_error: "La descripción es obligatoria" })
-      .max(1024, "La descripción no puede exceder los 1024 caracteres"),
-
-    categories: z
-      .array(
-        z.enum(Object.values(CATEGORIES) as [string, ...string[]], {
-          errorMap: () => ({ message: "Categoría no válida" }),
-        }),
-      )
-      .transform((arr) => [...new Set(arr)]),
-
-    floors: z
-      .array(z.number({ invalid_type_error: "Cada piso debe ser un número" }))
-      .refine((arr) => arr === undefined || !arr.includes(0), {
-        message: "El piso 0 no está permitido",
-      })
-      .optional()
-      .transform((arr) => (arr ? [...new Set(arr)] : arr)),
-  }),
-
-  points: z.array(
-    z.object({
-      geometry: z.object({
-        coordinates: z.tuple([z.number(), z.number()], { required_error: "Coordenadas son obligatorias" }),
-      }),
-    }),
-  ),
-});
-
-// Esquema para PUT que incluye identificador
-const putSchema = placeSchema.extend({
-  identifier: z.string({ required_error: "El identificador es obligatorio" }),
-});
-
-// Función para crear feature a partir de puntos
-function createFeatureFromPoints(points: any[], properties: any): Feature | null {
-  if (points.length === 1) {
-    // Caso de un solo punto
-    return {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: points[0].geometry.coordinates,
-      },
-      properties: {
-        ...properties,
-        campus: getCampusNameFromPoint(points[0].geometry.coordinates[0], points[0].geometry.coordinates[1]) ?? "",
-        faculties: getFacultiesIdsFromPoint(points[0].geometry.coordinates[0], points[0].geometry.coordinates[1]) ?? [],
-      },
-    };
-  } else if (points.length >= 3) {
-    // Caso de polígono (3+ puntos)
-    const coordinates = points.map((point) => point.geometry.coordinates);
-
-    // Asegura que el polígono esté cerrado (el primer punto se repite al final)
-    const closedCoordinates =
-      coordinates[0][0] === coordinates[coordinates.length - 1][0] &&
-      coordinates[0][1] === coordinates[coordinates.length - 1][1]
-        ? coordinates
-        : [...coordinates, coordinates[0]];
-
-    // Si no es en sentido antihorario, lo revertimos (para GeoJSON válido)
-    const isClockwise = booleanClockwise(closedCoordinates);
-    const orderedCoordinates = isClockwise ? closedCoordinates.slice().reverse() : closedCoordinates;
-
-    const destination = centroid({
-      type: "Polygon",
-      coordinates: [orderedCoordinates],
-    }).geometry.coordinates as [number, number];
-
-    return {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [orderedCoordinates],
-      },
-      properties: {
-        ...properties,
-        campus: getCampusNameFromPoint(destination[0], destination[1]) ?? "",
-        faculties: getFacultiesIdsFromPoint(destination[0], destination[1]) ?? [],
-      },
-    };
-  }
-
-  return null;
-}
 
 export async function GET() {
   try {
@@ -398,13 +114,12 @@ export async function POST(request: NextRequest) {
     await githubFileOperation(newPlacesUrl, nuevo_punto, newPlaces, newPlacesSha, "CREATE");
     return NextResponse.json({
       message: "¡El lugar fue creado! Ahora debe esperar a que sea aprobado (máximo 1 semana).",
-      identifier: nuevo_punto.properties.identifier,
     });
   } catch (error) {
     console.error("Error in POST:", error);
     return NextResponse.json(
       {
-        error: "Error al procesar el JSON",
+        error: "Error al procesar la solicitud",
         message: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 400 },
@@ -422,28 +137,17 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
     const points = result.data.points;
 
-    // Verificar si el lugar existe en lugares aprobados
-    const { fileData: approvedPlaces } = await fetchApprovedPlaces();
-    const approvedIndex = approvedPlaces.features.findIndex(
-      (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-    );
-
-    // Verificar si el lugar existe en lugares nuevos
-    const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
-    const newPlacesIndex = newPlaces.features.findIndex(
-      (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-    );
-
-    // Si no existe en ningún archivo, retornar error
-    if (approvedIndex === -1 && newPlacesIndex === -1) {
-      return NextResponse.json({ message: "¡El lugar NO existe!" }, { status: 400 });
+    if (points.length === 1 && (result.data.data.floors === undefined || result.data.data.floors?.length === 0)) {
+      return NextResponse.json({ message: "Se requiere al menos un piso para crear un lugar" }, { status: 400 });
     }
 
-    // Crear el punto actualizado con los nuevos datos
-    let actualizado_punto = createFeatureFromPoints(points, {
+    if (points.length === 2) {
+      return NextResponse.json({ message: "Se requieren al menos 3 puntos para crear un polígono" }, { status: 400 });
+    }
+
+    let updated_point = createFeatureFromPoints(points, {
       identifier: result.data.identifier,
       name: result.data.data.name,
       information: result.data.data.information,
@@ -452,7 +156,7 @@ export async function PUT(request: NextRequest) {
       needApproval: true,
     });
 
-    if (!actualizado_punto) {
+    if (!updated_point) {
       return NextResponse.json(
         {
           message: "Se requiere al menos 1 punto para ubicar un lugar o 3 puntos para crear un polígono",
@@ -461,32 +165,39 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    if (actualizado_punto.properties.campus === "") {
+    if (updated_point.properties.campus === "") {
       return NextResponse.json({ message: "El lugar no está dentro de un campus" }, { status: 400 });
     }
 
+    const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
+
     try {
-      // Si existe en lugares nuevos, actualizarlo
+      // Buscar y actualizar en lugares nuevos
+      const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
+      const newPlacesIndex = newPlaces.features.findIndex(
+        (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
+      );
+
       if (newPlacesIndex !== -1) {
-        newPlaces.features.splice(newPlacesIndex, 1);
-        newPlaces.features.unshift(actualizado_punto);
-        await githubFileOperation(newPlacesUrl, actualizado_punto, newPlaces, newPlacesSha, "UPDATE");
-      } else {
-        // Si solo existe en lugares aprobados, agregarlo a lugares nuevos
-        newPlaces.features.unshift(actualizado_punto);
-        await githubFileOperation(newPlacesUrl, actualizado_punto, newPlaces, newPlacesSha, "UPDATE");
+        // Actualizar en lugares nuevos
+        newPlaces.features[newPlacesIndex] = updated_point;
+        await githubFileOperation(newPlacesUrl, updated_point, newPlaces, newPlacesSha, "UPDATE");
+        return NextResponse.json({ message: "¡El lugar fue actualizado en lugares pendientes de aprobación!" });
       }
 
-      return NextResponse.json(
-        {
-          message: "¡El lugar fue actualizado! Ahora debe esperar a que sea aprobado (máximo 1 semana).",
-          identifier: actualizado_punto.properties.identifier,
-        },
-        { status: 200 },
+      // Si no está en lugares nuevos, verificar lugares aprobados
+      const { fileData: approvedPlaces } = await fetchApprovedPlaces();
+      const existsInApproved = approvedPlaces.features.some(
+        (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
       );
+
+      if (existsInApproved) {
+        return NextResponse.json({ message: "¡El lugar ya está aprobado! No se puede editar." }, { status: 400 });
+      }
+
+      return NextResponse.json({ message: "¡El lugar NO existe!" }, { status: 404 });
     } catch (error) {
       if (error instanceof Error && error.message.includes("Concurrent modification")) {
-        // Reintentar la operación con datos frescos
         return NextResponse.json(
           {
             message:
@@ -517,11 +228,6 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
-    // Validación con Zod para PATCH
-    const patchSchema = z.object({
-      identifier: z.string({ required_error: "El identificador es obligatorio" }),
-    });
-
     const body = await request.json();
     const result = patchSchema.safeParse(body);
 
@@ -531,66 +237,56 @@ export async function PATCH(request: NextRequest) {
     }
 
     const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
-
-    // Obtener lugares nuevos
-    const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
-
-    // Buscar el lugar en lugares nuevos
-    const newPlacesIndex = newPlaces.features.findIndex(
-      (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-    );
-
-    if (newPlacesIndex === -1) {
-      return NextResponse.json(
-        { message: "¡El lugar NO existe en lugares pendientes de aprobación!" },
-        { status: 404 },
-      );
-    }
-
-    // Obtener el lugar a aprobar
-    const placeToApprove = { ...newPlaces.features[newPlacesIndex] };
-
-    // Eliminar la marca de necesidad de aprobación
-    if ("needApproval" in placeToApprove.properties) {
-      delete placeToApprove.properties.needApproval;
-    }
+    const { action } = result.data;
 
     try {
-      // Ejecutar operaciones como una transacción (lo mejor posible sin soporte nativo)
-
-      // 1. Obtener lugares aprobados actualizados
-      const {
-        url: approvedPlacesUrl,
-        fileData: approvedPlaces,
-        file_sha: approvedPlacesSha,
-      } = await fetchApprovedPlaces();
-
-      // 2. Verificar si ya existe en lugares aprobados
-      const approvedIndex = approvedPlaces.features.findIndex(
+      // Buscar el lugar en lugares nuevos
+      const { url: newPlacesUrl, fileData: newPlaces, file_sha: newPlacesSha } = await fetchNewPlaces();
+      const newPlacesIndex = newPlaces.features.findIndex(
         (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
       );
 
-      // 3. Si ya existe, eliminarlo
-      if (approvedIndex !== -1) {
-        approvedPlaces.features.splice(approvedIndex, 1);
+      if (newPlacesIndex === -1) {
+        return NextResponse.json({ message: "¡El lugar NO existe en lugares pendientes!" }, { status: 404 });
       }
 
-      // 4. Agregar el lugar aprobado AL FINAL del array de lugares aprobados
-      approvedPlaces.features.push(placeToApprove);
+      const placeToMove = newPlaces.features[newPlacesIndex];
 
-      // 5. Actualizar archivo de lugares aprobados
-      await githubFileOperation(approvedPlacesUrl, placeToApprove, approvedPlaces, approvedPlacesSha, "APPROVE");
+      if (action === "approve") {
+        // Mover de lugares nuevos a lugares aprobados
+        const {
+          url: approvedPlacesUrl,
+          fileData: approvedPlaces,
+          file_sha: approvedPlacesSha,
+        } = await fetchApprovedPlaces();
 
-      // 6. Actualizar newPlaces (remover el lugar aprobado)
-      newPlaces.features.splice(newPlacesIndex, 1);
+        // Verificar que no exista ya en lugares aprobados
+        const existsInApproved = approvedPlaces.features.some(
+          (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
+        );
 
-      // 7. Guardar cambios en newPlaces
-      await githubFileOperation(newPlacesUrl, placeToApprove, newPlaces, newPlacesSha, "REMOVE_FROM_NEW");
+        if (existsInApproved) {
+          return NextResponse.json({ message: "¡El lugar ya existe en lugares aprobados!" }, { status: 400 });
+        }
 
-      return NextResponse.json(
-        { message: "¡El lugar fue APROBADO y agregado al final de la lista de lugares aprobados!" },
-        { status: 200 },
-      );
+        // Remover needApproval antes de aprobar
+        delete placeToMove.properties.needApproval;
+
+        // Añadir a lugares aprobados
+        approvedPlaces.features.unshift(placeToMove);
+        await githubFileOperation(approvedPlacesUrl, placeToMove, approvedPlaces, approvedPlacesSha, "APPROVE");
+
+        // Remover de lugares nuevos
+        newPlaces.features.splice(newPlacesIndex, 1);
+        await githubFileOperation(newPlacesUrl, placeToMove, newPlaces, newPlacesSha, "APPROVE_REMOVE_FROM_NEW");
+
+        return NextResponse.json({ message: "¡El lugar fue aprobado!" });
+      } else if (action === "reject") {
+        // Simplemente remover de lugares nuevos
+        newPlaces.features.splice(newPlacesIndex, 1);
+        await githubFileOperation(newPlacesUrl, placeToMove, newPlaces, newPlacesSha, "REJECT");
+        return NextResponse.json({ message: "¡El lugar fue rechazado!" });
+      }
     } catch (error) {
       if (error instanceof Error && error.message.includes("Concurrent modification")) {
         return NextResponse.json(
@@ -622,15 +318,6 @@ export async function DELETE(request: NextRequest) {
     if (token !== API_UBICATE_SECRET) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
-
-    // Validación con Zod para DELETE - ahora incluye el origen
-    const deleteSchema = z.object({
-      identifier: z.string({ required_error: "El identificador es obligatorio" }),
-      source: z.enum(["approved", "pending"], {
-        required_error: "El origen es obligatorio",
-        invalid_type_error: "El origen debe ser 'approved' o 'pending'",
-      }),
-    });
 
     const body = await request.json();
     const result = deleteSchema.safeParse(body);
