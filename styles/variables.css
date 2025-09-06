@@ -65,6 +65,11 @@
   --color-input: var(--theme-input);
   --color-ring: var(--theme-ring);
 
+  /* Functional colors for app-specific features */
+  --color-route-primary: var(--theme-route-primary);
+  --color-route-border: var(--theme-route-border);
+  --color-focus-indicator: var(--theme-focus-indicator);
+
   /* Chart colors for data visualization */
   --color-chart-0: var(--theme-chart-0);
   --color-chart-1: var(--theme-chart-1);
@@ -175,6 +180,11 @@
   --theme-input: var(--palette-brown-400);
   --theme-ring: var(--palette-brown-200);
 
+  /* Functional colors for app-specific features */
+  --theme-route-primary: var(--palette-blue-primary);
+  --theme-route-border: var(--palette-cyan-800);
+  --theme-focus-indicator: var(--palette-blue-primary);
+
   /* Chart Colors */
   --theme-chart-0: var(--palette-gray-300);
   --theme-chart-1: var(--palette-red-800);
@@ -216,6 +226,11 @@
   --theme-input: var(--palette-pastel-pink-200);
   --theme-ring: var(--palette-pastel-pink-600);
 
+  /* Functional colors for app-specific features */
+  --theme-route-primary: var(--palette-pastel-pink-500);
+  --theme-route-border: var(--palette-pastel-pink-400);
+  --theme-focus-indicator: var(--palette-pastel-pink-500);
+
   /* Chart Colors - Pastel Palette */
   --theme-chart-0: var(--palette-pastel-pink-300);
   --theme-chart-1: var(--palette-pastel-lavender);
@@ -256,6 +271,11 @@
   --theme-border: var(--palette-soft-gray-300);
   --theme-input: var(--palette-soft-gray-200);
   --theme-ring: var(--palette-blue-primary);
+
+  /* Functional colors for app-specific features */
+  --theme-route-primary: var(--palette-blue-primary);
+  --theme-route-border: var(--palette-cyan-800);
+  --theme-focus-indicator: var(--palette-blue-primary);
 
   /* Chart Colors - Professional Palette */
   --theme-chart-0: var(--palette-pastel-pink-300);
