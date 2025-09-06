@@ -15,10 +15,10 @@ import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
 
-import { SilentErrorBoundary } from "../components/appErrors/SilentErrorBoundary";
-import DirectionsComponent from "../components/directions/component";
-import UserLocation from "../components/directions/userLocation";
-import MarkerIcon from "../components/icons/markerIcon";
+import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
+import DirectionsComponent from "../components/features/directions/component";
+import UserLocation from "../components/features/directions/userLocation";
+import MarkerIcon from "../components/ui/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 

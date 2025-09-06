@@ -10,9 +10,9 @@ import {
 
 import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/utils/types";
 
-import RouteButton from "../directions/routeButton";
-import * as Icons from "../icons/icons";
-import MarkDownComponent from "../markDown";
+import * as Icons from "../../../ui/icons/icons";
+import MarkDownComponent from "../../../ui/markDown";
+import RouteButton from "../../directions/routeButton";
 
 export default function PlaceInformation({
   place,

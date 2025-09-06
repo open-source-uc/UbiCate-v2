@@ -1,6 +1,6 @@
 import { use } from "react";
 
-import * as Icons from "@/app/components/icons/icons";
+import * as Icons from "@/app/components/ui/icons/icons";
 import { NotificationContext } from "@/app/context/notificationCtx";
 
 export default function DirectionErrorNotification({ children }: { children: React.ReactNode }) {

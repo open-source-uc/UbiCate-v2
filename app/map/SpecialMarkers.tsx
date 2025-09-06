@@ -3,7 +3,7 @@ import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 import { PLACE_ICONS } from "../../utils/constants";
 import { alwaysVisiblePlaces } from "../../utils/places";
 import { Feature, PointFeature } from "../../utils/types";
-import * as Icons from "../components/icons/icons";
+import * as Icons from "../components/ui/icons/icons";
 import { useSidebar } from "../context/sidebarCtx";
 
 interface SpecialMarkerProps {

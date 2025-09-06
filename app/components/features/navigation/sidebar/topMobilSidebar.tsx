@@ -2,7 +2,7 @@ import { use } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 
-import { SearchDropdown } from "../search/SearchDropdown";
+import { SearchDropdown } from "../../search/SearchDropdown";
 
 export default function TopMobileSidebar() {
   const { component } = use(NotificationContext);

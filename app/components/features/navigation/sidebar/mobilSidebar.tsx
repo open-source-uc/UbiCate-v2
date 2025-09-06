@@ -4,14 +4,14 @@ import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
-import * as Icons from "@/app/components/icons/icons";
+import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
+import * as Icons from "@/app/components/ui/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
 import { SubSidebarType } from "@/utils/types";
 
-import { NotificationErrorBoundary } from "../appErrors/NotificationErrorBoundary";
-import PillFilter from "../pills/PillFilter";
-import PlaceMenu from "../placeMenu/placeMenu";
+import PillFilter from "../../filters/pills/PillFilter";
+import PlaceMenu from "../../places/placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";

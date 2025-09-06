@@ -1,4 +1,4 @@
-import * as Icons from "@/app/components/icons/icons";
+import * as Icons from "@/app/components/ui/icons/icons";
 import { Theme, useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 

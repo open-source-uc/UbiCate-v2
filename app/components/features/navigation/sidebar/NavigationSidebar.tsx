@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { NotificationErrorBoundary } from "../appErrors/NotificationErrorBoundary";
+import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 
 import DesktopSidebar from "./desktopSidebar";
 import MobileSidebar from "./mobilSidebar";

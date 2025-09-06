@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { categoryFilter, PlaceFilter } from "@/app/components/pills/placeFilters";
+import { categoryFilter, PlaceFilter } from "@/app/components/features/filters/pills/placeFilters";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { getCategoryColor } from "@/utils/categoryToColors";
 import { CATEGORIES } from "@/utils/types";
 
-import { useSidebar } from "../../context/sidebarCtx";
-import * as Icons from "../icons/icons";
+import * as Icons from "../../../ui/icons/icons";
 
 import Pill from "./pill";
 

@@ -2,7 +2,7 @@ import { use } from "react";
 
 import { NotificationContext } from "@/app/context/notificationCtx";
 
-import * as Icon from "../icons/icons";
+import * as Icon from "../../ui/icons/icons";
 
 export default function LocationButton({ onClick }: { onClick?: () => void }) {
   const { codes } = use(NotificationContext);

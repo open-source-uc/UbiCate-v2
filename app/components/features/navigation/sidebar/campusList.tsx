@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import * as Icons from "@/app/components/icons/icons";
+import * as Icons from "@/app/components/ui/icons/icons";
 import { SubSidebarType } from "@/utils/types";
 
 export default function CampusList({

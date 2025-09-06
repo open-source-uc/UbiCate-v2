@@ -6,7 +6,7 @@ import { pinsContext } from "@/app/context/pinsCtx";
 import { usePlaceForm } from "@/app/hooks/usePlaceForm";
 import { PointFeature } from "@/utils/types";
 
-import * as Icons from "../icons/icons";
+import * as Icons from "../../../ui/icons/icons";
 
 import { CategoriesField } from "./categoriesField";
 import { DescriptionField } from "./descriptionField";

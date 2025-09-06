@@ -8,7 +8,7 @@ import { emitPlaceSelectedEvent } from "@/utils/customEvents";
 import PlacesJSON from "@/utils/places";
 import { CATEGORIES, Feature, siglas } from "@/utils/types";
 
-import MarkerIcon from "../icons/markerIcon";
+import MarkerIcon from "../../ui/icons/markerIcon";
 
 interface SearchDropdownProps {
   numberOfShowResults?: number;

@@ -4,9 +4,8 @@ import { use, type ErrorInfo } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
+import DirectionErrorNotification from "@/app/components/features/notifications/ErrorNotification";
 import { NotificationContext } from "@/app/context/notificationCtx";
-
-import DirectionErrorNotification from "../notifications/ErrorNotification";
 
 function NullFallback() {
   return null;

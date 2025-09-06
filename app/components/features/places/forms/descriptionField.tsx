@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import MarkDownComponent from "@/app/components/markDown";
+import MarkDownComponent from "@/app/components/ui/markDown";
 
 interface DescriptionFieldProps {
   value: string;

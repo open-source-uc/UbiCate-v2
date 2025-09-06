@@ -1,14 +1,14 @@
 import { use, useState, useEffect, useRef } from "react";
 
+import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
 import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
 import { useUbication } from "@/app/hooks/useUbication";
 import { Feature } from "@/utils/types";
 
-import { useDirections } from "../../context/directionsCtx";
-import { useSidebar } from "../../context/sidebarCtx";
-import * as Icons from "../icons/icons";
+import * as Icons from "../../ui/icons/icons";
 import DirectionSuccessNotification from "../notifications/directionSuccessNotification";
 import DirectionErrorNotification from "../notifications/ErrorNotification";
 

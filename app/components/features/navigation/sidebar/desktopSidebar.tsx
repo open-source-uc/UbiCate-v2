@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 
 import { useEffect, useState } from "react";
 
-import * as Icons from "@/app/components/icons/icons";
+import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
+import * as Icons from "@/app/components/ui/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/utils/types";
 
-import { NotificationErrorBoundary } from "../appErrors/NotificationErrorBoundary";
-import PillFilter from "../pills/PillFilter";
-import PlaceMenu from "../placeMenu/placeMenu";
-import { SearchDropdown } from "../search/SearchDropdown";
+import PillFilter from "../../filters/pills/PillFilter";
+import PlaceMenu from "../../places/placeMenu/placeMenu";
+import { SearchDropdown } from "../../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";

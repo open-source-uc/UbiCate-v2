@@ -6,8 +6,8 @@ import { NotificationContext } from "@/app/context/notificationCtx";
 import { useUbication } from "@/app/hooks/useUbication";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
 
-import DangerButton from "../danger/dangerButton";
-import * as Icons from "../icons/icons";
+import DangerButton from "../../ui/danger/dangerButton";
+import * as Icons from "../../ui/icons/icons";
 import DirectionErrorNotification from "../notifications/ErrorNotification";
 
 import LocationButton from "./locationButton";
