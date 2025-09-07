@@ -79,7 +79,7 @@ export const UC_MAP_COLORS = {
 
   // Landuse
   park: "#005200", // Verde parque más vibrante y visible
-  pitch: "#00A000", // Verde específico para canchas deportivas
+  pitch: "#707070", // Verde específico para canchas deportivas
   residential: "#EAEAEA", // Rosa residencial coquette
   commercial: "#EAEAEA", // Rosa comercial más visible
   industrial: "#EAEAEA", // Rosa industrial coquette
@@ -95,11 +95,17 @@ export const UC_MAP_COLORS = {
 
   // Transportation - Paths morados y progresión mejorada
   path: "#F6F6F6", // Sendero MORADO CLARO coquette ✨
+  pathStroke: "#E5E5E5", // Stroke del sendero
   minor: "#F6F6F6", // Calle menor rosa muy suave
+  minorStroke: "#E5E5E5", // Stroke calle menor
   secondary: "#F6F6F6", // Secundaria lavanda suave
+  secondaryStroke: "#E5E5E5", // Stroke secundaria
   primary: "#F6F6F6", // Primaria lavanda más visible
+  primaryStroke: "#E5E5E5", // Stroke primaria
   trunk: "#F6F6F6", // Troncal lavanda medio
+  trunkStroke: "#E5E5E5", // Stroke troncal
   motorway: "#F6F6F6", // Autopista morada más fuerte
+  motorwayStroke: "#E5E5E5", // Stroke autopista
   railStart: "#F6F6F6", // Inicio ferrocarril
   railEnd: "#F6F6F6", // Fin ferrocarril
 

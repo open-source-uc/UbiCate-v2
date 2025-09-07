@@ -30,11 +30,17 @@ interface MapColors {
 
   // Transportation
   path?: string;
+  pathStroke?: string;
   minor?: string;
+  minorStroke?: string;
   secondary?: string;
+  secondaryStroke?: string;
   primary?: string;
+  primaryStroke?: string;
   trunk?: string;
+  trunkStroke?: string;
   motorway?: string;
+  motorwayStroke?: string;
   railStart?: string;
   railEnd?: string;
 
@@ -83,11 +89,17 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
 
     // Transportation
     path = "#616f84",
+    pathStroke = "#4a5a70",
     minor = "#5b687b",
+    minorStroke = "#4a5566",
     secondary = "#616f84",
+    secondaryStroke = "#4a5a70",
     primary = "#616f84",
+    primaryStroke = "#4a5a70",
     trunk = "#616f84",
+    trunkStroke = "#4a5a70",
     motorway = "#616f84",
+    motorwayStroke = "#4a5a70",
     railStart = "#1d253c",
     railEnd = "#58626c",
 
@@ -260,6 +272,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
+        id: "transportation-path-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 12,
+        filter: ["==", ["get", "class"], "path"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": pathStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 13, 1.5, 14, 2, 15, 2, 18, 6],
+          "line-opacity": 0.8,
+        },
+      },
+      {
         id: "transportation-path",
         type: "line",
         source: "localtiles",
@@ -274,6 +303,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
           "line-color": path,
           "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 13, 0.5, 14, 1, 15, 1, 18, 4],
           "line-dasharray": [10, 0],
+        },
+      },
+      {
+        id: "transportation-minor-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 12,
+        filter: ["in", ["get", "class"], ["literal", ["minor", "service", "track"]]],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": minorStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 13, 1.5, 18, 14, 22, 122],
+          "line-opacity": 0.8,
         },
       },
       {
@@ -293,6 +339,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
+        id: "transportation-secondary-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 8,
+        filter: ["==", ["get", "class"], "secondary"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": secondaryStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 8, 0.5, 13, 4.5, 18, 28, 22, 262],
+          "line-opacity": 0.8,
+        },
+      },
+      {
         id: "transportation-secondary",
         type: "line",
         source: "localtiles",
@@ -306,6 +369,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         paint: {
           "line-color": secondary,
           "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 8, 0.1, 13, 2.5, 18, 26, 22, 260],
+        },
+      },
+      {
+        id: "transportation-primary-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 6,
+        filter: ["==", ["get", "class"], "primary"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": primaryStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 6, 1.5, 13, 6, 18, 34, 22, 322],
+          "line-opacity": 0.8,
         },
       },
       {
@@ -325,6 +405,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
+        id: "transportation-trunk-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 5,
+        filter: ["==", ["get", "class"], "trunk"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": trunkStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 1.5, 13, 6, 18, 34, 22, 322],
+          "line-opacity": 0.8,
+        },
+      },
+      {
         id: "transportation-trunk",
         type: "line",
         source: "localtiles",
@@ -338,6 +435,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         paint: {
           "line-color": trunk,
           "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 0.75, 13, 4, 18, 32, 22, 320],
+        },
+      },
+      {
+        id: "transportation-motorway-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 5,
+        filter: ["==", ["get", "class"], "motorway"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": motorwayStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 1.5, 13, 6, 18, 34, 22, 322],
+          "line-opacity": 0.8,
         },
       },
       {
