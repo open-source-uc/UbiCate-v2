@@ -50,7 +50,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
 
     const statusBarStyle =
-      currentTheme === "pink-coquette" || currentTheme === "light-formal"
+      currentTheme === "pink-coquette" || currentTheme === "light-formal" || currentTheme === "uc-theme"
         ? "default" // contenido oscuro sobre fondo claro
         : "black-translucent"; // contenido claro sobre fondo oscuro
 

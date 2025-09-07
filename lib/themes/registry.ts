@@ -2,6 +2,7 @@ import * as Icons from "@/app/components/ui/icons/icons";
 import * as lightFormalMap from "@/app/map/hooks/config/lightFormal";
 import * as normalMap from "@/app/map/hooks/config/normal";
 import * as pinkCoquetteMap from "@/app/map/hooks/config/pinkCoquette";
+import * as ucMap from "@/app/map/hooks/config/uc-theme";
 
 import { ThemeRegistry, ThemeDefinition } from "./types";
 
@@ -179,13 +180,12 @@ export const themeRegistry: ThemeRegistry = {
       },
     },
 
-    // Example of how easy it is to add a new theme!
-    "purple-space": {
-      id: "purple-space",
+    "uc-theme": {
+      id: "uc-theme",
       ui: {
-        name: "Purple Space",
-        description: "Cosmic and mysterious ✨",
-        icon: Icons.Work, // You can use any existing icon
+        name: "UC",
+        description: "Utiliza el estilo oficial de la UC",
+        icon: Icons.Coffee,
       },
       colors: {
         background: "var(--palette-purple-500)",
@@ -223,16 +223,13 @@ export const themeRegistry: ThemeRegistry = {
       mapConfig: {
         // For simplicity, reuse existing map configuration
         // You can create custom map configs in separate files for more advanced themes
-        placesTextLayer: normalMap.placesTextLayer,
-        campusBorderLayer: normalMap.campusBorderLayer,
-        sectionStrokeLayer: normalMap.sectionStrokeLayer,
-        sectionAreaLayer: normalMap.sectionAreaLayer,
-        customPolygonStrokeLayer: normalMap.customPolygonStrokeLayer,
-        customPolygonSectionAreaLayer: normalMap.customPolygonSectionAreaLayer,
-      },
-      additionalCSS: {
-        ".space-glow": "box-shadow: 0 0 15px rgba(221, 160, 221, 0.5);",
-        "button:hover": "transform: scale(1.02); box-shadow: 0 0 10px rgba(221, 160, 221, 0.3);",
+        placesTextLayer: ucMap.placesTextLayer,
+        campusBorderLayer: ucMap.campusBorderLayer,
+        sectionStrokeLayer: ucMap.sectionStrokeLayer,
+        sectionAreaLayer: ucMap.sectionAreaLayer,
+        customPolygonStrokeLayer: ucMap.customPolygonStrokeLayer,
+        customPolygonSectionAreaLayer: ucMap.customPolygonSectionAreaLayer,
+        mapColors: ucMap.UC_MAP_COLORS,
       },
     },
   },

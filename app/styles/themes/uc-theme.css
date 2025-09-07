@@ -1,9 +1,9 @@
 /* =============================================== */
-/*              PURPLE SPACE THEME               */
+/*                    UC THEME               */
 /* =============================================== */
 
-[data-theme="purple-space"] {
-  --theme-background: var(--palette-purple-500);
+[data-theme="uc-theme"] {
+  --theme-background: var(--palette-uc-celeste);
   --theme-foreground: var(--palette-white-primary);
   
   --theme-primary: var(--palette-pastel-lavender);
@@ -45,14 +45,4 @@
   --theme-chart-8: var(--palette-soft-gray-600);
   --theme-chart-9: var(--palette-purple-500);
   --theme-chart-10: var(--palette-pastel-cream);
-}
-
-/* Theme-specific enhancements */
-[data-theme="purple-space"] .space-glow {
-  box-shadow: 0 0 15px rgba(221, 160, 221, 0.5);
-}
-
-[data-theme="purple-space"] button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 10px rgba(221, 160, 221, 0.3);
 }
