@@ -1,5 +1,12 @@
 import { StyleSpecification } from "maplibre-gl";
 
+// Font configuration for map elements
+const MAP_FONTS = {
+  REGULAR: ["Roboto Slab", "serif"],
+  SEMIBOLD: ["Roboto Slab", "serif"],
+  FALLBACK: ["serif"],
+};
+
 interface MapColors {
   background?: string;
   water?: string;
@@ -363,7 +370,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         minzoom: 12,
         layout: {
           "text-field": ["case", ["has", "name:latin"], ["get", "name:latin"], ["has", "name"], ["get", "name"], ""],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+          "text-font": MAP_FONTS.REGULAR,
           "text-size": [
             "interpolate",
             ["linear"],
@@ -409,7 +416,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         ],
         layout: {
           "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+          "text-font": MAP_FONTS.REGULAR,
           "text-size": 12,
           "symbol-sort-key": ["get", "rank"],
           "text-offset": [0, 0],
@@ -435,7 +442,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         ],
         layout: {
           "text-field": ["coalesce", ["get", "name:latin"], ["get", "name:es"], ["get", "name"]],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+          "text-font": MAP_FONTS.REGULAR,
           "text-size": [
             "case",
             ["==", ["get", "class"], "city"],

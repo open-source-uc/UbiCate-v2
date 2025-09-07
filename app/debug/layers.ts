@@ -1,5 +1,7 @@
 import type { LayerProps } from "react-map-gl/maplibre";
 
+import { getMapFont } from "../map/hooks/config/fontConfig";
+
 export const approvalPointsLayer: LayerProps = {
   id: "points-layer-3",
   type: "circle",
@@ -63,7 +65,7 @@ export const allPlacesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
-    "text-font": ["Open Sans Semibold"],
+    "text-font": getMapFont("semibold"),
     "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 0.5],
@@ -79,7 +81,7 @@ export const allPlacesTextApprovalLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
-    "text-font": ["Open Sans Semibold"],
+    "text-font": getMapFont("semibold"),
     "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 0.5],

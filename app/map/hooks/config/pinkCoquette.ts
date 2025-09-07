@@ -1,12 +1,14 @@
 import type { LayerProps } from "react-map-gl/maplibre";
 
+import { getMapFont } from "./fontConfig";
+
 export const placesTextLayer: LayerProps = {
   id: "places-text",
   type: "symbol",
   source: "places",
   layout: {
     "text-field": ["get", "name"],
-    "text-font": ["Open Sans Semibold"],
+    "text-font": getMapFont("semibold"),
     "text-size": 12, // Aumentado para mejor legibilidad
     "text-anchor": "top",
     "text-offset": [0, 1],
