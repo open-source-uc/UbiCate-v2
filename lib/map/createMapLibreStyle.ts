@@ -14,6 +14,7 @@ interface MapColors {
 
   // Landuse
   park?: string;
+  pitch?: string;
   residential?: string;
   commercial?: string;
   industrial?: string;
@@ -22,6 +23,7 @@ interface MapColors {
   school?: string;
   airport?: string;
   campus?: string;
+
   // Building
   building?: string;
   buildingOutline?: string;
@@ -65,6 +67,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
 
     // Landuse
     park = "#005d5b",
+    pitch = "#228B22", // Default green for sports pitches
     residential = "#262c33",
     commercial = "#374d64",
     industrial = "#374d64",
@@ -132,62 +135,18 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
           "fill-color": [
             "case",
             ["==", ["get", "class"], "wood"],
-            wood,
+            wood, // Use theme color for wood areas
             ["==", ["get", "class"], "snow"],
-            snow,
+            snow, // Use theme color for snow
             ["==", ["get", "class"], "grass"],
-            grass,
+            grass, // Use theme color for grass areas
             ["==", ["get", "class"], "scrub"],
-            scrub,
+            scrub, // Use theme color for scrub/bushes
             ["==", ["get", "class"], "crop"],
-            crop,
-            wood,
+            crop, // Use theme color for agricultural crops
+            wood, // Default to wood color for other landcover
           ],
-          "fill-opacity": ["interpolate", ["linear"], ["zoom"], 9, 0.4, 10, 0.4, 11, 0.4, 12, 0],
-        },
-      },
-      {
-        id: "landuse",
-        type: "fill",
-        source: "localtiles",
-        "source-layer": "landuse",
-        minzoom: 5,
-        paint: {
-          "fill-color": [
-            "case",
-            ["==", ["get", "class"], "park"],
-            park,
-            ["==", ["get", "class"], "wood"],
-            grass, // En el OLD_MAP_STYLE esto mapea a "#005d5b" que es el valor de grass
-            ["==", ["get", "class"], "grass"],
-            grass,
-            ["==", ["get", "class"], "agriculture"],
-            grass, // En el OLD_MAP_STYLE esto mapea a "#005d5b" que es el valor de grass
-            ["==", ["get", "class"], "residential"],
-            residential,
-            ["==", ["get", "class"], "commercial"],
-            commercial,
-            ["==", ["get", "class"], "industrial"],
-            industrial,
-            ["==", ["get", "class"], "cemetery"],
-            cemetery,
-            ["==", ["get", "class"], "hospital"],
-            hospital,
-            ["==", ["get", "class"], "school"],
-            school,
-            ["==", ["get", "class"], "airport"],
-            airport,
-            campus,
-          ],
-          "fill-opacity": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            8,
-            ["case", ["==", ["get", "class"], "residential"], 0.8, 0.2],
-            10,
-            ["case", ["==", ["get", "class"], "residential"], 0, 1],
-          ],
+          "fill-opacity": 0.6, // Semi-transparent so it doesn't overpower other elements
         },
       },
       {
@@ -197,6 +156,60 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         "source-layer": "water",
         paint: {
           "fill-color": water,
+        },
+      },
+      {
+        id: "landuse",
+        type: "fill",
+        source: "localtiles",
+        "source-layer": "landuse",
+        minzoom: 3, // Reduced from 5 to make parks visible at lower zoom levels
+        paint: {
+          "fill-color": [
+            "case",
+            ["==", ["get", "class"], "park"],
+            park, // Use theme color for parks
+            ["==", ["get", "class"], "pitch"],
+            pitch, // Use custom pitch color for sports pitches  
+            ["==", ["get", "class"], "recreation_ground"],
+            park, // Use park color for recreation areas
+            ["==", ["get", "class"], "leisure"],
+            park, // Use park color for leisure areas
+            ["==", ["get", "class"], "garden"],
+            park, // Use park color for gardens
+            ["==", ["get", "class"], "cemetery"],
+            cemetery, // Use theme color for cemetery
+            ["==", ["get", "class"], "wood"],
+            wood, // Use theme color for wood in landuse
+            ["==", ["get", "class"], "grass"],
+            grass, // Use theme color for grass in landuse
+            ["==", ["get", "class"], "agriculture"],
+            crop, // Use crop color for agriculture
+            ["==", ["get", "class"], "meadow"],
+            grass, // Use grass color for meadows
+            ["==", ["get", "class"], "forest"],
+            wood, // Use wood color for forests
+            ["==", ["get", "class"], "residential"],
+            residential,
+            ["==", ["get", "class"], "commercial"],
+            commercial,
+            ["==", ["get", "class"], "industrial"],
+            industrial,
+            ["==", ["get", "class"], "hospital"],
+            hospital,
+            ["==", ["get", "class"], "college"],
+            school, // Use school color for college
+            ["==", ["get", "class"], "military"],
+            industrial, // Use industrial color for military areas
+            ["==", ["get", "class"], "university"],
+            school, // Use school color for university
+            ["==", ["get", "class"], "school"],
+            school,
+            ["==", ["get", "class"], "airport"],
+            airport,
+            campus, // Default fallback
+          ],
+          "fill-opacity": 0.7, // Good visibility without being too overpowering
         },
       },
       {

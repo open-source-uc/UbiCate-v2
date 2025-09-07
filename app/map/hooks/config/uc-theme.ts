@@ -71,27 +71,23 @@ export const UC_MAP_COLORS = {
   waterway: "#0176DE",
 
   // Landcover
-  wood: "#bbf7d0", // Verde menta más vibrante
+  wood: "#22c55e", // Verde bosque más vibrante
   snow: "#fefefe", // Blanco nieve
-  grass: "#c6f6d5", // Verde pasto más definido
-  scrub: "#bbf7d0", // Verde matorral más saturado
-  crop: "#d1fae5", // Verde cultivo suave
+  grass: "#058C42", // Verde pasto más definido y contrastante
+  scrub: "#15803d", // Verde matorral más saturado y oscuro
+  crop: "#84cc16", // Verde cultivo más visible
 
   // Landuse
-  park: "#00AA00", // Verde parque más vibrante
+  park: "#005200", // Verde parque más vibrante y visible
+  pitch: "#00A000", // Verde específico para canchas deportivas
   residential: "#EAEAEA", // Rosa residencial coquette
   commercial: "#EAEAEA", // Rosa comercial más visible
   industrial: "#EAEAEA", // Rosa industrial coquette
-  cemetery: "#EAEAEA", // Verde cementerio claro
+  cemetery: "#22c55e", // Verde cementerio más visible
   hospital: "#EAEAEA", // Rosa hospital más saturado
   school: "#EAEAEA", // Verde escuela vibrante
   airport: "#EAEAEA", // Gris aeropuerto neutro
   campus: "#EAEAEA", // Verde campus MÁS OSCURO - mejor contraste con rosa coquette
-
-  // Campus green sections - Enhanced park and green area styling
-  campusGreen: "#22c55e", // Verde más vibrante para áreas verdes del campus
-  campusPark: "#16a34a", // Verde más oscuro para parques principales
-  campusGarden: "#65a30d", // Verde oliva para jardines y áreas ajardinadas
 
   // Building
   building: "#C6C6C6",
