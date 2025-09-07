@@ -6,7 +6,7 @@ export const placesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["get", "name"],
-    "text-font": ["Open Sans Semibold"],
+    "text-font": ["Open Sans Semibold", "Arial Unicode MS Regular"],
     "text-size": 16,
     "text-anchor": "top",
     "text-offset": [0, 1],

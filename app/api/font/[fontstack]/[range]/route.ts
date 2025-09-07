@@ -5,12 +5,12 @@ import { getRequestContext } from "@cloudflare/next-on-pages";
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
 // app/api/[z]/[x]/[y]/route.ts
-export async function GET(request: NextRequest, { params }: { params: Promise<{ range: string }> }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ fontstack: string; range: string }> }) {
   try {
-    const { range } = await params;
+    const { fontstack, range } = await params;
 
     const R2 = getRequestContext().env.R2;
-    const tileKey = `glyphs/${range}.pbf`;
+    const tileKey = `glyphs/${fontstack}/${range}.pbf`;
 
     let object;
     try {
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     }
 
     if (!object) {
-      return NextResponse.json({ error: `Glyphs not found for range: ${range}` }, { status: 404 });
+      return NextResponse.json({ error: `Glyphs not found for fontstack: ${fontstack}, range: ${range}` }, { status: 404 });
     }
     // Obtener los datos como stream
     const data = object.body;

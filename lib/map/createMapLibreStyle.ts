@@ -501,7 +501,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         filter: ["in", ["get", "class"], ["literal", ["primary", "secondary", "trunk", "motorway"]]],
         layout: {
           "text-field": ["case", ["has", "name:latin"], ["get", "name:latin"], ["has", "name"], ["get", "name"], ""],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+          "text-font": ["Roboto Slab Regular", "Arial Unicode MS Regular"],
           "text-size": [
             "interpolate",
             ["linear"],
@@ -556,8 +556,18 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         ],
         layout: {
           "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-          "text-size": 13,
+          "text-font": [
+            "case",
+            ["in", ["get", "class"], ["literal", ["university", "college"]]],
+            ["literal", ["Roboto Slab SemiBold", "Arial Unicode MS Bold"]],
+            ["literal", ["Roboto Slab Medium", "Arial Unicode MS Regular"]]
+          ],
+          "text-size": [
+            "case",
+            ["in", ["get", "class"], ["literal", ["university", "college"]]],
+            14,
+            13
+          ],
           "symbol-sort-key": ["get", "rank"],
           "text-offset": [0, 0],
           "text-anchor": "center",
