@@ -4,29 +4,29 @@
 
 [data-theme="uc-theme"] {
   --theme-background: var(--palette-uc-celeste);
-  --theme-foreground: var(--palette-white-primary);
+  --theme-foreground: var(--palette-uc-blanco);
   
-  --theme-primary: var(--palette-pastel-lavender);
-  --theme-primary-foreground: var(--palette-purple-500);
+  --theme-primary: var(--palette-uc-azul);
+  --theme-primary-foreground: var(--palette-uc-blanco);
   
-  --theme-secondary: var(--palette-soft-gray-800);
-  --theme-secondary-foreground: var(--palette-white-primary);
+  --theme-secondary: var(--palette-uc-azul);
+  --theme-secondary-foreground: var(--palette-uc-azul-oscuro);
 
   --theme-tertiary: var(--palette-soft-gray-200);
-  --theme-tertiary-foreground: var(--palette-purple-500);
+  --theme-tertiary-foreground: var(--palette-uc-blanco);
   
   --theme-muted: var(--palette-soft-gray-600);
   --theme-muted-foreground: var(--palette-white-primary);
   
-  --theme-accent: var(--palette-pastel-lilac);
-  --theme-accent-foreground: var(--palette-purple-500);
+  --theme-accent: var(--palette-uc-azul);
+  --theme-accent-foreground: var(--palette-uc-blanco);
   
-  --theme-destructive: var(--palette-red-500);
-  --theme-destructive-foreground: var(--palette-white-primary);
+  --theme-destructive: var(--palette-uc-danger);
+  --theme-destructive-foreground: var(--palette-uc-negro);
   
-  --theme-border: var(--palette-soft-gray-700);
-  --theme-input: var(--palette-soft-gray-600);
-  --theme-ring: var(--palette-pastel-lavender);
+  --theme-border: var(--palette-uc-gris-oscuro-c);
+  --theme-input: var(--palette-uc-azul-oscuro);
+  --theme-ring: var(--palette-uc-azul-oscuro);
 
   /* Functional colors for app-specific features */
   --theme-route-primary: var(--palette-pastel-lavender);

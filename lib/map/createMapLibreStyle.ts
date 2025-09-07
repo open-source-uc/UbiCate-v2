@@ -73,7 +73,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
 
     // Landuse
     park = "#005d5b",
-    pitch = "#228B22", // Default green for sports pitches
+    pitch = "#004d5b",
     residential = "#262c33",
     commercial = "#374d64",
     industrial = "#374d64",
@@ -497,7 +497,8 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         type: "symbol",
         source: "localtiles",
         "source-layer": "transportation_name",
-        minzoom: 12,
+        minzoom: 14,
+        filter: ["in", ["get", "class"], ["literal", ["primary", "secondary", "trunk", "motorway"]]],
         layout: {
           "text-field": ["case", ["has", "name:latin"], ["get", "name:latin"], ["has", "name"], ["get", "name"], ""],
           "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
@@ -538,11 +539,20 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         type: "symbol",
         source: "localtiles",
         "source-layer": "poi",
-        minzoom: 5,
+        minzoom: 12,
         filter: [
           "all",
           ["has", "name:latin"],
-          ["<=", ["get", "rank"], ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 3, 8, 6, 12, 12, 16, 17]],
+          [
+            "any",
+            ["<=", ["get", "rank"], 1],
+            ["==", ["get", "class"], "university"],
+            ["==", ["get", "class"], "college"],
+          ],
+          ["!=", ["get", "class"], "bus_stop"],
+          ["!=", ["get", "class"], "railway"],
+          ["!=", ["get", "class"], "pharmacy"],
+          ["!=", ["get", "class"], "doctor"],
         ],
         layout: {
           "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -557,39 +567,6 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
           "text-halo-width": 0.5,
           "text-halo-blur": 0.5,
           "text-color": ["case", ["==", ["get", "class"], "park"], poiParkText, poiText],
-        },
-      },
-      {
-        id: "place",
-        type: "symbol",
-        source: "localtiles",
-        "source-layer": "place",
-        minzoom: 3,
-        filter: [
-          "all",
-          ["has", "name:latin"],
-          ["<=", ["get", "rank"], ["interpolate", ["linear"], ["zoom"], 0, 1, 2, 3, 4, 5, 6, 7]],
-        ],
-        layout: {
-          "text-field": ["coalesce", ["get", "name:latin"], ["get", "name:es"], ["get", "name"]],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-          "text-size": [
-            "case",
-            ["==", ["get", "class"], "city"],
-            20,
-            ["==", ["get", "class"], "town"],
-            18,
-            ["==", ["get", "class"], "village"],
-            16,
-            14,
-          ],
-          "symbol-sort-key": ["coalesce", ["get", "rank"], 999],
-          "text-anchor": "center",
-        },
-        paint: {
-          "text-color": placeText,
-          "text-halo-color": placeTextHalo,
-          "text-halo-width": 1,
         },
       },
     ],
