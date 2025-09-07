@@ -67,47 +67,48 @@ export const customPolygonSectionAreaLayer: LayerProps = {
 };
 export const UC_MAP_COLORS = {
   background: "#EAEAEA",
-  water: "#173F8A",
-  waterway: "#0176DE",
+  water: "#AFC9D4",
+  waterway: "#AFC9D4",
 
   // Landcover
-  wood: "#22c55e", // Verde bosque más vibrante
-  snow: "#fefefe", // Blanco nieve
-  grass: "#058C42", // Verde pasto más definido y contrastante
-  scrub: "#15803d", // Verde matorral más saturado y oscuro
-  crop: "#84cc16", // Verde cultivo más visible
+  wood: "#C1D9BE",
+  snow: "#fefefe",
+  grass: "#C1D9BE",
+  scrub: "#C1D9BE",
+  crop: "#C1D9BE",
 
   // Landuse
-  park: "#005200", // Verde parque más vibrante y visible
-  pitch: "#707070", // Verde específico para canchas deportivas
+  park: "#C1D9BE", // Verde parque más vibrante y visible
+  pitch: "#CCE2CB", // Light pink for sports pitches - distinct from green areas
   residential: "#EAEAEA", // Rosa residencial coquette
   commercial: "#EAEAEA", // Rosa comercial más visible
   industrial: "#EAEAEA", // Rosa industrial coquette
-  cemetery: "#22c55e", // Verde cementerio más visible
+  cemetery: "#EAEAEA", // Verde cementerio más visible
   hospital: "#EAEAEA", // Rosa hospital más saturado
   school: "#EAEAEA", // Verde escuela vibrante
   airport: "#EAEAEA", // Gris aeropuerto neutro
-  campus: "#EAEAEA", // Verde campus MÁS OSCURO - mejor contraste con rosa coquette
+  campus: "#EAEAEA",
+  
 
   // Building
   building: "#C6C6C6",
   buildingOutline: "#EAEAEA",
 
-  // Transportation - Paths morados y progresión mejorada
-  path: "#F6F6F6", // Sendero MORADO CLARO coquette ✨
-  pathStroke: "#E5E5E5", // Stroke del sendero
-  minor: "#F6F6F6", // Calle menor rosa muy suave
-  minorStroke: "#E5E5E5", // Stroke calle menor
-  secondary: "#F6F6F6", // Secundaria lavanda suave
-  secondaryStroke: "#E5E5E5", // Stroke secundaria
-  primary: "#F6F6F6", // Primaria lavanda más visible
-  primaryStroke: "#E5E5E5", // Stroke primaria
-  trunk: "#F6F6F6", // Troncal lavanda medio
-  trunkStroke: "#E5E5E5", // Stroke troncal
-  motorway: "#F6F6F6", // Autopista morada más fuerte
-  motorwayStroke: "#E5E5E5", // Stroke autopista
-  railStart: "#F6F6F6", // Inicio ferrocarril
-  railEnd: "#F6F6F6", // Fin ferrocarril
+  // Transportation
+  path: "#F6F6F6",
+  pathStroke: "#C6C6C6",
+  minor: "#F6F6F6",
+  minorStroke: "#C6C6C6",
+  secondary: "#F6F6F6",
+  secondaryStroke: "#C6C6C6",
+  primary: "#F6F6F6",
+  primaryStroke: "#C6C6C6",
+  trunk: "#F6F6F6",
+  trunkStroke: "#C6C6C6",
+  motorway: "#F6F6F6",
+  motorwayStroke: "#C6C6C6",
+  railStart: "#F6F6F6",
+  railEnd: "#F6F6F6",
 
   // Text
   roadText: "#000000",

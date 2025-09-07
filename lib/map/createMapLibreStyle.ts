@@ -158,7 +158,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
             crop, // Use theme color for agricultural crops
             wood, // Default to wood color for other landcover
           ],
-          "fill-opacity": 0.6, // Semi-transparent so it doesn't overpower other elements
+          "fill-opacity": 1.0, // Full opacity for natural green areas
         },
       },
       {
@@ -181,8 +181,6 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
             "case",
             ["==", ["get", "class"], "park"],
             park, // Use theme color for parks
-            ["==", ["get", "class"], "pitch"],
-            pitch, // Use custom pitch color for sports pitches  
             ["==", ["get", "class"], "recreation_ground"],
             park, // Use park color for recreation areas
             ["==", ["get", "class"], "leisure"],
@@ -221,7 +219,19 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
             airport,
             campus, // Default fallback
           ],
-          "fill-opacity": 0.7, // Good visibility without being too overpowering
+          "fill-opacity": 0,
+        },
+      },
+      {
+        id: "landuse-pitches",
+        type: "fill",
+        source: "localtiles",
+        "source-layer": "landuse",
+        minzoom: 3,
+        filter: ["==", ["get", "class"], "pitch"],
+        paint: {
+          "fill-color": pitch, // Use distinct pitch color
+          "fill-opacity": 1.0, // Full opacity for sports pitches
         },
       },
       {
