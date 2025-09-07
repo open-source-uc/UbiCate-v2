@@ -6,6 +6,7 @@
 @import './themes/default.css';
 @import './themes/coquette.css';
 @import './themes/light-formal.css';
+@import './themes/purple-space.css';
 
 /* Theme variables and design tokens for consistent styling across the application */
 @theme static inline {
