@@ -9,8 +9,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   try {
     const { fontstack, range } = await params;
 
+    // Extract the first font from the fontstack (MapLibre sends comma-separated fonts)
+    const primaryFont = fontstack.split(',')[0].trim();
+    
     const R2 = getRequestContext().env.R2;
-    const tileKey = `glyphs/${fontstack}/${range}.pbf`;
+    const tileKey = `glyphs/${primaryFont}/${range}.pbf`;
+    
+    console.log(`Looking for font: ${tileKey}`);
 
     let object;
     try {
@@ -21,7 +26,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     }
 
     if (!object) {
-      return NextResponse.json({ error: `Glyphs not found for fontstack: ${fontstack}, range: ${range}` }, { status: 404 });
+      console.log(`Font not found: ${tileKey}`);
+      return NextResponse.json({ error: `Glyphs not found for fontstack: ${primaryFont}, range: ${range}` }, { status: 404 });
     }
     // Obtener los datos como stream
     const data = object.body;

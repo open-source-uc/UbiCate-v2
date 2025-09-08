@@ -56,7 +56,7 @@ export const placesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["get", "name"],
-    "text-font": ["Open Sans Semibold"],
+    "text-font": ["Roboto Slab Medium"],
     "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 1],
