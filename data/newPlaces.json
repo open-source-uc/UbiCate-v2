@@ -6,14 +6,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61271664271428,
-                    -33.49945271557484
+                    -70.61271599989935,
+                    -33.49943388850391
                 ]
             },
             "properties": {
-                "identifier": "MFCZBFHGY5BJZR",
+                "identifier": "OTHER-32467011",
                 "name": "Grupo Humano",
-                "information": "",
+                "information": "LORE: El que se pone entre los meones está destinado a echarse el semestre ",
                 "categories": [
                     "other"
                 ],
@@ -30,12 +30,12 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61271599989935,
-                    -33.49943388850391
+                    -70.61271664271428,
+                    -33.49945271557484
                 ]
             },
             "properties": {
-                "identifier": "OTHER-32467011",
+                "identifier": "MFCZBFHGY5BJZR",
                 "name": "Grupo Humano",
                 "information": "",
                 "categories": [
