@@ -31912,6 +31912,29 @@
                     "MAT"
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61271371046772,
+                    -33.49953206736303
+                ]
+            },
+            "properties": {
+                "identifier": "MFCZDEC7RB7DP0",
+                "name": "Cerca del Grupo Humano",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
         }
     ]
 }
