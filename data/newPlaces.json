@@ -4,6 +4,46 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61469866005656,
+                            -33.49776058864591
+                        ],
+                        [
+                            -70.61531288592023,
+                            -33.498073728029084
+                        ],
+                        [
+                            -70.61334146229532,
+                            -33.49828397812455
+                        ],
+                        [
+                            -70.61469866005656,
+                            -33.49776058864591
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MFBXE0SA9IQBBB",
+                "name": "k",
+                "information": "l",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61469159252721,
