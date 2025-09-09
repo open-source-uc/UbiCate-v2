@@ -2,6 +2,7 @@
 
 1. Ir al sitio y agregar `/debug` al final de la URL.
 2. Activar el **checkbox** para habilitar el modo debug.
+   ![alt text](image-3.png)
 3. Ingresar el **secret** de la aplicación.
 
    - Si no se ingresa el secret, **no será posible aprobar, borrar ni rechazar lugares**.
