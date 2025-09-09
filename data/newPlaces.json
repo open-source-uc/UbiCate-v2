@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61271664271428,
+                    -33.49945271557484
+                ]
+            },
+            "properties": {
+                "identifier": "MFCZBFHGY5BJZR",
+                "name": "Grupo Humano",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61271599989935,
                     -33.49943388850391
                 ]
