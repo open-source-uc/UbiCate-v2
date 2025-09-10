@@ -5,7 +5,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "ubicate-v2",
-	"account_id": "bbe51897ce76ff56719feb8afc70e9d5",
 	"compatibility_date": "2025-07-15",
 	"compatibility_flags": [
 		"nodejs_compat"
