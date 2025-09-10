@@ -4,27 +4,7 @@ import { getRequestContext } from "@cloudflare/next-on-pages";
 
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
-// Font mapping configuration - maps requested fonts to available R2 folder names
-const FONT_MAPPING: Record<string, string> = {
-  // Roboto Slab variants - map to available R2 folders (URL encoded)
-  "Roboto Slab Regular": "Roboto%20Slab%20Regular",
-  "Roboto Slab SemiBold": "Roboto%20Slab%20SemiBold",
-  "Roboto Slab Medium": "Roboto%20Slab%20Medium",
-  "Roboto Slab Bold": "Roboto%20Slab%20Regular", // Fallback to Regular if Bold not available
-
-  // Open Sans variants - fallback to Roboto if not available
-  "Open Sans Regular": "Roboto%20Slab%20Regular",
-  "Open Sans SemiBold": "Roboto%20Slab%20Regular",
-  "Open Sans Medium": "Roboto%20Slab%20Regular",
-  "Open Sans Bold": "Roboto%20Slab%20Regular",
-
-  // Arial fallbacks - map to available fonts
-  "Arial Unicode MS Regular": "Roboto%20Slab%20Regular",
-  "Arial Unicode MS Bold": "Roboto%20Slab%20Regular",
-  "Arial Unicode MS": "Roboto%20Slab%20Regular",
-};
-
-// Default fallback font if none of the mapping works
+// Default fallback font if requested font is not available
 const DEFAULT_FONT = "Roboto%20Slab%20Regular";
 
 async function findAvailableFont(
@@ -39,17 +19,19 @@ async function findAvailableFont(
   console.log(`Trying fonts in order: ${fonts.join(", ")}`);
 
   for (const requestedFont of fonts) {
-    // Try direct mapping first
-    const mappedFont = FONT_MAPPING[requestedFont] || requestedFont;
-    const tileKey = `glyphs/${mappedFont}/${range}.pbf`;
+    // Decode URI component to handle URL-encoded font names
+    const decodedFont = decodeURIComponent(requestedFont);
+    // Re-encode for use as R2 key
+    const encodedFont = encodeURIComponent(decodedFont);
+    const tileKey = `glyphs/${encodedFont}/${range}.pbf`;
 
-    console.log(`Trying font: ${requestedFont} -> ${mappedFont} (${tileKey})`);
+    console.log(`Trying font: ${requestedFont} -> ${decodedFont} -> ${encodedFont} (${tileKey})`);
 
     try {
       const object = await R2.get(tileKey);
       if (object) {
         console.log(`✓ Font found: ${tileKey}`);
-        return { font: mappedFont, key: tileKey, object };
+        return { font: encodedFont, key: tileKey, object };
       }
     } catch (error) {
       console.log(`✗ Error accessing ${tileKey}:`, error);
@@ -85,7 +67,6 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json(
         {
           error: `No glyphs found for fontstack: ${fontstack}, range: ${range}`,
-          availableFonts: Object.keys(FONT_MAPPING),
           defaultFont: DEFAULT_FONT,
         },
         { status: 404 },
