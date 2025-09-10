@@ -8,16 +8,16 @@ import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 const FONT_MAPPING: Record<string, string> = {
   // Roboto Slab variants - map to available R2 folders (URL encoded)
   "Roboto Slab Regular": "Roboto%20Slab%20Regular",
-  "Roboto Slab SemiBold": "Roboto%20Slab%20SemiBold", 
+  "Roboto Slab SemiBold": "Roboto%20Slab%20SemiBold",
   "Roboto Slab Medium": "Roboto%20Slab%20Medium",
-  "Roboto Slab Bold": "Roboto%20Slab%20Regular",  // Fallback to Regular if Bold not available
-  
+  "Roboto Slab Bold": "Roboto%20Slab%20Regular", // Fallback to Regular if Bold not available
+
   // Open Sans variants - fallback to Roboto if not available
   "Open Sans Regular": "Roboto%20Slab%20Regular",
   "Open Sans SemiBold": "Roboto%20Slab%20Regular",
   "Open Sans Medium": "Roboto%20Slab%20Regular",
   "Open Sans Bold": "Roboto%20Slab%20Regular",
-  
+
   // Arial fallbacks - map to available fonts
   "Arial Unicode MS Regular": "Roboto%20Slab%20Regular",
   "Arial Unicode MS Bold": "Roboto%20Slab%20Regular",
@@ -27,20 +27,24 @@ const FONT_MAPPING: Record<string, string> = {
 // Default fallback font if none of the mapping works
 const DEFAULT_FONT = "Roboto%20Slab%20Regular";
 
-async function findAvailableFont(R2: any, fontstack: string, range: string): Promise<{ font: string; key: string; object: any } | null> {
+async function findAvailableFont(
+  R2: any,
+  fontstack: string,
+  range: string,
+): Promise<{ font: string; key: string; object: any } | null> {
   // Split fontstack and try each font in order
-  const fonts = fontstack.split(',').map(f => f.trim());
-  
+  const fonts = fontstack.split(",").map((f) => f.trim());
+
   console.log(`Font request - Fontstack: ${fontstack}, Range: ${range}`);
-  console.log(`Trying fonts in order: ${fonts.join(', ')}`);
-  
+  console.log(`Trying fonts in order: ${fonts.join(", ")}`);
+
   for (const requestedFont of fonts) {
     // Try direct mapping first
     const mappedFont = FONT_MAPPING[requestedFont] || requestedFont;
     const tileKey = `glyphs/${mappedFont}/${range}.pbf`;
-    
+
     console.log(`Trying font: ${requestedFont} -> ${mappedFont} (${tileKey})`);
-    
+
     try {
       const object = await R2.get(tileKey);
       if (object) {
@@ -51,11 +55,11 @@ async function findAvailableFont(R2: any, fontstack: string, range: string): Pro
       console.log(`✗ Error accessing ${tileKey}:`, error);
     }
   }
-  
+
   // Try default fallback
   const defaultKey = `glyphs/${DEFAULT_FONT}/${range}.pbf`;
   console.log(`Trying default fallback: ${defaultKey}`);
-  
+
   try {
     const object = await R2.get(defaultKey);
     if (object) {
@@ -65,7 +69,7 @@ async function findAvailableFont(R2: any, fontstack: string, range: string): Pro
   } catch (error) {
     console.log(`✗ Error accessing default font ${defaultKey}:`, error);
   }
-  
+
   console.log(`✗ No fonts found for fontstack: ${fontstack}, range: ${range}`);
   return null;
 }
@@ -73,16 +77,19 @@ async function findAvailableFont(R2: any, fontstack: string, range: string): Pro
 export async function GET(request: NextRequest, { params }: { params: Promise<{ fontstack: string; range: string }> }) {
   try {
     const { fontstack, range } = await params;
-    
+
     const R2 = getRequestContext().env.R2;
     const result = await findAvailableFont(R2, fontstack, range);
 
     if (!result) {
-      return NextResponse.json({ 
-        error: `No glyphs found for fontstack: ${fontstack}, range: ${range}`,
-        availableFonts: Object.keys(FONT_MAPPING),
-        defaultFont: DEFAULT_FONT
-      }, { status: 404 });
+      return NextResponse.json(
+        {
+          error: `No glyphs found for fontstack: ${fontstack}, range: ${range}`,
+          availableFonts: Object.keys(FONT_MAPPING),
+          defaultFont: DEFAULT_FONT,
+        },
+        { status: 404 },
+      );
     }
 
     const { object } = result;
