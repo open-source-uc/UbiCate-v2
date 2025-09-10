@@ -16,7 +16,7 @@
 	"r2_buckets": [
 		{
 			"binding": "R2",
-			"bucket_name": "v2-ubicate"
+			"bucket_name": "ubicate-v2-bucket"
 		}
 	]
 }

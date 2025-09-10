@@ -50,8 +50,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const { fontstack, range } = await params;
 
     const R2 = getRequestContext().env.R2;
-    const t = await R2.list();
-    t.objects.map((e) => console.log(e.key));
+
     const result = await findAvailableFont(R2, fontstack, range);
 
     if (!result) {
