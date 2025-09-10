@@ -8,10 +8,10 @@ import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 const DEFAULT_FONT = "Roboto%20Slab%20Regular";
 
 async function findAvailableFont(
-  R2: any,
+  R2: R2Bucket,
   fontstack: string,
   range: string,
-): Promise<{ font: string; key: string; object: any } | null> {
+): Promise<{ font: string; key: string; object: R2ObjectBody } | null> {
   // Split fontstack and try each font in order
   const fonts = fontstack.split(",").map((f) => f.trim());
 
@@ -28,31 +28,20 @@ async function findAvailableFont(
     console.log(`Trying font: ${requestedFont} -> ${decodedFont} -> ${encodedFont} (${tileKey})`);
 
     try {
+      console.log(`Checking R2 for key: ${tileKey}`);
       const object = await R2.get(tileKey);
       if (object) {
-        console.log(`✓ Font found: ${tileKey}`);
         return { font: encodedFont, key: tileKey, object };
+      } else {
+        console.log(`✗ Font not found: ${tileKey}`);
+        return null;
       }
     } catch (error) {
       console.log(`✗ Error accessing ${tileKey}:`, error);
+      return null;
     }
   }
 
-  // Try default fallback
-  const defaultKey = `glyphs/${DEFAULT_FONT}/${range}.pbf`;
-  console.log(`Trying default fallback: ${defaultKey}`);
-
-  try {
-    const object = await R2.get(defaultKey);
-    if (object) {
-      console.log(`✓ Default font found: ${defaultKey}`);
-      return { font: DEFAULT_FONT, key: defaultKey, object };
-    }
-  } catch (error) {
-    console.log(`✗ Error accessing default font ${defaultKey}:`, error);
-  }
-
-  console.log(`✗ No fonts found for fontstack: ${fontstack}, range: ${range}`);
   return null;
 }
 
@@ -61,6 +50,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const { fontstack, range } = await params;
 
     const R2 = getRequestContext().env.R2;
+    const t = await R2.list();
+    t.objects.map((e) => console.log(e.key));
     const result = await findAvailableFont(R2, fontstack, range);
 
     if (!result) {
