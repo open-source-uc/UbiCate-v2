@@ -2,7 +2,7 @@
 
 LOCAL_TILES="./ubicate-tiles"
 LOCAL_GLYPHS="./glyphs"
-BUCKET="ubicate-v2-bucket"
+BUCKET="v2-ubicate"
 
 echo "Seleccione opción de subida:"
 echo "1) --local"

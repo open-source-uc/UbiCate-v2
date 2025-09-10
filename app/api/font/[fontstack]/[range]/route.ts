@@ -5,7 +5,6 @@ import { getRequestContext } from "@cloudflare/next-on-pages";
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
 // Default fallback font if requested font is not available
-const DEFAULT_FONT = "Roboto%20Slab%20Regular";
 
 async function findAvailableFont(
   R2: R2Bucket,
@@ -23,7 +22,7 @@ async function findAvailableFont(
     const decodedFont = decodeURIComponent(requestedFont);
     // Re-encode for use as R2 key
     const encodedFont = encodeURIComponent(decodedFont);
-    const tileKey = `glyphs/${encodedFont}/${range}.pbf`;
+    const tileKey = `glyphs/${decodedFont}/${range}.pbf`;
 
     console.log(`Trying font: ${requestedFont} -> ${decodedFont} -> ${encodedFont} (${tileKey})`);
 
@@ -57,7 +56,6 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json(
         {
           error: `No glyphs found for fontstack: ${fontstack}, range: ${range}`,
-          defaultFont: DEFAULT_FONT,
         },
         { status: 404 },
       );
