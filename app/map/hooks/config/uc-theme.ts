@@ -6,7 +6,7 @@ export const placesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["get", "name"],
-    "text-font": ["Open Sans Semibold", "Arial Unicode MS Regular"],
+    "text-font": ["Roboto Slab Medium", "Arial Unicode MS Regular"],
     "text-size": 16,
     "text-anchor": "top",
     "text-offset": [0, 1],
@@ -88,7 +88,6 @@ export const UC_MAP_COLORS = {
   school: "#EAEAEA", // Verde escuela vibrante
   airport: "#EAEAEA", // Gris aeropuerto neutro
   campus: "#EAEAEA",
-  
 
   // Building
   building: "#C6C6C6",
