@@ -45,6 +45,8 @@ public/swe-worker*
 # maps
 *.osm.pbf
 *.mbtiles
-
+*.pbf
+ubicate-tiles/
+glyphs/
 # python env
 .venv
