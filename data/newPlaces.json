@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61078618576163,
+                    -33.4982270019696
+                ]
+            },
+            "properties": {
+                "identifier": "MFEA1CCNYRLLID",
+                "name": "Punto de prueba",
+                "information": "asdasd",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61271599989935,
                     -33.49943388850391
                 ]
