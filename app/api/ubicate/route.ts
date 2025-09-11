@@ -235,7 +235,7 @@ export async function PATCH(request: NextRequest) {
 
     if (!result.success) {
       const firstError = result.error.issues[0]?.message || "Error de validación";
-      
+
       return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
