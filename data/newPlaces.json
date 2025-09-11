@@ -4,6 +4,32 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60954316842313,
+                    -33.497006145802104
+                ]
+            },
+            "properties": {
+                "identifier": "MFFOGF8WABSK39",
+                "name": "Punto de prubea",
+                "information": "Cajero automatico",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
