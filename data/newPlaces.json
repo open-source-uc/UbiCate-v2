@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61202238860945,
-                    -33.497549864641236
-                ]
-            },
-            "properties": {
-                "identifier": "MFETF5W7OJZS5N",
-                "name": "Cf",
-                "information": "Gg",
-                "categories": [
-                    "water"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61271664271428,
                     -33.49945271557484
                 ]
