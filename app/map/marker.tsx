@@ -3,8 +3,8 @@ import React from "react";
 import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
-import { getCategoryColor } from "@/utils/categoryToColors";
-import { CATEGORIES, Feature, PointFeature } from "@/utils/types";
+import { getCategoryColor } from "@/lib/map/categoryToColors";
+import { CATEGORIES, Feature, PointFeature } from "@/lib/types";
 
 interface MarkerProps {
   place: PointFeature;

@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 
-import { CATEGORIES, PointGeometry, Properties } from "../../utils/types";
+import { CATEGORIES, PointGeometry, Properties } from "@/lib/types";
 
 type CardinalPoints = 4 | 8;
 

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
-import { getAllowedOrigin } from "@/utils/allowOrigins";
+import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
 // app/api/[z]/[x]/[y]/route.ts
 export async function GET(request: NextRequest, { params }: { params: Promise<{ range: string }> }) {

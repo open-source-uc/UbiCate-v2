@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
-import PlacesJSON from "@/utils/places";
-import { Feature } from "@/utils/types";
+import PlacesJSON from "@/lib/places/data";
+import { Feature } from "@/lib/types";
 
-import NavigationSidebar from "./components/sidebar/NavigationSidebar";
+import NavigationSidebar from "./components/features/navigation/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";
 import Providers from "./providers";
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };

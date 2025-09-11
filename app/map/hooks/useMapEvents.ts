@@ -12,9 +12,9 @@ import {
   getCampusNameFromPoint,
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
-} from "@/utils/getCampusBounds";
-import { getFeatureOfLayerFromPoint } from "@/utils/getLayerMap";
-import { Feature, CATEGORIES } from "@/utils/types";
+} from "@/lib/campus/getCampusBounds";
+import { getFeatureOfLayerFromPoint } from "@/lib/map/getLayerMap";
+import { Feature, CATEGORIES } from "@/lib/types";
 
 interface UseMapEventsProps {
   mapRef: React.RefObject<MapRef | null>;

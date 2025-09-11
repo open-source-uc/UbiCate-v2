@@ -44,7 +44,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
         <h2>⚠️ IMPORTANTE - REPORTAR ERROR</h2>
         <p>Por favor, reporta este error enviando una captura de pantalla a:</p>
         <p>
-          <strong>📱 Instagram: @opensource_euc</strong>
+          <strong>📱 Instagram: @osuc.dev</strong>
         </p>
         <p>Incluye el stack trace completo para ayudarnos a solucionarlo rápidamente.</p>
 
@@ -78,8 +78,8 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
         <p>
           <small>
             Una solución temporal puede ser limpiar la caché del navegador o intentar usar el modo incógnito. Sin
-            embargo, por favor repórtalo a @opensource_euc en Instagram para que podamos resolver el problema. Asegúrate
-            de enviar el stack trace completo.
+            embargo, por favor repórtalo a @osuc.dev en Instagram para que podamos resolver el problema. Asegúrate de
+            enviar el stack trace completo.
           </small>
         </p>
       </body>

@@ -4,8 +4,8 @@ import { cookies } from "next/headers";
 
 import { Metadata } from "next";
 
-import ManifestFixer from "./components/ManifestFixer";
-import SWRegister from "./components/SWRegister";
+import ManifestFixer from "./components/app/ManifestFixer";
+import SWRegister from "./components/app/SWRegister";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),

@@ -1,0 +1,42 @@
+/* =============================================== */
+/*              UBICATE UC - MAIN STYLES           */
+/* =============================================== */
+
+/* Import core framework and dependencies */
+@import 'tailwindcss';
+
+/* Import modular CSS files for better maintainability */
+@import './styles/variables.css';
+@import './styles/base.css';
+
+/* =============================================== */
+/*           APPLICATION-SPECIFIC STYLES           */
+/* =============================================== */
+
+/* MapLibre GL controls positioning (OSM License compliance) */
+.maplibregl-ctrl-bottom-right {
+  z-index: 10000 !important;
+}
+
+/* =============================================== */
+/*            THEME-SPECIFIC ENHANCEMENTS          */
+/* =============================================== */
+
+/* Pink Coquette theme specific effects */
+[data-theme="pink-coquette"] .theme-transition {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-theme="pink-coquette"] button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Light Formal theme specific styling */
+[data-theme="light-formal"] .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+}
+
+[data-theme="light-formal"] .bg-background\/95 {
+  background-color: rgb(249 248 243 / 0.98);
+}

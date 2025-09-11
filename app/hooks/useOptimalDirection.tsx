@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { LineFeature } from "@/utils/types";
+import { LineFeature } from "@/lib/types";
 
 export const fetchDirection = async (
   start: [number, number],

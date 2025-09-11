@@ -34,6 +34,9 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 - [dvictorerol](https://github.com/dvictorerol)
 - [Utmite](https://github.com/Utmite)
 
+### Documentación by DeepWiki
+[Documentación](https://deepwiki.com/open-source-uc/UbiCate-v2)
+
 ## Query Params
 
 Para centrar el mapa o la ubicación en el formulario en un campus específico, se puede agregar un parámetro en la URL con el nombre del campus:
@@ -352,7 +355,7 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 Puedes comunicarte con nosotros a través de los siguientes canales:
 
-- Instagram: [Open Source eUC](https://www.instagram.com/opensource_euc/)
+- Instagram: [Open Source eUC](https://www.instagram.com/osuc.dev/)
 - Correo electrónico: [ubicate@osuc.dev](mailto:ubicate@osuc.dev)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>

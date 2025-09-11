@@ -1,0 +1,49 @@
+/* =============================================== */
+/*              DEFAULT THEME (Dark Brown)        */
+/* =============================================== */
+
+/* Default theme variables */
+:root {
+  --theme-background: var(--palette-brown-900);
+  --theme-foreground: var(--palette-white-primary);
+  
+  --theme-primary: var(--palette-blue-primary);
+  --theme-primary-foreground: var(--palette-white-primary);
+  
+  --theme-secondary: var(--palette-brown-600);
+  --theme-secondary-foreground: var(--palette-white-primary);
+
+  --theme-tertiary: var(--palette-brown-200);
+  --theme-tertiary-foreground: var(--palette-brown-900);
+  
+  --theme-muted: var(--palette-brown-400);
+  --theme-muted-foreground: var(--palette-brown-900);
+  
+  --theme-accent: var(--palette-brown-400);
+  --theme-accent-foreground: var(--palette-brown-900);
+  
+  --theme-destructive: var(--palette-red-500);
+  --theme-destructive-foreground: var(--palette-white-primary);
+  
+  --theme-border: var(--palette-brown-600);
+  --theme-input: var(--palette-brown-400);
+  --theme-ring: var(--palette-brown-200);
+
+  /* Functional colors for app-specific features */
+  --theme-route-primary: var(--palette-blue-primary);
+  --theme-route-border: var(--palette-cyan-800);
+  --theme-focus-indicator: var(--palette-blue-primary);
+
+  /* Chart Colors */
+  --theme-chart-0: var(--palette-gray-300);
+  --theme-chart-1: var(--palette-red-800);
+  --theme-chart-2: var(--palette-red-500);
+  --theme-chart-3: var(--palette-green-500);
+  --theme-chart-4: var(--palette-pink-500);
+  --theme-chart-5: var(--palette-cyan-800);
+  --theme-chart-6: var(--palette-orange-500);
+  --theme-chart-7: var(--palette-cyan-500);
+  --theme-chart-8: var(--palette-green-800);
+  --theme-chart-9: var(--palette-purple-500);
+  --theme-chart-10: var(--palette-gray-500);
+}
