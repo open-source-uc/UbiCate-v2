@@ -13,7 +13,7 @@ export const placesTextLayer: LayerProps = {
   },
   paint: {
     "text-color": "#000000",
-    "text-halo-color": "rgba(255, 255, 255, 1)", 
+    "text-halo-color": "rgba(255, 255, 255, 1)",
     "text-halo-width": 1,
   },
 };
