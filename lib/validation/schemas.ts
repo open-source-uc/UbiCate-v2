@@ -9,7 +9,6 @@ export const placeSchema = z.object({
       .max(100, "El nombre no puede exceder 100 caracteres"),
     information: z
       .string({ required_error: "La información es obligatoria" })
-      .min(1, "La información no puede estar vacía")
       .max(300, "La información no puede exceder 300 caracteres"),
     categories: z
       .array(z.string(), { required_error: "Las categorías son obligatorias" })
