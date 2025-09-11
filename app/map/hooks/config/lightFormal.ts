@@ -56,7 +56,7 @@ export const placesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["get", "name"],
-    "text-font": ["Open Sans Semibold"],
+    "text-font": ["Roboto Slab Medium"],
     "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 1],
@@ -83,6 +83,7 @@ export const LIGHT_FORMAL_MAP_COLORS = {
 
   // Landuse - Grises diferenciados con contraste
   park: "#a8d4a8", // Verde parque contrastado
+  pitch: "#d8d8d8", // CORREGIDO: Gris claro neutro para áreas deportivas
   residential: "#e0e0e0", // Gris residencial medio
   commercial: "#d0d0d0", // Gris comercial más oscuro
   industrial: "#c0c0c0", // Gris industrial oscuro
@@ -90,11 +91,11 @@ export const LIGHT_FORMAL_MAP_COLORS = {
   hospital: "#f0c0c0", // Rosa suave pero visible
   school: "#c0d0e0", // Azul gris para escuelas
   airport: "#d8d8d8", // Gris aeropuerto medio
-  campus: "#d8d8d0", // Azul gris más definido para campus
+  campus: "#e8e8e8", // CORREGIDO: Gris neutro claro para áreas deportivas/campus
 
   // Building - Gris con buen contraste
-  building: "#b0b0b0", // Gris edificio bien contrastado
-  buildingOutline: "rgba(120, 120, 120, 0.8)", // Contorno definido
+  building: "#d0d0d0", // CORREGIDO: Gris claro neutro para edificios
+  buildingOutline: "rgba(160, 160, 160, 0.8)", // CORREGIDO: Contorno gris neutro
 
   // Transportation - Grises progresivos con contraste claro
   path: "#c8c8c8", // Sendero gris claro

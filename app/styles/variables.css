@@ -6,6 +6,7 @@
 @import './themes/default.css';
 @import './themes/coquette.css';
 @import './themes/light-formal.css';
+@import './themes/uc-theme.css';
 
 /* Theme variables and design tokens for consistent styling across the application */
 @theme static inline {
@@ -154,4 +155,58 @@
 
   /* Professional Colors */
   --palette-professional-red-light: #dc2626;
+
+  /* UC Colors */
+  --palette-uc-celeste: #0176DE;
+  --palette-uc-azul: #173F8A;
+  --palette-uc-azul-oscuro: #03122E;
+  --palette-uc-amarillo: #FEC60D;
+  --palette-uc-amarillo-oscuro: #E3AE00;
+
+  --palette-uc-negro: #000000;
+  --palette-uc-gris-oscuro-a: #707070;
+  --palette-uc-gris-oscuro-b: #9C9C9C;
+  --palette-uc-gris-oscuro-c: #C6C6C6;
+  --palette-uc-gris-claro-a: #EAEAEA;
+  --palette-uc-gris-oscuro-b: #F0F0F0;
+  --palette-uc-gris-oscuro-c: #F6F6F6;
+  --palette-uc-blanco: #FFFFFF;
+
+  --palette-uc-success: #00AA00;
+  --palette-uc-warning: #E3AE00;
+  --palette-uc-danger: #F24F4F;
+  --palette-uc-info: #0176DE;
+
+  /* para chart*/
+  --palette-vibrant-orange: #FF6B35;
+  --palette-vibrant-gold: #F7931E;
+  --palette-vibrant-yellow: #FFD23F;
+  --palette-vibrant-green-neon: #06FFA5;
+  --palette-vibrant-turquoise: #4ECDC4;
+  
+  --palette-vibrant-pink: #FF4081;
+  --palette-vibrant-purple: #9C27B0;
+  --palette-vibrant-rose: #E91E63;
+  --palette-vibrant-red-orange: #FF5722;
+  --palette-vibrant-brown: #795548;
+  --palette-vibrant-blue-gray: #607D8B;
+
+  /* Colores extendidos para más categorías */
+  --palette-vibrant-lime: #CDDC39;
+  --palette-vibrant-cyan: #00BCD4;
+  --palette-vibrant-amber: #FF9800;
+  --palette-vibrant-light-green: #8BC34A;
+  --palette-vibrant-golden: #FFC107;
+  --palette-vibrant-magenta: #E040FB;
+  --palette-vibrant-teal: #1DE9B6;
+  --palette-vibrant-deep-orange: #FF6F00;
+  --palette-vibrant-deep-pink: #C51162;
+  --palette-vibrant-electric-purple: #AA00FF;
+
+  /* Variaciones suaves para casos especiales */
+  --palette-vibrant-soft-orange: #FF8A65;
+  --palette-vibrant-soft-green: #81C784;
+  --palette-vibrant-soft-blue: #64B5F6;
+  --palette-vibrant-soft-amber: #FFB74D;
+  --palette-vibrant-soft-pink: #F06292;
 }

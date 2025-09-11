@@ -2,47 +2,32 @@ import { useMemo } from "react";
 
 import { useTheme } from "@/app/context/themeCtx";
 import { createMapLibreStyle } from "@/lib/map/createMapLibreStyle";
-
-import * as lightFormal from "./config/lightFormal";
-import * as normal from "./config/normal";
-import * as pinkCoquette from "./config/pinkCoquette";
+import { getTheme } from "@/lib/themes";
 
 export function useMapStyle() {
   const { theme } = useTheme();
 
   const config = useMemo(() => {
-    switch (theme) {
-      case "light-formal":
-        return {
-          placesTextLayer: lightFormal.placesTextLayer,
-          campusBorderLayer: lightFormal.campusBorderLayer,
-          sectionStrokeLayer: lightFormal.sectionStrokeLayer,
-          sectionAreaLayer: lightFormal.sectionAreaLayer,
-          customPolygonStrokeLayer: lightFormal.customPolygonStrokeLayer,
-          customPolygonSectionAreaLayer: lightFormal.customPolygonSectionAreaLayer,
-          mapStyle: createMapLibreStyle(lightFormal.LIGHT_FORMAL_MAP_COLORS),
-        };
-      case "pink-coquette":
-        return {
-          placesTextLayer: pinkCoquette.placesTextLayer,
-          campusBorderLayer: pinkCoquette.campusBorderLayer,
-          sectionStrokeLayer: pinkCoquette.sectionStrokeLayer,
-          sectionAreaLayer: pinkCoquette.sectionAreaLayer,
-          customPolygonStrokeLayer: pinkCoquette.customPolygonStrokeLayer,
-          customPolygonSectionAreaLayer: pinkCoquette.customPolygonSectionAreaLayer,
-          mapStyle: createMapLibreStyle(pinkCoquette.PINK_COQUETTE_MAP_COLORS),
-        };
-      default:
-        return {
-          placesTextLayer: normal.placesTextLayer,
-          campusBorderLayer: normal.campusBorderLayer,
-          sectionStrokeLayer: normal.sectionStrokeLayer,
-          sectionAreaLayer: normal.sectionAreaLayer,
-          customPolygonStrokeLayer: normal.customPolygonStrokeLayer,
-          customPolygonSectionAreaLayer: normal.customPolygonSectionAreaLayer,
-          mapStyle: createMapLibreStyle(),
-        };
+    const themeConfig = getTheme(theme);
+
+    if (!themeConfig) {
+      // Fallback to default theme if theme not found
+      const defaultTheme = getTheme("");
+      if (!defaultTheme) {
+        throw new Error("Default theme not found in registry");
+      }
+
+      return {
+        ...defaultTheme.mapConfig,
+        mapStyle: createMapLibreStyle(),
+      };
     }
+
+    return {
+      ...themeConfig.mapConfig,
+      mapStyle: createMapLibreStyle(themeConfig.mapConfig.mapColors),
+    };
   }, [theme]);
+
   return config;
 }
