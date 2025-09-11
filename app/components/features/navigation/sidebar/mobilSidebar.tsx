@@ -163,6 +163,24 @@ export default function MobileSidebar() {
     }
   }, [isOpen]);
 
+  // Update CSS custom property for attribution positioning
+  useEffect(() => {
+    const sidebarHeightRem = isOpen ? Math.max(4, (sidebarHeight / 100) * window.innerHeight / 16) : 4;
+    // Add extra space for user location buttons (bottom-17 = ~4.25rem + button height + padding ≈ 5rem total)
+    document.documentElement.style.setProperty('--mobile-sidebar-height', `${Math.max(sidebarHeightRem, 4.5)}rem`);
+    
+    // Hide attribution as soon as sidebar is opened and expanding beyond collapsed state
+    const isExpanded = isOpen && sidebarHeight > 10; // Hide when above minimum collapsed height (10%)
+    document.documentElement.style.setProperty('--mobile-sidebar-expanded', isExpanded ? '1' : '0');
+    
+    // Also add/remove a CSS class for more reliable styling
+    if (isExpanded) {
+      document.documentElement.classList.add('mobile-sidebar-expanded');
+    } else {
+      document.documentElement.classList.remove('mobile-sidebar-expanded');
+    }
+  }, [isOpen, sidebarHeight]);
+
   // Clean up event listeners
   useEffect(() => {
     return () => {
