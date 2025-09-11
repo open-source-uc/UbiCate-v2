@@ -30,8 +30,8 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 - [Utmite](https://github.com/Utmite)
 - [IgnacioPalma](https://github.com/IgnacioPalma)
 
-
 ### Documentación by DeepWiki
+
 [Documentación](https://deepwiki.com/open-source-uc/UbiCate-v2)
 
 ## Query Params
