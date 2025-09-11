@@ -271,17 +271,6 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
-        id: "boundary",
-        type: "line",
-        source: "localtiles",
-        "source-layer": "boundary",
-        paint: {
-          "line-color": boundary,
-          "line-width": ["case", ["==", ["get", "admin_level"], 2], 2, ["==", ["get", "admin_level"], 4], 1.5, 1],
-          "line-dasharray": [3, 3],
-        },
-      },
-      {
         id: "transportation-path-stroke",
         type: "line",
         source: "localtiles",

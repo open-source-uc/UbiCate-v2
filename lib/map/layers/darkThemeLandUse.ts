@@ -1,0 +1,55 @@
+import { LayerSpecification } from "maplibre-gl";
+
+export default {
+    id: "landuse",
+    type: "fill",
+    source: "localtiles",
+    "source-layer": "landuse",
+    minzoom: 5,
+    paint: {
+        "fill-color": [
+        "case",
+        ["==", ["get", "class"], "park"],
+        "#005d5b",
+        ["==", ["get", "class"], "wood"],
+        "#005d5b", // En el OLD_MAP_STYLE esto mapea a "#005d5b" que es el valor de grass
+        ["==", ["get", "class"], "grass"],
+        "#005d5b",
+        ["==", ["get", "class"], "agriculture"],
+        "#005d5b", // En el OLD_MAP_STYLE esto mapea a "#005d5b" que es el valor de grass
+        ["==", ["get", "class"], "residential"],
+        "#262c33",
+        ["==", ["get", "class"], "commercial"],
+        "#374d64",
+        ["==", ["get", "class"], "industrial"],
+        "#374d64",
+        ["==", ["get", "class"], "cemetery"],
+        "#0d6a68",
+        ["==", ["get", "class"], "hospital"],
+        "#374d64",
+        ["==", ["get", "class"], "school"],
+        "#3d4c5c",
+        ["==", ["get", "class"], "airport"],
+        "#002148",
+        "#273d41", 
+        ],
+        "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        8,
+        ["case", ["==", ["get", "class"], "residential"], 0.8, 0.2],
+        10,
+        ["case", ["==", ["get", "class"], "residential"], 0, 1],
+        ],
+    },
+    "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        8,
+        ["case", ["==", ["get", "class"], "residential"], 0.8, 0.2],
+        10,
+        ["case", ["==", ["get", "class"], "residential"], 0, 1],
+    ],
+} as LayerSpecification
