@@ -24,30 +24,6 @@
                 "campus": "SJ",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61265142702489,
-                    -33.49624207492392
-                ]
-            },
-            "properties": {
-                "identifier": "MEN5BTLXABMZ6E",
-                "name": "Huerto San Francisco",
-                "information": "# Huerto San Francisco\n\nEspacio de aprendizaje y cuidado de la naturaleza",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
         }
     ]
 }
