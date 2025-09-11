@@ -10,9 +10,9 @@ export default function FooterOptionsSidebar() {
     <>
       <div className="w-full rounded-xl bg-primary">
         <div className="text-xs text-primary-foreground p-4 mobile:p-3 tablet:p-4">
-          Desarrollado por
+          Proyecto Co-creado
           <Link href="/creditos" className="font-semibold block hover:underline">
-            Open Source eUC
+            Conóce a los Colaboradores
           </Link>
         </div>
       </div>

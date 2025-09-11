@@ -85,7 +85,10 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
         {/* Footer informativo */}
         <div className="mt-6 p-3 bg-muted rounded-lg border border-border">
           <div className="flex items-center gap-2 text-xs">
-            <p>Los temas se guardan automáticamente y se aplicarán en toda la aplicación</p>
+            <p>
+              Estamos trabajando en implementar el estilo UC en toda la aplicación – algunos elementos de la interfaz
+              pueden no estar funcionando como se espera.
+            </p>
           </div>
         </div>
       </div>
