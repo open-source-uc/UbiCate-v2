@@ -76,30 +76,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61440447434484,
-                    -33.497138528901836
-                ]
-            },
-            "properties": {
-                "identifier": "MFCV7VRTXL0IBC",
-                "name": "Papel de metal",
-                "information": "Papel de metal",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
