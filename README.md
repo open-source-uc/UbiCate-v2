@@ -35,6 +35,7 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 - [Utmite](https://github.com/Utmite)
 
 ### Documentación by DeepWiki
+
 [Documentación](https://deepwiki.com/open-source-uc/UbiCate-v2)
 
 ## Query Params
@@ -81,6 +82,9 @@ GITHUB_USER_EMAIL=<EMAIL>                       # Opcional en desarrollo. Obliga
 GITHUB_BRANCH_NAME=<BRANCH>                     # Opcional en desarrollo. Obligatorio en producción.
 API_UBICATE_SECRET=<SECRET>                     # Opcional en desarrollo. Obligatorio en producción. Se usa en /debug para aprobar o borrar ubicaciones.
 NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE">     # Si es "TRUE", se usa un mapa autohospedado. Si no, se usa el mapa desde los servidores de OSUC.
+
+OUTBOUND_PROXY=                                 #Opcional
+RUNTIME=<"edge" | "nodejs">                     #Por defecto es edge
 ```
 
 > \[!IMPORTANT]

@@ -1,3 +1,5 @@
+import "@/lib/setup-proxy";
+
 import { NextRequest, NextResponse } from "next/server";
 
 import { fetchApprovedPlaces, fetchNewPlaces, githubFileOperation } from "@/lib/github/operations";
@@ -6,6 +8,7 @@ import { Feature } from "@/lib/types";
 import { deleteSchema, patchSchema, placeSchema, putSchema } from "@/lib/validation/schemas";
 
 const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
+const RUNTIME = process.env.RUNTIME || "edge";
 
 export async function GET() {
   try {
@@ -403,4 +406,4 @@ export async function DELETE(request: NextRequest) {
   }
 }
 
-export const runtime = "edge";
+export const runtime = RUNTIME;
