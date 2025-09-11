@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61233826777847,
+                    -33.49742072902306
+                ]
+            },
+            "properties": {
+                "identifier": "MFFCED76MX4SNM",
+                "name": "asdasdasd",
+                "information": "asdasdasd",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
