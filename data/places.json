@@ -3,6 +3,52 @@
     "features": [
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61271664271428,
+                    -33.49945271557484
+                ]
+            },
+            "properties": {
+                "identifier": "MFCZBFHGY5BJZR",
+                "name": "Grupo Humano",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61265142702489,
+                    -33.49624207492392
+                ]
+            },
+            "properties": {
+                "identifier": "MEN5BTLXABMZ6E",
+                "name": "Huerto San Francisco",
+                "information": "# Huerto San Francisco\n\nEspacio de aprendizaje y cuidado de la naturaleza",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "properties": {
                 "identifier": "BIENVENIDA_2025-19",
                 "name": "Cristales de colores. Educación",
@@ -31911,6 +31957,29 @@
                 "faculties": [
                     "MAT"
                 ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61271371046772,
+                    -33.49953206736303
+                ]
+            },
+            "properties": {
+                "identifier": "MFCZDEC7RB7DP0",
+                "name": "Cerca del Grupo Humano",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         }
     ]
