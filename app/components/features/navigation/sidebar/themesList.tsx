@@ -1,35 +1,13 @@
 import * as Icons from "@/app/components/ui/icons/icons";
-import { Theme, useTheme } from "@/app/context/themeCtx";
+import { useTheme } from "@/app/context/themeCtx";
+import { getAllThemes } from "@/lib/themes";
 import { SubSidebarType } from "@/lib/types";
 
 export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSidebar: (value: SubSidebarType) => void }) {
   const { setTheme, theme } = useTheme();
 
-  const themes: {
-    id: Theme;
-    name: string;
-    icon: React.ComponentType<{ className?: string }>;
-    description: string;
-  }[] = [
-    {
-      id: "light-formal",
-      name: "Tema Diurno Formal",
-      icon: Icons.Work,
-      description: "Limpio y profesional",
-    },
-    {
-      id: "pink-coquette",
-      name: "Coquette",
-      icon: Icons.Coquette,
-      description: "Pink pony club 🎵",
-    },
-    {
-      id: "",
-      name: "Tema Café Matte",
-      icon: Icons.Coffee,
-      description: "Equilibrio perfecto",
-    },
-  ];
+  // Get all themes from the centralized registry
+  const themes = getAllThemes();
 
   return (
     <div className="flex flex-col h-full">
@@ -56,7 +34,7 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
           <p className="text-md font-semibold text-foreground">Selecciona un tema</p>
           <div className="bg-secondary rounded-lg p-2 space-y-2">
             {themes.map((themeOption) => {
-              const IconComponent = themeOption.icon;
+              const IconComponent = themeOption.ui.icon;
               return (
                 <button
                   key={themeOption.id}
@@ -85,14 +63,14 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
                         theme === themeOption.id ? "text-primary-foreground" : "text-foreground"
                       }`}
                     >
-                      {themeOption.name}
+                      {themeOption.ui.name}
                     </p>
                     <p
                       className={`text-xs ${
                         theme === themeOption.id ? "text-primary-foreground/70" : "text-muted-foreground"
                       }`}
                     >
-                      {themeOption.description}
+                      {themeOption.ui.description}
                     </p>
                   </div>
 

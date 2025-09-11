@@ -4,25 +4,64 @@ import { getRequestContext } from "@cloudflare/next-on-pages";
 
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
-// app/api/[z]/[x]/[y]/route.ts
-export async function GET(request: NextRequest, { params }: { params: Promise<{ range: string }> }) {
+// Default fallback font if requested font is not available
+
+async function findAvailableFont(
+  R2: R2Bucket,
+  fontstack: string,
+  range: string,
+): Promise<{ font: string; key: string; object: R2ObjectBody } | null> {
+  // Split fontstack and try each font in order
+  const fonts = fontstack.split(",").map((f) => f.trim());
+
+  console.log(`Font request - Fontstack: ${fontstack}, Range: ${range}`);
+  console.log(`Trying fonts in order: ${fonts.join(", ")}`);
+
+  for (const requestedFont of fonts) {
+    // Decode URI component to handle URL-encoded font names
+    const decodedFont = decodeURIComponent(requestedFont).replaceAll(" ", "");
+    // Re-encode for use as R2 key
+    const encodedFont = encodeURIComponent(decodedFont);
+    const tileKey = `glyphs/${decodedFont}/${range}.pbf`;
+
+    console.log(`Trying font: ${requestedFont} -> ${decodedFont} -> ${encodedFont} (${tileKey})`);
+
+    try {
+      console.log(`Checking R2 for key: ${tileKey}`);
+      const object = await R2.get(tileKey);
+      if (object) {
+        return { font: encodedFont, key: tileKey, object };
+      } else {
+        console.log(`✗ Font not found: ${tileKey}`);
+        return null;
+      }
+    } catch (error) {
+      console.log(`✗ Error accessing ${tileKey}:`, error);
+      return null;
+    }
+  }
+
+  return null;
+}
+
+export async function GET(request: NextRequest, { params }: { params: Promise<{ fontstack: string; range: string }> }) {
   try {
-    const { range } = await params;
+    const { fontstack, range } = await params;
 
     const R2 = getRequestContext().env.R2;
-    const tileKey = `glyphs/${range}.pbf`;
 
-    let object;
-    try {
-      object = await R2.get(tileKey);
-    } catch (r2Error) {
-      console.error("R2 access error:", r2Error);
-      return NextResponse.json({ error: "Storage access failed" }, { status: 503 });
+    const result = await findAvailableFont(R2, fontstack, range);
+
+    if (!result) {
+      return NextResponse.json(
+        {
+          error: `No glyphs found for fontstack: ${fontstack}, range: ${range}`,
+        },
+        { status: 404 },
+      );
     }
 
-    if (!object) {
-      return NextResponse.json({ error: `Glyphs not found for range: ${range}` }, { status: 404 });
-    }
+    const { object } = result;
     // Obtener los datos como stream
     const data = object.body;
 
@@ -54,7 +93,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       headers: headers,
     });
   } catch (error) {
-    console.error("Error processing tile:", error);
+    console.error("Error processing font request:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

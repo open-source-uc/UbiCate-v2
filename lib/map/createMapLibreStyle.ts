@@ -14,6 +14,7 @@ interface MapColors {
 
   // Landuse
   park?: string;
+  pitch?: string;
   residential?: string;
   commercial?: string;
   industrial?: string;
@@ -22,17 +23,24 @@ interface MapColors {
   school?: string;
   airport?: string;
   campus?: string;
+
   // Building
   building?: string;
   buildingOutline?: string;
 
   // Transportation
   path?: string;
+  pathStroke?: string;
   minor?: string;
+  minorStroke?: string;
   secondary?: string;
+  secondaryStroke?: string;
   primary?: string;
+  primaryStroke?: string;
   trunk?: string;
+  trunkStroke?: string;
   motorway?: string;
+  motorwayStroke?: string;
   railStart?: string;
   railEnd?: string;
 
@@ -65,6 +73,7 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
 
     // Landuse
     park = "#005d5b",
+    pitch = "#004d5b",
     residential = "#262c33",
     commercial = "#374d64",
     industrial = "#374d64",
@@ -80,11 +89,17 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
 
     // Transportation
     path = "#616f84",
+    pathStroke = "#4a5a70",
     minor = "#5b687b",
+    minorStroke = "#4a5566",
     secondary = "#616f84",
+    secondaryStroke = "#4a5a70",
     primary = "#616f84",
+    primaryStroke = "#4a5a70",
     trunk = "#616f84",
+    trunkStroke = "#4a5a70",
     motorway = "#616f84",
+    motorwayStroke = "#4a5a70",
     railStart = "#1d253c",
     railEnd = "#58626c",
 
@@ -132,62 +147,18 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
           "fill-color": [
             "case",
             ["==", ["get", "class"], "wood"],
-            wood,
+            wood, // Use theme color for wood areas
             ["==", ["get", "class"], "snow"],
-            snow,
+            snow, // Use theme color for snow
             ["==", ["get", "class"], "grass"],
-            grass,
+            grass, // Use theme color for grass areas
             ["==", ["get", "class"], "scrub"],
-            scrub,
+            scrub, // Use theme color for scrub/bushes
             ["==", ["get", "class"], "crop"],
-            crop,
-            wood,
+            crop, // Use theme color for agricultural crops
+            wood, // Default to wood color for other landcover
           ],
-          "fill-opacity": ["interpolate", ["linear"], ["zoom"], 9, 0.4, 10, 0.4, 11, 0.4, 12, 0],
-        },
-      },
-      {
-        id: "landuse",
-        type: "fill",
-        source: "localtiles",
-        "source-layer": "landuse",
-        minzoom: 5,
-        paint: {
-          "fill-color": [
-            "case",
-            ["==", ["get", "class"], "park"],
-            park,
-            ["==", ["get", "class"], "wood"],
-            grass, // En el OLD_MAP_STYLE esto mapea a "#005d5b" que es el valor de grass
-            ["==", ["get", "class"], "grass"],
-            grass,
-            ["==", ["get", "class"], "agriculture"],
-            grass, // En el OLD_MAP_STYLE esto mapea a "#005d5b" que es el valor de grass
-            ["==", ["get", "class"], "residential"],
-            residential,
-            ["==", ["get", "class"], "commercial"],
-            commercial,
-            ["==", ["get", "class"], "industrial"],
-            industrial,
-            ["==", ["get", "class"], "cemetery"],
-            cemetery,
-            ["==", ["get", "class"], "hospital"],
-            hospital,
-            ["==", ["get", "class"], "school"],
-            school,
-            ["==", ["get", "class"], "airport"],
-            airport,
-            campus,
-          ],
-          "fill-opacity": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            8,
-            ["case", ["==", ["get", "class"], "residential"], 0.8, 0.2],
-            10,
-            ["case", ["==", ["get", "class"], "residential"], 0, 1],
-          ],
+          "fill-opacity": 1.0, // Full opacity for natural green areas
         },
       },
       {
@@ -197,6 +168,70 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         "source-layer": "water",
         paint: {
           "fill-color": water,
+        },
+      },
+      {
+        id: "landuse",
+        type: "fill",
+        source: "localtiles",
+        "source-layer": "landuse",
+        minzoom: 3, // Reduced from 5 to make parks visible at lower zoom levels
+        paint: {
+          "fill-color": [
+            "case",
+            ["==", ["get", "class"], "park"],
+            park, // Use theme color for parks
+            ["==", ["get", "class"], "recreation_ground"],
+            park, // Use park color for recreation areas
+            ["==", ["get", "class"], "leisure"],
+            park, // Use park color for leisure areas
+            ["==", ["get", "class"], "garden"],
+            park, // Use park color for gardens
+            ["==", ["get", "class"], "cemetery"],
+            cemetery, // Use theme color for cemetery
+            ["==", ["get", "class"], "wood"],
+            wood, // Use theme color for wood in landuse
+            ["==", ["get", "class"], "grass"],
+            grass, // Use theme color for grass in landuse
+            ["==", ["get", "class"], "agriculture"],
+            crop, // Use crop color for agriculture
+            ["==", ["get", "class"], "meadow"],
+            grass, // Use grass color for meadows
+            ["==", ["get", "class"], "forest"],
+            wood, // Use wood color for forests
+            ["==", ["get", "class"], "residential"],
+            residential,
+            ["==", ["get", "class"], "commercial"],
+            commercial,
+            ["==", ["get", "class"], "industrial"],
+            industrial,
+            ["==", ["get", "class"], "hospital"],
+            hospital,
+            ["==", ["get", "class"], "college"],
+            school, // Use school color for college
+            ["==", ["get", "class"], "military"],
+            industrial, // Use industrial color for military areas
+            ["==", ["get", "class"], "university"],
+            school, // Use school color for university
+            ["==", ["get", "class"], "school"],
+            school,
+            ["==", ["get", "class"], "airport"],
+            airport,
+            campus, // Default fallback
+          ],
+          "fill-opacity": 0,
+        },
+      },
+      {
+        id: "landuse-pitches",
+        type: "fill",
+        source: "localtiles",
+        "source-layer": "landuse",
+        minzoom: 3,
+        filter: ["==", ["get", "class"], "pitch"],
+        paint: {
+          "fill-color": pitch, // Use distinct pitch color
+          "fill-opacity": 1.0, // Full opacity for sports pitches
         },
       },
       {
@@ -247,6 +282,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
+        id: "transportation-path-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 12,
+        filter: ["==", ["get", "class"], "path"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": pathStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 13, 1.5, 14, 2, 15, 2, 18, 6],
+          "line-opacity": 0.8,
+        },
+      },
+      {
         id: "transportation-path",
         type: "line",
         source: "localtiles",
@@ -261,6 +313,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
           "line-color": path,
           "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 13, 0.5, 14, 1, 15, 1, 18, 4],
           "line-dasharray": [10, 0],
+        },
+      },
+      {
+        id: "transportation-minor-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 12,
+        filter: ["in", ["get", "class"], ["literal", ["minor", "service", "track"]]],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": minorStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 13, 1.5, 18, 14, 22, 122],
+          "line-opacity": 0.8,
         },
       },
       {
@@ -280,6 +349,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
+        id: "transportation-secondary-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 8,
+        filter: ["==", ["get", "class"], "secondary"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": secondaryStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 8, 0.5, 13, 4.5, 18, 28, 22, 262],
+          "line-opacity": 0.8,
+        },
+      },
+      {
         id: "transportation-secondary",
         type: "line",
         source: "localtiles",
@@ -293,6 +379,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         paint: {
           "line-color": secondary,
           "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 8, 0.1, 13, 2.5, 18, 26, 22, 260],
+        },
+      },
+      {
+        id: "transportation-primary-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 6,
+        filter: ["==", ["get", "class"], "primary"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": primaryStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 6, 1.5, 13, 6, 18, 34, 22, 322],
+          "line-opacity": 0.8,
         },
       },
       {
@@ -312,6 +415,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         },
       },
       {
+        id: "transportation-trunk-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 5,
+        filter: ["==", ["get", "class"], "trunk"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": trunkStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 1.5, 13, 6, 18, 34, 22, 322],
+          "line-opacity": 0.8,
+        },
+      },
+      {
         id: "transportation-trunk",
         type: "line",
         source: "localtiles",
@@ -325,6 +445,23 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         paint: {
           "line-color": trunk,
           "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 0.75, 13, 4, 18, 32, 22, 320],
+        },
+      },
+      {
+        id: "transportation-motorway-stroke",
+        type: "line",
+        source: "localtiles",
+        "source-layer": "transportation",
+        minzoom: 5,
+        filter: ["==", ["get", "class"], "motorway"],
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": motorwayStroke,
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 1.5, 13, 6, 18, 34, 22, 322],
+          "line-opacity": 0.8,
         },
       },
       {
@@ -360,10 +497,11 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         type: "symbol",
         source: "localtiles",
         "source-layer": "transportation_name",
-        minzoom: 12,
+        minzoom: 14,
+        filter: ["in", ["get", "class"], ["literal", ["primary", "secondary", "trunk", "motorway"]]],
         layout: {
           "text-field": ["case", ["has", "name:latin"], ["get", "name:latin"], ["has", "name"], ["get", "name"], ""],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+          "text-font": ["Roboto Slab Regular", "Arial Unicode MS Regular"],
           "text-size": [
             "interpolate",
             ["linear"],
@@ -401,16 +539,30 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
         type: "symbol",
         source: "localtiles",
         "source-layer": "poi",
-        minzoom: 5,
+        minzoom: 12,
         filter: [
           "all",
           ["has", "name:latin"],
-          ["<=", ["get", "rank"], ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 3, 8, 6, 12, 12, 16, 17]],
+          [
+            "any",
+            ["<=", ["get", "rank"], 1],
+            ["==", ["get", "class"], "university"],
+            ["==", ["get", "class"], "college"],
+          ],
+          ["!=", ["get", "class"], "bus_stop"],
+          ["!=", ["get", "class"], "railway"],
+          ["!=", ["get", "class"], "pharmacy"],
+          ["!=", ["get", "class"], "doctor"],
         ],
         layout: {
           "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-          "text-size": 12,
+          "text-font": [
+            "case",
+            ["in", ["get", "class"], ["literal", ["university", "college"]]],
+            ["literal", ["Roboto Slab SemiBold", "Arial Unicode MS Bold"]],
+            ["literal", ["Roboto Slab Medium", "Arial Unicode MS Regular"]],
+          ],
+          "text-size": ["case", ["in", ["get", "class"], ["literal", ["university", "college"]]], 14, 13],
           "symbol-sort-key": ["get", "rank"],
           "text-offset": [0, 0],
           "text-anchor": "center",
@@ -420,39 +572,6 @@ export function createMapLibreStyle(colors: MapColors = {}): StyleSpecification 
           "text-halo-width": 0.5,
           "text-halo-blur": 0.5,
           "text-color": ["case", ["==", ["get", "class"], "park"], poiParkText, poiText],
-        },
-      },
-      {
-        id: "place",
-        type: "symbol",
-        source: "localtiles",
-        "source-layer": "place",
-        minzoom: 3,
-        filter: [
-          "all",
-          ["has", "name:latin"],
-          ["<=", ["get", "rank"], ["interpolate", ["linear"], ["zoom"], 0, 1, 2, 3, 4, 5, 6, 7]],
-        ],
-        layout: {
-          "text-field": ["coalesce", ["get", "name:latin"], ["get", "name:es"], ["get", "name"]],
-          "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-          "text-size": [
-            "case",
-            ["==", ["get", "class"], "city"],
-            16,
-            ["==", ["get", "class"], "town"],
-            14,
-            ["==", ["get", "class"], "village"],
-            12,
-            10,
-          ],
-          "symbol-sort-key": ["coalesce", ["get", "rank"], 999],
-          "text-anchor": "center",
-        },
-        paint: {
-          "text-color": placeText,
-          "text-halo-color": placeTextHalo,
-          "text-halo-width": 1,
         },
       },
     ],

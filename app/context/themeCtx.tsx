@@ -2,22 +2,22 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-export type Theme = "light-formal" | "pink-coquette" | "";
+import { ThemeId, getThemeIds } from "@/lib/themes";
 
-const themeOptions: Theme[] = ["light-formal", "pink-coquette", ""];
+const themeOptions = getThemeIds() as ThemeId[];
 
 interface ThemeContextType {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
+  theme: ThemeId;
+  setTheme: (theme: ThemeId) => void;
   rotateTheme: () => void;
-  getNextTheme: (from?: Theme) => Theme;
+  getNextTheme: (from?: ThemeId) => ThemeId;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // eslint-disable-next-line
-  const [theme, setThemeState] = useState<Theme>("");
+  const [theme, setThemeState] = useState<ThemeId>("");
 
   const getViewportColor = () => {
     if (typeof document === "undefined") return "#150a04"; // fallback
@@ -25,7 +25,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return getComputedStyle(document.documentElement).getPropertyValue("--color-background").trim();
   };
 
-  const updateViewportColor = (currentTheme: Theme) => {
+  const updateViewportColor = (currentTheme: ThemeId) => {
     if (typeof document === "undefined") return;
 
     // Apply theme first to get correct CSS variable values
@@ -50,7 +50,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
 
     const statusBarStyle =
-      currentTheme === "pink-coquette" || currentTheme === "light-formal"
+      currentTheme === "pink-coquette" || currentTheme === "light-formal" || currentTheme === "uc-theme"
         ? "default" // contenido oscuro sobre fondo claro
         : "black-translucent"; // contenido claro sobre fondo oscuro
 
@@ -73,7 +73,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     metaTileColor.setAttribute("content", color);
   };
 
-  const setTheme = (newTheme: Theme) => {
+  const setTheme = (newTheme: ThemeId) => {
     setThemeState(newTheme);
 
     if (typeof document !== "undefined") {
@@ -88,7 +88,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const getNextTheme = (from?: Theme): Theme => {
+  const getNextTheme = (from?: ThemeId): ThemeId => {
     const current = from ?? theme;
     const index = themeOptions.indexOf(current);
     const nextIndex = (index + 1) % themeOptions.length;
@@ -102,8 +102,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme") as Theme | null;
-      const initial = saved || (document.documentElement.getAttribute("data-theme") as Theme) || "";
+      const saved = localStorage.getItem("theme") as ThemeId | null;
+      const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "";
 
       setThemeState(initial);
 
@@ -139,3 +139,6 @@ export function useTheme() {
   }
   return context;
 }
+
+// Re-export the ThemeId type for backward compatibility
+export type { ThemeId } from "@/lib/themes";
