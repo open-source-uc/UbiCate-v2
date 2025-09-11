@@ -1,5 +1,3 @@
-export const runtime = process.env.RUNTIME || "edge";
-
 import "@/lib/setup-proxy";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -406,3 +404,5 @@ export async function DELETE(request: NextRequest) {
     );
   }
 }
+
+export const runtime = "nodejs";

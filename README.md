@@ -84,7 +84,6 @@ API_UBICATE_SECRET=<SECRET>                     # Opcional en desarrollo. Obliga
 NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE">     # Si es "TRUE", se usa un mapa autohospedado. Si no, se usa el mapa desde los servidores de OSUC.
 
 OUTBOUND_PROXY=                                 #Opcional
-RUNTIME=<"edge" | "nodejs">                     #Por defecto es edge
 ```
 
 > \[!IMPORTANT]
