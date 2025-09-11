@@ -78,30 +78,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61469159252721,
-                    -33.49780233807005
-                ]
-            },
-            "properties": {
-                "identifier": "MFBXDOCFTNZM6A",
-                "name": "j",
-                "information": "m",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61244859110168,
                     -33.50025825472751
                 ]
