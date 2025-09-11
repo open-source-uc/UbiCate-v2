@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 
-import { PlaceSelectedEvent } from "@/utils/customEvents";
-import { Feature } from "@/utils/types";
+import { PlaceSelectedEvent } from "@/lib/events/customEvents";
+import { Feature } from "@/lib/types";
 
 export const usePlaceSelectedListener = (callback: (feature: Feature) => void, dependencies: any[] = []) => {
   const memoizedCallback = useCallback(callback, dependencies);

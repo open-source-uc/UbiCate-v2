@@ -27,12 +27,12 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 
 ### Mantenedores
 
-- [MrBased](https://github.com/MrBased)
-- [mc-cari](https://github.com/mc-cari)
-- [ooscarr](https://github.com/ooscarr)
-- [vlermandac](https://github.com/vlermandac)
-- [dvictorerol](https://github.com/dvictorerol)
 - [Utmite](https://github.com/Utmite)
+- [IgnacioPalma](https://github.com/IgnacioPalma)
+
+### Documentación by DeepWiki
+
+[Documentación](https://deepwiki.com/open-source-uc/UbiCate-v2)
 
 ## Query Params
 
@@ -135,7 +135,7 @@ npm install
 
 ### `npm run dev`
 
-Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con `NODE_OPTIONS='--inspect'`.  
+Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con: `NODE_OPTIONS='--inspect'`.  
 **Uso:**
 
 ```bash
@@ -352,7 +352,7 @@ La información detallada sobre cómo contribuir se puede encontrar en [contribu
 
 Puedes comunicarte con nosotros a través de los siguientes canales:
 
-- Instagram: [Open Source eUC](https://www.instagram.com/opensource_euc/)
+- Instagram: [Open Source eUC](https://www.instagram.com/osuc.dev/)
 - Correo electrónico: [ubicate@osuc.dev](mailto:ubicate@osuc.dev)
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>

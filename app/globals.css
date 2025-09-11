@@ -1,341 +1,28 @@
+/* =============================================== */
+/*              UBICATE UC - MAIN STYLES           */
+/* =============================================== */
+
+/* Import core framework and dependencies */
 @import 'tailwindcss';
 
-/* =============================================== */
-/*            CONFIGURACIÓN GLOBAL                 */
-/* =============================================== */
-@theme {
-  /* Breakpoints */
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1154px;
-
-  /* Typography */
-  --text-4xl: 3.25rem;
-  --text-4xl--line-height: 1.1;
-  --text-3xl: 3rem;
-  --text-3xl--line-height: 1.2;
-  --text-2xl: 2.5rem;
-  --text-2xl--line-height: 1.2;
-  --text-xl: 1.5rem;
-  --text-xl--line-height: 1.3;
-  --text-lg: 1.25rem;
-  --text-lg--line-height: 1.4;
-  --text-md: 1rem;
-  --text-md--line-height: 1.5;
-
-  --font-sans: var(--font-instrument-sans);
-
-  /* Background Images */
-  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
-
-  /* Radius */
-  --radius-menu: 2.1rem;
-  --radius: 0.6rem;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-
-  /* ============== PALETA DE COLORES ============== */
-  /* Colores base - No usar directamente */
-  
-  /* Brand Colors */
-  --palette-blue-primary: #015fff;
-  --palette-white-primary: #f9f8f3;
-
-  /* Brown Scale */
-  --palette-brown-900: #150a04;
-  --palette-brown-600: #39302b;
-  --palette-brown-400: #8a817c;
-  --palette-brown-200: #c4bfba;
-
-  /* Accent Colors */
-  --palette-pink-500: #e86a92;
-  --palette-red-500: #ef233c;
-  --palette-green-500: #98ce00;
-  --palette-cyan-500: #03b5aa;
-  --palette-orange-500: #f58a07;
-  --palette-gray-500: #2C4251;
-  --palette-gray-300: #d1d5db;
-  --palette-purple-500: #361134;
-
-  /* Deep Accent Colors */
-  --palette-green-800: #2A4D14;
-  --palette-cyan-800: #28536B;
-  --palette-red-800: #5F021F;
-
-  /* ========= NUEVOS COLORES PASTELES ========= */
-  
-  /* Rosa Pastel Scale */
-  --palette-pastel-pink-50: #fdf2f8;
-  --palette-pastel-pink-100: #fce7f3;
-  --palette-pastel-pink-200: #fbcfe8;
-  --palette-pastel-pink-300: #f9a8d4;
-  --palette-pastel-pink-400: #f472b6;
-  --palette-pastel-pink-500: #ec4899;
-  --palette-pastel-pink-600: #db2777;
-
-  /* Pasteles Complementarios */
-  --palette-pastel-lavender: #e6e6fa;
-  --palette-pastel-peach: #ffdbcc;
-  --palette-pastel-mint: #d4f4dd;
-  --palette-pastel-cream: #faf0e6;
-  --palette-pastel-lilac: #dda0dd;
-  --palette-pastel-coral: #f5b7b1;
-  --palette-pastel-sky: #e8f4f8;
-
-  /* Grises Suaves */
-  --palette-soft-gray-50: #fafafa;
-  --palette-soft-gray-100: #f5f5f5;
-  --palette-soft-gray-200: #e5e5e5;
-  --palette-soft-gray-300: #d4d4d4;
-  --palette-soft-gray-400: #a3a3a3;
-  --palette-soft-gray-500: #737373;
-  --palette-soft-gray-600: #525252;
-  --palette-soft-gray-700: #404040;
-  --palette-soft-gray-800: #262626;
-  --palette-soft-gray-900: #171717;
-
-  /* ========= COLORES DESTRUCTIVOS PROFESIONALES ========= */
-  --palette-professional-red-light: #dc2626;
-
-  /* ============== TEMA ACTUAL ============== */
-  /* Tokens semánticos - Usar con clases de Tailwind */
-  
-  --color-background: var(--theme-background);
-  --color-foreground: var(--theme-foreground);
-  
-  --color-primary: var(--theme-primary);
-  --color-primary-foreground: var(--theme-primary-foreground);
-  
-  --color-secondary: var(--theme-secondary);
-  --color-secondary-foreground: var(--theme-secondary-foreground);
-
-  --color-tertiary: var(--theme-tertiary);
-  --color-tertiary-foreground: var(--theme-tertiary-foreground);
-
-  --color-muted: var(--theme-muted);
-  --color-muted-foreground: var(--theme-muted-foreground);
-  
-  --color-accent: var(--theme-accent);
-  --color-accent-foreground: var(--theme-accent-foreground);
-  
-  --color-destructive: var(--theme-destructive);
-  --color-destructive-foreground: var(--theme-destructive-foreground);
-  
-  --color-border: var(--theme-border);
-  --color-input: var(--theme-input);
-  --color-ring: var(--theme-ring);
-
-  /* Chart Colors - Incluye colores originales + categorías */
-  --color-chart-0: var(--theme-chart-0);
-  --color-chart-1: var(--theme-chart-1);
-  --color-chart-2: var(--theme-chart-2);
-  --color-chart-3: var(--theme-chart-3);
-  --color-chart-4: var(--theme-chart-4);
-  --color-chart-5: var(--theme-chart-5);
-  --color-chart-6: var(--theme-chart-6);
-  --color-chart-7: var(--theme-chart-7);
-  --color-chart-8: var(--theme-chart-8);
-  --color-chart-9: var(--theme-chart-9);
-  --color-chart-10: var(--theme-chart-10);
-  --color-chart-11: var(--theme-chart-11);
-  --color-chart-12: var(--theme-chart-12);
-}
+/* Import modular CSS files for better maintainability */
+@import './styles/variables.css';
+@import './styles/base.css';
 
 /* =============================================== */
-/*                DEFINICIÓN DE TEMAS              */
+/*           APPLICATION-SPECIFIC STYLES           */
 /* =============================================== */
 
-/* TEMA POR DEFECTO (Dark Brown) */
-:root {
-  --theme-background: var(--palette-brown-900);
-  --theme-foreground: var(--palette-white-primary);
-  
-  --theme-primary: var(--palette-blue-primary);
-  --theme-primary-foreground: var(--palette-white-primary);
-  
-  --theme-secondary: var(--palette-brown-600);
-  --theme-secondary-foreground: var(--palette-white-primary);
-
-  --theme-tertiary: var(--palette-brown-200);
-  --theme-tertiary-foreground: var(--palette-brown-900);
-  
-  --theme-muted: var(--palette-brown-400);
-  --theme-muted-foreground: var(--palette-brown-900);
-  
-  --theme-accent: var(--palette-brown-400);
-  --theme-accent-foreground: var(--palette-brown-900);
-  
-  --theme-destructive: var(--palette-red-500);
-  --theme-destructive-foreground: var(--palette-white-primary);
-  
-  --theme-border: var(--palette-brown-600);
-  --theme-input: var(--palette-brown-400);
-  --theme-ring: var(--palette-brown-200);
-
-  /* Chart Colors - Originales */
-  --theme-chart-0: var(--palette-gray-300);
-  --theme-chart-1: var(--palette-red-800);
-  --theme-chart-2: var(--palette-red-500);
-  --theme-chart-3: var(--palette-green-500);
-  --theme-chart-4: var(--palette-pink-500);
-  --theme-chart-5: var(--palette-cyan-800);
-  --theme-chart-6: var(--palette-orange-500);
-  --theme-chart-7: var(--palette-cyan-500);
-  --theme-chart-8: var(--palette-green-800);
-  --theme-chart-9: var(--palette-purple-500);
-  --theme-chart-10: var(--palette-gray-500);
-}
-
-/* =============================================== */
-/*            TEMA ROSA PASTEL COQUETTE            */
-/* =============================================== */
-[data-theme="pink-coquette"] {
-  --theme-background: var(--palette-pastel-pink-50);
-  --theme-foreground: var(--palette-soft-gray-800);
-  
-  --theme-primary: var(--palette-pastel-pink-500);
-  --theme-primary-foreground: var(--palette-white-primary);
-  
-  --theme-secondary: var(--palette-pastel-pink-200);
-  --theme-secondary-foreground: var(--palette-soft-gray-700);
-
-  --theme-tertiary: var(--palette-pastel-cream);
-  --theme-tertiary-foreground: var(--palette-soft-gray-700);
-  
-  --theme-muted: var(--palette-pastel-pink-300);
-  --theme-muted-foreground: var(--palette-soft-gray-600);
-  
-  --theme-accent: var(--palette-pastel-pink-300);
-  --theme-accent-foreground: var(--palette-soft-gray-700);
-  
-  --theme-destructive: var(--palette-pastel-coral);
-  --theme-destructive-foreground: var(--palette-white-primary);
-  
-  --theme-border: var(--palette-pastel-pink-300);
-  --theme-input: var(--palette-pastel-pink-200);
-  --theme-ring: var(--palette-pastel-pink-600);
-
-  /* Chart Colors - Paleta Pastel */
-  --theme-chart-0: var(--palette-pastel-pink-300);
-  --theme-chart-1: var(--palette-pastel-lavender);
-  --theme-chart-2: var(--palette-pastel-peach);
-  --theme-chart-3: var(--palette-pastel-mint);
-  --theme-chart-4: var(--palette-pastel-lilac);
-  --theme-chart-5: var(--palette-pastel-coral);
-  --theme-chart-6: var(--palette-pastel-sky);
-  --theme-chart-7: var(--palette-pastel-cream);
-  --theme-chart-8: var(--palette-pastel-pink-400);
-  --theme-chart-9: var(--palette-pastel-peach);
-  --theme-chart-10: var(--palette-pastel-pink-200);
-}
-
-/* =============================================== */
-/*              TEMA FORMAL CLARO                  */
-/* =============================================== */
-[data-theme="light-formal"] {
-  --theme-background: var(--palette-white-primary);
-  --theme-foreground: var(--palette-soft-gray-900);
-  
-  --theme-primary: var(--palette-blue-primary);
-  --theme-primary-foreground: var(--palette-white-primary);
-  
-  --theme-secondary: var(--palette-soft-gray-200);
-  --theme-secondary-foreground: var(--palette-soft-gray-800);
-
-  --theme-tertiary: var(--palette-soft-gray-50);
-  --theme-tertiary-foreground: var(--palette-soft-gray-800);
-  
-  --theme-muted: var(--palette-soft-gray-300);
-  --theme-muted-foreground: var(--palette-soft-gray-600);
-  
-  --theme-accent: var(--palette-soft-gray-300);
-  --theme-accent-foreground: var(--palette-soft-gray-700);
-  
-  /* MEJORA: Color destructivo más profesional y armonioso */
-  --theme-destructive: var(--palette-professional-red-light);
-  --theme-destructive-foreground: var(--palette-white-primary);
-  
-  --theme-border: var(--palette-soft-gray-300);
-  --theme-input: var(--palette-soft-gray-200);
-  --theme-ring: var(--palette-blue-primary);
-
-  /* Chart Colors - Profesionales y Limpios */
-/* Chart Colors - Vibrantes y con buen contraste para fondo claro */
-  --theme-chart-0: var(--palette-pastel-pink-300);
-  --theme-chart-1: var(--palette-pastel-lavender);
-  --theme-chart-2: var(--palette-pastel-peach);
-  --theme-chart-3: var(--palette-pastel-mint);
-  --theme-chart-4: var(--palette-pastel-lilac);
-  --theme-chart-5: var(--palette-pastel-coral);
-  --theme-chart-6: var(--palette-pastel-sky);
-  --theme-chart-7: var(--palette-pastel-cream);
-  --theme-chart-8: var(--palette-pastel-pink-400);
-  --theme-chart-9: var(--palette-pastel-peach);
-  --theme-chart-10: var(--palette-pastel-pink-200);
-}
-
-/* =============================================== */
-/*                  BASE STYLES                    */
-/* =============================================== */
-
-/* Compatibilidad con Tailwind CSS v3 border colors */
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* Iconos personalizados */
-  [data-slot="icon"] {
-    @apply w-6 h-6 fill-foreground flex justify-center items-center;
-  }
-}
-
-/* =============================================== */
-/*            RESPETAR LICENSIA DE OSM             */
-/* =============================================== */
-
-/* Prueba con más especificidad y !important */
+/* MapLibre GL controls positioning (OSM License compliance) */
 .maplibregl-ctrl-bottom-right {
   z-index: 10000 !important;
 }
 
-
 /* =============================================== */
-/*              UTILIDADES DE TEMA                 */
-/* =============================================== */
-
-/* Animación suave para cambios de tema */
-.theme-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Clase helper para aplicar transiciones automáticamente */
-.theme-aware {
-  transition: background-color 0.3s ease, 
-              color 0.3s ease, 
-              border-color 0.3s ease;
-}
-
-/* =============================================== */
-/*            ESTILOS ESPECÍFICOS POR TEMA         */
+/*            THEME-SPECIFIC ENHANCEMENTS          */
 /* =============================================== */
 
-/* Efectos especiales para el tema coquette */
+/* Pink Coquette theme specific effects */
 [data-theme="pink-coquette"] .theme-transition {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -345,7 +32,7 @@
   transition: transform 0.2s ease;
 }
 
-/* Sombras suaves para el tema formal claro */
+/* Light Formal theme specific styling */
 [data-theme="light-formal"] .shadow-lg {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
 }

@@ -11,21 +11,20 @@ import { Map, Source, Layer } from "react-map-gl/maplibre";
 
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
-import { featuresToGeoJSON } from "@/utils/featuresToGeoJSON";
-import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/utils/getCampusBounds";
-import { Feature, PointFeature, CATEGORIES } from "@/utils/types";
+import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
+import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
+import { Feature, PointFeature, CATEGORIES } from "@/lib/types";
 
-import { SilentErrorBoundary } from "../components/appErrors/SilentErrorBoundary";
-import DirectionsComponent from "../components/directions/component";
-import UserLocation from "../components/directions/userLocation";
-import MarkerIcon from "../components/icons/markerIcon";
+import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
+import DirectionsComponent from "../components/features/directions/component";
+import UserLocation from "../components/features/directions/userLocation";
+import MarkerIcon from "../components/ui/icons/markerIcon";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { HandlePlaceSelectionOptions, useMapEvents } from "./hooks/useMapEvents";
 import { useMapStyle } from "./hooks/useMapStyle";
 import Marker from "./marker";
-import SpecialMarkers from "./SpecialMarkers";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -164,7 +163,6 @@ export default function MapComponent({
           <UserLocation />
         </SilentErrorBoundary>
         <DirectionsComponent />
-        <SpecialMarkers />
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as CATEGORIES;
           return (

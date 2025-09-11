@@ -1,7 +1,7 @@
 "use client";
 import { MapProvider } from "react-map-gl/maplibre";
 
-import { Feature } from "@/utils/types";
+import { Feature } from "@/lib/types";
 
 import MapComponent from "./map";
 

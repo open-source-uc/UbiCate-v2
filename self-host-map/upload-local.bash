@@ -66,7 +66,7 @@ echo "🚀 Iniciando subida con flag $OPCION_FLAG..."
 echo "=================================="
 
 # Subir tiles
-# upload_files "$LOCAL_TILES" "ubicate-tiles" "application/x-protobuf" ""
+upload_files "$LOCAL_TILES" "ubicate-tiles" "application/x-protobuf" ""
 
 echo "=================================="
 

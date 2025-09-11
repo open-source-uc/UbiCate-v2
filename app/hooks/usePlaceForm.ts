@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 
 import { useMutation } from "@tanstack/react-query";
 
-import { PointFeature } from "@/utils/types";
-import { apiClient } from "@/utils/ubicateApiClient";
+import { apiClient } from "@/lib/api/ubicateApiClient";
+import { PointFeature } from "@/lib/types";
 
-import { NotificationState } from "../components/forms/notification";
+import { NotificationState } from "../components/features/places/forms/notification";
 
 interface PlaceFormData {
   name: string;

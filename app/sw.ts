@@ -38,7 +38,7 @@ const serwist = new Serwist({
     },
     {
       matcher: ({ request }) => request.mode === "navigate",
-      handler: new StaleWhileRevalidate({ cacheName: "pages" }),
+      handler: new NetworkFirst({ cacheName: "pages", networkTimeoutSeconds: 3 }),
     },
   ],
 });

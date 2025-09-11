@@ -1,0 +1,48 @@
+/* =============================================== */
+/*                    UC THEME               */
+/* =============================================== */
+
+[data-theme="uc-theme"] {
+  --theme-background: var(--palette-uc-celeste);
+  --theme-foreground: var(--palette-uc-blanco);
+  
+  --theme-primary: var(--palette-uc-azul);
+  --theme-primary-foreground: var(--palette-uc-blanco);
+  
+  --theme-secondary: var(--palette-uc-azul);
+  --theme-secondary-foreground: var(--palette-uc-azul-oscuro);
+
+  --theme-tertiary: var(--palette-soft-gray-200);
+  --theme-tertiary-foreground: var(--palette-uc-blanco);
+  
+  --theme-muted: var(--palette-soft-gray-600);
+  --theme-muted-foreground: var(--palette-white-primary);
+  
+  --theme-accent: var(--palette-uc-azul);
+  --theme-accent-foreground: var(--palette-uc-blanco);
+  
+  --theme-destructive: var(--palette-uc-danger);
+  --theme-destructive-foreground: var(--palette-uc-negro);
+  
+  --theme-border: var(--palette-uc-gris-oscuro-c);
+  --theme-input: var(--palette-uc-azul-oscuro);
+  --theme-ring: var(--palette-uc-azul-oscuro);
+
+  /* Functional colors for app-specific features */
+  --theme-route-primary: var(--palette-pastel-lavender);
+  --theme-route-border: var(--palette-pastel-lilac);
+  --theme-focus-indicator: var(--palette-pastel-lavender);
+
+  /* Chart Colors */
+  --theme-chart-0: var(--palette-vibrant-orange);
+  --theme-chart-1: var(--palette-vibrant-gold);
+  --theme-chart-2: var(--palette-vibrant-yellow);
+  --theme-chart-3: var(--palette-vibrant-green-neon);
+  --theme-chart-4: var(--palette-vibrant-turquoise);
+  --theme-chart-5: var(--palette-vibrant-pink);
+  --theme-chart-6: var(--palette-vibrant-purple);
+  --theme-chart-7: var(--palette-vibrant-rose);
+  --theme-chart-8: var(--palette-vibrant-red-orange);
+  --theme-chart-9: var(--palette-vibrant-brown);
+  --theme-chart-10: var(--palette-vibrant-blue-gray);
+}

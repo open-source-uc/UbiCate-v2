@@ -1,0 +1,117 @@
+/* =============================================== */
+/*            BASE STYLES AND ACCESSIBILITY        */
+/* =============================================== */
+
+/* Global base styles that provide foundational styling and accessibility */
+
+/* Tailwind CSS compatibility layer */
+@layer base {
+  /* Ensure consistent border colors across browsers */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Apply consistent border styling using Tailwind */
+  * {
+    @apply border-border;
+  }
+
+  /* Base body styling with theme-aware colors */
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Standardized icon styling */
+  [data-slot="icon"] {
+    @apply w-6 h-6 fill-foreground flex justify-center items-center;
+  }
+}
+
+/* =============================================== */
+/*              THEME TRANSITIONS                   */
+/* =============================================== */
+
+/* Smooth animations for theme changes */
+.theme-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Helper class for automatic theme-aware transitions */
+.theme-aware {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+/* =============================================== */
+/*            ACCESSIBILITY ENHANCEMENTS           */
+/* =============================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition,
+  .theme-aware {
+    transition: none;
+  }
+}
+
+/* Ensure focus indicators are visible */
+*:focus {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* Skip to main content for screen readers */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 6px;
+}
+
+/* =============================================== */
+/*            RESPONSIVE DESIGN HELPERS            */
+/* =============================================== */
+
+/* Container queries for modern responsive design */
+@container (max-width: 768px) {
+  .container-responsive {
+    padding: 1rem;
+  }
+}
+
+@container (min-width: 769px) {
+  .container-responsive {
+    padding: 2rem;
+  }
+}
+
+/* =============================================== */
+/*            PRINT STYLES                         */
+/* =============================================== */
+
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
