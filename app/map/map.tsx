@@ -186,7 +186,9 @@ export default function MapComponent({
             <Marker
               key={pin.properties.identifier}
               place={pin as PointFeature}
-              onClick={() => {handlePlaceSelection(pin, config)}}
+              onClick={() => {
+                handlePlaceSelection(pin, config);
+              }}
               icon={<MarkerIcon label={primaryCategory} />}
               draggable
               onDragEnd={(e: MarkerDragEvent) => {
