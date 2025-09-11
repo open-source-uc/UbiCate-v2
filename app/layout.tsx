@@ -1,4 +1,4 @@
-import "@/app/css/globals.css";
+import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { cookies } from "next/headers";
 
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("ubicate-theme")?.value || "uc";
+  const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>

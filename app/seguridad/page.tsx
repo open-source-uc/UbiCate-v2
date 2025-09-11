@@ -6,7 +6,7 @@ export default function Page() {
       <div className="w-full text-center px-4 max-w-2xl mx-auto">
         <Link
           href="/"
-          className="inline-block mb-6 text-white-ubi hover:text-interactive-primary transition-colors duration-200 underline"
+          className="inline-block mb-6 text-white-ubi hover:text-primary transition-colors duration-200 underline"
         >
           ← Volver a inicio
         </Link>
@@ -15,10 +15,10 @@ export default function Page() {
           En caso de emergencia en el campus, comuníquese al siguiente número:
         </h1>
 
-        <div className="bg-surface rounded-lg p-8">
+        <div className="bg-secondary rounded-lg p-8">
           <a
             href="tel:+56 9 5504 5000"
-            className="text-5xl font-bold text-interactive-primary transition-colors duration-200 block underline"
+            className="text-5xl font-bold text-primary transition-colors duration-200 block underline"
           >
             +56 9 5504 5000
           </a>

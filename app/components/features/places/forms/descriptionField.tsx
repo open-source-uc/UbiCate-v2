@@ -26,7 +26,7 @@ export function DescriptionField({ value, onChange, disabled }: DescriptionField
           type="button"
           className={`px-3 py-1 rounded-md text-sm disabled:opacity-50 disabled:cursor-not-allowed ${
             !isPreviewMode
-              ? "bg-interactive-primary text-interactive-primary-foreground"
+              ? "bg-primary text-primary-foreground"
               : "bg-transparent border border-border text-foreground"
           }`}
           onClick={() => setIsPreviewMode(false)}
@@ -37,9 +37,7 @@ export function DescriptionField({ value, onChange, disabled }: DescriptionField
         <button
           type="button"
           className={`px-3 py-1 rounded-md text-sm disabled:opacity-50 disabled:cursor-not-allowed ${
-            isPreviewMode
-              ? "bg-interactive-primary text-interactive-primary-foreground"
-              : "bg-transparent border border-border text-content-primary"
+            isPreviewMode ? "bg-primary text-primary-foreground" : "bg-transparent border border-border text-foreground"
           }`}
           onClick={() => setIsPreviewMode(true)}
           disabled={disabled}
@@ -49,7 +47,7 @@ export function DescriptionField({ value, onChange, disabled }: DescriptionField
       </div>
 
       {isPreviewMode ? (
-        <div className="bg-surface rounded-md p-4 min-[h-20]">
+        <div className="bg-secondary rounded-md p-4 min-[h-20]">
           <MarkDownComponent>{value}</MarkDownComponent>
         </div>
       ) : (

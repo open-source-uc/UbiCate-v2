@@ -13,7 +13,7 @@ export default function DirectionErrorNotification({ children }: { children: Rea
           <h1 className="font-bold">Ups! Algo salió mal</h1>
         </div>
         <button
-          className="text-content-primary bg-interactive-accent flex items-center rounded-full hover:text-interactive-accent-foreground hover:bg-surface cursor-pointer focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:ring-offset-2 ml-auto"
+          className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-auto"
           aria-label="Cerrar menú"
           onClick={() => {
             clearNotification();

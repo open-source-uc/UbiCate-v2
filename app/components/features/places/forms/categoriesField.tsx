@@ -68,7 +68,7 @@ export function CategoriesField({ categories, onChange, disabled }: CategoriesFi
       <button
         type="button"
         onClick={addCategory}
-        className="text-sm text-interactive-primary hover:underline self-start disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:no-underline"
+        className="text-sm text-primary hover:underline self-start disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:no-underline"
         disabled={disabled}
       >
         + Agregar otra categoría

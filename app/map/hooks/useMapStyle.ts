@@ -6,7 +6,6 @@ import { createMapLibreStyle } from "@/lib/map/createMapLibreStyle";
 import * as lightFormal from "./config/lightFormal";
 import * as normal from "./config/normal";
 import * as pinkCoquette from "./config/pinkCoquette";
-import * as ucLight from "./config/ucLight";
 
 export function useMapStyle() {
   const { theme } = useTheme();
@@ -32,16 +31,6 @@ export function useMapStyle() {
           customPolygonStrokeLayer: pinkCoquette.customPolygonStrokeLayer,
           customPolygonSectionAreaLayer: pinkCoquette.customPolygonSectionAreaLayer,
           mapStyle: createMapLibreStyle(pinkCoquette.PINK_COQUETTE_MAP_COLORS),
-        };
-      case "uc-light":
-        return {
-          placesTextLayer: ucLight.placesTextLayer,
-          campusBorderLayer: ucLight.campusBorderLayer,
-          sectionStrokeLayer: ucLight.sectionStrokeLayer,
-          sectionAreaLayer: ucLight.sectionAreaLayer,
-          customPolygonStrokeLayer: ucLight.customPolygonStrokeLayer,
-          customPolygonSectionAreaLayer: ucLight.customPolygonSectionAreaLayer,
-          mapStyle: createMapLibreStyle(ucLight.UC_LIGHT_MAP_COLORS),
         };
       default:
         return {

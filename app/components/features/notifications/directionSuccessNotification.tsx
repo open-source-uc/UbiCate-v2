@@ -20,14 +20,14 @@ export default function DirectionSuccessNotification({
   const walkingTimeMinutes = distance ? Math.ceil(distance / 83.33) : null;
 
   return (
-    <div className="w-full pointer-events-auto bg-feedback-success px-4 py-3 rounded-lg shadow-lg space-y-4 text-white">
+    <div className="w-full pointer-events-auto bg-primary px-4 py-3 rounded-lg shadow-lg space-y-4 text-white">
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center space-x-2">
           <Icons.Directions className="w-7 h-7" />
           <h1 className="font-bold">En Ruta a {placeName}</h1>
         </div>
         <button
-          className="bg-interactive-accent text-interactive-accent-foreground flex items-center rounded-full hover:bg-surface cursor-pointer focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:ring-offset-2 ml-auto"
+          className="bg-accent flex items-center rounded-full hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-auto"
           aria-label="Cerrar menú"
           onClick={() => {
             clearNotification();

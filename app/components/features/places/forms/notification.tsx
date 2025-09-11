@@ -16,7 +16,7 @@ export function Notification({ notification }: NotificationProps) {
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-50 p-4 text-center ${
-        notification.type === "success" ? "bg-feedback-success" : "bg-feedback-error"
+        notification.type === "success" ? "bg-primary" : "bg-destructive"
       } text-foreground`}
     >
       {notification.message}

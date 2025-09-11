@@ -36,7 +36,7 @@ export default async function Page() {
               href="https://osuc.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold transition-all underline text-content-secondary"
+              className="font-semibold transition-all underline text-muted"
             >
               Open Source eUC
             </a>
@@ -49,7 +49,7 @@ export default async function Page() {
               href="https://github.com/open-source-uc/UbiCate-v2"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold transition-all underline text-content-secondary"
+              className="font-semibold transition-all underline text-muted"
             >
               código abierto
             </a>
@@ -57,7 +57,7 @@ export default async function Page() {
           </p>
         </div>
 
-        <h2 className="text-3xl font-bold mt-10 text-content-primary">Contribuidores de UbiCate</h2>
+        <h2 className="text-3xl font-bold mt-10 text-white-ubi">Contribuidores de UbiCate</h2>
 
         <div className="mt-8">
           {contributors.length > 0 ? (
@@ -74,7 +74,7 @@ export default async function Page() {
                 ))}
             </ul>
           ) : (
-            <p className="text-lg font-medium text-content-primary">Cargando contribuyentes...</p>
+            <p className="text-lg font-medium text-white-ubi">Cargando contribuyentes...</p>
           )}
         </div>
       </div>
