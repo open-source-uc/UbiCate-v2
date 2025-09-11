@@ -15,6 +15,7 @@ Este directorio contiene los tiles de mapas auto-hospedados y los glyphs de fuen
 ### Configuración Inicial
 
 1. **Extraer archivos comprimidos:**
+
    ```bash
    unzip ubicate-tiles.zip
    unzip glyphs.zip
@@ -34,11 +35,13 @@ Los tiles de mapas se extraen del formato MBTiles y vienen comprimidos con gzip.
 ### Comandos de Procesamiento de Tiles
 
 1. **Renombrar archivos .pbf a .pbf.gz:**
+
    ```bash
    find ./ubicate-tiles -type f -name "*.pbf" -exec bash -c 'mv "$0" "${0%.pbf}.pbf.gz"' {} \;
    ```
 
 2. **Descomprimir archivos gzipeados:**
+
    ```bash
    find ./ubicate-tiles -type f -name "*.pbf.gz" -exec gunzip -k {} \;
    ```
@@ -62,6 +65,7 @@ find ./ubicate-tiles -type f -name "*.pbf.gz" -delete
 ### Prerequisitos
 
 Instalar el paquete fontnik globalmente:
+
 ```bash
 npm install -g fontnik
 ```
@@ -69,9 +73,12 @@ npm install -g fontnik
 ### Generar Glyphs
 
 Crear glyphs de fuente desde archivo TrueType:
+
 ```bash
 build-glyphs OpenSans-Regular.ttf ./glyphs
 ```
+
+**Es muy importante que el nombre sea el que se usa por ejemploe Open Sans Regular pero sin los espacios en la carpeta que se sube al bucket o sea debe ser OpenSansRegular**
 
 Esto generará glyphs en formato Protocol Buffer en el directorio `./glyphs`.
 
@@ -80,11 +87,13 @@ Esto generará glyphs en formato Protocol Buffer en el directorio `./glyphs`.
 ### Desarrollo Local
 
 Subir al entorno de desarrollo local:
+
 ```bash
 bash upload-local.bash
 ```
 
 El script te pedirá elegir entre:
+
 - `--local` - Subir a desarrollo local
 - `--remote` - Subir al entorno remoto
 
@@ -93,6 +102,7 @@ El script te pedirá elegir entre:
 #### Usando rclone (Método Alternativo)
 
 1. **Subir tiles a Cloudflare R2:**
+
    ```bash
    rclone copy ./ubicate-tiles ubicate:ubicate-tiles
    ```
@@ -105,6 +115,7 @@ El script te pedirá elegir entre:
 #### Usando Wrangler (Recomendado)
 
 El script `upload-local.bash` usa Wrangler CLI para subir archivos con los tipos de contenido apropiados:
+
 - Tiles: `application/x-protobuf`
 - Glyphs: `application/x-protobuf`
 
@@ -113,10 +124,12 @@ El script `upload-local.bash` usa Wrangler CLI para subir archivos con los tipos
 ### Problemas Comunes
 
 1. **Problemas de Compresión Gzip:**
+
    - Asegurar que los tiles estén correctamente descomprimidos antes de servir
    - Verificar que Next.js esté configurado para manejar archivos .pbf
 
 2. **Problemas de Renderizado de Fuente:**
+
    - Verificar que los glyphs estén correctamente generados con fontnik
    - Asegurar que los headers de content-type estén configurados correctamente
 
@@ -128,6 +141,7 @@ El script `upload-local.bash` usa Wrangler CLI para subir archivos con los tipos
 ### Verificación de Archivos
 
 Verificar si un archivo está comprimido con gzip:
+
 ```bash
 file nombre_archivo
 ```

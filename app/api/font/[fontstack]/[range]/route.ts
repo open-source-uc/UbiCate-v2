@@ -19,7 +19,7 @@ async function findAvailableFont(
 
   for (const requestedFont of fonts) {
     // Decode URI component to handle URL-encoded font names
-    const decodedFont = decodeURIComponent(requestedFont);
+    const decodedFont = decodeURIComponent(requestedFont).replaceAll(" ", "");
     // Re-encode for use as R2 key
     const encodedFont = encodeURIComponent(decodedFont);
     const tileKey = `glyphs/${decodedFont}/${range}.pbf`;
