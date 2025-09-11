@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61271664271428,
-                    -33.49945271557484
-                ]
-            },
-            "properties": {
-                "identifier": "MFCZBFHGY5BJZR",
-                "name": "Grupo Humano",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        }
-    ]
+    "features": []
 }
