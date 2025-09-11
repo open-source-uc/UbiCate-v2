@@ -31,7 +31,7 @@ export default function PlaceMenu({
     mutationFn: (identifier: string) =>
       apiClient("/api/ubicate", {
         method: "PATCH",
-        body: { identifier },
+        body: { identifier, action: "approve" },
       }),
     onSuccess: () => {
       alert("Se aprobó el lugar");
