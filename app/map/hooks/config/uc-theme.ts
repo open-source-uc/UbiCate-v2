@@ -7,14 +7,14 @@ export const placesTextLayer: LayerProps = {
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["Roboto Slab Medium", "Arial Unicode MS Regular"],
-    "text-size": 16,
+    "text-size": 13,
     "text-anchor": "top",
     "text-offset": [0, 1],
   },
   paint: {
-    "text-color": "#000000", // Gris muy oscuro para máximo contraste sobre verde campus
-    "text-halo-color": "rgba(255, 255, 255, 0.9)", // Halo blanco más opaco
-    "text-halo-width": 2.5, // Halo más ancho para mejor definición
+    "text-color": "#000000",
+    "text-halo-color": "rgba(255, 255, 255, 1)",
+    "text-halo-width": 1,
   },
 };
 

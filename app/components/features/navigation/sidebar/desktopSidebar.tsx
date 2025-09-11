@@ -64,19 +64,19 @@ export default function DesktopSidebar() {
         {/* Sidebar principal */}
         <section
           className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full pb-4 ${
-            isOpen ? "w-44" : "w-20"
+            isOpen ? "w-52" : "w-20"
           }`}
         >
-          <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-4" : "flex-col py-8 space-y-6"}`}>
+          <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-6" : "flex-col py-8 space-y-6"}`}>
             {/* Logo - visible only when expanded */}
             <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>
-              <img src="/logo.svg" className="pl-2 w-16 h-16" alt="Logo" />
+              <img src="/logo.svg" className="pl-2 w-40 h-20" alt="Logo" />
             </Link>
 
             {/* Toggle button */}
-            <div className={`${isOpen ? "" : "flex justify-center"}`}>
+            <div className={`${isOpen ? "h-full flex items-center" : "flex items-center"}`}>
               <button onClick={toggleSidebar} className="hover:text-muted pointer-events-auto cursor-pointer">
-                <Icons.DockToRight className="w-8 h-8" />
+                <Icons.DockToRight className="w-7 h-7" />
               </button>
             </div>
           </div>
