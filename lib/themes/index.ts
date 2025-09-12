@@ -13,7 +13,6 @@ export {
 } from "./registry";
 
 // Theme utilities
-export { generateThemeCSS, generateThemeTypes, createTheme, validateTheme, mergeThemes } from "./utils";
 
 // Use the ThemeId from registry as the main export
 export type { ThemeId } from "./registry";
