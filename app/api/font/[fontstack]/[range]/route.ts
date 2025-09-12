@@ -14,9 +14,6 @@ async function findAvailableFont(
   // Split fontstack and try each font in order
   const fonts = fontstack.split(",").map((f) => f.trim());
 
-  console.log(`Font request - Fontstack: ${fontstack}, Range: ${range}`);
-  console.log(`Trying fonts in order: ${fonts.join(", ")}`);
-
   for (const requestedFont of fonts) {
     // Decode URI component to handle URL-encoded font names
     const decodedFont = decodeURIComponent(requestedFont).replaceAll(" ", "");
@@ -24,22 +21,18 @@ async function findAvailableFont(
     const encodedFont = encodeURIComponent(decodedFont);
     const tileKey = `glyphs/${decodedFont}/${range}.pbf`;
 
-    console.log(`Trying font: ${requestedFont} -> ${decodedFont} -> ${encodedFont} (${tileKey})`);
-
     try {
-      console.log(`Checking R2 for key: ${tileKey}`);
       const object = await R2.get(tileKey);
       if (object) {
         return { font: encodedFont, key: tileKey, object };
       } else {
-        console.log(`✗ Font not found: ${tileKey}`);
         return null;
       }
     } catch (error) {
-      console.log(`✗ Error accessing ${tileKey}:`, error);
       return null;
     }
   }
+  console.warn("No available fonts found for fontstack:", fontstack);
 
   return null;
 }
@@ -93,7 +86,6 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       headers: headers,
     });
   } catch (error) {
-    console.error("Error processing font request:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

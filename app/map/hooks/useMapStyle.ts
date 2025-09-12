@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 
 import { useTheme } from "@/app/context/themeCtx";
-import { createMapLibreStyle } from "@/lib/map/createMapLibreStyle";
 import { getTheme } from "@/lib/themes";
 
 export function useMapStyle() {
@@ -19,13 +18,11 @@ export function useMapStyle() {
 
       return {
         ...defaultTheme.mapConfig,
-        mapStyle: createMapLibreStyle(),
       };
     }
 
     return {
       ...themeConfig.mapConfig,
-      mapStyle: createMapLibreStyle(themeConfig.mapConfig.mapColors),
     };
   }, [theme]);
 
