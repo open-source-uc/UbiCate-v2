@@ -25,8 +25,8 @@
   --theme-destructive: var(--palette-red-500);
   --theme-destructive-foreground: var(--palette-white-primary);
   
-  --theme-border: var(--palette-brown-600);
-  --theme-input: var(--palette-brown-400);
+  --theme-border: var(--palette-brown-400);
+  --theme-input: var(--palette-brown-600);
   --theme-ring: var(--palette-brown-200);
 
   /* Functional colors for app-specific features */

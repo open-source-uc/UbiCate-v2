@@ -43,42 +43,42 @@ export const themeRegistry: ThemeRegistry = {
       },
     },
 
-    "light-formal": {
-      id: "light-formal",
-      ui: {
-        name: "Tema Diurno Formal",
-        description: "Limpio y profesional",
-        icon: Icons.Work,
-      },
-      mapConfig: {
-        placesTextLayer: lightFormalMap.placesTextLayer,
-        campusBorderLayer: lightFormalMap.campusBorderLayer,
-        sectionStrokeLayer: lightFormalMap.sectionStrokeLayer,
-        sectionAreaLayer: lightFormalMap.sectionAreaLayer,
-        customPolygonStrokeLayer: lightFormalMap.customPolygonStrokeLayer,
-        customPolygonSectionAreaLayer: lightFormalMap.customPolygonSectionAreaLayer,
-        mapStyle: lightThemeMap,
-      },
-    },
+    // "light-formal": {
+    //   id: "light-formal",
+    //   ui: {
+    //     name: "Tema Diurno Formal",
+    //     description: "Limpio y profesional",
+    //     icon: Icons.Work,
+    //   },
+    //   mapConfig: {
+    //     placesTextLayer: lightFormalMap.placesTextLayer,
+    //     campusBorderLayer: lightFormalMap.campusBorderLayer,
+    //     sectionStrokeLayer: lightFormalMap.sectionStrokeLayer,
+    //     sectionAreaLayer: lightFormalMap.sectionAreaLayer,
+    //     customPolygonStrokeLayer: lightFormalMap.customPolygonStrokeLayer,
+    //     customPolygonSectionAreaLayer: lightFormalMap.customPolygonSectionAreaLayer,
+    //     mapStyle: lightThemeMap,
+    //   },
+    // },
 
-    "pink-coquette": {
-      id: "pink-coquette",
-      ui: {
-        name: "Coquette",
-        description: "Pink pony club 🎵",
-        icon: Icons.Coquette,
-      },
+    // "pink-coquette": {
+    //   id: "pink-coquette",
+    //   ui: {
+    //     name: "Coquette",
+    //     description: "Pink pony club 🎵",
+    //     icon: Icons.Coquette,
+    //   },
 
-      mapConfig: {
-        placesTextLayer: pinkCoquetteMap.placesTextLayer,
-        campusBorderLayer: pinkCoquetteMap.campusBorderLayer,
-        sectionStrokeLayer: pinkCoquetteMap.sectionStrokeLayer,
-        sectionAreaLayer: pinkCoquetteMap.sectionAreaLayer,
-        customPolygonStrokeLayer: pinkCoquetteMap.customPolygonStrokeLayer,
-        customPolygonSectionAreaLayer: pinkCoquetteMap.customPolygonSectionAreaLayer,
-        mapStyle: pinkThemeMap,
-      },
-    },
+    //   mapConfig: {
+    //     placesTextLayer: pinkCoquetteMap.placesTextLayer,
+    //     campusBorderLayer: pinkCoquetteMap.campusBorderLayer,
+    //     sectionStrokeLayer: pinkCoquetteMap.sectionStrokeLayer,
+    //     sectionAreaLayer: pinkCoquetteMap.sectionAreaLayer,
+    //     customPolygonStrokeLayer: pinkCoquetteMap.customPolygonStrokeLayer,
+    //     customPolygonSectionAreaLayer: pinkCoquetteMap.customPolygonSectionAreaLayer,
+    //     mapStyle: pinkThemeMap,
+    //   },
+    // },
 
     "uc-theme": {
       id: "uc-theme",

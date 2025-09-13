@@ -9,6 +9,7 @@ import PlacesJSON from "@/lib/places/data";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
 import MarkerIcon from "../../ui/icons/markerIcon";
+import { Close } from "../../ui/icons/icons";
 
 interface SearchDropdownProps {
   numberOfShowResults?: number;
@@ -153,9 +154,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   return (
     <div className="relative" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative bg-secondary outline-1 outline-secondary rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
+      <div className="relative bg-input outline-1 outline-border rounded-2xl z-10 border-none min-w-60">
         {/* Input */}
-        <div className="relative text-foreground font-medium">
+        <div className="relative text-secondary-foreground font-medium">
           <input
             ref={inputRef}
             type="text"
@@ -187,18 +188,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
           {query ? (
             <button
               onClick={handleClearInput}
-              className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-secondary leading-none"
+              className="absolute right-2 top-2 z-20 py-2 m-0 border-none cursor-pointer leading-none rounded-full hover:bg-secondary/50 focus:outline-none"
             >
-              <svg className="w-5 h-5 mt-2 mr-1" viewBox="0 0 24 24">
-                <path
-                  d="M6 18L18 6M6 6l12 12"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
+              <Close className="w-5 h-5 fill-current" />
             </button>
           ) : null}
         </div>
@@ -208,7 +200,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
           <div
-            className="bg-secondary rounded-xl rounded-t-lg overflow-hidden text-base border border-secondary"
+            className="bg-muted text-muted-foreground rounded-xl rounded-t-lg overflow-hidden text-base border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
             <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
@@ -226,7 +218,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                   <li
                     key={index}
                     className={`
-                      ${index === selectedIndex ? "bg-secundary" : "hover:bg-secundary/50"}
+                      ${index === selectedIndex ? "bg-secondary text-secondary-foreground" : ""}
                     `}
                   >
                     <a
@@ -250,7 +242,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                         {/* Contenedor de texto */}
                         <div className="flex-1 min-w-0">
                           <div
-                            className={`font-bold text-left leading-tight ${
+                            className={`font-semibold text-left leading-tight ${
                               needsVerySmallText
                                 ? "text-xs break-words"
                                 : needsSmallText

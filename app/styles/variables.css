@@ -37,8 +37,6 @@
   --text-md: 1rem;
   --text-md--line-height: 1.5;
 
-  --font-sans: var(--font-instrument-sans);
-
   /* Background gradients */
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
