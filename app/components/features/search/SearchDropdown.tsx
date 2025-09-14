@@ -156,7 +156,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {/* Contenedor principal del geocoder */}
       <div className="relative bg-input outline-1 outline-border rounded-2xl z-10 border-none min-w-60">
         {/* Input */}
-        <div className="relative text-secondary-foreground font-medium">
+        <div className="relative text-secondary-foreground font-regular">
           <input
             ref={inputRef}
             type="text"
@@ -242,7 +242,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                         {/* Contenedor de texto */}
                         <div className="flex-1 min-w-0">
                           <div
-                            className={`font-semibold text-left leading-tight ${
+                            className={`font-bold text-left leading-tight ${
                               needsVerySmallText
                                 ? "text-xs break-words"
                                 : needsSmallText

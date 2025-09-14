@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import * as Icons from "@/app/components/ui/icons/icons";
+import { Button } from "@/app/components/ui/button";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/lib/types";
@@ -63,7 +64,7 @@ export default function DesktopSidebar() {
       <div className="flex h-screen overflow-y-auto">
         {/* Sidebar principal */}
         <section
-          className={`bg-background/95 backdrop-blur-sm text-foreground flex flex-col z-40 h-full pb-4 ${
+          className={`bg-background text-foreground flex flex-col z-40 h-full pb-4 ${
             isOpen ? "w-52" : "w-20"
           }`}
         >
@@ -75,9 +76,13 @@ export default function DesktopSidebar() {
 
             {/* Toggle button */}
             <div className={`${isOpen ? "h-full flex items-center" : "flex items-center"}`}>
-              <button onClick={toggleSidebar} className="hover:text-muted pointer-events-auto cursor-pointer">
-                <Icons.DockToRight className="w-7 h-7" />
-              </button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleSidebar}
+                icon={<Icons.DockToRight className="w-7 h-7" />}
+                className="hover:text-muted"
+              />
             </div>
           </div>
 
@@ -85,58 +90,31 @@ export default function DesktopSidebar() {
           <nav className="flex-1">
             <div className={`${isOpen ? "pt-5 px-4" : ""} flex flex-col`}>
               {/* Search button */}
-              <button
+              <Button
+                variant="ghost"
+                size={isOpen ? "sidebar" : "sidebar-collapsed"}
                 onClick={() => (isOpen ? toggleSubSidebar("buscar") : handleCollapsedClick("buscar"))}
-                className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-secondary" : ""
-                } flex items-center pointer-events-auto cursor-pointer ${
-                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
-                }`}
-              >
-                <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "buscar" ? "bg-primary" : "bg-accent"
-                  }`}
-                >
-                  <Icons.Search />
-                </span>
-                <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Buscar</span>
-              </button>
+                icon={<Icons.Search />}
+                text={isOpen ? "Buscar" : undefined}
+                isActive={activeSubSidebar === "buscar"}
+              />
               {/* Campus button */}
-              <button
+              <Button
+                variant="ghost"
+                size={isOpen ? "sidebar" : "sidebar-collapsed"}
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
-                className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
-                } flex items-center pointer-events-auto cursor-pointer ${
-                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
-                }`}
-              >
-                <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "campus" ? "bg-primary" : "bg-accent"
-                  }`}
-                >
-                  <Icons.Map />
-                </span>
-                <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Campus</span>
-              </button>
-              <button
+                icon={<Icons.Map />}
+                text={isOpen ? "Campus" : undefined}
+                isActive={activeSubSidebar === "campus"}
+              />
+              <Button
+                variant="ghost"
+                size={isOpen ? "sidebar" : "sidebar-collapsed"}
                 onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
-                className={`${
-                  isOpen ? "w-full p-2 rounded-md hover:bg-accent/18" : ""
-                } flex items-center pointer-events-auto cursor-pointer ${
-                  !isOpen ? "justify-center px-4 py-3" : "space-x-4"
-                }`}
-              >
-                <span
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
-                  }`}
-                >
-                  <Icons.Palette />
-                </span>
-                <span className={`text-md ${isOpen ? "block" : "hidden"}`}>Temas</span>
-              </button>
+                icon={<Icons.Palette />}
+                text={isOpen ? "Temas" : undefined}
+                isActive={activeSubSidebar === "temas"}
+              />
             </div>
           </nav>
 

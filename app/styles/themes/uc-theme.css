@@ -18,8 +18,8 @@
   --theme-muted: var(--palette-uc-gris-oscuro-b);
   --theme-muted-foreground: var(--palette-uc-negro);
   
-  --theme-accent: var(--palette-uc-gris-oscuro-b);
-  --theme-accent-foreground: var(--palette-uc-negro);
+  --theme-accent: var(--palette-uc-azul);
+  --theme-accent-foreground: var(--palette-uc-celeste);
   
   --theme-destructive: var(--palette-uc-danger);
   --theme-destructive-foreground: var(--palette-uc-negro);
