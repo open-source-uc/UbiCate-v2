@@ -11,19 +11,24 @@ export default function CampusList({
   setActiveSubSidebar: (value: SubSidebarType) => void;
 }) {
   return (
-    <>
-      <div className="flex w-full px-2 py-2">
-        <h3 className="font-bold text-lg">Campus</h3>
-        <div className="flex w-full" />
+    <div className="flex flex-col h-full">
+      {/* Header following consistent pattern */}
+      <div className="flex items-center justify-between w-full px-4 py-3">
+        <div className="flex items-center gap-2">
+          <h3 className="font-bold text-lg text-foreground">Campus</h3>
+        </div>
         <button
           onClick={() => setActiveSubSidebar(null)}
-          className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary pointer-events-auto cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-50 w-7 h-7 p-1"
+          className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full hover:text-accent hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           aria-label="Cerrar menú"
         >
-          <Icons.Close />
+          <Icons.Close className="w-4 h-4" />
         </button>
-      </div>{" "}
-      <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4 px-2">
+      </div>
+      
+      {/* Content area with consistent spacing */}
+      <div className="flex-1 px-4">
+        <div className="w-full grid grid-cols-2 gap-2 tablet:gap-3 desktop:grid-cols-1 desktop:gap-4">
         {/* Botón Campus San Joaquín */}
         <button
           onClick={() => handleCampusClick("SanJoaquin")}
@@ -144,7 +149,8 @@ export default function CampusList({
             </span>
           </div>
         </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

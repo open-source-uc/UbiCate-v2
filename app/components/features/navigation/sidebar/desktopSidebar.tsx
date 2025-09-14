@@ -68,20 +68,20 @@ export default function DesktopSidebar() {
             isOpen ? "w-52" : "w-20"
           }`}
         >
-          <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-6" : "flex-col py-8 space-y-6"}`}>
+          <div className={`flex items-center p-4 ${isOpen ? "flex-row gap-6" : "flex-col py-8 space-y-6"}`}>
             {/* Logo - visible only when expanded */}
-            <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>
+            <Link href="/" className={`${isOpen ? "block opacity-100" : "hidden opacity-0"}`}>
               <img src="/logo.svg" className="pl-2 w-40 h-20" alt="Logo" />
             </Link>
 
-            {/* Toggle button */}
+            {/* Toggle button with improved interaction */}
             <div className={`${isOpen ? "h-full flex items-center" : "flex items-center"}`}>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleSidebar}
                 icon={<Icons.DockToRight className="w-7 h-7" />}
-                className="hover:text-muted"
+                className="hover:text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               />
             </div>
           </div>
@@ -118,16 +118,19 @@ export default function DesktopSidebar() {
             </div>
           </nav>
 
-          {/* Footer - visible only when expanded */}
-          <div className={`flex flex-col space-y-4 px-4 ${isOpen ? "block" : "hidden"}`}>
+          {/* Footer with improved visibility */}
+          <div className={`flex flex-col space-y-4 px-4 ${isOpen ? "opacity-100 block" : "opacity-0 hidden"}`}>
             <FooterOptionsSidebar />
           </div>
-          <div className={`flex justify-center ${!isOpen ? "block" : "hidden"}`}>
-            <div className="w-10 h-10 rounded-xl bg-primary">
-              <Link href="/creditos" className="font-semibold block hover:underline">
+          <div className={`flex justify-center ${!isOpen ? "opacity-100 block" : "opacity-0 hidden"}`}>
+            <div className="w-10 h-10 rounded-xl bg-primary hover:bg-primary/90">
+              <Link 
+                href="/creditos" 
+                className="font-semibold block hover:underline focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+              >
                 <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
                   <Icons.OSUC />
-                </span>{" "}
+                </span>
               </Link>
             </div>
           </div>
@@ -135,24 +138,40 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground border-l-1 border-border ${
-            activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
+          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground border-l border-border ${
+            activeSubSidebar !== null ? "w-96 opacity-100" : "w-0 opacity-0"
           }`}
         >
-          <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
+          <div className={`${activeSubSidebar !== null ? "block h-full" : "hidden"}`}>
             {activeSubSidebar === "campus" && (
-              <div className="w-full h-full space-y-4">
+              <div className="flex flex-col h-full">
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
             {activeSubSidebar === "guías" && (
-              <>
-                <h3 className="font-bold text-lg">Guías</h3>
-                <ul className="space-y-2">Hello. This is not implemented.</ul>
-              </>
+              <div className="flex flex-col h-full">
+                {/* Header following consistent pattern */}
+                <div className="flex items-center justify-between w-full px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-bold text-lg text-foreground">Guías</h3>
+                  </div>
+                  <button
+                    onClick={() => setActiveSubSidebar(null)}
+                    className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full hover:text-accent hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    aria-label="Cerrar menú"
+                  >
+                    <Icons.Close className="w-4 h-4" />
+                  </button>
+                </div>
+                
+                {/* Content area with consistent spacing */}
+                <div className="flex-1 px-4">
+                  <ul className="space-y-2">Hello. This is not implemented.</ul>
+                </div>
+              </div>
             )}
             {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
-              <div className="w-full h-full">
+              <div className="flex flex-col h-full">
                 <NotificationErrorBoundary>
                   <PlaceMenu
                     place={selectedPlace}
@@ -170,19 +189,35 @@ export default function DesktopSidebar() {
               </div>
             )}
             {activeSubSidebar === "buscar" && (
-              <div className="w-full h-full overflow-auto space-y-2">
-                <h3 className="font-bold text-lg">Buscar</h3>
-                <div className="p-1">
-                  <SearchDropdown />
+              <div className="flex flex-col h-full">
+                {/* Header following consistent pattern */}
+                <div className="flex items-center justify-between w-full px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-bold text-lg text-foreground">Buscar</h3>
+                  </div>
+                  <button
+                    onClick={() => setActiveSubSidebar(null)}
+                    className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full hover:text-accent hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    aria-label="Cerrar menú"
+                  >
+                    <Icons.Close className="w-4 h-4" />
+                  </button>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-md">Filtra por lugares</h4>
-                  <PillFilter />
+                
+                {/* Content area with consistent spacing */}
+                <div className="flex-1 px-4 space-y-4 overflow-auto">
+                  <div>
+                    <SearchDropdown />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-md mb-2">Filtra por lugares</h4>
+                    <PillFilter />
+                  </div>
                 </div>
               </div>
             )}
             {activeSubSidebar === "temas" && (
-              <div className="w-full h-full space-y-4">
+              <div className="flex flex-col h-full">
                 <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
