@@ -7,14 +7,14 @@ export const placesTextLayer: LayerProps = {
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["Roboto Slab Medium", "Arial Unicode MS Regular"],
-    "text-size": 16,
+    "text-size": 13,
     "text-anchor": "top",
     "text-offset": [0, 1],
   },
   paint: {
-    "text-color": "#000000", // Gris muy oscuro para máximo contraste sobre verde campus
-    "text-halo-color": "rgba(255, 255, 255, 0.9)", // Halo blanco más opaco
-    "text-halo-width": 2.5, // Halo más ancho para mejor definición
+    "text-color": "#000000",
+    "text-halo-color": "rgba(255, 255, 255, 1)",
+    "text-halo-width": 1,
   },
 };
 
@@ -64,63 +64,4 @@ export const customPolygonSectionAreaLayer: LayerProps = {
   paint: {
     "fill-color": "rgba(168, 28, 175, 0.4)", // Rosa púrpura más visible para áreas personalizadas
   },
-};
-export const UC_MAP_COLORS = {
-  background: "#EAEAEA",
-  water: "#AFC9D4",
-  waterway: "#AFC9D4",
-
-  // Landcover
-  wood: "#C1D9BE",
-  snow: "#fefefe",
-  grass: "#C1D9BE",
-  scrub: "#C1D9BE",
-  crop: "#C1D9BE",
-
-  // Landuse
-  park: "#C1D9BE", // Verde parque más vibrante y visible
-  pitch: "#CCE2CB", // Light pink for sports pitches - distinct from green areas
-  residential: "#EAEAEA", // Rosa residencial coquette
-  commercial: "#EAEAEA", // Rosa comercial más visible
-  industrial: "#EAEAEA", // Rosa industrial coquette
-  cemetery: "#EAEAEA", // Verde cementerio más visible
-  hospital: "#EAEAEA", // Rosa hospital más saturado
-  school: "#EAEAEA", // Verde escuela vibrante
-  airport: "#EAEAEA", // Gris aeropuerto neutro
-  campus: "#EAEAEA",
-
-  // Building
-  building: "#C6C6C6",
-  buildingOutline: "#EAEAEA",
-
-  // Transportation
-  path: "#F6F6F6",
-  pathStroke: "#C6C6C6",
-  minor: "#F6F6F6",
-  minorStroke: "#C6C6C6",
-  secondary: "#F6F6F6",
-  secondaryStroke: "#C6C6C6",
-  primary: "#F6F6F6",
-  primaryStroke: "#C6C6C6",
-  trunk: "#F6F6F6",
-  trunkStroke: "#C6C6C6",
-  motorway: "#F6F6F6",
-  motorwayStroke: "#C6C6C6",
-  railStart: "#F6F6F6",
-  railEnd: "#F6F6F6",
-
-  // Text
-  roadText: "#000000",
-  roadTextHalo: "#FFFFFF",
-  poiText: "#000000",
-  poiParkText: "#000000",
-  poiTextHalo: "#FFFFFF",
-  placeText: "#000000",
-  placeTextHalo: "#FFFFFF",
-  buildingText: "#000000",
-  campusText: "#000000",
-  pathText: "#000000",
-
-  // Boundary
-  boundary: "#707070",
 };

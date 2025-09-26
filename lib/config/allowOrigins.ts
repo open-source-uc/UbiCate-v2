@@ -3,24 +3,21 @@ export function getAllowedOrigin(origin: string | null): string | null {
 
   try {
     const url = new URL(origin);
-    const hostname = url.hostname;
+    const hostname = url.hostname.toLowerCase(); // normaliza
 
+    // localhost y 127.0.0.1 siempre permitidos
     if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return origin;
+      return origin; // incluye puerto si viene
     }
 
-    if (
-      hostname === "osuc.dev" ||
-      hostname.endsWith(".osuc.dev") ||
-      hostname === "uc.cl" ||
-      hostname.endsWith(".uc.cl") ||
-      hostname === "ubicate-v2.pages.dev" ||
-      hostname.endsWith(".ubicate-v2.pages.dev")
-    ) {
+    // dominios de producción
+    const allowedHostnames = ["osuc.dev", "uc.cl", "ubicate-v2.pages.dev"];
+
+    if (allowedHostnames.includes(hostname) || allowedHostnames.some((h) => hostname.endsWith("." + h))) {
       return origin;
     }
   } catch (error) {
-    // URL inválida
+    console.warn("Invalid origin:", origin);
     return null;
   }
 
