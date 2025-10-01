@@ -135,7 +135,7 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-background/95 backdrop-blur-sm text-foreground border-l-1 border-border ${
+          className={`shadow-lg h-full overflow-hidden bg-background text-foreground border-l-1 border-border ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
         >

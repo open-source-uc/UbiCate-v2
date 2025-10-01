@@ -164,7 +164,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             value={query}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            onFocus={handleInputFocus}b
+            onFocus={handleInputFocus}
             onBlur={handleInputBlur}
             className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
             placeholder="Buscar en Ubicate"
@@ -214,20 +214,20 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                   <li
                     key={index}
                     className={`
-                      ${index === selectedIndex ? "bg-secondary text-secondary-foreground" : ""}
+                      ${index === selectedIndex ? "bg-background/15 " : ""}
                     `}
                   >
                     <a
-                      className="cursor-pointer block py-2 px-3 no-underline"
+                      className="cursor-pointer block py-3 px-3 no-underline"
                       onClick={() => handleSelect(feature)}
                       onMouseEnter={() => setSelectedIndex(index)}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-center justify-center gap-3">
                         {/* Contenedor del ícono con tamaño adaptativo */}
                         <div
                           className={`${getIconContainerSize(
                             placeName,
-                          )} flex items-center justify-center rounded text-xs flex-shrink-0 mt-1 ${color}`}
+                          )} flex items-center justify-center rounded text-xs flex-shrink-0 ${color}`}
                         >
                           <MarkerIcon
                             classname={getIconSize(placeName)}
@@ -242,14 +242,14 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                               needsVerySmallText
                                 ? "text-xs break-words"
                                 : needsSmallText
-                                ? "text-sm break-words"
-                                : "text-base"
+                                ? "text-xs break-words"
+                                : "text-sm"
                             }`}
                           >
                             {placeName}
                           </div>
                           <div
-                            className={`text-left leading-tight mt-0.5 ${
+                            className={`text-left leading-tight mt-0.4 ${
                               needsVerySmallText
                                 ? "text-xs break-words opacity-75"
                                 : needsSmallText

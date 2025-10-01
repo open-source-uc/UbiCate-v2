@@ -218,7 +218,7 @@ export default function MobileSidebar() {
     <>
       {/* Main Sidebar */}
       <section
-        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
+        className="fixed bg-background text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
@@ -298,7 +298,7 @@ export default function MobileSidebar() {
         {/* Sub Sidebars */}
         {activeSubSidebar ? (
           <section
-            className="fixed pb-5 bg-background/95 backdrop-blur-sm text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
+            className="fixed pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
               transition: enableTransition ? "all 300ms" : "none",
