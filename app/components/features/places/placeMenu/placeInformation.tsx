@@ -88,36 +88,35 @@ export default function PlaceInformation({
     const singleOption = availableOptions[0];
 
     return (
-      <div className="px-4">
-        {/* Header following consistent pattern */}
-        <section className="flex items-center justify-between w-full py-3">
-          <div className="flex items-center gap-2 flex-1 min-w-0">
-            <div className="min-w-0">
-              <h3 className="font-bold text-lg text-foreground break-words">{place.properties.name}</h3>
-              {place.properties?.categories?.[0] ? (
-                <p className="text-sm text-muted-foreground mt-1">
-                  {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
-                </p>
-              ) : null}
+      <div className="px-2 pt-4">
+        <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
+          <div className="flex items-center justify-between w-full">
+            <div className="max-w-[2/3] pr-10">
+              <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
             </div>
+
+            <button
+              className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              aria-label="Cerrar menú"
+              onClick={(e) => onClose?.()}
+            >
+              <Icons.Close />
+            </button>
           </div>
-          <button
-            onClick={(e) => onClose?.()}
-            className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full hover:text-accent hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-3 flex-shrink-0"
-            aria-label="Cerrar menú"
-          >
-            <Icons.Close className="w-4 h-4" />
-          </button>
+          {place.properties?.categories?.[0] ? (
+            <div className="font-light text-md mt-1">
+              {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
+            </div>
+          ) : null}
         </section>
-        {/* Action buttons with consistent styling */}
-        <section className="flex space-x-2 px-4 pb-4">
+        <section className="flex space-x-2">
           <button
             onClick={handleShare}
             onKeyDown={(e) => e.key === "Enter" && handleShare}
             aria-label="Comparte esta Ubicación"
             role="navigation"
             tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="p-1 w-full cursor-pointer bg-primary hover:bg-accent text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             <div className="flex justify-center items-center w-full h-10">
               <Icons.Share />
@@ -141,8 +140,7 @@ export default function PlaceInformation({
             <p className="text-xs font-medium">{singleOption.label}</p>
           </button>
         </section>
-        {/* Content area with consistent spacing */}
-        <section className="px-4 divide-y divide-accent/30">
+        <section className="divide-y divide-accent/30">
           {place.properties?.floors && place.properties.floors.length > 0 ? (
             <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
               <div className="flex items-center justify-between">
@@ -182,36 +180,35 @@ export default function PlaceInformation({
 
   // Si hay múltiples opciones, mostrar el dropdown como antes
   return (
-    <div className="px-4">
-      {/* Header following consistent pattern */}
-      <section className="flex items-center justify-between w-full py-3">
-        <div className="flex items-center gap-2 flex-1 min-w-0">
-          <div className="min-w-0">
-            <h3 className="font-bold text-lg text-foreground break-words">{place.properties.name}</h3>
-            {place.properties?.categories?.[0] ? (
-              <p className="text-sm text-muted-foreground mt-1">
-                {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
-              </p>
-            ) : null}
+    <div className="px-2 pt-4">
+      <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
+        <div className="flex items-center justify-between w-full">
+          <div className="max-w-[2/3] pr-10">
+            <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
           </div>
+
+          <button
+            className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            aria-label="Cerrar menú"
+            onClick={(e) => onClose?.()}
+          >
+            <Icons.Close />
+          </button>
         </div>
-        <button
-          onClick={(e) => onClose?.()}
-          className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full hover:text-accent hover:bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-3 flex-shrink-0"
-          aria-label="Cerrar menú"
-        >
-          <Icons.Close className="w-4 h-4" />
-        </button>
+        {place.properties?.categories?.[0] ? (
+          <div className="font-light text-md mt-1">
+            {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
+          </div>
+        ) : null}
       </section>
-      {/* Action buttons with consistent styling */}
-      <section className="flex space-x-2 px-4 pb-4">
+      <section className="flex space-x-2">
         <button
           onClick={handleShare}
           onKeyDown={(e) => e.key === "Enter" && handleShare}
           aria-label="Comparte esta Ubicación"
           role="navigation"
           tabIndex={0}
-          className="p-1 w-full cursor-pointer bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="p-1 w-full cursor-pointer bg-primary hover:bg-accent text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
           <div className="flex justify-center items-center w-full h-10">
             <Icons.Share />
@@ -246,10 +243,9 @@ export default function PlaceInformation({
           </DropdownMenuContent>
         </DropdownMenu>
       </section>
-      {/* Content area with consistent spacing */}
-      <section className="px-4 divide-y divide-accent/30">
+      <section className="divide-y divide-accent/30">
         {place.properties?.floors && place.properties.floors.length > 0 ? (
-          <div className="py-4 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
+          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3 text-primary">
                 <Icons.Floor className="fill-primary" />
@@ -261,7 +257,7 @@ export default function PlaceInformation({
         ) : null}
 
         {place.properties?.campus ? (
-          <div className="py-4 transition-colors duration-200 hover:bg-accent/5 rounded-b-lg">
+          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-b-lg">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3 text-primary">
                 <Icons.Map className="fill-primary" />

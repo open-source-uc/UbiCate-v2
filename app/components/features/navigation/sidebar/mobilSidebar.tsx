@@ -221,10 +221,11 @@ export default function MobileSidebar() {
         className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
+          transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
         role="dialog"
-        aria-label="Mobile Navigation"
+        aria-label="Navegación Móvil"
       >
         {/* Drag handle that spans full width */}
         <div
@@ -252,7 +253,7 @@ export default function MobileSidebar() {
                     <div className="bg-secondary flex rounded-lg p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md hover:bg-accent/18 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
                           activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "campus"}
@@ -264,7 +265,7 @@ export default function MobileSidebar() {
                       </button>
                       <button
                         onClick={() => toggleSubSidebar("temas")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md hover:bg-accent/18 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
                           activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "temas"}
@@ -300,6 +301,7 @@ export default function MobileSidebar() {
             className="fixed pb-5 bg-background/95 backdrop-blur-sm text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
+              transition: enableTransition ? "all 300ms" : "none",
             }}
             role="region"
             aria-label={`${activeSubSidebar} panel`}

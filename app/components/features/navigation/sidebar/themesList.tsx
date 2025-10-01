@@ -11,8 +11,8 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
 
   return (
     <div className="flex flex-col h-full">
-      {/* Header following consistent pattern */}
-      <div className="flex items-center justify-between w-full px-4 py-3">
+      {/* Header */}
+      <div className="flex items-center justify-between w-full px-4 py-3 border-b border-border">
         <div className="flex items-center gap-2">
           <div>
             <h3 className="font-bold text-lg text-foreground">Temas Disponibles</h3>
@@ -21,7 +21,7 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
         </div>
         <button
           onClick={() => setActiveSubSidebar(null)}
-          className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full hover:text-accent hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full "
           aria-label="Cerrar menú"
         >
           <Icons.Close className="w-4 h-4" />
@@ -40,7 +40,7 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
                   key={themeOption.id}
                   onClick={() => setTheme(themeOption.id)}
                   type="button"
-                  className={`w-full flex items-center gap-3 p-2 rounded-md hover:bg-accent/18 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                  className={`w-full flex items-center gap-3 p-2 rounded-md transition hover:bg-accent/18 ${
                     theme === themeOption.id ? "bg-primary" : "bg-transparent"
                   }`}
                   aria-pressed={theme === themeOption.id}

@@ -8,6 +8,7 @@ import { getCategoryColor } from "@/lib/map/categoryToColors";
 import PlacesJSON from "@/lib/places/data";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
+import * as Icons from "../../ui/icons/icons";
 import MarkerIcon from "../../ui/icons/markerIcon";
 import { Close } from "../../ui/icons/icons";
 
@@ -163,35 +164,30 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             value={query}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            onFocus={handleInputFocus}
+            onFocus={handleInputFocus}b
             onBlur={handleInputBlur}
-            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:outline-[color:var(--color-focus-indicator)] focus:outline-1 focus:outline-offset-[-1px] focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
-            placeholder="Buscar lugares por nombre..."
+            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
+            placeholder="Buscar en Ubicate"
             autoComplete="off"
+            autoFocus
+            aria-label="Buscar lugares en Ubicate"
           />
 
           {/* Ícono de búsqueda */}
-          <div className="absolute top-3 left-3 w-6 h-6 pointer-events-none">
-            <svg className="w-full h-full" viewBox="0 0 24 24">
-              <path
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
+          <div className="absolute top-3 left-3 w-7 h-7 pointer-events-none">
+            <Icons.Search className="w-6 h-6 fill-border" />
           </div>
 
           {/* Botón de limpiar */}
           {query ? (
-            <button
-              onClick={handleClearInput}
-              className="absolute right-2 top-2 z-20 py-2 m-0 border-none cursor-pointer leading-none rounded-full hover:bg-secondary/50 focus:outline-none"
-            >
-              <Close className="w-5 h-5 fill-current" />
-            </button>
+            <div className="absolute right-0 top-0 z-20 py-[13px] px-3">
+              <button
+                onClick={handleClearInput}
+                className="p-1 bg-destructive border-none cursor-pointer leading-none rounded-full hover:bg-destructive/80 focus:outline-none group"
+              >
+                <Icons.Close className="w-4 h-4 fill-foreground group-hover:fill-foreground/80" />
+              </button>
+            </div>
           ) : null}
         </div>
       </div>

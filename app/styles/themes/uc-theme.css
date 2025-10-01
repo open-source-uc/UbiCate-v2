@@ -31,7 +31,7 @@
   /* Functional colors for app-specific features */
   --theme-route-primary: var(--palette-pastel-lavender);
   --theme-route-border: var(--palette-pastel-lilac);
-  --theme-focus-indicator: var(--palette-pastel-lavender);
+  --theme-focus-indicator: var(--palette-uc-celeste);
 
   /* Chart Colors */
   --theme-chart-0: var(--palette-vibrant-orange);
