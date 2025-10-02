@@ -240,7 +240,7 @@ export default function MobileSidebar() {
           aria-label="Arrastrar para redimensionar el panel"
           tabIndex={0}
         >
-          <div className="w-2/5 h-2 bg-primary rounded-full mx-auto" />
+          <div className="w-1/5 h-2 bg-primary rounded-full mx-auto" />
         </div>
 
         {isOpen ? (
@@ -249,52 +249,47 @@ export default function MobileSidebar() {
             aria-hidden={!isOpen}
             {...(isOpen ? {} : { inert: "" as any })}
           >
-            <div className="px-4 space-y-4">
+            <div className="p-4 space-y-4">
               <nav className="pb-5">
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-md font-semibold text-foreground">Explora</p>
-                    <div className="bg-secondary flex rounded-lg p-2">
+                  <section className="flex flex-col gap-2">
+                    <div className="bg-primary text-background flex rounded-md p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
                           activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "campus"}
                         tabIndex={isOpen ? 0 : -1}
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-                          <Icons.Map />
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <Icons.Map className="group-hover:fill-secondary-foreground transition"/>
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
                       <button
                         onClick={() => toggleSubSidebar("temas")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
                           activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "temas"}
                         tabIndex={isOpen ? 0 : -1}
                       >
-                        <span
-                          className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                            activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
-                          }`}
-                        >
-                          <Icons.Palette />
+                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <Icons.Palette className="group-hover:fill-secondary-foreground transition"/>
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
                       </button>
                     </div>
-                  </div>
+                  </section>
 
-                  <div>
-                    <PillFilter />
-                  </div>
+                  <section>
+                      <PillFilter />
+                  </section>
 
-                  <div className="flex flex-row gap-2 pb-5">
+                  <section className="flex flex-row gap-2 pb-5">
                     <FooterOptionsSidebar />
-                  </div>
+                  </section>
                 </div>
               </nav>
             </div>
