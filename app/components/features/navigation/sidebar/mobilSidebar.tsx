@@ -244,7 +244,7 @@ export default function MobileSidebar() {
         </div>
 
         {isOpen ? (
-          <div 
+          <div
             className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto"
             aria-hidden={!isOpen}
             {...(isOpen ? {} : { inert: "" as any })}
@@ -310,7 +310,15 @@ export default function MobileSidebar() {
               transition: enableTransition ? "all 300ms" : "none",
             }}
             role="region"
-            aria-label={`Panel de ${activeSubSidebar === "campus" ? "campus" : activeSubSidebar === "temas" ? "temas" : activeSubSidebar === "placeInformation" ? "información del lugar" : activeSubSidebar}`}
+            aria-label={`Panel de ${
+              activeSubSidebar === "campus"
+                ? "campus"
+                : activeSubSidebar === "temas"
+                ? "temas"
+                : activeSubSidebar === "placeInformation"
+                ? "información del lugar"
+                : activeSubSidebar
+            }`}
             aria-hidden={!activeSubSidebar}
           >
             {/* Drag handle in subsidebar */}
@@ -328,7 +336,7 @@ export default function MobileSidebar() {
               <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
             </div>
 
-            <div 
+            <div
               className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17"
               {...(activeSubSidebar ? {} : { inert: "" as any })}
             >

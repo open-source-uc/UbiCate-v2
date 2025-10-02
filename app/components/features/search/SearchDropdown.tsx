@@ -204,9 +204,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             className="bg-input text-foreground rounded-lg overflow-hidden border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
-            <ul 
-              ref={listRef} 
-              className="list-none m-0 p-0 overflow-y-auto" 
+            <ul
+              ref={listRef}
+              className="list-none m-0 p-0 overflow-y-auto"
               style={{ maxHeight: dropdownHeight }}
               role="listbox"
               id="search-results-list"
