@@ -25,8 +25,8 @@ export default function CampusButton({ name, displayName, imageSrc, onClick, cla
         className="object-cover rounded-sm transition-all duration-300 group-hover:brightness-110"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-accent rounded-sm transition-opacity duration-300 group-hover:opacity-90" />
-      <div className="absolute bottom-0 left-0 p-3 w-full transition-transform duration-300 group-hover:translate-y-[-2px]">
+      <div className="absolute inset-0 bg-gradient-to-b from-0% from-transparent via-60% via-accent/40 to-80% to-accent/80 rounded-sm transition-opacity duration-300 group-hover:opacity-90" />
+      <div className="absolute top-14 right-0 p-3 w-full transition-transform duration-300 group-hover:translate-y-[-2px]">
         <span className="text-background text-sm font-semibold" aria-hidden="true">
           {displayName}
         </span>

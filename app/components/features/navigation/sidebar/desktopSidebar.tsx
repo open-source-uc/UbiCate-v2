@@ -168,7 +168,7 @@ export default function DesktopSidebar() {
             {activeSubSidebar === "buscar" && (
               <div className="flex flex-col h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between w-full px-4 py-3 border-b border-border">
+                <div className="flex items-center justify-between w-full px-4 py-3">
                   <div className="flex items-center gap-2">
                     <div>
                       <h3 className="font-bold text-lg text-foreground">Buscar</h3>
@@ -177,15 +177,15 @@ export default function DesktopSidebar() {
                   </div>
                   <button
                     onClick={() => setActiveSubSidebar(null)}
-                    className="w-8 h-8 text-foreground bg-accent flex items-center justify-center rounded-full "
+                    className="w-8 h-8 bg-primary flex items-center justify-center rounded-full cursor-pointer group hover:bg-secondary transition"
                     aria-label="Cerrar menú"
                   >
-                    <Icons.Close className="w-4 h-4" />
+                    <Icons.Close className="w-4 h-4 fill-background group-hover:fill-secondary-foreground" />
                   </button>
                 </div>
 
                 {/* Search section following sidebar pattern */}
-                <div className="flex-1 p-4 overflow-auto">
+                <section className="flex-1 px-4 pt-4 pb-8 overflow-auto">
                   <div className="flex flex-col gap-4">
                     {/* Search box */}
                     <div className="flex flex-col gap-2">
@@ -203,14 +203,7 @@ export default function DesktopSidebar() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Footer informativo */}
-                  <div className="mt-6 p-3 bg-muted rounded-lg border border-border">
-                    <div className="flex items-center gap-2 text-xs">
-                      <p>Usa el buscador para encontrar lugares específicos o filtra por categorías para explorar.</p>
-                    </div>
-                  </div>
-                </div>
+                </section>
               </div>
             )}
             {activeSubSidebar === "temas" && (
