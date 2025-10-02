@@ -3,20 +3,20 @@
 /* =============================================== */
 
 [data-theme="uc-theme"] {
-  --theme-background: var(--palette-uc-celeste);
-  --theme-foreground: var(--palette-uc-blanco);
+  --theme-background: var(--palette-uc-blanco);
+  --theme-foreground: var(--palette-uc-negro);
   
-  --theme-primary: var(--palette-uc-azul);
+  --theme-primary: var(--palette-uc-celeste);
   --theme-primary-foreground: var(--palette-uc-blanco);
   
   --theme-secondary: var(--palette-uc-amarillo);
-  --theme-secondary-foreground: var(--palette-uc-negro);
+  --theme-secondary-foreground: var(--palette-uc-azul);
 
   --theme-tertiary: var(--palette-soft-gray-200);
   --theme-tertiary-foreground: var(--palette-uc-blanco);
   
-  --theme-muted: var(--palette-uc-gris-oscuro-b);
-  --theme-muted-foreground: var(--palette-uc-negro);
+  --theme-muted: var(--palette-uc-gris-claro-b);
+  --theme-muted-foreground: var(--palette-uc-gris-oscuro-b);
   
   --theme-accent: var(--palette-uc-azul);
   --theme-accent-foreground: var(--palette-uc-celeste);
@@ -24,7 +24,7 @@
   --theme-destructive: var(--palette-uc-danger);
   --theme-destructive-foreground: var(--palette-uc-negro);
   
-  --theme-border: var(--palette-uc-gris-oscuro-a);
+  --theme-border: var(--palette-uc-gris-claro-a);
   --theme-input: var(--palette-uc-blanco);
   --theme-ring: var(--palette-uc-azul-oscuro);
 

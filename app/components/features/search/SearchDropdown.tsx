@@ -154,9 +154,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   return (
     <div className="relative" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative bg-input outline-1 outline-border rounded-lg z-10 border-none min-w-60">
+      <div className="relative shadow-xl bg-input outline-1 outline-border rounded-lg z-10 border-none min-w-60">
         {/* Input */}
-        <div className="relative text-secondary-foreground font-regular">
+        <div className="relative text-foreground font-regular">
           <input
             ref={inputRef}
             type="text"
@@ -169,12 +169,17 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             placeholder="Buscar en Ubicate"
             autoComplete="off"
             autoFocus
-            aria-label="Buscar lugares en Ubicate"
+            aria-label="Buscar lugares"
+            aria-autocomplete="list"
+            aria-controls={isOpen ? "search-results-list" : undefined}
+            aria-expanded={isOpen}
+            aria-activedescendant={selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined}
+            role="combobox"
           />
 
           {/* Ícono de búsqueda */}
-          <div className="absolute top-3 left-3 w-7 h-7 pointer-events-none">
-            <Icons.Search className="w-6 h-6 fill-border" />
+          <div className="absolute top-3 left-3 w-7 h-7 pointer-events-none" tabIndex={-1}>
+            <Icons.Search className="w-6 h-6 fill-muted-foreground" />
           </div>
 
           {/* Botón de limpiar */}
@@ -183,8 +188,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
               <button
                 onClick={handleClearInput}
                 className="p-1 bg-destructive border-none cursor-pointer leading-none rounded-full hover:bg-destructive/80 focus:outline-none group"
+                aria-label="Limpiar búsqueda"
               >
-                <Icons.Close className="w-4 h-4 fill-foreground group-hover:fill-foreground/80" />
+                <Icons.Close className="w-4 h-4 fill-input group-hover:fill-secondary/80" />
               </button>
             </div>
           ) : null}
@@ -195,10 +201,17 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
           <div
-            className="bg-input text-muted-foreground rounded-lg overflow-hidden border border-border"
+            className="bg-input text-foreground rounded-lg overflow-hidden border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
-            <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
+            <ul 
+              ref={listRef} 
+              className="list-none m-0 p-0 overflow-y-auto" 
+              style={{ maxHeight: dropdownHeight }}
+              role="listbox"
+              id="search-results-list"
+              aria-label="Resultados de búsqueda"
+            >
               {matchingFeatures.map((feature, index) => {
                 const primaryCategory = feature.properties.categories[0];
                 const color = getCategoryColor(primaryCategory as CATEGORIES);
@@ -212,11 +225,15 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                 return (
                   <li
                     key={index}
+                    id={`search-result-${index}`}
+                    role="option"
+                    aria-selected={index === selectedIndex}
+                    aria-label={`${placeName}, ${campusName}`}
                     className={`
                       relative
                       ${
                         index === selectedIndex
-                          ? "bg-muted before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-background"
+                          ? "bg-muted before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary"
                           : ""
                       }
                     `}
@@ -225,6 +242,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                       className="cursor-pointer block py-3 px-3 no-underline"
                       onClick={() => handleSelect(feature)}
                       onMouseEnter={() => setSelectedIndex(index)}
+                      tabIndex={-1}
                     >
                       <div className="flex items-center justify-center gap-3">
                         {/* Contenedor del ícono con tamaño adaptativo */}

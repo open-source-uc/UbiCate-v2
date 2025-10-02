@@ -6,6 +6,7 @@ import * as Icon from "../../ui/icons/icons";
 
 export default function LocationButton({ onClick }: { onClick?: () => void }) {
   const { codes } = use(NotificationContext);
+  const hasLocationError = codes.has("locationError");
 
   return (
     <button
@@ -13,10 +14,13 @@ export default function LocationButton({ onClick }: { onClick?: () => void }) {
         onClick?.();
       }}
       className={`p-1 rounded-full ${
-        !codes.has("locationError") ? "bg-primary hover:bg-accent" : "bg-destructive hover:bg-destructive/80"
-      } border-border border-1 text-foreground flex items-center justify-center w-12 h-12 pointer-events-auto cursor-pointer`}
+        !hasLocationError ? "bg-primary hover:bg-secondary" : "bg-muted"
+      } group border-border border-1 text-foreground flex items-center justify-center w-12 h-12 pointer-events-auto cursor-pointer`}
+      aria-label={hasLocationError ? "Ubicación no disponible" : "Centrar mapa en mi ubicación"}
+      aria-disabled={hasLocationError}
+      title={hasLocationError ? "Ubicación no disponible" : "Centrar mapa en mi ubicación"}
     >
-      <Icon.GPS className="w-6 h-6" />
+      <Icon.GPS className="w-6 h-6 fill-background group-hover:fill-secondary-foreground" />
     </button>
   );
 }
