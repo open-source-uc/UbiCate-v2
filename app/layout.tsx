@@ -52,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})} className={roboto.className}>
       <body className="h-full">
-        <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
+        <div className="w-full h-screen flex flex-col justify-between">{children}</div>
         <SWRegister />
         <ManifestFixer />
       </body>
