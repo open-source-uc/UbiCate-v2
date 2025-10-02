@@ -123,7 +123,7 @@ export default function MapComponent({
   }, []);
 
   return (
-    <div className="w-full h-full" ref={containerRef}>
+    <div className="absolute inset-0 w-full h-full" ref={containerRef}>
       <Map
         id="mainMap"
         mapStyle={mapConfig.mapStyle}

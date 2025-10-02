@@ -13,8 +13,10 @@ interface MapPageProps {
 
 export default function MapPage({ paramPlace, paramLat, paramLng }: MapPageProps) {
   return (
-    <MapProvider>
-      <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
-    </MapProvider>
+    <div className="absolute inset-0">
+      <MapProvider>
+        <MapComponent paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+      </MapProvider>
+    </div>
   );
 }
