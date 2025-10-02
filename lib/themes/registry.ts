@@ -1,12 +1,8 @@
 import * as Icons from "@/app/components/ui/icons/icons";
-import * as lightFormalMap from "@/app/map/hooks/config/lightFormal";
 import * as normalMap from "@/app/map/hooks/config/normal";
-import * as pinkCoquetteMap from "@/app/map/hooks/config/pinkCoquette";
 import * as ucMap from "@/app/map/hooks/config/uc-theme";
 
 import { darkThemeMap } from "../map/styles/darkThemeMap";
-import { lightThemeMap } from "../map/styles/lightThemeMap";
-import { pinkThemeMap } from "../map/styles/pinkThemeMap";
 import { ucThemeMap } from "../map/styles/ucThemeMap";
 
 import { ThemeRegistry, ThemeDefinition } from "./types";

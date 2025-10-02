@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
-import * as Icons from "@/app/components/ui/icons/icons";
 import { Button } from "@/app/components/ui/button";
+import * as Icons from "@/app/components/ui/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/lib/types";
@@ -63,11 +63,7 @@ export default function DesktopSidebar() {
       {/* Contenedor principal con flex row */}
       <div className="flex h-screen overflow-y-auto">
         {/* Sidebar principal */}
-        <section
-          className={`bg-background text-foreground flex flex-col z-40 h-full pb-4 ${
-            isOpen ? "w-52" : "w-20"
-          }`}
-        >
+        <section className={`bg-background text-foreground flex flex-col z-40 h-full pb-4 ${isOpen ? "w-52" : "w-20"}`}>
           <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-6" : "flex-col py-8 space-y-6"}`}>
             {/* Logo - visible only when expanded */}
             <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>

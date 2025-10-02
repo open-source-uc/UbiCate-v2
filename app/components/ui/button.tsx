@@ -16,20 +16,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      className,
-      variant = "secondary",
-      size = "md",
-      icon,
-      text,
-      isActive = false,
-      disabled,
-      children,
-      ...props
-    },
-    ref
+    { className, variant = "secondary", size = "md", icon, text, isActive = false, disabled, children, ...props },
+    ref,
   ) => {
-    const baseClasses = "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background pointer-events-auto cursor-pointer";
+    const baseClasses =
+      "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background pointer-events-auto cursor-pointer";
 
     const variants = {
       primary: "bg-primary text-primary-foreground hover:bg-primary/90",
@@ -80,42 +71,31 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       if (size === "sidebar" || size === "sidebar-collapsed") {
         return (
           <>
-            {icon && (
+            {icon ? (
               <span className={getIconWrapperClass()}>
-                <div className="w-6 h-6 flex items-center justify-center">
-                  {icon}
-                </div>
+                <div className="w-6 h-6 flex items-center justify-center">{icon}</div>
               </span>
-            )}
-            {text && size === "sidebar" && (
-              <span className="text-md block">{text}</span>
-            )}
+            ) : null}
+            {text && size === "sidebar" ? <span className="text-md block">{text}</span> : null}
           </>
         );
       }
 
       return (
         <>
-          {icon && (
+          {icon ? (
             <span className={cn(iconSizes[size], iconColors[variant])}>
-              <div className={cn("flex items-center justify-center", iconSizes[size])}>
-                {icon}
-              </div>
+              <div className={cn("flex items-center justify-center", iconSizes[size])}>{icon}</div>
             </span>
-          )}
-          {text && <span>{text}</span>}
+          ) : null}
+          {text ? <span>{text}</span> : null}
         </>
       );
     };
 
     return (
       <button
-        className={cn(
-          baseClasses,
-          variants[variant],
-          sizes[size],
-          className
-        )}
+        className={cn(baseClasses, variants[variant], sizes[size], className)}
         ref={ref}
         disabled={disabled}
         {...props}
@@ -123,7 +103,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {content()}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

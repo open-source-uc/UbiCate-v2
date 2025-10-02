@@ -10,7 +10,6 @@ import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
 import * as Icons from "../../ui/icons/icons";
 import MarkerIcon from "../../ui/icons/markerIcon";
-import { Close } from "../../ui/icons/icons";
 
 interface SearchDropdownProps {
   numberOfShowResults?: number;
@@ -155,7 +154,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   return (
     <div className="relative" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative bg-input outline-1 outline-border rounded-2xl z-10 border-none min-w-60">
+      <div className="relative bg-input outline-1 outline-border rounded-lg z-10 border-none min-w-60">
         {/* Input */}
         <div className="relative text-secondary-foreground font-regular">
           <input
@@ -166,7 +165,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             onKeyDown={handleKeyDown}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
-            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
+            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-lg outline-none focus:z-20 focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
             placeholder="Buscar en Ubicate"
             autoComplete="off"
             autoFocus
@@ -196,7 +195,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
           <div
-            className="bg-muted text-muted-foreground rounded-xl rounded-t-lg overflow-hidden text-base border border-border"
+            className="bg-input text-muted-foreground rounded-lg overflow-hidden border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
             <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
@@ -214,7 +213,12 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                   <li
                     key={index}
                     className={`
-                      ${index === selectedIndex ? "bg-background/15 " : ""}
+                      relative
+                      ${
+                        index === selectedIndex
+                          ? "bg-muted before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-background"
+                          : ""
+                      }
                     `}
                   >
                     <a
