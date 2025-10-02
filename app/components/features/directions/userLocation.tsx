@@ -167,7 +167,7 @@ export default function UserLocation() {
       <div
         className="fixed z-40 bottom-20 desktop:bottom-4 right-2 p-2 desktop:p-1 flex flex-col gap-2"
         style={{
-          right: "calc(0.5rem + var(--safe-area-inset-right))",
+          right: "max(0.5rem, env(safe-area-inset-right))",
         }}
       >
         <DangerButton />
