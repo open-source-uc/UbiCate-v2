@@ -19,25 +19,17 @@ export default function CampusButton({ name, displayName, imageSrc, onClick, cla
     >
       {/* Image Background */}
       <div className="absolute inset-0">
-        <Image
-          src={imageSrc}
-          alt={`Campus ${displayName}`}
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src={imageSrc} alt={`Campus ${displayName}`} fill className="object-cover" priority />
       </div>
 
       {/* Gradient Overlay - Enhanced for better text contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-blforegroundack/10" />
-      
+
       {/* Content Container */}
       <div className="absolute inset-0 flex flex-col justify-end p-4">
         {/* Campus Name */}
         <div>
-          <h3 className="text-background text-base font-bold tracking-wide drop-shadow-lg text-left">
-            {displayName}
-          </h3>
+          <h3 className="text-background text-base font-bold tracking-wide drop-shadow-lg text-left">{displayName}</h3>
         </div>
       </div>
 

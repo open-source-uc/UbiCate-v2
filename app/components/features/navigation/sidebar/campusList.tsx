@@ -67,7 +67,6 @@ export default function CampusList({
           </div>
         </div>
       </section>
-
     </div>
   );
 }

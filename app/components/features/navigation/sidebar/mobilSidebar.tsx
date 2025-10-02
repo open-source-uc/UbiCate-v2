@@ -220,8 +220,10 @@ export default function MobileSidebar() {
       <section
         className="fixed shadow-xl outline-1 outline-border bg-background text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
         style={{
-          height: isOpen ? `calc(${sidebarHeight}dvh + var(--safe-area-inset-bottom))` : `calc(4rem + var(--safe-area-inset-bottom))`,
-          paddingBottom: 'var(--safe-area-inset-bottom)',
+          height: isOpen
+            ? `calc(${sidebarHeight}dvh + var(--safe-area-inset-bottom))`
+            : `calc(4rem + var(--safe-area-inset-bottom))`,
+          paddingBottom: "var(--safe-area-inset-bottom)",
           transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
@@ -250,11 +252,11 @@ export default function MobileSidebar() {
             aria-hidden={!isOpen}
             {...(isOpen ? {} : { inert: "" as any })}
           >
-            <div 
+            <div
               className="p-4 space-y-4"
               style={{
-                paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
-                paddingRight: 'calc(1rem + var(--safe-area-inset-right))',
+                paddingLeft: "calc(1rem + var(--safe-area-inset-left))",
+                paddingRight: "calc(1rem + var(--safe-area-inset-right))",
               }}
             >
               <nav className="pb-5">
@@ -270,7 +272,7 @@ export default function MobileSidebar() {
                         tabIndex={isOpen ? 0 : -1}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
-                          <Icons.Map className="group-hover:fill-secondary-foreground transition"/>
+                          <Icons.Map className="group-hover:fill-secondary-foreground transition" />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
@@ -282,8 +284,8 @@ export default function MobileSidebar() {
                         aria-pressed={activeSubSidebar === "temas"}
                         tabIndex={isOpen ? 0 : -1}
                       >
-                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
-                          <Icons.Palette className="group-hover:fill-secondary-foreground transition"/>
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <Icons.Palette className="group-hover:fill-secondary-foreground transition" />
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
                       </button>
@@ -291,7 +293,7 @@ export default function MobileSidebar() {
                   </section>
 
                   <section>
-                      <PillFilter />
+                    <PillFilter />
                   </section>
 
                   <section className="flex flex-row gap-2 pb-5">
@@ -309,7 +311,7 @@ export default function MobileSidebar() {
             className="fixed pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `calc(${sidebarHeight}dvh + var(--safe-area-inset-bottom))`,
-              paddingBottom: 'calc(1.25rem + var(--safe-area-inset-bottom))',
+              paddingBottom: "calc(1.25rem + var(--safe-area-inset-bottom))",
               transition: enableTransition ? "all 300ms" : "none",
             }}
             role="region"
@@ -342,8 +344,8 @@ export default function MobileSidebar() {
             <div
               className="flex flex-col h-full space-y-4 relative overflow-y-auto pb-17"
               style={{
-                paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
-                paddingRight: 'calc(1rem + var(--safe-area-inset-right))',
+                paddingLeft: "calc(1rem + var(--safe-area-inset-left))",
+                paddingRight: "calc(1rem + var(--safe-area-inset-right))",
               }}
               {...(activeSubSidebar ? {} : { inert: "" as any })}
             >
