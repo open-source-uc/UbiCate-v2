@@ -52,7 +52,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})} className={roboto.className}>
       <body className="overflow-hidden">
-        <div className="relative flex-1" style={{ height: "100dvh", width: "100dvw" }}>
+        <div
+          className="fixed inset-0"
+          style={{
+            height: "100%",
+            minHeight: "100vh",
+            minWidth: "100vw",
+          }}
+        >
           {children}
         </div>
         <SWRegister />

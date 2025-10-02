@@ -20,8 +20,19 @@
     @apply border-border;
   }
 
+  html {
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--color-background, transparent);
+  }
+
   /* Base body styling with theme-aware colors */
   body {
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100lvh;
     @apply bg-background text-foreground;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -29,6 +40,13 @@
   /* Standardized icon styling */
   [data-slot="icon"] {
     @apply w-6 h-6 fill-foreground flex justify-center items-center;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  html,
+  body {
+    min-height: -webkit-fill-available;
   }
 }
 
