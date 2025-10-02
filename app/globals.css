@@ -17,6 +17,12 @@
 :root {
   --mobile-sidebar-height: 4.5rem; /* Default height for mobile sidebar */
   --mobile-sidebar-expanded: 0; /* 0 = collapsed/small, 1 = expanded */
+  
+  /* Safe area insets for iPhone notch and home indicator */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
 }
 
 /* Hide MapLibre attribution controls - credits shown in dedicated page */

@@ -32,6 +32,13 @@ export const metadata: Metadata = {
     "San Joaquín",
     "Open Source",
   ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: "cover",
+  },
 };
 
 const roboto = Roboto({

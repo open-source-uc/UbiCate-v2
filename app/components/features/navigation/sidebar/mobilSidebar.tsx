@@ -220,7 +220,8 @@ export default function MobileSidebar() {
       <section
         className="fixed shadow-xl outline-1 outline-border bg-background text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
         style={{
-          height: isOpen ? `${sidebarHeight}dvh` : "4rem",
+          height: isOpen ? `calc(${sidebarHeight}dvh + var(--safe-area-inset-bottom))` : `calc(4rem + var(--safe-area-inset-bottom))`,
+          paddingBottom: 'var(--safe-area-inset-bottom)',
           transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
@@ -249,7 +250,13 @@ export default function MobileSidebar() {
             aria-hidden={!isOpen}
             {...(isOpen ? {} : { inert: "" as any })}
           >
-            <div className="p-4 space-y-4">
+            <div 
+              className="p-4 space-y-4"
+              style={{
+                paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
+                paddingRight: 'calc(1rem + var(--safe-area-inset-right))',
+              }}
+            >
               <nav className="pb-5">
                 <div className="flex flex-col gap-4">
                   <section className="flex flex-col gap-2">
@@ -301,7 +308,8 @@ export default function MobileSidebar() {
           <section
             className="fixed pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
-              height: `${sidebarHeight}dvh`,
+              height: `calc(${sidebarHeight}dvh + var(--safe-area-inset-bottom))`,
+              paddingBottom: 'calc(1.25rem + var(--safe-area-inset-bottom))',
               transition: enableTransition ? "all 300ms" : "none",
             }}
             role="region"
@@ -332,7 +340,11 @@ export default function MobileSidebar() {
             </div>
 
             <div
-              className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17"
+              className="flex flex-col h-full space-y-4 relative overflow-y-auto pb-17"
+              style={{
+                paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
+                paddingRight: 'calc(1rem + var(--safe-area-inset-right))',
+              }}
               {...(activeSubSidebar ? {} : { inert: "" as any })}
             >
               {activeSubSidebar === "campus" && (

@@ -14,22 +14,36 @@ export default function CampusButton({ name, displayName, imageSrc, onClick, cla
       onClick={() => onClick(name)}
       onKeyDown={(e) => e.key === "Enter" && onClick(name)}
       aria-label={`Navega a Campus ${displayName}`}
-      role="navigation"
       tabIndex={0}
-      className={`relative w-full h-[100px] rounded-md cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 ease-out hover:scale-[1.03] hover:rotate-1 hover:shadow-lg hover:shadow-primary/20 ${className}`}
+      className={`relative w-full h-[120px] rounded-sm border-border border-1 shadow-lg overflow-hidden cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-300 ease-out hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/25 active:scale-[0.98] ${className}`}
     >
-      <Image
-        src={imageSrc}
-        alt={`Campus ${displayName}`}
-        fill
-        className="object-cover rounded-sm transition-all duration-300 group-hover:brightness-110"
-        priority
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-0% from-transparent via-60% via-accent/40 to-80% to-accent/80 rounded-sm transition-opacity duration-300 group-hover:opacity-90" />
-      <div className="absolute top-14 right-0 p-3 w-full transition-transform duration-300 group-hover:translate-y-[-2px]">
-        <span className="text-background text-sm font-semibold" aria-hidden="true">
-          {displayName}
-        </span>
+      {/* Image Background */}
+      <div className="absolute inset-0">
+        <Image
+          src={imageSrc}
+          alt={`Campus ${displayName}`}
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
+      {/* Gradient Overlay - Enhanced for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-blforegroundack/10" />
+      
+      {/* Content Container */}
+      <div className="absolute inset-0 flex flex-col justify-end p-4">
+        {/* Campus Name */}
+        <div>
+          <h3 className="text-background text-base font-bold tracking-wide drop-shadow-lg text-left">
+            {displayName}
+          </h3>
+        </div>
+      </div>
+
+      {/* Shine effect on hover */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/10 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
       </div>
     </button>
   );
