@@ -222,8 +222,6 @@ export default function MobileSidebar() {
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           paddingBottom: "env(safe-area-inset-bottom)",
-          paddingLeft: "env(safe-area-inset-left)",
-          paddingRight: "env(safe-area-inset-right)",
           transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
@@ -251,6 +249,11 @@ export default function MobileSidebar() {
             className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto"
             aria-hidden={!isOpen}
             {...(isOpen ? {} : { inert: "" as any })}
+            style={{
+              paddingBottom: "env(safe-area-inset-bottom)",
+              paddingLeft: "env(safe-area-inset-left)",
+              paddingRight: "env(safe-area-inset-right)",
+            }}
           >
             <div className="p-4 space-y-4">
               <nav className="pb-5">
@@ -305,9 +308,6 @@ export default function MobileSidebar() {
             className="fixed pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
-              paddingBottom: "max(1.25rem, env(safe-area-inset-bottom))",
-              paddingLeft: "env(safe-area-inset-left)",
-              paddingRight: "env(safe-area-inset-right)",
               transition: enableTransition ? "all 300ms" : "none",
             }}
             role="region"

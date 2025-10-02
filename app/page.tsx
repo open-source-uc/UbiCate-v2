@@ -88,8 +88,10 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
     <>
       <main spellCheck="false" className="h-full w-full relative flex">
         <Providers>
+          <div className="absolute inset-0 w-full h-full">
+            <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
+          </div>
           <NavigationSidebar />
-          <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
         </Providers>
       </main>
     </>
