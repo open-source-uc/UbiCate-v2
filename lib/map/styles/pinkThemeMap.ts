@@ -10,7 +10,6 @@ export const pinkThemeMap: StyleSpecification = {
       tiles: ["/api/{z}/{x}/{y}"],
       minzoom: 0,
       maxzoom: 14,
-      attribution: "© OpenStreetMap contributors, © OSUC contributors",
     },
   },
   layers: [

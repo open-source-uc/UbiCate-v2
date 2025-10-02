@@ -19,34 +19,9 @@
   --mobile-sidebar-expanded: 0; /* 0 = collapsed/small, 1 = expanded */
 }
 
-/* MapLibre GL controls positioning (OSM License compliance) */
+/* Hide MapLibre attribution controls - credits shown in dedicated page */
 .maplibregl-ctrl-bottom-right {
-  z-index: 10000 !important;
-  transition: bottom 0.3s ease !important;
-}
-
-/* Responsive adjustments for mobile attribution */
-@media (max-width: 768px) {
-  .maplibregl-ctrl-bottom-right {
-    bottom: var(--mobile-sidebar-height, 4.5rem) !important; /* Position above mobile sidebar */
-    right: 0.5rem !important;
-    opacity: 1 !important;
-    transition: opacity 0.3s ease, bottom 0.3s ease !important;
-  }
-  
-  /* Hide attribution when mobile sidebar is expanded */
-  .mobile-sidebar-expanded .maplibregl-ctrl-bottom-right {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-}
-
-/* Desktop positioning - standard positioning now that buttons are higher */
-@media (min-width: 769px) {
-  .maplibregl-ctrl-bottom-right {
-    bottom: 0.5rem !important; /* Standard bottom positioning */
-    right: 0.5rem !important;
-  }
+  display: none !important;
 }
 
 /* =============================================== */
