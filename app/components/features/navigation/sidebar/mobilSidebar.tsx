@@ -263,7 +263,7 @@ export default function MobileSidebar() {
                         tabIndex={isOpen ? 0 : -1}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
-                          <Icons.Map className="group-hover:fill-secondary-foreground transition"/>
+                          <Icons.Map className="group-hover:fill-secondary-foreground transition" />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
@@ -275,8 +275,8 @@ export default function MobileSidebar() {
                         aria-pressed={activeSubSidebar === "temas"}
                         tabIndex={isOpen ? 0 : -1}
                       >
-                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
-                          <Icons.Palette className="group-hover:fill-secondary-foreground transition"/>
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <Icons.Palette className="group-hover:fill-secondary-foreground transition" />
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
                       </button>
@@ -284,7 +284,7 @@ export default function MobileSidebar() {
                   </section>
 
                   <section>
-                      <PillFilter />
+                    <PillFilter />
                   </section>
 
                   <section className="flex flex-row gap-2 pb-5">
