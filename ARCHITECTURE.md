@@ -524,6 +524,39 @@ When making changes:
 - **Real-time features**: Architecture for live updates and collaboration
 - **Mobile app support**: Structure considerations for React Native
 
+### iOS Safari Optimizations
+
+UbiCate v2 includes specific optimizations for iOS Safari compatibility, particularly for modals and overlay components.
+
+#### The Challenge
+
+iOS Safari has known issues with `position: fixed` elements:
+- Fixed elements don't stay fixed when page is scrolled
+- Virtual keyboard can cause positioning issues
+- Overlays may not cover the entire viewport correctly
+
+#### The Solution
+
+We implement a three-part optimization strategy:
+
+1. **Absolute Positioning for Backdrops**: Use `position: absolute` instead of `fixed` for overlay elements
+2. **Relative Body Container**: Set `body { position: relative }` when modals are open to contain absolute overlays
+3. **Sticky Modal Content**: Wrap modal content in `position: sticky` containers to keep them visible in viewport
+
+#### Implementation
+
+- **CSS Overrides**: `app/styles/radix-overrides.css` provides iOS Safari fixes for Radix UI components
+- **Example Component**: `app/components/examples/IOSSafariModalExample.tsx` demonstrates the pattern
+- **Documentation**: Full guide available at `docs/ios-safari-optimization.md`
+
+#### Usage Guidelines
+
+When implementing modals or overlays:
+- Use the example component as a reference
+- Apply the three-part strategy for iOS Safari compatibility
+- Test on actual iOS Safari devices when possible
+- Follow the testing checklist in the documentation
+
 ### Maintenance Guidelines
 
 #### Regular Architectural Reviews
