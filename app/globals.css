@@ -8,6 +8,7 @@
 /* Import modular CSS files for better maintainability */
 @import './styles/variables.css';
 @import './styles/base.css';
+@import './styles/radix-overrides.css';
 
 /* =============================================== */
 /*           APPLICATION-SPECIFIC STYLES           */

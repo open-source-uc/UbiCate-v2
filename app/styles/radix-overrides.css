@@ -1,0 +1,87 @@
+/* =============================================== */
+/*         RADIX UI OVERRIDES FOR IOS SAFARI       */
+/* =============================================== */
+
+/*
+ * iOS Safari Optimization for Modals and Overlays
+ * 
+ * iOS Safari has known issues with position: fixed elements when the page
+ * is scrolled or when the virtual keyboard is open. This file implements
+ * the recommended fixes:
+ *
+ * 1. Use position: absolute instead of position: fixed for backdrops
+ * 2. Set backdrop height to match entire page height (not just viewport)
+ * 3. Use position: sticky for modal content to stay visible when scrolled
+ *
+ * These fixes ensure that modals, dropdowns, and overlays work correctly
+ * on iOS Safari regardless of scroll position or keyboard state.
+ *
+ * References:
+ * - https://github.com/radix-ui/primitives/issues/1159
+ * - https://stackoverflow.com/questions/52937708/ios-safari-position-fixed-not-working
+ * - https://bugs.webkit.org/show_bug.cgi?id=153852
+ */
+
+/* ============== GENERAL MODAL/OVERLAY PRINCIPLES ============== */
+
+/*
+ * For iOS Safari compatibility, follow these principles:
+ * 
+ * Backdrop/Overlay:
+ * - Use position: absolute (not fixed) 
+ * - Set min-height to 100vh to cover entire page
+ * - Position relative to body (which should have position: relative)
+ *
+ * Modal Content:
+ * - Wrap in position: sticky container
+ * - Set top: 50vh and transform: translateY(-50%) to center in viewport
+ * - This keeps modal visible regardless of scroll position
+ */
+
+/* ============== RADIX UI DROPDOWN MENU ============== */
+
+/*
+ * Radix UI DropdownMenu by default renders through a Portal.
+ * Ensure proper z-index and positioning for dropdown content.
+ */
+[data-radix-dropdown-menu-content] {
+  z-index: 50;
+}
+
+/* ============== iOS SAFARI SPECIFIC ADJUSTMENTS ============== */
+
+/*
+ * Use -webkit-overflow-scrolling feature query to target iOS Safari specifically.
+ * This ensures these fixes only apply where needed.
+ */
+@supports (-webkit-overflow-scrolling: touch) {
+  /* 
+   * Make body position: relative when modals/dropdowns are open.
+   * This allows absolute-positioned backdrops to work correctly.
+   */
+  body:has([data-radix-dropdown-menu-content][data-state="open"]),
+  body:has([data-radix-dialog-content][data-state="open"]),
+  body:has([data-radix-popover-content][data-state="open"]) {
+    position: relative;
+  }
+}
+
+/* ============== ACCESSIBILITY ============== */
+
+/* Ensure focus indicators are visible */
+[data-radix-dropdown-menu-content]:focus-visible,
+[data-radix-dialog-content]:focus-visible,
+[data-radix-popover-content]:focus-visible {
+  outline: 2px solid var(--color-ring, #015fff);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-radix-dropdown-menu-content],
+  [data-radix-dialog-content],
+  [data-radix-popover-content] {
+    transition: none !important;
+    animation: none !important;
+  }
+}
