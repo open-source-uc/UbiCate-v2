@@ -154,7 +154,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   return (
     <div className="relative w-full" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative w-full shadow-xl bg-input outline-1 outline-border rounded-lg z-10 border-none">
+      <div className="relative w-full shadow-xl desktop:shadow-none bg-input outline-1 outline-border rounded-lg z-10 border-none">
         {/* Input */}
         <div className="relative text-foreground font-regular">
           <input
@@ -201,7 +201,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
       {isOpen && matchingFeatures.length > 0 ? (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000] w-full">
           <div
-            className="w-full bg-input text-foreground rounded-lg overflow-hidden border border-border"
+            className="w-full shadow-xl bg-input text-foreground rounded-lg overflow-hidden border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
             <ul

@@ -16,9 +16,9 @@ function Pill({
   onClick,
   active,
   bg_color,
-  activateClassName = "bg-primary",
-  noActivateClassName = "bg-background desktop:bg-secondary text-foreground",
-  className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border desktop:border-transparent",
+  activateClassName = "bg-primary text-background",
+  noActivateClassName = "bg-background text-foreground",
+  className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border",
   icon,
 }: PillProps) {
   return (

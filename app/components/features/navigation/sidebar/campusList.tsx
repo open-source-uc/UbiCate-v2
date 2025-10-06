@@ -17,7 +17,7 @@ export default function CampusList({
         <div className="flex items-center gap-2">
           <div>
             <h3 className="font-bold text-lg text-foreground">Campus</h3>
-            <p className="text-xs text-muted-foreground">Explora los campus UC</p>
+            <p className="text-xs text-muted-foreground">Explora los campus de nuestra universidad</p>
           </div>
         </div>
         <button
