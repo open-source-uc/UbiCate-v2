@@ -9,7 +9,7 @@ export default function TopMobileSidebar() {
 
   return (
     <section className="fixed top-0 left-0 w-full z-50 py-2 px-4 flex flex-col md:flex-row lg:items-start lg:justify-start gap-2 pointer-events-auto bg-theme-background text-theme-color">
-      <div className="w-full max-w-[450px] mr-auto flex flex-col gap-2">
+      <div className="w-full mr-auto flex flex-col gap-2">
         <SearchDropdown numberOfShowResults={5} />
         {component ? component : null}
       </div>

@@ -218,14 +218,14 @@ export default function MobileSidebar() {
     <>
       {/* Main Sidebar */}
       <section
-        className="fixed bg-background/95 backdrop-blur-sm text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
+        className="fixed shadow-xl outline-1 outline-border bg-background text-foreground z-50 inset-x-0 bottom-0 translate-y-0 rounded-t-2xl touch-manipulation"
         style={{
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
         aria-expanded={isOpen}
         role="dialog"
-        aria-label="Mobile Navigation"
+        aria-label="Panel de navegación móvil"
       >
         {/* Drag handle that spans full width */}
         <div
@@ -237,58 +237,61 @@ export default function MobileSidebar() {
           onTouchEnd={handleTouchEnd}
           onClick={handleGrabBarClick}
           role="button"
-          aria-label="Drag to resize sidebar"
+          aria-label="Arrastrar para redimensionar el panel"
           tabIndex={0}
         >
-          <div className="w-2/5 h-2 bg-muted rounded-full mx-auto" />
+          <div className="w-1/5 h-2 bg-primary rounded-full mx-auto" />
         </div>
 
         {isOpen ? (
-          <div className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto">
-            <div className="px-4 space-y-4">
+          <div
+            className="flex flex-col flex-1 w-full h-[calc(100%-1.75rem)] overflow-y-auto"
+            aria-hidden={!isOpen}
+            {...(isOpen ? {} : { inert: "" as any })}
+          >
+            <div className="p-4 space-y-4">
               <nav className="pb-5">
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-md font-semibold text-foreground">Explora</p>
-                    <div className="bg-secondary flex rounded-lg p-2">
+                  <section className="flex flex-col gap-2">
+                    <div className="bg-primary text-background flex rounded-md p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
                           activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "campus"}
+                        tabIndex={isOpen ? 0 : -1}
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent">
-                          <Icons.Map />
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <Icons.Map className="group-hover:fill-secondary-foreground transition" />
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
                       <button
                         onClick={() => toggleSubSidebar("temas")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-md transition hover:bg-accent/18 ${
+                        disabled
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group opacity-50 cursor-not-allowed ${
                           activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "temas"}
+                        aria-disabled="true"
+                        tabIndex={-1}
                       >
-                        <span
-                          className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                            activeSubSidebar === "temas" ? "bg-primary" : "bg-accent"
-                          }`}
-                        >
-                          <Icons.Palette />
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background transition">
+                          <Icons.Palette className="transition" />
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
                       </button>
                     </div>
-                  </div>
+                  </section>
 
-                  <div>
+                  <section>
                     <PillFilter />
-                  </div>
+                  </section>
 
-                  <div className="flex flex-row gap-2 pb-5">
+                  <section className="flex flex-row gap-2 pb-5">
                     <FooterOptionsSidebar />
-                  </div>
+                  </section>
                 </div>
               </nav>
             </div>
@@ -298,13 +301,22 @@ export default function MobileSidebar() {
         {/* Sub Sidebars */}
         {activeSubSidebar ? (
           <section
-            className="fixed pb-5 bg-background/95 backdrop-blur-sm text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
+            className="fixed pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
             style={{
               height: `${sidebarHeight}dvh`,
               transition: enableTransition ? "all 300ms" : "none",
             }}
             role="region"
-            aria-label={`${activeSubSidebar} panel`}
+            aria-label={`Panel de ${
+              activeSubSidebar === "campus"
+                ? "campus"
+                : activeSubSidebar === "temas"
+                ? "temas"
+                : activeSubSidebar === "placeInformation"
+                ? "información del lugar"
+                : activeSubSidebar
+            }`}
+            aria-hidden={!activeSubSidebar}
           >
             {/* Drag handle in subsidebar */}
             <div
@@ -315,13 +327,16 @@ export default function MobileSidebar() {
               onTouchEnd={handleTouchEnd}
               onClick={handleGrabBarClick}
               role="button"
-              aria-label="Drag to resize sidebar"
-              tabIndex={0}
+              aria-label="Arrastrar para redimensionar el panel"
+              tabIndex={activeSubSidebar ? 0 : -1}
             >
               <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
             </div>
 
-            <div className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17">
+            <div
+              className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17"
+              {...(activeSubSidebar ? {} : { inert: "" as any })}
+            >
               {activeSubSidebar === "campus" && (
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
               )}

@@ -16,27 +16,37 @@ function Pill({
   onClick,
   active,
   bg_color,
-  activateClassName = "bg-primary",
-  noActivateClassName = "bg-background desktop:bg-secondary text-foreground",
-  className = "w-full rounded-xl flex items-center px-2 py-1.5 border-1 border-border desktop:border-transparent",
+  activateClassName = "bg-primary text-background",
+  noActivateClassName = "bg-background text-foreground",
+  className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border",
   icon,
 }: PillProps) {
+  const iconElement = React.isValidElement<{ className?: string }>(icon)
+    ? React.cloneElement(icon, {
+        className: [icon.props.className, "w-5 h-5 fill-current"].filter(Boolean).join(" "),
+      })
+    : icon;
+
   return (
     <button
       onClick={onClick}
       type="button"
       className={`${className} 
-        ${active ? activateClassName : noActivateClassName} 
+        ${active ? activateClassName : noActivateClassName}
         pointer-events-auto cursor-pointer transition-colors duration-200
-        hover:bg-accent`}
+        group hover:bg-secondary`}
     >
       <div
-        className={`flex items-center justify-center rounded-lg
+        className={`flex items-center justify-center
         min-w-[24px] min-h-[24px] desktop:min-w-[28px] desktop:min-h-[28px]`}
       >
-        <div className={`${bg_color} w-8 h-8 rounded-md flex justify-center items-center`}>{icon}</div>
+        <div className={`${bg_color} text-background w-8 h-8 rounded-sm flex justify-center items-center`}>
+          {iconElement}
+        </div>
       </div>
-      <span className="px-2 whitespace-nowrap text-xs font-medium desktop:text-sm desktop:font-normal">{title}</span>
+      <span className="px-2 whitespace-nowrap text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm">
+        {title}
+      </span>
     </button>
   );
 }

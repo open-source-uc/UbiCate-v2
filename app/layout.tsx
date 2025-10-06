@@ -1,5 +1,6 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { Roboto } from "next/font/google";
 import { cookies } from "next/headers";
 
 import { Metadata } from "next";
@@ -33,13 +34,17 @@ export const metadata: Metadata = {
   ],
 };
 
+const roboto = Roboto({
+  subsets: ["latin"],
+});
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
   const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
-    <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
-      <body className="h-full">
+    <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})} className={roboto.className}>
+      <body className="relative min-h-dvh">
         <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
         <SWRegister />
         <ManifestFixer />
