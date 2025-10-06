@@ -1,83 +1,58 @@
-import Image from "next/image";
-
 import Contribuir from "@/app/creditos/contributor";
+import Link from "next/link";
+import contributorsData from "@/data/contributors.json";
 
-async function fetchContributors() {
-  try {
-    const response = await fetch("https://api.github.com/repos/open-source-uc/UbiCate-v2/contributors");
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching contributors:", error);
-    return [];
-  }
-}
+type Contributor = {
+  name: string;
+  career: string;
+};
 
-export default async function Page() {
-  const contributors: any = await fetchContributors();
+const contributors: Contributor[] = contributorsData;
 
+export default function Page() {
   return (
-    <main spellCheck="false" className="min-h-screen w-full pb-7">
-      <div className="w-full text-center px-4">
-        <div className="w-full text-center px-4">
-          <div className="py-8">
-            <Image
-              src="/logo-osuc.svg"
-              alt="Open Source eUC Logo"
-              width={192}
-              height={192}
-              className="mx-auto drop-shadow-lg"
-            />
-          </div>
+    <main spellCheck="false" className="h-screen w-full overflow-y-auto py-16 px-4 tablet:px-16 desktop:px-48 bg-primary">
+      <section className="mx-auto px-4 pt-16 space-y-6">
+        <h1 className="text-4xl text-background">
+          <span className="font-medium">Ubicate:</span>{" "}
+          <span className="font-light">Un proyecto de colaboración</span>
+        </h1>
+        <p className="text-lg font-light leading-relaxed text-muted">
+          Ubicate es un proyecto de <Link href="https://osuc.dev" className="underline">Open Source eUC</Link> que, desde 2015, busca facilitar la navegación de la comunidad universitaria en los campus. 
+          Desde 2025, Ubicate se ha consolidado como una herramienta oficial de nuestra universidad gracias a los esfuerzos de la <Link href="https://www.uc.cl/universidad/vicerrectorias/vicerrectoria-de-inteligencia-digital/" className="underline">Vicerrectoría de Inteligencia Digital</Link>.
+        </p>
 
-          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-            Desarrollado por{" "}
-            <a
-              href="https://osuc.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold transition-all underline text-muted"
-            >
-              Open Source eUC
-            </a>
-            , una comunidad dedicada a generar soluciones innovadoras que benefician a toda la universidad.
-          </p>
-          <br />
-          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-            El código de este proyecto es{" "}
-            <a
-              href="https://github.com/open-source-uc/UbiCate-v2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold transition-all underline text-muted"
-            >
-              código abierto
-            </a>
-            , por lo que cualquier persona puede aportar.
+        <p className="text-lg font-light leading-relaxed text-muted">
+          A lo largo de los años, muchas personas han aportado su tiempo y esfuerzo para mejorar y expandir Ubicate. En esta página, queremos reconocer y agradecer a todas las contribuidoras y contribuyentes que han hecho posible este proyecto.
+        </p>
+
+        <p className="text-lg font-light leading-relaxed text-muted">
+          Tu mismo puedes ser parte de este proyecto. Puedes contribuir de muchas formas, ya sea reportando errores, sugiriendo mejoras, o incluso colaborando directamente en el desarrollo del código. Si estás interesado en ayudar, no dudes en ponerte en contacto con nosotros a través de nuestro <Link href="https://github.com/open-source-uc/UbiCate-v2" className="underline">repositorio de GitHub</Link>.
+        </p>
+
+      </section>
+
+      <section className="pt-8 max-w-6xl mx-auto px-4 space-y-8">
+        <div className="space-y-3 text-left">
+          <h2 className="text-2xl font-regular text-background">Contribuidores de UbiCate</h2>
+          <p className="text-lg font-light text-muted">
+            Ubicate no sería posible sin la dedicación y el esfuerzo de los contribuidores de <Link href="https://www.openstreetmap.org/" className="underline">Open Street Map</Link>, <Link href="https://maplibre.org/" className="underline">MapLibre</Link> y los muchos estudiantes que han colaborado a lo largo de los años. A continuación se muestra una lista de quienes han aportado al proyecto.
           </p>
         </div>
-
-        <h2 className="text-3xl font-bold mt-10 text-white-ubi">Contribuidores de UbiCate</h2>
-
-        <div className="mt-8">
-          {contributors.length > 0 ? (
-            <ul className="list-none p-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-              {contributors
-                .filter((contributor: any) => !contributor.login.toLowerCase().includes("bot"))
-                .map((contributor: any) => (
-                  <Contribuir
-                    key={contributor.id}
-                    login={contributor.login}
-                    avatar_url={contributor.avatar_url}
-                    html_url={contributor.html_url}
-                  />
-                ))}
-            </ul>
-          ) : (
-            <p className="text-lg font-medium text-white-ubi">Cargando contribuyentes...</p>
-          )}
-        </div>
-      </div>
+        
+        {contributors.length > 0 ? (
+          <ul className="list-none grid gap-6 p-0 grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4">
+            {contributors.map((contributor) => (
+              <Contribuir key={contributor.name} name={contributor.name} career={contributor.career} />
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-10 text-md font-light text-muted">
+            Aún no hay contribuidoras o contribuyentes listados. Actualiza este espacio con los nombres de quienes han
+            aportado.
+          </p>
+        )}
+      </section>
     </main>
   );
 }
