@@ -124,7 +124,7 @@ export default function PlaceInformation({
             <p className="text-xs font-medium">Compartir</p>
           </button>
           {/* Rutas */}
-          <RouteButton place={place} />
+          {/* <RouteButton place={place} /> */}
           {/* Botón único en lugar del dropdown */}
           <button
             onClick={singleOption.action}
