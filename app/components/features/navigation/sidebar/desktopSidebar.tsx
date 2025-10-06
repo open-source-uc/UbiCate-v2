@@ -191,13 +191,13 @@ export default function DesktopSidebar() {
                   <div className="flex flex-col gap-4 w-full">
                     {/* Search box */}
                     <div className="flex flex-col gap-2 w-full">
-                        <SearchDropdown />
+                      <SearchDropdown />
                     </div>
 
                     {/* Filters */}
                     <div className="flex flex-col gap-2 w-full">
                       <p className="text-md font-semibold text-foreground">Filtra por categoría</p>
-                        <PillFilter />
+                      <PillFilter />
                     </div>
                   </div>
                 </section>

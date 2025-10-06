@@ -31,7 +31,13 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.CRISOL]: Icons.PersonalComputer,
 };
 
-export default function MarkerIcon({ label, classname = "w-3 h-3" }: { label: CATEGORIES; classname?: string }) {
+export default function MarkerIcon({
+  label,
+  classname = "w-3 h-3 fill-background",
+}: {
+  label: CATEGORIES;
+  classname?: string;
+}) {
   const Icon = categoryIcons[label] ?? Icons.Default;
   return <Icon className={classname} />;
 }

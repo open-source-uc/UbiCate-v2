@@ -34,15 +34,18 @@
   --theme-focus-indicator: var(--palette-uc-celeste);
 
   /* Chart Colors */
-  --theme-chart-0: var(--palette-vibrant-orange);
-  --theme-chart-1: var(--palette-vibrant-gold);
-  --theme-chart-2: var(--palette-vibrant-yellow);
-  --theme-chart-3: var(--palette-vibrant-green-neon);
-  --theme-chart-4: var(--palette-vibrant-turquoise);
-  --theme-chart-5: var(--palette-vibrant-pink);
-  --theme-chart-6: var(--palette-vibrant-purple);
-  --theme-chart-7: var(--palette-vibrant-rose);
-  --theme-chart-8: var(--palette-vibrant-red-orange);
-  --theme-chart-9: var(--palette-vibrant-brown);
-  --theme-chart-10: var(--palette-vibrant-blue-gray);
+  --theme-chart-0: var(--palette-pink);
+  --theme-chart-1: var(--palette-yellow);
+  --theme-chart-2: var(--palette-green);
+  --theme-chart-3: var(--palette-teal);
+  --theme-chart-4: var(--palette-purple);
+  --theme-chart-5: var(--palette-blue);
+  --theme-chart-6: var(--palette-deep-green);
+  --theme-chart-7: var(--palette-deep-purple);
+  --theme-chart-8: var(--palette-deep-gray);
+  --theme-chart-9: var(--palette-gray);
+  --theme-chart-10: var(--palette-deep-orange);
+  --theme-chart-11: var(--palette-bright-purple);
+  --theme-chart-12: var(--palette-orange);
+  --theme-chart-13: var(--palette-red);
 }

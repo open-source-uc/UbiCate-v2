@@ -21,6 +21,12 @@ function Pill({
   className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border",
   icon,
 }: PillProps) {
+  const iconElement = React.isValidElement<{ className?: string }>(icon)
+    ? React.cloneElement(icon, {
+        className: [icon.props.className, "w-5 h-5 fill-current"].filter(Boolean).join(" "),
+      })
+    : icon;
+
   return (
     <button
       onClick={onClick}
@@ -34,9 +40,13 @@ function Pill({
         className={`flex items-center justify-center
         min-w-[24px] min-h-[24px] desktop:min-w-[28px] desktop:min-h-[28px]`}
       >
-        <div className={`${bg_color} w-8 h-8 rounded-sm flex justify-center items-center`}>{icon}</div>
+        <div className={`${bg_color} text-background w-8 h-8 rounded-sm flex justify-center items-center`}>
+          {iconElement}
+        </div>
       </div>
-      <span className="px-2 whitespace-nowrap text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm">{title}</span>
+      <span className="px-2 whitespace-nowrap text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm">
+        {title}
+      </span>
     </button>
   );
 }
