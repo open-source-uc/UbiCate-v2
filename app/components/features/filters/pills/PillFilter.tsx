@@ -74,18 +74,6 @@ function PillFilter() {
         className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
-        <style jsx>{`
-          .overflow-auto-chrome::-webkit-scrollbar {
-            display: none; /* Hide scrollbar in Chrome and Safari */
-          }
-          .overflow-firebox {
-            scrollbar-width: none; /* Hide scrollbar in Firefox */
-          }
-          .no-scrollbar {
-            -ms-overflow-style: none; /* IE and Edge */
-          }
-        `}</style>
-
         {pills.map(({ title, icon, filter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill

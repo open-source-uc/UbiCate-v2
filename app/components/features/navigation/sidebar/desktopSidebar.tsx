@@ -110,6 +110,8 @@ export default function DesktopSidebar() {
                 icon={<Icons.Palette />}
                 text={isOpen ? "Temas" : undefined}
                 isActive={activeSubSidebar === "temas"}
+                disabled
+                className="opacity-50 cursor-not-allowed"
               />
             </div>
           </nav>

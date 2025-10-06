@@ -17,7 +17,7 @@ import { ThemeRegistry, ThemeDefinition } from "./types";
  * 4. That's it! The theme will automatically appear in the UI
  */
 export const themeRegistry: ThemeRegistry = {
-  defaultTheme: "", // Default (dark brown) theme
+  defaultTheme: "uc-theme", // UC theme as default
 
   themes: {
     // Default theme (empty string for backwards compatibility)

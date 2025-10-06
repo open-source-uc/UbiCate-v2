@@ -269,14 +269,16 @@ export default function MobileSidebar() {
                       </button>
                       <button
                         onClick={() => toggleSubSidebar("temas")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
+                        disabled
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group opacity-50 cursor-not-allowed ${
                           activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "temas"}
-                        tabIndex={isOpen ? 0 : -1}
+                        aria-disabled="true"
+                        tabIndex={-1}
                       >
-                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
-                          <Icons.Palette className="group-hover:fill-secondary-foreground transition" />
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background transition">
+                          <Icons.Palette className="transition" />
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
                       </button>
