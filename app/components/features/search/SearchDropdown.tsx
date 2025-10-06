@@ -252,7 +252,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                           )} flex items-center justify-center rounded text-xs flex-shrink-0 ${color}`}
                         >
                           <MarkerIcon
-                            classname={getIconSize(placeName)}
+                            classname={`${getIconSize(placeName)} fill-background`}
                             label={feature.properties.categories[0] as CATEGORIES}
                           />
                         </div>
