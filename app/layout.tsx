@@ -1,5 +1,6 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { Roboto } from "next/font/google";
 import { cookies } from "next/headers";
 import Script from "next/script";
 
@@ -33,6 +34,10 @@ export const metadata: Metadata = {
     "Open Source",
   ],
 };
+
+const roboto = Roboto({
+  subsets: ["latin"],
+});
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();

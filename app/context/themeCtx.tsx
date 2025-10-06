@@ -17,7 +17,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // eslint-disable-next-line
-  const [theme, setThemeState] = useState<ThemeId>("");
+  const [theme, setThemeState] = useState<ThemeId>("uc-theme"); // UC theme as default
 
   const getViewportColor = () => {
     if (typeof document === "undefined") return "#150a04"; // fallback
@@ -103,7 +103,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme") as ThemeId | null;
-      const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "";
+      const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "uc-theme";
 
       setThemeState(initial);
 

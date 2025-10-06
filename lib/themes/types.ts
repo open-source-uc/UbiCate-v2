@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
 
-import type { LayerProps } from "react-map-gl/maplibre";
+import type { LayerProps, StyleSpecification } from "react-map-gl/maplibre";
 
 /**
  * Color configuration for CSS variables
@@ -68,7 +68,7 @@ export interface ThemeMapConfig {
   sectionAreaLayer: LayerProps;
   customPolygonStrokeLayer: LayerProps;
   customPolygonSectionAreaLayer: LayerProps;
-  mapColors?: Record<string, any>; // For createMapLibreStyle
+  mapStyle: StyleSpecification;
 }
 
 /**
@@ -86,10 +86,10 @@ export interface ThemeUIConfig {
 export interface ThemeDefinition {
   id: string;
   ui: ThemeUIConfig;
-  colors: ThemeColors;
+  // colors: ThemeColors;
   mapConfig: ThemeMapConfig;
   /** Additional CSS properties that get applied to [data-theme="..."] selector */
-  additionalCSS?: Record<string, string>;
+  // additionalCSS?: Record<string, string>;
 }
 
 /**

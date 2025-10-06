@@ -194,7 +194,27 @@ export async function PUT(request: NextRequest) {
       );
 
       if (existsInApproved) {
-        return NextResponse.json({ message: "¡El lugar ya está aprobado! No se puede editar." }, { status: 400 });
+        // Si el lugar está aprobado, crear una nueva propuesta de edición en newPlaces
+        // Verificar que no haya ya una propuesta pendiente con el mismo identifier
+        const hasPendingProposal = newPlaces.features.some(
+          (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
+        );
+
+        if (hasPendingProposal) {
+          return NextResponse.json(
+            {
+              message: "Ya existe una propuesta de edición pendiente para este lugar aprobado.",
+            },
+            { status: 400 },
+          );
+        }
+
+        // Añadir la propuesta de edición a lugares nuevos
+        newPlaces.features.unshift(updated_point);
+        await githubFileOperation(newPlacesUrl, updated_point, newPlaces, newPlacesSha, "CREATE");
+        return NextResponse.json({
+          message: "¡Se ha creado una propuesta de edición para el lugar aprobado! Debe esperar a que sea aprobada.",
+        });
       }
 
       return NextResponse.json({ message: "¡El lugar NO existe!" }, { status: 404 });
@@ -263,27 +283,38 @@ export async function PATCH(request: NextRequest) {
           file_sha: approvedPlacesSha,
         } = await fetchApprovedPlaces();
 
-        // Verificar que no exista ya en lugares aprobados
-        const existsInApproved = approvedPlaces.features.some(
-          (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-        );
-
-        if (existsInApproved) {
-          return NextResponse.json({ message: "¡El lugar ya existe en lugares aprobados!" }, { status: 400 });
-        }
-
         // Remover needApproval antes de aprobar
         delete placeToMove.properties.needApproval;
 
-        // Añadir a lugares aprobados
-        approvedPlaces.features.unshift(placeToMove);
-        await githubFileOperation(approvedPlacesUrl, placeToMove, approvedPlaces, approvedPlacesSha, "APPROVE");
+        // Verificar que no exista ya en lugares aprobados
+        const existingApprovedIndex = approvedPlaces.features.findIndex(
+          (feature: Feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
+        );
+
+        let isUpdate = false;
+        if (existingApprovedIndex !== -1) {
+          // Si ya existe, reemplazar el lugar existente con la nueva versión
+          approvedPlaces.features[existingApprovedIndex] = placeToMove;
+          await githubFileOperation(
+            approvedPlacesUrl,
+            placeToMove,
+            approvedPlaces,
+            approvedPlacesSha,
+            "UPDATE_APPROVED",
+          );
+          isUpdate = true;
+        } else {
+          // Si no existe, añadir como nuevo lugar
+          approvedPlaces.features.unshift(placeToMove);
+          await githubFileOperation(approvedPlacesUrl, placeToMove, approvedPlaces, approvedPlacesSha, "APPROVE");
+        }
 
         // Remover de lugares nuevos
         newPlaces.features.splice(newPlacesIndex, 1);
         await githubFileOperation(newPlacesUrl, placeToMove, newPlaces, newPlacesSha, "APPROVE_REMOVE_FROM_NEW");
 
-        return NextResponse.json({ message: "¡El lugar fue aprobado!" });
+        const message = isUpdate ? "¡La edición del lugar fue aprobada y actualizada!" : "¡El lugar fue aprobado!";
+        return NextResponse.json({ message });
       } else if (action === "reject") {
         // Simplemente remover de lugares nuevos
         newPlaces.features.splice(newPlacesIndex, 1);
