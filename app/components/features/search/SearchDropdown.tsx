@@ -152,9 +152,9 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   };
 
   return (
-    <div className="relative" ref={containerRef}>
+    <div className="relative w-full" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative shadow-xl bg-input outline-1 outline-border rounded-lg z-10 border-none min-w-60">
+      <div className="relative w-full shadow-xl bg-input outline-1 outline-border rounded-lg z-10 border-none">
         {/* Input */}
         <div className="relative text-foreground font-regular">
           <input
@@ -199,14 +199,14 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
 
       {/* Sugerencias */}
       {isOpen && matchingFeatures.length > 0 ? (
-        <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
+        <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000] w-full">
           <div
-            className="bg-input text-foreground rounded-lg overflow-hidden border border-border"
+            className="w-full bg-input text-foreground rounded-lg overflow-hidden border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
             <ul
               ref={listRef}
-              className="list-none m-0 p-0 overflow-y-auto"
+              className="list-none m-0 p-0 overflow-y-auto w-full"
               style={{ maxHeight: dropdownHeight }}
               role="listbox"
               id="search-results-list"

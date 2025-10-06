@@ -187,20 +187,20 @@ export default function DesktopSidebar() {
                 </div>
 
                 {/* Search section following sidebar pattern */}
-                <section className="flex-1 px-4 pt-4 pb-8 overflow-auto">
-                  <div className="flex flex-col gap-4">
+                <section className="flex-1 px-4 pt-4 pb-8 overflow-auto w-full">
+                  <div className="flex flex-col gap-4 w-full">
                     {/* Search box */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 w-full">
                       <p className="text-md font-semibold text-foreground">Busca un lugar</p>
-                      <div className="bg-secondary rounded-lg p-2">
+                      <div className="bg-secondary rounded-lg p-2 w-full">
                         <SearchDropdown />
                       </div>
                     </div>
 
                     {/* Filters */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 w-full">
                       <p className="text-md font-semibold text-foreground">Filtra por categoría</p>
-                      <div className="bg-secondary rounded-lg p-2">
+                      <div className="bg-secondary rounded-lg p-2 w-full">
                         <PillFilter />
                       </div>
                     </div>
