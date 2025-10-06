@@ -6,7 +6,16 @@ const cn = (...classes: (string | undefined)[]) => {
 };
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "accent" | "secondary" | "destructive" | "ghost" | "mapPrimary" | "mapSecondary" | "mapAccent";
+  variant?:
+    | "primary"
+    | "accent"
+    | "secondary"
+    | "destructive"
+    | "ghost"
+    | "ghost-primary"
+    | "mapPrimary"
+    | "mapSecondary"
+    | "mapAccent";
   size?: "sm" | "md" | "lg" | "icon" | "sidebar" | "sidebar-collapsed";
   icon?: React.ReactNode;
   text?: string;
