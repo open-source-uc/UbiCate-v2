@@ -13,7 +13,6 @@ import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/lib/types"
 import { Button } from "../../../ui/button";
 import * as Icons from "../../../ui/icons/icons";
 import MarkDownComponent from "../../../ui/markDown";
-import RouteButton from "../../directions/routeButton";
 
 import { SidebarLabel } from "./SidebarLabel";
 
