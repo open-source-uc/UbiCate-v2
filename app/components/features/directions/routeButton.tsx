@@ -8,6 +8,7 @@ import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
 import { useUbication } from "@/app/hooks/useUbication";
 import { Feature } from "@/lib/types";
 
+import { Button } from "../../ui/button";
 import * as Icons from "../../ui/icons/icons";
 import DirectionSuccessNotification from "../notifications/directionSuccessNotification";
 import DirectionErrorNotification from "../notifications/ErrorNotification";
@@ -160,19 +161,18 @@ export default function RouteButton({ place }: RouteButtonProps) {
   const isDisabled = !navigator.geolocation || isCalculatingRoute;
   const isLoading = isWaitingForLocation || isCalculatingRoute;
 
+  const variant = isLoading ? "mapAccent" : "mapPrimary";
+
   return (
-    <button
+    <Button
       onClick={handleDirections}
       aria-label={isLoading ? "Procesando solicitud..." : "Cómo llegar a esta ubicación"}
-      role="button"
-      tabIndex={0}
       disabled={isDisabled}
-      className={`p-1 w-full cursor-pointer ${
-        isDisabled ? "bg-muted/50 cursor-not-allowed" : isLoading ? "bg-accent" : "bg-primary hover:bg-accent"
-      } text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors`}
+      variant={variant}
+      className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl px-2 py-4 text-primary-foreground transition-colors disabled:bg-muted/50 disabled:text-muted-foreground"
     >
-      <div className="flex justify-center items-center w-full h-10">{icon}</div>
-      <p className="text-xs font-medium">{text}</p>
-    </button>
+      {icon}
+      <span className="text-xs font-semibold tracking-wide">{text}</span>
+    </Button>
   );
 }

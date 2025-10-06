@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ElementType } from "react";
 
 import {
   DropdownMenu,
@@ -10,9 +10,18 @@ import {
 
 import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/lib/types";
 
+import { Button } from "../../../ui/button";
 import * as Icons from "../../../ui/icons/icons";
 import MarkDownComponent from "../../../ui/markDown";
 import RouteButton from "../../directions/routeButton";
+
+import { SidebarLabel } from "./SidebarLabel";
+
+type AvailableOption = {
+  action: (() => void) | undefined;
+  icon: ElementType | null;
+  label: string;
+};
 
 export default function PlaceInformation({
   place,
@@ -48,17 +57,25 @@ export default function PlaceInformation({
   }, []);
 
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
+    if (typeof window === "undefined") return;
+
+    try {
+      if (navigator.share) {
         await navigator.share({
           url: window.location.href,
         });
-        console.log("Contenido compartido con éxito");
-      } catch (error) {
-        console.error("Error al compartir:", error);
+        return;
       }
-    } else {
-      console.warn("La API de compartir no está soportada en este navegador.");
+
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(window.location.href);
+        console.log("Enlace copiado al portapapeles");
+        return;
+      }
+
+      console.warn("Las opciones de compartir no están disponibles en este navegador.");
+    } catch (error) {
+      console.error("Error al compartir:", error);
     }
   };
 
@@ -66,7 +83,7 @@ export default function PlaceInformation({
   const isCustomMark = place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK);
   const needsApproval = place.properties.needApproval === true;
 
-  const availableOptions = [];
+  const availableOptions: AvailableOption[] = [];
 
   if (isCustomMark) {
     availableOptions.push({ action: onCreate, icon: Icons.Edit, label: "Agregar" });
@@ -83,199 +100,145 @@ export default function PlaceInformation({
     }
   }
 
-  // Si solo hay una opción, mostrarla como botón independiente
-  if (availableOptions.length === 1) {
-    const singleOption = availableOptions[0];
+  const categoryLabel = place.properties?.categories?.[0]
+    ? CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"
+    : null;
+  const campusDisplayName = siglas.get(place.properties.campus) || "UC";
+  const campusDescription = place.properties.information;
+  const campusAriaLabel = `Campus ${campusDisplayName}`;
+  const categoryAriaLabel = categoryLabel ? `Categoría ${categoryLabel}` : undefined;
+
+  const renderInfoRow = (Icon: ElementType, label: string, value: string) => (
+    <div className="flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-accent/5 px-3 py-3">
+      <div className="flex items-center gap-3">
+        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <Icon className="h-4 w-4 fill-primary" />
+        </span>
+        <span className="text-sm font-semibold text-foreground">{label}</span>
+      </div>
+      <span className="text-sm font-medium text-muted-foreground text-right">{value}</span>
+    </div>
+  );
+
+  const renderOptionControl = () => {
+    if (availableOptions.length === 1) {
+      const singleOption = availableOptions[0];
+      const SingleIcon = singleOption.icon;
+
+      return (
+        <Button
+          onClick={() => singleOption.action?.()}
+          aria-label={singleOption.label}
+          variant="mapSecondary"
+          className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl"
+        >
+          {SingleIcon ? <SingleIcon className="h-4 w-4" /> : <Icons.Options className="h-4 w-4" />}
+          <span className="text-xs font-semibold">{singleOption.label}</span>
+        </Button>
+      );
+    }
 
     return (
-      <div className="px-2 pt-4">
-        <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
-          <div className="flex items-center justify-between w-full">
-            <div className="max-w-[2/3] pr-10">
-              <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
-            </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            aria-label="Más opciones para este lugar"
+            variant="mapSecondary"
+            className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg"
+          >
+            <Icons.Options className="h-4 w-4" />
+            <span className="text-xs font-semibold">Más</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="z-[70] min-w-[12rem] rounded-xl border border-border bg-popover p-2 shadow-xl">
+          {availableOptions.map((option, index) => {
+            const OptionIcon = option.icon;
+            const showSeparator = index < availableOptions.length - 1 && option.label === "Editar";
 
-            <button
-              className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              aria-label="Cerrar menú"
-              onClick={(e) => onClose?.()}
-            >
-              <Icons.Close />
-            </button>
+            return (
+              <div key={`${option.label}-${index}`}>
+                <DropdownMenuItem
+                  onClick={() => option.action?.()}
+                  className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm text-foreground focus:bg-accent focus:outline-none"
+                >
+                  {OptionIcon ? <OptionIcon className="h-4 w-4" /> : null}
+                  <span>{option.label}</span>
+                </DropdownMenuItem>
+                {showSeparator ? <DropdownMenuSeparator className="mx-2 my-1 bg-border" /> : null}
+              </div>
+            );
+          })}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  };
+
+  return (
+    <div className="flex h-full flex-col">
+      <header className="flex items-start justify-between gap-3 border-b border-border px-4 pb-3 pt-4">
+        <section className="space-y-3 max-w-[70%]">
+          <div>
+            <h3 className="text-xl font-bold leading-tight text-foreground">{place.properties.name}</h3>
+            <p className="text-xs font-medium text-muted-foreground">Descúbre más sobre este lugar.</p>
           </div>
-          {place.properties?.categories?.[0] ? (
-            <div className="font-light text-md mt-1">
-              {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
-            </div>
-          ) : null}
+          <div className="flex flex-wrap items-center gap-2">
+            <SidebarLabel icon={Icons.Map} variant="primary" ariaLabel={campusAriaLabel}>
+              {campusDisplayName}
+            </SidebarLabel>
+            {categoryLabel ? (
+              <SidebarLabel icon={Icons.MenuBook} variant="muted" ariaLabel={categoryAriaLabel}>
+                {categoryLabel}
+              </SidebarLabel>
+            ) : null}
+          </div>
         </section>
-        <section className="flex space-x-2">
-          <button
-            onClick={handleShare}
-            onKeyDown={(e) => e.key === "Enter" && handleShare}
-            aria-label="Comparte esta Ubicación"
-            role="navigation"
-            tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-primary hover:bg-accent text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          >
-            <div className="flex justify-center items-center w-full h-10">
-              <Icons.Share />
-            </div>
-            <p className="text-xs font-medium">Compartir</p>
-          </button>
-          {/* Rutas */}
-          <RouteButton place={place} />
-          {/* Botón único en lugar del dropdown */}
-          <button
-            onClick={singleOption.action}
-            onKeyDown={(e) => e.key === "Enter" && singleOption.action?.()}
-            aria-label={singleOption.label}
-            role="navigation"
-            tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-secondary hover:bg-accent text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          >
-            <div className="w-full flex justify-center items-center h-10">
-              {singleOption.icon ? <singleOption.icon /> : <Icons.Options />}
-            </div>
-            <p className="text-xs font-medium">{singleOption.label}</p>
-          </button>
-        </section>
-        <section className="divide-y divide-accent/30">
-          {place.properties?.floors && place.properties.floors.length > 0 ? (
-            <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3 text-primary">
-                  <Icons.Floor className="fill-primary" />
-                  <span className="font-medium text-foreground">Piso</span>
-                </div>
-                <span className="text-foreground font-light">{place.properties.floors.join(", ")}</span>
-              </div>
-            </div>
-          ) : null}
 
-          {place.properties?.campus ? (
-            <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-b-lg">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3 text-primary">
-                  <Icons.Map className="fill-primary" />
-                  <span className="font-medium text-foreground">Campus</span>
-                </div>
-                <span className="text-foreground font-light">{siglas.get(place.properties.campus)}</span>
-              </div>
-            </div>
-          ) : null}
+        <button
+          onClick={() => onClose?.()}
+          className="flex h-8 w-8 items-center text-background justify-center cursor-pointer rounded-full bg-primary text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          aria-label="Cerrar menú"
+        >
+          <Icons.Close className="h-4 w-4 fill-background" />
+        </button>
+      </header>
+
+      <section className="flex-1 overflow-y-auto">
+        <div className="flex h-full flex-col gap-6 px-4 pb-6 pt-5">
+          <div className="grid grid-cols-3 gap-3">
+            <Button
+              onClick={handleShare}
+              aria-label="Compartir esta ubicación"
+              variant="mapPrimary"
+              className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl"
+            >
+              <Icons.Share className="h-5 w-5 fill-background" />
+              <span className="text-xs font-semibold tracking-wide">Compartir</span>
+            </Button>
+
+            <RouteButton place={place} />
+
+            {renderOptionControl()}
+          </div>
+
+          <div className="space-y-3">
+            {place.properties?.floors && place.properties.floors.length > 0
+              ? renderInfoRow(Icons.Floor, "Piso", place.properties.floors.join(", "))
+              : null}
+
+            {place.properties?.campus
+              ? renderInfoRow(Icons.Map, "Campus", siglas.get(place.properties.campus) ?? place.properties.campus)
+              : null}
+          </div>
 
           {place.properties.information ? (
-            <div className="space-y-2 py-4">
-              <h3 className="text-xl font-semibold">Descripción</h3>
-              <div className="bg-secondary rounded-md">
+            <div className="space-y-3">
+              <h4 className="text-lg font-semibold text-foreground">Descripción</h4>
+              <div className="rounded-xl border border-border/60 bg-muted/40 p-3">
                 <MarkDownComponent>{place.properties.information}</MarkDownComponent>
               </div>
             </div>
           ) : null}
-        </section>
-      </div>
-    );
-  }
-
-  // Si hay múltiples opciones, mostrar el dropdown como antes
-  return (
-    <div className="px-2 pt-4">
-      <section className="space-y-1 flex flex-col bg-background pt-2 pb-4">
-        <div className="flex items-center justify-between w-full">
-          <div className="max-w-[2/3] pr-10">
-            <h3 className="font-bold text-xl break-words whitespace-normal">{place.properties.name}</h3>
-          </div>
-
-          <button
-            className="text-foreground bg-accent flex items-center rounded-full hover:text-accent hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            aria-label="Cerrar menú"
-            onClick={(e) => onClose?.()}
-          >
-            <Icons.Close />
-          </button>
         </div>
-        {place.properties?.categories?.[0] ? (
-          <div className="font-light text-md mt-1">
-            {CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"}
-          </div>
-        ) : null}
-      </section>
-      <section className="flex space-x-2">
-        <button
-          onClick={handleShare}
-          onKeyDown={(e) => e.key === "Enter" && handleShare}
-          aria-label="Comparte esta Ubicación"
-          role="navigation"
-          tabIndex={0}
-          className="p-1 w-full cursor-pointer bg-primary hover:bg-accent text-primary-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-        >
-          <div className="flex justify-center items-center w-full h-10">
-            <Icons.Share />
-          </div>
-          <p className="text-xs font-medium">Compartir</p>
-        </button>
-        {/* Rutas */}
-        <RouteButton place={place} />
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            onKeyDown={(e) => e.key === "Enter" && handleShare}
-            aria-label="Comparte esta Ubicación"
-            role="navigation"
-            tabIndex={0}
-            className="p-1 w-full cursor-pointer bg-secondary hover:bg-accent text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          >
-            <div className="w-full flex justify-center items-center">
-              <Icons.Options />
-            </div>
-            <p className="text-xs font-medium">Más</p>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-secondary rounded-lg shadow-lg px-2 py-2">
-            {availableOptions.map((option, index) => (
-              <div key={index}>
-                <DropdownMenuItem onClick={option.action} className="flex items-center gap-2">
-                  {option.icon ? <option.icon /> : null}
-                  <span>{option.label}</span>
-                </DropdownMenuItem>
-                {index < availableOptions.length - 1 && option.label === "Editar" && <DropdownMenuSeparator />}
-              </div>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </section>
-      <section className="divide-y divide-accent/30">
-        {place.properties?.floors && place.properties.floors.length > 0 ? (
-          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-t-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-primary">
-                <Icons.Floor className="fill-primary" />
-                <span className="font-medium text-foreground">Piso</span>
-              </div>
-              <span className="text-foreground font-light">{place.properties.floors.join(", ")}</span>
-            </div>
-          </div>
-        ) : null}
-
-        {place.properties?.campus ? (
-          <div className="py-4 px-2 transition-colors duration-200 hover:bg-accent/5 rounded-b-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-primary">
-                <Icons.Map className="fill-primary" />
-                <span className="font-medium text-foreground">Campus</span>
-              </div>
-              <span className="text-foreground font-light">{siglas.get(place.properties.campus)}</span>
-            </div>
-          </div>
-        ) : null}
-
-        {place.properties.information ? (
-          <div className="space-y-2 py-4">
-            <h3 className="text-xl font-semibold">Descripción</h3>
-            <div className="bg-secondary rounded-md">
-              <MarkDownComponent>{place.properties.information}</MarkDownComponent>
-            </div>
-          </div>
-        ) : null}
       </section>
     </div>
   );

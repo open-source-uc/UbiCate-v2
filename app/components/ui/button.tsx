@@ -6,7 +6,7 @@ const cn = (...classes: (string | undefined)[]) => {
 };
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "accent" | "secondary" | "destructive" | "ghost";
+  variant?: "primary" | "accent" | "secondary" | "destructive" | "ghost" | "mapPrimary" | "mapSecondary" | "mapAccent";
   size?: "sm" | "md" | "lg" | "icon" | "sidebar" | "sidebar-collapsed";
   icon?: React.ReactNode;
   text?: string;
@@ -28,6 +28,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
       destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
       ghost: "hover:border-primary",
+      "ghost-primary": "hover:border-primary text-primary",
+      mapPrimary: cn(
+        "bg-primary text-primary-foreground border border-transparent",
+        "hover:border-primary/60 hover:bg-accent",
+      ),
+      mapSecondary: cn(
+        "bg-secondary text-foreground border border-transparent",
+        "hover:border-primary/40 hover:bg-accent",
+      ),
+      mapAccent: cn("bg-accent text-accent-foreground border border-transparent", "hover:bg-accent/80"),
     };
 
     const sizes = {
@@ -35,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       md: "h-10 py-2 px-4 rounded-md text-sm",
       lg: "h-11 px-8 rounded-md text-base",
       icon: "h-10 w-10 rounded-md",
-      sidebar: "w-full p-2 rounded-md hover:bg-accent/18 space-x-4 justify-start",
+      sidebar: "w-full p-2 rounded-md hover:bg-secondary/50 space-x-4 justify-start",
       "sidebar-collapsed": "justify-center px-4 py-3",
     };
 
@@ -49,18 +59,25 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const iconColors = {
-      primary: "",
-      accent: "",
-      secondary: "",
-      destructive: "",
-      ghost: "fill-primary",
-    };
+      primary: "[&_svg]:fill-primary-foreground [&_svg]:stroke-primary-foreground",
+      accent: "[&_svg]:fill-accent-foreground [&_svg]:stroke-accent-foreground",
+      secondary: "[&_svg]:fill-secondary-foreground [&_svg]:stroke-secondary-foreground",
+      destructive: "[&_svg]:fill-destructive-foreground [&_svg]:stroke-destructive-foreground",
+      ghost: "[&_svg]:fill-background [&_svg]:stroke-background",
+      "ghost-primary": "[&_svg]:fill-primary [&_svg]:stroke-primary",
+      mapPrimary: "[&_svg]:fill-primary-foreground [&_svg]:stroke-primary-foreground",
+      mapSecondary: "[&_svg]:fill-foreground [&_svg]:stroke-foreground",
+      mapAccent: "[&_svg]:fill-accent-foreground [&_svg]:stroke-accent-foreground",
+    } as const;
 
     const getIconWrapperClass = () => {
       if (size === "sidebar" || size === "sidebar-collapsed") {
-        return `${iconSizes[size]} rounded-lg flex items-center justify-center ${
-          isActive ? "bg-primary" : "bg-accent"
-        }`;
+        return cn(
+          iconSizes[size],
+          "rounded-lg flex items-center justify-center",
+          isActive ? "bg-secondary" : "bg-primary",
+          iconColors[variant],
+        );
       }
       return cn(iconSizes[size], iconColors[variant]);
     };
