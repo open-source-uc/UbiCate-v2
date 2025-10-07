@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59398623809757,
-                    -33.44563583438409
-                ]
-            },
-            "properties": {
-                "identifier": "MGGNJO31C181KV",
-                "name": "Sundirección de Transformación Aplicada",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61210296982871,
                     -33.49912112066989
                 ]
