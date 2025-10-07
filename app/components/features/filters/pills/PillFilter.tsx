@@ -17,12 +17,13 @@ type CategoryFilter = {
 
 const pills: Array<CategoryFilter> = [
   { title: "Facultades", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
-  { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
+  { title: "Salas de estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
   { title: "Bibliotecas", icon: <Icons.Library />, filter: CATEGORIES.LIBRARY },
   { title: "Baños", icon: <Icons.Wc />, filter: CATEGORIES.BATH },
   { title: "Comida", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
   { title: "Agua", icon: <Icons.Water />, filter: CATEGORIES.WATER },
+  { title: "Salas de clases", icon: <Icons.School />, filter: CATEGORIES.CLASSROOM },
   { title: "Deportes", icon: <Icons.Sport />, filter: CATEGORIES.SPORTS_PLACE },
   { title: "Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
   { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
