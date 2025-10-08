@@ -4,6 +4,68 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.613593,
+                            -33.497799
+                        ],
+                        [
+                            -70.613432,
+                            -33.497819
+                        ],
+                        [
+                            -70.613421,
+                            -33.49788
+                        ],
+                        [
+                            -70.613211,
+                            -33.497901
+                        ],
+                        [
+                            -70.613173,
+                            -33.497616
+                        ],
+                        [
+                            -70.613051,
+                            -33.497606
+                        ],
+                        [
+                            -70.612993,
+                            -33.498169
+                        ],
+                        [
+                            -70.613535,
+                            -33.498202
+                        ],
+                        [
+                            -70.613593,
+                            -33.497799
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "HALL_SJ",
+                "name": "Hall Universitario",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61210296982871,
