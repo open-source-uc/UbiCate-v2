@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60773557542079,
+                    -33.49886948455065
+                ]
+            },
+            "properties": {
+                "identifier": "MGK7OQN2BS4FX0",
+                "name": "Estero mágico",
+                "information": "Famoso estero conocido por el mito de que mojarse el brazo derecho y la pierna izquierda traerá un desarrollo exitoso, sin atrasos de la carrera que se esté estudiando, y con mucha suerte.",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59398623809757,
                     -33.44563583438409
                 ]
