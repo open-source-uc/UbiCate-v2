@@ -3,13 +3,15 @@ import { NextRequest } from "next/server";
 
 function Template({ text, url }: { text: string; url: string }) {
   return (
-    <div tw="relative flex w-full h-full flex items-center justify-center">
+    <div tw="relative flex w-full h-full flex items-start justify-start">
       <div tw="absolute flex inset-0">
         <img src={url} alt="Ubicate" width={1200} height={630} />
         <div tw="absolute flex inset-0 bg-black bg-opacity-0" />
       </div>
-      <div tw="flex flex-col h-full flex-col-reverse">
-        <div tw="flex h-1/3 items-center text-white text-8xl font-black">{text}</div>
+      <div tw="flex flex-col h-full pl-16 pt-16 pr-16">
+        <div tw="flex text-white text-8xl font-black leading-tight max-w-full" style={{ wordWrap: "break-word" }}>
+          {text}
+        </div>
       </div>
     </div>
   );
