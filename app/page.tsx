@@ -65,7 +65,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
       "Campus UC",
       "Pontificia Universidad Católica de Chile",
       "Mapa UC",
-      "Ubícate UC",
+      "Ubicate UC",
       "San Joaquín",
       "Open Source",
       "Busca Salas UC",

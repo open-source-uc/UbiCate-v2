@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "Campus UC",
     "Pontificia Universidad Católica de Chile",
     "Mapa UC",
-    "Ubícate UC",
+    "Ubicate UC",
     "San Joaquín",
     "Open Source",
   ],
