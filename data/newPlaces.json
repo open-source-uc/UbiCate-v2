@@ -58,30 +58,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61227910691854,
-                    -33.49772642148575
-                ]
-            },
-            "properties": {
-                "identifier": "MGPAT7XEY8WDYG",
-                "name": "sjsks",
-                "information": "2k13k",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61141798921658,
                     -33.497070944220134
                 ]
