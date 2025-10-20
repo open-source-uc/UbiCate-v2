@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64055450040323,
+                    -33.4414790561554
+                ]
+            },
+            "properties": {
+                "identifier": "CO307-CC",
+                "name": "COM307",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61109988667428,
                     -33.49708392965913
                 ]
