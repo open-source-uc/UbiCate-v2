@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64027377882788,
+                    -33.440636040486176
+                ]
+            },
+            "properties": {
+                "identifier": "A-101-CC",
+                "name": "A-101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64107935714652,
                     -33.441164282687744
                 ]
