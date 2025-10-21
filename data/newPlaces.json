@@ -58,8 +58,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59394126421466,
-                    -33.445935791092836
+                    -70.59394117444754,
+                    -33.445935891190544
                 ]
             },
             "properties": {
@@ -67,7 +67,7 @@
                 "name": "Auditorio 3",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "auditorium"
                 ],
                 "floors": [
                     1
