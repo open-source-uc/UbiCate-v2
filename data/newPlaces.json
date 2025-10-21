@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6181076202713,
+                    -33.418989199119025
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_LAMPARA-LC",
+                "name": "Sala Lampara",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61748715889298,
                     -33.41946716583093
                 ]
