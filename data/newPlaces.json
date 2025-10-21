@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61748715889298,
+                    -33.41946716583093
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MULTIUSO-LC",
+                "name": "Sala Multiuso",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59367005083162,
                     -33.44594044174526
                 ]
