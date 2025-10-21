@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59394126421466,
+                    -33.445935791092836
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_3-OR",
+                "name": "Auditorio 3",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6397168722142,
                     -33.44174540537328
                 ]
