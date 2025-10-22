@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61750512586346,
+                    -33.41947455350437
+                ]
+            },
+            "properties": {
+                "identifier": "MH24OCF37BPI5J",
+                "name": "Cafetería Huerto Sur",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6141500804497,
                     -33.497858482658415
                 ]
