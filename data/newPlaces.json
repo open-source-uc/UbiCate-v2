@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64095868907965,
+                    -33.441221637031425
+                ]
+            },
+            "properties": {
+                "identifier": "MH5732D217PEF1",
+                "name": "Baño",
+                "information": "En 1° piso\nBaño H. con Mudador / Baño M. con Mudador / Baño AU con Mudador",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
