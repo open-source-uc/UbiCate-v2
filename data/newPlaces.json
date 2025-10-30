@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60792325310791,
+                    -33.500527032410226
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRCXF6CY7PJ7",
+                "name": "Polideportivo A",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61461965283348,
                     -33.49747182899959
                 ]
