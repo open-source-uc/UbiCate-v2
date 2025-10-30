@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60743874291329,
+                    -33.50079970778833
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRK31WSU4X18",
+                "name": "Muro de Escalada",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60629223447722,
                     -33.50012041429685
                 ]
