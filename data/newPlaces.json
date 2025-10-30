@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60626255093662,
+                    -33.49966189938591
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRGMJLN4UZA8",
+                "name": "Canchas de Futbolito Pasto Natural 2",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6061946884406,
                     -33.49914922892397
                 ]
