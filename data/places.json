@@ -23643,16 +23643,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "HALL_SJ",
-                "name": "Hall Universitario",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -23695,6 +23685,21 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "HALL_SJ",
+                "name": "Hall Universitario",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
