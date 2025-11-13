@@ -41,6 +41,8 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const indexPage = process.env.INDEX_PAGE == "TRUE";
+    
 
   return {
     title: title,
@@ -69,7 +71,8 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
       "San Joaquín",
       "Open Source",
       "Busca Salas UC",
-    ],
+      ],
+    robots: indexPage ? "index, follow" : "noindex, nofollow",
   };
 }
 
