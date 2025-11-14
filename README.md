@@ -176,7 +176,7 @@ npm run preview
 
 ### `npm run knip`
 
-En bluesky que se recomienda <https://knip.dev/> en repos para ir detectando que cosas no se están usando, tanto código como librerías. Lo corrí aquí y parece que funcionó perfect, eliminando varias librerías que no se usaron con la v2 del front.**Uso:**
+En bluesky que se recomienda <https://knip.dev/> en repos para ir detectando que cosas no se están usando, tanto código como librerías. Lo corrí aquí y parece que funcionó perfect, eliminando varias librerías que no se usaron con la v2 del front. **Uso:**
 
 ```bash
 npm run knip
