@@ -6,10 +6,11 @@
 <h4 align="center"> Ubicate UC </h4>
 
 <p align="center">
-  <a href="#Descripción">Descripción</a> •
-  <a href="#Uso">Uso</a> •
-  <a href="#Contribuir">Contribuir</a> •
-  <a href="#Soporte">Soporte</a> •
+  <a href="#descripción">Descripción</a> •
+  <a href="#developing">Desarrollo</a> •
+  <a href="#características-modernas">Características</a> •
+  <a href="#deployment">Deployment</a> •
+  <a href="#contribuir">Contribuir</a> •
   <a href="#licencia">Licencia</a>
 </p>
 
@@ -20,6 +21,19 @@
 Proyecto Open Source desarrollado como un buscador de salas en los campus de la Pontificia Universidad Católica de Chile, que permite a los estudiantes encontrar y localizar rápidamente en un mapa dinámico.
 
 Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://github.com/almapp/uc-maps-seeds)
+
+### 🛠️ Stack Tecnológico
+
+Este proyecto utiliza tecnologías modernas para garantizar el mejor rendimiento y experiencia de usuario:
+
+- **⚡ Next.js 15.4.5** - Framework React con App Router y soporte para Edge Runtime
+- **⚛️ React 19.1.0** - Biblioteca de interfaces de usuario con las últimas características
+- **📘 TypeScript 5.8.3** - Tipado estático para mayor robustez del código
+- **🎨 Tailwind CSS 4.0.9** - Framework CSS utilitario para diseño rápido y responsive
+- **🗺️ MapLibre GL 5.0.0** - Renderizado de mapas vectoriales de alto rendimiento
+- **📱 PWA Ready** - Aplicación Web Progresiva con soporte offline via Service Workers
+- **☁️ Cloudflare Pages** - Despliegue automático y CDN global
+- **🔍 Self-hosted Maps** - Soporte para mapas autohospedados en Cloudflare R2
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
@@ -71,7 +85,7 @@ Donde `{Id ubicación}` puede ser:
 Para que la aplicación funcione correctamente, debes crear un archivo `.env.local` en la **raíz del proyecto** con las siguientes variables de entorno:
 
 ```env
-NEXT_PUBLIC_MAPBOX_TOKEN=<API_KEY>              # Requerido. Sin esto no funcionan las rutas en el mapa.
+NEXT_PUBLIC_MAPBOX_TOKEN=<API_KEY>              # Requerido para rutas. Token de Mapbox compatible con las direcciones walking.
 NEXT_PUBLIC_BASE_URL=<BASE_URL>                 # Opcional en desarrollo. Obligatorio en producción, es para establecer la URL canónica en las meta tags.
 GITHUB_TOKEN_USER=<TOKEN_USER>                  # Opcional en desarrollo. Obligatorio en producción para permitir proponer ubicaciones mediante el formulario.
 GITHUB_USER_EMAIL=<EMAIL>                       # Opcional en desarrollo. Obligatorio en producción.
@@ -84,9 +98,15 @@ INDEX_PAGE=<"TRUE" | "FALSE">                   # Opcional. Si es "TRUE", habili
 > \[!IMPORTANT]
 > El archivo debe llamarse **`.env.local`**, sin cambios.
 
-### 📍 Token de Mapbox
+### �️ Mapas y Tokens
 
-- La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source eUC** o generada por usted.
+El proyecto utiliza **MapLibre GL** para el renderizado de mapas, pero mantiene compatibilidad con tokens de **Mapbox** para las funciones de direcciones:
+
+- **Mapas**: Renderizados con **MapLibre GL 5.0** (open source, sin restricciones de tokens)
+- **Direcciones**: Utilizan la API de Mapbox Walking Directions (requiere `NEXT_PUBLIC_MAPBOX_TOKEN`)
+- **Self-hosting**: Opción de usar mapas completamente autohospedados en Cloudflare R2
+
+La variable `NEXT_PUBLIC_MAPBOX_TOKEN` debe contener una API Key pública entregada por **Open Source eUC** o generada por usted.
 
 > [!NOTE]
 > En la sección de Contacto del sitio encontrarás la forma de comunicarte con nosotros.
@@ -132,15 +152,49 @@ npm install
 
 5. Si ocurre algún error durante el proceso, contacta con el equipo de OSUC.
 
+## 🚀 Características Modernas
+
+### 📱 Progressive Web App (PWA)
+
+El proyecto está configurado como una **PWA** completa con:
+
+- **📴 Funcionalidad Offline**: Navegación básica disponible sin conexión
+- **⚡ Service Workers**: Cacheo inteligente para mejor rendimiento
+- **📲 Instalable**: Se puede instalar como aplicación nativa en dispositivos móviles
+- **🔄 Actualizaciones Automáticas**: El contenido se actualiza automáticamente
+
+### ⚡ Rendimiento y Tecnologías
+
+- **Edge Runtime**: Ejecuta en el edge de Cloudflare para latencia mínima
+- **React 19**: Utiliza las últimas características como Server Components
+- **Next.js 15**: App Router con optimizaciones automáticas
+- **Turbopack**: Bundler ultrarrápido para desarrollo (uso con `npm run dev:turbo`)
+
+### 🗺️ Mapas Avanzados
+
+- **MapLibre GL**: Renderizado vectorial de alto rendimiento
+- **Tiles Personalizados**: Soporte para mapas completamente customizados
+- **Self-Hosting**: Opción de alojar mapas en tu propia infraestructura
+- **Múltiples Temas**: Sistemas de temas intercambiables para los mapas
+
 ## Scripts Disponibles
 
 ### `npm run dev`
 
-Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar el proceso de desarrollo y habilita la inspección del código con: `NODE_OPTIONS='--inspect'`.  
+Inicia el servidor de desarrollo en modo estándar.  
 **Uso:**
 
 ```bash
 npm run dev
+```
+
+### `npm run dev:turbo`
+
+Inicia el servidor de desarrollo utilizando **Turbopack** para acelerar significativamente el proceso de desarrollo. Recomendado para proyectos grandes.  
+**Uso:**
+
+```bash
+npm run dev:turbo
 ```
 
 ### `npm run build`
@@ -215,13 +269,31 @@ npm run lint:fix
 
 ## Deployment
 
-### Cloudflare (automatic)
+### ☁️ Cloudflare Pages (Recomendado)
 
-Es necesario que el proyecto pueda realizar correctamente un `build` (`npm run build`) antes de intentar desplegarlo en Cloudflare.  
-Si el build funciona localmente pero falla en Cloudflare, utiliza el comando `npm run preview` para identificar posibles problemas en un entorno de previsualización local de Cloudflare.
+El proyecto está optimizado para **Cloudflare Pages** con las siguientes características:
+
+- **⚡ Edge Runtime**: Ejecución en más de 300 ubicaciones globalmente
+- **🚀 Zero Cold Starts**: Arranque instantáneo sin demora
+- **📦 Automatic Builds**: Builds automáticos desde Git
+- **🌐 Global CDN**: Distribución automática worldwide
+- **🔧 Zero Config**: Sin configuración de servidor necesaria
+
+**Requisitos previos:**
+
+- El proyecto debe poder realizar correctamente un `build` (`npm run build`)
+- Si el build funciona localmente pero falla en Cloudflare, utiliza `npm run preview`
+
+**Deploy automático:**
 
 ```shell
-npm run build:cloudflare
+npm run pages:build
+```
+
+**Preview local (simula Cloudflare):**
+
+```shell
+npm run preview
 ```
 
 ### Linux VM (manual)
