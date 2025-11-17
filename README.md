@@ -23,7 +23,7 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-## Créditos.
+## Créditos
 
 ### Mantenedores
 
@@ -78,6 +78,7 @@ GITHUB_USER_EMAIL=<EMAIL>                       # Opcional en desarrollo. Obliga
 GITHUB_BRANCH_NAME=<BRANCH>                     # Opcional en desarrollo. Obligatorio en producción.
 API_UBICATE_SECRET=<SECRET>                     # Opcional en desarrollo. Obligatorio en producción. Se usa en /debug para aprobar o borrar ubicaciones.
 NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE">     # Si es "TRUE", se usa un mapa autohospedado. Si no, se usa el mapa desde los servidores de OSUC.
+INDEX_PAGE=<"TRUE" | "FALSE">                   # Opcional. Si es "TRUE", habilita la indexación de la página por motores de búsqueda. Por defecto es "FALSE".
 ```
 
 > \[!IMPORTANT]
@@ -175,7 +176,7 @@ npm run preview
 
 ### `npm run knip`
 
-En bluesky que se recomienda https://knip.dev/ en repos para ir detectando que cosas no se están usando, tanto código como librerías. Lo corrí aquí y parece que funcionó perfect, eliminando varias librerías que no se usaron con la v2 del front.**Uso:**
+En bluesky que se recomienda <https://knip.dev/> en repos para ir detectando que cosas no se están usando, tanto código como librerías. Lo corrí aquí y parece que funcionó perfect, eliminando varias librerías que no se usaron con la v2 del front. **Uso:**
 
 ```bash
 npm run knip
