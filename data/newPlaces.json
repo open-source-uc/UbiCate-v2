@@ -1470,50 +1470,6 @@
                 "campus": "SJ",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61174006105904,
-                            -33.499343979366394
-                        ],
-                        [
-                            -70.61278075824829,
-                            -33.499446866216985
-                        ],
-                        [
-                            -70.61290476448067,
-                            -33.498572492866096
-                        ],
-                        [
-                            -70.61183662055176,
-                            -33.49854772010162
-                        ],
-                        [
-                            -70.61174006105904,
-                            -33.499343979366394
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MFFCCUX40PEFZC",
-                "name": "Evento VRID",
-                "information": "Evento VRID",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
         }
     ]
 }
