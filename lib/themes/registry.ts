@@ -1,8 +1,12 @@
 import * as Icons from "@/app/components/ui/icons/icons";
+import * as lightFormalMap from "@/app/map/hooks/config/lightFormal";
 import * as normalMap from "@/app/map/hooks/config/normal";
+import * as pinkCoquetteMap from "@/app/map/hooks/config/pinkCoquette";
 import * as ucMap from "@/app/map/hooks/config/uc-theme";
 
 import { darkThemeMap } from "../map/styles/darkThemeMap";
+import { lightThemeMap } from "../map/styles/lightThemeMap";
+import { pinkThemeMap } from "../map/styles/pinkThemeMap";
 import { ucThemeMap } from "../map/styles/ucThemeMap";
 
 import { ThemeRegistry, ThemeDefinition } from "./types";
@@ -39,42 +43,42 @@ export const themeRegistry: ThemeRegistry = {
       },
     },
 
-    // "light-formal": {
-    //   id: "light-formal",
-    //   ui: {
-    //     name: "Tema Diurno Formal",
-    //     description: "Limpio y profesional",
-    //     icon: Icons.Work,
-    //   },
-    //   mapConfig: {
-    //     placesTextLayer: lightFormalMap.placesTextLayer,
-    //     campusBorderLayer: lightFormalMap.campusBorderLayer,
-    //     sectionStrokeLayer: lightFormalMap.sectionStrokeLayer,
-    //     sectionAreaLayer: lightFormalMap.sectionAreaLayer,
-    //     customPolygonStrokeLayer: lightFormalMap.customPolygonStrokeLayer,
-    //     customPolygonSectionAreaLayer: lightFormalMap.customPolygonSectionAreaLayer,
-    //     mapStyle: lightThemeMap,
-    //   },
-    // },
+    "light-formal": {
+      id: "light-formal",
+      ui: {
+        name: "Tema Diurno Formal",
+        description: "Limpio y profesional",
+        icon: Icons.Work,
+      },
+      mapConfig: {
+        placesTextLayer: lightFormalMap.placesTextLayer,
+        campusBorderLayer: lightFormalMap.campusBorderLayer,
+        sectionStrokeLayer: lightFormalMap.sectionStrokeLayer,
+        sectionAreaLayer: lightFormalMap.sectionAreaLayer,
+        customPolygonStrokeLayer: lightFormalMap.customPolygonStrokeLayer,
+        customPolygonSectionAreaLayer: lightFormalMap.customPolygonSectionAreaLayer,
+        mapStyle: lightThemeMap,
+      },
+    },
 
-    // "pink-coquette": {
-    //   id: "pink-coquette",
-    //   ui: {
-    //     name: "Coquette",
-    //     description: "Pink pony club 🎵",
-    //     icon: Icons.Coquette,
-    //   },
+    "pink-coquette": {
+      id: "pink-coquette",
+      ui: {
+        name: "Coquette",
+        description: "Pink pony club 🎵",
+        icon: Icons.Coquette,
+      },
 
-    //   mapConfig: {
-    //     placesTextLayer: pinkCoquetteMap.placesTextLayer,
-    //     campusBorderLayer: pinkCoquetteMap.campusBorderLayer,
-    //     sectionStrokeLayer: pinkCoquetteMap.sectionStrokeLayer,
-    //     sectionAreaLayer: pinkCoquetteMap.sectionAreaLayer,
-    //     customPolygonStrokeLayer: pinkCoquetteMap.customPolygonStrokeLayer,
-    //     customPolygonSectionAreaLayer: pinkCoquetteMap.customPolygonSectionAreaLayer,
-    //     mapStyle: pinkThemeMap,
-    //   },
-    // },
+      mapConfig: {
+        placesTextLayer: pinkCoquetteMap.placesTextLayer,
+        campusBorderLayer: pinkCoquetteMap.campusBorderLayer,
+        sectionStrokeLayer: pinkCoquetteMap.sectionStrokeLayer,
+        sectionAreaLayer: pinkCoquetteMap.sectionAreaLayer,
+        customPolygonStrokeLayer: pinkCoquetteMap.customPolygonStrokeLayer,
+        customPolygonSectionAreaLayer: pinkCoquetteMap.customPolygonSectionAreaLayer,
+        mapStyle: pinkThemeMap,
+      },
+    },
 
     "uc-theme": {
       id: "uc-theme",
