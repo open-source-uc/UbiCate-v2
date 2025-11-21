@@ -269,8 +269,7 @@ export default function MobileSidebar() {
                       </button>
                       <button
                         onClick={() => toggleSubSidebar("temas")}
-                        disabled
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group opacity-50 cursor-not-allowed ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group ${
                           activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "temas"}
