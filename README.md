@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=# name="readme-top"><img src="https://raw.githubusercontent.com/open-source-uc/UbiCate/7da46a5fe0f10a794a3b7477bb7103017bc5dfdc/static/assets/logo-dark.svg" width="90px" alt="banner"></a>
+  <a href=# name="readme-top"><img src="https://raw.githubusercontent.com/open-source-uc/UbiCate-v2/refs/heads/main/app/favicon.ico" width="90px" alt="banner"></a>
 </h1>
 
 <h4 align="center"> Ubicate UC </h4>
