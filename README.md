@@ -79,6 +79,8 @@ GITHUB_BRANCH_NAME=<BRANCH>                     # Opcional en desarrollo. Obliga
 API_UBICATE_SECRET=<SECRET>                     # Opcional en desarrollo. Obligatorio en producción. Se usa en /debug para aprobar o borrar ubicaciones.
 NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE">     # Si es "TRUE", se usa un mapa autohospedado. Si no, se usa el mapa desde los servidores de OSUC.
 INDEX_PAGE=<"TRUE" | "FALSE">                   # Opcional. Si es "TRUE", habilita la indexación de la página por motores de búsqueda. Por defecto es "FALSE".
+OUTBOUND_PROXY=
+RUNTIME="edge"
 ```
 
 > \[!IMPORTANT]

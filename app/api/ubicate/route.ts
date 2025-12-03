@@ -1,3 +1,5 @@
+import "@/lib/setup-proxy";
+
 import { NextRequest, NextResponse } from "next/server";
 
 import { fetchApprovedPlaces, fetchNewPlaces, githubFileOperation } from "@/lib/github/operations";
@@ -435,4 +437,4 @@ export async function DELETE(request: NextRequest) {
   }
 }
 
-export const runtime = "edge";
+export const runtime = "nodejs";
