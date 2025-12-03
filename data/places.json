@@ -16897,29 +16897,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CAMPUS_SALUDABLE",
-                "name": "Campus Saludable",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.608993,
-                    -33.497909
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "CAPILLA_LC",
                 "name": "Capilla",
                 "campus": "LC",
