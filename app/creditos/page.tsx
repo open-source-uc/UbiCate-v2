@@ -53,7 +53,7 @@ export default function Page() {
         </p>
       </section>
 
-      <section className="pt-8 max-w-6xl mx-auto px-4 space-y-8">
+      <section className="pt-8 mx-auto px-4 space-y-8">
         <div className="space-y-3 text-left">
           <h2 className="text-2xl font-regular text-background">Contribuidores de UbiCate</h2>
           <p className="text-lg font-light text-muted">
