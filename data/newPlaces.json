@@ -4,6 +4,50 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61043977737427,
+                            -33.500246746084834
+                        ],
+                        [
+                            -70.60993149876595,
+                            -33.50018747484766
+                        ],
+                        [
+                            -70.60990065336227,
+                            -33.5003954831617
+                        ],
+                        [
+                            -70.61042234301567,
+                            -33.50043909774479
+                        ],
+                        [
+                            -70.61043977737427,
+                            -33.500246746084834
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CS",
+                "name": "Ciencias de la Salud",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61514988591082,
