@@ -22278,25 +22278,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALUDESTUDIANTIL_HALL",
-                "name": "Salud Estudiantil",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.613086,
                     -33.497772
                 ]
+            },
+            "properties": {
+                "identifier": "SALUDESTUDIANTIL_HALL",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
