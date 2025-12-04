@@ -4,30 +4,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613086,
-                    -33.497772
-                ]
-            },
-            "properties": {
-                "identifier": "SALUDESTUDIANTIL_HALL",
-                "name": "Salud y Bienestar Estudiantil",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
