@@ -50,32 +50,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61394,
-                    -33.497495
-                ]
-            },
-            "properties": {
-                "identifier": "BIBLIO_HUM",
-                "name": "Biblioteca de Humanidades",
-                "information": "Tiene\n- Salas de estudio\n- Notebooks",
-                "categories": [
-                    "library"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "LET"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63999782131057,
                     -33.44095689755255
                 ]
