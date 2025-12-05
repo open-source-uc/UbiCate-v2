@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61110718203652,
+                    -33.49903987310082
+                ]
+            },
+            "properties": {
+                "identifier": "MH57S8C1AY1NHG",
+                "name": "Baño",
+                "information": " En 1° piso Baño H / Baño M",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60974410978237,
                     -33.49832742559909
                 ]
