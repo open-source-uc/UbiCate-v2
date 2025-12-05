@@ -148,30 +148,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6141500804497,
-                    -33.497858482658415
-                ]
-            },
-            "properties": {
-                "identifier": "LABORATORIO_INGLÉS-SJ",
-                "name": "Laboratorio Inglés",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61416142429539,
                     -33.497857621757014
                 ]
