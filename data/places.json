@@ -10934,25 +10934,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-32216608",
-                "name": "Pronto Copec",
-                "campus": "SJ",
-                "information": "Muy lindas vistas 100/7",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    8
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61514988591082,
                     -33.497727850250406
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-32216608",
+                "name": "Pronto Copec",
+                "information": "Ya no esta",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    8
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
