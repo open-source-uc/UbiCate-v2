@@ -792,32 +792,6 @@
                     "MED"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61109988667428,
-                    -33.49708392965913
-                ]
-            },
-            "properties": {
-                "identifier": "AE213-SJ",
-                "name": "AE213",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EA"
-                ]
-            }
         }
     ]
 }
