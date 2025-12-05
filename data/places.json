@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60802956269598,
+                    -33.50095486563398
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRDNZP3CYHQQ",
+                "name": "Polideportivo B",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60820426446412,
                     -33.50064045860586
                 ]
