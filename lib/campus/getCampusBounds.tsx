@@ -30,8 +30,8 @@ const campusMaxBounds: Record<string, CampusBounds> = {
     latitudeRange: [-33.4286518, -33.4065652],
   },
   VR: {
-    longitudeRange: [-72.22701952051408, -72.2242192943034],
-    latitudeRange: [-39.278605924710156, -39.276849411532424],
+    longitudeRange: [-72.232, -72.218],
+    latitudeRange: [-39.282, -39.273],
   },
   CC: {
     longitudeRange: [-70.6470478, -70.6323672],
@@ -50,8 +50,8 @@ const campusMaxBounds: Record<string, CampusBounds> = {
     latitudeRange: [-33.4286518, -33.4065652],
   },
   Villarrica: {
-    longitudeRange: [-72.22701952051408, -72.2242192943034],
-    latitudeRange: [-39.278605924710156, -39.276849411532424],
+    longitudeRange: [-72.232, -72.218],
+    latitudeRange: [-39.282, -39.273],
   },
   CasaCentral: {
     longitudeRange: [-70.6470478, -70.6323672],

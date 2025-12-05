@@ -15,7 +15,7 @@
   --theme-tertiary: var(--palette-soft-gray-200);
   --theme-tertiary-foreground: var(--palette-uc-blanco);
   
-  --theme-muted: var(--palette-uc-gris-claro-b);
+  --theme-muted: var(--palette-uc-gris-oscuro-a);
   --theme-muted-foreground: var(--palette-uc-gris-oscuro-b);
   
   --theme-accent: var(--palette-uc-azul);
