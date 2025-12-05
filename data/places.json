@@ -31623,10 +31623,10 @@
             },
             "properties": {
                 "identifier": "CRISOL1",
-                "name": "Crisol Educación",
+                "name": "Ingeniería civil",
                 "information": "",
                 "categories": [
-                    "crisol"
+                    "faculty"
                 ],
                 "floors": [
                     1
