@@ -16978,26 +16978,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CRISOL2",
-                "name": "CRISOL",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610202,
                     -33.497836
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL2",
+                "name": "CRISOL",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
