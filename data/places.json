@@ -7319,25 +7319,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "STUDYROOM-32391484",
-                "name": "Sala de estudió",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61210296982871,
                     -33.49912112066989
                 ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32391484",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
