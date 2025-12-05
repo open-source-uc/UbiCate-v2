@@ -1198,30 +1198,6 @@
                     "EA"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61210296982871,
-                    -33.49912112066989
-                ]
-            },
-            "properties": {
-                "identifier": "STUDYROOM-32391484",
-                "name": "Sala de estudio",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
         }
     ]
 }
