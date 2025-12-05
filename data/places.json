@@ -4557,25 +4557,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SPORTS_PLACE-32757213",
-                "name": "Dojo",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60762800333626,
                     -33.501133653362665
                 ]
+            },
+            "properties": {
+                "identifier": "SPORTS_PLACE-32757213",
+                "name": "Dojo",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    5
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
