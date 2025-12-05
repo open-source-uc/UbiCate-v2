@@ -16736,26 +16736,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_HUM",
-                "name": "Biblioteca de Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "HIS"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61394,
                     -33.497495
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_HUM",
+                "name": "Biblioteca de Humanidades",
+                "information": "Tiene\n- Salas de estudio\n- Notebooks",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
