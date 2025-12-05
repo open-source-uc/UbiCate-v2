@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60629223447722,
+                    -33.50012041429685
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRGWRQN3UUXD",
+                "name": "Canchas de Futbolito Pasto Natural 3",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60735565020424,
                     -33.50121632844662
                 ]
