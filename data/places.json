@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61461965283348,
+                    -33.49747182899959
+                ]
+            },
+            "properties": {
+                "identifier": "MH57VZD2DJ9G26",
+                "name": "Baño",
+                "information": "En piso Zócalo\nBaño H / Baño M. / Baño UN",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ODO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61436327707054,
                     -33.4996791949738
                 ]
