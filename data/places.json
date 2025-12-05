@@ -20147,27 +20147,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MILTICANCH",
-                "name": "Multicancha",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "DPT"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.607025,
                     -33.499555
                 ]
+            },
+            "properties": {
+                "identifier": "MILTICANCH",
+                "name": "Multicancha de Futbol Pasto Natural",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
