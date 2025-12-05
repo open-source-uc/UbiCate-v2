@@ -298,30 +298,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60820426446412,
-                    -33.50064045860586
-                ]
-            },
-            "properties": {
-                "identifier": "MHDRMMK2NMUUQU",
-                "name": "Cancha de Tenis 5",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60735565020424,
                     -33.50121632844662
                 ]
