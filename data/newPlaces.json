@@ -202,30 +202,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60690008169455,
-                    -33.49861326982678
-                ]
-            },
-            "properties": {
-                "identifier": "MHDRQGPWVI03G3",
-                "name": "Cancha de Futbolito 5",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703401295716,
                     -33.4984142041631
                 ]
