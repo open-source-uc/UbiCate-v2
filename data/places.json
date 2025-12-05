@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60974410978237,
+                    -33.49832742559909
+                ]
+            },
+            "properties": {
+                "identifier": "MHNQII5L5DY7HM",
+                "name": "K",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60703401295716,
                     -33.4984142041631
                 ]
