@@ -892,32 +892,6 @@
                     "EA"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61103689115994,
-                    -33.49709389562191
-                ]
-            },
-            "properties": {
-                "identifier": "AE215-SJ",
-                "name": "AE215",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EA"
-                ]
-            }
         }
     ]
 }
