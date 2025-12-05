@@ -176,30 +176,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61436327707054,
-                    -33.4996791949738
-                ]
-            },
-            "properties": {
-                "identifier": "MH57MOA2AWLG51",
-                "name": "Baño",
-                "information": "En Subterráneo -1 Baño H / Baño M / Baño UN.",
-                "categories": [
-                    "bath"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64095868907965,
                     -33.441221637031425
                 ]
