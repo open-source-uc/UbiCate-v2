@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61395940424448,
+                    -33.49993661996245
+                ]
+            },
+            "properties": {
+                "identifier": "MH57L58WDT3EO8",
+                "name": "Baño Hombre",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61110718203652,
                     -33.49903987310082
                 ]
