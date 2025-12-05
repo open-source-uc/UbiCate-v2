@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61414966146327,
+                    -33.49785398192704
+                ]
+            },
+            "properties": {
+                "identifier": "SEM1P2-SJ",
+                "name": "SEM1P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61461965283348,
                     -33.49747182899959
                 ]
