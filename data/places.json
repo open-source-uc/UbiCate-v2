@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6077410030563,
+                    -33.49888155726709
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRO7EVE5JEG6",
+                "name": "Pulmón Verde",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6061946884406,
                     -33.49914922892397
                 ]
