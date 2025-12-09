@@ -4,7 +4,7 @@
 
 [data-theme="uc-theme"] {
   --theme-background: var(--palette-uc-blanco);
-  --theme-foreground: var(--palette-uc-negro);
+  --theme-foreground: var(--palette-uc-blue-primary);
   
   --theme-primary: var(--palette-uc-celeste);
   --theme-primary-foreground: var(--palette-uc-blanco);
@@ -29,9 +29,9 @@
   --theme-ring: var(--palette-uc-azul-oscuro);
 
   /* Functional colors for app-specific features */
-  --theme-route-primary: var(--palette-pastel-lavender);
-  --theme-route-border: var(--palette-pastel-lilac);
-  --theme-focus-indicator: var(--palette-uc-celeste);
+  --theme-route-primary: var(--palette-uc-celeste);
+  --theme-route-border: var(--palette-uc-azul);
+  --theme-focus-indicator: var(--palette-uc-azul-oscuro);
 
   /* Chart Colors */
   --theme-chart-0: var(--palette-pink);
