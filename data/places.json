@@ -6,6 +6,846 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64042366385291,
+                    -33.4406194562996
+                ]
+            },
+            "properties": {
+                "identifier": "MIT1QGYWRJHVU9",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64044625610616,
+                    -33.44074232625824
+                ]
+            },
+            "properties": {
+                "identifier": "MIT1OVU52AOKVN",
+                "name": "Patio de la virgen",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416095889714,
+                    -33.49785313678193
+                ]
+            },
+            "properties": {
+                "identifier": "SEM5P4-SJ",
+                "name": "SEM5P4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416095889733,
+                    -33.49785313677991
+                ]
+            },
+            "properties": {
+                "identifier": "SEM5P2-SJ",
+                "name": "SEM5P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416095889759,
+                    -33.49785313678184
+                ]
+            },
+            "properties": {
+                "identifier": "SEM4P4-SJ",
+                "name": "SEM4P4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416142429539,
+                    -33.497857621757014
+                ]
+            },
+            "properties": {
+                "identifier": "SEM6P4-SJ",
+                "name": "SEM6P4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416095889773,
+                    -33.49785313678137
+                ]
+            },
+            "properties": {
+                "identifier": "SEM4P2-SJ",
+                "name": "SEM4P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61417276814015,
+                    -33.49785676085729
+                ]
+            },
+            "properties": {
+                "identifier": "SEM6P2-SJ",
+                "name": "SEM6P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416095889803,
+                    -33.49785313678102
+                ]
+            },
+            "properties": {
+                "identifier": "SEM3P4-SJ",
+                "name": "SEM3P4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6141500804497,
+                    -33.497858482658415
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORIO_INGLÉS-SJ",
+                "name": "Laboratorio Inglés",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6141553125454,
+                    -33.497853565292424
+                ]
+            },
+            "properties": {
+                "identifier": "SEM3P2-SJ",
+                "name": "SEM3P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61415581027305,
+                    -33.49785803150551
+                ]
+            },
+            "properties": {
+                "identifier": "SEM2P2-SJ",
+                "name": "SEM2P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61109988667428,
+                    -33.49708392965913
+                ]
+            },
+            "properties": {
+                "identifier": "AE213-SJ",
+                "name": "AE213",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61094557211922,
+                    -33.496971821547504
+                ]
+            },
+            "properties": {
+                "identifier": "MGZDCUFOX7VRCI",
+                "name": "Cafetón",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61416049349786,
+                    -33.49784865180746
+                ]
+            },
+            "properties": {
+                "identifier": "SEM2P4-SJ",
+                "name": "SEM2P4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614161480489,
+                    -33.49785760118202
+                ]
+            },
+            "properties": {
+                "identifier": "SEM1P4-SJ",
+                "name": "SEM1P4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61103689115994,
+                    -33.49709389562191
+                ]
+            },
+            "properties": {
+                "identifier": "AE215-SJ",
+                "name": "AE215",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61414966146327,
+                    -33.49785398192704
+                ]
+            },
+            "properties": {
+                "identifier": "SEM1P2-SJ",
+                "name": "SEM1P2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61461965283348,
+                    -33.49747182899959
+                ]
+            },
+            "properties": {
+                "identifier": "MH57VZD2DJ9G26",
+                "name": "Baño",
+                "information": "En piso Zócalo\nBaño H / Baño M. / Baño UN",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ODO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61436327707054,
+                    -33.4996791949738
+                ]
+            },
+            "properties": {
+                "identifier": "MH57MOA2AWLG51",
+                "name": "Baño",
+                "information": "En Subterráneo -1 Baño H / Baño M / Baño UN.",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61395940424448,
+                    -33.49993661996245
+                ]
+            },
+            "properties": {
+                "identifier": "MH57L58WDT3EO8",
+                "name": "Baño Hombre",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61110718203652,
+                    -33.49903987310082
+                ]
+            },
+            "properties": {
+                "identifier": "MH57S8C1AY1NHG",
+                "name": "Baño",
+                "information": " En 1° piso Baño H / Baño M",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60974410978237,
+                    -33.49832742559909
+                ]
+            },
+            "properties": {
+                "identifier": "MHNQII5L5DY7HM",
+                "name": "K",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60703401295716,
+                    -33.4984142041631
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRQ7LFP87P73",
+                "name": "Cancha de Futbolito 4",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60690008169455,
+                    -33.49861326982678
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRQGPWVI03G3",
+                "name": "Cancha de Futbolito 5",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6077410030563,
+                    -33.49888155726709
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRO7EVE5JEG6",
+                "name": "Pulmón Verde",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6061946884406,
+                    -33.49914922892397
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRGENUW6GGAB",
+                "name": "Canchas de Futbolito Pasto Natural 1",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60626255093662,
+                    -33.49966189938591
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRGMJLN4UZA8",
+                "name": "Canchas de Futbolito Pasto Natural 2",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60629223447722,
+                    -33.50012041429685
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRGWRQN3UUXD",
+                "name": "Canchas de Futbolito Pasto Natural 3",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60735565020424,
+                    -33.50121632844662
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRL5K3HELEBP",
+                "name": "Cancha de Tenis Asfalto",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60743874291329,
+                    -33.50079970778833
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRK31WSU4X18",
+                "name": "Muro de Escalada",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60802956269598,
+                    -33.50095486563398
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRDNZP3CYHQQ",
+                "name": "Polideportivo B",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60820426446412,
+                    -33.50064045860586
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRMMK2NMUUQU",
+                "name": "Cancha de Tenis 5",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60792325310791,
+                    -33.500527032410226
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRCXF6CY7PJ7",
+                "name": "Polideportivo A",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60773557542079,
+                    -33.49886948455065
+                ]
+            },
+            "properties": {
+                "identifier": "MGK7OQN2BS4FX0",
+                "name": "Estero mágico",
+                "information": "Famoso estero conocido por el mito de que mojarse el brazo derecho y la pierna izquierda traerá un desarrollo exitoso, sin atrasos de la carrera que se esté estudiando, y con mucha suerte.",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59398623809757,
+                    -33.44563583438409
+                ]
+            },
+            "properties": {
+                "identifier": "MGGNJO31C181KV",
+                "name": "Sundirección de Transformación Aplicada",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61271664271428,
                     -33.49945271557484
                 ]
@@ -4419,25 +5259,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SPORTS_PLACE-32757213",
-                "name": "Dojo",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60762800333626,
                     -33.501133653362665
                 ]
+            },
+            "properties": {
+                "identifier": "SPORTS_PLACE-32757213",
+                "name": "Dojo",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    5
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -6970,25 +7810,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "STUDYROOM-32391484",
-                "name": "Sala de estudió",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61210296982871,
                     -33.49912112066989
                 ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32391484",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -10539,25 +11379,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-32216608",
-                "name": "Pronto Copec",
-                "campus": "SJ",
-                "information": "Muy lindas vistas 100/7",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    8
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61514988591082,
                     -33.497727850250406
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-32216608",
+                "name": "Pronto Copec",
+                "information": "Ya no esta",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    8
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -16316,26 +17156,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_HUM",
-                "name": "Biblioteca de Humanidades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "HIS"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61394,
                     -33.497495
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_HUM",
+                "name": "Biblioteca de Humanidades",
+                "information": "Tiene\n- Salas de estudio\n- Notebooks",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
@@ -16654,26 +17494,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CRISOL2",
-                "name": "CRISOL",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "computers"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610202,
                     -33.497836
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL2",
+                "name": "CRISOL",
+                "information": "",
+                "categories": [
+                    "computers"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -16845,29 +17685,6 @@
                 "coordinates": [
                     -70.640889,
                     -33.441244
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "CAMPUS_SALUDABLE",
-                "name": "Campus Saludable",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.608993,
-                    -33.497909
                 ]
             }
         },
@@ -19940,27 +20757,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MILTICANCH",
-                "name": "Multicancha",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "DPT"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.607025,
                     -33.499555
                 ]
+            },
+            "properties": {
+                "identifier": "MILTICANCH",
+                "name": "Multicancha de Futbol Pasto Natural",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -22255,25 +23070,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61308266976584,
+                    -33.49776842755897
+                ]
+            },
             "properties": {
                 "identifier": "SALUDESTUDIANTIL_HALL",
-                "name": "Salud Estudiantil",
-                "campus": "SJ",
+                "name": "Salud y Bienestar Estudiantil",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613086,
-                    -33.497772
-                ]
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -23597,16 +24412,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "HALL_SJ",
-                "name": "Hall Universitario",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -23649,6 +24454,21 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "HALL_SJ",
+                "name": "Hall Universitario",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -23954,73 +24774,76 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "EA",
-                "name": "Facultad de Ciencias Económicas y Administrativas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.611882,
-                            -33.497332
+                            -70.61188213527203,
+                            -33.497332062884745
                         ],
                         [
-                            -70.611677,
-                            -33.497303
+                            -70.61190694570541,
+                            -33.49717605117534
                         ],
                         [
-                            -70.611691,
-                            -33.497152
+                            -70.61214298009872,
+                            -33.49719590214321
                         ],
                         [
-                            -70.610857,
-                            -33.497089
+                            -70.61217583715916,
+                            -33.49691798817866
                         ],
                         [
-                            -70.610891,
-                            -33.496807
+                            -70.61192706227303,
+                            -33.496890028977894
                         ],
                         [
-                            -70.611717,
-                            -33.496882
+                            -70.61196997761726,
+                            -33.49649999718582
                         ],
                         [
-                            -70.611783,
-                            -33.496493
+                            -70.61178289353848,
+                            -33.49649300735273
                         ],
                         [
-                            -70.61197,
-                            -33.4965
+                            -70.61171684414148,
+                            -33.496881920807986
                         ],
                         [
-                            -70.611927,
-                            -33.49689
+                            -70.61089105904102,
+                            -33.49680699009842
                         ],
                         [
-                            -70.612176,
-                            -33.496918
+                            -70.61085686087608,
+                            -33.49708909829055
                         ],
                         [
-                            -70.612143,
-                            -33.497196
+                            -70.61169102787971,
+                            -33.4971520063349
                         ],
                         [
-                            -70.611907,
-                            -33.497176
+                            -70.61167694628239,
+                            -33.49730298545484
                         ],
                         [
-                            -70.611882,
-                            -33.497332
+                            -70.61188213527203,
+                            -33.497332062884745
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "EA",
+                "name": "Facultad de Economía y Administración ",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
@@ -30042,18 +30865,21 @@
             "properties": {
                 "identifier": "BAÑO UNIVERSAL",
                 "name": "Baño universal",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1,
                     2,
                     3,
-                    4
-                ]
+                    4,
+                    5,
+                    6,
+                    7
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -31245,10 +32071,10 @@
             },
             "properties": {
                 "identifier": "CRISOL1",
-                "name": "Crisol Educación",
+                "name": "Ingeniería civil",
                 "information": "",
                 "categories": [
-                    "crisol"
+                    "faculty"
                 ],
                 "floors": [
                     1
