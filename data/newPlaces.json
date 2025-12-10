@@ -4,6 +4,58 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61357083207864,
+                            -33.498708305166716
+                        ],
+                        [
+                            -70.61338893260066,
+                            -33.4986987250192
+                        ],
+                        [
+                            -70.61334872324247,
+                            -33.49906755992944
+                        ],
+                        [
+                            -70.61359380885446,
+                            -33.49908512345679
+                        ],
+                        [
+                            -70.61362827401912,
+                            -33.49887436088654
+                        ],
+                        [
+                            -70.61353828164573,
+                            -33.4988695708216
+                        ],
+                        [
+                            -70.61357083207864,
+                            -33.498708305166716
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CCL",
+                "name": "Escuela de Construcción Civil",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61402440872304,
