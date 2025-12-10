@@ -44,32 +44,6 @@
                     "CS"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59369122441969,
-                    -33.44603765737674
-                ]
-            },
-            "properties": {
-                "identifier": "MH0LDW8JKYFOXC",
-                "name": "Auditorio 1",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": [
-                    "TEMPLO_OR"
-                ]
-            }
         }
     ]
 }
