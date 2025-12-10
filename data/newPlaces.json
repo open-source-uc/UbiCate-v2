@@ -96,32 +96,6 @@
                     "TEMPLO_OR"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59394117444754,
-                    -33.445935891190544
-                ]
-            },
-            "properties": {
-                "identifier": "AUDITORIO_3-OR",
-                "name": "Auditorio 3",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": [
-                    "TEMPLO_OR"
-                ]
-            }
         }
     ]
 }
