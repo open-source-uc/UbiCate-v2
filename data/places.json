@@ -2279,25 +2279,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-34029242",
-                "name": "Monuel Jose irarrazaval",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.63999782131057,
                     -33.44095689755255
                 ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-34029242",
+                "name": "Manuel Jose irarrazaval",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
