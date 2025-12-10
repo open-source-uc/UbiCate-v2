@@ -104,33 +104,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61402440872304,
-                    -33.49889994531226
-                ]
-            },
-            "properties": {
-                "identifier": "C402-SJ",
-                "name": "C402 AAAAA",
-                "information": "",
-                "categories": [
-                    "classroom",
-                    ""
-                ],
-                "floors": [
-                    4
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "CCL"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
