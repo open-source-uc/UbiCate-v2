@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64058097670981,
+                    -33.44150660831386
+                ]
+            },
+            "properties": {
+                "identifier": "MGZLKCSG155U1Q",
+                "name": "M3",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6395568523531,
                     -33.44159376233385
                 ]
