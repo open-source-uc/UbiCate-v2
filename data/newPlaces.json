@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59404650079298,
+                    -33.44592276912336
+                ]
+            },
+            "properties": {
+                "identifier": "MJ0EQMA52DFYCK",
+                "name": "Quiosco de Patio Central ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59346506184407,
                     -33.4461180184207
                 ]
