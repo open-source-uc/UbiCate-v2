@@ -2162,24 +2162,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CO307-CC",
-                "name": "CO307",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64055450040323,
                     -33.4414790561554
+                ]
+            },
+            "properties": {
+                "identifier": "CO307-CC",
+                "name": "COM307",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
