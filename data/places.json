@@ -6,6 +6,446 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59369122441969,
+                    -33.44603765737674
+                ]
+            },
+            "properties": {
+                "identifier": "MH0LDW8JKYFOXC",
+                "name": "Auditorio 1",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59367005083162,
+                    -33.44594044174526
+                ]
+            },
+            "properties": {
+                "identifier": "MH0LJ6VJO6PCWA",
+                "name": "Auditorio 2",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59394117444754,
+                    -33.445935891190544
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_3-OR",
+                "name": "Auditorio 3",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64058097670981,
+                    -33.44150660831386
+                ]
+            },
+            "properties": {
+                "identifier": "MGZLKCSG155U1Q",
+                "name": "M3",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6395568523531,
+                    -33.44159376233385
+                ]
+            },
+            "properties": {
+                "identifier": "B103-CC",
+                "name": "B103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6395546687876,
+                    -33.44158368451794
+                ]
+            },
+            "properties": {
+                "identifier": "B102-CC",
+                "name": "B102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6397168722142,
+                    -33.44174540537328
+                ]
+            },
+            "properties": {
+                "identifier": "B201-CC",
+                "name": "B201",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056366142165,
+                    -33.44149220441577
+                ]
+            },
+            "properties": {
+                "identifier": "COM309-CC",
+                "name": "COM309",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63957153773114,
+                    -33.44154575075209
+                ]
+            },
+            "properties": {
+                "identifier": "B101-CC",
+                "name": "B101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64027377882788,
+                    -33.440636040486176
+                ]
+            },
+            "properties": {
+                "identifier": "A-101-CC",
+                "name": "A-101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64095868907965,
+                    -33.441221637031425
+                ]
+            },
+            "properties": {
+                "identifier": "MH5732D217PEF1",
+                "name": "Baño",
+                "information": "En 1° piso\nBaño H. con Mudador / Baño M. con Mudador / Baño AU con Mudador",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64107935714652,
+                    -33.441164282687744
+                ]
+            },
+            "properties": {
+                "identifier": "AULA_MAGNA_ELIODORO_MATTE_OSSA-CC",
+                "name": "Aula Magna Eliodoro Matte Ossa",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6412470662415,
+                    -33.4410766181376
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MATE-CC",
+                "name": "Sala Mate",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63971824444262,
+                    -33.44177446323583
+                ]
+            },
+            "properties": {
+                "identifier": "B105-CC",
+                "name": "B105",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61750512586346,
+                    -33.41947455350437
+                ]
+            },
+            "properties": {
+                "identifier": "MH24OCF37BPI5J",
+                "name": "Cafetería Huerto Sur",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61748715889298,
+                    -33.41946716583093
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MULTIUSO-LC",
+                "name": "Sala Multiuso",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6181076202713,
+                    -33.418989199119025
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_LAMPARA-LC",
+                "name": "Sala Lampara",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64218118838534,
+                    -33.44198421677347
+                ]
+            },
+            "properties": {
+                "identifier": "MH3FQZECZXQCW9",
+                "name": "Patio Alameda",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64042366385291,
                     -33.4406194562996
                 ]
@@ -1970,24 +2410,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CO307-CC",
-                "name": "CO307",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64055450040323,
                     -33.4414790561554
+                ]
+            },
+            "properties": {
+                "identifier": "CO307-CC",
+                "name": "COM307",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
@@ -2062,25 +2504,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-34029242",
-                "name": "Monuel Jose irarrazaval",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.63999782131057,
                     -33.44095689755255
                 ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-34029242",
+                "name": "Manuel Jose irarrazaval",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
