@@ -6,6 +6,52 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59404645115137,
+                    -33.44592274263415
+                ]
+            },
+            "properties": {
+                "identifier": "MJ0EQMA52DFYCK",
+                "name": "Quiosco de Patio Central - Xime",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59346506184407,
+                    -33.4461180184207
+                ]
+            },
+            "properties": {
+                "identifier": "MJ0EK3X7KZ5QW5",
+                "name": "Patio de la Virgen ",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59369122441969,
                     -33.44603765737674
                 ]
