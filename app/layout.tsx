@@ -1,7 +1,7 @@
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Roboto } from "next/font/google";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import Script from "next/script";
 
 import { Metadata } from "next";

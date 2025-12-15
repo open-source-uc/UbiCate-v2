@@ -114,7 +114,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     //     updateViewportColor(initial);
     //   }
     // }
-    
+
     // Forzar tema UC por defecto
     if (typeof window !== "undefined") {
       setThemeState("uc-theme");

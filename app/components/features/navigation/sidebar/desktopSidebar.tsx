@@ -18,7 +18,7 @@ import { SearchDropdown } from "../../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import ThemesList from "./themesList";
+// import ThemesList from "./themesList";
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
