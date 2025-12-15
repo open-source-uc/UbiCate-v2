@@ -40,11 +40,12 @@ const roboto = Roboto({
 });
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("ubicate-theme")?.value;
+  // Persistencia deshabilitada - siempre usar tema por defecto de UC
+  // const cookieStore = await cookies();
+  // const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
-    <html lang="es" {...(themeCookie ? { "data-theme": themeCookie } : {})}>
+    <html lang="es" data-theme="uc-theme">
       <head>
         {/* Google Tag Manager UC - DTFD */}
         <Script id="gtm-script" strategy="beforeInteractive">

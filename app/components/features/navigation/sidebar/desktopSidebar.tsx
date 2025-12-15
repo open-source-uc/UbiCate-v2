@@ -102,14 +102,14 @@ export default function DesktopSidebar() {
                 text={isOpen ? "Campus" : undefined}
                 isActive={activeSubSidebar === "campus"}
               />
-              <Button
+              {/* <Button
                 variant="ghost"
                 size={isOpen ? "sidebar" : "sidebar-collapsed"}
                 onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
                 icon={<Icons.Palette />}
                 text={isOpen ? "Temas" : undefined}
                 isActive={activeSubSidebar === "temas"}
-              />
+              /> */}
             </div>
           </nav>
 
@@ -200,11 +200,11 @@ export default function DesktopSidebar() {
                 </section>
               </div>
             )}
-            {activeSubSidebar === "temas" && (
+            {/* {activeSubSidebar === "temas" && (
               <div className="w-full h-full space-y-4">
                 <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
               </div>
-            )}
+            )} */}
           </div>
         </section>
       </div>
