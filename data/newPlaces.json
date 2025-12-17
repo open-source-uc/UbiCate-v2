@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.5929077807639,
+                    -33.44593387061973
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_COMPOSICIÓN_M104-OR",
+                "name": "Sala Composición M104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59298421938946,
                     -33.445885993904405
                 ]
