@@ -15,7 +15,7 @@ import PlaceMenu from "../../places/placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
-import ThemesList from "./themesList";
+// import ThemesList from "./themesList";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
@@ -267,7 +267,7 @@ export default function MobileSidebar() {
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
-                      <button
+                      {/* <button
                         onClick={() => toggleSubSidebar("temas")}
                         className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group ${
                           activeSubSidebar === "temas" ? "bg-primary" : "bg-transparent"
@@ -280,7 +280,7 @@ export default function MobileSidebar() {
                           <Icons.Palette className="transition" />
                         </span>
                         <span className="text-sm tablet:text-md mt-1">Temas</span>
-                      </button>
+                      </button> */}
                     </div>
                   </section>
 
@@ -345,11 +345,11 @@ export default function MobileSidebar() {
                   <ul className="space-y-2">Hello. This is not implemented.</ul>
                 </>
               )}
-              {activeSubSidebar === "temas" && (
+              {/* {activeSubSidebar === "temas" && (
                 <div className="w-full h-full space-y-4">
                   <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
                 </div>
-              )}
+              )} */}
               {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
                 <NotificationErrorBoundary>
                   <PlaceMenu
