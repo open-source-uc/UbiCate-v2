@@ -6,6 +6,677 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59359593610766,
+                    -33.44702190919684
+                ]
+            },
+            "properties": {
+                "identifier": "MJA6U1T2DDA8OX",
+                "name": "Administración ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59308940544724,
+                    -33.446374408392664
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_CARMEN_BARROS_T105-OR",
+                "name": "Sala Carmen Barros T 105",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59297977015376,
+                    -33.44627509528111
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_SILVIA_PIÑEIRO_T102-OR",
+                "name": "Sala Silvia Piñeiro T 102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5931537784636,
+                    -33.446345173981484
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PAZ_IRARRAZÁZABAL_T104-OR",
+                "name": "Sala Paz Irarrazázabal T 104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "ACO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59300226751986,
+                    -33.4462327982235
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_TÉCNICA-OR",
+                "name": "Sala Técnica ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59309577569366,
+                    -33.44630446959355
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_LUIS_ALBERTO_HEIREMANS_T103-OR",
+                "name": "Sala Luis Alberto Heiremans T 103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5929924339448,
+                    -33.44628887596121
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_GABRIELA_ROEPKE_T106-OR",
+                "name": "Sala Gabriela Roepke T106",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59293685480952,
+                    -33.446371331086695
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_M005-OR",
+                "name": "Sala Percusión M 005",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59359593610766,
+                    -33.44702190919684
+                ]
+            },
+            "properties": {
+                "identifier": "MJA6U1BE069J2J",
+                "name": "Administración ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304280206561,
+                    -33.44623047428269
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_M008-OR",
+                "name": "Sala Percusión M  008",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5930034680155,
+                    -33.446214326583565
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_FERNANDO_DEBESA-OR",
+                "name": "Sala Fernando Debesa",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59300977736712,
+                    -33.44619312690901
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_M006-OR",
+                "name": "Sala Percusión M 006",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59283945709467,
+                    -33.446108780534
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_009-OR",
+                "name": "Sala Percusión M 009",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59301597997546,
+                    -33.44615214269391
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_M007-OR",
+                "name": "Sala Percusión M 007",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "ACO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59306627139449,
+                    -33.44606108213304
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_SAN_JUAN_M100-OR",
+                "name": "Sala San Juan M 100",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59316260489719,
+                    -33.446037063988506
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9BPCUVXXINP",
+                "name": "Espacio de Encuentro",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59290785342455,
+                    -33.445933932895045
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_COMPOSICIÓN_M104-OR",
+                "name": "Sala Composición M 104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304414317012,
+                    -33.44594736120621
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PIANO_M101-OR",
+                "name": "Sala Piano M 101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59300860390067,
+                    -33.44591337078953
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_CANTO_M102-OR",
+                "name": "Sala Canto M 102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59298429638147,
+                    -33.44588595464129
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MOZART_M103-OR",
+                "name": "Sala Mozart M 103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59284750372171,
+                    -33.445831821710875
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_LATEM_M106-OR",
+                "name": "Sala Latem M 106",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5929915048182,
+                    -33.445787759998396
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MÚSICA_ANTIGUA_M105-OR",
+                "name": "Sala Música Antigua M 105",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59300516792352,
+                    -33.446459902797336
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_SEMINARIO_SONIA_FUCHS-OR",
+                "name": "Sala Seminario Sonia Fuchs",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59359593610766,
+                    -33.44702190919684
+                ]
+            },
+            "properties": {
+                "identifier": "MJA6TS6RP8VGM9",
+                "name": "Administración ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59304113104034,
+                    -33.44573304499793
+                ]
+            },
+            "properties": {
+                "identifier": "INTERPRETACIÓN_MUSICAL_SALAS-OR",
+                "name": "Interpretación Musical Salas",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59405577198747,
+                    -33.44595862728233
+                ]
+            },
+            "properties": {
+                "identifier": "MJA82NSW5MRLU6",
+                "name": "Centro UC para la transformacion educativa CENTRE",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59357983563552,
+                    -33.445819805059244
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9TXM0SIL9S1",
+                "name": "Fotocopias",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59361295435909,
+                    -33.445567692675795
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9OGIO5DPHQF",
+                "name": "Espacio Vilchez",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59384093738508,
+                    -33.445329648971445
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9PVRD0LNH00",
+                "name": "Cafeteria Facultad de Artes",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59404645115137,
                     -33.44592274263415
                 ]
@@ -25106,69 +25777,75 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AGC",
-                "name": "Facultad de Agronomía e Ingeniería Forestal",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.61072,
-                            -33.496046
+                            -70.61072006821632,
+                            -33.496046216050736
                         ],
                         [
-                            -70.61069,
-                            -33.496353
+                            -70.6092569231987,
+                            -33.49591424721506
                         ],
                         [
-                            -70.610018,
-                            -33.496296
+                            -70.60921400785446,
+                            -33.496153580378824
                         ],
                         [
-                            -70.609903,
-                            -33.497221
+                            -70.60849651694298,
+                            -33.49612114741874
                         ],
                         [
-                            -70.608806,
-                            -33.497201
+                            -70.60835838317871,
+                            -33.49641080687326
                         ],
                         [
-                            -70.608458,
-                            -33.496912
+                            -70.60868829488754,
+                            -33.496567379147855
                         ],
                         [
-                            -70.608688,
-                            -33.496567
+                            -70.60845762491226,
+                            -33.49691183715526
                         ],
                         [
-                            -70.608358,
-                            -33.496411
+                            -70.6088063120842,
+                            -33.497201493964326
                         ],
                         [
-                            -70.608496,
-                            -33.496121
+                            -70.60990333557129,
+                            -33.49722050615343
                         ],
                         [
-                            -70.609214,
-                            -33.496154
+                            -70.61001732945442,
+                            -33.49629561423328
                         ],
                         [
-                            -70.609257,
-                            -33.495914
+                            -70.61069056391716,
+                            -33.496352651384846
                         ],
                         [
-                            -70.61072,
-                            -33.496046
+                            -70.61072006821632,
+                            -33.496046216050736
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "AGC",
+                "name": "Facultad de Agronomía y Sistemas Naturales",
+                "information": "Piso 1: Salas de clase, laboratorios y sala Crisol\nPiso 2: Decanato\nPiso 3: Centro UC Cambio Global",
+                "categories": [
+                    "faculty",
+                    ""
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
                 ]
             }
         },
@@ -25513,57 +26190,60 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "EDU",
-                "name": "Facultad de Educación",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.615077,
-                            -33.498263
+                            -70.61507698148489,
+                            -33.4982630946601
                         ],
                         [
-                            -70.615021,
-                            -33.49809
+                            -70.6150209903717,
+                            -33.49809002975138
                         ],
                         [
-                            -70.614865,
-                            -33.497928
+                            -70.61486508697271,
+                            -33.497927868456706
                         ],
                         [
-                            -70.61465,
-                            -33.497961
+                            -70.61464983969927,
+                            -33.49796113950573
                         ],
                         [
-                            -70.613893,
-                            -33.497855
+                            -70.61389312148094,
+                            -33.49785489577499
                         ],
                         [
-                            -70.613683,
-                            -33.49805
+                            -70.6136829033494,
+                            -33.498050048632805
                         ],
                         [
-                            -70.613765,
-                            -33.498223
+                            -70.61376504600048,
+                            -33.498223113621464
                         ],
                         [
-                            -70.614836,
-                            -33.498316
+                            -70.61483591794968,
+                            -33.49831593670384
                         ],
                         [
-                            -70.615077,
-                            -33.498263
+                            -70.61507698148489,
+                            -33.4982630946601
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "EDU",
+                "name": "Facultad de Educación",
+                "information": "Piso 1: Auditorio, salas de clase\nPiso 2: Decanato, salas de clase",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
                 ]
             }
         },
@@ -25669,45 +26349,54 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CCL",
-                "name": "Escuela de Construcción Civil",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.614362,
-                            -33.498771
+                            -70.6135590794516,
+                            -33.49868793699711
                         ],
                         [
-                            -70.613376,
-                            -33.498703
+                            -70.61340574658067,
+                            -33.49867669620171
                         ],
                         [
-                            -70.613308,
-                            -33.499093
+                            -70.61334918578622,
+                            -33.499067783245216
                         ],
                         [
-                            -70.614373,
-                            -33.499189
+                            -70.61358940903041,
+                            -33.499088389399134
                         ],
                         [
-                            -70.614395,
-                            -33.498915
+                            -70.6136113137262,
+                            -33.49888184049732
                         ],
                         [
-                            -70.614362,
-                            -33.498771
+                            -70.61353956704805,
+                            -33.49887784049667
+                        ],
+                        [
+                            -70.6135590794516,
+                            -33.49868793699711
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "CCL",
+                "name": "Escuela de Construcción Civil",
+                "information": "Piso 1: Pregrado Escuela Construcción Civil, Sala de Estudio, Sala CC10, Sala C100, Sala San Bernardo y Centro de Estudiantes\nPiso 2: Salas CC200 y CC201, Pastoral y Auditorio",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
                 ]
             }
         },
@@ -26061,77 +26750,83 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "QIM",
-                "name": "Facultad de Química",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.611674,
-                            -33.498663
+                            -70.61167392879725,
+                            -33.49866290403108
                         ],
                         [
-                            -70.611445,
-                            -33.498647
+                            -70.6114449352026,
+                            -33.49864696760897
                         ],
                         [
-                            -70.611447,
-                            -33.498627
+                            -70.61144694685936,
+                            -33.498627116973815
                         ],
                         [
-                            -70.611254,
-                            -33.498609
+                            -70.61125416308641,
+                            -33.49860894385313
                         ],
                         [
-                            -70.61066,
-                            -33.498561
+                            -70.61066005378962,
+                            -33.498561134548204
                         ],
                         [
-                            -70.610608,
-                            -33.498857
+                            -70.61060808598995,
+                            -33.49885693672462
                         ],
                         [
-                            -70.610504,
-                            -33.498845
+                            -70.61050415039062,
+                            -33.498844914538665
                         ],
                         [
-                            -70.610481,
-                            -33.499145
+                            -70.61048101633787,
+                            -33.49914490951708
                         ],
                         [
-                            -70.611666,
-                            -33.499261
+                            -70.6116658821702,
+                            -33.499260937119026
                         ],
                         [
-                            -70.611705,
-                            -33.498842
+                            -70.61170510947704,
+                            -33.49884211868123
                         ],
                         [
-                            -70.611739,
-                            -33.498826
+                            -70.61173897236586,
+                            -33.49882590270631
                         ],
                         [
-                            -70.61175,
-                            -33.498728
+                            -70.61175003647804,
+                            -33.49872804762078
                         ],
                         [
-                            -70.611671,
-                            -33.498719
+                            -70.6116709113121,
+                            -33.49871910086458
                         ],
                         [
-                            -70.611674,
-                            -33.498663
+                            -70.61167392879725,
+                            -33.49866290403108
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "QIM",
+                "name": "Facultad de Química y de Farmacia",
+                "information": "Piso 1: Laboratorios\nPiso 2: Decanato",
+                "categories": [
+                    "faculty",
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
                 ]
             }
         },
@@ -26245,41 +26940,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CS",
-                "name": "Ciencias de la Salud",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.61044,
-                            -33.500247
+                            -70.61043977737427,
+                            -33.500246746084834
                         ],
                         [
-                            -70.609931,
-                            -33.500188
+                            -70.60993149876595,
+                            -33.50018747484766
                         ],
                         [
-                            -70.609901,
-                            -33.500396
+                            -70.60990065336227,
+                            -33.5003954831617
                         ],
                         [
-                            -70.610422,
-                            -33.500439
+                            -70.61042234301567,
+                            -33.50043909774479
                         ],
                         [
-                            -70.61044,
-                            -33.500247
+                            -70.61043977737427,
+                            -33.500246746084834
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "CS",
+                "name": "Ciencias de la Salud",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "CS"
                 ]
             }
         },
@@ -27539,24 +28237,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_STEAM-SJ",
-                "name": "Sala STEAM",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6141596631249,
                     -33.49806942558134
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_STEAM-SJ",
+                "name": "Sala STEAM",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
                 ]
             }
         },
