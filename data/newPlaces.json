@@ -78,13 +78,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59298421938946,
-                    -33.445885993904405
+                    -70.59298429638147,
+                    -33.44588595464129
                 ]
             },
             "properties": {
                 "identifier": "SALA_MOZART_M103-OR",
-                "name": "Sala Mozart M103",
+                "name": "Sala Mozart M 103",
                 "information": "",
                 "categories": [
                     "classroom"
