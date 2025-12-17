@@ -80,30 +80,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59309577569366,
-                    -33.44630446959355
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_LUIS_ALBERTO_HEIREMANS_T103-OR",
-                "name": "Sala Luis Alberto Heiremans T 103",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59308940544724,
                     -33.446374408392664
                 ]
