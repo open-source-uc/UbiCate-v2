@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59304418727542,
+                    -33.445947336413525
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PIANO_M101-OR",
+                "name": "Sala Piano M101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59306625312304,
                     -33.4460610726475
                 ]
