@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59306625312304,
+                    -33.4460610726475
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_SAN_JUAN_M100-OR",
+                "name": "Sala San Juan M100",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59304288310295,
                     -33.4462304992307
                 ]
