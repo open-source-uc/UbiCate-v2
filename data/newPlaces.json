@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59300868186537,
+                    -33.445913325714066
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_CANTO_M102-OR",
+                "name": "Sala Canto M102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59304418727542,
                     -33.445947336413525
                 ]
