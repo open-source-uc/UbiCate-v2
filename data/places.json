@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59361295435909,
+                    -33.445567692675795
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9OGIO5DPHQF",
+                "name": "Espacio Vilchez",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59384093738508,
                     -33.445329648971445
                 ]
