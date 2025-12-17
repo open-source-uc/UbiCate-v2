@@ -116,7 +116,7 @@
                     "classroom"
                 ],
                 "floors": [
-                    1
+                    -1
                 ],
                 "needApproval": true,
                 "campus": "OR",
