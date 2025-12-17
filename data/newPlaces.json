@@ -11,6 +11,30 @@
                 ]
             },
             "properties": {
+                "identifier": "MJA6U32J2OS64O",
+                "name": "Administración ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59359593610766,
+                    -33.44702190919684
+                ]
+            },
+            "properties": {
                 "identifier": "MJA6U1T2DDA8OX",
                 "name": "Administración ",
                 "information": "",
