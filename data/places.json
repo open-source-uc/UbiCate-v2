@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59301597997546,
+                    -33.44615214269391
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_M007-OR",
+                "name": "Sala Percusión M 007",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "ACO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59306627139449,
                     -33.44606108213304
                 ]
