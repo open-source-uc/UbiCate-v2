@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59308940544724,
-                    -33.446374408392664
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_CARMEN_BARROS_T105-OR",
-                "name": "Sala Carmen Barros T 105",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59359593610766,
                     -33.44702190919684
                 ]
