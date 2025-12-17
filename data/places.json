@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59300516792352,
+                    -33.446459902797336
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_SEMINARIO_SONIA_FUCHS-OR",
+                "name": "Sala Seminario Sonia Fuchs",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59359593610766,
                     -33.44702190919684
                 ]
