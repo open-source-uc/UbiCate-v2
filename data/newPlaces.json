@@ -54,30 +54,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.5930034680155,
-                    -33.446214326583565
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_FERNANDO_DEBESA-OR",
-                "name": "Sala Fernando Debesa",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59297977015376,
                     -33.44627509528111
                 ]
