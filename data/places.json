@@ -26269,41 +26269,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CS",
-                "name": "Ciencias de la Salud",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.61044,
-                            -33.500247
+                            -70.61043977737427,
+                            -33.500246746084834
                         ],
                         [
-                            -70.609931,
-                            -33.500188
+                            -70.60993149876595,
+                            -33.50018747484766
                         ],
                         [
-                            -70.609901,
-                            -33.500396
+                            -70.60990065336227,
+                            -33.5003954831617
                         ],
                         [
-                            -70.610422,
-                            -33.500439
+                            -70.61042234301567,
+                            -33.50043909774479
                         ],
                         [
-                            -70.61044,
-                            -33.500247
+                            -70.61043977737427,
+                            -33.500246746084834
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "CS",
+                "name": "Ciencias de la Salud",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "CS"
                 ]
             }
         },
