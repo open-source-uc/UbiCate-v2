@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59304113104034,
+                    -33.44573304499793
+                ]
+            },
+            "properties": {
+                "identifier": "INTERPRETACIÓN_MUSICAL_SALAS-OR",
+                "name": "Interpretación Musical Salas",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59284754053756,
                     -33.445831819295094
                 ]
