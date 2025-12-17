@@ -126,13 +126,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59304418727542,
-                    -33.445947336413525
+                    -70.59304414317012,
+                    -33.44594736120621
                 ]
             },
             "properties": {
                 "identifier": "SALA_PIANO_M101-OR",
-                "name": "Sala Piano M101",
+                "name": "Sala Piano M 101",
                 "information": "",
                 "categories": [
                     "classroom"
