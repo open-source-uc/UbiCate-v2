@@ -25672,45 +25672,54 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CCL",
-                "name": "Escuela de Construcción Civil",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.614362,
-                            -33.498771
+                            -70.6135590794516,
+                            -33.49868793699711
                         ],
                         [
-                            -70.613376,
-                            -33.498703
+                            -70.61340574658067,
+                            -33.49867669620171
                         ],
                         [
-                            -70.613308,
-                            -33.499093
+                            -70.61334918578622,
+                            -33.499067783245216
                         ],
                         [
-                            -70.614373,
-                            -33.499189
+                            -70.61358940903041,
+                            -33.499088389399134
                         ],
                         [
-                            -70.614395,
-                            -33.498915
+                            -70.6136113137262,
+                            -33.49888184049732
                         ],
                         [
-                            -70.614362,
-                            -33.498771
+                            -70.61353956704805,
+                            -33.49887784049667
+                        ],
+                        [
+                            -70.6135590794516,
+                            -33.49868793699711
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "CCL",
+                "name": "Escuela de Construcción Civil",
+                "information": "Piso 1: Pregrado Escuela Construcción Civil, Sala de Estudio, Sala CC10, Sala C100, Sala San Bernardo y Centro de Estudiantes\nPiso 2: Salas CC200 y CC201, Pastoral y Auditorio",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
                 ]
             }
         },
