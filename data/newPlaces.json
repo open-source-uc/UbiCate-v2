@@ -54,13 +54,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.5929077807639,
-                    -33.44593387061973
+                    -70.59290785342455,
+                    -33.445933932895045
                 ]
             },
             "properties": {
                 "identifier": "SALA_COMPOSICIÓN_M104-OR",
-                "name": "Sala Composición M104",
+                "name": "Sala Composición M 104",
                 "information": "",
                 "categories": [
                     "classroom"
