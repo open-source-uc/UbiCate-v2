@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.5929924339448,
+                    -33.44628887596121
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_GABRIELA_ROEPKE_T106-OR",
+                "name": "Sala Gabriela Roepke T106",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59315380870284,
                     -33.44634521790241
                 ]
