@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59405577198747,
+                    -33.44595862728233
+                ]
+            },
+            "properties": {
+                "identifier": "MJA82NSW5MRLU6",
+                "name": "Centro UC para la transformacion educativa CENTRE",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59357983563552,
                     -33.445819805059244
                 ]
