@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59316260489719,
+                    -33.446037063988506
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9BPCUVXXINP",
+                "name": "Espacio de Encuentro",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59290785342455,
                     -33.445933932895045
                 ]
