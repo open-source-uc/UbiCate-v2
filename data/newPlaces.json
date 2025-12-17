@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59297977015376,
-                    -33.44627509528111
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_SILVIA_PIÑEIRO_T102-OR",
-                "name": "Sala Silvia Piñeiro T 102",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59308940544724,
                     -33.446374408392664
                 ]
