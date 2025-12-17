@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59298421938946,
+                    -33.445885993904405
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MOZART_M103-OR",
+                "name": "Sala Mozart M103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59300868186537,
                     -33.445913325714066
                 ]
