@@ -442,13 +442,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.5930958123425,
-                    -33.446304459180155
+                    -70.59309577569366,
+                    -33.44630446959355
                 ]
             },
             "properties": {
                 "identifier": "SALA_LUIS_ALBERTO_HEIREMANS_T103-OR",
-                "name": "Sala Luis Alberto Heiremans T103",
+                "name": "Sala Luis Alberto Heiremans T 103",
                 "information": "",
                 "categories": [
                     "classroom"
