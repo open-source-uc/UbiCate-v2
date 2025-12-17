@@ -150,13 +150,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59306625312304,
-                    -33.4460610726475
+                    -70.59306627139449,
+                    -33.44606108213304
                 ]
             },
             "properties": {
                 "identifier": "SALA_SAN_JUAN_M100-OR",
-                "name": "Sala San Juan M100",
+                "name": "Sala San Juan M 100",
                 "information": "",
                 "categories": [
                     "classroom"
