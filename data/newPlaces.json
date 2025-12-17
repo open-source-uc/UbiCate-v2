@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59315380870284,
+                    -33.44634521790241
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PAZ_IRARRAZÁZABAL_T104-OR",
+                "name": "Sala Paz Irarrazázabal T104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "ACO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5930958123425,
                     -33.446304459180155
                 ]
