@@ -416,13 +416,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59315380870284,
-                    -33.44634521790241
+                    -70.5931537784636,
+                    -33.446345173981484
                 ]
             },
             "properties": {
                 "identifier": "SALA_PAZ_IRARRAZÁZABAL_T104-OR",
-                "name": "Sala Paz Irarrazázabal T104",
+                "name": "Sala Paz Irarrazázabal T 104",
                 "information": "",
                 "categories": [
                     "classroom"
