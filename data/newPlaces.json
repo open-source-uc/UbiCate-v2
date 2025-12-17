@@ -102,13 +102,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59300868186537,
-                    -33.445913325714066
+                    -70.59300860390067,
+                    -33.44591337078953
                 ]
             },
             "properties": {
                 "identifier": "SALA_CANTO_M102-OR",
-                "name": "Sala Canto M102",
+                "name": "Sala Canto M 102",
                 "information": "",
                 "categories": [
                     "classroom"
