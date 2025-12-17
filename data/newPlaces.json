@@ -6,13 +6,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59284754053756,
-                    -33.445831819295094
+                    -70.59284750372171,
+                    -33.445831821710875
                 ]
             },
             "properties": {
                 "identifier": "SALA_LATEM_M106-OR",
-                "name": "Sala Latem M106",
+                "name": "Sala Latem M 106",
                 "information": "",
                 "categories": [
                     "classroom"
