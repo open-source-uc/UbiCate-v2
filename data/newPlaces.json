@@ -466,13 +466,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59308934435244,
-                    -33.44637438509717
+                    -70.59308940544724,
+                    -33.446374408392664
                 ]
             },
             "properties": {
                 "identifier": "SALA_CARMEN_BARROS_T105-OR",
-                "name": "Sala Carmen Barros T105",
+                "name": "Sala Carmen Barros T 105",
                 "information": "",
                 "categories": [
                     "classroom"
