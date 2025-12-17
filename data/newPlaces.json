@@ -344,13 +344,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59297970414477,
-                    -33.446275092643795
+                    -70.59297977015376,
+                    -33.44627509528111
                 ]
             },
             "properties": {
                 "identifier": "SALA_SILVIA_PIÑEIRO_T102-OR",
-                "name": "Sala Silvia Piñeiro T102",
+                "name": "Sala Silvia Piñeiro T 102",
                 "information": "",
                 "categories": [
                     "classroom"
