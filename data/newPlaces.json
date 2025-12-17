@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59300226751986,
+                    -33.4462327982235
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_TÉCNICA-OR",
+                "name": "Sala Técnica ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59300516792352,
                     -33.446459902797336
                 ]
