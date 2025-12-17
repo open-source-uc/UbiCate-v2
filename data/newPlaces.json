@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59299149003711,
+                    -33.4457876919795
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MÚSICA_ANTIGUA_M105-OR",
+                "name": "Sala Música Antigua M105",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5929077807639,
                     -33.44593387061973
                 ]
