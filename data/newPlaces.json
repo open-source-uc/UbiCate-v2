@@ -198,13 +198,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.592839473498,
-                    -33.446108844565046
+                    -70.59283945709467,
+                    -33.446108780534
                 ]
             },
             "properties": {
                 "identifier": "SALA_PERCUSIÓN_009-OR",
-                "name": "Sala percusión 009",
+                "name": "Sala Percusión M009",
                 "information": "",
                 "categories": [
                     "classroom"
