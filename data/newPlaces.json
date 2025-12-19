@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22560366311534,
+                    -39.27751375247373
+                ]
+            },
+            "properties": {
+                "identifier": "MJD00Z3GQZ20QJ",
+                "name": "Dirección de Comunicaciones y Extensión",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22557607131618,
                     -39.277480281173425
                 ]
