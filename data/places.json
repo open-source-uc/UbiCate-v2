@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22593915587596,
+                    -39.278801305147006
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_JUEGOS-VR",
+                "name": "Sala de Juegos",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22581537810515,
                     -39.278861883081
                 ]
