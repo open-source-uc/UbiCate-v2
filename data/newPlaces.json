@@ -54,30 +54,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22548600213413,
-                    -39.27757938202303
-                ]
-            },
-            "properties": {
-                "identifier": "MJCW8323VTHQYM",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22575208482809,
                     -39.27768382009687
                 ]
