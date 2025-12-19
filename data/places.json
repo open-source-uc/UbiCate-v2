@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.2249699035958,
+                    -39.27738352322381
+                ]
+            },
+            "properties": {
+                "identifier": "MJCX5W64IW1C7E",
+                "name": "Patio la Virgen",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22487532397723,
                     -39.277468668517386
                 ]
