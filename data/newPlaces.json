@@ -126,30 +126,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22602491159873,
-                    -39.27856047879347
-                ]
-            },
-            "properties": {
-                "identifier": "MJCZXN7UJ4T6SI",
-                "name": "Archivo Museo Leandro Penchulef",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22569166487146,
                     -39.27772778232818
                 ]
