@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22582379683487,
+                    -39.278761484492684
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWOUO90B42F6",
+                "name": "Cancha",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22581537810515,
                     -39.278861883081
                 ]
