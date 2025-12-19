@@ -30,8 +30,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22569535918167,
-                    -39.277720360605805
+                    -72.22569538280368,
+                    -39.27772036629984
                 ]
             },
             "properties": {
@@ -42,7 +42,7 @@
                     "other"
                 ],
                 "floors": [
-                    3
+                    2
                 ],
                 "needApproval": true,
                 "campus": "VR",
