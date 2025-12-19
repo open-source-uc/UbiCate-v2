@@ -1,5 +1,6 @@
 import { use } from "react";
 
+import { CloseButton } from "@/app/components/ui";
 import * as Icons from "@/app/components/ui/icons/icons";
 import { NotificationContext } from "@/app/context/notificationCtx";
 
@@ -26,16 +27,14 @@ export default function DirectionSuccessNotification({
           <Icons.Directions className="w-7 h-7" />
           <h1 className="font-bold">En Ruta a {placeName}</h1>
         </div>
-        <button
-          className="bg-accent flex items-center rounded-full hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-auto"
-          aria-label="Cerrar menú"
+        <CloseButton
+          variant="accent"
+          className="ml-auto"
           onClick={() => {
             clearNotification();
             clearAllCodes();
           }}
-        >
-          <Icons.Close />
-        </button>
+        />
       </div>
 
       <div className="flex-grow">
