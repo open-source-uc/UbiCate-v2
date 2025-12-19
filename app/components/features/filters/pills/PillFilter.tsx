@@ -36,10 +36,9 @@ const pills: Array<CategoryFilter> = [
 function PillFilter() {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
-  const { setPlaces } = useSidebar();
+  const { setPlaces, activeFilters, setActiveFilters } = useSidebar();
 
   useEffect(() => {
     const loadGeoJson = async () => {
@@ -50,23 +49,76 @@ function PillFilter() {
     loadGeoJson();
   }, []);
 
+  useEffect(() => {
+    if (!placesGeoJson.features || placesGeoJson.features.length === 0) return;
+    if (activeFilters.length === 0) {
+      setPlaces([]);
+      return;
+    }
+
+    const allResults: any[] = [];
+    const seenIds = new Set<string>();
+
+    activeFilters.forEach((cat) => {
+      const results = placesFilteredByCategory[cat] || categoryFilter(placesGeoJson, cat);
+      
+      if (!placesFilteredByCategory[cat]) {
+        setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
+      }
+
+      results.forEach((feature: any) => {
+        const featureId = feature.properties?.id || JSON.stringify(feature);
+        if (!seenIds.has(featureId)) {
+          seenIds.add(featureId);
+          allResults.push(feature);
+        }
+      });
+    });
+
+    setPlaces(allResults);
+  }, [placesGeoJson, activeFilters]); 
+
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
-      setPlaces([]);
       if (!placesGeoJson) return;
 
-      if (activeFilter === category) {
-        setActiveFilter(null);
+      let newActiveFilters: string[];
+      
+      if (activeFilters.includes(category)) {
+        newActiveFilters = activeFilters.filter(f => f !== category);
+      } else {
+        newActiveFilters = [...activeFilters, category];
+      }
+      
+      setActiveFilters(newActiveFilters);
+
+      if (newActiveFilters.length === 0) {
         setPlaces([]);
         return;
       }
 
-      const results = placesFilteredByCategory[category] || filter(placesGeoJson, category);
-      setPlacesFilteredByCategory((prev) => ({ ...prev, [category]: results }));
-      setPlaces(results);
-      setActiveFilter(category);
+      const allResults: any[] = [];
+      const seenIds = new Set<string>();
+
+      newActiveFilters.forEach((cat) => {
+        const results = placesFilteredByCategory[cat] || filter(placesGeoJson, cat);
+        
+        if (!placesFilteredByCategory[cat]) {
+          setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
+        }
+
+        results.forEach((feature: any) => {
+          const featureId = feature.properties?.id || JSON.stringify(feature);
+          if (!seenIds.has(featureId)) {
+            seenIds.add(featureId);
+            allResults.push(feature);
+          }
+        });
+      });
+
+      setPlaces(allResults);
     },
-    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilter],
+    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilters],
   );
 
   return (
@@ -82,7 +134,7 @@ function PillFilter() {
               icon={icon}
               bg_color={getCategoryColor(filter)}
               onClick={() => applyFilter(categoryFilter, filter)}
-              active={activeFilter === filter}
+              active={activeFilters.includes(filter)}
             />
           </div>
         ))}
