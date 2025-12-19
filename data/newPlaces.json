@@ -582,30 +582,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22509529966084,
-                    -39.27708755560005
-                ]
-            },
-            "properties": {
-                "identifier": "MJCX73BKWYO2ZS",
-                "name": "Huerta el Boldo",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22582382088758,
                     -39.27868918865741
                 ]
