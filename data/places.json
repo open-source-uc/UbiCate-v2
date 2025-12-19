@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.225635338483,
+                    -39.27770286718783
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZNBLWE2XNBL",
+                "name": "Coordinación de Pregrado y Asuntos Estudiantiles",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22572133279434,
                     -39.277763101478364
                 ]
