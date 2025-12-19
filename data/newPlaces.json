@@ -534,30 +534,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22582382088758,
-                    -39.27868918865741
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_MULTIUSO-VR",
-                "name": "Sala Multiuso",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22582291109724,
                     -39.277720077850944
                 ]
