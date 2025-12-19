@@ -6,6 +6,1271 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.2258046639059,
+                    -39.27765385217351
+                ]
+            },
+            "properties": {
+                "identifier": "MJCW21VP0GUA8G",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22575208482809,
+                    -39.27768382009687
+                ]
+            },
+            "properties": {
+                "identifier": "MJCW2PFE2L6XA0",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22584405890171,
+                    -39.27771519289583
+                ]
+            },
+            "properties": {
+                "identifier": "MJD21I7FLL2TDT",
+                "name": "Centro de Estudiantes CEV",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22495950989237,
+                    -39.2771617067288
+                ]
+            },
+            "properties": {
+                "identifier": "MJD240QT1IHPRE",
+                "name": "Auditorio",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22548600213413,
+                    -39.27757938202303
+                ]
+            },
+            "properties": {
+                "identifier": "MJCW8323VTHQYM",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22575542661136,
+                    -39.2776236430512
+                ]
+            },
+            "properties": {
+                "identifier": "MJD22CS33IUMXH",
+                "name": "Pastoral UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22542356394722,
+                    -39.27760582003359
+                ]
+            },
+            "properties": {
+                "identifier": "MJCW7E8Y8WBPV5",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22569538280368,
+                    -39.27772036629984
+                ]
+            },
+            "properties": {
+                "identifier": "MJCY8R9U5CW53P",
+                "name": "Oficina de Profesores",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22569166487146,
+                    -39.27772778232818
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZOAN9Y68I1U",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22555796278266,
+                    -39.27771303272145
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_EXPLORACIÓN_DE_PEDAGOGÍAS-VR",
+                "name": "Sala de exploración de Pedagogías",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22556291883922,
+                    -39.277682104564654
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZMC7TFWHQKX",
+                "name": "Preuniversitario UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22560756703913,
+                    -39.277730277933244
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXNMVBLQTJTE",
+                "name": "Laboratorio de Ciencias",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.225635338483,
+                    -39.27770286718783
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZNBLWE2XNBL",
+                "name": "Coordinación de Pregrado y Asuntos Estudiantiles",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22572133279434,
+                    -39.277763101478364
+                ]
+            },
+            "properties": {
+                "identifier": "MJD03MPK5OCK9S",
+                "name": "Dirección Económica y de Gestión",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2256834496364,
+                    -39.27781627519637
+                ]
+            },
+            "properties": {
+                "identifier": "MJCVLYGTCLWHXX",
+                "name": "Biblioteca Escolar Futuro",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22576777225598,
+                    -39.2777490214038
+                ]
+            },
+            "properties": {
+                "identifier": "MJCVSDK1M5M3JD",
+                "name": "Biblioteca Gabriela Mistral",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22582291109724,
+                    -39.277720077850944
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MAPUDUNGUN-VR",
+                "name": "Sala Mapudungun",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22556373160488,
+                    -39.27763290339385
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZ17HV8JJPGP",
+                "name": "Conscientes del Lugar - Sepcol",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22570806308451,
+                    -39.27758018509201
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_8-VR",
+                "name": "Sala 8",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22560366311534,
+                    -39.27751375247373
+                ]
+            },
+            "properties": {
+                "identifier": "MJD00Z3GQZ20QJ",
+                "name": "Dirección de Comunicaciones y Extensión",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22564667979323,
+                    -39.27768606219665
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYDCAS5PJV4N",
+                "name": "Capilla",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22574079122181,
+                    -39.277610111486716
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_1,_2_Y_3-VR",
+                "name": "Salas 1, 2 y 3",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22554495614162,
+                    -39.2776370559224
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZLES9K1G59O",
+                "name": "Coordinación de Admisión",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22563615124754,
+                    -39.27759553062776
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZ085L8ARDON",
+                "name": "DASE",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2256220910604,
+                    -39.2775222548641
+                ]
+            },
+            "properties": {
+                "identifier": "MJD01YG3B8XGX6",
+                "name": "Dirección Académica",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2254732055549,
+                    -39.27755332943413
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_CONSEJO-VR",
+                "name": "Sala de Consejo",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22561291563085,
+                    -39.277475839728545
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWQOS9E57TXK",
+                "name": "Sala CRISOL",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22557607131618,
+                    -39.277480281173425
+                ]
+            },
+            "properties": {
+                "identifier": "MJD009X6XM5U96",
+                "name": "Dirección de Investigación",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22550538634346,
+                    -39.277536943710025
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYWSSMZ1BVJF",
+                "name": "Hall",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22547051762601,
+                    -39.277528638642636
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYXFCOB0WL4W",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22542425673502,
+                    -39.27752493757244
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYYC9KL877OG",
+                "name": "Seguridad",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22556630281271,
+                    -39.27746965552614
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZZM33RPLPZQ",
+                "name": "Dirección Campus Villarrica",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22602491159873,
+                    -39.27856047879347
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZXN7UJ4T6SI",
+                "name": "Archivo Museo Leandro Penchulef",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22602406749914,
+                    -39.278614078933344
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYBCC8CMVS0M",
+                "name": "Oficina de Profesores",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22606449192504,
+                    -39.2786122641055
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZPFW0CC8IAX",
+                "name": "Educación Continua",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2260769536176,
+                    -39.27863136955871
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXOPHKP0LWTK",
+                "name": "MediaLab",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2260689069894,
+                    -39.27868535164004
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXXW83FR20YB",
+                "name": "EduFabLab",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22582382088758,
+                    -39.27868918865741
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MULTIUSO-VR",
+                "name": "Sala Multiuso",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22582379683487,
+                    -39.278761484492684
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWOUO90B42F6",
+                "name": "Cancha",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22593915587596,
+                    -39.278801305147006
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_JUEGOS-VR",
+                "name": "Sala de Juegos",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22581537810515,
+                    -39.278861883081
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWNIRNMFOPN9",
+                "name": "Comedor de Funcionarios",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22567586206915,
+                    -39.27880964077218
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWFTDZRRCL7I",
+                "name": "Camarines",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22210109758493,
+                    -39.27932308117854
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZTUXRMX7OPW",
+                "name": "Centro de Estudios Interculturales e Indígenas - CIIR",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22189446664999,
+                    -39.27927325202217
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZSUM1LZH8DC",
+                "name": "Centro UC de Desarrollo Local - Cedel",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22530967692025,
+                    -39.277198459195155
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWMIE6HULL93",
+                "name": "Cafetería",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22509529966084,
+                    -39.27708755560005
+                ]
+            },
+            "properties": {
+                "identifier": "MJCX73BKWYO2ZS",
+                "name": "Huerta el Boldo",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22497314834898,
+                    -39.277172460231824
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYVRLYDLT1VK",
+                "name": "Centro UC de Desarrollo Local - Cedel",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22507107595806,
+                    -39.277266174761785
+                ]
+            },
+            "properties": {
+                "identifier": "MJCY7PMEZILKYH",
+                "name": "Oficinas de profesores e investigadores",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22518382935178,
+                    -39.2773604167622
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWEP9Y003TBS",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22508988487392,
+                    -39.27742185671627
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_REUNIONES-VR",
+                "name": "Sala de Reuniones",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22504318276516,
+                    -39.27743691023466
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYQ48GDIT0E3",
+                "name": "Hall",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2249699035958,
+                    -39.27738352322381
+                ]
+            },
+            "properties": {
+                "identifier": "MJCX5W64IW1C7E",
+                "name": "Patio la Virgen",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22487532397723,
+                    -39.277468668517386
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXGSUHSIZJWN",
+                "name": "Sala Saberes y Sabores",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22482562685332,
+                    -39.27744652837472
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYSSX1K53Q25",
+                "name": "Centro de Estudios Interculturales e Indígenas - CIIR",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22482422877236,
+                    -39.27744046165944
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZVZ8KLW14EZ",
+                "name": "Museo Interactivo de Agroecología y Sustentabilidad - MIRAS",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59359593610766,
                     -33.44702190919684
                 ]
