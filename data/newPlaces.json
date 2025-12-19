@@ -174,30 +174,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22563615124754,
-                    -39.27759553062776
-                ]
-            },
-            "properties": {
-                "identifier": "MJCZ085L8ARDON",
-                "name": "DASE",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22564667979323,
                     -39.27768606219665
                 ]
