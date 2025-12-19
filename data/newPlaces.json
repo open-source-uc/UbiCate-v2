@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22557607131618,
+                    -39.277480281173425
+                ]
+            },
+            "properties": {
+                "identifier": "MJD009X6XM5U96",
+                "name": "Dirección de Investigación",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22556630281271,
                     -39.27746965552614
                 ]
