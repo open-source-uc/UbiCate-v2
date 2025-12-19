@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22575542661136,
+                    -39.2776236430512
+                ]
+            },
+            "properties": {
+                "identifier": "MJD22CS33IUMXH",
+                "name": "Pastoral UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22542356394722,
                     -39.27760582003359
                 ]
