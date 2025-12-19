@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22582291109724,
+                    -39.277720077850944
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MAPUDUNGUN-VR",
+                "name": "Sala Mapudungun",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22555796278266,
                     -39.27771303272145
                 ]
