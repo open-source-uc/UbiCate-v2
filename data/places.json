@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.2260769536176,
+                    -39.27863136955871
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXOPHKP0LWTK",
+                "name": "MediaLab",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.2260689069894,
                     -39.27868535164004
                 ]
