@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22550538634346,
+                    -39.277536943710025
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYWSSMZ1BVJF",
+                "name": "Hall",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22547051762601,
                     -39.277528638642636
                 ]
