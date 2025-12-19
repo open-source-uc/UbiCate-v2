@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22560756703913,
+                    -39.277730277933244
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXNMVBLQTJTE",
+                "name": "Laboratorio de Ciencias",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.225635338483,
                     -39.27770286718783
                 ]
