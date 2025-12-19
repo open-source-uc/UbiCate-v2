@@ -2,12 +2,15 @@ import * as Icons from "@/app/components/ui/icons/icons";
 import * as lightFormalMap from "@/app/map/hooks/config/lightFormal";
 import * as normalMap from "@/app/map/hooks/config/normal";
 import * as pinkCoquetteMap from "@/app/map/hooks/config/pinkCoquette";
-import * as ucMap from "@/app/map/hooks/config/uc-theme";
+import * as ucLightMap from "@/app/map/hooks/config/uc-theme-light";
+import * as ucDarkMap from "@/app/map/hooks/config/uc-theme-dark";
 
 import { darkThemeMap } from "../map/styles/darkThemeMap";
 import { lightThemeMap } from "../map/styles/lightThemeMap";
 import { pinkThemeMap } from "../map/styles/pinkThemeMap";
-import { ucThemeMap } from "../map/styles/ucThemeMap";
+import { ucLightThemeMap } from "../map/styles/ucLightThemeMap";
+import { ucDarkThemeMap } from "../map/styles/ucDarkThemeMap";
+
 
 import { ThemeRegistry, ThemeDefinition } from "./types";
 
@@ -84,17 +87,35 @@ export const themeRegistry: ThemeRegistry = {
       id: "uc-theme-light",
       ui: {
         name: "UC",
-        description: "Utiliza el estilo oficial de la UC",
+        description: "Utiliza el estilo oficial de la UC en modo claro",
         icon: Icons.Coffee,
       },
       mapConfig: {
-        placesTextLayer: ucMap.placesTextLayer,
-        campusBorderLayer: ucMap.campusBorderLayer,
-        sectionStrokeLayer: ucMap.sectionStrokeLayer,
-        sectionAreaLayer: ucMap.sectionAreaLayer,
-        customPolygonStrokeLayer: ucMap.customPolygonStrokeLayer,
-        customPolygonSectionAreaLayer: ucMap.customPolygonSectionAreaLayer,
-        mapStyle: ucThemeMap,
+        placesTextLayer: ucLightMap.placesTextLayer,
+        campusBorderLayer: ucLightMap.campusBorderLayer,
+        sectionStrokeLayer: ucLightMap.sectionStrokeLayer,
+        sectionAreaLayer: ucLightMap.sectionAreaLayer,
+        customPolygonStrokeLayer: ucLightMap.customPolygonStrokeLayer,
+        customPolygonSectionAreaLayer: ucLightMap.customPolygonSectionAreaLayer,
+        mapStyle: ucLightThemeMap,
+      },
+    },
+
+    "uc-theme-dark": {
+      id: "uc-theme-dark",
+      ui: {
+        name: "UC",
+        description: "Utiliza el estilo oficial de la UC en modo oscuro",
+        icon: Icons.Coffee,
+      },
+      mapConfig: {
+        placesTextLayer: ucDarkMap.placesTextLayer,
+        campusBorderLayer: ucDarkMap.campusBorderLayer,
+        sectionStrokeLayer: ucDarkMap.sectionStrokeLayer,
+        sectionAreaLayer: ucDarkMap.sectionAreaLayer,
+        customPolygonStrokeLayer: ucDarkMap.customPolygonStrokeLayer,
+        customPolygonSectionAreaLayer: ucDarkMap.customPolygonSectionAreaLayer,
+        mapStyle: ucDarkThemeMap,
       },
     },
   },

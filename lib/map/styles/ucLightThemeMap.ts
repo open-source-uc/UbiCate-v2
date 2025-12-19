@@ -1,6 +1,6 @@
 import { StyleSpecification } from "maplibre-gl";
 
-export const ucThemeMap: StyleSpecification = {
+export const ucLightThemeMap: StyleSpecification = {
   version: 8,
   name: "Ubicate-Style-MapLibre",
   glyphs: "/api/font/{fontstack}/{range}",
