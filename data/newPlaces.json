@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22556630281271,
+                    -39.27746965552614
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZZM33RPLPZQ",
+                "name": "Dirección Campus Villarrica",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22602491159873,
                     -39.27856047879347
                 ]
