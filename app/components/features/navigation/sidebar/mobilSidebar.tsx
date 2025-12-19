@@ -15,6 +15,7 @@ import PlaceMenu from "../../places/placeMenu/placeMenu";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
 export default function MobileSidebar() {
@@ -267,6 +268,19 @@ export default function MobileSidebar() {
                         </span>
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
+                      <button
+                        onClick={() => toggleSubSidebar("guía")}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
+                          activeSubSidebar === "guía" ? "bg-primary" : "bg-transparent"
+                        }`}
+                        aria-pressed={activeSubSidebar === "guía"}
+                        tabIndex={isOpen ? 0 : -1}
+                      >
+                        <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <Icons.Info className="group-hover:fill-secondary-foreground transition" />
+                        </span>
+                        <p className="text-sm tablet:text-md mt-1">Guía</p>
+                      </button>
                       {/* <button
                         onClick={() => toggleSubSidebar("temas")}
                         className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group ${
@@ -338,6 +352,9 @@ export default function MobileSidebar() {
             >
               {activeSubSidebar === "campus" && (
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
+              )}
+              {activeSubSidebar === "guía" && (
+                <UsageGuide onClose={() => setActiveSubSidebar(null)} />
               )}
               {activeSubSidebar === "guías" && (
                 <>
