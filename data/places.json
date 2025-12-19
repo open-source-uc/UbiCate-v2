@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22584405890171,
+                    -39.27771519289583
+                ]
+            },
+            "properties": {
+                "identifier": "MJD21I7FLL2TDT",
+                "name": "Centro de Estudiantes CEV",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22495950989237,
                     -39.2771617067288
                 ]
