@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22542425673502,
+                    -39.27752493757244
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYYC9KL877OG",
+                "name": "Seguridad",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22556630281271,
                     -39.27746965552614
                 ]
