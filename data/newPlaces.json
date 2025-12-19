@@ -534,30 +534,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22507107595806,
-                    -39.277266174761785
-                ]
-            },
-            "properties": {
-                "identifier": "MJCY7PMEZILKYH",
-                "name": "Oficinas de profesores e investigadores",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.2260689069894,
                     -39.27868535164004
                 ]
