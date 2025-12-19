@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 
 import { Feature, PointFeature, PolygonFeature } from "@/lib/types";
 
@@ -15,14 +15,33 @@ interface SidebarContextType {
   selectedPlace: Feature | null;
   setSelectedPlace: (place: Feature | null) => void;
   pointsName: PointFeature[];
+  activeFilters: string[];
+  setActiveFilters: (filters: string[]) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [activeFilters, setActiveFiltersState] = useState<string[]>([]);
 
   const o = usePlaces();
+
+  useEffect(() => {
+    const savedFilters = localStorage.getItem('ubicateActiveFilters');
+    if (savedFilters) {
+      try {
+        setActiveFiltersState(JSON.parse(savedFilters));
+      } catch (e) {
+        console.error('Error loading filters from localStorage:', e);
+      }
+    }
+  }, []);
+
+  const setActiveFilters = (filters: string[]) => {
+    setActiveFiltersState(filters);
+    localStorage.setItem('ubicateActiveFilters', JSON.stringify(filters));
+  };
 
   return (
     <SidebarContext.Provider
@@ -32,6 +51,8 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         ...o,
         places: o.findPlaces,
         pointsName: o.PointsName,
+        activeFilters,
+        setActiveFilters,
       }}
     >
       {children}
