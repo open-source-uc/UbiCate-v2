@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22606449192504,
+                    -39.2786122641055
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZPFW0CC8IAX",
+                "name": "Educación Continua",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.2260769536176,
                     -39.27863136955871
                 ]
