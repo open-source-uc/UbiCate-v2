@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22572133279434,
+                    -39.277763101478364
+                ]
+            },
+            "properties": {
+                "identifier": "MJD03MPK5OCK9S",
+                "name": "Dirección Económica y de Gestión",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.2256834496364,
                     -39.27781627519637
                 ]
