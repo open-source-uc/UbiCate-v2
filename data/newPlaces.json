@@ -822,30 +822,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22530967692025,
-                    -39.277198459195155
-                ]
-            },
-            "properties": {
-                "identifier": "MJCWMIE6HULL93",
-                "name": "Cafetería",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22567586206915,
                     -39.27880964077218
                 ]
