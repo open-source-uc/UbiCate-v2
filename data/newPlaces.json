@@ -150,30 +150,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22482422877236,
-                    -39.27744046165944
-                ]
-            },
-            "properties": {
-                "identifier": "MJCZVZ8KLW14EZ",
-                "name": "Museo Interactivo de Agroecología y Sustentabilidad - MIRAS",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22210109758493,
                     -39.27932308117854
                 ]
