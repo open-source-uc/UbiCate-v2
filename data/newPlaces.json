@@ -750,30 +750,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22581537810515,
-                    -39.278861883081
-                ]
-            },
-            "properties": {
-                "identifier": "MJCWNIRNMFOPN9",
-                "name": "Comedor de Funcionarios",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22548600213413,
                     -39.27757938202303
                 ]
