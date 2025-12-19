@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22189446664999,
+                    -39.27927325202217
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZSUM1LZH8DC",
+                "name": "Centro UC de Desarrollo Local - Cedel",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22530967692025,
                     -39.277198459195155
                 ]
