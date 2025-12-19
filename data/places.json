@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22561291563085,
+                    -39.277475839728545
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWQOS9E57TXK",
+                "name": "Sala CRISOL",
+                "information": "",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22557607131618,
                     -39.277480281173425
                 ]
