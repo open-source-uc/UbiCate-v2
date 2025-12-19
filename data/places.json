@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22555796278266,
+                    -39.27771303272145
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_EXPLORACIÓN_DE_PEDAGOGÍAS-VR",
+                "name": "Sala de exploración de Pedagogías",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22556291883922,
                     -39.277682104564654
                 ]
