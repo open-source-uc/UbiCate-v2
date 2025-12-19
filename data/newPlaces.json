@@ -654,30 +654,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22487532397723,
-                    -39.277468668517386
-                ]
-            },
-            "properties": {
-                "identifier": "MJCXGSUHSIZJWN",
-                "name": "Sala Saberes y Sabores",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22509529966084,
                     -39.27708755560005
                 ]
