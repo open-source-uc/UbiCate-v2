@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61379928658462,
+                    -33.49781890167755
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32216955",
+                "name": "Pedagogías interfacultades editado",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61388060077199,
                     -33.49698442560778
                 ]
