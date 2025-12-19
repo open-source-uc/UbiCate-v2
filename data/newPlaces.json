@@ -150,30 +150,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22564667979323,
-                    -39.27768606219665
-                ]
-            },
-            "properties": {
-                "identifier": "MJCYDCAS5PJV4N",
-                "name": "Capilla",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22569535918167,
                     -39.277720360605805
                 ]
