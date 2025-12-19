@@ -6,7 +6,7 @@
 @import './themes/default.css';
 @import './themes/coquette.css';
 @import './themes/light-formal.css';
-@import './themes/uc-theme.css';
+@import './themes/uc-theme-light.css';
 
 /* Theme variables and design tokens for consistent styling across the application */
 @theme static inline {
@@ -179,6 +179,7 @@
   --palette-uc-warning: #E3AE00;
   --palette-uc-danger: #F24F4F;
   --palette-uc-info: #0176DE;
+  --palette-uc-sign: #484B54;
 
     /* para chart*/
   --palette-yellow: #F08700;

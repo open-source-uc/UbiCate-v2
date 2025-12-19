@@ -21,7 +21,7 @@ import { ThemeRegistry, ThemeDefinition } from "./types";
  * 4. That's it! The theme will automatically appear in the UI
  */
 export const themeRegistry: ThemeRegistry = {
-  defaultTheme: "uc-theme", // UC theme as default
+  defaultTheme: "uc-theme-light", // UC theme as default
 
   themes: {
     // Default theme (empty string for backwards compatibility)
@@ -80,8 +80,8 @@ export const themeRegistry: ThemeRegistry = {
       },
     },
 
-    "uc-theme": {
-      id: "uc-theme",
+    "uc-theme-light": {
+      id: "uc-theme-light",
       ui: {
         name: "UC",
         description: "Utiliza el estilo oficial de la UC",

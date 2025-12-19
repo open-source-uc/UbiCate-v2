@@ -1,3 +1,4 @@
+import { CloseButton } from "@/app/components/ui";
 import * as Icons from "@/app/components/ui/icons/icons";
 import { useTheme } from "@/app/context/themeCtx";
 import { getAllThemes } from "@/lib/themes";
@@ -19,13 +20,7 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
             <p className="text-xs text-muted-foreground">Personaliza tu experiencia</p>
           </div>
         </div>
-        <button
-          onClick={() => setActiveSubSidebar(null)}
-          className="w-8 h-8 bg-primary flex items-center justify-center rounded-full cursor-pointer group hover:bg-secondary transition"
-          aria-label="Cerrar menú"
-        >
-          <Icons.Close className="w-4 h-4 fill-background group-hover:fill-secondary-foreground" />
-        </button>
+        <CloseButton onClick={() => setActiveSubSidebar(null)} />
       </div>
 
       {/* Themes section following sidebar pattern */}

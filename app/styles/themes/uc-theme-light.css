@@ -2,7 +2,7 @@
 /*                    UC THEME               */
 /* =============================================== */
 
-[data-theme="uc-theme"] {
+[data-theme="uc-theme-light"] {
   --theme-background: var(--palette-uc-blanco);
   --theme-foreground: var(--palette-uc-negro);
   

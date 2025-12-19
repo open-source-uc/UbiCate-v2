@@ -17,7 +17,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // eslint-disable-next-line
-  const [theme, setThemeState] = useState<ThemeId>("uc-theme"); // UC theme as default
+  const [theme, setThemeState] = useState<ThemeId>("uc-theme-light"); // UC theme as default
 
   const getViewportColor = () => {
     if (typeof document === "undefined") return "#150a04"; // fallback
@@ -50,7 +50,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
 
     const statusBarStyle =
-      currentTheme === "pink-coquette" || currentTheme === "light-formal" || currentTheme === "uc-theme"
+      currentTheme === "pink-coquette" || currentTheme === "light-formal" || currentTheme === "uc-theme-light"
         ? "default" // contenido oscuro sobre fondo claro
         : "black-translucent"; // contenido claro sobre fondo oscuro
 
@@ -103,7 +103,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme") as ThemeId | null;
-      const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "uc-theme";
+      const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "uc-theme-light";
 
       setThemeState(initial);
 

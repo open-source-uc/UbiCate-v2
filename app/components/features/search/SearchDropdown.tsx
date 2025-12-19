@@ -3,6 +3,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import Fuse from "fuse.js";
 
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { CloseButton } from "@/app/components/ui";
 import { emitPlaceSelectedEvent } from "@/lib/events/customEvents";
 import { getCategoryColor } from "@/lib/map/categoryToColors";
 import PlacesJSON from "@/lib/places/data";
@@ -185,13 +186,12 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
           {/* Botón de limpiar */}
           {query ? (
             <div className="absolute right-0 top-0 z-20 py-[13px] px-3">
-              <button
+              <CloseButton
+                variant="destructive"
+                size="sm"
                 onClick={handleClearInput}
-                className="p-1 bg-destructive border-none cursor-pointer leading-none rounded-full hover:bg-destructive/80 focus:outline-none group"
                 aria-label="Limpiar búsqueda"
-              >
-                <Icons.Close className="w-4 h-4 fill-input group-hover:fill-secondary/80" />
-              </button>
+              />
             </div>
           ) : null}
         </div>
