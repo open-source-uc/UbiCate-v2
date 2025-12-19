@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.2260689069894,
+                    -39.27868535164004
+                ]
+            },
+            "properties": {
+                "identifier": "MJCXXW83FR20YB",
+                "name": "EduFabLab",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22582382088758,
                     -39.27868918865741
                 ]
