@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22482562685332,
+                    -39.27744652837472
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYSSX1K53Q25",
+                "name": "Centro de Estudios Interculturales e Indígenas - CIIR",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22504318276516,
                     -39.27743691023466
                 ]
