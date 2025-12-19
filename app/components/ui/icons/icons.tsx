@@ -166,7 +166,7 @@ export function UserLocation({ className, rotation = 0 }: { className?: string; 
           cy="320.5"
           r="38.5"
           fill="var(--color-route-primary)"
-          stroke="var(--color-background)"
+          stroke="var(--color-route-border)"
           strokeWidth="9"
         />
 
