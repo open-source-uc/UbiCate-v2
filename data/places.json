@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22570806308451,
+                    -39.27758018509201
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_8-VR",
+                "name": "Sala 8",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22560366311534,
                     -39.27751375247373
                 ]
