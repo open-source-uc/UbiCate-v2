@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22567586206915,
+                    -39.27880964077218
+                ]
+            },
+            "properties": {
+                "identifier": "MJCWFTDZRRCL7I",
+                "name": "Camarines",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22210109758493,
                     -39.27932308117854
                 ]
