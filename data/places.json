@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22576777225598,
+                    -39.2777490214038
+                ]
+            },
+            "properties": {
+                "identifier": "MJCVSDK1M5M3JD",
+                "name": "Biblioteca Gabriela Mistral",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22582291109724,
                     -39.277720077850944
                 ]
