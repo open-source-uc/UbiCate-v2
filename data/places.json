@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.2256834496364,
+                    -39.27781627519637
+                ]
+            },
+            "properties": {
+                "identifier": "MJCVLYGTCLWHXX",
+                "name": "Biblioteca Escolar Futuro",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22576777225598,
                     -39.2777490214038
                 ]
