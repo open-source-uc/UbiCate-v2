@@ -18,6 +18,7 @@ import { SearchDropdown } from "../../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
 export default function DesktopSidebar() {
@@ -102,6 +103,15 @@ export default function DesktopSidebar() {
                 text={isOpen ? "Campus" : undefined}
                 isActive={activeSubSidebar === "campus"}
               />
+              {/* Usage Guide button */}
+              <Button
+                variant="ghost"
+                size={isOpen ? "sidebar" : "sidebar-collapsed"}
+                onClick={() => (isOpen ? toggleSubSidebar("guía") : handleCollapsedClick("guía"))}
+                icon={<Icons.Info className="w-6 h-6" />}
+                text={isOpen ? "Guía" : undefined}
+                isActive={activeSubSidebar === "guía"}
+              />
               {/* <Button
                 variant="ghost"
                 size={isOpen ? "sidebar" : "sidebar-collapsed"}
@@ -145,6 +155,11 @@ export default function DesktopSidebar() {
                 <h3 className="font-bold text-lg">Guías</h3>
                 <ul className="space-y-2">Hello. This is not implemented.</ul>
               </>
+            )}
+            {activeSubSidebar === "guía" && (
+              <div className="w-full h-full">
+                <UsageGuide onClose={() => setActiveSubSidebar(null)} />
+              </div>
             )}
             {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
               <div className="w-full h-full">
