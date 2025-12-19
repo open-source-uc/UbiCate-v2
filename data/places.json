@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22508988487392,
+                    -39.27742185671627
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DE_REUNIONES-VR",
+                "name": "Sala de Reuniones",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22504318276516,
                     -39.27743691023466
                 ]
