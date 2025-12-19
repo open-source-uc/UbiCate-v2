@@ -107,10 +107,10 @@ export default function DesktopSidebar() {
               <Button
                 variant="ghost"
                 size={isOpen ? "sidebar" : "sidebar-collapsed"}
-                onClick={() => (isOpen ? toggleSubSidebar("guía") : handleCollapsedClick("guía"))}
+                onClick={() => (isOpen ? toggleSubSidebar("guías") : handleCollapsedClick("guías"))}
                 icon={<Icons.Info className="w-6 h-6" />}
                 text={isOpen ? "Guía" : undefined}
-                isActive={activeSubSidebar === "guía"}
+                isActive={activeSubSidebar === "guías"}
               />
               {/* <Button
                 variant="ghost"
@@ -151,12 +151,6 @@ export default function DesktopSidebar() {
               </div>
             )}
             {activeSubSidebar === "guías" && (
-              <>
-                <h3 className="font-bold text-lg">Guías</h3>
-                <ul className="space-y-2">Hello. This is not implemented.</ul>
-              </>
-            )}
-            {activeSubSidebar === "guía" && (
               <div className="w-full h-full">
                 <UsageGuide onClose={() => setActiveSubSidebar(null)} />
               </div>

@@ -269,11 +269,11 @@ export default function MobileSidebar() {
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
                       <button
-                        onClick={() => toggleSubSidebar("guía")}
+                        onClick={() => toggleSubSidebar("guías")}
                         className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
-                          activeSubSidebar === "guía" ? "bg-primary" : "bg-transparent"
+                          activeSubSidebar === "guías" ? "bg-primary" : "bg-transparent"
                         }`}
-                        aria-pressed={activeSubSidebar === "guía"}
+                        aria-pressed={activeSubSidebar === "guías"}
                         tabIndex={isOpen ? 0 : -1}
                       >
                         <span className="w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
@@ -353,15 +353,7 @@ export default function MobileSidebar() {
               {activeSubSidebar === "campus" && (
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
               )}
-              {activeSubSidebar === "guía" && (
-                <UsageGuide onClose={() => setActiveSubSidebar(null)} />
-              )}
-              {activeSubSidebar === "guías" && (
-                <>
-                  <h3 className="font-bold text-lg">Guías</h3>
-                  <ul className="space-y-2">Hello. This is not implemented.</ul>
-                </>
-              )}
+              {activeSubSidebar === "guías" && <UsageGuide onClose={() => setActiveSubSidebar(null)} />}
               {/* {activeSubSidebar === "temas" && (
                 <div className="w-full h-full space-y-4">
                   <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
