@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22495950989237,
+                    -39.2771617067288
+                ]
+            },
+            "properties": {
+                "identifier": "MJD240QT1IHPRE",
+                "name": "Auditorio",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22575542661136,
                     -39.2776236430512
                 ]
