@@ -462,30 +462,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22504318276516,
-                    -39.27743691023466
-                ]
-            },
-            "properties": {
-                "identifier": "MJCYQ48GDIT0E3",
-                "name": "Hall",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22564667979323,
                     -39.27768606219665
                 ]
