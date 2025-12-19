@@ -16,7 +16,7 @@ type CategoryFilter = {
 };
 
 const pills: Array<CategoryFilter> = [
-  { title: "Facultades", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
+  { title: "Facultades, Escuelas e Institutos", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
   { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
   { title: "Bibliotecas", icon: <Icons.Library />, filter: CATEGORIES.LIBRARY },

@@ -44,7 +44,7 @@ function Pill({
           {iconElement}
         </div>
       </div>
-      <span className="px-2 whitespace-nowrap text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm">
+      <span className="px-2 text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm">
         {title}
       </span>
     </button>

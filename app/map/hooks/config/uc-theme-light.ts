@@ -51,7 +51,7 @@ export const customPolygonStrokeLayer: LayerProps = {
   id: "custom-area-stroke",
   type: "line",
   paint: {
-    "line-color": "#a21caf", // Rosa púrpura más intenso para elementos personalizados
+    "line-color": "#0682E6", // Rosa púrpura más intenso para elementos personalizados
     "line-width": 1.2,
     "line-dasharray": [3, 2],
   },
@@ -62,6 +62,6 @@ export const customPolygonSectionAreaLayer: LayerProps = {
   type: "fill",
   source: "states",
   paint: {
-    "fill-color": "rgba(168, 28, 175, 0.4)", // Rosa púrpura más visible para áreas personalizadas
+    "fill-color": "rgba(1, 28, 175, 0.4)", // Rosa púrpura más visible para áreas personalizadas
   },
 };

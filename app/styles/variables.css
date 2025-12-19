@@ -181,6 +181,10 @@
   --palette-uc-danger: #F24F4F;
   --palette-uc-info: #0176DE;
   --palette-uc-sign: #484B54;
+  --palette-uc-sign-blue: #0682E6;
+  --palette-uc-sign-light-blue: #71D8F0;
+  --palette-uc-sign-yellow: #FECD0D;
+  --palette-uc-sign-gray: #2E2E33;
 
     /* para chart*/
   --palette-yellow: #F08700;
