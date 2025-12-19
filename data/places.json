@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22554495614162,
+                    -39.2776370559224
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZLES9K1G59O",
+                "name": "Coordinación de Admisión",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22563615124754,
                     -39.27759553062776
                 ]
