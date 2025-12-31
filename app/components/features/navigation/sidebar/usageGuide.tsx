@@ -79,13 +79,12 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
           <AccordionItem id="agregar" title="¿Cómo agregar un lugar?" index={1}>
             <div className="space-y-2">
               <p>
-                Para agregar un lugar nuevo, haz <strong>doble clic</strong> (desktop) o <strong>doble tap</strong>{" "}
-                (móvil) en la ubicación del mapa donde deseas agregar el lugar.
+                Para agregar un lugar nuevo, <strong>presiona dos veces</strong> en la ubicación del mapa donde deseas
+                agregar el lugar.
               </p>
-              <p>Aparecerá un marcador y las coordenadas del lugar y un botón para &quot;Agregar&quot;.</p>
+              <p>Aparecerá un marcador y las coordenadas del lugar y un botón para <strong>&quot;Agregar&quot;</strong>.</p>
               <p>
-                Al hacer clic (Desktop) o tap (Móvil) en &quot;Agregar&quot; se abrirá un formulario donde podrás
-                ingresar:
+                Al presionar ese botón se abrirá un formulario donde podrás ingresar:
               </p>
               <ul className="list-disc list-inside space-y-1 pl-2">
                 <li>Nombre de la Ubicación</li>
@@ -94,7 +93,7 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
                 <li>Descripción (opcional)</li>
               </ul>
               <p>
-                Una vez completada la información haz clic en &quot;Crear Ubicación&quot;, el lugar será revisado por
+                Una vez completada la información presiona en <strong>&quot;Crear Ubicación&quot;</strong>, el lugar será revisado por
                 nuestro equipo antes de ser agregado al Ubicate.
               </p>
             </div>
@@ -102,14 +101,14 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
 
           <AccordionItem id="modificar" title="¿Cómo modificar un lugar?" index={2}>
             <div className="space-y-2">
-              <p>Selecciona un lugar en el mapa haciendo clic(Desktop) o tap (Móvil) sobre él.</p>
-              <p>Se abrirá un panel con la información del lugar y un botón de editar.</p>
+              <p>Selecciona un lugar en el mapa presionando sobre él.</p>
+              <p>Se abrirá un panel con la información del lugar.</p>
               <p>
-                Haz clic en <strong>&quot;Editar&quot;</strong> se podrán modificar los detalles del lugar como nombre,
+                Presiona en <strong>&quot;Editar&quot;</strong> para modificar los detalles del lugar como nombre,
                 categoría o descripción.
               </p>
               <p>
-                Al darle a &quot;Actualizar&quot; se enviarán los cambios, Los cambios del lugar será revisado por
+                Al presionar <strong>&quot;Actualizar&quot;</strong> se enviarán los cambios, los cambios del lugar será revisado por
                 nuestro equipo antes de ser actualizados en Ubicate.
               </p>
             </div>
@@ -118,9 +117,9 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
           <AccordionItem id="iphone" title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu iPhone?" index={3}>
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
-              <p>2. Haz tap en el ícono de compartir (cuadrado con flecha hacia arriba)</p>
-              <p>3. Selecciona &quot;Agregar a pantalla de inicio&quot;</p>
-              <p>4. Ingresa un nombre para la aplicación y haz tap en &quot;Agregar al inicio&quot;</p>
+              <p>2. Presiona en el ícono de compartir (cuadrado con flecha hacia arriba)</p>
+              <p>3. Selecciona <strong>&quot;Agregar a pantalla de inicio&quot;</strong></p>
+              <p>4. Ingresa un nombre para la aplicación y presiona en <strong>&quot;Agregar al inicio&quot;</strong></p>
               <p>Ahora tendrás Ubicate como una aplicación en tu pantalla de inicio.</p>
             </div>
           </AccordionItem>
@@ -128,8 +127,8 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
           <AccordionItem id="android" title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu Android?" index={4}>
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
-              <p>2. Haz tap en el menú (tres puntos verticales)</p>
-              <p>3. Selecciona &quot;Agregar a pantalla principal&quot;</p>
+              <p>2. Presiona en el menú (tres puntos verticales)</p>
+              <p>3. Selecciona <strong>&quot;Agregar a pantalla principal&quot;</strong></p>
               <p>4. Confirma la instalación</p>
               <p>
                 Ubicate aparecerá ahora como una aplicación en tu pantalla de inicio y podrás acceder a ella fácilmente.
