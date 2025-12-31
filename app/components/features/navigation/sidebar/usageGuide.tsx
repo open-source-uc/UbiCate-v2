@@ -79,12 +79,13 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
           <AccordionItem id="agregar" title="¿Cómo agregar un lugar?" index={1}>
             <div className="space-y-2">
               <p>
-                Para agregar un nuevo lugar, <strong>presiona dos veces</strong> en el punto del mapa donde deseas incorporarlo.
+                Para agregar un nuevo lugar, <strong>presiona dos veces</strong> en el punto del mapa donde deseas
+                incorporarlo.
               </p>
-              <p>Aparecerá un marcador y las coordenadas del lugar y un botón para <strong>&quot;Agregar&quot;</strong>.</p>
               <p>
-                Al presionar el botón se abrirá un formulario donde podrás ingresar:
+                Aparecerá un marcador y las coordenadas del lugar y un botón para <strong>&quot;Agregar&quot;</strong>.
               </p>
+              <p>Al presionar el botón se abrirá un formulario donde podrás ingresar:</p>
               <ul className="list-disc list-inside space-y-1 pl-2">
                 <li>Nombre de la ubicación</li>
                 <li>Categoría (sala, baño, cafetería, etc.)</li>
@@ -92,8 +93,8 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
                 <li>Descripción (opcional)</li>
               </ul>
               <p>
-                Una vez completada la información presiona <strong>&quot;Crear Ubicación&quot;</strong>. El lugar será revisado por
-                nuestro equipo antes de ser agregado a Ubicate.
+                Una vez completada la información presiona <strong>&quot;Crear Ubicación&quot;</strong>. El lugar será
+                revisado por nuestro equipo antes de ser agregado a Ubicate.
               </p>
             </div>
           </AccordionItem>
@@ -117,8 +118,12 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
               <p>2. Presiona en el ícono de compartir (cuadrado con flecha hacia arriba)</p>
-              <p>3. Selecciona <strong>&quot;Agregar a pantalla de inicio&quot;</strong></p>
-              <p>4. Ingresa un nombre para la aplicación y presiona en <strong>&quot;Agregar al inicio&quot;</strong></p>
+              <p>
+                3. Selecciona <strong>&quot;Agregar a pantalla de inicio&quot;</strong>
+              </p>
+              <p>
+                4. Ingresa un nombre para la aplicación y presiona en <strong>&quot;Agregar al inicio&quot;</strong>
+              </p>
               <p>Ahora tendrás Ubicate como una aplicación en tu pantalla de inicio.</p>
             </div>
           </AccordionItem>
@@ -127,7 +132,9 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
               <p>2. Presiona en el menú (tres puntos verticales)</p>
-              <p>3. Selecciona <strong>&quot;Agregar a pantalla principal&quot;</strong></p>
+              <p>
+                3. Selecciona <strong>&quot;Agregar a pantalla principal&quot;</strong>
+              </p>
               <p>4. Confirma la instalación</p>
               <p>
                 Ubicate aparecerá ahora como una aplicación en tu pantalla de inicio y podrás acceder a ella fácilmente.
