@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, ReactNode, useState, useEffect, useCallback } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 
 import { Feature, PointFeature, PolygonFeature } from "@/lib/types";
 
