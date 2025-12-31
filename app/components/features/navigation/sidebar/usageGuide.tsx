@@ -79,22 +79,21 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
           <AccordionItem id="agregar" title="¿Cómo agregar un lugar?" index={1}>
             <div className="space-y-2">
               <p>
-                Para agregar un lugar nuevo, <strong>presiona dos veces</strong> en la ubicación del mapa donde deseas
-                agregar el lugar.
+                Para agregar un nuevo lugar, <strong>presiona dos veces</strong> en el punto del mapa donde deseas incorporarlo.
               </p>
               <p>Aparecerá un marcador y las coordenadas del lugar y un botón para <strong>&quot;Agregar&quot;</strong>.</p>
               <p>
-                Al presionar ese botón se abrirá un formulario donde podrás ingresar:
+                Al presionar el botón se abrirá un formulario donde podrás ingresar:
               </p>
               <ul className="list-disc list-inside space-y-1 pl-2">
-                <li>Nombre de la Ubicación</li>
+                <li>Nombre de la ubicación</li>
                 <li>Categoría (sala, baño, cafetería, etc.)</li>
                 <li>Piso (si aplica)</li>
                 <li>Descripción (opcional)</li>
               </ul>
               <p>
-                Una vez completada la información presiona en <strong>&quot;Crear Ubicación&quot;</strong>, el lugar será revisado por
-                nuestro equipo antes de ser agregado al Ubicate.
+                Una vez completada la información presiona <strong>&quot;Crear Ubicación&quot;</strong>. El lugar será revisado por
+                nuestro equipo antes de ser agregado a Ubicate.
               </p>
             </div>
           </AccordionItem>
@@ -108,7 +107,7 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
                 categoría o descripción.
               </p>
               <p>
-                Al presionar <strong>&quot;Actualizar&quot;</strong> se enviarán los cambios, los cambios del lugar será revisado por
+                Al presionar <strong>&quot;Actualizar&quot;</strong> se enviarán los cambios. Estos serán revisado por
                 nuestro equipo antes de ser actualizados en Ubicate.
               </p>
             </div>
