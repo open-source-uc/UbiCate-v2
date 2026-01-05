@@ -30,30 +30,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61329205298897,
-                    -33.49809345015259
-                ]
-            },
-            "properties": {
-                "identifier": "MK1L23VRQ846WS",
-                "name": "Oficina Administración",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59411752969027,
                     -33.44598582771106
                 ]
