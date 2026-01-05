@@ -6,6 +6,167 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22570577636361,
+                    -39.2777753872116
+                ]
+            },
+            "properties": {
+                "identifier": "MK1FZQ9V0DR26E",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22574868717004,
+                    -39.277609328083656
+                ]
+            },
+            "properties": {
+                "identifier": "MK1FX7CI4OSOAC",
+                "name": "Hidropunto",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22479650297215,
+                    -39.27740585382238
+                ]
+            },
+            "properties": {
+                "identifier": "MK1GC7ZTKUOPOA",
+                "name": "Auditorio",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22565212764688,
+                    -39.27782110678276
+                ]
+            },
+            "properties": {
+                "identifier": "MK1FTPLT994WOK",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22500035085541,
+                    -39.277214836635274
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_10,_11,12-VR",
+                "name": "Salas 10, 11,12",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22598472156469,
+                    -39.277746361432996
+                ]
+            },
+            "properties": {
+                "identifier": "MK1G1CACGOS01G",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22560954332903,
+                    -39.27747431119719
+                ]
+            },
+            "properties": {
+                "identifier": "MK1D5OCIMXMW7T",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "Edificio principal, primer piso",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.2258046639059,
                     -39.27765385217351
                 ]
@@ -190,14 +351,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22569166487146,
-                    -39.27772778232818
+                    -72.22549093862251,
+                    -39.27764631450785
                 ]
             },
             "properties": {
                 "identifier": "MJCZOAN9Y68I1U",
                 "name": "Salud y Bienestar Estudiantil",
-                "information": "",
+                "information": "Instalaciones Pastoral Compartido con S&BE",
                 "categories": [
                     "other"
                 ],

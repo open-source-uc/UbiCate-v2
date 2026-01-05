@@ -6,6 +6,78 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.5929438733281,
+                    -33.4460753885369
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_PERCUSIÓN_009-OR",
+                "name": "Sala Percusión M 009",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60703401295716,
+                    -33.4984142041631
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRQ7LFP87P73",
+                "name": "Cancha de Futbolito 4",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60735565020424,
+                    -33.50121632844662
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRL5K3HELEBP",
+                "name": "Cancha de Tenis Asfalto",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61379928658462,
                     -33.49781890167755
                 ]
