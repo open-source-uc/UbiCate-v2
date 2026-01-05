@@ -30,14 +30,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22546904152289,
-                    -39.2775824438766
+                    -72.22569166487146,
+                    -39.27772778232818
                 ]
             },
             "properties": {
                 "identifier": "MJCZOAN9Y68I1U",
                 "name": "Salud y Bienestar Estudiantil",
-                "information": "",
+                "information": "Instalaciones Pastoral Compartido con S&BE",
                 "categories": [
                     "other"
                 ],
