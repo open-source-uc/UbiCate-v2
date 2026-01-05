@@ -52,29 +52,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22479650297215,
-                    -39.27740585382238
-                ]
-            },
-            "properties": {
-                "identifier": "MK1GC7ZTKUOPOA",
-                "name": "Auditorio",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22565212764688,
                     -39.27782110678276
                 ]
