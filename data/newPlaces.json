@@ -78,8 +78,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22570577182604,
-                    -39.27777542908078
+                    -72.22570577636361,
+                    -39.2777753872116
                 ]
             },
             "properties": {
@@ -87,7 +87,7 @@
                 "name": "Mesón UC",
                 "information": "",
                 "categories": [
-                    "food_lunch"
+                    "other"
                 ],
                 "floors": [
                     1
