@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22574868717004,
+                    -39.277609328083656
+                ]
+            },
+            "properties": {
+                "identifier": "MK1FX7CI4OSOAC",
+                "name": "Hidropunto",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22565212764688,
                     -39.27782110678276
                 ]
