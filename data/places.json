@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22570577636361,
+                    -39.2777753872116
+                ]
+            },
+            "properties": {
+                "identifier": "MK1FZQ9V0DR26E",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22574868717004,
                     -39.277609328083656
                 ]
