@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59411752969027,
+                    -33.44598582771106
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_R1-OR",
+                "name": "Sala R201",
+                "information": "Sala R201 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5929438733281,
                     -33.4460753885369
                 ]
