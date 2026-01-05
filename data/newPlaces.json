@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22546904152289,
+                    -39.2775824438766
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZOAN9Y68I1U",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60703401295716,
                     -33.4984142041631
                 ]
