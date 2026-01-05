@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22549093862251,
-                    -39.27764631450785
-                ]
-            },
-            "properties": {
-                "identifier": "MJCZOAN9Y68I1U",
-                "name": "Salud y Bienestar Estudiantil",
-                "information": "Instalaciones Pastoral Compartido con S&BE",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703401295716,
                     -33.4984142041631
                 ]
