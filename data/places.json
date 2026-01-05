@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22598472156469,
+                    -39.277746361432996
+                ]
+            },
+            "properties": {
+                "identifier": "MK1G1CACGOS01G",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22560954332903,
                     -39.27747431119719
                 ]
