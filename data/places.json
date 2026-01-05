@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22560954332903,
+                    -39.27747431119719
+                ]
+            },
+            "properties": {
+                "identifier": "MK1D5OCIMXMW7T",
+                "name": "Salud y Bienestar Estudiantil",
+                "information": "Edificio principal, primer piso",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.2258046639059,
                     -39.27765385217351
                 ]
