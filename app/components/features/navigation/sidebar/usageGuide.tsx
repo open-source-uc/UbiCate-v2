@@ -8,7 +8,7 @@ interface UsageGuideProps {
   onClose: () => void;
 }
 
-type AccordionKey = "buscar" | "agregar" | "modificar" | "iphone" | "android";
+type AccordionKey = "buscar" | "agregar" | "modificar" | "iphone" | "android"|"iphone_ubicacion" | "android_ubicacion";
 
 export default function UsageGuide({ onClose }: UsageGuideProps) {
   const [openAccordion, setOpenAccordion] = useState<AccordionKey | null>(null);
@@ -113,7 +113,6 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
               </p>
             </div>
           </AccordionItem>
-
           <AccordionItem id="iphone" title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu iPhone?" index={3}>
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
@@ -127,7 +126,31 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
               <p>Ahora tendrás Ubicate como una aplicación en tu pantalla de inicio.</p>
             </div>
           </AccordionItem>
-
+          <AccordionItem id="iphone_ubicacion" title="¿Cómo dar permisos de ubicación a Ubicate en tu iPhone?" index={3}>
+            <div className="space-y-2">
+              <p>
+                1. Abre Ubicate en tu navegador de confianza.
+              </p>
+              <p>
+                2. Presiona en el botón de geolocalización dentro de la aplicación Ubicate.
+              </p>
+              <p>
+                3. Cuando se te solicite permiso para acceder a tu ubicación, selecciona <strong>"Permitir siempre"</strong> o <strong>"Permitir mientras visitas el sitio"</strong>, según tu preferencia. (Esto solo ocurre la primera vez que accedes a Ubicate)
+              </p>
+              <p>
+                4. Si no ves la solicitud, puedes verificar estos pasos para asegurarte de que tu navegador o dispositivo iPhone tenga acceso a tu ubicación:
+              </p>
+              <p>
+                4.1. Asegúrate de que los servicios de ubicación estén habilitados en la configuración de tu dispositivo iPhone, generalmente en <strong>"Configuración"</strong> y despues <strong>"Ubicación"</strong>.
+              </p>
+              <p>
+                4.2. En el navegador, ve a el <strong>"Menú de Página"</strong>  y despues a <strong>"Configuración del sitio"</strong> y luego a <strong>"Ubicación"</strong> para asegurarte de que Ubicate tenga permiso para acceder a tu ubicación.
+              </p>
+              <p>
+                Siguiendo estos pasos, Ubicate podrá acceder a tu ubicación y te mostrará tu posición en el mapa.
+              </p>
+            </div>
+          </AccordionItem>
           <AccordionItem id="android" title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu Android?" index={4}>
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
@@ -138,6 +161,31 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
               <p>4. Confirma la instalación</p>
               <p>
                 Ubicate aparecerá ahora como una aplicación en tu pantalla de inicio y podrás acceder a ella fácilmente.
+              </p>
+            </div>
+          </AccordionItem>
+          <AccordionItem id="android_ubicacion" title="¿Cómo dar permisos de ubicación a Ubicate en tu Android?" index={4}>
+            <div className="space-y-2">
+              <p>
+                1. Abre Ubicate en tu navegador de confianza.
+              </p>
+              <p>
+                2. Presiona en el botón de geolocalización dentro de la aplicación Ubicate.
+              </p>
+              <p>
+                3. Cuando se te solicite permiso para acceder a tu ubicación, selecciona <strong>"Permitir esta vez"</strong> o <strong>"Permitir mientras visitas el sitio"</strong>, según tu preferencia. (Esto solo ocurre la primera vez que accedes a Ubicate)
+              </p>
+              <p>
+                4. Si no ves la solicitud, puedes verificar estos pasos para asegurarte de que tu navegador o dispositivo Android tenga acceso a tu ubicación:
+              </p>
+              <p>
+                4.1. Asegúrate de que los servicios de ubicación estén habilitados en la configuración de tu dispositivo Android, generalmente en <strong>"Configuración o Ajustes"</strong> y despues <strong>"Ubicación"</strong>.
+              </p>
+              <p>
+                4.2. Si eso no soluciona el problema, en el navegador, ve a <strong>"Configuración del sitio"</strong> y luego a <strong>"Ubicación"</strong> para asegurarte de que Ubicate tenga permiso para acceder a tu ubicación.
+              </p>
+              <p>
+                Siguiendo estos pasos, Ubicate podrá acceder a tu ubicación y te mostrará tu posición en el mapa.
               </p>
             </div>
           </AccordionItem>
