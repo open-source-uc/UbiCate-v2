@@ -35,9 +35,10 @@
 
   /* Chart Colors */
   --theme-chart-0: var(--palette-pink);
-  --theme-chart-1: var(--palette-yellow);
+  --theme-chart-1: #FEC60D; /* Salas de clases - Amarillo UC */
   --theme-chart-2: var(--palette-green);
-  --theme-chart-3: var(--palette-teal);
+  --theme-chart-3: #0176DE; /* Facultades - Celeste UC */
+  --theme-chart-15: #00B9EF; /* Salas de estudio - Celeste UC */
   --theme-chart-4: var(--palette-purple);
   --theme-chart-5: var(--palette-blue);
   --theme-chart-6: var(--palette-deep-green);
@@ -48,4 +49,5 @@
   --theme-chart-11: var(--palette-bright-purple);
   --theme-chart-12: var(--palette-orange);
   --theme-chart-13: var(--palette-red);
+  --theme-chart-14: #29272B; /* El resto - Gris oscuro */
 }

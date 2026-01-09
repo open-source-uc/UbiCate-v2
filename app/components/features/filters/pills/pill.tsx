@@ -18,7 +18,7 @@ function Pill({
   bg_color,
   activateClassName = "bg-primary text-background",
   noActivateClassName = "bg-background text-foreground",
-  className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border",
+  className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border min-h-[48px]",
   icon,
 }: PillProps) {
   const iconElement = React.isValidElement<{ className?: string }>(icon)
@@ -44,7 +44,7 @@ function Pill({
           {iconElement}
         </div>
       </div>
-      <span className="px-2 whitespace-nowrap text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm">
+      <span className="px-2 text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm leading-tight text-left flex-1">
         {title}
       </span>
     </button>

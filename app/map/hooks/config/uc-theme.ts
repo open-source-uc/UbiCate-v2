@@ -22,7 +22,7 @@ export const campusBorderLayer: LayerProps = {
   id: "campus-border",
   type: "line",
   paint: {
-    "line-color": "#707070",
+    "line-color": "#0176DE", // --theme-chart-3 (Celeste UC)
     "line-width": 1.8,
     "line-dasharray": [2, 1],
   },
@@ -43,7 +43,7 @@ export const sectionAreaLayer: LayerProps = {
   type: "fill",
   source: "states",
   paint: {
-    "fill-color": "rgba(236, 72, 153, 0.35)",
+    "fill-color": "rgba(1, 118, 222, 0.35)", // --theme-chart-3 con transparencia
   },
 };
 
