@@ -18,6 +18,8 @@ const categoryToColorMap = new Map<CATEGORIES, string>([
   [CATEGORIES.FINANCIAL, "bg-chart-11"],
   [CATEGORIES.SHOP, "bg-chart-12"],
   [CATEGORIES.PARK_BICYCLE, "bg-chart-13"],
+  [CATEGORIES.CULTURE, "bg-chart-14"],
+  [CATEGORIES.OFFICES, "bg-chart-15"],
 ]);
 
 export const getCategoryColor = (category: CATEGORIES): string => {

@@ -31,6 +31,8 @@ const pills: Array<CategoryFilter> = [
   { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
   { title: "Tiendas", icon: <Icons.Shop />, filter: CATEGORIES.SHOP },
   { title: "Bicicletas", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
+  { title: "Cultura", icon: <Icons.Palette />, filter: CATEGORIES.CULTURE },
+  { title: "Oficinas", icon: <Icons.Domain />, filter: CATEGORIES.OFFICES },
 ];
 
 function PillFilter() {

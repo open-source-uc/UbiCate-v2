@@ -48,4 +48,6 @@
   --theme-chart-11: var(--palette-bright-purple);
   --theme-chart-12: var(--palette-orange);
   --theme-chart-13: var(--palette-red);
+  --theme-chart-14: var(--palette-brown);
+  --theme-chart-15: var(--palette-deep-orange);
 }

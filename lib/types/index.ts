@@ -40,6 +40,8 @@ export enum CATEGORIES {
   USER_LOCATION = "user",
   YARD = "yard",
   CRISOL = "crisol",
+  CULTURE = "culture",
+  OFFICES = "offices",
 }
 
 export interface Properties {
