@@ -621,3 +621,11 @@ export function ExpandMore({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function Domain({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M80-120v-720h400v160h400v560H80Zm60-60h120v-120H140v120Zm0-180h120v-120H140v120Zm0-180h120v-120H140v120Zm0-180h120v-120H140v120Zm180 540h120v-120H320v120Zm0-180h120v-120H320v120Zm0-180h120v-120H320v120Zm0-180h120v-120H320v120Zm180 540h360v-440H500v120h120v60H500v120h120v60H500v80Z" />
+    </svg>
+  );
+}

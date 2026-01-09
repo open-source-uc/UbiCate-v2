@@ -29,6 +29,8 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.USER_LOCATION]: Icons.UserLocation,
   [CATEGORIES.YARD]: Icons.Default,
   [CATEGORIES.CRISOL]: Icons.PersonalComputer,
+  [CATEGORIES.CULTURE]: Icons.Palette,
+  [CATEGORIES.OFFICES]: Icons.Domain,
 };
 
 export default function MarkerIcon({

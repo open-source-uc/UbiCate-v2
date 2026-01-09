@@ -46,4 +46,9 @@
   --theme-chart-8: var(--palette-green-800);
   --theme-chart-9: var(--palette-purple-500);
   --theme-chart-10: var(--palette-gray-500);
+  --theme-chart-11: var(--palette-brown);
+  --theme-chart-12: var(--palette-orange);
+  --theme-chart-13: var(--palette-red);
+  --theme-chart-14: var(--palette-teal);
+  --theme-chart-15: var(--palette-deep-purple);
 }

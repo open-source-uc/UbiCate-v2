@@ -46,4 +46,9 @@
   --theme-chart-8: var(--palette-pastel-pink-400);
   --theme-chart-9: var(--palette-pastel-peach);
   --theme-chart-10: var(--palette-pastel-pink-200);
+  --theme-chart-11: var(--palette-pastel-lilac);
+  --theme-chart-12: var(--palette-pastel-lavender);
+  --theme-chart-13: var(--palette-pastel-coral);
+  --theme-chart-14: var(--palette-pastel-mint);
+  --theme-chart-15: var(--palette-pastel-sky);
 }
