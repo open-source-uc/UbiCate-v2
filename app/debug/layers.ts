@@ -48,6 +48,10 @@ export const allPointsLayer: LayerProps = {
       "#8A2BE2", // Violeta para fotocopias
       ["in", "shop", ["get", "categories"]],
       "#FF6347", // Tomate para tiendas
+      ["in", "culture", ["get", "categories"]],
+      "#9370DB", // Púrpura medio para cultura
+      ["in", "offices", ["get", "categories"]],
+      "#CD853F", // Marrón claro para oficinas
       ["in", "other", ["get", "categories"]],
       "#A9A9A9", // Gris oscuro para otros
       "#716ADB", // Color por defecto si no hay coincidencias
