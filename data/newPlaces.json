@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6111820612312,
+                    -33.49784988878359
+                ]
+            },
+            "properties": {
+                "identifier": "MKB8TJEZSWZISW",
+                "name": "Cultura de Prueba 2 ",
+                "information": "",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61066924306893,
                     -33.49784438333046
                 ]
