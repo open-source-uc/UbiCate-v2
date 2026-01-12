@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61053055326732,
+                    -33.49788021947846
+                ]
+            },
+            "properties": {
+                "identifier": "MKB8V9PILO5P19",
+                "name": "Oficina de Prueba 1 ",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6111820612312,
                     -33.49784988878359
                 ]
