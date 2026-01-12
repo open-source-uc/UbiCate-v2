@@ -129,6 +129,8 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.CUSTOM_MARK, "Marcador"],
   [CATEGORIES.YARD, "Patio"],
   [CATEGORIES.CRISOL, "Crisol"],
+  [CATEGORIES.CULTURE, "Cultura"],
+  [CATEGORIES.OFFICES, "Oficinas"],
 ]);
 
 // Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK
@@ -153,5 +155,7 @@ export const CategoryOptions = [
   CATEGORIES.YARD,
   CATEGORIES.LIBRARY,
   CATEGORIES.CRISOL,
+  CATEGORIES.CULTURE,
+  CATEGORIES.OFFICES,
   CATEGORIES.OTHER,
 ];
