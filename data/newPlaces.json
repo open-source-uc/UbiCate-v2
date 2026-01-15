@@ -4,6 +4,51 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.608286,
+                            -33.49617
+                        ],
+                        [
+                            -70.608142,
+                            -33.496406
+                        ],
+                        [
+                            -70.607974,
+                            -33.496335
+                        ],
+                        [
+                            -70.608137,
+                            -33.49611
+                        ],
+                        [
+                            -70.608286,
+                            -33.49617
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-AGRA",
+                "name": "Agroanálisis UC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60776119862425,
