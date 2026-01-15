@@ -275,16 +275,16 @@
                             -33.49666299993344
                         ],
                         [
-                            -70.61391290277243,
+                            -70.61391307041049,
                             -33.49664902029301
                         ],
                         [
-                            -70.6138901039958,
-                            -33.49682404522832
+                            -70.61394758006557,
+                            -33.497061415261
                         ],
                         [
-                            -70.61419285833836,
-                            -33.4968461330145
+                            -70.61411228308556,
+                            -33.4970662628436
                         ],
                         [
                             -70.61420895159245,
@@ -296,16 +296,16 @@
             "properties": {
                 "identifier": "FIL",
                 "name": "Facultad de Filosofía",
-                "information": "",
+                "information": "Piso 1 Auditorio de Filosofía, Sala de profesores y Estudiantes.\nPiso 2 Decanato, Dirección de Asuntos Estudiantiles, Postgrado, Sala Jorge Rivera, Salas Seminario 1 a 4.\nPiso 3 Oficinas de Profesores",
                 "categories": [
                     "faculty"
                 ],
-                "floors": [],
+                "floors": [
+                    3
+                ],
                 "needApproval": true,
                 "campus": "SJ",
-                "faculties": [
-                    "FIL"
-                ]
+                "faculties": []
             }
         },
         {
