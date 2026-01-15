@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6142360030037,
+                    -33.49990704642368
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKLNFSNZMGEQ",
+                "name": "Edificio Andróniko Luksic Abaroa",
+                "information": "Piso -1: Auditorio",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61185688360676,
                     -33.50022017804305
                 ]
