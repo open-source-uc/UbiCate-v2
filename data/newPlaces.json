@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61533600684169,
+                    -33.49790636510634
+                ]
+            },
+            "properties": {
+                "identifier": "MKEQBMZ3SMIZM8",
+                "name": "Centro de Innovación UC Anacleto Angelini",
+                "information": "Piso 1 Auditorios, Pronto Copec y Banco de Chile",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    10
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
