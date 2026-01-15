@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61026603065379,
+                    -33.49702522241076
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKZG5LR8SNFI",
+                "name": "Centro de Medición MIDE UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61026066623343,
                     -33.50066878367158
                 ]
