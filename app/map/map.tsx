@@ -14,7 +14,7 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
-import { Feature, PointFeature, CATEGORIES } from "@/lib/types";
+import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
 import DirectionsComponent from "../components/features/directions/component";
@@ -102,6 +102,29 @@ export default function MapComponent({
     });
   }, []);
 
+  // Obtener nombre del campus para el tag
+  const [campusDisplayName, setCampusDisplayName] = React.useState<string | null>(null);
+
+  useEffect(() => {
+    const campusParam = params.get("campus");
+    const campus = campusParam || localStorage.getItem("defaultCampus");
+
+    if (campus) {
+      let fullName: string | undefined;
+
+      if (campus.length === 2) {
+        fullName = siglas.get(campus);
+      } else {
+        const sigla = siglas.get(campus);
+        fullName = sigla ? siglas.get(sigla) : undefined;
+      }
+
+      setCampusDisplayName(fullName || campus);
+    } else {
+      setCampusDisplayName(null);
+    }
+  }, [params]);
+
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
@@ -141,7 +164,17 @@ export default function MapComponent({
   }, []);
 
   return (
-    <div className="w-full h-full" ref={containerRef}>
+    <div className="w-full h-full relative" ref={containerRef}>
+      {/* Campus tag - solo visible en desktop */}
+      {campusDisplayName ? (
+        <div className="hidden lg:block absolute top-4 right-4 z-10 pointer-events-auto">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
+            <span className="text-xs font-medium text-primary-foreground">Campus {campusDisplayName}</span>
+          </div>
+        </div>
+      ) : null}
+
       <Map
         id="mainMap"
         mapStyle={mapConfig.mapStyle}
@@ -171,9 +204,6 @@ export default function MapComponent({
           <Layer {...mapConfig.customPolygonSectionAreaLayer} />
           <Layer {...mapConfig.customPolygonStrokeLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
-          <Layer {...mapConfig.placesTextLayer} />
-        </Source>
         <Source
           id="campus-names"
           type="geojson"
@@ -190,6 +220,9 @@ export default function MapComponent({
               "text-font": ["Roboto Slab SemiBold", "Arial Unicode MS Bold"],
               "text-size": 16,
               "text-anchor": "center",
+              "text-allow-overlap": false,
+              "text-ignore-placement": false,
+              "text-optional": true,
             }}
             paint={{
               "text-color": "#000000",
@@ -197,6 +230,9 @@ export default function MapComponent({
               "text-halo-width": 2,
             }}
           />
+        </Source>
+        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
+          <Layer {...mapConfig.placesTextLayer} />
         </Source>
         <SilentErrorBoundary>
           <DebugMode />

@@ -61,6 +61,7 @@ export const placesTextLayer: LayerProps = {
     "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 1],
+    "symbol-sort-key": 1,
   },
   paint: {
     "text-color": "#000000", // Negro UC para texto

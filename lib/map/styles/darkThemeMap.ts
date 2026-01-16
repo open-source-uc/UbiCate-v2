@@ -423,10 +423,7 @@ export const darkThemeMap: StyleSpecification = {
       filter: [
         "all",
         ["has", "name:latin"],
-        [
-          "any",
-          ["<=", ["get", "rank"], 1],
-        ],
+        ["any", ["<=", ["get", "rank"], 1]],
         ["!=", ["get", "class"], "university"],
         ["!=", ["get", "class"], "college"],
         ["!=", ["get", "class"], "bus_stop"],
