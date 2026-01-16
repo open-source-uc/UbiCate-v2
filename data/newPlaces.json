@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6397436864679,
+                    -33.44125416602072
+                ]
+            },
+            "properties": {
+                "identifier": "D302-CC",
+                "name": "D302",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64060903630902,
                     -33.440848241668526
                 ]
