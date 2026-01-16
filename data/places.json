@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64136421455585,
+                    -33.44094333753778
+                ]
+            },
+            "properties": {
+                "identifier": "MKCMKM9Y7TKIHP",
+                "name": "Escultura en homenaje a San Alberto Hurtado",
+                "information": "Luis Prato y José Quintanilla, 17 de enero de 2018. Obra en conmemoración de los 100 años del ingreso del Padre Hurtado a la Escuela de Derecho. 3 perfiles de acero de 12, 15 y 18 metros de alto, con una inclinación de 62° con respecto al suelo.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64217480127506,
                     -33.442072010231875
                 ]
