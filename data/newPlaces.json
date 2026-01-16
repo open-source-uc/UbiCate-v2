@@ -983,16 +983,16 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61533600684169,
-                    -33.49790636510634
+                    -70.61533614993095,
+                    -33.497906619712815
                 ]
             },
             "properties": {
                 "identifier": "MKEQBMZ3SMIZM8",
                 "name": "Centro de Innovación UC Anacleto Angelini",
-                "information": "Piso 1 Auditorios, Pronto Copec y Banco de Chile",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorios, Pronto Copec y Banco de Chile |\n",
                 "categories": [
-                    "faculty"
+                    "building"
                 ],
                 "floors": [
                     10
