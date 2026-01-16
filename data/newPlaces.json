@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64060903630902,
+                    -33.440848241668526
+                ]
+            },
+            "properties": {
+                "identifier": "RAÚL_SILVA_H.-CC",
+                "name": "Raúl Silva H.",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64217480127506,
                     -33.442072010231875
                 ]
