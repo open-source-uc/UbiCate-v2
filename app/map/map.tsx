@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { use, useEffect, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
+import { center } from "@turf/center";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapRef } from "react-map-gl/maplibre";
 import { Map, Source, Layer } from "react-map-gl/maplibre";
@@ -84,6 +85,23 @@ export default function MapComponent({
   });
   const mapConfig = useMapStyle();
 
+  // Crear puntos centroides para los nombres de campus
+  const campusNamePoints = React.useMemo(() => {
+    const campusFeatures = Campus.features as Array<GeoJSON.Feature<GeoJSON.Polygon>>;
+    return campusFeatures.map((campus) => {
+      const campusCenter = center(campus);
+      return {
+        type: "Feature" as const,
+        geometry: campusCenter.geometry,
+        properties: {
+          identifier: campus.properties?.identifier || "",
+          name: `Campus ${campus.properties?.name || ""}`,
+          categories: ["campus-name"],
+        },
+      };
+    });
+  }, []);
+
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
@@ -155,6 +173,30 @@ export default function MapComponent({
         </Source>
         <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
           <Layer {...mapConfig.placesTextLayer} />
+        </Source>
+        <Source
+          id="campus-names"
+          type="geojson"
+          data={{
+            type: "FeatureCollection",
+            features: campusNamePoints,
+          }}
+        >
+          <Layer
+            id="campus-names-layer"
+            type="symbol"
+            layout={{
+              "text-field": ["get", "name"],
+              "text-font": ["Roboto Slab SemiBold", "Arial Unicode MS Bold"],
+              "text-size": 16,
+              "text-anchor": "center",
+            }}
+            paint={{
+              "text-color": "#000000",
+              "text-halo-color": "#FFFFFF",
+              "text-halo-width": 2,
+            }}
+          />
         </Source>
         <SilentErrorBoundary>
           <DebugMode />

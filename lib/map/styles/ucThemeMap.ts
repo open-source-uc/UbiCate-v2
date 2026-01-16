@@ -418,9 +418,9 @@ export const ucThemeMap: StyleSpecification = {
         [
           "any",
           ["<=", ["get", "rank"], 1],
-          ["==", ["get", "class"], "university"],
-          ["==", ["get", "class"], "college"],
         ],
+        ["!=", ["get", "class"], "university"],
+        ["!=", ["get", "class"], "college"],
         ["!=", ["get", "class"], "bus_stop"],
         ["!=", ["get", "class"], "railway"],
         ["!=", ["get", "class"], "pharmacy"],
