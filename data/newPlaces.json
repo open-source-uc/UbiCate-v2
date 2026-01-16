@@ -489,14 +489,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6142360030037,
-                    -33.49990704642368
+                    -70.6142357736826,
+                    -33.499906774663756
                 ]
             },
             "properties": {
                 "identifier": "MKFKLNFSNZMGEQ",
                 "name": "Edificio Andróniko Luksic Abaroa",
-                "information": "Piso -1: Auditorio",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorio |",
                 "categories": [
                     "faculty"
                 ],
