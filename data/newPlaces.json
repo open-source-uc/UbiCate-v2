@@ -283,14 +283,12 @@
             },
             "properties": {
                 "identifier": "MA77GCYP2PRJFG",
-                "name": "Edificio Hernan Briones",
-                "information": "Piso -1: Laboratorio Calidad del Agua. Piso 1: Dirección de Investigación y Postgrado de la Escuela de Ingeniería. Piso 3: CDEUS y CIGIDEN. Piso 4: Departamento de Ciencias de la Computación.",
+                "name": "Edificio Hernán Briones",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Dirección de Investigación y Postgrado de Ingeniería |\n| 2 | Dirección de Investigación y Postgrado de Ingeniería |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computación |",
                 "categories": [
                     "building"
                 ],
-                "floors": [
-                    4
-                ],
+                "floors": [],
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
