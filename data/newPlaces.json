@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.615135,
+                    -33.4977493
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO CENTRO DE INNOVACIÓN UC",
+                "name": "Auditorio Centro de Innovación UC, Anacleto Angelini",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6397436864679,
                     -33.44125416602072
                 ]
