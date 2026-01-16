@@ -801,32 +801,28 @@
                 "coordinates": [
                     [
                         [
-                            -70.61009944613279,
-                            -33.498702832128906
+                            -70.610485,
+                            -33.4974
                         ],
                         [
-                            -70.60963274176389,
-                            -33.49868046523133
+                            -70.609779,
+                            -33.497352
                         ],
                         [
-                            -70.6095539778471,
-                            -33.49940604129875
+                            -70.609554,
+                            -33.499406
                         ],
                         [
-                            -70.61023090034723,
-                            -33.49945301138574
+                            -70.610231,
+                            -33.499453
                         ],
                         [
-                            -70.61047495539496,
-                            -33.49740554245006
+                            -70.6103287506566,
+                            -33.498744964015614
                         ],
                         [
-                            -70.61026574309194,
-                            -33.497383175215845
-                        ],
-                        [
-                            -70.61009944613279,
-                            -33.498702832128906
+                            -70.610485,
+                            -33.4974
                         ]
                     ]
                 ]
@@ -834,7 +830,7 @@
             "properties": {
                 "identifier": "SOC",
                 "name": "Facultad de Ciencias Sociales",
-                "information": "Piso 2: Salas de Computación, Sala de Estudio, Sala Magister Trabajo Social.\nPiso 3: Auditorio Juan de Castro, Decanato, Escuelas de Psicología, de Trabajo Social y de Antropología, Instituto de Sociología, Sala Magister de Sociología, Sala de Computación Trabajo Social.",
+                "information": " | #  | Directorio |\n|----|------------|\n| 1 | Salas de Clases M1, M2 y N, Bachillerato Inicia |\n| 2 | Salas de Computación y de Estudio, Sala Magister Trabajo Social y Doctorados |\n| 3 | Auditorio Juan de Castro, Decanato, Sala Magister Sociología |",
                 "categories": [
                     "faculty"
                 ],
