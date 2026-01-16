@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64217480127506,
+                    -33.442072010231875
+                ]
+            },
+            "properties": {
+                "identifier": "A31-CC",
+                "name": "A31",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61329205298897,
                     -33.49809345015259
                 ]
