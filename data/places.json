@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64019709578038,
+                    -33.44131417458718
+                ]
+            },
+            "properties": {
+                "identifier": "MKH7VQIVT16H98",
+                "name": "Seminario Prieto y Cia",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6402748798421,
                     -33.441238076731324
                 ]
