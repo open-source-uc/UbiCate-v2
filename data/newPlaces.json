@@ -6,32 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64015418043677,
-                    -33.44126045846138
-                ]
-            },
-            "properties": {
-                "identifier": "MKH7UMHDBGJDLO",
-                "name": "Seminario CMPC",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "DE"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64021050682615,
                     -33.44121569499727
                 ]
