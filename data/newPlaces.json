@@ -108,32 +108,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64025073996176,
-                    -33.44115750246087
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_MEDIACIÓN-CC",
-                "name": "Sala Mediación",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "DE"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
