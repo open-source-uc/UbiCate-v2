@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59394117444754,
+                    -33.445935891190544
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO_3-OR",
+                "name": "Auditorio 203",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59367005083162,
                     -33.44594044174526
                 ]
