@@ -27682,16 +27682,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SOC",
-                "name": "Facultad de Ciencias Sociales",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -27713,10 +27703,29 @@
                             -33.499453
                         ],
                         [
+                            -70.6103287506566,
+                            -33.498744964015614
+                        ],
+                        [
                             -70.610485,
                             -33.4974
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "SOC",
+                "name": "Facultad de Ciencias Sociales",
+                "information": " | #  | Directorio |\n|----|------------|\n| 1 | Salas de Clases M1, M2 y N, Bachillerato Inicia |\n| 2 | Salas de Computación y de Estudio, Sala Magister Trabajo Social y Doctorados |\n| 3 | Auditorio Juan de Castro, Decanato, Sala Magister Sociología |",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
