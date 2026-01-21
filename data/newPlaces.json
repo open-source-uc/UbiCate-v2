@@ -212,32 +212,6 @@
                 "campus": "SJ",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61066924306893,
-                    -33.49784438333046
-                ]
-            },
-            "properties": {
-                "identifier": "MKB8RMCM2CY4US",
-                "name": "Cultura de Prueba",
-                "information": "",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "TTF"
-                ]
-            }
         }
     ]
 }
