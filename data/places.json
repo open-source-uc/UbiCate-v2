@@ -34500,15 +34500,15 @@
             "properties": {
                 "identifier": "SAN_AGUSTIN",
                 "name": "Edificio San Agustín",
-                "campus": "SJ",
-                "information": "",
+                "information": "Salas H",
                 "categories": [
                     "building"
                 ],
-                "faculties": [
-                    "ING"
+                "floors": [
+                    2
                 ],
-                "floors": []
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
