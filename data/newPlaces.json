@@ -30,30 +30,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61292780675512,
-                    -33.499623680219756
-                ]
-            },
-            "properties": {
-                "identifier": "MKH9E3AL48DND1",
-                "name": "Facultad de Ingeniería",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    4
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60743708727045,
                     -33.497409535622786
                 ]
