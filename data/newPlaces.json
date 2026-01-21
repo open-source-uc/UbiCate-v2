@@ -758,50 +758,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61322114430386,
-                            -33.49866842542611
-                        ],
-                        [
-                            -70.61295828782046,
-                            -33.49865947866409
-                        ],
-                        [
-                            -70.61292610131252,
-                            -33.49907550213553
-                        ],
-                        [
-                            -70.61318359337811,
-                            -33.4990978689322
-                        ],
-                        [
-                            -70.61322114430386,
-                            -33.49866842542611
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "ENF",
-                "name": "Escuela de Enfermería",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "ENF"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61329205298897,
