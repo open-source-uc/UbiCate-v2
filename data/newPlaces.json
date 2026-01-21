@@ -30,30 +30,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59434467926621,
-                    -33.44587616315767
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_R5-OR",
-                "name": "Sala R205",
-                "information": "Sala R205 segundo piso ",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61041284084925,
                     -33.49668564469931
                 ]
