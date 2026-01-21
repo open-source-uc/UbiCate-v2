@@ -33825,16 +33825,16 @@
                             -33.49974014344677
                         ],
                         [
-                            -70.6117607653141,
-                            -33.49973007846366
+                            -70.61212688684464,
+                            -33.49948628184861
                         ],
                         [
                             -70.61179429292679,
                             -33.49946056014734
                         ],
                         [
-                            -70.61212688684464,
-                            -33.49948628184861
+                            -70.6117607653141,
+                            -33.49973007846366
                         ],
                         [
                             -70.61211213469505,
@@ -33846,15 +33846,13 @@
             "properties": {
                 "identifier": "MA4GBH359AS09H",
                 "name": "Edificio Carreras Interdisciplinarias",
-                "campus": "SJ",
-                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n\n## Carreras\n\n| #  | Carrera             |\n|----|---------------------|\n| 1  | Ciencia de Datos    |\n| 2 | Administración Pública |\n",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n| #  | Unidades |\n|----|---------------------|\n| 1 | Sala de Estudio, Dilab |\n| 2 | Dilab |\n| 3 | Administración Pública |\n| 4 | Escuela de Gobierno |\n\n\n",
                 "categories": [
                     "building"
                 ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": []
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
