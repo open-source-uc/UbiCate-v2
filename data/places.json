@@ -24948,25 +24948,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PUESTO2",
-                "name": "Work Café",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61324086368903,
                     -33.498194397002706
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO2",
+                "name": "Work Café Santander",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
