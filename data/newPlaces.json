@@ -102,30 +102,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59416463598609,
-                    -33.445966804278065
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_R2-OR",
-                "name": "Sala R202",
-                "information": "Sala R202 segundo piso",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61041284084925,
                     -33.49668564469931
                 ]
