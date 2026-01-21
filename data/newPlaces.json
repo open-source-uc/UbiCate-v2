@@ -78,30 +78,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59421878308058,
-                    -33.44595925085498
-                ]
-            },
-            "properties": {
-                "identifier": "SALA_R3-OR",
-                "name": "Sala R203",
-                "information": "Sala R203 segundo piso",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61041284084925,
                     -33.49668564469931
                 ]
