@@ -7850,25 +7850,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-32993791",
-                "name": "Auditorio Pataguas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61021152391451,
-                    -33.4967247387583
+                    -70.61041284084925,
+                    -33.49668564469931
                 ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-32993791",
+                "name": "Auditorio Pataguas",
+                "information": "TORRE A ",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
