@@ -29148,41 +29148,46 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "VET",
-                "name": "Escuela de Medicina Veterinaria",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.606489,
-                            -33.501209
+                            -70.60648888349533,
+                            -33.50120905926661
                         ],
                         [
-                            -70.60627,
-                            -33.50122
+                            -70.6064110994339,
+                            -33.50058783449116
                         ],
                         [
-                            -70.606195,
-                            -33.500616
+                            -70.6061951816082,
+                            -33.50061579249764
                         ],
                         [
-                            -70.606411,
-                            -33.500588
+                            -70.60627028346062,
+                            -33.50122024239003
                         ],
                         [
-                            -70.606489,
-                            -33.501209
+                            -70.60648888349533,
+                            -33.50120905926661
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "VET",
+                "name": "Escuela de Medicina Veterinaria",
+                "information": "Piso -1: Laboratorio, Pabellón Anatomía. Piso 1: Auditorio, Laboratorios. Piso 2: Pregrado. Piso 3: Laboratorios.",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "VET"
                 ]
             }
         },
