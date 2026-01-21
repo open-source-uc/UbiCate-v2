@@ -27503,7 +27503,7 @@
             "properties": {
                 "identifier": "AGC",
                 "name": "Facultad de Agronomía y Sistemas Naturales",
-                "information": "Piso 1: Salas de clase, laboratorios y sala Crisol\nPiso 2: Decanato\nPiso 3: Centro UC Cambio Global",
+                "information": "| #  | Directorio |\n|----|---------------------|\n| 1 | Salas de Clase AG y SP, Laboratorios, Sala de Estudio y Sala Crisol |\n| 2 | Decanato, Dirección de Pregrado |\n| 3 | Centro UC de Cambio Global |",
                 "categories": [
                     "faculty",
                     ""
