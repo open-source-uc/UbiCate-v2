@@ -28662,42 +28662,61 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FIL",
-                "name": "Instituto de Filosofía",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.614209,
-                            -33.496663
+                            -70.61420895159245,
+                            -33.49666299993344
                         ],
                         [
-                            -70.613913,
-                            -33.496649
+                            -70.61391307041049,
+                            -33.49664902029301
                         ],
                         [
-                            -70.61389,
-                            -33.496824
+                            -70.61388993635774,
+                            -33.49682404522832
                         ],
                         [
-                            -70.614193,
-                            -33.496846
+                            -70.61398601695676,
+                            -33.496831924009776
                         ],
                         [
-                            -70.614209,
-                            -33.496663
+                            -70.61394524875209,
+                            -33.4971322327256
+                        ],
+                        [
+                            -70.61410696263032,
+                            -33.49714243187112
+                        ],
+                        [
+                            -70.614146371895,
+                            -33.49684665615984
+                        ],
+                        [
+                            -70.61419529374008,
+                            -33.49684325643317
+                        ],
+                        [
+                            -70.61420895159245,
+                            -33.49666299993344
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "FIL",
+                "name": "Facultad de Filosofía",
+                "information": "| #  | Directorio             |\n|----|---------------------|\n| 1  | Auditorio de Filosofía |\n| 2 | Decanato, Sala Jorge Rivera, Salas Seminario 1 a 4 |\n| 3 | Oficinas de Profesores |",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
