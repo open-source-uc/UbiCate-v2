@@ -12823,25 +12823,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DECON",
-                "name": "Dict UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60743708727045,
                     -33.497409535622786
                 ]
+            },
+            "properties": {
+                "identifier": "DECON",
+                "name": "DiCTUC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
