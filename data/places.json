@@ -28659,8 +28659,8 @@
             },
             "properties": {
                 "identifier": "CS",
-                "name": "Ciencias de la Salud",
-                "information": "",
+                "name": "Escuela Ciencias de la Salud",
+                "information": "Fonoaudiología, Kinesiología, Nutrición y Dietética, Terapia Ocupacional.",
                 "categories": [
                     "faculty"
                 ],
