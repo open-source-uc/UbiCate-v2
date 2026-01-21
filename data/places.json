@@ -6,6 +6,391 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61042667564166,
+                    -33.496667420704895
+                ]
+            },
+            "properties": {
+                "identifier": "MKFJC6BLLPXX9M",
+                "name": "Dirección de Inclusión",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026603065379,
+                    -33.49702522241076
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKZG5LR8SNFI",
+                "name": "Centro de Medición MIDE UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60776119862425,
+                    -33.4967977655903
+                ]
+            },
+            "properties": {
+                "identifier": "MKFLK396H97RC1",
+                "name": "Decon UC",
+                "information": "Servicios Profesionales en Construcción Civil",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61066924306893,
+                    -33.49784438333046
+                ]
+            },
+            "properties": {
+                "identifier": "MKB8RMCM2CY4US",
+                "name": "Cultura de Prueba",
+                "information": "",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61053055326732,
+                    -33.49788021947846
+                ]
+            },
+            "properties": {
+                "identifier": "MKB8V9PILO5P19",
+                "name": "Oficina de Prueba 1 ",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61329205298897,
+                    -33.49809345015259
+                ]
+            },
+            "properties": {
+                "identifier": "MK1L24QCX2FY9A",
+                "name": "Oficina Administración",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6142357736826,
+                    -33.499906774663756
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKLNFSNZMGEQ",
+                "name": "Edificio Andrónico Luksic Abaroa",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorio |",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61292780675512,
+                    -33.499623680219756
+                ]
+            },
+            "properties": {
+                "identifier": "MKH9E3AL48DND1",
+                "name": "Facultad de Ingeniería",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60976177535682,
+                    -33.50076943235919
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKT9WZSI5615",
+                "name": "Academia de Desarrollo de Talentos UC Rolando Chuaqui",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026066623343,
+                    -33.50066878367158
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKX5BWTZT6BX",
+                "name": "Edificio Docente",
+                "information": "Salas CS",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61185688360676,
+                    -33.50022017804305
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKHEVH2IICCM",
+                "name": "Edificio de Ciencia y Tecnología",
+                "information": "Piso -1 y -2: Estacionamiento. Piso 1: Meson UC, Casino. Piso 2: Salas K 200 a K 204. Piso 3: Salas K 300 a K 307, Laboratorio K 306, Sala de Ayudantes. Piso 4: Laboratorios. Piso 5 : Laboratorios. Piso 6: Laboratorios. Piso 7: Instituto de Ingeniería Biológica y Médica.",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    7
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6111820612312,
+                    -33.49784988878359
+                ]
+            },
+            "properties": {
+                "identifier": "MKB8TJEZSWZISW",
+                "name": "Cultura de Prueba 2 ",
+                "information": "",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61533614993095,
+                    -33.497906619712815
+                ]
+            },
+            "properties": {
+                "identifier": "MKEQBMZ3SMIZM8",
+                "name": "Centro de Innovación UC Anacleto Angelini",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorios, Pronto Copec y Banco de Chile |\n",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    10
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61507698148489,
+                            -33.4982630946601
+                        ],
+                        [
+                            -70.6150209903717,
+                            -33.49809002975138
+                        ],
+                        [
+                            -70.61486508697271,
+                            -33.497927868456706
+                        ],
+                        [
+                            -70.61464983969927,
+                            -33.49796113950573
+                        ],
+                        [
+                            -70.61389312148094,
+                            -33.49785489577499
+                        ],
+                        [
+                            -70.6136829033494,
+                            -33.498050048632805
+                        ],
+                        [
+                            -70.61376504600048,
+                            -33.498223113621464
+                        ],
+                        [
+                            -70.61483591794968,
+                            -33.49831593670384
+                        ],
+                        [
+                            -70.61507698148489,
+                            -33.4982630946601
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "EDU",
+                "name": "Facultad de Educación",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorio Gabriela Mistral, Salas de Clase |\n| 2 | Decanato, Salas de Clase |",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59430213484451,
+                    -33.445870688446
+                ]
+            },
+            "properties": {
+                "identifier": "MKBG7DGHNRALBI",
+                "name": "Oficina Dirección de Transformación Digital",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64021050682615,
                     -33.44121569499727
                 ]
@@ -2374,13 +2759,13 @@
             },
             "properties": {
                 "identifier": "MH0LDW8JKYFOXC",
-                "name": "Auditorio 1",
+                "name": "Auditorio 201",
                 "information": "",
                 "categories": [
                     "auditorium"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "OR",
                 "faculties": [
@@ -2399,13 +2784,13 @@
             },
             "properties": {
                 "identifier": "MH0LJ6VJO6PCWA",
-                "name": "Auditorio 2",
+                "name": "Auditorio 202",
                 "information": "",
                 "categories": [
                     "auditorium"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "OR",
                 "faculties": [
@@ -2424,13 +2809,13 @@
             },
             "properties": {
                 "identifier": "AUDITORIO_3-OR",
-                "name": "Auditorio 3",
+                "name": "Auditorio 203",
                 "information": "",
                 "categories": [
                     "auditorium"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "OR",
                 "faculties": [
@@ -7488,25 +7873,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-32993791",
-                "name": "Auditorio Pataguas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61021152391451,
-                    -33.4967247387583
+                    -70.61041284084925,
+                    -33.49668564469931
                 ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-32993791",
+                "name": "Auditorio Pataguas",
+                "information": "TORRE A ",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -12484,25 +12869,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DECON",
-                "name": "Dict UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60743708727045,
                     -33.497409535622786
                 ]
+            },
+            "properties": {
+                "identifier": "DECON",
+                "name": "DiCTUC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -14160,25 +14546,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "STUDYROOM-32216955",
-                "name": "Pedagogías interfacultades",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61379928658462,
                     -33.49781890167755
                 ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32216955",
+                "name": "Pedagogías interfacultades editado",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -19985,26 +20371,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_MAT",
-                "name": "Biblioteca de Matemática",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "MAT"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610784,
                     -33.499831
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_MAT",
+                "name": "Biblioteca Gauss",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
                 ]
             }
         },
@@ -24705,25 +25091,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PUESTO2",
-                "name": "Work Café",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61324086368903,
                     -33.498194397002706
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO2",
+                "name": "Work Café Santander",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -26916,25 +27302,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIO CENTRO DE INNOVACIÓN UC",
-                "name": "Auditorio Centro de innovación UC, Anacleto Angelini",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.615135,
                     -33.4977493
                 ]
+            },
+            "properties": {
+                "identifier": "AUDITORIO CENTRO DE INNOVACIÓN UC",
+                "name": "Auditorio Centro de Innovación UC, Anacleto Angelini",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -27480,7 +27866,7 @@
             "properties": {
                 "identifier": "AGC",
                 "name": "Facultad de Agronomía y Sistemas Naturales",
-                "information": "Piso 1: Salas de clase, laboratorios y sala Crisol\nPiso 2: Decanato\nPiso 3: Centro UC Cambio Global",
+                "information": "| #  | Directorio |\n|----|---------------------|\n| 1 | Salas de Clase AG y SP, Laboratorios, Sala de Estudio y Sala Crisol |\n| 2 | Decanato, Dirección de Pregrado |\n| 3 | Centro UC de Cambio Global |",
                 "categories": [
                     "faculty",
                     ""
@@ -27589,44 +27975,44 @@
                 "coordinates": [
                     [
                         [
-                            -70.61188213527203,
-                            -33.497332062884745
+                            -70.61190374021552,
+                            -33.49732913590343
                         ],
                         [
                             -70.61190694570541,
                             -33.49717605117534
                         ],
                         [
-                            -70.61214298009872,
-                            -33.49719590214321
+                            -70.61216359958053,
+                            -33.49719743989406
                         ],
                         [
-                            -70.61217583715916,
-                            -33.49691798817866
+                            -70.61219461262226,
+                            -33.496906105519436
                         ],
                         [
                             -70.61192706227303,
                             -33.496890028977894
                         ],
                         [
-                            -70.61196997761726,
-                            -33.49649999718582
+                            -70.61198787372078,
+                            -33.4964940025452
                         ],
                         [
-                            -70.61178289353848,
-                            -33.49649300735273
+                            -70.61177618282274,
+                            -33.49647815978416
                         ],
                         [
                             -70.61171684414148,
                             -33.496881920807986
                         ],
                         [
-                            -70.61089105904102,
-                            -33.49680699009842
+                            -70.61089025606547,
+                            -33.49680229533782
                         ],
                         [
-                            -70.61085686087608,
-                            -33.49708909829055
+                            -70.61084668630441,
+                            -33.49708441306618
                         ],
                         [
                             -70.61169102787971,
@@ -27637,8 +28023,8 @@
                             -33.49730298545484
                         ],
                         [
-                            -70.61188213527203,
-                            -33.497332062884745
+                            -70.61190374021552,
+                            -33.49732913590343
                         ]
                     ]
                 ]
@@ -27646,11 +28032,13 @@
             "properties": {
                 "identifier": "EA",
                 "name": "Facultad de Economía y Administración ",
-                "information": "",
+                "information": "Piso - 1: Auditorio Francisco Rosende-BCI, Salas AE 001 a 004.\nPiso 1: Salas de Estudio, Salas AE 101 a AE 108, Pastoral.\nPiso 2: Salas AE 201 a 211, Salas de Computación 1 y 2.\nPiso 3: Decanato, Instituto de Economía.\nPiso 4: Escuela de Administración.",
                 "categories": [
                     "faculty"
                 ],
-                "floors": [],
+                "floors": [
+                    4
+                ],
                 "campus": "SJ",
                 "faculties": [
                     "EA"
@@ -27659,16 +28047,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SOC",
-                "name": "Facultad de Ciencias Sociales",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -27690,10 +28068,29 @@
                             -33.499453
                         ],
                         [
+                            -70.6103287506566,
+                            -33.498744964015614
+                        ],
+                        [
                             -70.610485,
                             -33.4974
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "SOC",
+                "name": "Facultad de Ciencias Sociales",
+                "information": " | #  | Directorio |\n|----|------------|\n| 1 | Salas de Clases M1, M2 y N, Bachillerato Inicia |\n| 2 | Salas de Computación y de Estudio, Sala Magister Trabajo Social y Doctorados |\n| 3 | Auditorio Juan de Castro, Decanato, Sala Magister Sociología |",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -28088,16 +28485,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "ING-K",
-                "name": "Edificio de Ciencia y Tecnología",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -28124,6 +28511,19 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "ING-K",
+                "name": "Edificio de Ciencia y Tecnología",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| -2 | Estacionamiento |\n| -1 | Caja de pago |\n| 1 | Mesón UC, Casino |\n| 2 | Salas K200 a K204 |\n| 3 | Salas K300 a 307, Laboratorio |\n| 4 | Laboratorios |\n| 5 | Laboratorios |\n| 6 | Laboratorios |\n| 7 | Instituto de Ingeniería Biológica y Médica |",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    7
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -28248,41 +28648,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "ENF",
-                "name": "Escuela de Enfermería",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.61322,
-                            -33.49872
+                            -70.61322114430386,
+                            -33.49866842542611
                         ],
                         [
-                            -70.612896,
-                            -33.4987
+                            -70.61295828782046,
+                            -33.49865947866409
                         ],
                         [
-                            -70.612843,
-                            -33.4991
+                            -70.61292610131252,
+                            -33.49907550213553
                         ],
                         [
-                            -70.613183,
-                            -33.499163
+                            -70.61318359337811,
+                            -33.4990978689322
                         ],
                         [
-                            -70.61322,
-                            -33.49872
+                            -70.61322114430386,
+                            -33.49866842542611
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "ENF",
+                "name": "Escuela de Enfermería",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ENF"
                 ]
             }
         },
@@ -28474,53 +28877,58 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "D",
-                "name": "College",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.611342,
-                            -33.500313
+                            -70.61134167015553,
+                            -33.500312727225655
                         ],
                         [
-                            -70.610906,
-                            -33.500283
+                            -70.6109058111906,
+                            -33.500283091634735
                         ],
                         [
-                            -70.61089,
-                            -33.500386
+                            -70.61088971793652,
+                            -33.50038597741631
                         ],
                         [
-                            -70.610541,
-                            -33.500358
+                            -70.61054103076458,
+                            -33.50035801933559
                         ],
                         [
-                            -70.610594,
-                            -33.500699
+                            -70.61059400439262,
+                            -33.50069910730345
                         ],
                         [
-                            -70.611403,
-                            -33.50064
+                            -70.61140269041061,
+                            -33.50063983637601
                         ],
                         [
-                            -70.611393,
-                            -33.500521
+                            -70.61139330267906,
+                            -33.500520735238716
                         ],
                         [
-                            -70.611342,
-                            -33.500313
+                            -70.61134167015553,
+                            -33.500312727225655
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "D",
+                "name": "College",
+                "information": "Piso 1: Auditorio College, Sala de Estudio, Salas D 101 a D 104.\nPiso 2: Sala San Andrés, Sala de Estudio, Salas D 201 a D 204. Piso 3: Sala de Estudio, Salas D 301 a D 306.\n",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
                 ]
             }
         },
@@ -28555,8 +28963,8 @@
             },
             "properties": {
                 "identifier": "CS",
-                "name": "Ciencias de la Salud",
-                "information": "",
+                "name": "Escuela Ciencias de la Salud",
+                "information": "Fonoaudiología, Kinesiología, Nutrición y Dietética, Terapia Ocupacional.",
                 "categories": [
                     "faculty"
                 ],
@@ -28569,42 +28977,61 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FIL",
-                "name": "Instituto de Filosofía",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.614209,
-                            -33.496663
+                            -70.61420895159245,
+                            -33.49666299993344
                         ],
                         [
-                            -70.613913,
-                            -33.496649
+                            -70.61391307041049,
+                            -33.49664902029301
                         ],
                         [
-                            -70.61389,
-                            -33.496824
+                            -70.61388993635774,
+                            -33.49682404522832
                         ],
                         [
-                            -70.614193,
-                            -33.496846
+                            -70.61398601695676,
+                            -33.496831924009776
                         ],
                         [
-                            -70.614209,
-                            -33.496663
+                            -70.61394524875209,
+                            -33.4971322327256
+                        ],
+                        [
+                            -70.61410696263032,
+                            -33.49714243187112
+                        ],
+                        [
+                            -70.614146371895,
+                            -33.49684665615984
+                        ],
+                        [
+                            -70.61419529374008,
+                            -33.49684325643317
+                        ],
+                        [
+                            -70.61420895159245,
+                            -33.49666299993344
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "FIL",
+                "name": "Facultad de Filosofía",
+                "information": "| #  | Directorio             |\n|----|---------------------|\n| 1  | Auditorio de Filosofía |\n| 2 | Decanato, Sala Jorge Rivera, Salas Seminario 1 a 4 |\n| 3 | Oficinas de Profesores |",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -28721,41 +29148,46 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "VET",
-                "name": "Escuela de Medicina Veterinaria",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.606489,
-                            -33.501209
+                            -70.60648888349533,
+                            -33.50120905926661
                         ],
                         [
-                            -70.60627,
-                            -33.50122
+                            -70.6064110994339,
+                            -33.50058783449116
                         ],
                         [
-                            -70.606195,
-                            -33.500616
+                            -70.6061951816082,
+                            -33.50061579249764
                         ],
                         [
-                            -70.606411,
-                            -33.500588
+                            -70.60627028346062,
+                            -33.50122024239003
                         ],
                         [
-                            -70.606489,
-                            -33.501209
+                            -70.60648888349533,
+                            -33.50120905926661
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "VET",
+                "name": "Escuela de Medicina Veterinaria",
+                "information": "Piso -1: Laboratorio, Pabellón Anatomía. Piso 1: Auditorio, Laboratorios. Piso 2: Pregrado. Piso 3: Laboratorios.",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "VET"
                 ]
             }
         },
@@ -28857,17 +29289,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "LABORATORY-AGRA",
-                "name": "Agroanálisis",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building",
-                    "laboratory"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -28894,6 +29315,20 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-AGRA",
+                "name": "Agroanálisis UC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -32561,71 +32996,71 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R6-OR",
-                "name": "Sala R6",
-                "campus": "OR",
-                "information": "Sala R6, segundo piso ",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.5943813920021,
                     -33.4458350389144
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_R6-OR",
+                "name": "Sala R206",
+                "information": "Sala R206, segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R5-OR",
-                "name": "Sala R5",
-                "campus": "OR",
-                "information": "Sala R5 segundo piso ",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59434467926621,
                     -33.44587616315767
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_R5-OR",
+                "name": "Sala R205",
+                "information": "Sala R205 segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R4-OR",
-                "name": "Sala R4",
-                "campus": "OR",
-                "information": "Sala R4 segundo piso ",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59428935870528,
                     -33.44591714750317
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_R4-OR",
+                "name": "Sala R204",
+                "information": "Sala R204 segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -32653,25 +33088,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R3-OR",
-                "name": "Sala R3",
-                "campus": "OR",
-                "information": "Sala R3 segundo piso",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59421878308058,
                     -33.44595925085498
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_R3-OR",
+                "name": "Sala R203",
+                "information": "Sala R203 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -32699,25 +33134,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R2-OR",
-                "name": "Sala R2",
-                "campus": "OR",
-                "information": "Sala R2 segundo piso",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59416463598609,
                     -33.445966804278065
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_R2-OR",
+                "name": "Sala R202",
+                "information": "Sala R202 segundo piso",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -33710,16 +34145,16 @@
                             -33.49974014344677
                         ],
                         [
-                            -70.6117607653141,
-                            -33.49973007846366
+                            -70.61212688684464,
+                            -33.49948628184861
                         ],
                         [
                             -70.61179429292679,
                             -33.49946056014734
                         ],
                         [
-                            -70.61212688684464,
-                            -33.49948628184861
+                            -70.6117607653141,
+                            -33.49973007846366
                         ],
                         [
                             -70.61211213469505,
@@ -33731,15 +34166,13 @@
             "properties": {
                 "identifier": "MA4GBH359AS09H",
                 "name": "Edificio Carreras Interdisciplinarias",
-                "campus": "SJ",
-                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n\n## Carreras\n\n| #  | Carrera             |\n|----|---------------------|\n| 1  | Ciencia de Datos    |\n| 2 | Administración Pública |\n",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n| #  | Unidades |\n|----|---------------------|\n| 1 | Sala de Estudio, Dilab |\n| 2 | Dilab |\n| 3 | Administración Pública |\n| 4 | Escuela de Gobierno |\n\n\n",
                 "categories": [
                     "building"
                 ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": []
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -33971,56 +34404,56 @@
                 "coordinates": [
                     [
                         [
-                            -70.6109587412028,
-                            -33.49973577807815
-                        ],
-                        [
-                            -70.61093463304793,
-                            -33.499912518502676
-                        ],
-                        [
-                            -70.61066922391328,
-                            -33.49988919372999
-                        ],
-                        [
-                            -70.61066211904165,
-                            -33.49992571790612
-                        ],
-                        [
-                            -70.61053358543788,
-                            -33.49991201714421
-                        ],
-                        [
-                            -70.61052636538354,
-                            -33.50003023863094
-                        ],
-                        [
-                            -70.60996515139124,
-                            -33.49998923783574
+                            -70.61095878481865,
+                            -33.49973567012109
                         ],
                         [
                             -70.6100009009242,
                             -33.49966912937426
                         ],
                         [
-                            -70.6109587412028,
-                            -33.49973577807815
+                            -70.60996502637863,
+                            -33.49998925140585
+                        ],
+                        [
+                            -70.610526278615,
+                            -33.50003034995647
+                        ],
+                        [
+                            -70.61053365468979,
+                            -33.499912086727484
+                        ],
+                        [
+                            -70.61066206544638,
+                            -33.499925786258736
+                        ],
+                        [
+                            -70.61066910624504,
+                            -33.49988916097645
+                        ],
+                        [
+                            -70.61093464493752,
+                            -33.49991264589207
+                        ],
+                        [
+                            -70.61095878481865,
+                            -33.49973567012109
                         ]
                     ]
                 ]
             },
             "properties": {
                 "identifier": "MAT",
-                "name": "Facultad de Matemática",
-                "campus": "SJ",
+                "name": "Facultad de Matemáticas",
                 "information": "",
                 "categories": [
                     "faculty"
                 ],
+                "floors": [],
+                "campus": "SJ",
                 "faculties": [
                     "MAT"
-                ],
-                "floors": []
+                ]
             }
         },
         {
@@ -34388,15 +34821,15 @@
             "properties": {
                 "identifier": "SAN_AGUSTIN",
                 "name": "Edificio San Agustín",
-                "campus": "SJ",
-                "information": "",
+                "information": "Salas H",
                 "categories": [
                     "building"
                 ],
-                "faculties": [
-                    "ING"
+                "floors": [
+                    2
                 ],
-                "floors": []
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -34471,16 +34904,14 @@
             },
             "properties": {
                 "identifier": "MA77GCYP2PRJFG",
-                "name": "Edificio Hernan Briones",
-                "campus": "SJ",
-                "information": "",
+                "name": "Edificio Hernán Briones",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Dirección de Investigación y Postgrado de Ingeniería |\n| 2 | Dirección de Investigación y Postgrado de Ingeniería |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computación |",
                 "categories": [
                     "building"
                 ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": []
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
