@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60976177535682,
+                    -33.50076943235919
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKT9WZSI5615",
+                "name": "Academia de Desarrollo de Talentos UC Rolando Chuaqui",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61026066623343,
                     -33.50066878367158
                 ]
