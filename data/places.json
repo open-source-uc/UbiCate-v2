@@ -28181,16 +28181,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "ING-K",
-                "name": "Edificio de Ciencia y Tecnología",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -28217,6 +28207,19 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "ING-K",
+                "name": "Edificio de Ciencia y Tecnología",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| -2 | Estacionamiento |\n| -1 | Caja de pago |\n| 1 | Mesón UC, Casino |\n| 2 | Salas K200 a K204 |\n| 3 | Salas K300 a 307, Laboratorio |\n| 4 | Laboratorios |\n| 5 | Laboratorios |\n| 6 | Laboratorios |\n| 7 | Instituto de Ingeniería Biológica y Médica |",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    7
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
