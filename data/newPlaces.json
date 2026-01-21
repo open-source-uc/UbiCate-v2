@@ -55,30 +55,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60776119862425,
-                    -33.4967977655903
-                ]
-            },
-            "properties": {
-                "identifier": "MKFLK396H97RC1",
-                "name": "Decon UC",
-                "information": "Servicios Profesionales en Construcción Civil",
-                "categories": [
-                    "building"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61026603065379,
                     -33.49702522241076
                 ]
