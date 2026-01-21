@@ -55,7 +55,7 @@
     "serwist": "^9.0.15",
     "typescript": "^5.8.3",
     "vercel": "39.1.1",
-    "wrangler": "^4.28.0"
+    "wrangler": "^4.59.3"
   },
   "overrides": {
     "vercel": "$vercel"
