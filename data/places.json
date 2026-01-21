@@ -2374,13 +2374,13 @@
             },
             "properties": {
                 "identifier": "MH0LDW8JKYFOXC",
-                "name": "Auditorio 1",
+                "name": "Auditorio 201",
                 "information": "",
                 "categories": [
                     "auditorium"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "OR",
                 "faculties": [
