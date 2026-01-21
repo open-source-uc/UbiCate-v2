@@ -32584,25 +32584,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_R6-OR",
-                "name": "Sala R6",
-                "campus": "OR",
-                "information": "Sala R6, segundo piso ",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.5943813920021,
                     -33.4458350389144
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_R6-OR",
+                "name": "Sala R206",
+                "information": "Sala R206, segundo piso ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
