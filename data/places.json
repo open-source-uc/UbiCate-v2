@@ -29214,17 +29214,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "LABORATORY-AGRA",
-                "name": "Agroanálisis",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building",
-                    "laboratory"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -29251,6 +29240,20 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-AGRA",
+                "name": "Agroanálisis UC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
