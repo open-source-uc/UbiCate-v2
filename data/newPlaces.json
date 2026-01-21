@@ -58,32 +58,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59369122441969,
-                    -33.44603765737674
-                ]
-            },
-            "properties": {
-                "identifier": "MH0LDW8JKYFOXC",
-                "name": "Auditorio 201",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": [
-                    "TEMPLO_OR"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.5943813920021,
                     -33.4458350389144
                 ]
