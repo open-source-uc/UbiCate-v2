@@ -20113,26 +20113,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_MAT",
-                "name": "Biblioteca de Matemática",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "MAT"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610784,
                     -33.499831
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_MAT",
+                "name": "Biblioteca Gauss",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
                 ]
             }
         },
