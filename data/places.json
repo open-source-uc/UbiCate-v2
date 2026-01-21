@@ -28341,41 +28341,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "ENF",
-                "name": "Escuela de Enfermería",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.61322,
-                            -33.49872
+                            -70.61322114430386,
+                            -33.49866842542611
                         ],
                         [
-                            -70.612896,
-                            -33.4987
+                            -70.61295828782046,
+                            -33.49865947866409
                         ],
                         [
-                            -70.612843,
-                            -33.4991
+                            -70.61292610131252,
+                            -33.49907550213553
                         ],
                         [
-                            -70.613183,
-                            -33.499163
+                            -70.61318359337811,
+                            -33.4990978689322
                         ],
                         [
-                            -70.61322,
-                            -33.49872
+                            -70.61322114430386,
+                            -33.49866842542611
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "ENF",
+                "name": "Escuela de Enfermería",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ENF"
                 ]
             }
         },
