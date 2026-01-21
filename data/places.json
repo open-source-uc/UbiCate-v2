@@ -2424,13 +2424,13 @@
             },
             "properties": {
                 "identifier": "AUDITORIO_3-OR",
-                "name": "Auditorio 3",
+                "name": "Auditorio 203",
                 "information": "",
                 "categories": [
                     "auditorium"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "OR",
                 "faculties": [
