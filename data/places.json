@@ -34583,16 +34583,14 @@
             },
             "properties": {
                 "identifier": "MA77GCYP2PRJFG",
-                "name": "Edificio Hernan Briones",
-                "campus": "SJ",
-                "information": "",
+                "name": "Edificio Hernán Briones",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Dirección de Investigación y Postgrado de Ingeniería |\n| 2 | Dirección de Investigación y Postgrado de Ingeniería |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computación |",
                 "categories": [
                     "building"
                 ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": []
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
