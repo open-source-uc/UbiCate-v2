@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60856994241476,
+                    -33.500603211395834
+                ]
+            },
+            "properties": {
+                "identifier": "SPORTS_PLACE-32757455",
+                "name": "Cancha Tenis",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60923546552658,
                     -33.50052185356002
                 ]
