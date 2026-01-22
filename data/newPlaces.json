@@ -6,6 +6,34 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64076349139214,
+                    -33.44161270630254
+                ]
+            },
+            "properties": {
+                "identifier": "BANO03CC",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    -1,
+                    -3,
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64049744978547,
                     -33.441647957370826
                 ]
