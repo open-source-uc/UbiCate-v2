@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59344982728362,
+                    -33.445831402075626
+                ]
+            },
+            "properties": {
+                "identifier": "BANO04OR",
+                "name": "Baño",
+                "information": "Con Mudador",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59417586773634,
                     -33.4454710745238
                 ]
