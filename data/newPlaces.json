@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60803400352597,
+                    -33.50063256729721
+                ]
+            },
+            "properties": {
+                "identifier": "SPORTS_PLACE-37722932",
+                "name": "Área Verde",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6119045251757,
                     -33.500470030624506
                 ]
