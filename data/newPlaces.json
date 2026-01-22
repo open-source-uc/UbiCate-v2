@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60703404247761,
+                    -33.49841407184235
+                ]
+            },
+            "properties": {
+                "identifier": "MHDRQ7LFP87P73",
+                "name": "Cancha Futbolito 4",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60689993202686,
                     -33.498613137650544
                 ]
