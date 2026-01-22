@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64017709344625,
+                    -33.44113681547875
+                ]
+            },
+            "properties": {
+                "identifier": "BANO07CC",
+                "name": "Baño Mujeres",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61189353466034,
                     -33.49992410876524
                 ]
