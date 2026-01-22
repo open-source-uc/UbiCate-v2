@@ -13,9 +13,9 @@
             "properties": {
                 "identifier": "MCC8TXGGX0FGZC",
                 "name": "Sala Raúl Déves ",
-                "information": "Este lugar también es una sala de estudio.",
+                "information": "Esto también es un auditorio",
                 "categories": [
-                    "auditorium"
+                    "studyroom"
                 ],
                 "floors": [
                     1
