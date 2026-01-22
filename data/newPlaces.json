@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610355,
+                    -33.497237
+                ]
+            },
+            "properties": {
+                "identifier": "BICI3",
+                "name": "Bicicletero",
+                "information": "## Test",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.612941,
                     -33.49774
                 ]
