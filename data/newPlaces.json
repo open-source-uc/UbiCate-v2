@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63999788835645,
+                    -33.440956921912495
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-34029242",
+                "name": "Manuel José Irarrázaval",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61190015978707,
                     -33.500495113830844
                 ]
