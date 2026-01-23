@@ -78,32 +78,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.63984114676714,
-                    -33.44178504472245
-                ]
-            },
-            "properties": {
-                "identifier": "BANO08CC",
-                "name": "Baño",
-                "information": "",
-                "categories": [
-                    "bath"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "BIO"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63968122005463,
                     -33.44167327658167
                 ]
