@@ -22408,25 +22408,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BICI1",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.612941,
                     -33.49774
                 ]
+            },
+            "properties": {
+                "identifier": "BICI1",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
