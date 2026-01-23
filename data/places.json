@@ -10514,25 +10514,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K305",
-                "name": "k305",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61190990133346,
                     -33.50044078333621
                 ]
+            },
+            "properties": {
+                "identifier": "K305",
+                "name": "K305",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
