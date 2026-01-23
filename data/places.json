@@ -31923,25 +31923,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59363322332501,
+                    -33.44500163933451
+                ]
+            },
             "properties": {
                 "identifier": "MA2WLW7Q3I0CCA",
-                "name": "Baños",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59363316085623,
-                    -33.44500168161219
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
