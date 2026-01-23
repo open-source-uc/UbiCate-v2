@@ -5254,13 +5254,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.63999782131057,
-                    -33.44095689755255
+                    -70.63999788835645,
+                    -33.440956921912495
                 ]
             },
             "properties": {
                 "identifier": "AUDITORIUM-34029242",
-                "name": "Manuel Jose irarrazaval",
+                "name": "Manuel José Irarrázaval",
                 "information": "",
                 "categories": [
                     "auditorium"
