@@ -10560,25 +10560,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K306",
-                "name": "k306",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61190015978707,
                     -33.500495113830844
                 ]
+            },
+            "properties": {
+                "identifier": "K306",
+                "name": "K306",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
