@@ -26581,25 +26581,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64054505899549,
+                    -33.44176098450906
+                ]
+            },
             "properties": {
                 "identifier": "BANCO3",
-                "name": "Sucursal Santander",
-                "campus": "CC",
+                "name": "Banco Santander",
                 "information": "",
                 "categories": [
                     "financial"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640545,
-                    -33.441761
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
