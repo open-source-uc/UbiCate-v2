@@ -102,30 +102,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60702599585056,
-                    -33.500743560472394
-                ]
-            },
-            "properties": {
-                "identifier": "SPORTS_PLACE-32757508",
-                "name": "Cancha Tenis Arcilla",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60861386358738,
                     -33.50109499132517
                 ]
