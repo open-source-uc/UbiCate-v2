@@ -8266,25 +8266,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60944836586714,
+                    -33.50051234782852
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757660",
-                "name": "Multicancha_2",
-                "campus": "SJ",
+                "name": "Multicancha 2",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60944834762483,
-                    -33.500512253309836
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
