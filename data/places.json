@@ -22531,25 +22531,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BICI8",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.639994,
                     -33.441524
                 ]
+            },
+            "properties": {
+                "identifier": "BICI8",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
