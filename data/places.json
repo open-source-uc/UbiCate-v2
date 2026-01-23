@@ -9391,25 +9391,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6408722884953,
+                    -33.4412937674146
+                ]
+            },
             "properties": {
                 "identifier": "BANO02CC",
-                "name": "Baño 02",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6408723113285,
-                    -33.44129372334888
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
