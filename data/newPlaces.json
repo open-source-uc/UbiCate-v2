@@ -390,30 +390,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60715742409229,
-                    -33.49819823030836
-                ]
-            },
-            "properties": {
-                "identifier": "SPORTS_PLACE-32757834",
-                "name": "Volleyball Playa",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60857027769089,
                     -33.498835408623
                 ]
