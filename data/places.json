@@ -3895,13 +3895,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60735565020424,
-                    -33.50121632844662
+                    -70.60735557228327,
+                    -33.501216328297005
                 ]
             },
             "properties": {
                 "identifier": "MHDRL5K3HELEBP",
-                "name": "Cancha de Tenis Asfalto",
+                "name": "Cancha Tenis Asfalto",
                 "information": "",
                 "categories": [
                     "sports_place"
