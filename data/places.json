@@ -27262,25 +27262,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59383422136307,
+                    -33.44487322962391
+                ]
+            },
             "properties": {
                 "identifier": "BANO06OR",
-                "name": "Baño 06",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59383426779587,
-                    -33.4448731702526
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
