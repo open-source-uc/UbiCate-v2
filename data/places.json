@@ -8404,25 +8404,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60861386358738,
+                    -33.50109499132517
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757419",
-                "name": "C-Sintetico",
-                "campus": "SJ",
+                "name": "Cancha Sintética",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60861399979045,
-                    -33.50109497584726
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
