@@ -20093,24 +20093,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63968122005463,
+                    -33.44167327658167
+                ]
+            },
             "properties": {
                 "identifier": "BANOU09CC",
-                "name": "Baño Universal 09",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.63968122396304,
-                    -33.44167332051259
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
