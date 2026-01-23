@@ -9368,25 +9368,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64087430015206,
+                    -33.44082892587425
+                ]
+            },
             "properties": {
                 "identifier": "ALMACEN_UC_CC",
-                "name": "ALMACÉN UC",
-                "campus": "CC",
+                "name": "Almacén UC",
                 "information": "",
                 "categories": [
                     "shop"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64087424842604,
-                    -33.44082889204952
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
