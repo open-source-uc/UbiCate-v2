@@ -26145,25 +26145,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALAESTUDIO21",
-                "name": "Sala de estudio",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.593302,
-                    -33.445589
+                    -70.59330197051167,
+                    -33.44558899243942
                 ]
+            },
+            "properties": {
+                "identifier": "SALAESTUDIO21",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
