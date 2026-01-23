@@ -32785,25 +32785,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2W11QUN5P2AG",
-                "name": "Estacionamiento de bicicletas",
-                "campus": "OR",
-                "information": "Bicicletero con estación de reparación",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59234092960935,
                     -33.44635071381148
                 ]
+            },
+            "properties": {
+                "identifier": "MA2W11QUN5P2AG",
+                "name": "Bicicletero",
+                "information": "Bicicletero con estación de reparación",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
