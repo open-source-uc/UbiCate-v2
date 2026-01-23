@@ -104,30 +104,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59439101221486,
-                    -33.4460733909955
-                ]
-            },
-            "properties": {
-                "identifier": "MA2ZECAY26AQI0",
-                "name": "Bicicletero",
-                "information": "Bicicletero",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59234092960935,
                     -33.44635071381148
                 ]
