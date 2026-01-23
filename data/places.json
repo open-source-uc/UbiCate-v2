@@ -27222,25 +27222,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59344982728362,
+                    -33.445831402075626
+                ]
+            },
             "properties": {
                 "identifier": "BANO04OR",
-                "name": "Baño Universal 04",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5934498346797,
-                    -33.4458314231889
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
