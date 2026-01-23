@@ -27149,26 +27149,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59444593265653,
+                    -33.44585420225468
+                ]
+            },
             "properties": {
                 "identifier": "BANO01OR",
-                "name": "Baño Mujeres 01",
-                "campus": "OR",
+                "name": "Baño Mujeres",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1,
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59444587805379,
-                    -33.44585414123193
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
