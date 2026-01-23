@@ -353,30 +353,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.639994,
-                    -33.441524
-                ]
-            },
-            "properties": {
-                "identifier": "BICI8",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.608004,
                     -33.500706
                 ]
