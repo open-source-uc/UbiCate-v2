@@ -54,30 +54,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60861386358738,
-                    -33.50109499132517
-                ]
-            },
-            "properties": {
-                "identifier": "SPORTS_PLACE-32757419",
-                "name": "Cancha Sintética",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60856994241476,
                     -33.500603211395834
                 ]
