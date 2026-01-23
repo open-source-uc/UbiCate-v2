@@ -20162,26 +20162,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61803294345737,
+                    -33.41881093805792
+                ]
+            },
             "properties": {
                 "identifier": "BANO47",
-                "name": "Baño Universal",
-                "campus": "LC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [
-                    "FADEU"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618033,
-                    -33.418811
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
                 ]
             }
         },
