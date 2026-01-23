@@ -8450,25 +8450,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60857027769089,
+                    -33.498835408623
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757344",
-                "name": "C- Rugby",
-                "campus": "SJ",
+                "name": "Cancha Rugby",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60856981041009,
-                    -33.498834872254484
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
