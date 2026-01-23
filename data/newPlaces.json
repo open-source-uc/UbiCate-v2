@@ -155,30 +155,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59330197051167,
-                    -33.44558899243942
-                ]
-            },
-            "properties": {
-                "identifier": "SALAESTUDIO21",
-                "name": "Sala de estudio",
-                "information": "",
-                "categories": [
-                    "studyroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59439101221486,
                     -33.4460733909955
                 ]
