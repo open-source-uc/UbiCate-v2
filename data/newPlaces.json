@@ -54,32 +54,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.63968122005463,
-                    -33.44167327658167
-                ]
-            },
-            "properties": {
-                "identifier": "BANOU09CC",
-                "name": "Baño",
-                "information": "Con Mudador",
-                "categories": [
-                    "bath"
-                ],
-                "floors": [
-                    -2
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "BIO"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59234092960935,
                     -33.44635071381148
                 ]
