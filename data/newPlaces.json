@@ -493,30 +493,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61191246050227,
-                    -33.5004057434697
-                ]
-            },
-            "properties": {
-                "identifier": "K304",
-                "name": "K304",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703404247761,
                     -33.49841407184235
                 ]
