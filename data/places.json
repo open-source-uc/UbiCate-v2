@@ -8427,25 +8427,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60842745006084,
+                    -33.49984219112612
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757377",
-                "name": "C- Futbol",
-                "campus": "SJ",
+                "name": "Cancha Fútbol",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60842753607395,
-                    -33.49984221434922
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
