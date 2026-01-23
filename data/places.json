@@ -8381,25 +8381,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60856994241476,
+                    -33.500603211395834
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757455",
-                "name": "C-Tenis",
-                "campus": "SJ",
+                "name": "Cancha Tenis",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60856983468325,
-                    -33.50060331611457
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
