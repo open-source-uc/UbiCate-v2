@@ -1006,30 +1006,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61196802033098,
-                    -33.50004729531661
-                ]
-            },
-            "properties": {
-                "identifier": "K300",
-                "name": "K300",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60861386358738,
                     -33.50109499132517
                 ]
