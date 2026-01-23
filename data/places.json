@@ -19993,24 +19993,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64033802598715,
+                    -33.44133713198139
+                ]
+            },
             "properties": {
                 "identifier": "BANO05CC",
-                "name": "Baño 05",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6403379585181,
-                    -33.441337157637406
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
