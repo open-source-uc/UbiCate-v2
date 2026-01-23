@@ -34580,16 +34580,15 @@
             "properties": {
                 "identifier": "MCC8TXGGX0FGZC",
                 "name": "Sala Raúl Déves ",
-                "campus": "SJ",
-                "information": "",
+                "information": "Esto también es un auditorio",
                 "categories": [
-                    "auditorium",
                     "studyroom"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
