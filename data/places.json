@@ -20012,24 +20012,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64030399546027,
+                    -33.441233896299664
+                ]
+            },
             "properties": {
                 "identifier": "BANO06CC",
-                "name": "Baño Hombres 06",
-                "campus": "CC",
+                "name": "Baño Hombres",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64030397270128,
-                    -33.44123390105473
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "DE"
                 ]
             }
         },
