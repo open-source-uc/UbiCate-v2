@@ -543,30 +543,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61192033164343,
-                    -33.50033171862884
-                ]
-            },
-            "properties": {
-                "identifier": "K203",
-                "name": "K203",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703404247761,
                     -33.49841407184235
                 ]
