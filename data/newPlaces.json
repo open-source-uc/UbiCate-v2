@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61023186365706,
-                    -33.49655756334374
-                ]
-            },
-            "properties": {
-                "identifier": "MKQ1BI5JLY243Z",
-                "name": "Diagnóstico lenguaje ",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59234092960935,
                     -33.44635071381148
                 ]
