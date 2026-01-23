@@ -25558,26 +25558,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61794208362699,
+                    -33.41887502229851
+                ]
+            },
             "properties": {
                 "identifier": "SALA104",
-                "name": "SALA104",
-                "campus": "LC",
+                "name": "Sala 104",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [
-                    "FADEU"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.617942,
-                    -33.418875
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
                 ]
             }
         },
