@@ -29385,41 +29385,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DNO",
-                "name": "Escuela de Diseño",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.618136,
-                            -33.419116
+                            -70.61813604086637,
+                            -33.41911596742615
                         ],
                         [
-                            -70.617896,
-                            -33.418896
+                            -70.6183610111475,
+                            -33.41894610257991
                         ],
                         [
-                            -70.618123,
-                            -33.418726
+                            -70.61812296509743,
+                            -33.418725865455876
                         ],
                         [
-                            -70.618361,
-                            -33.418946
+                            -70.61789598315954,
+                            -33.418896010576624
                         ],
                         [
-                            -70.618136,
-                            -33.419116
+                            -70.61813604086637,
+                            -33.41911596742615
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "DNO",
+                "name": "Escuela de Diseño",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
                 ]
             }
         },
