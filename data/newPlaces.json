@@ -28,50 +28,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61813604086637,
-                            -33.41911596742615
-                        ],
-                        [
-                            -70.6183610111475,
-                            -33.41894610257991
-                        ],
-                        [
-                            -70.61812296509743,
-                            -33.418725865455876
-                        ],
-                        [
-                            -70.61789598315954,
-                            -33.418896010576624
-                        ],
-                        [
-                            -70.61813604086637,
-                            -33.41911596742615
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "DNO",
-                "name": "Escuela de Diseño",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": [
-                    "DNO"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61803294345737,
