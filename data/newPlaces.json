@@ -78,30 +78,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60735557228327,
-                    -33.501216328297005
-                ]
-            },
-            "properties": {
-                "identifier": "MHDRL5K3HELEBP",
-                "name": "Cancha Tenis Asfalto",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60861386358738,
                     -33.50109499132517
                 ]
