@@ -56,32 +56,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61794208362699,
-                    -33.41887502229851
-                ]
-            },
-            "properties": {
-                "identifier": "SALA104",
-                "name": "Sala 104",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": [
-                    "DNO"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59444593265653,
                     -33.44585420225468
                 ]
