@@ -20068,24 +20068,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63984114676714,
+                    -33.44178504472245
+                ]
+            },
             "properties": {
                 "identifier": "BANO08CC",
-                "name": "Baño 08",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.63984106748282,
-                    -33.44178498048217
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
