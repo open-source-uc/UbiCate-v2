@@ -22433,27 +22433,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BICI19",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.618351,
                     -33.418895
                 ]
+            },
+            "properties": {
+                "identifier": "BICI19",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
             }
         },
         {
