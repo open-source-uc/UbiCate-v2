@@ -10468,25 +10468,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K302",
-                "name": "k302",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61193198735519,
                     -33.50026413720872
                 ]
+            },
+            "properties": {
+                "identifier": "K302",
+                "name": "K302",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
