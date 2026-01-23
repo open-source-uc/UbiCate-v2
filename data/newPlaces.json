@@ -395,30 +395,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61190990133346,
-                    -33.50044078333621
-                ]
-            },
-            "properties": {
-                "identifier": "K305",
-                "name": "K305",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703404247761,
                     -33.49841407184235
                 ]
