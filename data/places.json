@@ -27222,25 +27222,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373313561082,
+                    -33.44621984357123
+                ]
+            },
             "properties": {
                 "identifier": "BANO03OR",
-                "name": "Baño Universal 03",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5937331462675,
-                    -33.44621981839892
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
