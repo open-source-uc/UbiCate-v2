@@ -3757,13 +3757,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60703401295716,
-                    -33.4984142041631
+                    -70.60703404247761,
+                    -33.49841407184235
                 ]
             },
             "properties": {
                 "identifier": "MHDRQ7LFP87P73",
-                "name": "Cancha de Futbolito 4",
+                "name": "Cancha Futbolito 4",
                 "information": "",
                 "categories": [
                     "sports_place"
