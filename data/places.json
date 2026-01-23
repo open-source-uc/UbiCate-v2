@@ -26777,25 +26777,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K202",
-                "name": "k202",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61192338,
                     -33.500255
                 ]
+            },
+            "properties": {
+                "identifier": "K202",
+                "name": "K202",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
