@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6407628977998,
+                    -33.44108891771986
+                ]
+            },
+            "properties": {
+                "identifier": "MKVBAV31PBKVWT",
+                "name": "Estatua del Papa de Juan Pablo II",
+                "information": "La obra fue inaugurada en conmemoración de la visita que hizo el Papa Juan Pablo II a la Universidad en 1987, y está ubicada en el Patio Juan Pablo II de la Casa Central, el cual lleva ese nombre en su honor. Av. Libertador Bernardo O'Higgins 340",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6404494704001,
                     -33.440748340363896
                 ]
