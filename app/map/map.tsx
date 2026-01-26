@@ -84,6 +84,10 @@ export default function MapComponent({
     paramLat,
   });
   const mapConfig = useMapStyle();
+  const [visibleMarkerIds, setVisibleMarkerIds] = React.useState<Set<string>>(new Set());
+  // Use the map's native collision engine by creating a hidden symbol layer
+  // and reading which features are actually rendered. This keeps DOM icons
+  // visuals untouched while delegating placement/collision to the map.
 
   // Crear puntos centroides para los nombres de campus
   const campusNamePoints = React.useMemo(() => {
@@ -125,19 +129,6 @@ export default function MapComponent({
     }
   }, [params]);
 
-  useEffect(() => {
-    const campusName = params.get("campus");
-    if (campusName) {
-      mapRef.current?.getMap()?.setMaxBounds(undefined);
-      localStorage.setItem("defaultCampus", campusName);
-      mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
-        duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
-      });
-      mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
-    }
-  }, [params]);
-
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -152,7 +143,7 @@ export default function MapComponent({
         if (mapRef.current) {
           mapRef.current.resize();
         }
-      }, 175); // 200 para evitar resize excesivos, debido a la animación de la sidebar que dura 150ms
+      }, 175);
     });
 
     observer.observe(containerRef.current);
@@ -162,6 +153,72 @@ export default function MapComponent({
       if (timeout) clearTimeout(timeout);
     };
   }, []);
+
+  // Use MapLibre's placement/collision engine: render an invisible symbol/text
+  // layer and query which features are actually rendered. Sync DOM markers
+  // visibility to that set. This avoids expensive JS-only overlap heuristics.
+  useEffect(() => {
+    const map = mapRef.current?.getMap();
+    if (!map) return;
+
+    if (!map.hasImage("transparent-px")) {
+      // create a transparent canvas sized to the DOM marker (use larger padding)
+      // Tailwind `w-5 h-5` corresponds to 20px; increase to 36px to reserve extra space
+      const ICON_PX = 36;
+      const c = document.createElement("canvas");
+      c.width = ICON_PX;
+      c.height = ICON_PX;
+      const ctx = c.getContext("2d");
+      if (ctx) {
+        ctx.clearRect(0, 0, ICON_PX, ICON_PX);
+        try {
+          map.addImage("transparent-px", c as any, { pixelRatio: 1 });
+        } catch (e) {
+          // ignore
+        }
+      }
+    }
+
+    let raf: number | null = null;
+
+    const updateFromRendered = () => {
+      try {
+        const feats = map.queryRenderedFeatures({ layers: ["places-collision-layer"] });
+        const ids = new Set<string>();
+        for (const f of feats) {
+          const id = (f.properties as any)?.identifier;
+          if (id) ids.add(id);
+        }
+        setVisibleMarkerIds(ids);
+      } catch (e) {
+        // layer may not be present yet
+      }
+    };
+
+    const schedule = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(updateFromRendered);
+    };
+
+    updateFromRendered();
+
+    map.on("move", schedule);
+    map.on("zoom", schedule);
+    map.on("resize", schedule);
+    map.on("render", schedule);
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      try {
+        map.off("move", schedule);
+        map.off("zoom", schedule);
+        map.off("resize", schedule);
+        map.off("render", schedule);
+      } catch (e) {
+        // noop
+      }
+    };
+  }, [mapRef, points, pins, pointsName, mapConfig]);
 
   return (
     <div className="w-full h-full relative" ref={containerRef}>
@@ -231,7 +288,38 @@ export default function MapComponent({
             }}
           />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
+        {/* Collision source + layer: the layer renders a transparent icon plus text
+            and uses MapLibre's placement/collision algorithm. We then query
+            rendered features from this layer to decide which DOM markers to show. */}
+        <Source id="places-collision" type="geojson" data={featuresToGeoJSON([...points, ...pins])}>
+          <Layer
+            id="places-collision-layer"
+            type="symbol"
+            layout={{
+              // use a transparent icon so the map calculates icon collision
+              "icon-image": "transparent-px",
+              "icon-size": 1,
+              "icon-anchor": "center",
+              "icon-offset": [0, 0],
+              "text-field": ["get", "name"],
+              "text-font": mapConfig.placesTextLayer?.layout?.["text-font"] || ["sans-serif"],
+              "text-size": mapConfig.placesTextLayer?.layout?.["text-size"] || 12,
+              // keep anchor/offset similar to DOM marker placement — text to the right
+              "text-anchor": mapConfig.placesTextLayer?.layout?.["text-anchor"] || "left",
+              "text-offset": mapConfig.placesTextLayer?.layout?.["text-offset"] || [1.5, 0],
+              "text-allow-overlap": false,
+              "icon-allow-overlap": false,
+              "text-ignore-placement": false,
+              "text-optional": false,
+              "icon-optional": false,
+            }}
+            paint={{
+              // keep text paint from config when available
+              ...(mapConfig.placesTextLayer?.paint || {}),
+            }}
+          />
+        </Source>
+        <Source id="places-polygons" type="geojson" data={featuresToGeoJSON(polygons)}>
           <Layer {...mapConfig.placesTextLayer} />
         </Source>
         <SilentErrorBoundary>
@@ -243,6 +331,7 @@ export default function MapComponent({
         <DirectionsComponent />
         {points.map((place) => {
           const primaryCategory = place.properties.categories[0] as CATEGORIES;
+          if (!visibleMarkerIds.has(place.properties.identifier)) return null;
           return (
             <Marker
               key={place.properties.identifier}
@@ -260,6 +349,7 @@ export default function MapComponent({
           } else {
             config = { openSidebar: false, flyMode: "never" };
           }
+          if (!visibleMarkerIds.has(pin.properties.identifier)) return null;
           return (
             <Marker
               key={pin.properties.identifier}
