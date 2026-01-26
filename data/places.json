@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61023186365706,
+                    -33.49655756334374
+                ]
+            },
+            "properties": {
+                "identifier": "MKQ1BI5JLY243Z",
+                "name": "Diagnóstico lenguaje ",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61042667564166,
                     -33.496667420704895
                 ]
@@ -708,7 +731,7 @@
             },
             "properties": {
                 "identifier": "MK1FX7CI4OSOAC",
-                "name": "Hidropunto",
+                "name": "Agua",
                 "information": "",
                 "categories": [
                     "water"
@@ -3715,7 +3738,7 @@
             },
             "properties": {
                 "identifier": "MHNQII5L5DY7HM",
-                "name": "K",
+                "name": "Agua",
                 "information": "",
                 "categories": [
                     "water"
@@ -3734,13 +3757,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60703401295716,
-                    -33.4984142041631
+                    -70.60703404247761,
+                    -33.49841407184235
                 ]
             },
             "properties": {
                 "identifier": "MHDRQ7LFP87P73",
-                "name": "Cancha de Futbolito 4",
+                "name": "Cancha Futbolito 4",
                 "information": "",
                 "categories": [
                     "sports_place"
@@ -3757,13 +3780,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60690008169455,
-                    -33.49861326982678
+                    -70.60689993202686,
+                    -33.498613137650544
                 ]
             },
             "properties": {
                 "identifier": "MHDRQGPWVI03G3",
-                "name": "Cancha de Futbolito 5",
+                "name": "Cancha Futbolito 5",
                 "information": "",
                 "categories": [
                     ""
@@ -3803,13 +3826,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6061946884406,
-                    -33.49914922892397
+                    -70.60619484633207,
+                    -33.49914910328853
                 ]
             },
             "properties": {
                 "identifier": "MHDRGENUW6GGAB",
-                "name": "Canchas de Futbolito Pasto Natural 1",
+                "name": "Cancha Futbolito Pasto Natural 1",
                 "information": "",
                 "categories": [
                     ""
@@ -3826,13 +3849,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60626255093662,
-                    -33.49966189938591
+                    -70.6062625721097,
+                    -33.49966186021395
                 ]
             },
             "properties": {
                 "identifier": "MHDRGMJLN4UZA8",
-                "name": "Canchas de Futbolito Pasto Natural 2",
+                "name": "Cancha Futbolito Pasto Natural 2",
                 "information": "",
                 "categories": [
                     ""
@@ -3849,13 +3872,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60629223447722,
-                    -33.50012041429685
+                    -70.60629207640886,
+                    -33.50012037528489
                 ]
             },
             "properties": {
                 "identifier": "MHDRGWRQN3UUXD",
-                "name": "Canchas de Futbolito Pasto Natural 3",
+                "name": "Cancha Futbolito Pasto Natural 3",
                 "information": "",
                 "categories": [
                     ""
@@ -3872,13 +3895,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60735565020424,
-                    -33.50121632844662
+                    -70.60735557228327,
+                    -33.501216328297005
                 ]
             },
             "properties": {
                 "identifier": "MHDRL5K3HELEBP",
-                "name": "Cancha de Tenis Asfalto",
+                "name": "Cancha Tenis Asfalto",
                 "information": "",
                 "categories": [
                     "sports_place"
@@ -5205,24 +5228,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404198333621,
+                    -33.44136468945289
+                ]
+            },
             "properties": {
                 "identifier": "FOOD_LUNCH-34029632",
-                "name": "Meson UC",
-                "campus": "CC",
+                "name": "Mesón UC",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64041976883618,
-                    -33.44136463977536
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
@@ -5254,13 +5279,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.63999782131057,
-                    -33.44095689755255
+                    -70.63999788835645,
+                    -33.440956921912495
                 ]
             },
             "properties": {
                 "identifier": "AUDITORIUM-34029242",
-                "name": "Manuel Jose irarrazaval",
+                "name": "Manuel José Irarrázaval",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -8149,25 +8174,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60715742409229,
+                    -33.49819823030836
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757834",
-                "name": "VB. Playa",
-                "campus": "SJ",
+                "name": "Volleyball Playa",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60715729333668,
-                    -33.498198326074174
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -8218,71 +8243,71 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60923546552658,
+                    -33.50052185356002
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757688",
-                "name": "Multicancha_3",
-                "campus": "SJ",
+                "name": "Multicancha 3",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6092354134233,
-                    -33.50052183833823
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60944836586714,
+                    -33.50051234782852
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757660",
-                "name": "Multicancha_2",
-                "campus": "SJ",
+                "name": "Multicancha 2",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60944834762483,
-                    -33.500512253309836
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60968825593591,
+                    -33.50050396041749
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757638",
-                "name": "Multicancha_1",
-                "campus": "SJ",
+                "name": "Multicancha 1",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60968823438917,
-                    -33.50050391843461
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -8333,117 +8358,117 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60702599585056,
+                    -33.500743560472394
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757508",
-                "name": "C_Tenis_Arcilla",
-                "campus": "SJ",
+                "name": "Cancha Tenis Arcilla",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60702607492097,
-                    -33.50074358053637
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60856994241476,
+                    -33.500603211395834
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757455",
-                "name": "C-Tenis",
-                "campus": "SJ",
+                "name": "Cancha Tenis",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60856983468325,
-                    -33.50060331611457
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60861386358738,
+                    -33.50109499132517
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757419",
-                "name": "C-Sintetico",
-                "campus": "SJ",
+                "name": "Cancha Sintética",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60861399979045,
-                    -33.50109497584726
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60842745006084,
+                    -33.49984219112612
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757377",
-                "name": "C- Futbol",
-                "campus": "SJ",
+                "name": "Cancha Fútbol",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60842753607395,
-                    -33.49984221434922
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60857027769089,
+                    -33.498835408623
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757344",
-                "name": "C- Rugby",
-                "campus": "SJ",
+                "name": "Cancha Rugby",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60856981041009,
-                    -33.498834872254484
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -9368,48 +9393,48 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64087430015206,
+                    -33.44082892587425
+                ]
+            },
             "properties": {
                 "identifier": "ALMACEN_UC_CC",
-                "name": "ALMACÉN UC",
-                "campus": "CC",
+                "name": "Almacén UC",
                 "information": "",
                 "categories": [
                     "shop"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64087424842604,
-                    -33.44082889204952
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6408722884953,
+                    -33.4412937674146
+                ]
+            },
             "properties": {
                 "identifier": "BANO02CC",
-                "name": "Baño 02",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6408723113285,
-                    -33.44129372334888
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -10420,255 +10445,255 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K300",
-                "name": "k300",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61196802033098,
                     -33.50004729531661
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K301",
-                "name": "k301",
-                "campus": "SJ",
+                "identifier": "K300",
+                "name": "K300",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     3
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61193875544554,
                     -33.50011015651467
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K302",
-                "name": "k302",
-                "campus": "SJ",
+                "identifier": "K301",
+                "name": "K301",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     3
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61193198735519,
                     -33.50026413720872
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K304",
-                "name": "k304",
-                "campus": "SJ",
+                "identifier": "K302",
+                "name": "K302",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     3
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61191246050227,
                     -33.5004057434697
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K305",
-                "name": "k305",
-                "campus": "SJ",
+                "identifier": "K304",
+                "name": "K304",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     3
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61190990133346,
                     -33.50044078333621
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K307",
-                "name": "k307",
-                "campus": "SJ",
+                "identifier": "K305",
+                "name": "K305",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     3
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6119045251757,
                     -33.500470030624506
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K306",
-                "name": "k306",
-                "campus": "SJ",
+                "identifier": "K307",
+                "name": "K307",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     3
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61190015978707,
                     -33.500495113830844
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K201",
-                "name": "k201",
-                "campus": "SJ",
+                "identifier": "K306",
+                "name": "K306",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
-                    2
-                ]
-            },
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6119489932999,
                     -33.500093711588036
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K204",
-                "name": "k204",
-                "campus": "SJ",
+                "identifier": "K201",
+                "name": "K201",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     2
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61190194243824,
                     -33.50049199928448
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K203",
-                "name": "k203",
-                "campus": "SJ",
+                "identifier": "K204",
+                "name": "K204",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
                     2
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61192033164343,
                     -33.50033171862884
                 ]
+            },
+            "properties": {
+                "identifier": "K203",
+                "name": "K203",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K200",
-                "name": "k200",
-                "campus": "SJ",
-                "information": "'",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61196539867146,
                     -33.500021000664645
                 ]
+            },
+            "properties": {
+                "identifier": "K200",
+                "name": "K200",
+                "information": "'",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -19940,165 +19965,177 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64076349139214,
+                    -33.44161270630254
+                ]
+            },
             "properties": {
                 "identifier": "BANO03CC",
-                "name": "Baño 03",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -1,
                     -3,
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64076345562313,
-                    -33.441612720840816
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64049744978547,
+                    -33.441647957370826
+                ]
+            },
             "properties": {
                 "identifier": "BANOU04CC",
-                "name": "Baño Universal 04",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -1,
                     -2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64049747818859,
-                    -33.441647907357165
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64033802598715,
+                    -33.44133713198139
+                ]
+            },
             "properties": {
                 "identifier": "BANO05CC",
-                "name": "Baño 05",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6403379585181,
-                    -33.441337157637406
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64030399546027,
+                    -33.441233896299664
+                ]
+            },
             "properties": {
                 "identifier": "BANO06CC",
-                "name": "Baño Hombres 06",
-                "campus": "CC",
+                "name": "Baño Hombres",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64030397270128,
-                    -33.44123390105473
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "DE"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64017709344625,
+                    -33.44113681547875
+                ]
+            },
             "properties": {
                 "identifier": "BANO07CC",
-                "name": "Baño Mujeres 07",
-                "campus": "CC",
+                "name": "Baño Mujeres",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64017706395089,
-                    -33.441136861437776
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "DE"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63984114676714,
+                    -33.44178504472245
+                ]
+            },
             "properties": {
                 "identifier": "BANO08CC",
-                "name": "Baño 08",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.63984106748282,
-                    -33.44178498048217
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63968122005463,
+                    -33.44167327658167
+                ]
+            },
             "properties": {
                 "identifier": "BANOU09CC",
-                "name": "Baño Universal 09",
-                "campus": "CC",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     -2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.63968122396304,
-                    -33.44167332051259
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
@@ -20152,26 +20189,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61803294345737,
+                    -33.41881093805792
+                ]
+            },
             "properties": {
                 "identifier": "BANO47",
-                "name": "Baño Universal",
-                "campus": "LC",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [
-                    "FADEU"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618033,
-                    -33.418811
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
                 ]
             }
         },
@@ -22404,146 +22441,140 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BICI1",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.612941,
                     -33.49774
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "BICI19",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "LC",
+                "identifier": "BICI1",
+                "name": "Bicicletero",
                 "information": "",
                 "categories": [
                     "park_bicycle"
                 ],
-                "faculties": [
-                    "FADEU"
-                ],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.618351,
                     -33.418895
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "BICI4",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
+                "identifier": "BICI19",
+                "name": "Bicicletero",
                 "information": "",
                 "categories": [
                     "park_bicycle"
                 ],
-                "faculties": [
-                    "SOC"
-                ],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610533,
                     -33.498375
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "BICI5",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
+                "identifier": "BICI4",
+                "name": "Bicicletero",
                 "information": "",
                 "categories": [
                     "park_bicycle"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609832,
                     -33.500282
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "BICI6",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
+                "identifier": "BICI5",
+                "name": "Bicicletero",
                 "information": "",
                 "categories": [
                     "park_bicycle"
                 ],
-                "faculties": [
-                    "DPT"
-                ],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.608004,
                     -33.500706
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "BICI8",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "CC",
+                "identifier": "BICI6",
+                "name": "Bicicletero",
                 "information": "",
                 "categories": [
                     "park_bicycle"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.639994,
                     -33.441524
                 ]
+            },
+            "properties": {
+                "identifier": "BICI8",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -25550,26 +25581,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61794208362699,
+                    -33.41887502229851
+                ]
+            },
             "properties": {
                 "identifier": "SALA104",
-                "name": "SALA104",
-                "campus": "LC",
+                "name": "Sala 104",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [
-                    "FADEU"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.617942,
-                    -33.418875
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
                 ]
             }
         },
@@ -26114,48 +26145,48 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALAESTUDIO20",
-                "name": "Sala de estudio",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.593583,
-                    -33.4455
+                    -70.59358293190598,
+                    -33.44550002947167
                 ]
+            },
+            "properties": {
+                "identifier": "SALAESTUDIO20",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALAESTUDIO21",
-                "name": "Sala de estudio",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.593302,
-                    -33.445589
+                    -70.59330197051167,
+                    -33.44558899243942
                 ]
+            },
+            "properties": {
+                "identifier": "SALAESTUDIO21",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -26577,25 +26608,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64054505899549,
+                    -33.44176098450906
+                ]
+            },
             "properties": {
                 "identifier": "BANCO3",
-                "name": "Sucursal Santander",
-                "campus": "CC",
+                "name": "Banco Santander",
                 "information": "",
                 "categories": [
                     "financial"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640545,
-                    -33.441761
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -26771,48 +26802,48 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "K202",
-                "name": "k202",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61192338,
                     -33.500255
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "K303",
-                "name": "k303",
-                "campus": "SJ",
+                "identifier": "K202",
+                "name": "K202",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [],
                 "floors": [
-                    3
-                ]
-            },
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.611934,
                     -33.5002285
                 ]
+            },
+            "properties": {
+                "identifier": "K303",
+                "name": "K303",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -27139,96 +27170,96 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59444593265653,
+                    -33.44585420225468
+                ]
+            },
             "properties": {
                 "identifier": "BANO01OR",
-                "name": "Baño Mujeres 01",
-                "campus": "OR",
+                "name": "Baño Mujeres",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1,
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59444587805379,
-                    -33.44585414123193
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59417586773634,
+                    -33.4454710745238
+                ]
+            },
             "properties": {
                 "identifier": "BANO02OR",
-                "name": "Baño Hombres 02",
-                "campus": "OR",
+                "name": "Baño Hombres",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1,
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59417580348934,
-                    -33.4454710751953
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373313561082,
+                    -33.44621984357123
+                ]
+            },
             "properties": {
                 "identifier": "BANO03OR",
-                "name": "Baño Universal 03",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5937331462675,
-                    -33.44621981839892
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59344982728362,
+                    -33.445831402075626
+                ]
+            },
             "properties": {
                 "identifier": "BANO04OR",
-                "name": "Baño Universal 04",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     2
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5934498346797,
-                    -33.4458314231889
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -27256,25 +27287,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59383422136307,
+                    -33.44487322962391
+                ]
+            },
             "properties": {
                 "identifier": "BANO06OR",
-                "name": "Baño 06",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59383426779587,
-                    -33.4448731702526
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -27877,94 +27908,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "AGC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "DPT",
-                "name": "Deportes",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "faculties": []
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.609745,
-                            -33.500377
-                        ],
-                        [
-                            -70.609452,
-                            -33.50009
-                        ],
-                        [
-                            -70.609227,
-                            -33.500037
-                        ],
-                        [
-                            -70.609082,
-                            -33.499913
-                        ],
-                        [
-                            -70.609044,
-                            -33.499785
-                        ],
-                        [
-                            -70.609083,
-                            -33.498565
-                        ],
-                        [
-                            -70.609028,
-                            -33.498498
-                        ],
-                        [
-                            -70.608297,
-                            -33.498122
-                        ],
-                        [
-                            -70.606828,
-                            -33.497888
-                        ],
-                        [
-                            -70.606488,
-                            -33.49798
-                        ],
-                        [
-                            -70.606635,
-                            -33.500472
-                        ],
-                        [
-                            -70.60667,
-                            -33.501546
-                        ],
-                        [
-                            -70.609533,
-                            -33.501291
-                        ],
-                        [
-                            -70.609516,
-                            -33.500871
-                        ],
-                        [
-                            -70.610033,
-                            -33.500833
-                        ],
-                        [
-                            -70.610017,
-                            -33.50071
-                        ],
-                        [
-                            -70.609745,
-                            -33.500377
-                        ]
-                    ]
                 ]
             }
         },
@@ -29469,41 +29412,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DNO",
-                "name": "Escuela de Diseño",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.618136,
-                            -33.419116
+                            -70.61813604086637,
+                            -33.41911596742615
                         ],
                         [
-                            -70.617896,
-                            -33.418896
+                            -70.6183610111475,
+                            -33.41894610257991
                         ],
                         [
-                            -70.618123,
-                            -33.418726
+                            -70.61812296509743,
+                            -33.418725865455876
                         ],
                         [
-                            -70.618361,
-                            -33.418946
+                            -70.61789598315954,
+                            -33.418896010576624
                         ],
                         [
-                            -70.618136,
-                            -33.419116
+                            -70.61813604086637,
+                            -33.41911596742615
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "DNO",
+                "name": "Escuela de Diseño",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
                 ]
             }
         },
@@ -30143,25 +30089,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BICI3",
-                "name": "Estacionamiento de Bicicletas",
-                "campus": "SJ",
-                "information": "## Test",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610355,
                     -33.497237
                 ]
+            },
+            "properties": {
+                "identifier": "BICI3",
+                "name": "Bicicletero",
+                "information": "## Test",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -30421,25 +30367,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60803400352597,
+                    -33.50063256729721
+                ]
+            },
             "properties": {
                 "identifier": "SPORTS_PLACE-37722932",
-                "name": "Area Verde",
-                "campus": "SJ",
+                "name": "Área Verde",
                 "information": "",
                 "categories": [
                     "sports_place"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6080339284187,
-                    -33.500632548944346
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -31248,25 +31194,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M8T7EQ6N3YMJMV",
-                "name": "Hidropunto",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59378452213893,
                     -33.4456272313886
                 ]
+            },
+            "properties": {
+                "identifier": "M8T7EQ6N3YMJMV",
+                "name": "Agua",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -32007,25 +31953,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59363322332501,
+                    -33.44500163933451
+                ]
+            },
             "properties": {
                 "identifier": "MA2WLW7Q3I0CCA",
-                "name": "Baños",
-                "campus": "OR",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59363316085623,
-                    -33.44500168161219
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -32421,25 +32367,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2ZECAY26AQI0",
-                "name": "Estacionamiento de bicicletas",
-                "campus": "OR",
-                "information": "Bicicletero",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59439101221486,
                     -33.4460733909955
                 ]
+            },
+            "properties": {
+                "identifier": "MA2ZECAY26AQI0",
+                "name": "Bicicletero",
+                "information": "Bicicletero",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -32835,25 +32781,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2W11QUN5P2AG",
-                "name": "Estacionamiento de bicicletas",
-                "campus": "OR",
-                "information": "Bicicletero con estación de reparación",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59234092960935,
                     -33.44635071381148
                 ]
+            },
+            "properties": {
+                "identifier": "MA2W11QUN5P2AG",
+                "name": "Bicicletero",
+                "information": "Bicicletero con estación de reparación",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -34073,7 +34019,7 @@
             },
             "properties": {
                 "identifier": "BAÑO UNIVERSAL",
-                "name": "Baño universal",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -34662,16 +34608,15 @@
             "properties": {
                 "identifier": "MCC8TXGGX0FGZC",
                 "name": "Sala Raúl Déves ",
-                "campus": "SJ",
-                "information": "",
+                "information": "Esto también es un auditorio",
                 "categories": [
-                    "auditorium",
                     "studyroom"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -35253,7 +35198,7 @@
             },
             "properties": {
                 "identifier": "BICI2",
-                "name": "Estacionamiento de Bicicletas",
+                "name": "Bicicletero",
                 "information": "",
                 "categories": [
                     "park_bicycle"
