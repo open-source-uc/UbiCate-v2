@@ -132,7 +132,12 @@ export default function MapComponent({
       localStorage.setItem("defaultCampus", campusName);
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : campusName === "VR" || campusName === "Villarrica" ? 14 : 17,
+        zoom:
+          campusName === "SJ" || campusName === "SanJoaquin"
+            ? 15.5
+            : campusName === "VR" || campusName === "Villarrica"
+            ? 14
+            : 17,
       });
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
     }
