@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64128076699173,
+                    -33.441506154400486
+                ]
+            },
+            "properties": {
+                "identifier": "MKVA11PRL20GNN",
+                "name": "Sala Estudio Gigante",
+                "information": "La Sala Estudio Gigante es un espacio dedicado a investigar y poner en valor la trayectoria de Mario Kreutzberger, conocido mundialmente como Don Francisco, el personaje más influyente surgido de la televisión chilena.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-mk/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64147470091469,
                     -33.44130346562894
                 ]
