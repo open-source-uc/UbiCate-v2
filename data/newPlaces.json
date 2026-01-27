@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6138039380312,
+                    -33.49813895766858
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL1",
+                "name": "Escuela de Ingeniería civil",
+                "information": "",
+                "categories": [
+                    "parking"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61182536742228,
                     -33.49690462947072
                 ]
