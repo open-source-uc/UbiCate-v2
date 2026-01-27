@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61268429674428,
+                    -33.499257699606446
+                ]
+            },
+            "properties": {
+                "identifier": "MKWT8FUSXO8ZE4",
+                "name": "Acontecer Matérico",
+                "information": "La escultura, realizada en hormigón en 2010 por Federico Assler, es una pieza icónica que originalmente estuvo instalada frente al Palacio de La Moneda, en la Plaza de la Ciudadanía. ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61424283312856,
                     -33.49992864606425
                 ]
