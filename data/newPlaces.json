@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6409283433897,
+                    -33.44090472204202
+                ]
+            },
+            "properties": {
+                "identifier": "MKWOCQEWUXALPV",
+                "name": "Capilla de Casa Central",
+                "information": "Inaugurada en 1923, su construcción estuvo a cargo de los arquitectos Emile Jécquier y Manuel Cifuentes. Fue reconstruida luego del incendio de 1965.\nhttps://pastoral.uc.cl/\nAv. Libertador Bernardo O’Higgins 340, Santiago\n",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64038296086208,
                     -33.44049065742141
                 ]
