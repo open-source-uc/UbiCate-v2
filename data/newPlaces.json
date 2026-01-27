@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61544124754516,
+                    -33.498516890205224
+                ]
+            },
+            "properties": {
+                "identifier": "MKWTJMRLFEIJ2N",
+                "name": "Cristo",
+                "information": "La obra fue realizada por el artista chileno Hernán Puelma e instalada en 1982. Representa al Sagrado Corazón de Jesús, patrono de la Universidad Católica.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61268429674428,
                     -33.499257699606446
                 ]
