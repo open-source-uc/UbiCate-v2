@@ -4,6 +4,46 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61319460585533,
+                            -33.497342610563365
+                        ],
+                        [
+                            -70.61322719951463,
+                            -33.497208711930945
+                        ],
+                        [
+                            -70.61319471519168,
+                            -33.4973430027231
+                        ],
+                        [
+                            -70.61319460585533,
+                            -33.497342610563365
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MKWUN9XHFPDCMI",
+                "name": "Fac, Histo, Geo, Cpo",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61556994190883,
