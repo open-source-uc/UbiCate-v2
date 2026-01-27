@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61424283312856,
+                    -33.49992864606425
+                ]
+            },
+            "properties": {
+                "identifier": "MKWSQ06B9UBVJI",
+                "name": "Complejo Andronico Luksic",
+                "information": "Diseñado por Enrique Browne. En su interior alberga al Museo de la Escuela de Ingeniería y al Auditorio Luksic.\nAv. Vicuña Mackenna 4860, Macul, Región Metropolitana\nhttps://www.ing.uc.cl/nuestra-escuela/sobre-ingenieria-uc/infraestructura/complejo-andronico-luksic-abaroa/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1,
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6131850658511,
                     -33.499992292517824
                 ]
