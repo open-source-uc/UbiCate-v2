@@ -34535,16 +34535,16 @@
             },
             "properties": {
                 "identifier": "MC92M5E2K3IO9S",
-                "name": "quiosco crisol",
-                "campus": "SJ",
+                "name": "Quiosco Crisol",
                 "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
