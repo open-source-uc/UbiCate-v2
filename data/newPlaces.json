@@ -156,31 +156,6 @@
                 "campus": "LC",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59381416866758,
-                    -33.446583314773115
-                ]
-            },
-            "properties": {
-                "identifier": "AULA_DE_ARTE_Y_ARTESANÍAS-OR",
-                "name": "Aula de Arte y Artesanías",
-                "information": "Selección de piezas confeccionadas por cultores/as de pueblos originarios y de otras comunidades de América, junto a obras de colecciones donadas a la UC, como la de Artesanía UC, Gastón Soublette y las familias Gross Ossa y González Muzzio, entre otras.",
-                "categories": [
-                    "classroom",
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
         }
     ]
 }
