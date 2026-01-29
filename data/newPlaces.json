@@ -210,30 +210,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64038296086208,
-                    -33.44049065742141
-                ]
-            },
-            "properties": {
-                "identifier": "MKWO3RU8Y1JG0Y",
-                "name": "Salón del Honorable Consejo Superior",
-                "information": "Se ubica en el edificio fundacional de la Casa Central, cuya construcción comenzó en 1910, a cargo de los arquitectos Emile Jécquier y Manuel Cifuentes.\nAv. Libertador Bernardo O’Higgins 340, Santiago",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61762843143201,
                     -33.419044047755996
                 ]
