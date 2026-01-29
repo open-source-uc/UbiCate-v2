@@ -138,8 +138,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64086024576488,
-                    -33.44099434645075
+                    -70.64086021855474,
+                    -33.440994411426736
                 ]
             },
             "properties": {
@@ -147,7 +147,7 @@
                 "name": "Busto de Monseñor Joaquín Larraín Gandarillas",
                 "information": "Autor: Juan Bautista Folía Prades.\nMonseñor Larraín Gandarillas (1822-1897) fue la figura central que impulsó la creación de la UC en 1888. Fundador y primer rector.\nSu busto está en el descanso de la escalera principal de mármol.\nAvenida Libertador Bernardo O'Higgins 340, Santiago",
                 "categories": [
-                    ""
+                    "culture"
                 ],
                 "floors": [
                     1
