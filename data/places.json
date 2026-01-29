@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64073713117357,
+                    -33.441111363257086
+                ]
+            },
+            "properties": {
+                "identifier": "MKWNAMUHRU6C63",
+                "name": "Aula Magna",
+                "information": " Principal auditorio para ceremonias académicas. Históricamente funcionó como biblioteca desde su construcción (1918), albergando más de 24 mil libros para estudiantes. Av Libertador Bernardo O'Higgins 340, Santiago\n",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6407628977998,
                     -33.44108891771986
                 ]
