@@ -114,30 +114,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61556994190883,
-                    -33.49855272256954
-                ]
-            },
-            "properties": {
-                "identifier": "MKWTSJAU1HZALN",
-                "name": "Presencias Vitales",
-                "information": "Conjunto de dos esculturas de hormigón gris creadas por el artista chileno Federico Assler, las cuales se inauguraron el 2024",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61544124754516,
                     -33.498516890205224
                 ]
