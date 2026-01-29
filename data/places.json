@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6131850658511,
+                    -33.499992292517824
+                ]
+            },
+            "properties": {
+                "identifier": "MKWSFBKZQ8DYN1",
+                "name": "Memorial Memorial Ejecutados y Desaparecidos de Ingeniería UC",
+                "information": "La placa incluye a Alan Bruce Catalán, Juan Carlos Rodríguez Araya, Eugenio Ruiz-Tagle Orrego y Héctor Vergara Duxrud. \nEdificio José Luis del Río Rondanelli, Patio de Ingeniería - Av. Vicuña Mackenna 4860, Región Metropolitana\n",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61424283312856,
                     -33.49992864606425
                 ]
