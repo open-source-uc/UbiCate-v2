@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.640411619097,
+                    -33.440768215119036
+                ]
+            },
+            "properties": {
+                "identifier": "MKWPA9C9ARMIOK",
+                "name": " Patio de la Virgen ",
+                "information": "Construcción de 1910. \nAv. Libertador Bernardo O'Higgins 340, Santiago",
+                "categories": [
+                    "culture",
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64121695057436,
                     -33.44105061043006
                 ]
