@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6404494704001,
+                    -33.440748340363896
+                ]
+            },
+            "properties": {
+                "identifier": "MKVB39Y1RYP6Q3",
+                "name": "Virgen María",
+                "information": "Virgen María (escultura), Patio de la Virgen – Casa Central UC. Av. Alameda Libertador Bernardo O'Higgins 340, Santiago.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64038296086208,
                     -33.44049065742141
                 ]
