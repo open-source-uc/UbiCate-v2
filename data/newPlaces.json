@@ -210,30 +210,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64160236351087,
-                    -33.44131149275144
-                ]
-            },
-            "properties": {
-                "identifier": "MKV8YUZP20CBIB",
-                "name": "Sala de Cine UC",
-                "information": "Centro de Extensión Alameda (Alameda 390, Metro U. Católica) https://extension.uc.cl/cine-uc/",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59381416866758,
                     -33.446583314773115
                 ]
