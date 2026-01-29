@@ -6,6 +6,563 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61268429674428,
+                    -33.499257699606446
+                ]
+            },
+            "properties": {
+                "identifier": "MKWT8HQS40PW2Y",
+                "name": "Acontecer Matérico",
+                "information": "La escultura, realizada en hormigón en 2010 por Federico Assler, es una pieza icónica que originalmente estuvo instalada frente al Palacio de La Moneda, en la Plaza de la Ciudadanía. ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64144477248192,
+                    -33.44165607070992
+                ]
+            },
+            "properties": {
+                "identifier": "MKVC00F2EMN3ML",
+                "name": "La Cava de Lira",
+                "information": "Cava del siglo XIX de Francisco Lira Argomedo, hoy habilitada como restaurante y cafetería Copper.\nAv. Alameda Libertador Bernardo O'Higgins 390, Santiago.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64128076699173,
+                    -33.441506154400486
+                ]
+            },
+            "properties": {
+                "identifier": "MKVA11PRL20GNN",
+                "name": "Sala Estudio Gigante",
+                "information": "La Sala Estudio Gigante es un espacio dedicado a investigar y poner en valor la trayectoria de Mario Kreutzberger, conocido mundialmente como Don Francisco, el personaje más influyente surgido de la televisión chilena.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-mk/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64160236351087,
+                    -33.44131149275144
+                ]
+            },
+            "properties": {
+                "identifier": "MKV8YUZP20CBIB",
+                "name": "Sala de Cine UC",
+                "information": "Centro de Extensión Alameda (Alameda 390, Metro U. Católica) https://extension.uc.cl/cine-uc/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64147470091469,
+                    -33.44130346562894
+                ]
+            },
+            "properties": {
+                "identifier": "MKV9XMS4YPWSHS",
+                "name": "Sala Pinacoteca",
+                "information": "La programación de la sala destaca la obra de pintores chilenos a través de exposiciones retrospectivas y colectivas.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-pinacoteca/\n(Av. Libertador Bernardo O’Higgins 390, Santiago). ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64139925010359,
+                    -33.44124836689557
+                ]
+            },
+            "properties": {
+                "identifier": "MKV9679DZ32P19",
+                "name": "Sala Vicente Huidobro",
+                "information": "Este espacio cultural ofrece una exhibición sobre Vicente Huidobro, destacando su vida, obra y legado en la vanguardia literaria.\n(Av. Libertador Bernardo O’Higgins 390, Santiago).",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64146080071197,
+                    -33.44122198545694
+                ]
+            },
+            "properties": {
+                "identifier": "MKV8RNSH80FM5O",
+                "name": "Sala Joaquín Gandarillas",
+                "information": "La Sala Joaquín Gandarillas está dentro del Centro de Extensión Alameda, que forma parte de la Casa Central de la Pontificia Universidad Católica de Chile (Av. Libertador Bernardo O’Higgins 390, Santiago).",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64147145394396,
+                    -33.44121071992071
+                ]
+            },
+            "properties": {
+                "identifier": "MKV9SJ14D7YEUM",
+                "name": "Galería de Arte",
+                "information": "La Galería de Arte es una plataforma de difusión y reflexión crítica sobre las artes visuales contemporáneas. (Av. Libertador Bernardo O’Higgins 390, Santiago). https://www.instagram.com/galeriadearteuc/\nhttps://extension.uc.cl/salas-de-exhibiciones/galerias/galeria-de-arte/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64086021855474,
+                    -33.440994411426736
+                ]
+            },
+            "properties": {
+                "identifier": "MKWPT7OAB046DT",
+                "name": "Busto de Monseñor Joaquín Larraín Gandarillas",
+                "information": "Autor: Juan Bautista Folía Prades.\nMonseñor Larraín Gandarillas (1822-1897) fue la figura central que impulsó la creación de la UC en 1888. Fundador y primer rector.\nSu busto está en el descanso de la escalera principal de mármol.\nAvenida Libertador Bernardo O'Higgins 340, Santiago",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64138783637297,
+                    -33.44110971799364
+                ]
+            },
+            "properties": {
+                "identifier": "MKV8LVMRW3G0ST",
+                "name": "Centro de Extensión Cultural",
+                "information": "Fortalecemos la cultura y los valores de la UC, formando un vínculo relevante con la sociedad.\nhttps://extension.uc.cl/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6409283433897,
+                    -33.44090472204202
+                ]
+            },
+            "properties": {
+                "identifier": "MKWOCQEWUXALPV",
+                "name": "Capilla de Casa Central",
+                "information": "Inaugurada en 1923, su construcción estuvo a cargo de los arquitectos Emile Jécquier y Manuel Cifuentes. Fue reconstruida luego del incendio de 1965.\nhttps://pastoral.uc.cl/\nAv. Libertador Bernardo O’Higgins 340, Santiago\n",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.640411619097,
+                    -33.440768215119036
+                ]
+            },
+            "properties": {
+                "identifier": "MKWPA9C9ARMIOK",
+                "name": " Patio de la Virgen ",
+                "information": "Construcción de 1910. \nAv. Libertador Bernardo O'Higgins 340, Santiago",
+                "categories": [
+                    "culture",
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64121695057436,
+                    -33.44105061043006
+                ]
+            },
+            "properties": {
+                "identifier": "MKV7LI8CEE24AT",
+                "name": "Sala de Cine UC",
+                "information": "Sala climatizada con 120 cómodas butacas (con paleta abatible) inserta al interior del Centro de Extensión UC. Sede Festival de Cine UC.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64073713117357,
+                    -33.441111363257086
+                ]
+            },
+            "properties": {
+                "identifier": "MKWNAMUHRU6C63",
+                "name": "Aula Magna",
+                "information": " Principal auditorio para ceremonias académicas. Históricamente funcionó como biblioteca desde su construcción (1918), albergando más de 24 mil libros para estudiantes. Av Libertador Bernardo O'Higgins 340, Santiago\n",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6407628977998,
+                    -33.44108891771986
+                ]
+            },
+            "properties": {
+                "identifier": "MKVBAV31PBKVWT",
+                "name": "Estatua del Papa de Juan Pablo II",
+                "information": "La obra fue inaugurada en conmemoración de la visita que hizo el Papa Juan Pablo II a la Universidad en 1987, y está ubicada en el Patio Juan Pablo II de la Casa Central, el cual lleva ese nombre en su honor. Av. Libertador Bernardo O'Higgins 340",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6410270562987,
+                    -33.44082832158503
+                ]
+            },
+            "properties": {
+                "identifier": "MKVAPO69CCI3S7",
+                "name": "Estatua del Sagrado Corazón de Jesús",
+                "information": "Ubicación: Fachada principal (Av. Libertador Bernardo O'Higgins 340)\nObra del escultor Ernest Wünsch.\nSímbolo de la institución tras la reconstrucción de la Casa Central en los años 1930. ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404494704001,
+                    -33.440748340363896
+                ]
+            },
+            "properties": {
+                "identifier": "MKVB39Y1RYP6Q3",
+                "name": "Virgen María",
+                "information": "Virgen María (escultura), Patio de la Virgen – Casa Central UC. Av. Alameda Libertador Bernardo O'Higgins 340, Santiago.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64038296086208,
+                    -33.44049065742141
+                ]
+            },
+            "properties": {
+                "identifier": "MKWO3RU8Y1JG0Y",
+                "name": "Salón del Honorable Consejo Superior",
+                "information": "Se ubica en el edificio fundacional de la Casa Central, cuya construcción comenzó en 1910, a cargo de los arquitectos Emile Jécquier y Manuel Cifuentes.\nAv. Libertador Bernardo O’Higgins 340, Santiago",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61544124754516,
+                    -33.498516890205224
+                ]
+            },
+            "properties": {
+                "identifier": "MKWTJMRLFEIJ2N",
+                "name": "Cristo",
+                "information": "La obra fue realizada por el artista chileno Hernán Puelma e instalada en 1982. Representa al Sagrado Corazón de Jesús, patrono de la Universidad Católica.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61268429674428,
+                    -33.499257699606446
+                ]
+            },
+            "properties": {
+                "identifier": "MKWT8FUSXO8ZE4",
+                "name": "Acontecer Matérico",
+                "information": "La escultura, realizada en hormigón en 2010 por Federico Assler, es una pieza icónica que originalmente estuvo instalada frente al Palacio de La Moneda, en la Plaza de la Ciudadanía. ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6131850658511,
+                    -33.499992292517824
+                ]
+            },
+            "properties": {
+                "identifier": "MKWSFBKZQ8DYN1",
+                "name": "Memorial Memorial Ejecutados y Desaparecidos de Ingeniería UC",
+                "information": "La placa incluye a Alan Bruce Catalán, Juan Carlos Rodríguez Araya, Eugenio Ruiz-Tagle Orrego y Héctor Vergara Duxrud. \nEdificio José Luis del Río Rondanelli, Patio de Ingeniería - Av. Vicuña Mackenna 4860, Región Metropolitana\n",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61424283312856,
+                    -33.49992864606425
+                ]
+            },
+            "properties": {
+                "identifier": "MKWSQ06B9UBVJI",
+                "name": "Complejo Andronico Luksic",
+                "information": "Diseñado por Enrique Browne. En su interior alberga al Museo de la Escuela de Ingeniería y al Auditorio Luksic.\nAv. Vicuña Mackenna 4860, Macul, Región Metropolitana\nhttps://www.ing.uc.cl/nuestra-escuela/sobre-ingenieria-uc/infraestructura/complejo-andronico-luksic-abaroa/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1,
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61556994190883,
+                    -33.49855272256954
+                ]
+            },
+            "properties": {
+                "identifier": "MKWTSJAU1HZALN",
+                "name": "Presencias Vitales",
+                "information": "Conjunto de dos esculturas de hormigón gris creadas por el artista chileno Federico Assler, las cuales se inauguraron el 2024",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6106798350811,
+                    -33.497538120930244
+                ]
+            },
+            "properties": {
+                "identifier": "MKWRVJAWYGTBBR",
+                "name": "Plaza por la Paz. Memorial a los Ejecutados y Detenidos desaparecidos de la Comunidad UC",
+                "information": "Diseñado por Claudio di Girolamo e incluye los nombres de los 28 miembros de la comunidad UC ejecutados o desaparecidos durante la dictadura.\nCircunvalación Nte. 4860, Macul, Campus San Joaquin, Santiago",
+                "categories": [
+                    "culture",
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61023186365706,
                     -33.49655756334374
                 ]
@@ -91,31 +648,6 @@
                 ],
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61066924306893,
-                    -33.49784438333046
-                ]
-            },
-            "properties": {
-                "identifier": "MKB8RMCM2CY4US",
-                "name": "Cultura de Prueba",
-                "information": "",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "TTF"
-                ]
             }
         },
         {
@@ -276,29 +808,6 @@
                 ],
                 "floors": [
                     7
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6111820612312,
-                    -33.49784988878359
-                ]
-            },
-            "properties": {
-                "identifier": "MKB8TJEZSWZISW",
-                "name": "Cultura de Prueba 2 ",
-                "information": "",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
                 ],
                 "campus": "SJ",
                 "faculties": []
@@ -9232,25 +9741,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_VICENTE_HUIDOBRO-CC",
-                "name": "Sala Vicente Huidobro",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64135283897856,
                     -33.44115228269285
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_VICENTE_HUIDOBRO-CC",
+                "name": "Sala Vicente Huidobro",
+                "information": "Sala dedicada al poeta nacional Vicente Huidobro.",
+                "categories": [
+                    "classroom",
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -13438,24 +13948,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AULAMAGNA_COMERCIAL",
-                "name": "Auditorio Francisco Rosende",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61182536742228,
                     -33.49690462947072
+                ]
+            },
+            "properties": {
+                "identifier": "AULAMAGNA_COMERCIAL",
+                "name": "Auditorio Francisco Rosende",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
@@ -28079,97 +28591,100 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "LET",
-                "name": "Facultad de Letras",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.614132,
-                            -33.496899
+                            -70.61413200572133,
+                            -33.496898975923116
                         ],
                         [
-                            -70.613979,
-                            -33.496894
+                            -70.61397895216942,
+                            -33.49689394326655
                         ],
                         [
-                            -70.613938,
-                            -33.497167
+                            -70.61393804848194,
+                            -33.49716696446316
                         ],
                         [
-                            -70.613917,
-                            -33.497162
+                            -70.61391692608595,
+                            -33.49716193182217
                         ],
                         [
-                            -70.613906,
-                            -33.497264
+                            -70.61390602961183,
+                            -33.49726398254074
                         ],
                         [
-                            -70.613722,
-                            -33.49725
+                            -70.61372196301818,
+                            -33.49725000299737
                         ],
                         [
-                            -70.613721,
-                            -33.497237
+                            -70.6137209571898,
+                            -33.49723700202
                         ],
                         [
-                            -70.613651,
-                            -33.497232
+                            -70.61365105211735,
+                            -33.49723196938308
                         ],
                         [
-                            -70.613652,
-                            -33.497221
+                            -70.61365205794573,
+                            -33.4972210653354
                         ],
                         [
-                            -70.613466,
-                            -33.497206
+                            -70.61346597969532,
+                            -33.49720596742096
                         ],
                         [
-                            -70.613448,
-                            -33.497464
+                            -70.61344804242253,
+                            -33.497464029559225
                         ],
                         [
-                            -70.613695,
-                            -33.497478
+                            -70.61369497328997,
+                            -33.49747800906804
                         ],
                         [
-                            -70.613708,
-                            -33.497384
+                            -70.61370804905891,
+                            -33.4973840667254
                         ],
                         [
-                            -70.613889,
-                            -33.497398
+                            -70.61388893052936,
+                            -33.49739804624712
                         ],
                         [
-                            -70.613872,
-                            -33.497578
+                            -70.61387199908495,
+                            -33.49757796249033
                         ],
                         [
-                            -70.614076,
-                            -33.4976
+                            -70.61407601460814,
+                            -33.49760005008415
                         ],
                         [
-                            -70.614121,
-                            -33.497183
+                            -70.61412094160914,
+                            -33.49718304095327
                         ],
                         [
-                            -70.614098,
-                            -33.497177
+                            -70.61409797519445,
+                            -33.49717702974427
                         ],
                         [
-                            -70.614132,
-                            -33.496899
+                            -70.61413200572133,
+                            -33.496898975923116
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "LET",
+                "name": "Facultad de Letras",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
@@ -28929,32 +29444,16 @@
                             -33.49666299993344
                         ],
                         [
-                            -70.61391307041049,
+                            -70.61391290277243,
                             -33.49664902029301
                         ],
                         [
-                            -70.61388993635774,
+                            -70.6138901039958,
                             -33.49682404522832
                         ],
                         [
-                            -70.61398601695676,
-                            -33.496831924009776
-                        ],
-                        [
-                            -70.61394524875209,
-                            -33.4971322327256
-                        ],
-                        [
-                            -70.61410696263032,
-                            -33.49714243187112
-                        ],
-                        [
-                            -70.614146371895,
-                            -33.49684665615984
-                        ],
-                        [
-                            -70.61419529374008,
-                            -33.49684325643317
+                            -70.61419285833836,
+                            -33.4968461330145
                         ],
                         [
                             -70.61420895159245,
@@ -28965,16 +29464,17 @@
             },
             "properties": {
                 "identifier": "FIL",
-                "name": "Facultad de Filosofía",
-                "information": "| #  | Directorio             |\n|----|---------------------|\n| 1  | Auditorio de Filosofía |\n| 2 | Decanato, Sala Jorge Rivera, Salas Seminario 1 a 4 |\n| 3 | Oficinas de Profesores |",
+                "name": "Instituto de Filosofía",
+                "information": "",
                 "categories": [
-                    "faculty"
+                    "faculty",
+                    "bath"
                 ],
-                "floors": [
-                    3
-                ],
+                "floors": [],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "FIL"
+                ]
             }
         },
         {
@@ -30941,25 +31441,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AULA_DE_ARTE_Y_ARTESANÍAS-OR",
-                "name": "Aula de Arte y Artesanías",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59381416866758,
                     -33.446583314773115
                 ]
+            },
+            "properties": {
+                "identifier": "AULA_DE_ARTE_Y_ARTESANÍAS-OR",
+                "name": "Aula de Arte y Artesanías",
+                "information": "Selección de piezas confeccionadas por cultores/as de pueblos originarios y de otras comunidades de América, junto a obras de colecciones donadas a la UC, como la de Artesanía UC, Gastón Soublette y las familias Gross Ossa y González Muzzio, entre otras.",
+                "categories": [
+                    "classroom",
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -34559,16 +35060,16 @@
             },
             "properties": {
                 "identifier": "MC92M5E2K3IO9S",
-                "name": "quiosco crisol",
-                "campus": "SJ",
+                "name": "Quiosco Crisol",
                 "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -35221,10 +35722,10 @@
             },
             "properties": {
                 "identifier": "CRISOL1",
-                "name": "Ingeniería civil",
+                "name": "Escuela de Ingeniería civil",
                 "information": "",
                 "categories": [
-                    "faculty"
+                    "parking"
                 ],
                 "floors": [
                     1
