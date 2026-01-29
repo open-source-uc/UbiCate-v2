@@ -9557,25 +9557,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SALA_VICENTE_HUIDOBRO-CC",
-                "name": "Sala Vicente Huidobro",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64135283897856,
                     -33.44115228269285
                 ]
+            },
+            "properties": {
+                "identifier": "SALA_VICENTE_HUIDOBRO-CC",
+                "name": "Sala Vicente Huidobro",
+                "information": "Sala dedicada al poeta nacional Vicente Huidobro.",
+                "categories": [
+                    "classroom",
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
