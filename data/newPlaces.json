@@ -162,8 +162,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64041157114771,
-                    -33.44076819284381
+                    -70.640411619097,
+                    -33.440768215119036
                 ]
             },
             "properties": {
@@ -171,7 +171,8 @@
                 "name": " Patio de la Virgen ",
                 "information": "Construcción de 1910. \nAv. Libertador Bernardo O'Higgins 340, Santiago",
                 "categories": [
-                    "culture"
+                    "culture",
+                    "yard"
                 ],
                 "floors": [
                     1
