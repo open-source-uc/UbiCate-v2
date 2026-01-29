@@ -307,30 +307,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6410270562987,
-                    -33.44082832158503
-                ]
-            },
-            "properties": {
-                "identifier": "MKVAPO69CCI3S7",
-                "name": "Estatua del Sagrado Corazón de Jesús",
-                "information": "Ubicación: Fachada principal (Av. Libertador Bernardo O'Higgins 340)\nObra del escultor Ernest Wünsch.\nSímbolo de la institución tras la reconstrucción de la Casa Central en los años 1930. ",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64128076699173,
                     -33.441506154400486
                 ]
