@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64139925010359,
+                    -33.44124836689557
+                ]
+            },
+            "properties": {
+                "identifier": "MKV9679DZ32P19",
+                "name": "Sala Vicente Huidobro",
+                "information": "Este espacio cultural ofrece una exhibición sobre Vicente Huidobro, destacando su vida, obra y legado en la vanguardia literaria.\n(Av. Libertador Bernardo O’Higgins 390, Santiago).",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64146080071197,
                     -33.44122198545694
                 ]
