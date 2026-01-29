@@ -285,8 +285,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61067974911846,
-                    -33.49753827060091
+                    -70.6106798350811,
+                    -33.497538120930244
                 ]
             },
             "properties": {
@@ -294,7 +294,7 @@
                 "name": "Plaza por la Paz. Memorial a los Ejecutados y Detenidos desaparecidos de la Comunidad UC",
                 "information": "Diseñado por Claudio di Girolamo e incluye los nombres de los 28 miembros de la comunidad UC ejecutados o desaparecidos durante la dictadura.\nCircunvalación Nte. 4860, Macul, Campus San Joaquin, Santiago",
                 "categories": [
-                    ""
+                    "culture"
                 ],
                 "floors": [
                     1
