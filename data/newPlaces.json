@@ -132,30 +132,6 @@
                 "campus": "SJ",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61762843143201,
-                    -33.419044047755996
-                ]
-            },
-            "properties": {
-                "identifier": "MKWNXOY2JRJXNS",
-                "name": "prueba no aceptar",
-                "information": "descripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripcion brigidadescripciondescripcion brigidadescri",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": []
-            }
         }
     ]
 }
