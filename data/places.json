@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64121695057436,
+                    -33.44105061043006
+                ]
+            },
+            "properties": {
+                "identifier": "MKV7LI8CEE24AT",
+                "name": "Sala de Cine UC",
+                "information": "Sala climatizada con 120 cómodas butacas (con paleta abatible) inserta al interior del Centro de Extensión UC. Sede Festival de Cine UC.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64073713117357,
                     -33.441111363257086
                 ]
