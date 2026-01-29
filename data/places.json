@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64138783637297,
+                    -33.44110971799364
+                ]
+            },
+            "properties": {
+                "identifier": "MKV8LVMRW3G0ST",
+                "name": "Centro de Extensión Cultural",
+                "information": "Fortalecemos la cultura y los valores de la UC, formando un vínculo relevante con la sociedad.\nhttps://extension.uc.cl/",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6409283433897,
                     -33.44090472204202
                 ]
