@@ -13509,24 +13509,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AULAMAGNA_COMERCIAL",
-                "name": "Auditorio Francisco Rosende",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61182536742228,
                     -33.49690462947072
+                ]
+            },
+            "properties": {
+                "identifier": "AULAMAGNA_COMERCIAL",
+                "name": "Auditorio Francisco Rosende",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
