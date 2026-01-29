@@ -48,30 +48,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.22409594804049,
-                    -39.275971094032904
-                ]
-            },
-            "properties": {
-                "identifier": "MKWXWAZ11QOV46",
-                "name": "Costa Prueba (Borrar)",
-                "information": "Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote Hola solo quiero saber si puedo agregar muchos caracteres sin que explote asdasdasdasdasdasdasdqwdqwdqwdqwdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
