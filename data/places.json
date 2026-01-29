@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64146080071197,
+                    -33.44122198545694
+                ]
+            },
+            "properties": {
+                "identifier": "MKV8RNSH80FM5O",
+                "name": "Sala Joaquín Gandarillas",
+                "information": "La Sala Joaquín Gandarillas está dentro del Centro de Extensión Alameda, que forma parte de la Casa Central de la Pontificia Universidad Católica de Chile (Av. Libertador Bernardo O’Higgins 390, Santiago).",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64147145394396,
                     -33.44121071992071
                 ]
