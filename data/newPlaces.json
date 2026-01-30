@@ -105,32 +105,6 @@
                     "LET"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61387898037307,
-                    -33.49806656017992
-                ]
-            },
-            "properties": {
-                "identifier": "ML0ZPIJUYXMPSY",
-                "name": "Crisol Educación",
-                "information": "**Sala A:**\n\n**Ubicación:**  \nEdificio Educación  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(24 equipos para clases)_\n\n- 1 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Profesor)  \n- 25 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Alumnos)  \n- 1 Scanner (tamaños carta y A4)  \n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Iluminación Led\n\n-------------------------------------------------------\n\n**Sala B:**\n\n**Ubicación:**  \nEdificio Educación  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(29 equipos para clases)_\n\n- 1 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Profesor)  \n- 29 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Alumnos)  \n- Iluminación Led\n\n\n",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EDU"
-                ]
-            }
         }
     ]
 }
