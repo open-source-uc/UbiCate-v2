@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61021667212577,
+                    -33.49780346004937
+                ]
+            },
+            "properties": {
+                "identifier": "ML11AQXXT3S347",
+                "name": "Crisol San Joaquín 2",
+                "information": "**Ubicación:**  \nEx sala N-13, sector de Biblioteca Central  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4783  \n\n**Equipamiento:**  \n\n- 22 PCs Core i3-2120, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n- 05 PCs Core i5-4460, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n\n- Aire Acondicionado  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610188,
                     -33.497959
                 ]
