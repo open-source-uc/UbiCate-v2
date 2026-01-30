@@ -70,9 +70,9 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
         </button>
       </div>
 
-      {/* Content - Accordions */}
-      <section className="flex-1 overflow-auto w-full">
-        <div className="space-y-3 p-4">
+      {/* Content - Accordions (match other tabs: no nested scroll) */}
+      <section className="flex-1 px-4 pt-4 pb-8">
+        <div className="space-y-3">
           <AccordionItem id="buscar" title="¿Cómo buscar un lugar?" index={0}>
             <div className="space-y-2">
               <p>
