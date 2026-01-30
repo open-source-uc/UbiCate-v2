@@ -6,6 +6,147 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61021667212577,
+                    -33.49780346004937
+                ]
+            },
+            "properties": {
+                "identifier": "ML11AQXXT3S347",
+                "name": "Crisol San Joaquín 2",
+                "information": "**Ubicación:**  \nEx sala N-13, sector de Biblioteca Central  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4783  \n\n**Equipamiento:**  \n\n- 22 PCs Core i3-2120, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n- 05 PCs Core i5-4460, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n\n- Aire Acondicionado  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61387898037307,
+                    -33.49806656017992
+                ]
+            },
+            "properties": {
+                "identifier": "ML0ZPIJUYXMPSY",
+                "name": "Crisol Educación",
+                "information": "**Sala A:**\n\n**Ubicación:**  \nEdificio Educación  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(24 equipos para clases)_\n\n- 1 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Profesor)  \n- 25 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Alumnos)  \n- 1 Scanner (tamaños carta y A4)  \n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Iluminación Led\n\n-------------------------------------------------------\n\n**Sala B:**\n\n**Ubicación:**  \nEdificio Educación  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(29 equipos para clases)_\n\n- 1 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Profesor)  \n- 29 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Alumnos)  \n- Iluminación Led\n\n\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64018150023647,
+                    -33.44131895825054
+                ]
+            },
+            "properties": {
+                "identifier": "ML14JACHCO815Q",
+                "name": "Crisol Casa Central 1",
+                "information": "**Ubicación:**  \nSubterráneo del edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](#)\n\n**Anexo:**  \n2330  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 16 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO  \n- 3 Espacios de trabajo colaborativo (Smart TV 43”)  \n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n**Sala B:**\n\n- 29 PCs para clases Intel Core i5-4440, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n**Sala Inclusión:**\n\n- 1 PC Intel Core i5-4440, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n- Aire acondicionado  \n- Iluminación LED\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6399014776312,
+                    -33.44094294468966
+                ]
+            },
+            "properties": {
+                "identifier": "ML14RYVUA4K2NN",
+                "name": "Crisol Casa Central 2",
+                "information": "**Ubicación:**  \nTercer piso ex edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n1826  \n\n**Equipamiento:**  \n\n- 35 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO\n- 2 Scanner (tamaños carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61383777139316,
+                            -33.49777507930287
+                        ],
+                        [
+                            -70.61382283170464,
+                            -33.497833035320205
+                        ],
+                        [
+                            -70.61386642594329,
+                            -33.4978397467463
+                        ],
+                        [
+                            -70.61387983872693,
+                            -33.497784377451076
+                        ],
+                        [
+                            -70.61383777139316,
+                            -33.49777507930287
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_STEM-SJ",
+                "name": "Sala STEM",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61268429674428,
                     -33.499257699606446
                 ]
@@ -444,29 +585,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61268429674428,
-                    -33.499257699606446
-                ]
-            },
-            "properties": {
-                "identifier": "MKWT8FUSXO8ZE4",
-                "name": "Acontecer Matérico",
-                "information": "La escultura, realizada en hormigón en 2010 por Federico Assler, es una pieza icónica que originalmente estuvo instalada frente al Palacio de La Moneda, en la Plaza de la Ciudadanía. ",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6131850658511,
                     -33.499992292517824
                 ]
@@ -655,31 +773,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61053055326732,
-                    -33.49788021947846
-                ]
-            },
-            "properties": {
-                "identifier": "MKB8V9PILO5P19",
-                "name": "Oficina de Prueba 1 ",
-                "information": "",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "TTF"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61329205298897,
                     -33.49809345015259
                 ]
@@ -689,7 +782,7 @@
                 "name": "Oficina Administración",
                 "information": "",
                 "categories": [
-                    "other"
+                    "offices"
                 ],
                 "floors": [
                     2
@@ -808,29 +901,6 @@
                 ],
                 "floors": [
                     7
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61533614993095,
-                    -33.497906619712815
-                ]
-            },
-            "properties": {
-                "identifier": "MKEQBMZ3SMIZM8",
-                "name": "Centro de Innovación UC Anacleto Angelini",
-                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorios, Pronto Copec y Banco de Chile |\n",
-                "categories": [
-                    "building"
-                ],
-                "floors": [
-                    10
                 ],
                 "campus": "SJ",
                 "faculties": []
@@ -1188,29 +1258,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61329205298897,
-                    -33.49809345015259
-                ]
-            },
-            "properties": {
-                "identifier": "MK1L23VRQ846WS",
-                "name": "Oficina Administración",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    2
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22570577636361,
                     -39.2777753872116
                 ]
@@ -1519,7 +1566,7 @@
                 "name": "Oficina de Profesores",
                 "information": "",
                 "categories": [
-                    "other"
+                    "offices"
                 ],
                 "floors": [
                     2
@@ -1953,7 +2000,7 @@
             },
             "properties": {
                 "identifier": "MJCWQOS9E57TXK",
-                "name": "Sala CRISOL",
+                "name": "Crisol Villarica",
                 "information": "",
                 "categories": [
                     "crisol"
@@ -2025,7 +2072,7 @@
                 "name": "Mesón UC",
                 "information": "",
                 "categories": [
-                    "other"
+                    "food_lunch"
                 ],
                 "floors": [
                     1
@@ -2117,7 +2164,7 @@
                 "name": "Oficina de Profesores",
                 "information": "",
                 "categories": [
-                    "other"
+                    "offices"
                 ],
                 "floors": [
                     3
@@ -2439,7 +2486,7 @@
                 "name": "Oficinas de profesores e investigadores",
                 "information": "",
                 "categories": [
-                    "other"
+                    "offices"
                 ],
                 "floors": [
                     2
@@ -35411,29 +35458,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59422220591799,
-                    -33.44593945465703
-                ]
-            },
-            "properties": {
-                "identifier": "OTHER-28654754",
-                "name": "Oficina de Transformación Digital",
-                "campus": "OR",
-                "information": "### Oficina Trasnformación Digital ",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6120135564238,
                     -33.49902871494161
                 ]
@@ -35649,13 +35673,13 @@
             },
             "properties": {
                 "identifier": "CRISOL5",
-                "name": "CRISOL",
-                "information": "",
+                "name": "Crisol Oriente",
+                "information": "**Ubicación:**  \nSector verde, Segundo Piso  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5006  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 27 PCs Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 480 GB  \n- 1 Impresora Kyocera (tamaños carta, oficio, A4)  \n- 1 Scanner EPSON (tamaños carta, A4)  \n\n**Sala B:**\n\n- 19 PCs para clases Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado: Sala (A) 2 equipos, Sala (B) 1 equipo  \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "OR",
                 "faculties": [
@@ -35794,7 +35818,7 @@
             "properties": {
                 "identifier": "COMPUTERS-32217130",
                 "name": "Crisol Humanidades",
-                "information": "",
+                "information": "**Ubicación:**  \nZócalo Biblioteca de Humanidades  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7870  \n\n**Equipamiento:**  \n_(31 equipos para clases)_\n\n- 32 PCs Intel Core i5-3470s, 16 GB de RAM, disco duro SSD de 480 GB    \n- 1 Scanner (tamaños carta y oficio)  \n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -35818,7 +35842,7 @@
             },
             "properties": {
                 "identifier": "CRISOL6",
-                "name": "CRISOL Piwonka",
+                "name": "Crisol Piwonka",
                 "information": "",
                 "categories": [
                     "crisol"
@@ -35841,13 +35865,13 @@
             },
             "properties": {
                 "identifier": "CRISOL7",
-                "name": "CRISOL Alfero",
-                "information": "",
+                "name": "Crisol Alfero",
+                "information": "**Ubicación:**  \nSubterráneo frente a la Biblioteca  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5526  \n\n**Equipamiento:**  \n\n- 78 PCs para clases Intel Core i7-4770, 3.4 GHz, 8 GB RAM, SSD 480 GB WD, HDD 930 GB  \n- 1 equipo para el profesor con las mismas capacidades que el de los alumnos  \n- 1 Impresora Kyocera (tamaños carta, oficio, A4)  \n- 1 Scanner HP (especial para diapositivas)  \n- 2 Scanner Epson (tamaños carta y oficio)  \n\n- Pantalla Informativa (LCD 32”)  \n- Iluminación Led  \n- Sistema de amplificación de audio para el uso de profesores  \n- 3 Proyectores (1 Panasonic, 2 Epson)  \n- 1 Puntero Láser\n",
                 "categories": [
                     "crisol"
                 ],
                 "floors": [
-                    1
+                    -1
                 ],
                 "campus": "LC",
                 "faculties": []
@@ -35865,7 +35889,7 @@
             "properties": {
                 "identifier": "STUDYROOM-32218197",
                 "name": "Crisol Humanidades",
-                "information": "",
+                "information": "**Ubicación:**  \nFrente a la Facultad de Letras  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7501  \n\n**Equipamiento:**  \n\n- 6 PCs Intel Core i5-4460, 3.2 GHz, 16 GB RAM, SSD 480 GB\n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB\n- 5 Espacios de trabajo colaborativo (Smart TV 43”)\n\n- Pantalla Informativa (LCD 55”) \n- Aire acondicionado \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -35890,7 +35914,7 @@
             "properties": {
                 "identifier": "CRISOL4",
                 "name": "Crisol Citeduc",
-                "information": "",
+                "information": "**Sala A (Autoatendida)**\n\n**Ubicación:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Equipamiento:**  \n\n- 22 PCs Intel Core i5-7400, 3.0 GHz, 16 GB RAM, SSD 240 GB _(Hay 1 equipo con 8 GB RAM)_  \n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n- 3 Espacios de trabajo colaborativo (Smart TV 43”)  \n\n- Pantalla Informativa (LCD 55”)  \n- Aire Acondicionado  \n- Iluminación Led\n\n-------------------------------------------------------\n\n**Sala B**\n\n**Ubicación:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4904  \n\n**Equipamiento:**  \n_(48 equipos para clases)_\n\n- 49 PCs para clases Intel Core i3-2100, 3.0 GHz, 8 GB RAM, SSD 480 GB  \n- 1 Scanner Epson  \n\n- Aire Acondicionado  \n- Iluminación Led\n\n",
                 "categories": [
                     "crisol"
                 ],
@@ -35935,8 +35959,8 @@
             },
             "properties": {
                 "identifier": "CRISOL3",
-                "name": "Crisol San Joaquín",
-                "information": "1 y 2",
+                "name": "Crisol San Joaquín 1",
+                "information": "**Ubicación:**  \nAl costado de la sucursal del Banco Itaú  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4897  \n\n**Equipamiento:**  \n42 Equipos para clases\n\n- 16 PCs Core i7-4790, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 14 PCs Core i5-7400, 16 GB RAM, 3.3 GHz, SSD 240 GB  \n- 18 PCs Core i5, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 1 Scanner (tamaños carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
                 "categories": [
                     "crisol",
                     "photocopy"
@@ -36113,7 +36137,7 @@
                 "name": "Oficina de proyectos Ingeniería en Diseño",
                 "information": "",
                 "categories": [
-                    "other"
+                    "offices"
                 ],
                 "floors": [
                     2
