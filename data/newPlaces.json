@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610188,
+                    -33.497959
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL3",
+                "name": "Crisol San Joaquín 1",
+                "information": "**Ubicación:**  \nAl costado de la sucursal del Banco Itaú  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4897  \n\n**Equipamiento:**  \n42 Equipos para clases\n\n- 16 PCs Core i7-4790, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 14 PCs Core i5-7400, 16 GB RAM, 3.3 GHz, SSD 240 GB  \n- 18 PCs Core i5, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 1 Scanner (tamaños carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol",
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.612116,
                     -33.499133
                 ]
