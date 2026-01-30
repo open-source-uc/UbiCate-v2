@@ -347,7 +347,7 @@ export default function MobileSidebar() {
             </div>
 
             <div
-              className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-17"
+              className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-8"
               {...(activeSubSidebar ? {} : { inert: "" as any })}
             >
               {activeSubSidebar === "campus" && (
