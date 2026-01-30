@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.594471,
+                    -33.445834
+                ]
+            },
+            "properties": {
+                "identifier": "CRISOL5",
+                "name": "Crisol Oriente",
+                "information": "**Ubicación:**  \nSector verde, Segundo Piso  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5006  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 27 PCs Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 480 GB  \n- 1 Impresora Kyocera (tamaños carta, oficio, A4)  \n- 1 Scanner EPSON (tamaños carta, A4)  \n\n**Sala B:**\n\n- 19 PCs para clases Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado: Sala (A) 2 equipos, Sala (B) 1 equipo  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "ARTE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6399014776312,
                     -33.44094294468966
                 ]
