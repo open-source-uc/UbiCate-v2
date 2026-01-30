@@ -89,10 +89,12 @@ function PillFilter() {
 
       let newActiveFilters: string[];
 
+      // Single-selection behavior: selecting an active category deselects it,
+      // selecting a different category replaces the previous selection.
       if (activeFilters.includes(category)) {
         newActiveFilters = activeFilters.filter((f) => f !== category);
       } else {
-        newActiveFilters = [...activeFilters, category];
+        newActiveFilters = [category];
       }
 
       setActiveFilters(newActiveFilters);
