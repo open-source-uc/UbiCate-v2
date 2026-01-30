@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22569538280368,
-                    -39.27772036629984
-                ]
-            },
-            "properties": {
-                "identifier": "MJCY8R9U5CW53P",
-                "name": "Oficina de Profesores",
-                "information": "",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22602406749914,
                     -39.278614078933344
                 ]
