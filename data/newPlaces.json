@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.618064,
-                    -33.419254
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL7",
-                "name": "Crisol Alfero",
-                "information": "**Ubicación:**  \nSubterráneo frente a la Biblioteca  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5526  \n\n**Equipamiento:**  \n\n- 78 PCs para clases Intel Core i7-4770, 3.4 GHz, 8 GB RAM, SSD 480 GB WD, HDD 930 GB  \n- 1 equipo para el profesor con las mismas capacidades que el de los alumnos  \n- 1 Impresora Kyocera (tamaños carta, oficio, A4)  \n- 1 Scanner HP (especial para diapositivas)  \n- 2 Scanner Epson (tamaños carta y oficio)  \n\n- Pantalla Informativa (LCD 32”)  \n- Iluminación Led  \n- Sistema de amplificación de audio para el uso de profesores  \n- 3 Proyectores (1 Panasonic, 2 Epson)  \n- 1 Puntero Láser\n",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.594471,
                     -33.445834
                 ]
