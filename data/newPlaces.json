@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6399014776312,
+                    -33.44094294468966
+                ]
+            },
+            "properties": {
+                "identifier": "ML14RYVUA4K2NN",
+                "name": "Crisol Casa Central 2",
+                "information": "**Ubicación:**  \nTercer piso ex edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n1826  \n\n**Equipamiento:**  \n\n- 35 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO\n- 2 Scanner (tamaños carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64018150023647,
                     -33.44131895825054
                 ]
