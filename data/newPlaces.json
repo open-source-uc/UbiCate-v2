@@ -59,30 +59,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.612116,
-                    -33.499133
-                ]
-            },
-            "properties": {
-                "identifier": "CRISOL4",
-                "name": "Crisol Citeduc",
-                "information": "**Sala A (Autoatendida)**\n\n**Ubicación:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Equipamiento:**  \n\n- 22 PCs Intel Core i5-7400, 3.0 GHz, 16 GB RAM, SSD 240 GB _(Hay 1 equipo con 8 GB RAM)_  \n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n- 3 Espacios de trabajo colaborativo (Smart TV 43”)  \n\n- Pantalla Informativa (LCD 55”)  \n- Aire Acondicionado  \n- Iluminación Led\n\n-------------------------------------------------------\n\n**Sala B**\n\n**Ubicación:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4904  \n\n**Equipamiento:**  \n_(48 equipos para clases)_\n\n- 49 PCs para clases Intel Core i3-2100, 3.0 GHz, 8 GB RAM, SSD 480 GB  \n- 1 Scanner Epson  \n\n- Aire Acondicionado  \n- Iluminación Led\n\n",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6136066620074,
                     -33.497233103322664
                 ]
