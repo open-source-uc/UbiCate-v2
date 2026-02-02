@@ -60,13 +60,13 @@
             },
             "properties": {
                 "identifier": "SALA_MATE-CC",
-                "name": "Sala Matte",
+                "name": "Sala Mate",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
                 "floors": [
-                    4
+                    2
                 ],
                 "needApproval": true,
                 "campus": "CC",
