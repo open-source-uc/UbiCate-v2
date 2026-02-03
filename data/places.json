@@ -17997,25 +17997,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64157688186737,
+                    -33.44135444678715
+                ]
+            },
             "properties": {
                 "identifier": "FOOD_LUNCH-26253206",
                 "name": "Castaño",
-                "campus": "CC",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64137867345954,
-                    -33.44144557410257
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
