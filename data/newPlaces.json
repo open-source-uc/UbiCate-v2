@@ -272,30 +272,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59455245738909,
-                    -33.44663951489421
-                ]
-            },
-            "properties": {
-                "identifier": "ML6YZQQEJORCR1",
-                "name": "Cajero",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59404645115137,
                     -33.44592274263415
                 ]
