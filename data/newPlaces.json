@@ -1130,32 +1130,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61026040345818,
-                    -33.499117855719746
-                ]
-            },
-            "properties": {
-                "identifier": "MDE3PPARGS0YGL",
-                "name": "Fotocopiadora ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61333919421033,
                     -33.49813083603346
                 ]
