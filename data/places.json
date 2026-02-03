@@ -4108,13 +4108,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64218118838534,
-                    -33.44198421677347
+                    -70.64235553086422,
+                    -33.44179316674327
                 ]
             },
             "properties": {
                 "identifier": "MH3FQZECZXQCW9",
-                "name": "Patio Alameda",
+                "name": "Starbucks",
                 "information": "",
                 "categories": [
                     "food_lunch"
