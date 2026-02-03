@@ -25781,25 +25781,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61326841413585,
+                    -33.4996545711821
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO4",
                 "name": "Achoclonados",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61330645455764,
-                    -33.49961423373642
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
