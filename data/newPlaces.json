@@ -1296,30 +1296,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60996467090563,
-                    -33.50068226941584
-                ]
-            },
-            "properties": {
-                "identifier": "PUESTO10",
-                "name": "Juan Frijol",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.611747,
                     -33.498485
                 ]
