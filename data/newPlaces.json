@@ -956,30 +956,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61324086368903,
-                    -33.498194397002706
-                ]
-            },
-            "properties": {
-                "identifier": "PUESTO2",
-                "name": "Work Café Santander",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64075372711109,
                     -33.440598483380484
                 ]
