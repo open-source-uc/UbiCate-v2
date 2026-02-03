@@ -838,32 +838,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61396781304775,
-                    -33.49717865642995
-                ]
-            },
-            "properties": {
-                "identifier": "FOTOCOPIA5",
-                "name": "Fotocopiadora ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "LET"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61026040345818,
                     -33.499117855719746
                 ]
