@@ -18466,25 +18466,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FORK001",
-                "name": "Fork",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6138661732852,
                     -33.49882385938008
                 ]
+            },
+            "properties": {
+                "identifier": "FORK001",
+                "name": "Fork",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
