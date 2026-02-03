@@ -18393,25 +18393,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-23408391",
-                "name": "Subway",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61019001073926,
                     -33.49672743680977
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23408391",
+                "name": "Subway",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
