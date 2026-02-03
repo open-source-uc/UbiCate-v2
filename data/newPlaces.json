@@ -834,32 +834,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6397168722142,
-                    -33.44174540537328
-                ]
-            },
-            "properties": {
-                "identifier": "B201-CC",
-                "name": "B201",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    -2
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "BIO"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63967324287019,
                     -33.44174049340324
                 ]
