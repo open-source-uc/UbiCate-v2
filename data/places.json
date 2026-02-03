@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64075356207607,
+                    -33.4411366434011
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YLWJXBDVV9T",
+                "name": "Castaño",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64144063747545,
                     -33.441077943109356
                 ]
