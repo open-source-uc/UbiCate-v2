@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61843369552629,
+                    -33.41972190285682
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_41-LC",
+                "name": "Sala Tunel Poniente ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61852606626842,
                     -33.41944727246017
                 ]
