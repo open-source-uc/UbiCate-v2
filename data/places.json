@@ -27179,25 +27179,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60956019642008,
+                    -33.49974921887246
+                ]
+            },
             "properties": {
                 "identifier": "ALMUERZO5",
-                "name": "Casino Matemáticas",
-                "campus": "SJ",
+                "name": "Casino Piatto Pérgola",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60960847618212,
-                    -33.49971790558978
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
