@@ -21793,25 +21793,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64139020629528,
+                    -33.44114572836123
+                ]
+            },
             "properties": {
                 "identifier": "CAJERO6",
                 "name": "Cajero",
-                "campus": "CC",
                 "information": "",
                 "categories": [
                     "financial"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640889,
-                    -33.441244
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
