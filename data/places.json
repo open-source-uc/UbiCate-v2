@@ -25731,24 +25731,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61006589024713,
+                    -33.49818566910695
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO3",
                 "name": "Castaño",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6100905471083,
-                    -33.4981728556355
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
