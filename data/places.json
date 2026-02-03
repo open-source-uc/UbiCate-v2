@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6188266233242,
+                    -33.4194523932289
+                ]
+            },
+            "properties": {
+                "identifier": "F0101-LC",
+                "name": "Sala Facultad F0101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61851000503057,
                     -33.41912277270188
                 ]
