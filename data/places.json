@@ -34516,17 +34516,17 @@
             },
             "properties": {
                 "identifier": "ALMUERZO2",
-                "name": "Casino Humanidades",
-                "campus": "SJ",
+                "name": "Casino El Rincón ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [
-                    "LET"
-                ],
                 "floors": [
                     2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
