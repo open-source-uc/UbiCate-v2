@@ -17569,25 +17569,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AE003-SJ",
-                "name": "AE003",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61204554670833,
                     -33.49674499676688
                 ]
+            },
+            "properties": {
+                "identifier": "AE003-SJ",
+                "name": "AE003",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
