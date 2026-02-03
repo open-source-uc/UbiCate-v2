@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.617635,
+                    -33.419581
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO13",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61750512586346,
                     -33.41947455350437
                 ]
