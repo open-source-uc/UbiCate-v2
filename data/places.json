@@ -25547,25 +25547,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60996467090563,
+                    -33.50068226941584
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO10",
-                "name": "Quiosco",
-                "campus": "SJ",
+                "name": "Juan Frijol",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61002191969271,
-                    -33.500622392941494
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
