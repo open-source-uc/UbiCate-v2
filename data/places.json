@@ -23722,26 +23722,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOTOCOPIA16",
-                "name": "Fotocopiadora de Medicina",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "MED"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640571,
                     -33.441542
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA16",
+                "name": "Fotocopiadora ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
