@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61839669370127,
+                    -33.419680128055084
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_42-LC",
+                "name": "Sala Tunel Oriente",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61805870216428,
                     -33.41948885473388
                 ]
