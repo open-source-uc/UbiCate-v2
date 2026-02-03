@@ -552,13 +552,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64144477248192,
-                    -33.44165607070992
+                    -70.64159417935485,
+                    -33.44136805212361
                 ]
             },
             "properties": {
                 "identifier": "MKVC00F2EMN3ML",
-                "name": "La Cava de Lira",
+                "name": "Copper La Cava ",
                 "information": "Cava del siglo XIX de Francisco Lira Argomedo, hoy habilitada como restaurante y cafetería Copper.\nAv. Alameda Libertador Bernardo O'Higgins 390, Santiago.",
                 "categories": [
                     "food_lunch"
