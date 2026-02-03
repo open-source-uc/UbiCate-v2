@@ -25524,25 +25524,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PUESTO1",
-                "name": "Bon Appetit UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.614442,
                     -33.497513
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO1",
+                "name": "Bon Appetit ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
