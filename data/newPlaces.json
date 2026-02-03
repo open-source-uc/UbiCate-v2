@@ -812,30 +812,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64158533642843,
-                    -33.441382691994555
-                ]
-            },
-            "properties": {
-                "identifier": "FOOD_LUNCH-34032900",
-                "name": "Copper ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64157688186737,
                     -33.44135444678715
                 ]
