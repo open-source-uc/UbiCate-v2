@@ -23461,26 +23461,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61396781304775,
+                    -33.49717865642995
+                ]
+            },
             "properties": {
                 "identifier": "FOTOCOPIA5",
-                "name": "Fotocopias",
-                "campus": "SJ",
+                "name": "Fotocopiadora ",
                 "information": "",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [
-                    "HIS"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613976,
-                    -33.497499
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
