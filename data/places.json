@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63996113036801,
+                    -33.44147881068832
+                ]
+            },
+            "properties": {
+                "identifier": "SODEXO_CC",
+                "name": "Work Café Santander",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6395568523531,
                     -33.44159376233385
                 ]
