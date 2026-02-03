@@ -18221,25 +18221,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-23546931",
-                "name": "Casino Edificio K",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61187019177152,
                     -33.50009142926184
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546931",
+                "name": "Piatto Pastas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
