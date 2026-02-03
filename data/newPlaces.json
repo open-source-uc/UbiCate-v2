@@ -664,30 +664,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64075372711109,
-                    -33.440598483380484
-                ]
-            },
-            "properties": {
-                "identifier": "ML6T0LDFP54HVV",
-                "name": "Monseñor Carlos Casanueva O.",
-                "information": "Escultura de Monseñor Carlos Casanueva O. (1874-1957) Rector de la Pontificia Universidad Católica de Chile (1920-1953). ",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6188266233242,
                     -33.4194523932289
                 ]
