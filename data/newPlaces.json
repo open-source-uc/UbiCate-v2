@@ -690,30 +690,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64056976467448,
-                    -33.44351772274003
-                ]
-            },
-            "properties": {
-                "identifier": "ML6YK3ZMZ8HPEN",
-                "name": "Cafetería Huerto Sur",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63978089013989,
                     -33.44117059499646
                 ]
