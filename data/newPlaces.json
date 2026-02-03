@@ -956,30 +956,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6119029624556,
-                    -33.50002252898073
-                ]
-            },
-            "properties": {
-                "identifier": "ML6TE8EEEPX8DL",
-                "name": "MESON UC CyT",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60959123104682,
                     -33.49978635822835
                 ]
