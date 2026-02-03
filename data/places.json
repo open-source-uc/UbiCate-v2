@@ -27067,26 +27067,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60906830471443,
+                    -33.4965008558894
+                ]
+            },
             "properties": {
                 "identifier": "ALMUERZO6",
-                "name": "Casino Agronomía",
-                "campus": "SJ",
+                "name": "Paradiso",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [
-                    "AGC"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609043,
-                    -33.496555
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
                 ]
             }
         },
