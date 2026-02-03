@@ -25572,25 +25572,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PUESTO11",
-                "name": "Quiosco",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.611747,
                     -33.498485
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO11",
+                "name": "Quiosco Donde la Tía",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
