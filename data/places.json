@@ -30849,25 +30849,25 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61354423350099,
-                    -33.497911948230986
-                ]
-            },
             "properties": {
                 "identifier": "PUESTO12",
-                "name": "Le Paché",
+                "name": "quiosco",
+                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
+                "faculties": [],
                 "floors": [
                     1
-                ],
-                "campus": "SJ",
-                "faculties": []
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61334339412389,
+                    -33.49819447890233
+                ]
             }
         },
         {
