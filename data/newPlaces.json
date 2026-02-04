@@ -1354,6 +1354,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61539469153901,
+                    -33.49790520269241
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546703",
+                "name": "Pronto Copec",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64105713315074,
                     -33.44080465816498
                 ]
