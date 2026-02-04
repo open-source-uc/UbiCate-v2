@@ -21455,26 +21455,26 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61002715211636,
-                    -33.498132212738604
-                ]
-            },
             "properties": {
                 "identifier": "CAJERO5",
                 "name": "Cajero",
+                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "financial"
                 ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
                 "faculties": [
                     "SOC"
+                ],
+                "floors": [
+                    1
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610231,
+                    -33.498168
                 ]
             }
         },
