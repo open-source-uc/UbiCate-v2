@@ -540,6 +540,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64045321824162,
+                    -33.44141189411702
+                ]
+            },
+            "properties": {
+                "identifier": "BANCO3",
+                "name": "Banco Santander",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6188266233242,
                     -33.4194523932289
                 ]
