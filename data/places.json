@@ -25823,26 +25823,24 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6097892850785,
-                    -33.49793943581164
-                ]
-            },
             "properties": {
                 "identifier": "PUESTO8",
                 "name": "Caprioli",
+                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
+                "faculties": [],
                 "floors": [
                     1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60981610716888,
+                    -33.4980467977922
                 ]
             }
         },
