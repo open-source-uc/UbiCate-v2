@@ -6,29 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61344150162022,
-                    -33.497943925003526
-                ]
-            },
-            "properties": {
-                "identifier": "ML6TC7H22ACSV6",
-                "name": "MESON UC HALL",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61333919421033,
                     -33.49813083603346
                 ]
