@@ -956,6 +956,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61325308385578,
+                    -33.498160392083605
+                ]
+            },
+            "properties": {
+                "identifier": "SHOP-26441979",
+                "name": "Lápiz López",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61324086368903,
                     -33.498194397002706
                 ]
