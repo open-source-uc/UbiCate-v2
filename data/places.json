@@ -31266,26 +31266,24 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60995129759229,
-                    -33.49795189949781
-                ]
-            },
             "properties": {
                 "identifier": "SHOP-38162136",
-                "name": "Librería La Tala",
+                "name": "La Tala",
+                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "shop"
                 ],
+                "faculties": [],
                 "floors": [
                     1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60988511996237,
+                    -33.49798659015038
                 ]
             }
         },
