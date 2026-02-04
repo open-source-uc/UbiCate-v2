@@ -6,31 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59386660457139,
-                    -33.44586046566226
-                ]
-            },
-            "properties": {
-                "identifier": "ML6Z0PCOD3VI2W",
-                "name": "Librería La Tala",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
-                "faculties": [
-                    "TEMPLO_OR"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59366019754198,
                     -33.44573865977775
                 ]
