@@ -6,32 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61099921629949,
-                    -33.49689577254721
-                ]
-            },
-            "properties": {
-                "identifier": "MGZDCUFOX7VRCI",
-                "name": "Cafetón",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EA"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61324086368903,
                     -33.498194397002706
                 ]
