@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.614442,
-                    -33.497513
-                ]
-            },
-            "properties": {
-                "identifier": "PUESTO1",
-                "name": "Bon Appetit ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61326841413585,
                     -33.4996545711821
                 ]
