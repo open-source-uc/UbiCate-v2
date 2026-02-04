@@ -27008,25 +27008,25 @@
         },
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "SODEXO_HALL",
+                "name": "Casino Rock & Rolla",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "faculties": [],
+                "floors": [
+                    2
+                ]
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61350389900275,
                     -33.497966992312044
                 ]
-            },
-            "properties": {
-                "identifier": "SODEXO_HALL",
-                "name": "Casino RocknRolla",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    2
-                ],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
