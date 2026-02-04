@@ -1004,6 +1004,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64217480127506,
+                    -33.442072010231875
+                ]
+            },
+            "properties": {
+                "identifier": "A31-CC",
+                "name": "A31 María Luisa Santander ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6397168722142,
                     -33.44174540537328
                 ]
