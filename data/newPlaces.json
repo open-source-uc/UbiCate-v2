@@ -1,4 +1,469 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6188266233242,
+                    -33.4194523932289
+                ]
+            },
+            "properties": {
+                "identifier": "F0101-LC",
+                "name": "Sala Facultad F0101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64217480127506,
+                    -33.442072010231875
+                ]
+            },
+            "properties": {
+                "identifier": "A31-CC",
+                "name": "A31 María Luisa Santander ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6397168722142,
+                    -33.44174540537328
+                ]
+            },
+            "properties": {
+                "identifier": "B201-CC",
+                "name": "B201",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63967324287019,
+                    -33.44174049340324
+                ]
+            },
+            "properties": {
+                "identifier": "B104-CC",
+                "name": "B104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6395568523531,
+                    -33.44159376233385
+                ]
+            },
+            "properties": {
+                "identifier": "B103-CC",
+                "name": "B103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6395546687876,
+                    -33.44158368451794
+                ]
+            },
+            "properties": {
+                "identifier": "B102-CC",
+                "name": "B102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63957153773114,
+                    -33.44154575075209
+                ]
+            },
+            "properties": {
+                "identifier": "B101-CC",
+                "name": "B101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64058097670981,
+                    -33.44150660831386
+                ]
+            },
+            "properties": {
+                "identifier": "MGZLKCSG155U1Q",
+                "name": "M3",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64045201987028,
+                    -33.440913976814706
+                ]
+            },
+            "properties": {
+                "identifier": "SALA 12",
+                "name": "Auditorio Sebastian Piñera Echenique",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64107935714652,
+                    -33.441164282687744
+                ]
+            },
+            "properties": {
+                "identifier": "AULA_MAGNA_ELIODORO_MATTE_OSSA-CC",
+                "name": "Aula Magna Eliodoro Matte Ossa",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64124236290965,
+                    -33.44111396263138
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-32479115",
+                "name": "Cine UC",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6412470662415,
+                    -33.4410766181376
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MATE-CC",
+                "name": "Sala Mate",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61839669370127,
+                    -33.419680128055084
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_42-LC",
+                "name": "Sala Tunel Oriente",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61843369552629,
+                    -33.41972190285682
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_41-LC",
+                "name": "Sala Tunel Poniente ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61141798921658,
+                    -33.497070944220134
+                ]
+            },
+            "properties": {
+                "identifier": "AE105-SJ",
+                "name": "AE105",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61204554670833,
+                    -33.49674499676688
+                ]
+            },
+            "properties": {
+                "identifier": "AE003-SJ",
+                "name": "AE003",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61333697944418,
+                            -33.49689116768023
+                        ],
+                        [
+                            -70.6133150130588,
+                            -33.49688937052781
+                        ],
+                        [
+                            -70.61331166857674,
+                            -33.49688459171644
+                        ],
+                        [
+                            -70.61333697944418,
+                            -33.49689116768023
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "S9_SALA_FÍSICA_GENERAL-SJ",
+                "name": "S9 sala física general ",
+                "information": "9:40-10:50",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64018150023647,
+                    -33.44131895825054
+                ]
+            },
+            "properties": {
+                "identifier": "ML14JACHCO815Q",
+                "name": "Crisol Casa Central 1",
+                "information": "**Ubicación:**  \nSubterráneo del edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n2330  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 16 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO  \n- 3 Espacios de trabajo colaborativo (Smart TV 43”)  \n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n**Sala B:**\n\n- 29 PCs para clases Intel Core i5-4440, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n**Sala Inclusión:**\n\n- 1 PC Intel Core i5-4440, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n- Aire acondicionado  \n- Iluminación LED\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        }
+    ]
 }
