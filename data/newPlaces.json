@@ -320,6 +320,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59382788792314,
+                    -33.4453321948448
+                ]
+            },
+            "properties": {
+                "identifier": "M8T7LCZVWHOZL5",
+                "name": "Camba Café",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6188266233242,
                     -33.4194523932289
                 ]
