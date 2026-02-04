@@ -10359,25 +10359,25 @@
         },
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "OTHER-32479115",
+                "name": "Cine UC",
+                "campus": "CC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "faculties": [],
+                "floors": [
+                    1
+                ]
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64124236290965,
                     -33.44111396263138
                 ]
-            },
-            "properties": {
-                "identifier": "OTHER-32479115",
-                "name": "Cine UC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "CC",
-                "faculties": []
             }
         },
         {
