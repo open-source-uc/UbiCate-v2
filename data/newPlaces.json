@@ -1132,6 +1132,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.613304,
+                    -33.500118
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA11",
+                "name": "Fotocopiadora Print Shop",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61026040345818,
                     -33.499117855719746
                 ]
