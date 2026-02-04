@@ -980,6 +980,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61333919421033,
+                    -33.49813083603346
+                ]
+            },
+            "properties": {
+                "identifier": "ML6T5CXUYWVPUC",
+                "name": "Bazaar Komodín",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61325308385578,
                     -33.498160392083605
                 ]
