@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61805870216428,
-                    -33.41948885473388
-                ]
-            },
-            "properties": {
-                "identifier": "FINANCIAL-33078564",
-                "name": "Cajero",
-                "information": "",
-                "categories": [
-                    "financial"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.617635,
                     -33.419581
                 ]
