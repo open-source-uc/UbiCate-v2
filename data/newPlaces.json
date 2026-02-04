@@ -58,6 +58,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61071804428488,
+                    -33.50059263394466
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZSR3VNZ2CNN",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22552720782815,
                     -39.277576832491185
                 ]
