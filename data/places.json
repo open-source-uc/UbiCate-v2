@@ -30646,25 +30646,25 @@
         },
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "FOOD_LUNCH-36975794",
+                "name": "Kiosco",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "faculties": [],
+                "floors": [
+                    1
+                ]
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60781487722299,
                     -33.50095032956365
                 ]
-            },
-            "properties": {
-                "identifier": "FOOD_LUNCH-36975794",
-                "name": "Cafetería Piatto",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
