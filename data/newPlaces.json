@@ -838,6 +838,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6412470662415,
+                    -33.4410766181376
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MATE-CC",
+                "name": "Sala Mate",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61839669370127,
                     -33.419680128055084
                 ]
