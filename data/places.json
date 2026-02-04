@@ -31101,25 +31101,25 @@
         },
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "FOOD_LUNCH-37631812",
+                "name": "Cafetón",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "faculties": [],
+                "floors": [
+                    1
+                ]
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61346024294069,
                     -33.49820595363147
                 ]
-            },
-            "properties": {
-                "identifier": "FOOD_LUNCH-37631812",
-                "name": "Cafetón",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
