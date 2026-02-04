@@ -1082,6 +1082,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61035864184294,
+                    -33.49817790939321
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO7",
+                "name": "Starbucks",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64075372711109,
                     -33.440598483380484
                 ]
