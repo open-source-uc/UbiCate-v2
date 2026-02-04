@@ -60,12 +60,6 @@
   }
 }
 
-/* Ensure focus indicators are visible */
-*:focus {
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
-}
-
 /* Skip to main content for screen readers */
 .skip-to-main {
   position: absolute;

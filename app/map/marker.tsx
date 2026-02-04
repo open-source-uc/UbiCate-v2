@@ -51,7 +51,7 @@ export default function Marker({
         }}
       >
         <div
-          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ring-secondary ring-1 w-5 h-5 z-50 ${color}`}
+          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ring-border ring-1 w-5 h-5 z-50 ${color}`}
         >
           {icon}
         </div>

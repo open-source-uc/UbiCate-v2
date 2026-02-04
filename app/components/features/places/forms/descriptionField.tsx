@@ -57,7 +57,7 @@ export function DescriptionField({ value, onChange, disabled }: DescriptionField
           className="w-full field-sizing-content text-sm resize-none min-h-20 p-2 rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
           placeholder="Puedes usar Markdown aquí..."
           rows={4}
-          maxLength={1024}
+          maxLength={2500}
           disabled={disabled}
         />
       )}

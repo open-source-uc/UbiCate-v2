@@ -152,6 +152,12 @@ resize-x border-2 border-dashed pointer-events-auto"
             <span className="w-6 h-6 bg-[#FF6347] mr-2" /> Tiendas - Tomate
           </li>
           <li className="flex items-center">
+            <span className="w-6 h-6 bg-[#9370DB] mr-2" /> Cultura - Púrpura Medio
+          </li>
+          <li className="flex items-center">
+            <span className="w-6 h-6 bg-[#CD853F] mr-2" /> Oficinas - Marrón Claro
+          </li>
+          <li className="flex items-center">
             <span className="w-6 h-6 bg-[#A9A9A9] mr-2" /> Otros - Gris Oscuro
           </li>
           <li className="flex items-center">

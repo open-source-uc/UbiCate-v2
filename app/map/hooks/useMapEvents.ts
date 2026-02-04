@@ -149,7 +149,12 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
         map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
           duration: 0,
-          zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
+          zoom:
+            defaultCampus === "SJ" || defaultCampus === "SanJoaquin"
+              ? 15.5
+              : defaultCampus === "VR" || defaultCampus === "Villarrica"
+              ? 14
+              : 17,
         });
       }
 

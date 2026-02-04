@@ -598,3 +598,48 @@ export function Coffee({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function Add({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z" />
+    </svg>
+  );
+}
+export function Info({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="m472-62-12-128q-148.68 0-252.34-103T104-544.5q0-148.5 104-252T460.29-900q74.14 0 138.37 27.41 64.22 27.41 112.78 75.5T788-684.65q28 64.36 28 138.65 0 80-26 152.5t-72 135Q672-196 609.1-146.14 546.19-96.28 472-62Zm-12.05-254q19.05 0 32.55-13.45 13.5-13.45 13.5-32.5t-13.45-32.55Q479.1-408 460.05-408t-32.55 13.45Q414-381.1 414-362.05t13.45 32.55q13.45 13.5 32.5 13.5ZM426-450h66q0-27 8-42.5t38-45.5q21-21 31.5-42.32T580-626q0-54-36-80t-84-26q-46.54 0-78.27 27Q350-678 338-642l61.51 24Q405-635 419-652.5q14-17.5 41-17.5 26 0 39 14t13 32q0 17-7.5 29T478-566q-36 33-44 51.5t-8 64.5Z" />
+    </svg>
+  );
+}
+
+export function ExpandMore({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z" />
+    </svg>
+  );
+}
+
+export function Domain({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M80-120v-720h400v160h400v560H80Zm60-60h120v-120H140v120Zm0-180h120v-120H140v120Zm0-180h120v-120H140v120Zm0-180h120v-120H140v120Zm180 540h120v-120H320v120Zm0-180h120v-120H320v120Zm0-180h120v-120H320v120Zm0-180h120v-120H320v120Zm180 540h360v-440H500v120h120v60H500v120h120v60H500v80Z" />
+    </svg>
+  );
+}
+export function Biotech({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="M400-200v-80q-83 0-141.5-58.5T200-480q0-61 33.5-111t90.5-73q8-34 35.5-55t62.5-21l-9-25q-5-16 1.5-30.5T437-816h1q-6-15 1-29.5t24-20.5q15-5 29.5 1.5T512-842q16-6 31 1t21 23l82 225q6 16-.5 30.5T623-542h-1q6 16-1 31t-24 21q-15 5-29.5-1.5T548-514q-16 6-31-1t-21-23l-10-28q-15 14-34.5 21t-39.5 5q-22-2-41-13.5T338-582q-27 16-42.5 43T280-480q0 50 35 85t85 35h280q17 0 28.5 11.5T720-320q0 17-11.5 28.5T680-280H520v80h200q17 0 28.5 11.5T760-160q0 17-11.5 28.5T720-120H240q-17 0-28.5-11.5T200-160q0-17 11.5-28.5T240-200h160Zm146-378 36-14-68-188-38 14 70 188Zm-126-22q17 0 28.5-11.5T460-640q0-17-11.5-28.5T420-680q-17 0-28.5 11.5T380-640q0 17 11.5 28.5T420-600Zm126 22Zm-126-62Zm0 0Z" />
+    </svg>
+  );
+}
+export function Recycling({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" data-slot="icon" className={className}>
+      <path d="m389-626 68-113-59-98q-12-20-34.5-20T329-837l-77 129q-8 14-4.5 30.5T265-653l69 41q14 8 30.5 4t24.5-18Zm366 306-68-113q-9-14-4.5-30.5T701-488l70-40q14-8 30-4t24 18l44 73q11 17 12 38t-9 39q-10 20-29.5 32T800-320h-45ZM606-74l-98-98q-12-12-12-28t12-28l98-98q10-10 22-5t12 19v32h190l-58 116q-11 20-30 32t-42 12h-60v32q0 14-12 19t-22-5Zm-353-46q-20 0-36.5-10.5T192-158q-8-16-7.5-33.5T194-224l34-56h132q17 0 28.5 11.5T400-240v80q0 17-11.5 28.5T360-120H253Zm-99-114L89-364q-9-18-8.5-38.5T92-441l16-27-27-16q-11-7-9-20.5T87-521l133-33q16-4 30.5 4.5T269-525l33 134q3 13-8 21t-22 1l-27-17-91 152Zm501-352-133-33q-13-3-14.5-16.5T517-656l27-16-125-208h141q21 0 39.5 10.5T629-841l52 87 26-16q11-7 22 1t8 21l-33 133q-4 16-18.5 24.5T655-586Z" />
+    </svg>
+  );
+}

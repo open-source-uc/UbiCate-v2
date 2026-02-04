@@ -10,6 +10,7 @@ export const placesTextLayer: LayerProps = {
     "text-size": 16,
     "text-anchor": "top",
     "text-offset": [0, 1],
+    "symbol-sort-key": 1,
   },
   paint: {
     "text-color": "#701a75", // Púrpura oscuro para máxima legibilidad

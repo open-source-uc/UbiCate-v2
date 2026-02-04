@@ -16,29 +16,33 @@ type CategoryFilter = {
 };
 
 const pills: Array<CategoryFilter> = [
-  { title: "Facultades", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
-  { title: "Salas de Estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
+  { title: "Facultades, Escuelas, Institutos y otros edificios", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
+  { title: "Salas de clases", icon: <Icons.School />, filter: CATEGORIES.CLASSROOM },
+  { title: "Salas de estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
+  { title: "Salas Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
+  { title: "Laboratorios", icon: <Icons.Biotech />, filter: CATEGORIES.LABORATORY },
   { title: "Bibliotecas", icon: <Icons.Library />, filter: CATEGORIES.LIBRARY },
-  { title: "Baños", icon: <Icons.Wc />, filter: CATEGORIES.BATH },
-  { title: "Comida", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
-  { title: "Agua", icon: <Icons.Water />, filter: CATEGORIES.WATER },
+  { title: "Impresoras / Fotocopias", icon: <Icons.Print />, filter: CATEGORIES.PHOTOCOPY },
   { title: "Deportes", icon: <Icons.Sport />, filter: CATEGORIES.SPORTS_PLACE },
-  { title: "Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
-  { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
-  { title: "Impresoras", icon: <Icons.Print />, filter: CATEGORIES.PHOTOCOPY },
-  { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
+  { title: "Baños", icon: <Icons.Wc />, filter: CATEGORIES.BATH },
+  { title: "Agua", icon: <Icons.Water />, filter: CATEGORIES.WATER },
+  { title: "Comida / Mesón UC", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
+  { title: "Puntos Limpios", icon: <Icons.Recycling />, filter: CATEGORIES.TRASH },
   { title: "Tiendas", icon: <Icons.Shop />, filter: CATEGORIES.SHOP },
-  { title: "Bicicletas", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
+  { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
+  { title: "Oficinas", icon: <Icons.Domain />, filter: CATEGORIES.OFFICES },
+  { title: "Bicicleteros", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
+  { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
+  { title: "Cultura", icon: <Icons.Palette />, filter: CATEGORIES.CULTURE },
 ];
 
 function PillFilter() {
   const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
-  const { setPlaces } = useSidebar();
+  const { setPlaces, activeFilters, setActiveFilters } = useSidebar();
 
   useEffect(() => {
     const loadGeoJson = async () => {
@@ -49,23 +53,79 @@ function PillFilter() {
     loadGeoJson();
   }, []);
 
+  useEffect(() => {
+    if (!placesGeoJson.features || placesGeoJson.features.length === 0) return;
+    if (activeFilters.length === 0) {
+      setPlaces([]);
+      return;
+    }
+
+    const allResults: any[] = [];
+    const seenIds = new Set<string>();
+
+    activeFilters.forEach((cat) => {
+      const results = placesFilteredByCategory[cat] || categoryFilter(placesGeoJson, cat);
+
+      if (!placesFilteredByCategory[cat]) {
+        setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
+      }
+
+      results.forEach((feature: any) => {
+        const featureId = feature.properties?.id || JSON.stringify(feature);
+        if (!seenIds.has(featureId)) {
+          seenIds.add(featureId);
+          allResults.push(feature);
+        }
+      });
+    });
+
+    setPlaces(allResults);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [placesGeoJson, activeFilters]);
+
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
-      setPlaces([]);
       if (!placesGeoJson) return;
 
-      if (activeFilter === category) {
-        setActiveFilter(null);
+      let newActiveFilters: string[];
+
+      // Single-selection behavior: selecting an active category deselects it,
+      // selecting a different category replaces the previous selection.
+      if (activeFilters.includes(category)) {
+        newActiveFilters = activeFilters.filter((f) => f !== category);
+      } else {
+        newActiveFilters = [category];
+      }
+
+      setActiveFilters(newActiveFilters);
+
+      if (newActiveFilters.length === 0) {
         setPlaces([]);
         return;
       }
 
-      const results = placesFilteredByCategory[category] || filter(placesGeoJson, category);
-      setPlacesFilteredByCategory((prev) => ({ ...prev, [category]: results }));
-      setPlaces(results);
-      setActiveFilter(category);
+      const allResults: any[] = [];
+      const seenIds = new Set<string>();
+
+      newActiveFilters.forEach((cat) => {
+        const results = placesFilteredByCategory[cat] || filter(placesGeoJson, cat);
+
+        if (!placesFilteredByCategory[cat]) {
+          setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
+        }
+
+        results.forEach((feature: any) => {
+          const featureId = feature.properties?.id || JSON.stringify(feature);
+          if (!seenIds.has(featureId)) {
+            seenIds.add(featureId);
+            allResults.push(feature);
+          }
+        });
+      });
+
+      setPlaces(allResults);
     },
-    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilter],
+    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilters, setActiveFilters],
   );
 
   return (
@@ -74,18 +134,6 @@ function PillFilter() {
         className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
-        <style jsx>{`
-          .overflow-auto-chrome::-webkit-scrollbar {
-            display: none; /* Hide scrollbar in Chrome and Safari */
-          }
-          .overflow-firebox {
-            scrollbar-width: none; /* Hide scrollbar in Firefox */
-          }
-          .no-scrollbar {
-            -ms-overflow-style: none; /* IE and Edge */
-          }
-        `}</style>
-
         {pills.map(({ title, icon, filter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill
@@ -93,7 +141,7 @@ function PillFilter() {
               icon={icon}
               bg_color={getCategoryColor(filter)}
               onClick={() => applyFilter(categoryFilter, filter)}
-              active={activeFilter === filter}
+              active={activeFilters.includes(filter)}
             />
           </div>
         ))}

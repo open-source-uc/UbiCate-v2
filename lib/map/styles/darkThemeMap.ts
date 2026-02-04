@@ -10,7 +10,6 @@ export const darkThemeMap: StyleSpecification = {
       tiles: ["/api/{z}/{x}/{y}"],
       minzoom: 0,
       maxzoom: 14,
-      attribution: "© OpenStreetMap contributors, © OSUC contributors",
     },
   },
   layers: [
@@ -424,12 +423,9 @@ export const darkThemeMap: StyleSpecification = {
       filter: [
         "all",
         ["has", "name:latin"],
-        [
-          "any",
-          ["<=", ["get", "rank"], 1],
-          ["==", ["get", "class"], "university"],
-          ["==", ["get", "class"], "college"],
-        ],
+        ["any", ["<=", ["get", "rank"], 1]],
+        ["!=", ["get", "class"], "university"],
+        ["!=", ["get", "class"], "college"],
         ["!=", ["get", "class"], "bus_stop"],
         ["!=", ["get", "class"], "railway"],
         ["!=", ["get", "class"], "pharmacy"],

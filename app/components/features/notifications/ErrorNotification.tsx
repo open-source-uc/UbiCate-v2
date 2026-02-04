@@ -6,7 +6,7 @@ import { NotificationContext } from "@/app/context/notificationCtx";
 export default function DirectionErrorNotification({ children }: { children: React.ReactNode }) {
   const { clearNotification, clearAllCodes } = use(NotificationContext);
   return (
-    <div className="w-full pointer-events-auto bg-destructive text-destructive-foreground px-4 py-3 rounded-lg shadow-lg space-y-2">
+    <div className="w-full pointer-events-auto bg-destructive text-background px-4 py-3 rounded-lg shadow-lg space-y-2">
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center space-x-2">
           <Icons.Error className="w-7 h-7" />
