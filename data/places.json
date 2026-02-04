@@ -12671,26 +12671,24 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6107583464171,
-                    -33.5005803188261
-                ]
-            },
             "properties": {
                 "identifier": "FOOD_LUNCH-32380458",
                 "name": "Castaño",
+                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
+                "faculties": [],
                 "floors": [
                     1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "D"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61079559397712,
+                    -33.50057627622821
                 ]
             }
         },
