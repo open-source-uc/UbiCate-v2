@@ -990,6 +990,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610896,
+                    -33.496978
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO1",
+                "name": "Casino RocknRolla",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61099921629949,
                     -33.49689577254721
                 ]
