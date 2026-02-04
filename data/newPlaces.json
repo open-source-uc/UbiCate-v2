@@ -590,6 +590,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6404198333621,
+                    -33.44136468945289
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-34029632",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6188266233242,
                     -33.4194523932289
                 ]
