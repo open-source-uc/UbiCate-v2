@@ -23436,26 +23436,26 @@
         },
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "FOTOCOPIA4",
+                "name": "Fotocopias",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "faculties": [
+                    "EDU"
+                ],
+                "floors": [
+                    1
+                ]
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.614246,
                     -33.49815
-                ]
-            },
-            "properties": {
-                "identifier": "FOTOCOPIA4",
-                "name": "Fotocopiadora Pif Kai",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "EDU"
                 ]
             }
         },
