@@ -6,31 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.63961552061765,
-                    -33.441678178178904
-                ]
-            },
-            "properties": {
-                "identifier": "ML6Z39QRARPWWN",
-                "name": "Punto de microondas",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    -1
-                ],
-                "campus": "CC",
-                "faculties": [
-                    "BIO"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63967324287019,
                     -33.44174049340324
                 ]
