@@ -616,6 +616,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63978089013989,
+                    -33.44117059499646
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YDK1P0F31R6",
+                "name": "Casino JB",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6188266233242,
                     -33.4194523932289
                 ]
