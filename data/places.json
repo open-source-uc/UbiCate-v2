@@ -6,29 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64105713315074,
-                    -33.44080465816498
-                ]
-            },
-            "properties": {
-                "identifier": "ML6SXM37C2JAEN",
-                "name": "Escultura Monseñor Crescente Errázuriz Valdivieso (1839-1931)",
-                "information": "Escultura Monseñor Crescente Errázuriz Valdivieso (1839-1931)\nArzobispo de Santiago entre el 29 de enero e 1919 al 5 de junio de 1931",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63975199885105,
                     -33.44120606824676
                 ]
