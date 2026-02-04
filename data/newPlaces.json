@@ -786,6 +786,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63967324287019,
+                    -33.44174049340324
+                ]
+            },
+            "properties": {
+                "identifier": "B104-CC",
+                "name": "B104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6395568523531,
                     -33.44159376233385
                 ]
