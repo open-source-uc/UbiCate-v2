@@ -6,32 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.614246,
-                    -33.49815
-                ]
-            },
-            "properties": {
-                "identifier": "FOTOCOPIA4",
-                "name": "Fotocopiadora Pif Kai",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EDU"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61396781304775,
                     -33.49717865642995
                 ]
