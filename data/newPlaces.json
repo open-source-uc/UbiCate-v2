@@ -1064,6 +1064,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64107935714652,
+                    -33.441164282687744
+                ]
+            },
+            "properties": {
+                "identifier": "AULA_MAGNA_ELIODORO_MATTE_OSSA-CC",
+                "name": "Aula Magna Eliodoro Matte Ossa",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64124236290965,
                     -33.44111396263138
                 ]
