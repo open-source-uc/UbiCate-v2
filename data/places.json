@@ -23436,26 +23436,26 @@
         },
         {
             "type": "Feature",
+            "properties": {
+                "identifier": "FOTOCOPIA11",
+                "name": "Fotocopias",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "faculties": [
+                    "ING"
+                ],
+                "floors": [
+                    1
+                ]
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.613304,
                     -33.500118
-                ]
-            },
-            "properties": {
-                "identifier": "FOTOCOPIA11",
-                "name": "Fotocopiadora Print Shop",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "ING"
                 ]
             }
         },
