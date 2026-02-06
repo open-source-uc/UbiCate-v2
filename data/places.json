@@ -6,6 +6,576 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64075372711109,
+                    -33.440598483380484
+                ]
+            },
+            "properties": {
+                "identifier": "ML6T0LDFP54HVV",
+                "name": "Monseñor Carlos Casanueva O.",
+                "information": "Escultura de Monseñor Carlos Casanueva O. (1874-1957) Rector de la Pontificia Universidad Católica de Chile (1920-1953). ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64105713315074,
+                    -33.44080465816498
+                ]
+            },
+            "properties": {
+                "identifier": "ML6SXM37C2JAEN",
+                "name": "Escultura Monseñor Crescente Errázuriz Valdivieso (1839-1931)",
+                "information": "Escultura Monseñor Crescente Errázuriz Valdivieso (1839-1931)\nArzobispo de Santiago entre el 29 de enero e 1919 al 5 de junio de 1931",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63975199885105,
+                    -33.44120606824676
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZBO8HVA6QWH",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63961552061765,
+                    -33.441678178178904
+                ]
+            },
+            "properties": {
+                "identifier": "ML6Z39QRARPWWN",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63967324287019,
+                    -33.44174049340324
+                ]
+            },
+            "properties": {
+                "identifier": "B104-CC",
+                "name": "B104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056976467448,
+                    -33.44351772274003
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YK3ZMZ8HPEN",
+                "name": "Cafetería Huerto Sur",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6398774405061,
+                    -33.441062830644185
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YNK8SGAWVOE",
+                "name": "MESON UC ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64075356207607,
+                    -33.4411366434011
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YLWJXBDVV9T",
+                "name": "Castaño",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64144063747545,
+                    -33.441077943109356
+                ]
+            },
+            "properties": {
+                "identifier": "ML6U43LQXADXGC",
+                "name": "Abdón Cifuentes Espinoza (San Felipe, 16 de mayo de 1836 – Santiago, 14 de abril de 1928)",
+                "information": "Una de las figuras católicas más importantes de Chile país en el siglo XIX y el principal precursor del voto femenino.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61344150162022,
+                    -33.497943925003526
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TC7H22ACSV6",
+                "name": "MESON UC HALL",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61333919421033,
+                    -33.49813083603346
+                ]
+            },
+            "properties": {
+                "identifier": "ML6T5CXUYWVPUC",
+                "name": "Bazaar Komodín",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61344150162022,
+                    -33.497943925003526
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TC2TAIL63I6",
+                "name": "MESON UC HALL",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61356379809348,
+                    -33.49728253390573
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZW2WOJTZK4D",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61071427692889,
+                    -33.49883730514736
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZU7Z28ALSJB",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60959123104682,
+                    -33.49978635822835
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TDMSQ7EJPR0",
+                "name": "MESON UC PÉRGOLA",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61071804428488,
+                    -33.50059263394466
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZSR3VNZ2CNN",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6118242294127,
+                    -33.50006086212353
+                ]
+            },
+            "properties": {
+                "identifier": "ML6SD65UU47AXU",
+                "name": "Burga",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61362399924549,
+                    -33.498968468916146
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZWJMSW3TIUK",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61007434531741,
+                    -33.498079334133834
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZT6BXCA7FAZ",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60894216814002,
+                    -33.4964545794762
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZTLAMDZ0EE0",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61038128464686,
+                    -33.49668815909899
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZX5U2GWPRSH",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.613901341765,
+                    -33.49745120070166
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZVDSTOFDWSV",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6119029624556,
+                    -33.50002252898073
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TE8EEEPX8DL",
+                "name": "MESON UC CyT",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61113582065532,
+                    -33.496985304054355
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TCU5QICL8F4",
+                "name": "MESON UC ECONOMIA",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61021667212577,
                     -33.49780346004937
                 ]
@@ -170,13 +740,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64144477248192,
-                    -33.44165607070992
+                    -70.64159417935485,
+                    -33.44136805212361
                 ]
             },
             "properties": {
                 "identifier": "MKVC00F2EMN3ML",
-                "name": "La Cava de Lira",
+                "name": "Copper La Cava ",
                 "information": "Cava del siglo XIX de Francisco Lira Argomedo, hoy habilitada como restaurante y cafetería Copper.\nAv. Alameda Libertador Bernardo O'Higgins 390, Santiago.",
                 "categories": [
                     "food_lunch"
@@ -1241,7 +1811,7 @@
             },
             "properties": {
                 "identifier": "A31-CC",
-                "name": "A31",
+                "name": "A31 María Luisa Santander ",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3419,7 +3989,7 @@
                     "auditorium"
                 ],
                 "floors": [
-                    1
+                    3
                 ],
                 "campus": "CC",
                 "faculties": [
@@ -3494,7 +4064,7 @@
                     "classroom"
                 ],
                 "floors": [
-                    2
+                    -2
                 ],
                 "campus": "CC",
                 "faculties": [
@@ -3615,7 +4185,7 @@
                     "classroom"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "CC",
                 "faculties": []
@@ -3638,7 +4208,7 @@
                     "classroom"
                 ],
                 "floors": [
-                    1
+                    2
                 ],
                 "campus": "CC",
                 "faculties": []
@@ -3749,13 +4319,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64218118838534,
-                    -33.44198421677347
+                    -70.64235553086422,
+                    -33.44179316674327
                 ]
             },
             "properties": {
                 "identifier": "MH3FQZECZXQCW9",
-                "name": "Patio Alameda",
+                "name": "Starbucks",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -4073,8 +4643,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61094557211922,
-                    -33.496971821547504
+                    -70.61099921629949,
+                    -33.49689577254721
                 ]
             },
             "properties": {
@@ -4770,25 +5340,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64158533642843,
+                    -33.441382691994555
+                ]
+            },
             "properties": {
                 "identifier": "FOOD_LUNCH-34032900",
-                "name": "Copper",
-                "campus": "CC",
+                "name": "Copper ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64151873365411,
-                    -33.44156571470494
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -9835,25 +10405,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-32479115",
-                "name": "Cine UC",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64124236290965,
                     -33.44111396263138
                 ]
+            },
+            "properties": {
+                "identifier": "OTHER-32479115",
+                "name": "Cine UC",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -12646,24 +13216,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6107583464171,
+                    -33.5005803188261
+                ]
+            },
             "properties": {
                 "identifier": "FOOD_LUNCH-32380458",
                 "name": "Castaño",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61079559397712,
-                    -33.50057627622821
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
                 ]
             }
         },
@@ -14068,24 +14640,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AE105-SJ",
-                "name": "AE105",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61141798921658,
                     -33.497070944220134
+                ]
+            },
+            "properties": {
+                "identifier": "AE105-SJ",
+                "name": "AE105",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
@@ -15156,45 +15730,22 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61514988591082,
-                    -33.497727850250406
+                    -70.61539469153901,
+                    -33.49790520269241
                 ]
             },
             "properties": {
-                "identifier": "FOOD_LUNCH-32216608",
-                "name": "Pronto Copec",
-                "information": "Ya no esta",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    8
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "FOOD_LUNCH-23546703",
                 "name": "Pronto Copec",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61539469153901,
-                    -33.49790520269241
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -16386,25 +16937,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61325308385578,
+                    -33.498160392083605
+                ]
+            },
             "properties": {
                 "identifier": "SHOP-26441979",
                 "name": "Lápiz López",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "shop"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6132307339614,
-                    -33.49808428094828
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -17542,25 +18093,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AE003-SJ",
-                "name": "AE003",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61204554670833,
                     -33.49674499676688
                 ]
+            },
+            "properties": {
+                "identifier": "AE003-SJ",
+                "name": "AE003",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -17634,25 +18185,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64157688186737,
+                    -33.44135444678715
+                ]
+            },
             "properties": {
                 "identifier": "FOOD_LUNCH-26253206",
                 "name": "Castaño",
-                "campus": "CC",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64137867345954,
-                    -33.44144557410257
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -18094,48 +18645,48 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-23546931",
-                "name": "Casino Edificio K",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61187019177152,
                     -33.50009142926184
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "FOOD_LUNCH-23546836",
-                "name": "Food Garden",
-                "campus": "SJ",
+                "identifier": "FOOD_LUNCH-23546931",
+                "name": "Piatto Pastas",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61363276621337,
                     -33.49714374488435
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546836",
+                "name": "Fortuna",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -18393,25 +18944,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-23408391",
-                "name": "Subway",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61019001073926,
                     -33.49672743680977
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23408391",
+                "name": "Subway",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -18439,25 +18990,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FORK001",
-                "name": "Fork",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6138661732852,
                     -33.49882385938008
                 ]
+            },
+            "properties": {
+                "identifier": "FORK001",
+                "name": "Fork",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -21428,50 +21979,50 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61002715211636,
+                    -33.498132212738604
+                ]
+            },
             "properties": {
                 "identifier": "CAJERO5",
                 "name": "Cajero",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "financial"
                 ],
-                "faculties": [
-                    "SOC"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610231,
-                    -33.498168
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64139020629528,
+                    -33.44114572836123
+                ]
+            },
             "properties": {
                 "identifier": "CAJERO6",
                 "name": "Cajero",
-                "campus": "CC",
                 "information": "",
                 "categories": [
                     "financial"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640889,
-                    -33.441244
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -23359,101 +23910,101 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOTOCOPIA16",
-                "name": "Fotocopiadora de Medicina",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [
-                    "MED"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640571,
                     -33.441542
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "FOTOCOPIA11",
-                "name": "Fotocopias",
-                "campus": "SJ",
+                "identifier": "FOTOCOPIA16",
+                "name": "Fotocopiadora ",
                 "information": "",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [
-                    "ING"
-                ],
                 "floors": [
-                    1
+                    4
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
-            },
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.613304,
                     -33.500118
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "FOTOCOPIA4",
-                "name": "Fotocopias",
-                "campus": "SJ",
+                "identifier": "FOTOCOPIA11",
+                "name": "Fotocopiadora Print Shop",
                 "information": "",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [
-                    "EDU"
-                ],
                 "floors": [
                     1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
-            },
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.614246,
                     -33.49815
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "FOTOCOPIA5",
-                "name": "Fotocopias",
-                "campus": "SJ",
+                "identifier": "FOTOCOPIA4",
+                "name": "Fotocopiadora Pif Kai",
                 "information": "",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [
-                    "HIS"
-                ],
                 "floors": [
                     1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
                 ]
-            },
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.613976,
-                    -33.497499
+                    -70.61396781304775,
+                    -33.49717865642995
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA5",
+                "name": "Fotocopiadora ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
@@ -25497,94 +26048,94 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PUESTO1",
-                "name": "Bon Appetit UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.614442,
                     -33.497513
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "PUESTO10",
-                "name": "Quiosco",
-                "campus": "SJ",
+                "identifier": "PUESTO1",
+                "name": "Bon Appetit ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61002191969271,
-                    -33.500622392941494
+                    -70.60996467090563,
+                    -33.50068226941584
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "PUESTO11",
-                "name": "Quiosco",
-                "campus": "SJ",
+                "identifier": "PUESTO10",
+                "name": "Juan Frijol",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.611747,
                     -33.498485
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "PUESTO13",
-                "name": "Maholo Sushi & Gohan",
-                "campus": "SJ",
+                "identifier": "PUESTO11",
+                "name": "Quiosco Donde la Tía",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61365832769172,
                     -33.49816677301593
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO13",
+                "name": "Mahalo Sushi & Gohan",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -25704,116 +26255,124 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61006589024713,
+                    -33.49818566910695
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO3",
                 "name": "Castaño",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6100905471083,
-                    -33.4981728556355
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61326841413585,
+                    -33.4996545711821
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO4",
                 "name": "Achoclonados",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61330645455764,
-                    -33.49961423373642
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PUESTO6",
-                "name": "La Roca",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61316637666317,
                     -33.500130348343866
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO6",
+                "name": "De La Roca",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61035864184294,
+                    -33.49817790939321
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO7",
                 "name": "Starbucks",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61041920588633,
-                    -33.49817022635345
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6097892850785,
+                    -33.49793943581164
+                ]
+            },
             "properties": {
                 "identifier": "PUESTO8",
                 "name": "Caprioli",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60981610716888,
-                    -33.4980467977922
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -26948,145 +27507,145 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SODEXO_HALL",
-                "name": "Casino Rock & Rolla",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61350389900275,
                     -33.497966992312044
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "ALMUERZO1",
-                "name": "Casino Comercial",
-                "campus": "SJ",
+                "identifier": "SODEXO_HALL",
+                "name": "Casino RocknRolla",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [
-                    "EA"
-                ],
                 "floors": [
-                    1
-                ]
-            },
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610896,
                     -33.496978
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "ALMUERZO3",
-                "name": "Caprioli",
-                "campus": "SJ",
+                "identifier": "ALMUERZO1",
+                "name": "Casino RocknRolla",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [
-                    "CCL"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61363115297183,
-                    -33.49906778344256
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61348631368553,
+                    -33.49899173628513
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO3",
+                "name": "Caprioli ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61380387311105,
+                    -33.49951751736092
+                ]
+            },
             "properties": {
                 "identifier": "ALMUERZO4",
                 "name": "Castaño",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61385535091732,
-                    -33.499553828707946
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60956019642008,
+                    -33.49974921887246
+                ]
+            },
             "properties": {
                 "identifier": "ALMUERZO5",
-                "name": "Casino Matemáticas",
-                "campus": "SJ",
+                "name": "Casino Piatto Pérgola",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60960847618212,
-                    -33.49971790558978
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60906830471443,
+                    -33.4965008558894
+                ]
+            },
             "properties": {
                 "identifier": "ALMUERZO6",
-                "name": "Casino Agronomía",
-                "campus": "SJ",
+                "name": "Paradiso",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [
-                    "AGC"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609043,
-                    -33.496555
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
                 ]
             }
         },
@@ -30613,25 +31172,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-36975794",
-                "name": "Kiosco",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60781487722299,
                     -33.50095032956365
                 ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-36975794",
+                "name": "Cafetería Piatto",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -30799,48 +31358,48 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FOOD_LUNCH-37631812",
-                "name": "Cafetón",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61346024294069,
                     -33.49820595363147
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "PUESTO12",
-                "name": "quiosco",
-                "campus": "SJ",
+                "identifier": "FOOD_LUNCH-37631812",
+                "name": "Cafetón",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61334339412389,
-                    -33.49819447890233
+                    -70.61354423350099,
+                    -33.497911948230986
                 ]
+            },
+            "properties": {
+                "identifier": "PUESTO12",
+                "name": "Le Paché",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -31233,24 +31792,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60995129759229,
+                    -33.49795189949781
+                ]
+            },
             "properties": {
                 "identifier": "SHOP-38162136",
-                "name": "La Tala",
-                "campus": "SJ",
+                "name": "Librería La Tala",
                 "information": "",
                 "categories": [
                     "shop"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60988511996237,
-                    -33.49798659015038
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -34489,17 +35050,17 @@
             },
             "properties": {
                 "identifier": "ALMUERZO2",
-                "name": "Casino Humanidades",
-                "campus": "SJ",
+                "name": "Casino El Rincón ",
                 "information": "",
                 "categories": [
                     "food_lunch"
                 ],
-                "faculties": [
-                    "LET"
-                ],
                 "floors": [
                     2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
@@ -35698,8 +36259,8 @@
             },
             "properties": {
                 "identifier": "MDE3PPARGS0YGL",
-                "name": "Impresora",
-                "information": "Nunca falla y es barata",
+                "name": "Fotocopiadora ",
+                "information": "",
                 "categories": [
                     "photocopy"
                 ],
