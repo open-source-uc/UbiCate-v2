@@ -1,6 +1,30 @@
-{
+﻿{
     "type": "FeatureCollection",
     "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22552720782815,
+                    -39.277576832491185
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZQY2BE5LUF6",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
         {
             "type": "Feature",
             "geometry": {
@@ -52,6 +76,766 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61857998913031,
+                    -33.41951845622929
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZOHH3QG30DJ",
+                "name": "Fotocopiadora I Plot",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61852606626842,
+                    -33.41944727246017
+                ]
+            },
+            "properties": {
+                "identifier": "SHOP-33079299",
+                "name": "Librer├¡a La Tala",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61805870216428,
+                    -33.41948885473388
+                ]
+            },
+            "properties": {
+                "identifier": "FINANCIAL-33078564",
+                "name": "Cajero",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.617635,
+                    -33.419581
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO13",
+                "name": "Mes├│n UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61851000503057,
+                    -33.41912277270188
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZM3UEAM8WK0",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61750512586346,
+                    -33.41947455350437
+                ]
+            },
+            "properties": {
+                "identifier": "MH24OCF37BPI5J",
+                "name": "Cafeter├¡a Huerto Sur",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61849910492882,
+                    -33.41942199127796
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-33079161",
+                "name": "Kiosko RocknRolla",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61848511457214,
+                    -33.41909769250933
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-33081697",
+                "name": "Casino RocknRolla",
+                "information": "Acepta JUNAEB ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63972564845848,
+                    -33.441198700463964
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZCA08J1L97R",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64044549739978,
+                    -33.44140260016578
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZA8FM228I0O",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59366019754198,
+                    -33.44573865977775
+                ]
+            },
+            "properties": {
+                "identifier": "ML6Z16PYRTF8TP",
+                "name": "Fotocopiadora ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59386660457139,
+                    -33.44586046566226
+                ]
+            },
+            "properties": {
+                "identifier": "ML6Z0PCOD3VI2W",
+                "name": "Librer├¡a La Tala",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59455245738909,
+                    -33.44663951489421
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YZQQEJORCR1",
+                "name": "Cajero",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59404645115137,
+                    -33.44592274263415
+                ]
+            },
+            "properties": {
+                "identifier": "MJ0EQMA52DFYCK",
+                "name": "Quiosco Tu Cafeter├¡a ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594023,
+                    -33.445916
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO17",
+                "name": "Quiosco Tu Cafeter├¡a ",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59372102020006,
+                    -33.44656608518438
+                ]
+            },
+            "properties": {
+                "identifier": "M8T6ESP4PI0LOC",
+                "name": "Casta├▒o",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59382788792314,
+                    -33.4453321948448
+                ]
+            },
+            "properties": {
+                "identifier": "M8T7LCZVWHOZL5",
+                "name": "Camba Caf├®",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59375911951065,
+                    -33.44509969498771
+                ]
+            },
+            "properties": {
+                "identifier": "MA2WGXBYZ0GWJC",
+                "name": "Mes├│n UC",
+                "information": "Mes├│n uc al interior del centro de eventos, campus oriente",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5936454934885,
+                    -33.445046940048435
+                ]
+            },
+            "properties": {
+                "identifier": "MA2WFIVIUI123Z",
+                "name": "Casino",
+                "information": "Casino del Centro de eventos",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.640385,
+                    -33.441015
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA15",
+                "name": "Fotocopiadora ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64045321824162,
+                    -33.44141189411702
+                ]
+            },
+            "properties": {
+                "identifier": "BANCO3",
+                "name": "Banco Santander",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404198333621,
+                    -33.44136468945289
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-34029632",
+                "name": "Mes├│n UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MED"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63996113036801,
+                    -33.44147881068832
+                ]
+            },
+            "properties": {
+                "identifier": "SODEXO_CC",
+                "name": "Work Caf├® Santander",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63978089013989,
+                    -33.44117059499646
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YDK1P0F31R6",
+                "name": "Casino JB",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6188266233242,
+                    -33.4194523932289
+                ]
+            },
+            "properties": {
+                "identifier": "F0101-LC",
+                "name": "Sala Facultad F0101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6395568523531,
+                    -33.44159376233385
+                ]
+            },
+            "properties": {
+                "identifier": "B103-CC",
+                "name": "B103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6395546687876,
+                    -33.44158368451794
+                ]
+            },
+            "properties": {
+                "identifier": "B102-CC",
+                "name": "B102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63957153773114,
+                    -33.44154575075209
+                ]
+            },
+            "properties": {
+                "identifier": "B101-CC",
+                "name": "B101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64045201987028,
+                    -33.440913976814706
+                ]
+            },
+            "properties": {
+                "identifier": "SALA 12",
+                "name": "Auditorio Sebastian Pi├▒era Echenique",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61839669370127,
+                    -33.419680128055084
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_42-LC",
+                "name": "Sala Tunel Oriente",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61843369552629,
+                    -33.41972190285682
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_41-LC",
+                "name": "Sala Tunel Poniente ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
@@ -75,8 +859,8 @@
                 ]
             },
             "properties": {
-                "identifier": "S9_SALA_FÍSICA_GENERAL-SJ",
-                "name": "S9 sala física general ",
+                "identifier": "S9_SALA_F├ìSICA_GENERAL-SJ",
+                "name": "S9 sala f├¡sica general ",
                 "information": "9:40-10:50",
                 "categories": [
                     "classroom"
@@ -86,6 +870,32 @@
                 "campus": "SJ",
                 "faculties": [
                     "HIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64018150023647,
+                    -33.44131895825054
+                ]
+            },
+            "properties": {
+                "identifier": "ML14JACHCO815Q",
+                "name": "Crisol Casa Central 1",
+                "information": "**Ubicaci├│n:**  \nSubterr├íneo del edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n2330  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 16 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO  \n- 3 Espacios de trabajo colaborativo (Smart TV 43ÔÇØ)  \n- 2 PCs Ayuda en L├¡nea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n**Sala B:**\n\n- 29 PCs para clases Intel Core i5-4440, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n**Sala Inclusi├│n:**\n\n- 1 PC Intel Core i5-4440, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n- Aire acondicionado  \n- Iluminaci├│n LED\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "DE"
                 ]
             }
         }
