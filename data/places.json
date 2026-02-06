@@ -1,4 +1,4 @@
-﻿{
+{
     "type": "FeatureCollection",
     "features": [
         {
@@ -131,7 +131,7 @@
             },
             "properties": {
                 "identifier": "ML6YK3ZMZ8HPEN",
-                "name": "Cafeter├¡a Huerto Sur",
+                "name": "Cafetería Huerto Sur",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -177,7 +177,7 @@
             },
             "properties": {
                 "identifier": "ML6YLWJXBDVV9T",
-                "name": "Casta├▒o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -200,8 +200,8 @@
             },
             "properties": {
                 "identifier": "ML6U43LQXADXGC",
-                "name": "Abd├│n Cifuentes Espinoza (San Felipe, 16 de mayo de 1836 ÔÇô Santiago, 14 de abril de 1928)",
-                "information": "Una de las figuras cat├│licas m├ís importantes de Chile pa├¡s en el siglo XIX y el principal precursor del voto femenino.",
+                "name": "Abdón Cifuentes Espinoza (San Felipe, 16 de mayo de 1836 – Santiago, 14 de abril de 1928)",
+                "information": "Una de las figuras católicas más importantes de Chile país en el siglo XIX y el principal precursor del voto femenino.",
                 "categories": [
                     "culture"
                 ],
@@ -246,7 +246,7 @@
             },
             "properties": {
                 "identifier": "ML6T5CXUYWVPUC",
-                "name": "Bazaar Komod├¡n",
+                "name": "Bazaar Komodín",
                 "information": "",
                 "categories": [
                     "shop"
@@ -342,7 +342,7 @@
             },
             "properties": {
                 "identifier": "ML6TDMSQ7EJPR0",
-                "name": "MESON UC P├ëRGOLA",
+                "name": "MESON UC PÉRGOLA",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -582,8 +582,8 @@
             },
             "properties": {
                 "identifier": "ML11AQXXT3S347",
-                "name": "Crisol San Joaqu├¡n 2",
-                "information": "**Ubicaci├│n:**  \nEx sala N-13, sector de Biblioteca Central  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4783  \n\n**Equipamiento:**  \n\n- 22 PCs Core i3-2120, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n- 05 PCs Core i5-4460, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n\n- Aire Acondicionado  \n- Iluminaci├│n Led\n",
+                "name": "Crisol San Joaquín 2",
+                "information": "**Ubicación:**  \nEx sala N-13, sector de Biblioteca Central  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4783  \n\n**Equipamiento:**  \n\n- 22 PCs Core i3-2120, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n- 05 PCs Core i5-4460, 3.3 GHz, 16 GB RAM, SSD 480 GB  \n\n- Aire Acondicionado  \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -607,8 +607,8 @@
             },
             "properties": {
                 "identifier": "ML0ZPIJUYXMPSY",
-                "name": "Crisol Educaci├│n",
-                "information": "**Sala A:**\n\n**Ubicaci├│n:**  \nEdificio Educaci├│n  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(24 equipos para clases)_\n\n- 1 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Profesor)  \n- 25 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Alumnos)  \n- 1 Scanner (tama├▒os carta y A4)  \n- 1 Pantalla Informativa Samsung (LCD 32ÔÇØ)  \n- Iluminaci├│n Led\n\n-------------------------------------------------------\n\n**Sala B:**\n\n**Ubicaci├│n:**  \nEdificio Educaci├│n  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(29 equipos para clases)_\n\n- 1 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Profesor)  \n- 29 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Alumnos)  \n- Iluminaci├│n Led\n\n\n",
+                "name": "Crisol Educación",
+                "information": "**Sala A:**\n\n**Ubicación:**  \nEdificio Educación  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(24 equipos para clases)_\n\n- 1 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Profesor)  \n- 25 Pc Intel Core i5-4460, 3.2 GHz / 16 GB RAM, SSD 480 GB. (Alumnos)  \n- 1 Scanner (tamaños carta y A4)  \n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Iluminación Led\n\n-------------------------------------------------------\n\n**Sala B:**\n\n**Ubicación:**  \nEdificio Educación  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol/)\n\n**Anexo:**  \n5321  \n\n**Equipamiento:**  \n_(29 equipos para clases)_\n\n- 1 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Profesor)  \n- 29 Pc Intel Core i7-3770, 3.4 GHz / 8 GB RAM, SSD 120 GB (Alumnos)  \n- Iluminación Led\n\n\n",
                 "categories": [
                     "crisol"
                 ],
@@ -633,7 +633,7 @@
             "properties": {
                 "identifier": "ML14JACHCO815Q",
                 "name": "Crisol Casa Central 1",
-                "information": "**Ubicaci├│n:**  \nSubterr├íneo del edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](#)\n\n**Anexo:**  \n2330  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 16 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO  \n- 3 Espacios de trabajo colaborativo (Smart TV 43ÔÇØ)  \n- 2 PCs Ayuda en L├¡nea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n**Sala B:**\n\n- 29 PCs para clases Intel Core i5-4440, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n**Sala Inclusi├│n:**\n\n- 1 PC Intel Core i5-4440, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n- Aire acondicionado  \n- Iluminaci├│n LED\n",
+                "information": "**Ubicación:**  \nSubterráneo del edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](#)\n\n**Anexo:**  \n2330  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 16 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO  \n- 3 Espacios de trabajo colaborativo (Smart TV 43”)  \n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n**Sala B:**\n\n- 29 PCs para clases Intel Core i5-4440, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n**Sala Inclusión:**\n\n- 1 PC Intel Core i5-4440, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n\n- Aire acondicionado  \n- Iluminación LED\n",
                 "categories": [
                     "crisol"
                 ],
@@ -658,7 +658,7 @@
             "properties": {
                 "identifier": "ML14RYVUA4K2NN",
                 "name": "Crisol Casa Central 2",
-                "information": "**Ubicaci├│n:**  \nTercer piso ex edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n1826  \n\n**Equipamiento:**  \n\n- 35 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO\n- 2 Scanner (tama├▒os carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32ÔÇØ)  \n- Aire Acondicionado  \n- Iluminaci├│n Led\n",
+                "information": "**Ubicación:**  \nTercer piso ex edificio de la Facultad de Derecho  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n1826  \n\n**Equipamiento:**  \n\n- 35 PCs Intel Core Ultra 5 235, 16 GB RAM, SSD 512 GB, WIN 11 PRO\n- 2 Scanner (tamaños carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -723,8 +723,8 @@
             },
             "properties": {
                 "identifier": "MKWT8HQS40PW2Y",
-                "name": "Acontecer Mat├®rico",
-                "information": "La escultura, realizada en hormig├│n en 2010 por Federico Assler, es una pieza ic├│nica que originalmente estuvo instalada frente al Palacio de La Moneda, en la Plaza de la Ciudadan├¡a. ",
+                "name": "Acontecer Matérico",
+                "information": "La escultura, realizada en hormigón en 2010 por Federico Assler, es una pieza icónica que originalmente estuvo instalada frente al Palacio de La Moneda, en la Plaza de la Ciudadanía. ",
                 "categories": [
                     "culture"
                 ],
@@ -747,7 +747,7 @@
             "properties": {
                 "identifier": "MKVC00F2EMN3ML",
                 "name": "Copper La Cava ",
-                "information": "Cava del siglo XIX de Francisco Lira Argomedo, hoy habilitada como restaurante y cafeter├¡a Copper.\nAv. Alameda Libertador Bernardo O'Higgins 390, Santiago.",
+                "information": "Cava del siglo XIX de Francisco Lira Argomedo, hoy habilitada como restaurante y cafetería Copper.\nAv. Alameda Libertador Bernardo O'Higgins 390, Santiago.",
                 "categories": [
                     "food_lunch"
                 ],
@@ -770,7 +770,7 @@
             "properties": {
                 "identifier": "MKVA11PRL20GNN",
                 "name": "Sala Estudio Gigante",
-                "information": "La Sala Estudio Gigante es un espacio dedicado a investigar y poner en valor la trayectoria de Mario Kreutzberger, conocido mundialmente como Don Francisco, el personaje m├ís influyente surgido de la televisi├│n chilena.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-mk/",
+                "information": "La Sala Estudio Gigante es un espacio dedicado a investigar y poner en valor la trayectoria de Mario Kreutzberger, conocido mundialmente como Don Francisco, el personaje más influyente surgido de la televisión chilena.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-mk/",
                 "categories": [
                     "culture"
                 ],
@@ -793,7 +793,7 @@
             "properties": {
                 "identifier": "MKV8YUZP20CBIB",
                 "name": "Sala de Cine UC",
-                "information": "Centro de Extensi├│n Alameda (Alameda 390, Metro U. Cat├│lica) https://extension.uc.cl/cine-uc/",
+                "information": "Centro de Extensión Alameda (Alameda 390, Metro U. Católica) https://extension.uc.cl/cine-uc/",
                 "categories": [
                     "culture"
                 ],
@@ -816,7 +816,7 @@
             "properties": {
                 "identifier": "MKV9XMS4YPWSHS",
                 "name": "Sala Pinacoteca",
-                "information": "La programaci├│n de la sala destaca la obra de pintores chilenos a trav├®s de exposiciones retrospectivas y colectivas.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-pinacoteca/\n(Av. Libertador Bernardo OÔÇÖHiggins 390, Santiago). ",
+                "information": "La programación de la sala destaca la obra de pintores chilenos a través de exposiciones retrospectivas y colectivas.\nhttps://extension.uc.cl/centros-de-extension/centro-de-extension-alameda/sala-pinacoteca/\n(Av. Libertador Bernardo O’Higgins 390, Santiago). ",
                 "categories": [
                     "culture"
                 ],
@@ -839,7 +839,7 @@
             "properties": {
                 "identifier": "MKV9679DZ32P19",
                 "name": "Sala Vicente Huidobro",
-                "information": "Este espacio cultural ofrece una exhibici├│n sobre Vicente Huidobro, destacando su vida, obra y legado en la vanguardia literaria.\n(Av. Libertador Bernardo OÔÇÖHiggins 390, Santiago).",
+                "information": "Este espacio cultural ofrece una exhibición sobre Vicente Huidobro, destacando su vida, obra y legado en la vanguardia literaria.\n(Av. Libertador Bernardo O’Higgins 390, Santiago).",
                 "categories": [
                     "culture"
                 ],
@@ -861,8 +861,8 @@
             },
             "properties": {
                 "identifier": "MKV8RNSH80FM5O",
-                "name": "Sala Joaqu├¡n Gandarillas",
-                "information": "La Sala Joaqu├¡n Gandarillas est├í dentro del Centro de Extensi├│n Alameda, que forma parte de la Casa Central de la Pontificia Universidad Cat├│lica de Chile (Av. Libertador Bernardo OÔÇÖHiggins 390, Santiago).",
+                "name": "Sala Joaquín Gandarillas",
+                "information": "La Sala Joaquín Gandarillas está dentro del Centro de Extensión Alameda, que forma parte de la Casa Central de la Pontificia Universidad Católica de Chile (Av. Libertador Bernardo O’Higgins 390, Santiago).",
                 "categories": [
                     "culture"
                 ],
@@ -884,8 +884,8 @@
             },
             "properties": {
                 "identifier": "MKV9SJ14D7YEUM",
-                "name": "Galer├¡a de Arte",
-                "information": "La Galer├¡a de Arte es una plataforma de difusi├│n y reflexi├│n cr├¡tica sobre las artes visuales contempor├íneas. (Av. Libertador Bernardo OÔÇÖHiggins 390, Santiago). https://www.instagram.com/galeriadearteuc/\nhttps://extension.uc.cl/salas-de-exhibiciones/galerias/galeria-de-arte/",
+                "name": "Galería de Arte",
+                "information": "La Galería de Arte es una plataforma de difusión y reflexión crítica sobre las artes visuales contemporáneas. (Av. Libertador Bernardo O’Higgins 390, Santiago). https://www.instagram.com/galeriadearteuc/\nhttps://extension.uc.cl/salas-de-exhibiciones/galerias/galeria-de-arte/",
                 "categories": [
                     "culture"
                 ],
@@ -907,8 +907,8 @@
             },
             "properties": {
                 "identifier": "MKWPT7OAB046DT",
-                "name": "Busto de Monse├▒or Joaqu├¡n Larra├¡n Gandarillas",
-                "information": "Autor: Juan Bautista Fol├¡a Prades.\nMonse├▒or Larra├¡n Gandarillas (1822-1897) fue la figura central que impuls├│ la creaci├│n de la UC en 1888. Fundador y primer rector.\nSu busto est├í en el descanso de la escalera principal de m├írmol.\nAvenida Libertador Bernardo O'Higgins┬á340, Santiago",
+                "name": "Busto de Monseñor Joaquín Larraín Gandarillas",
+                "information": "Autor: Juan Bautista Folía Prades.\nMonseñor Larraín Gandarillas (1822-1897) fue la figura central que impulsó la creación de la UC en 1888. Fundador y primer rector.\nSu busto está en el descanso de la escalera principal de mármol.\nAvenida Libertador Bernardo O'Higgins 340, Santiago",
                 "categories": [
                     "culture"
                 ],
@@ -930,8 +930,8 @@
             },
             "properties": {
                 "identifier": "MKV8LVMRW3G0ST",
-                "name": "Centro de Extensi├│n Cultural",
-                "information": "Fortalecemos la cultura y los valores de la UC, formando un v├¡nculo relevante con la sociedad.\nhttps://extension.uc.cl/",
+                "name": "Centro de Extensión Cultural",
+                "information": "Fortalecemos la cultura y los valores de la UC, formando un vínculo relevante con la sociedad.\nhttps://extension.uc.cl/",
                 "categories": [
                     "culture"
                 ],
@@ -954,7 +954,7 @@
             "properties": {
                 "identifier": "MKWOCQEWUXALPV",
                 "name": "Capilla de Casa Central",
-                "information": "Inaugurada en 1923, su construcci├│n estuvo a cargo de los arquitectos Emile J├®cquier y Manuel Cifuentes. Fue reconstruida luego del incendio de 1965.\nhttps://pastoral.uc.cl/\nAv. Libertador Bernardo OÔÇÖHiggins 340, Santiago\n",
+                "information": "Inaugurada en 1923, su construcción estuvo a cargo de los arquitectos Emile Jécquier y Manuel Cifuentes. Fue reconstruida luego del incendio de 1965.\nhttps://pastoral.uc.cl/\nAv. Libertador Bernardo O’Higgins 340, Santiago\n",
                 "categories": [
                     "culture"
                 ],
@@ -977,7 +977,7 @@
             "properties": {
                 "identifier": "MKWPA9C9ARMIOK",
                 "name": " Patio de la Virgen ",
-                "information": "Construcci├│n de 1910. \nAv. Libertador Bernardo O'Higgins 340, Santiago",
+                "information": "Construcción de 1910. \nAv. Libertador Bernardo O'Higgins 340, Santiago",
                 "categories": [
                     "culture",
                     "yard"
@@ -1001,7 +1001,7 @@
             "properties": {
                 "identifier": "MKV7LI8CEE24AT",
                 "name": "Sala de Cine UC",
-                "information": "Sala climatizada con 120 c├│modas butacas (con paleta abatible) inserta al interior del Centro de Extensi├│n UC. Sede Festival de Cine UC.",
+                "information": "Sala climatizada con 120 cómodas butacas (con paleta abatible) inserta al interior del Centro de Extensión UC. Sede Festival de Cine UC.",
                 "categories": [
                     "culture"
                 ],
@@ -1024,7 +1024,7 @@
             "properties": {
                 "identifier": "MKWNAMUHRU6C63",
                 "name": "Aula Magna",
-                "information": " Principal auditorio para ceremonias acad├®micas. Hist├│ricamente funcion├│ como biblioteca desde su construcci├│n (1918), albergando m├ís de 24 mil libros para estudiantes. Av Libertador Bernardo O'Higgins 340, Santiago\n",
+                "information": " Principal auditorio para ceremonias académicas. Históricamente funcionó como biblioteca desde su construcción (1918), albergando más de 24 mil libros para estudiantes. Av Libertador Bernardo O'Higgins 340, Santiago\n",
                 "categories": [
                     "culture"
                 ],
@@ -1047,7 +1047,7 @@
             "properties": {
                 "identifier": "MKVBAV31PBKVWT",
                 "name": "Estatua del Papa de Juan Pablo II",
-                "information": "La obra fue inaugurada en conmemoraci├│n de la visita que hizo el Papa Juan Pablo II a la Universidad en 1987, y est├í ubicada en el Patio Juan Pablo II de la Casa Central, el cual lleva ese nombre en su honor. Av. Libertador Bernardo O'Higgins 340",
+                "information": "La obra fue inaugurada en conmemoración de la visita que hizo el Papa Juan Pablo II a la Universidad en 1987, y está ubicada en el Patio Juan Pablo II de la Casa Central, el cual lleva ese nombre en su honor. Av. Libertador Bernardo O'Higgins 340",
                 "categories": [
                     "culture"
                 ],
@@ -1069,8 +1069,8 @@
             },
             "properties": {
                 "identifier": "MKVAPO69CCI3S7",
-                "name": "Estatua del Sagrado Coraz├│n de Jes├║s",
-                "information": "Ubicaci├│n: Fachada principal (Av. Libertador Bernardo O'Higgins 340)\nObra del escultor Ernest W├╝nsch.\nS├¡mbolo de la instituci├│n tras la reconstrucci├│n de la Casa Central en los a├▒os 1930. ",
+                "name": "Estatua del Sagrado Corazón de Jesús",
+                "information": "Ubicación: Fachada principal (Av. Libertador Bernardo O'Higgins 340)\nObra del escultor Ernest Wünsch.\nSímbolo de la institución tras la reconstrucción de la Casa Central en los años 1930. ",
                 "categories": [
                     "culture"
                 ],
@@ -1092,8 +1092,8 @@
             },
             "properties": {
                 "identifier": "MKVB39Y1RYP6Q3",
-                "name": "Virgen Mar├¡a",
-                "information": "Virgen Mar├¡a (escultura), Patio de la Virgen ÔÇô Casa Central UC. Av. Alameda Libertador Bernardo O'Higgins 340, Santiago.",
+                "name": "Virgen María",
+                "information": "Virgen María (escultura), Patio de la Virgen – Casa Central UC. Av. Alameda Libertador Bernardo O'Higgins 340, Santiago.",
                 "categories": [
                     "culture"
                 ],
@@ -1115,8 +1115,8 @@
             },
             "properties": {
                 "identifier": "MKWO3RU8Y1JG0Y",
-                "name": "Sal├│n del Honorable Consejo Superior",
-                "information": "Se ubica en el edificio fundacional de la┬áCasa Central, cuya construcci├│n comenz├│ en┬á1910, a cargo de los arquitectos Emile J├®cquier y Manuel Cifuentes.\nAv. Libertador Bernardo OÔÇÖHiggins 340, Santiago",
+                "name": "Salón del Honorable Consejo Superior",
+                "information": "Se ubica en el edificio fundacional de la Casa Central, cuya construcción comenzó en 1910, a cargo de los arquitectos Emile Jécquier y Manuel Cifuentes.\nAv. Libertador Bernardo O’Higgins 340, Santiago",
                 "categories": [
                     "culture"
                 ],
@@ -1139,7 +1139,7 @@
             "properties": {
                 "identifier": "MKWTJMRLFEIJ2N",
                 "name": "Cristo",
-                "information": "La obra fue realizada por el artista chileno┬áHern├ín Puelma┬áe instalada en┬á1982. Representa al Sagrado Coraz├│n de Jes├║s, patrono de la Universidad Cat├│lica.",
+                "information": "La obra fue realizada por el artista chileno Hernán Puelma e instalada en 1982. Representa al Sagrado Corazón de Jesús, patrono de la Universidad Católica.",
                 "categories": [
                     "culture"
                 ],
@@ -1161,8 +1161,8 @@
             },
             "properties": {
                 "identifier": "MKWSFBKZQ8DYN1",
-                "name": "Memorial Memorial Ejecutados y Desaparecidos de Ingenier├¡a UC",
-                "information": "La placa incluye a Alan Bruce Catal├ín, Juan Carlos Rodr├¡guez Araya, Eugenio Ruiz-Tagle Orrego y H├®ctor Vergara Duxrud. \nEdificio Jos├® Luis del R├¡o Rondanelli, Patio de Ingenier├¡a - Av. Vicu├▒a Mackenna 4860, Regi├│n Metropolitana\n",
+                "name": "Memorial Memorial Ejecutados y Desaparecidos de Ingeniería UC",
+                "information": "La placa incluye a Alan Bruce Catalán, Juan Carlos Rodríguez Araya, Eugenio Ruiz-Tagle Orrego y Héctor Vergara Duxrud. \nEdificio José Luis del Río Rondanelli, Patio de Ingeniería - Av. Vicuña Mackenna 4860, Región Metropolitana\n",
                 "categories": [
                     "culture"
                 ],
@@ -1187,7 +1187,7 @@
             "properties": {
                 "identifier": "MKWSQ06B9UBVJI",
                 "name": "Complejo Andronico Luksic",
-                "information": "Dise├▒ado por Enrique Browne. En su interior alberga al Museo de la Escuela de Ingenier├¡a y al Auditorio Luksic.\nAv. Vicu├▒a Mackenna 4860, Macul, Regi├│n Metropolitana\nhttps://www.ing.uc.cl/nuestra-escuela/sobre-ingenieria-uc/infraestructura/complejo-andronico-luksic-abaroa/",
+                "information": "Diseñado por Enrique Browne. En su interior alberga al Museo de la Escuela de Ingeniería y al Auditorio Luksic.\nAv. Vicuña Mackenna 4860, Macul, Región Metropolitana\nhttps://www.ing.uc.cl/nuestra-escuela/sobre-ingenieria-uc/infraestructura/complejo-andronico-luksic-abaroa/",
                 "categories": [
                     "culture"
                 ],
@@ -1211,7 +1211,7 @@
             "properties": {
                 "identifier": "MKWTSJAU1HZALN",
                 "name": "Presencias Vitales",
-                "information": "Conjunto de dos esculturas de hormig├│n gris creadas por el artista chileno Federico Assler, las cuales se inauguraron el 2024",
+                "information": "Conjunto de dos esculturas de hormigón gris creadas por el artista chileno Federico Assler, las cuales se inauguraron el 2024",
                 "categories": [
                     "culture"
                 ],
@@ -1234,7 +1234,7 @@
             "properties": {
                 "identifier": "MKWRVJAWYGTBBR",
                 "name": "Plaza por la Paz. Memorial a los Ejecutados y Detenidos desaparecidos de la Comunidad UC",
-                "information": "Dise├▒ado por Claudio di Girolamo e incluye los nombres de los 28 miembros de la comunidad UC ejecutados o desaparecidos durante la dictadura.\nCircunvalaci├│n Nte. 4860, Macul, Campus San Joaquin, Santiago",
+                "information": "Diseñado por Claudio di Girolamo e incluye los nombres de los 28 miembros de la comunidad UC ejecutados o desaparecidos durante la dictadura.\nCircunvalación Nte. 4860, Macul, Campus San Joaquin, Santiago",
                 "categories": [
                     "culture",
                     "yard"
@@ -1257,7 +1257,7 @@
             },
             "properties": {
                 "identifier": "MKQ1BI5JLY243Z",
-                "name": "Diagn├│stico lenguaje ",
+                "name": "Diagnóstico lenguaje ",
                 "information": "",
                 "categories": [
                     ""
@@ -1280,7 +1280,7 @@
             },
             "properties": {
                 "identifier": "MKFJC6BLLPXX9M",
-                "name": "Direcci├│n de Inclusi├│n",
+                "name": "Dirección de Inclusión",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -1303,7 +1303,7 @@
             },
             "properties": {
                 "identifier": "MKFKZG5LR8SNFI",
-                "name": "Centro de Medici├│n MIDE UC",
+                "name": "Centro de Medición MIDE UC",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -1327,7 +1327,7 @@
             "properties": {
                 "identifier": "MKFLK396H97RC1",
                 "name": "Decon UC",
-                "information": "Servicios Profesionales en Construcci├│n Civil",
+                "information": "Servicios Profesionales en Construcción Civil",
                 "categories": [
                     "building"
                 ],
@@ -1349,7 +1349,7 @@
             },
             "properties": {
                 "identifier": "MK1L24QCX2FY9A",
-                "name": "Oficina Administraci├│n",
+                "name": "Oficina Administración",
                 "information": "",
                 "categories": [
                     "offices"
@@ -1372,7 +1372,7 @@
             },
             "properties": {
                 "identifier": "MKFKLNFSNZMGEQ",
-                "name": "Edificio Andr├│nico Luksic Abaroa",
+                "name": "Edificio Andrónico Luksic Abaroa",
                 "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorio |",
                 "categories": [
                     "faculty"
@@ -1395,7 +1395,7 @@
             },
             "properties": {
                 "identifier": "MKH9E3AL48DND1",
-                "name": "Facultad de Ingenier├¡a",
+                "name": "Facultad de Ingeniería",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -1464,8 +1464,8 @@
             },
             "properties": {
                 "identifier": "MKFKHEVH2IICCM",
-                "name": "Edificio de Ciencia y Tecnolog├¡a",
-                "information": "Piso -1 y -2: Estacionamiento. Piso 1: Meson UC, Casino. Piso 2: Salas K 200 a K 204. Piso 3: Salas K 300 a K 307, Laboratorio K 306, Sala de Ayudantes. Piso 4: Laboratorios. Piso 5 : Laboratorios. Piso 6: Laboratorios. Piso 7: Instituto de Ingenier├¡a Biol├│gica y M├®dica.",
+                "name": "Edificio de Ciencia y Tecnología",
+                "information": "Piso -1 y -2: Estacionamiento. Piso 1: Meson UC, Casino. Piso 2: Salas K 200 a K 204. Piso 3: Salas K 300 a K 307, Laboratorio K 306, Sala de Ayudantes. Piso 4: Laboratorios. Piso 5 : Laboratorios. Piso 6: Laboratorios. Piso 7: Instituto de Ingeniería Biológica y Médica.",
                 "categories": [
                     "faculty"
                 ],
@@ -1523,7 +1523,7 @@
             },
             "properties": {
                 "identifier": "EDU",
-                "name": "Facultad de Educaci├│n",
+                "name": "Facultad de Educación",
                 "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Auditorio Gabriela Mistral, Salas de Clase |\n| 2 | Decanato, Salas de Clase |",
                 "categories": [
                     "faculty"
@@ -1546,7 +1546,7 @@
             },
             "properties": {
                 "identifier": "MKBG7DGHNRALBI",
-                "name": "Oficina Direcci├│n de Transformaci├│n Digital",
+                "name": "Oficina Dirección de Transformación Digital",
                 "information": "",
                 "categories": [
                     "offices"
@@ -1668,8 +1668,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_MEDIACI├ôN-CC",
-                "name": "Sala Mediaci├│n",
+                "identifier": "SALA_MEDIACIÓN-CC",
+                "name": "Sala Mediación",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -1742,7 +1742,7 @@
             },
             "properties": {
                 "identifier": "MK4756KGZE5JST",
-                "name": "Sal├│n Manuel Jos├® Irarr├ízaval",
+                "name": "Salón Manuel José Irarrázaval",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -1764,8 +1764,8 @@
                 ]
             },
             "properties": {
-                "identifier": "RA├ÜL_SILVA_H.-CC",
-                "name": "Ra├║l Silva H.",
+                "identifier": "RAÚL_SILVA_H.-CC",
+                "name": "Raúl Silva H.",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -1789,7 +1789,7 @@
             "properties": {
                 "identifier": "MKCMKM9Y7TKIHP",
                 "name": "Escultura en homenaje a San Alberto Hurtado",
-                "information": "Luis Prato y Jos├® Quintanilla, 17 de enero de 2018. Obra en conmemoraci├│n de los 100 a├▒os del ingreso del Padre Hurtado a la Escuela de Derecho. 3 perfiles de acero de 12, 15 y 18 metros de alto, con una inclinaci├│n de 62┬░ con respecto al suelo.",
+                "information": "Luis Prato y José Quintanilla, 17 de enero de 2018. Obra en conmemoración de los 100 años del ingreso del Padre Hurtado a la Escuela de Derecho. 3 perfiles de acero de 12, 15 y 18 metros de alto, con una inclinación de 62° con respecto al suelo.",
                 "categories": [
                     "culture"
                 ],
@@ -1811,7 +1811,7 @@
             },
             "properties": {
                 "identifier": "A31-CC",
-                "name": "A31 Mar├¡a Luisa Santander ",
+                "name": "A31 María Luisa Santander ",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -1834,7 +1834,7 @@
             },
             "properties": {
                 "identifier": "MK1FZQ9V0DR26E",
-                "name": "Mes├│n UC",
+                "name": "Mesón UC",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -1972,7 +1972,7 @@
             },
             "properties": {
                 "identifier": "MJCW21VP0GUA8G",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -1995,7 +1995,7 @@
             },
             "properties": {
                 "identifier": "MJCW2PFE2L6XA0",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -2064,7 +2064,7 @@
             },
             "properties": {
                 "identifier": "MJCW8323VTHQYM",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -2110,7 +2110,7 @@
             },
             "properties": {
                 "identifier": "MJCW7E8Y8WBPV5",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -2178,8 +2178,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_DE_EXPLORACI├ôN_DE_PEDAGOG├ìAS-VR",
-                "name": "Sala de exploraci├│n de Pedagog├¡as",
+                "identifier": "SALA_DE_EXPLORACIÓN_DE_PEDAGOGÍAS-VR",
+                "name": "Sala de exploración de Pedagogías",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -2248,7 +2248,7 @@
             },
             "properties": {
                 "identifier": "MJCZNBLWE2XNBL",
-                "name": "Coordinaci├│n de Pregrado y Asuntos Estudiantiles",
+                "name": "Coordinación de Pregrado y Asuntos Estudiantiles",
                 "information": "",
                 "categories": [
                     "other"
@@ -2271,7 +2271,7 @@
             },
             "properties": {
                 "identifier": "MJD03MPK5OCK9S",
-                "name": "Direcci├│n Econ├│mica y de Gesti├│n",
+                "name": "Dirección Económica y de Gestión",
                 "information": "",
                 "categories": [
                     "other"
@@ -2409,7 +2409,7 @@
             },
             "properties": {
                 "identifier": "MJD00Z3GQZ20QJ",
-                "name": "Direcci├│n de Comunicaciones y Extensi├│n",
+                "name": "Dirección de Comunicaciones y Extensión",
                 "information": "",
                 "categories": [
                     "other"
@@ -2478,7 +2478,7 @@
             },
             "properties": {
                 "identifier": "MJCZLES9K1G59O",
-                "name": "Coordinaci├│n de Admisi├│n",
+                "name": "Coordinación de Admisión",
                 "information": "",
                 "categories": [
                     "other"
@@ -2524,7 +2524,7 @@
             },
             "properties": {
                 "identifier": "MJD01YG3B8XGX6",
-                "name": "Direcci├│n Acad├®mica",
+                "name": "Dirección Académica",
                 "information": "",
                 "categories": [
                     "other"
@@ -2593,7 +2593,7 @@
             },
             "properties": {
                 "identifier": "MJD009X6XM5U96",
-                "name": "Direcci├│n de Investigaci├│n",
+                "name": "Dirección de Investigación",
                 "information": "",
                 "categories": [
                     "other"
@@ -2639,7 +2639,7 @@
             },
             "properties": {
                 "identifier": "MJCYXFCOB0WL4W",
-                "name": "Mes├│n UC",
+                "name": "Mesón UC",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -2685,7 +2685,7 @@
             },
             "properties": {
                 "identifier": "MJCZZM33RPLPZQ",
-                "name": "Direcci├│n Campus Villarrica",
+                "name": "Dirección Campus Villarrica",
                 "information": "",
                 "categories": [
                     "other"
@@ -2754,7 +2754,7 @@
             },
             "properties": {
                 "identifier": "MJCZPFW0CC8IAX",
-                "name": "Educaci├│n Continua",
+                "name": "Educación Continua",
                 "information": "",
                 "categories": [
                     "other"
@@ -2938,7 +2938,7 @@
             },
             "properties": {
                 "identifier": "MJCZTUXRMX7OPW",
-                "name": "Centro de Estudios Interculturales e Ind├¡genas - CIIR",
+                "name": "Centro de Estudios Interculturales e Indígenas - CIIR",
                 "information": "",
                 "categories": [
                     "other"
@@ -2984,7 +2984,7 @@
             },
             "properties": {
                 "identifier": "MJCWMIE6HULL93",
-                "name": "Cafeter├¡a",
+                "name": "Cafetería",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -3076,7 +3076,7 @@
             },
             "properties": {
                 "identifier": "MJCWEP9Y003TBS",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -3191,7 +3191,7 @@
             },
             "properties": {
                 "identifier": "MJCYSSX1K53Q25",
-                "name": "Centro de Estudios Interculturales e Ind├¡genas - CIIR",
+                "name": "Centro de Estudios Interculturales e Indígenas - CIIR",
                 "information": "",
                 "categories": [
                     "other"
@@ -3214,7 +3214,7 @@
             },
             "properties": {
                 "identifier": "MJCZVZ8KLW14EZ",
-                "name": "Museo Interactivo de Agroecolog├¡a y Sustentabilidad - MIRAS",
+                "name": "Museo Interactivo de Agroecología y Sustentabilidad - MIRAS",
                 "information": "",
                 "categories": [
                     "other"
@@ -3259,8 +3259,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_SILVIA_PI├æEIRO_T102-OR",
-                "name": "Sala Silvia Pi├▒eiro T 102",
+                "identifier": "SALA_SILVIA_PIÑEIRO_T102-OR",
+                "name": "Sala Silvia Piñeiro T 102",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3282,8 +3282,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_PAZ_IRARRAZ├üZABAL_T104-OR",
-                "name": "Sala Paz Irarraz├ízabal T 104",
+                "identifier": "SALA_PAZ_IRARRAZÁZABAL_T104-OR",
+                "name": "Sala Paz Irarrazázabal T 104",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3307,8 +3307,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_T├ëCNICA-OR",
-                "name": "Sala T├®cnica ",
+                "identifier": "SALA_TÉCNICA-OR",
+                "name": "Sala Técnica ",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3376,8 +3376,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_PERCUSI├ôN_M005-OR",
-                "name": "Sala Percusi├│n M 005",
+                "identifier": "SALA_PERCUSIÓN_M005-OR",
+                "name": "Sala Percusión M 005",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3399,8 +3399,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_PERCUSI├ôN_M008-OR",
-                "name": "Sala Percusi├│n M  008",
+                "identifier": "SALA_PERCUSIÓN_M008-OR",
+                "name": "Sala Percusión M  008",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3445,8 +3445,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_PERCUSI├ôN_M006-OR",
-                "name": "Sala Percusi├│n M 006",
+                "identifier": "SALA_PERCUSIÓN_M006-OR",
+                "name": "Sala Percusión M 006",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3468,8 +3468,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_PERCUSI├ôN_009-OR",
-                "name": "Sala Percusi├│n M 009",
+                "identifier": "SALA_PERCUSIÓN_009-OR",
+                "name": "Sala Percusión M 009",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3491,8 +3491,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_PERCUSI├ôN_M007-OR",
-                "name": "Sala Percusi├│n M 007",
+                "identifier": "SALA_PERCUSIÓN_M007-OR",
+                "name": "Sala Percusión M 007",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3562,8 +3562,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_COMPOSICI├ôN_M104-OR",
-                "name": "Sala Composici├│n M 104",
+                "identifier": "SALA_COMPOSICIÓN_M104-OR",
+                "name": "Sala Composición M 104",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3677,8 +3677,8 @@
                 ]
             },
             "properties": {
-                "identifier": "SALA_M├ÜSICA_ANTIGUA_M105-OR",
-                "name": "Sala M├║sica Antigua M 105",
+                "identifier": "SALA_MÚSICA_ANTIGUA_M105-OR",
+                "name": "Sala Música Antigua M 105",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -3724,7 +3724,7 @@
             },
             "properties": {
                 "identifier": "MJA6TS6RP8VGM9",
-                "name": "Administraci├│n ",
+                "name": "Administración ",
                 "information": "",
                 "categories": [
                     "other"
@@ -3746,8 +3746,8 @@
                 ]
             },
             "properties": {
-                "identifier": "INTERPRETACI├ôN_MUSICAL_SALAS-OR",
-                "name": "Interpretaci├│n Musical Salas",
+                "identifier": "INTERPRETACIÓN_MUSICAL_SALAS-OR",
+                "name": "Interpretación Musical Salas",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -4156,8 +4156,8 @@
             },
             "properties": {
                 "identifier": "MH5732D217PEF1",
-                "name": "Ba├▒o",
-                "information": "En 1┬░ piso\nBa├▒o H. con Mudador / Ba├▒o M. con Mudador / Ba├▒o AU con Mudador",
+                "name": "Baño",
+                "information": "En 1° piso\nBaño H. con Mudador / Baño M. con Mudador / Baño AU con Mudador",
                 "categories": [
                     "bath"
                 ],
@@ -4250,7 +4250,7 @@
             },
             "properties": {
                 "identifier": "MH24OCF37BPI5J",
-                "name": "Cafeter├¡a Huerto Sur",
+                "name": "Cafetería Huerto Sur",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -4554,8 +4554,8 @@
                 ]
             },
             "properties": {
-                "identifier": "LABORATORIO_INGL├ëS-SJ",
-                "name": "Laboratorio Ingl├®s",
+                "identifier": "LABORATORIO_INGLÉS-SJ",
+                "name": "Laboratorio Inglés",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -4649,7 +4649,7 @@
             },
             "properties": {
                 "identifier": "MGZDCUFOX7VRCI",
-                "name": "Cafet├│n",
+                "name": "Cafetón",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -4768,8 +4768,8 @@
             },
             "properties": {
                 "identifier": "MH57VZD2DJ9G26",
-                "name": "Ba├▒o",
-                "information": "En piso Z├│calo\nBa├▒o H / Ba├▒o M. / Ba├▒o UN",
+                "name": "Baño",
+                "information": "En piso Zócalo\nBaño H / Baño M. / Baño UN",
                 "categories": [
                     "bath"
                 ],
@@ -4793,8 +4793,8 @@
             },
             "properties": {
                 "identifier": "MH57MOA2AWLG51",
-                "name": "Ba├▒o",
-                "information": "En Subterr├íneo -1 Ba├▒o H / Ba├▒o M / Ba├▒o UN.",
+                "name": "Baño",
+                "information": "En Subterráneo -1 Baño H / Baño M / Baño UN.",
                 "categories": [
                     "bath"
                 ],
@@ -4816,7 +4816,7 @@
             },
             "properties": {
                 "identifier": "MH57L58WDT3EO8",
-                "name": "Ba├▒o Hombre",
+                "name": "Baño Hombre",
                 "information": "",
                 "categories": [
                     "bath"
@@ -4839,8 +4839,8 @@
             },
             "properties": {
                 "identifier": "MH57S8C1AY1NHG",
-                "name": "Ba├▒o",
-                "information": " En 1┬░ piso Ba├▒o H / Ba├▒o M",
+                "name": "Baño",
+                "information": " En 1° piso Baño H / Baño M",
                 "categories": [
                     "bath"
                 ],
@@ -4935,7 +4935,7 @@
             },
             "properties": {
                 "identifier": "MHDRO7EVE5JEG6",
-                "name": "Pulm├│n Verde",
+                "name": "Pulmón Verde",
                 "information": "",
                 "categories": [
                     ""
@@ -5142,8 +5142,8 @@
             },
             "properties": {
                 "identifier": "MGK7OQN2BS4FX0",
-                "name": "Estero m├ígico",
-                "information": "Famoso estero conocido por el mito de que mojarse el brazo derecho y la pierna izquierda traer├í un desarrollo exitoso, sin atrasos de la carrera que se est├® estudiando, y con mucha suerte.",
+                "name": "Estero mágico",
+                "information": "Famoso estero conocido por el mito de que mojarse el brazo derecho y la pierna izquierda traerá un desarrollo exitoso, sin atrasos de la carrera que se esté estudiando, y con mucha suerte.",
                 "categories": [
                     "other"
                 ],
@@ -5165,7 +5165,7 @@
             },
             "properties": {
                 "identifier": "MGGNJO31C181KV",
-                "name": "Sundirecci├│n de Transformaci├│n Aplicada",
+                "name": "Sundirección de Transformación Aplicada",
                 "information": "",
                 "categories": [
                     "other"
@@ -5227,7 +5227,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BIENVENIDA_2025-19",
-                "name": "Cristales de colores. Educaci├│n",
+                "name": "Cristales de colores. Educación",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -5365,7 +5365,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-34032764",
-                "name": "Andr├│nico Luksic Abaroa",
+                "name": "Andrónico Luksic Abaroa",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -5411,7 +5411,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-34032553",
-                "name": "Auditorio Mar├¡a Luisa Santander Achurra",
+                "name": "Auditorio María Luisa Santander Achurra",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -5871,7 +5871,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-34030812",
-                "name": "Unidad de histolog├¡a",
+                "name": "Unidad de histología",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -5939,8 +5939,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "PABELL├ôN_ANATOM├ìA-CC",
-                "name": "Pabell├│n Anatom├¡a",
+                "identifier": "PABELLÓN_ANATOMÍA-CC",
+                "name": "Pabellón Anatomía",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -6363,7 +6363,7 @@
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-34029632",
-                "name": "Mes├│n UC",
+                "name": "Mesón UC",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -6411,7 +6411,7 @@
             },
             "properties": {
                 "identifier": "AUDITORIUM-34029242",
-                "name": "Manuel Jos├® Irarr├ízaval",
+                "name": "Manuel José Irarrázaval",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -6427,7 +6427,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-33669891",
-                "name": "Auditorio Sergio Larra├¡n",
+                "name": "Auditorio Sergio Larraín",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -6450,7 +6450,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-33669872",
-                "name": "Auditorio Dise├▒o",
+                "name": "Auditorio Diseño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -6634,7 +6634,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "PARKING-13",
-                "name": "Acceso/Salida - Vicu├▒a M. 4860",
+                "name": "Acceso/Salida - Vicuña M. 4860",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -6728,7 +6728,7 @@
                 "identifier": "PARKING-9",
                 "name": "Est. Subterraneo CyT",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -6792,9 +6792,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "PARKING-7",
-                "name": "Est. Subterraneo Centro de innovaci├│n",
+                "name": "Est. Subterraneo Centro de innovación",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -6817,7 +6817,7 @@
                 "identifier": "PARKING-6",
                 "name": "Estacionamiento 5",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -6880,7 +6880,7 @@
                 "identifier": "PARKING-5",
                 "name": "Estacionamiento 4",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -6923,7 +6923,7 @@
                 "identifier": "PARKING-4",
                 "name": "Estacionamiento 3",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -6966,7 +6966,7 @@
                 "identifier": "PARKING-3",
                 "name": "Estacionamiento Deportes",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -7009,7 +7009,7 @@
                 "identifier": "PARKING-2",
                 "name": "Estacionamiento Ingenieria",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -7032,7 +7032,7 @@
                 "identifier": "PARKING-1",
                 "name": "Estacionamiento 2",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -7075,7 +7075,7 @@
                 "identifier": "PARKING-0",
                 "name": "Estacionamiento 1",
                 "campus": "SJ",
-                "information": "### Tarifas a├▒o academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
                 "categories": [
                     "parking"
                 ],
@@ -7161,8 +7161,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "CMPC_-_COMPA├æIA_MANUFACTURERA_DE_PAPELES_Y_CARTONES-LC",
-                "name": "CMPC - Compa├▒ia Manufacturera de Papeles y Cartones",
+                "identifier": "CMPC_-_COMPAÑIA_MANUFACTURERA_DE_PAPELES_Y_CARTONES-LC",
+                "name": "CMPC - Compañia Manufacturera de Papeles y Cartones",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7185,7 +7185,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO45",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7281,7 +7281,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO48",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7491,8 +7491,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "PROTOTIPOS_GR├üFICOS-LC",
-                "name": "Prototipos Gr├íficos",
+                "identifier": "PROTOTIPOS_GRÁFICOS-LC",
+                "name": "Prototipos Gráficos",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7537,8 +7537,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ILUMINACI├ôN-LC",
-                "name": "Iluminaci├│n",
+                "identifier": "ILUMINACIÓN-LC",
+                "name": "Iluminación",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7583,8 +7583,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "FOTOGRAF├ìA-LC",
-                "name": "Fotograf├¡a",
+                "identifier": "FOTOGRAFÍA-LC",
+                "name": "Fotografía",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7606,8 +7606,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "FABRICACI├ôN_DIGITAL_FABHAUS-LC",
-                "name": "Fabricaci├│n Digital Fabhaus",
+                "identifier": "FABRICACIÓN_DIGITAL_FABHAUS-LC",
+                "name": "Fabricación Digital Fabhaus",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7821,8 +7821,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_CENTRO_DE_ESTUDIANTES_DE_DISE├æO-LC",
-                "name": "Sala Centro de Estudiantes de Dise├▒o",
+                "identifier": "SALA_CENTRO_DE_ESTUDIANTES_DE_DISEÑO-LC",
+                "name": "Sala Centro de Estudiantes de Diseño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -7983,7 +7983,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ALMUERZO13",
-                "name": "Mes├│n UC",
+                "name": "Mesón UC",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -8054,7 +8054,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-33079669",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -8467,8 +8467,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO_COMPUTACI├ôN_DECANO-LC",
-                "name": "Laboratorio computaci├│n decano",
+                "identifier": "LABORATORIO_COMPUTACIÓN_DECANO-LC",
+                "name": "Laboratorio computación decano",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -8537,7 +8537,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-33078348",
-                "name": "Direcci├│n Econ├│mica y de Gesti├│n",
+                "name": "Dirección Económica y de Gestión",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -8675,7 +8675,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SHOP-33077953",
-                "name": "Librer├¡a UC",
+                "name": "Librería UC",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -8744,7 +8744,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA 8+9",
-                "name": "Sala 10 Leopoldo Ben├¡tez",
+                "name": "Sala 10 Leopoldo Benítez",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -9001,7 +9001,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO49",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -9141,7 +9141,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-32764370",
-                "name": "Jard├¡n infantil",
+                "name": "Jardín infantil",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -9164,7 +9164,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SPORTS_PLACE-32764046",
-                "name": "Pista Atl├®tica",
+                "name": "Pista Atlética",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -9539,7 +9539,7 @@
             },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757419",
-                "name": "Cancha Sint├®tica",
+                "name": "Cancha Sintética",
                 "information": "",
                 "categories": [
                     "sports_place"
@@ -9562,7 +9562,7 @@
             },
             "properties": {
                 "identifier": "SPORTS_PLACE-32757377",
-                "name": "Cancha F├║tbol",
+                "name": "Cancha Fútbol",
                 "information": "",
                 "categories": [
                     "sports_place"
@@ -9624,7 +9624,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SODEXO_CC",
-                "name": "Work Caf├®",
+                "name": "Work Café",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -9670,7 +9670,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32736948",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -9692,8 +9692,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SAL├ôN_DE_HONOR-CC",
-                "name": "Sal├│n de honor",
+                "identifier": "SALÓN_DE_HONOR-CC",
+                "name": "Salón de honor",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -9900,7 +9900,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-32736054",
-                "name": "Aula Magna Jose Miguel Irarr├ízaval",
+                "name": "Aula Magna Jose Miguel Irarrázaval",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10015,7 +10015,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32735449",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10084,7 +10084,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-32734736",
-                "name": "Colecci├│n Joaqu├¡n Gandarillas Infante",
+                "name": "Colección Joaquín Gandarillas Infante",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10199,7 +10199,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32734995",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "CC",
                 "information": "Hombres",
                 "categories": [
@@ -10314,7 +10314,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SHOP-32734677",
-                "name": "Librer├¡a UC",
+                "name": "Librería UC",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10499,7 +10499,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CAPELLAN_CC",
-                "name": "Capell├ín",
+                "name": "Capellán",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10529,7 +10529,7 @@
             },
             "properties": {
                 "identifier": "ALMACEN_UC_CC",
-                "name": "Almac├®n UC",
+                "name": "Almacén UC",
                 "information": "",
                 "categories": [
                     "shop"
@@ -10552,7 +10552,7 @@
             },
             "properties": {
                 "identifier": "BANO02CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
@@ -10706,7 +10706,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-32477162",
-                "name": "Auditorio Silva Henr├¡quez",
+                "name": "Auditorio Silva Henríquez",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10729,7 +10729,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-32477122",
-                "name": "Fundaci├│n Juan Pablo II",
+                "name": "Fundación Juan Pablo II",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10752,7 +10752,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO01CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10775,7 +10775,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA 12",
-                "name": "Auditorio Sebastian Pi├▒era Echenique",
+                "name": "Auditorio Sebastian Piñera Echenique",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10821,7 +10821,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "JGUZMAN1",
-                "name": "Auditorio Jaime Guzm├ín",
+                "name": "Auditorio Jaime Guzmán",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -10892,7 +10892,7 @@
                 "identifier": "OTHER-32467011",
                 "name": "Meones",
                 "campus": "SJ",
-                "information": "LORE: El que se pone entre los meones est├í destinado a echarse el semestre ",
+                "information": "LORE: El que se pone entre los meones está destinado a echarse el semestre ",
                 "categories": [
                     "other"
                 ],
@@ -10937,8 +10937,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_SIMULACI├ôN_CL├ìNICA_2-SJ",
-                "name": "Sala de simulaci├│n cl├¡nica 2",
+                "identifier": "SALA_DE_SIMULACIÓN_CLÍNICA_2-SJ",
+                "name": "Sala de simulación clínica 2",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -10960,8 +10960,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_SIMULACI├ôN_CL├ìNICA_1-SJ",
-                "name": "Sala de simulaci├│n cl├¡nica 1",
+                "identifier": "SALA_DE_SIMULACIÓN_CLÍNICA_1-SJ",
+                "name": "Sala de simulación clínica 1",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -10983,8 +10983,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_SIMULACI├ôN_CL├ìNICA_3-SJ",
-                "name": "Sala de simulaci├│n cl├¡nica 3",
+                "identifier": "SALA_DE_SIMULACIÓN_CLÍNICA_3-SJ",
+                "name": "Sala de simulación clínica 3",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -11850,9 +11850,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ENF_118",
-                "name": "Centro de Simulaci├│n",
+                "name": "Centro de Simulación",
                 "campus": "SJ",
-                "information": "Centro de Simulaci├│n",
+                "information": "Centro de Simulación",
                 "categories": [
                     "laboratory"
                 ],
@@ -11992,7 +11992,7 @@
                 "identifier": "OTHER-32393913",
                 "name": "Ex Muro",
                 "campus": "SJ",
-                "information": "A├║n vive en nuestros corazones ",
+                "information": "Aún vive en nuestros corazones ",
                 "categories": [
                     "other"
                 ],
@@ -12013,7 +12013,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO10",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -12130,7 +12130,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "STUDYROOMMAURICIOLOPEZ",
-                "name": "Mauricio L├│pez Casanova",
+                "name": "Mauricio López Casanova",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -12291,7 +12291,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIO_QIM",
-                "name": "Auditorio Victor Pill├│n",
+                "name": "Auditorio Victor Pillón",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -12437,7 +12437,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO8",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -12537,7 +12537,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANCO2",
-                "name": "Banco Ita├║",
+                "name": "Banco Itaú",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -12919,7 +12919,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-32381723",
-                "name": "Sala de Pr├ícticos 2",
+                "name": "Sala de Prácticos 2",
                 "campus": "SJ",
                 "information": "Piso -1",
                 "categories": [
@@ -12942,7 +12942,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32381611",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "Piso -1",
                 "categories": [
@@ -12965,7 +12965,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32381571",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -13080,7 +13080,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-32381279",
-                "name": "Unidad de Simulaci├│n CS",
+                "name": "Unidad de Simulación CS",
                 "campus": "SJ",
                 "information": "Varias Salas Multiescenario",
                 "categories": [
@@ -13225,7 +13225,7 @@
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-32380458",
-                "name": "Casta├▒o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -13243,7 +13243,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "COMPUTERS-32380303",
-                "name": "Sala Computaci├│n CS",
+                "name": "Sala Computación CS",
                 "campus": "SJ",
                 "information": "Piso -1. Parece obsoleta.",
                 "categories": [
@@ -13335,7 +13335,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32380130",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -13633,8 +13633,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "D205_SALA_SAN_ANDR├ëS-SJ",
-                "name": "D205 Sala San Andr├®s",
+                "identifier": "D205_SALA_SAN_ANDRÉS-SJ",
+                "name": "D205 Sala San Andrés",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -13657,7 +13657,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-32378004",
-                "name": "Sala Computaci├│n College",
+                "name": "Sala Computación College",
                 "campus": "SJ",
                 "information": "Sala Multiuso, estudio, computadores e impresora.",
                 "categories": [
@@ -13703,7 +13703,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO30",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -13933,7 +13933,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32307219",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -13956,7 +13956,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32307189",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14118,7 +14118,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "-32306118",
-                "name": "Auditorio Direcci├│n de investigaci├│n y postgrado",
+                "name": "Auditorio Dirección de investigación y postgrado",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14189,7 +14189,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIO_ACG",
-                "name": "Auditorio Alfonso Castro Garc├¡a Huidobro",
+                "name": "Auditorio Alfonso Castro García Huidobro",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14214,7 +14214,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CA_TEO",
-                "name": "Centro de Alumnos de Teolog├¡a",
+                "name": "Centro de Alumnos de Teología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14264,7 +14264,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO26",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14339,7 +14339,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO19",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14594,7 +14594,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO12",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14690,7 +14690,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-26069776",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14828,7 +14828,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-32303067",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14851,7 +14851,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO35",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -14876,7 +14876,7 @@
                 "identifier": "AUDITORIUM-26833646",
                 "name": "Seminario facultad",
                 "campus": "SJ",
-                "information": "Es el piso que est├í al mismo nivel del resto de la U.\nAl frente de la sala de estudio.",
+                "information": "Es el piso que está al mismo nivel del resto de la U.\nAl frente de la sala de estudio.",
                 "categories": [
                     "auditorium"
                 ],
@@ -15093,7 +15093,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-32218013",
-                "name": "Laboratorio de interacci├│n, clima, ambiente y humanos",
+                "name": "Laboratorio de interacción, clima, ambiente y humanos",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15291,7 +15291,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO6",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15414,7 +15414,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-32217564",
-                "name": "Sala usos m├║ltiples humanidades",
+                "name": "Sala usos múltiples humanidades",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15460,7 +15460,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_FONETICA_H",
-                "name": "Laboratorio de Fon├®tica",
+                "name": "Laboratorio de Fonética",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15483,7 +15483,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA4",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15506,7 +15506,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO2",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15556,7 +15556,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIO_H_FIL",
-                "name": "Auditorio Facultad Filosof├¡a",
+                "name": "Auditorio Facultad Filosofía",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15713,7 +15713,7 @@
             },
             "properties": {
                 "identifier": "STUDYROOM-32216955",
-                "name": "Pedagog├¡as interfacultades editado",
+                "name": "Pedagogías interfacultades editado",
                 "information": "",
                 "categories": [
                     "studyroom"
@@ -15825,7 +15825,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-32215940",
-                "name": "Subdirecci├│n de Comunicaciones",
+                "name": "Subdirección de Comunicaciones",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15894,7 +15894,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO14",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -15965,7 +15965,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIO_SA",
-                "name": "Auditorio San Agust├¡n",
+                "name": "Auditorio San Agustín",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16013,7 +16013,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-27009347",
-                "name": "Departamento de Fruticultura y Enolog├¡a",
+                "name": "Departamento de Fruticultura y Enología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16036,7 +16036,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-27009303",
-                "name": "Laboratorio de enolog├¡a",
+                "name": "Laboratorio de enología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16082,7 +16082,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-27009234",
-                "name": "Laboratorio N┬░ 4A",
+                "name": "Laboratorio N° 4A",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16105,7 +16105,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-27009206",
-                "name": "Laboratorio docencia N┬░3",
+                "name": "Laboratorio docencia N°3",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16128,7 +16128,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-27009170",
-                "name": "Laboratorio N┬░2",
+                "name": "Laboratorio N°2",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16151,7 +16151,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORY-27009132",
-                "name": "Laboratorio N┬░1",
+                "name": "Laboratorio N°1",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16657,7 +16657,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-27008089",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16841,7 +16841,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-27007883",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16893,7 +16893,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-27007755",
-                "name": "Unidad violencia de g├®nero",
+                "name": "Unidad violencia de género",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16916,7 +16916,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-27007733",
-                "name": "Direcci├│n inclusi├│n",
+                "name": "Dirección inclusión",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16946,7 +16946,7 @@
             },
             "properties": {
                 "identifier": "SHOP-26441979",
-                "name": "L├ípiz L├│pez",
+                "name": "Lápiz López",
                 "information": "",
                 "categories": [
                     "shop"
@@ -16962,7 +16962,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SHOP-26441944",
-                "name": "Almac├®n UC",
+                "name": "Almacén UC",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -16985,7 +16985,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-26347017",
-                "name": "Templo Sagrado Coraz├│n",
+                "name": "Templo Sagrado Corazón",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -17008,7 +17008,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIO_CCL",
-                "name": "Auditorio construcci├│n civil",
+                "name": "Auditorio construcción civil",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -17886,7 +17886,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO20",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -17934,7 +17934,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "STUDYROOM-26254218",
-                "name": "Sala de Computaci├│n 1",
+                "name": "Sala de Computación 1",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -17979,8 +17979,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_COMPUTACI├ôN-SJ",
-                "name": "Sala de Computaci├│n",
+                "identifier": "SALA_DE_COMPUTACIÓN-SJ",
+                "name": "Sala de Computación",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18141,7 +18141,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-26253453",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18194,7 +18194,7 @@
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-26253206",
-                "name": "Casta├▒o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -18509,7 +18509,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-26069824",
-                "name": "Subdirecci├│n de vinculaci├│n",
+                "name": "Subdirección de vinculación",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18693,7 +18693,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23514256",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18716,7 +18716,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23514211",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18739,7 +18739,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23514133",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18762,7 +18762,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23513979",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18785,7 +18785,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23513876",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18808,7 +18808,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23513794",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -18831,7 +18831,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23513480",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -18854,7 +18854,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BATH-23513463",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -19415,7 +19415,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ALMACENUC_SOCIALES",
-                "name": "ALMAC├ëN UC",
+                "name": "ALMACÉN UC",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -19509,7 +19509,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ADMINISTRACION_CC",
-                "name": "Administraci├│n",
+                "name": "Administración",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -19674,7 +19674,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIO_JOACO_LUCO",
-                "name": "Auditorio Dr. Joaqu├¡n Luco",
+                "name": "Auditorio Dr. Joaquín Luco",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -20631,7 +20631,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO13",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20656,7 +20656,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO15",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20681,7 +20681,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO16",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20706,7 +20706,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO17",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20731,7 +20731,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO18",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20756,7 +20756,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO22",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20781,7 +20781,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO23",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20806,7 +20806,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO24",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20831,7 +20831,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO25",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20856,7 +20856,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO27",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20881,7 +20881,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO28",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20906,7 +20906,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO29",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20931,7 +20931,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO3",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20954,7 +20954,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO31",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -20979,7 +20979,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO32",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21004,7 +21004,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO33",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21029,7 +21029,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO34",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21052,7 +21052,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO4",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21084,7 +21084,7 @@
             },
             "properties": {
                 "identifier": "BANO03CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21111,7 +21111,7 @@
             },
             "properties": {
                 "identifier": "BANOU04CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21135,7 +21135,7 @@
             },
             "properties": {
                 "identifier": "BANO05CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21160,7 +21160,7 @@
             },
             "properties": {
                 "identifier": "BANO06CC",
-                "name": "Ba├▒o Hombres",
+                "name": "Baño Hombres",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21185,7 +21185,7 @@
             },
             "properties": {
                 "identifier": "BANO07CC",
-                "name": "Ba├▒o Mujeres",
+                "name": "Baño Mujeres",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21210,7 +21210,7 @@
             },
             "properties": {
                 "identifier": "BANO08CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21235,7 +21235,7 @@
             },
             "properties": {
                 "identifier": "BANOU09CC",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
@@ -21253,7 +21253,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANOU10CC",
-                "name": "Ba├▒o Universal 10",
+                "name": "Baño Universal 10",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -21276,7 +21276,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO46",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -21308,7 +21308,7 @@
             },
             "properties": {
                 "identifier": "BANO47",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -21326,7 +21326,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO5",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21351,7 +21351,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO9",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21376,7 +21376,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BIBLIO_BIOMED",
-                "name": "Biblioteca Biom├®dica",
+                "name": "Biblioteca Biomédica",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -21545,7 +21545,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BIBLIO_TEO",
-                "name": "Biblioteca de Teolog├¡a",
+                "name": "Biblioteca de Teología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -21645,7 +21645,7 @@
                 "identifier": "CAUC",
                 "name": "CAUC",
                 "campus": "SJ",
-                "information": "Comisi├│n de Acogida",
+                "information": "Comisión de Acogida",
                 "categories": [
                     "classroom"
                 ],
@@ -22056,7 +22056,7 @@
                 "identifier": "CAPILLA",
                 "name": "Capilla (Sala)",
                 "campus": "LC",
-                "information": "Aqu├¡ hacen clases",
+                "information": "Aquí hacen clases",
                 "categories": [
                     "classroom"
                 ],
@@ -22152,7 +22152,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CAI",
-                "name": "Centro de Alumnos de Ingenier├¡a (CAI)",
+                "name": "Centro de Alumnos de Ingeniería (CAI)",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22202,7 +22202,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CEEP",
-                "name": "Centro de Estudiantes de Educaci├│n de P├írvulos",
+                "name": "Centro de Estudiantes de Educación de Párvulos",
                 "campus": "SJ",
                 "information": "CEEP",
                 "categories": [
@@ -22227,7 +22227,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CENTRO_PREV_CANCER_DIGES",
-                "name": "Centro de Prevenci├│n de C├íncer Digistivo",
+                "name": "Centro de Prevención de Cáncer Digistivo",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -22275,7 +22275,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "COMPUTACION_SA",
-                "name": "Computaci├│n",
+                "name": "Computación",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22692,7 +22692,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DEF_SOLIDOS",
-                "name": "Defectos en S├│lidos",
+                "name": "Defectos en Sólidos",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22717,9 +22717,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DCC",
-                "name": " (DCC) Departamento de Ciencias de la Computaci├│n",
+                "name": " (DCC) Departamento de Ciencias de la Computación",
                 "campus": "SJ",
-                "information": "El Departamento de Ciencia de la Computaci├│n (DCC), perteneciente a la Escuela de Ingenier├¡a UC, se encarga de la docencia e investigaci├│n en Ciencia de la Computaci├│n, Ingenier├¡a de Software y Tecnolog├¡as de la Informaci├│n.",
+                "information": "El Departamento de Ciencia de la Computación (DCC), perteneciente a la Escuela de Ingeniería UC, se encarga de la docencia e investigación en Ciencia de la Computación, Ingeniería de Software y Tecnologías de la Información.",
                 "categories": [
                     "classroom"
                 ],
@@ -22742,7 +22742,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_ASIST_ECO_CC",
-                "name": "Departamento de Asistencia Econ├│mica",
+                "name": "Departamento de Asistencia Económica",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -22790,7 +22790,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DPTO_FISICO_QIM",
-                "name": "Departamento de F├¡sico-Qu├¡mica",
+                "name": "Departamento de Físico-Química",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22815,7 +22815,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DPTO_MATRICULA_CC",
-                "name": "Departamento de Matr├¡cula",
+                "name": "Departamento de Matrícula",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -22838,7 +22838,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DPTO_QIM_INORGANICA",
-                "name": "Departamento de Qu├¡mica Inorg├ínica",
+                "name": "Departamento de Química Inorgánica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22886,7 +22886,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_ENF",
-                "name": "Direcci├│n",
+                "name": "Dirección",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22911,7 +22911,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_CC",
-                "name": "Direcci├│n",
+                "name": "Dirección",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -22934,7 +22934,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_ACADEMICA_QIM",
-                "name": "Direcci├│n Acad├®mica",
+                "name": "Dirección Académica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22959,7 +22959,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_SIST_BIBLIOTECAS",
-                "name": "Direcci├│n Sistema de Bibliotecas",
+                "name": "Dirección Sistema de Bibliotecas",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -22984,7 +22984,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_DOCENCIA_FIS",
-                "name": "Direcci├│n de Docencia",
+                "name": "Dirección de Docencia",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -23009,7 +23009,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_INFORMATICA",
-                "name": "Direcci├│n de Inform├ítica",
+                "name": "Dirección de Informática",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -23032,7 +23032,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIREC_PREGRADO_ING",
-                "name": "Direcci├│n de Pregrado",
+                "name": "Dirección de Pregrado",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -23057,7 +23057,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_PREGRADO_CC",
-                "name": "Direcci├│n de Pregrado",
+                "name": "Dirección de Pregrado",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -23080,7 +23080,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "DIR_POSTGRADO",
-                "name": "Direcci├│n de Prosgrado",
+                "name": "Dirección de Prosgrado",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -23528,7 +23528,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ELETRO_QIM",
-                "name": "Eletroqu├¡mica",
+                "name": "Eletroquímica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -23691,7 +23691,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "EXTENSION_CC",
-                "name": "Extensi├│n",
+                "name": "Extensión",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -24037,7 +24037,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "GALERIA_MACCHINA",
-                "name": "Galer├¡a Macchina",
+                "name": "Galería Macchina",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -24175,7 +24175,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "INS_SOCIOLOGIA",
-                "name": "Instituto de Sociolog├¡a",
+                "name": "Instituto de Sociología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24550,7 +24550,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_ANALISIS_MOV",
-                "name": "Laboratorio An├ílisis del Movimiento",
+                "name": "Laboratorio Análisis del Movimiento",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24575,7 +24575,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_CICLO_BASICO",
-                "name": "Laboratorio Ciclo B├ísico",
+                "name": "Laboratorio Ciclo Básico",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24600,7 +24600,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_FIS_EJERCICIO",
-                "name": "Laboratorio Fisiolog├¡a del Ejercicio",
+                "name": "Laboratorio Fisiología del Ejercicio",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24625,7 +24625,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_FISICO_QIM",
-                "name": "Laboratorio F├¡sico-Qu├¡mico",
+                "name": "Laboratorio Físico-Químico",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24675,7 +24675,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "QUIM ALIME",
-                "name": "Laboratorio Qu├¡mica de Alimentos",
+                "name": "Laboratorio Química de Alimentos",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24700,7 +24700,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_TEC_ALIMEN",
-                "name": "Laboratorio T├®cnicas Alimenticias",
+                "name": "Laboratorio Técnicas Alimenticias",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24725,7 +24725,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_GEOMATICA",
-                "name": "Laboratorio de Geom├ítica",
+                "name": "Laboratorio de Geomática",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24775,7 +24775,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_QIM",
-                "name": "Laboratorio de Qu├¡mica",
+                "name": "Laboratorio de Química",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24800,7 +24800,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_QIM_ORGANICA",
-                "name": "Laboratorio de Qu├¡mica Org├ínica",
+                "name": "Laboratorio de Química Orgánica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24825,7 +24825,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAB_NUTRI",
-                "name": "Laboratorio de evaluaci├│n nutricional",
+                "name": "Laboratorio de evaluación nutricional",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24923,7 +24923,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LIBRERIAUC_SOCIALES",
-                "name": "Librer├¡a UC",
+                "name": "Librería UC",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -24948,7 +24948,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LIB_TALA_OR",
-                "name": "Librer├¡a la Tala",
+                "name": "Librería la Tala",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -24971,7 +24971,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LAMPARA",
-                "name": "L├üMPARA",
+                "name": "LÁMPARA",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -25044,7 +25044,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MICRO_ELECTRO_CC",
-                "name": "Microscop├¡a Electr├│nica",
+                "name": "Microscopía Electrónica",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -25113,7 +25113,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA1",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25136,7 +25136,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA10",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25159,7 +25159,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA11",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25182,7 +25182,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA12",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25205,7 +25205,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA13",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25228,7 +25228,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA14",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25251,7 +25251,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA15",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25274,7 +25274,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA16",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25297,7 +25297,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA17",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25320,7 +25320,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA18",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25343,7 +25343,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA2",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25366,7 +25366,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA3",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25389,7 +25389,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA5",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25412,7 +25412,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA7",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25435,7 +25435,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA8",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25458,7 +25458,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MAQUINA9",
-                "name": "M├íquina",
+                "name": "Máquina",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25806,7 +25806,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "NUTRI_HUMAN",
-                "name": "Nutrici├│n Humana",
+                "name": "Nutrición Humana",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -25950,7 +25950,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "POLITIIC_PUB_LC",
-                "name": "Pol├¡ticas P├║blicas UC",
+                "name": "Políticas Públicas UC",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -26000,7 +26000,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "PRAC_CS_1",
-                "name": "Pr├ícticos 1",
+                "name": "Prácticos 1",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -26025,7 +26025,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "PRAC_CS_2",
-                "name": "Pr├ícticos 2",
+                "name": "Prácticos 2",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -26103,7 +26103,7 @@
             },
             "properties": {
                 "identifier": "PUESTO11",
-                "name": "Quiosco Donde la T├¡a",
+                "name": "Quiosco Donde la Tía",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -26241,7 +26241,7 @@
             },
             "properties": {
                 "identifier": "PUESTO2",
-                "name": "Work Caf├® Santander",
+                "name": "Work Café Santander",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -26264,7 +26264,7 @@
             },
             "properties": {
                 "identifier": "PUESTO3",
-                "name": "Casta├▒o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -26403,7 +26403,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "QIM_BIOLOGICA",
-                "name": "Qu├¡mica Biol├│gica",
+                "name": "Química Biológica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -26428,7 +26428,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "QIM_COMPUTACIONAL",
-                "name": "Qu├¡mica Te├│rica Computacional",
+                "name": "Química Teórica Computacional",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -26503,7 +26503,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "RECEPCION_CCL",
-                "name": "Recepci├│n",
+                "name": "Recepción",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -26528,7 +26528,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "RECEPCION_EDU",
-                "name": "Recepci├│n",
+                "name": "Recepción",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -26553,7 +26553,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "RECTORIA_CC",
-                "name": "Rector├¡a",
+                "name": "Rectoría",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -26801,7 +26801,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SALA_A_NECO",
-                "name": "Sala Andr├®s Necochea",
+                "name": "Sala Andrés Necochea",
                 "campus": "LC",
                 "information": "",
                 "categories": [
@@ -27311,7 +27311,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MULTISALA_ING",
-                "name": "Sala de usos m├║ltiples",
+                "name": "Sala de usos múltiples",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -27336,7 +27336,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MULTISALA_SOCIALES",
-                "name": "Sala de usos m├║ltiples",
+                "name": "Sala de usos múltiples",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -27434,7 +27434,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SECRET_ACADEMICA",
-                "name": "Secretar├¡a Acad├®mica",
+                "name": "Secretaría Académica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -27484,7 +27484,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SIMULACION_H",
-                "name": "Simulaci├│n",
+                "name": "Simulación",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -27589,7 +27589,7 @@
             },
             "properties": {
                 "identifier": "ALMUERZO4",
-                "name": "Casta├▒o",
+                "name": "Castaño",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -27612,7 +27612,7 @@
             },
             "properties": {
                 "identifier": "ALMUERZO5",
-                "name": "Casino Piatto P├®rgola",
+                "name": "Casino Piatto Pérgola",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -27653,7 +27653,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SUB_DIR_ADMIN",
-                "name": "Subdirecci├│n Administrativo",
+                "name": "Subdirección Administrativo",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -27678,7 +27678,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SUB_DIR_ASUNTOS_ESTUDIANTILES",
-                "name": "Subdirecci├│n de Asuntos Estudiantiles",
+                "name": "Subdirección de Asuntos Estudiantiles",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -27703,7 +27703,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SUBDIR_PREGRADO_SOCIALES",
-                "name": "Subdirecci├│n de Pregrado",
+                "name": "Subdirección de Pregrado",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28013,8 +28013,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO QU├ìMICA",
-                "name": "Laboratorio Qu├¡mica",
+                "identifier": "LABORATORIO QUÍMICA",
+                "name": "Laboratorio Química",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28059,8 +28059,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO DE F├ìSICA",
-                "name": "Laboratorio de f├¡sica",
+                "identifier": "LABORATORIO DE FÍSICA",
+                "name": "Laboratorio de física",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28082,8 +28082,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO INGENIER├ìA DE MATERIALES",
-                "name": "Laboratorio ingenier├¡a de materiales",
+                "identifier": "LABORATORIO INGENIERÍA DE MATERIALES",
+                "name": "Laboratorio ingeniería de materiales",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28197,8 +28197,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "INSTITUTO BIOLOG├ìA DE INGENIER├ìA BIOL├ôGICA Y M├ëDICA",
-                "name": "Instituto biolog├¡a de ingenier├¡a biol├│gica y m├®dica",
+                "identifier": "INSTITUTO BIOLOGÍA DE INGENIERÍA BIOLÓGICA Y MÉDICA",
+                "name": "Instituto biología de ingeniería biológica y médica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28220,8 +28220,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO ELECTR├ôNICA Y ROB├ôTICA",
-                "name": "Laboratorio Electr├│nica y Rob├│tica",
+                "identifier": "LABORATORIO ELECTRÓNICA Y ROBÓTICA",
+                "name": "Laboratorio Electrónica y Robótica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28243,8 +28243,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO SUSTENTABILIDAD Y RECURSOS CR├ìTICOS",
-                "name": "Laboratorio Sustentabilidad y Recursos Cr├¡ticos",
+                "identifier": "LABORATORIO SUSTENTABILIDAD Y RECURSOS CRÍTICOS",
+                "name": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28297,7 +28297,7 @@
             },
             "properties": {
                 "identifier": "BANO01OR",
-                "name": "Ba├▒o Mujeres",
+                "name": "Baño Mujeres",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
@@ -28321,7 +28321,7 @@
             },
             "properties": {
                 "identifier": "BANO02OR",
-                "name": "Ba├▒o Hombres",
+                "name": "Baño Hombres",
                 "information": "",
                 "categories": [
                     "bath"
@@ -28345,7 +28345,7 @@
             },
             "properties": {
                 "identifier": "BANO03OR",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -28368,7 +28368,7 @@
             },
             "properties": {
                 "identifier": "BANO04OR",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "Con Mudador",
                 "categories": [
                     "bath"
@@ -28384,7 +28384,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO05OR",
-                "name": "Ba├▒o Hombres 05",
+                "name": "Baño Hombres 05",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -28414,7 +28414,7 @@
             },
             "properties": {
                 "identifier": "BANO06OR",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -28429,8 +28429,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "LABORATORIO FLUIDODIN├üMICA",
-                "name": "Laboratorio Fluidodin├ímica",
+                "identifier": "LABORATORIO FLUIDODINÁMICA",
+                "name": "Laboratorio Fluidodinámica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28459,8 +28459,8 @@
                 ]
             },
             "properties": {
-                "identifier": "AUDITORIO CENTRO DE INNOVACI├ôN UC",
-                "name": "Auditorio Centro de Innovaci├│n UC, Anacleto Angelini",
+                "identifier": "AUDITORIO CENTRO DE INNOVACIÓN UC",
+                "name": "Auditorio Centro de Innovación UC, Anacleto Angelini",
                 "information": "",
                 "categories": [
                     "auditorium"
@@ -28499,7 +28499,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO04CC",
-                "name": "Ba├▒o 04",
+                "name": "Baño 04",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -28525,7 +28525,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BANO10CC",
-                "name": "Ba├▒o 10",
+                "name": "Baño 10",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -28578,7 +28578,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "METROLOGIA",
-                "name": "DICTUC - Metrolog├¡a",
+                "name": "DICTUC - Metrología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28601,7 +28601,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORIO INGENIERIA DE MATERIALES",
-                "name": "Laboratorio ingenier├¡a de materiales",
+                "name": "Laboratorio ingeniería de materiales",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28626,7 +28626,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "INSTITUTO BIOLOGIA DE INGENIERIA BIOLOGICA Y MEDICA",
-                "name": "Instituto biolog├¡a de ingenier├¡a biol├│gica y m├®dica",
+                "name": "Instituto biología de ingeniería biológica y médica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28651,7 +28651,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORIO ELECTRONICA Y ROBOTICA",
-                "name": "Laboratorio Electr├│nica y Rob├│tica",
+                "name": "Laboratorio Electrónica y Robótica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28676,7 +28676,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "LABORATORIO SUSTENTABILIDAD Y RECURSOS CRITICOS",
-                "name": "Laboratorio Sustentabilidad y Recursos Cr├¡ticos",
+                "name": "Laboratorio Sustentabilidad y Recursos Críticos",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -28911,7 +28911,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "COMPLEJO_LUKSIC",
-                "name": "Complejo Andr├│nico Luksic",
+                "name": "Complejo Andrónico Luksic",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29014,8 +29014,8 @@
             },
             "properties": {
                 "identifier": "AGC",
-                "name": "Facultad de Agronom├¡a y Sistemas Naturales",
-                "information": "| #  | Directorio |\n|----|---------------------|\n| 1 | Salas de Clase AG y SP, Laboratorios, Sala de Estudio y Sala Crisol |\n| 2 | Decanato, Direcci├│n de Pregrado |\n| 3 | Centro UC de Cambio Global |",
+                "name": "Facultad de Agronomía y Sistemas Naturales",
+                "information": "| #  | Directorio |\n|----|---------------------|\n| 1 | Salas de Clase AG y SP, Laboratorios, Sala de Estudio y Sala Crisol |\n| 2 | Decanato, Dirección de Pregrado |\n| 3 | Centro UC de Cambio Global |",
                 "categories": [
                     "faculty",
                     ""
@@ -29092,8 +29092,8 @@
             },
             "properties": {
                 "identifier": "EA",
-                "name": "Facultad de Econom├¡a y Administraci├│n ",
-                "information": "Piso - 1: Auditorio Francisco Rosende-BCI, Salas AE 001 a 004.\nPiso 1: Salas de Estudio, Salas AE 101 a AE 108, Pastoral.\nPiso 2: Salas AE 201 a 211, Salas de Computaci├│n 1 y 2.\nPiso 3: Decanato, Instituto de Econom├¡a.\nPiso 4: Escuela de Administraci├│n.",
+                "name": "Facultad de Economía y Administración ",
+                "information": "Piso - 1: Auditorio Francisco Rosende-BCI, Salas AE 001 a 004.\nPiso 1: Salas de Estudio, Salas AE 101 a AE 108, Pastoral.\nPiso 2: Salas AE 201 a 211, Salas de Computación 1 y 2.\nPiso 3: Decanato, Instituto de Economía.\nPiso 4: Escuela de Administración.",
                 "categories": [
                     "faculty"
                 ],
@@ -29142,7 +29142,7 @@
             "properties": {
                 "identifier": "SOC",
                 "name": "Facultad de Ciencias Sociales",
-                "information": " | #  | Directorio |\n|----|------------|\n| 1 | Salas de Clases M1, M2 y N, Bachillerato Inicia |\n| 2 | Salas de Computaci├│n y de Estudio, Sala Magister Trabajo Social y Doctorados |\n| 3 | Auditorio Juan de Castro, Decanato, Sala Magister Sociolog├¡a |",
+                "information": " | #  | Directorio |\n|----|------------|\n| 1 | Salas de Clases M1, M2 y N, Bachillerato Inicia |\n| 2 | Salas de Computación y de Estudio, Sala Magister Trabajo Social y Doctorados |\n| 3 | Auditorio Juan de Castro, Decanato, Sala Magister Sociología |",
                 "categories": [
                     "faculty"
                 ],
@@ -29298,7 +29298,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "FIS",
-                "name": "Facultad de F├¡sica",
+                "name": "Facultad de Física",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29358,7 +29358,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "HIS",
-                "name": "Facultad de Historia, Geograf├¡a y Ciencia Pol├¡tica",
+                "name": "Facultad de Historia, Geografía y Ciencia Política",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29433,8 +29433,8 @@
             },
             "properties": {
                 "identifier": "CCL",
-                "name": "Escuela de Construcci├│n Civil",
-                "information": "Piso 1: Pregrado Escuela Construcci├│n Civil, Sala de Estudio, Sala CC10, Sala C100, Sala San Bernardo y Centro de Estudiantes\nPiso 2: Salas CC200 y CC201, Pastoral y Auditorio",
+                "name": "Escuela de Construcción Civil",
+                "information": "Piso 1: Pregrado Escuela Construcción Civil, Sala de Estudio, Sala CC10, Sala C100, Sala San Bernardo y Centro de Estudiantes\nPiso 2: Salas CC200 y CC201, Pastoral y Auditorio",
                 "categories": [
                     "faculty"
                 ],
@@ -29451,7 +29451,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ING",
-                "name": "Escuela de Ingenier├¡a",
+                "name": "Escuela de Ingeniería",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29578,8 +29578,8 @@
             },
             "properties": {
                 "identifier": "ING-K",
-                "name": "Edificio de Ciencia y Tecnolog├¡a",
-                "information": " | #  | Directorio |\n|----|---------------------|\n| -2 | Estacionamiento |\n| -1 | Caja de pago |\n| 1 | Mes├│n UC, Casino |\n| 2 | Salas K200 a K204 |\n| 3 | Salas K300 a 307, Laboratorio |\n| 4 | Laboratorios |\n| 5 | Laboratorios |\n| 6 | Laboratorios |\n| 7 | Instituto de Ingenier├¡a Biol├│gica y M├®dica |",
+                "name": "Edificio de Ciencia y Tecnología",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| -2 | Estacionamiento |\n| -1 | Caja de pago |\n| 1 | Mesón UC, Casino |\n| 2 | Salas K200 a K204 |\n| 3 | Salas K300 a 307, Laboratorio |\n| 4 | Laboratorios |\n| 5 | Laboratorios |\n| 6 | Laboratorios |\n| 7 | Instituto de Ingeniería Biológica y Médica |",
                 "categories": [
                     "building"
                 ],
@@ -29594,7 +29594,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CMSJ",
-                "name": "Centro M├®dico San Joaqu├¡n",
+                "name": "Centro Médico San Joaquín",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29674,7 +29674,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "COSJ",
-                "name": "Cl├¡nica Odontol├│gica",
+                "name": "Clínica Odontológica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29741,7 +29741,7 @@
             },
             "properties": {
                 "identifier": "ENF",
-                "name": "Escuela de Enfermer├¡a",
+                "name": "Escuela de Enfermería",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -29759,7 +29759,7 @@
                 "identifier": "MED",
                 "name": "Escuela de Medicina",
                 "campus": "CC",
-                "information": "Alameda Libertador Bernardo O┬┤Higgins 340, 8331150 Santiago de Chile",
+                "information": "Alameda Libertador Bernardo O´Higgins 340, 8331150 Santiago de Chile",
                 "categories": [
                     "faculty"
                 ],
@@ -29868,7 +29868,7 @@
             },
             "properties": {
                 "identifier": "QIM",
-                "name": "Facultad de Qu├¡mica y de Farmacia",
+                "name": "Facultad de Química y de Farmacia",
                 "information": "Piso 1: Laboratorios\nPiso 2: Decanato",
                 "categories": [
                     "faculty",
@@ -29887,7 +29887,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "TTF",
-                "name": "Facultad de Teolog├¡a",
+                "name": "Facultad de Teología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -29983,7 +29983,7 @@
             "properties": {
                 "identifier": "D",
                 "name": "College",
-                "information": "Piso 1: Auditorio College, Sala de Estudio, Salas D 101 a D 104.\nPiso 2: Sala San Andr├®s, Sala de Estudio, Salas D 201 a D 204. Piso 3: Sala de Estudio, Salas D 301 a D 306.\n",
+                "information": "Piso 1: Auditorio College, Sala de Estudio, Salas D 101 a D 104.\nPiso 2: Sala San Andrés, Sala de Estudio, Salas D 201 a D 204. Piso 3: Sala de Estudio, Salas D 301 a D 306.\n",
                 "categories": [
                     "faculty"
                 ],
@@ -30028,7 +30028,7 @@
             "properties": {
                 "identifier": "CS",
                 "name": "Escuela Ciencias de la Salud",
-                "information": "Fonoaudiolog├¡a, Kinesiolog├¡a, Nutrici├│n y Diet├®tica, Terapia Ocupacional.",
+                "information": "Fonoaudiología, Kinesiología, Nutrición y Dietética, Terapia Ocupacional.",
                 "categories": [
                     "faculty"
                 ],
@@ -30070,7 +30070,7 @@
             },
             "properties": {
                 "identifier": "FIL",
-                "name": "Instituto de Filosof├¡a",
+                "name": "Instituto de Filosofía",
                 "information": "",
                 "categories": [
                     "faculty",
@@ -30087,7 +30087,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "BIO",
-                "name": "Facultad de Ciencias Biol├│gicas",
+                "name": "Facultad de Ciencias Biológicas",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -30227,7 +30227,7 @@
             "properties": {
                 "identifier": "VET",
                 "name": "Escuela de Medicina Veterinaria",
-                "information": "Piso -1: Laboratorio, Pabell├│n Anatom├¡a. Piso 1: Auditorio, Laboratorios. Piso 2: Pregrado. Piso 3: Laboratorios.",
+                "information": "Piso -1: Laboratorio, Pabellón Anatomía. Piso 1: Auditorio, Laboratorios. Piso 2: Pregrado. Piso 3: Laboratorios.",
                 "categories": [
                     "faculty"
                 ],
@@ -30244,7 +30244,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ODO",
-                "name": "Escuela de Odontolog├¡a",
+                "name": "Escuela de Odontología",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -30292,7 +30292,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "ASP",
-                "name": "Instituto de Astrof├¡sica",
+                "name": "Instituto de Astrofísica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -30367,7 +30367,7 @@
             },
             "properties": {
                 "identifier": "LABORATORY-AGRA",
-                "name": "Agroan├ílisis UC",
+                "name": "Agroanálisis UC",
                 "information": "",
                 "categories": [
                     "building",
@@ -30440,7 +30440,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "CENTRODEMEDICIMIDEUC",
-                "name": "Centro de Medici├│n MIDE UC",
+                "name": "Centro de Medición MIDE UC",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -30547,7 +30547,7 @@
             },
             "properties": {
                 "identifier": "DNO",
-                "name": "Escuela de Dise├▒o",
+                "name": "Escuela de Diseño",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -30631,7 +30631,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "IEST",
-                "name": "Instituto de Est├®tica",
+                "name": "Instituto de Estética",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -30855,9 +30855,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "SJ",
-                "name": "Campus San Joaqu├¡n",
+                "name": "Campus San Joaquín",
                 "campus": "SJ",
-                "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaqu├¡n) con 82 h├ís., el actual campus San Joaqu├¡n de la Universidad comenz├│ su implementaci├│n como ciudad universitaria en los sesenta y contin├║a en desarrollo.",
+                "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaquín) con 82 hás., el actual campus San Joaquín de la Universidad comenzó su implementación como ciudad universitaria en los sesenta y continúa en desarrollo.",
                 "categories": [
                     "campus"
                 ],
@@ -30912,7 +30912,7 @@
                 "identifier": "CC",
                 "name": "Campus Casa Central",
                 "campus": "CC",
-                "information": "El edificio principal y fundacional de la Universidad se termin├│ de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su disc├¡pulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Direcci├│n Superior y a varias facultades.",
+                "information": "El edificio principal y fundacional de la Universidad se terminó de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su discípulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Dirección Superior y a varias facultades.",
                 "categories": [
                     "campus"
                 ],
@@ -30955,7 +30955,7 @@
                 "identifier": "LC",
                 "name": "Campus Lo Contador",
                 "campus": "LC",
-                "information": "Antigua hacienda del siglo XVIII contempor├ínea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitect├│nico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Dise├▒o y Estudios Urbanos de la Universidad.",
+                "information": "Antigua hacienda del siglo XVIII contemporánea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitectónico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Diseño y Estudios Urbanos de la Universidad.",
                 "categories": [
                     "campus"
                 ],
@@ -31026,7 +31026,7 @@
                 "identifier": "OR",
                 "name": "Campus Oriente",
                 "campus": "OR",
-                "information": "Construido en 1934 y adquirido por la Universidad a la Congregaci├│n de las Monjas Francesas en la d├®cada de los setenta (1971), acoge a las carreras de la Facultad de Artes y al Instituto de Est├®tica.",
+                "information": "Construido en 1934 y adquirido por la Universidad a la Congregación de las Monjas Francesas en la década de los setenta (1971), acoge a las carreras de la Facultad de Artes y al Instituto de Estética.",
                 "categories": [
                     "campus"
                 ],
@@ -31181,7 +31181,7 @@
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-36975794",
-                "name": "Cafeter├¡a Piatto",
+                "name": "Cafetería Piatto",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -31266,7 +31266,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUD_21",
-                "name": "Auditorio Celia P├®rez Matus",
+                "name": "Auditorio Celia Pérez Matus",
                 "campus": "CC",
                 "information": "",
                 "categories": [
@@ -31288,8 +31288,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_M├ÜSICA_-_VICTOR_ALORC├ôN_D├ìAZ-SJ",
-                "name": "Sala de m├║sica - Victor Alorc├│n D├¡az",
+                "identifier": "SALA_DE_MÚSICA_-_VICTOR_ALORCÓN_DÍAZ-SJ",
+                "name": "Sala de música - Victor Alorcón Díaz",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -31337,7 +31337,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-37630329",
-                "name": "Centro estudiantes de pedagog├¡as",
+                "name": "Centro estudiantes de pedagogías",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -31367,7 +31367,7 @@
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-37631812",
-                "name": "Cafet├│n",
+                "name": "Cafetón",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -31390,7 +31390,7 @@
             },
             "properties": {
                 "identifier": "PUESTO12",
-                "name": "Le Pach├®",
+                "name": "Le Paché",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -31482,7 +31482,7 @@
             },
             "properties": {
                 "identifier": "SPORTS_PLACE-37722932",
-                "name": "├ürea Verde",
+                "name": "Área Verde",
                 "information": "",
                 "categories": [
                     "sports_place"
@@ -31578,7 +31578,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "AUDITORIUM-38157330",
-                "name": "Concha Ac├║stica",
+                "name": "Concha Acústica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -31677,7 +31677,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "OTHER-38158285",
-                "name": "Z├│calo San Agust├¡n",
+                "name": "Zócalo San Agustín",
                 "campus": "SJ",
                 "information": "### IMC y DCC",
                 "categories": [
@@ -31770,8 +31770,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_BIEDMA_L├ôPEZ-SJ",
-                "name": "Sala Biedma L├│pez",
+                "identifier": "SALA_BIEDMA_LÓPEZ-SJ",
+                "name": "Sala Biedma López",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -31801,7 +31801,7 @@
             },
             "properties": {
                 "identifier": "SHOP-38162136",
-                "name": "Librer├¡a La Tala",
+                "name": "Librería La Tala",
                 "information": "",
                 "categories": [
                     "shop"
@@ -31866,8 +31866,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_DE_USOS_M├ÜLTIPLES-SJ",
-                "name": "Sala de usos m├║ltiples",
+                "identifier": "SALA_DE_USOS_MÚLTIPLES-SJ",
+                "name": "Sala de usos múltiples",
                 "campus": "SJ",
                 "information": "Hay una escalera para entrar",
                 "categories": [
@@ -32005,7 +32005,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6HBZ1Y4MVKL",
-                "name": "Sal├│n Multiuso",
+                "name": "Salón Multiuso",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32057,9 +32057,9 @@
                 ]
             },
             "properties": {
-                "identifier": "AULA_DE_ARTE_Y_ARTESAN├ìAS-OR",
-                "name": "Aula de Arte y Artesan├¡as",
-                "information": "Selecci├│n de piezas confeccionadas por cultores/as de pueblos originarios y de otras comunidades de Am├®rica, junto a obras de colecciones donadas a la UC, como la de Artesan├¡a UC, Gast├│n Soublette y las familias Gross Ossa y Gonz├ílez Muzzio, entre otras.",
+                "identifier": "AULA_DE_ARTE_Y_ARTESANÍAS-OR",
+                "name": "Aula de Arte y Artesanías",
+                "information": "Selección de piezas confeccionadas por cultores/as de pueblos originarios y de otras comunidades de América, junto a obras de colecciones donadas a la UC, como la de Artesanía UC, Gastón Soublette y las familias Gross Ossa y González Muzzio, entre otras.",
                 "categories": [
                     "classroom",
                     "culture"
@@ -32075,7 +32075,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6HWLZXXAP3B",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32098,7 +32098,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6DN9ETUTVE4",
-                "name": "Librer├¡a UC",
+                "name": "Librería UC",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32121,7 +32121,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6ESP4PI0LOC",
-                "name": "Casta├▒o",
+                "name": "Castaño",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32236,7 +32236,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6JPVVAYI84E",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32259,7 +32259,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6JQLKHU8Y1W",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32282,7 +32282,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6O0GOOKDLYQ",
-                "name": "Centro de extensi├│n oriente",
+                "name": "Centro de extensión oriente",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32419,8 +32419,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "ESPACIO_ESC├ëNICO_ALBERTO_VEGA-OR",
-                "name": "Espacio Esc├®nico Alberto Vega",
+                "identifier": "ESPACIO_ESCÉNICO_ALBERTO_VEGA-OR",
+                "name": "Espacio Escénico Alberto Vega",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32489,7 +32489,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6UH1D2GL7V7",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32512,7 +32512,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T72RZQWLLGWW",
-                "name": "Direcci├│n de educaci├│n continua",
+                "name": "Dirección de educación continua",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32535,7 +32535,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T72TLT5U6MNB",
-                "name": "Direcci├│n de educaci├│n continua",
+                "name": "Dirección de educación continua",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32581,7 +32581,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T7OUXRJNUO7F",
-                "name": "Canchas de f├║tbol",
+                "name": "Canchas de fútbol",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32603,8 +32603,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "INTERPRETACI├ôN_MUSICAL-OR",
-                "name": "Interpretaci├│n musical",
+                "identifier": "INTERPRETACIÓN_MUSICAL-OR",
+                "name": "Interpretación musical",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32627,7 +32627,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T72VPL8BVVJJ",
-                "name": "Direcci├│n de educaci├│n continua",
+                "name": "Dirección de educación continua",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32649,8 +32649,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AULA_M├ÜSICA_ANTIGUA-OR",
-                "name": "Aula m├║sica antigua",
+                "identifier": "AULA_MÚSICA_ANTIGUA-OR",
+                "name": "Aula música antigua",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32718,8 +32718,8 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "AULA_INTERPRETACI├ôN_MUSICAL-OR",
-                "name": "Aula interpretaci├│n musical",
+                "identifier": "AULA_INTERPRETACIÓN_MUSICAL-OR",
+                "name": "Aula interpretación musical",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32742,7 +32742,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "M8T6UHWNUPBU82",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -32949,9 +32949,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2V6P21MO5N6J",
-                "name": "Sala de oraci├│n Templo",
+                "name": "Sala de oración Templo",
                 "campus": "OR",
-                "information": "Sala de oraci├│n",
+                "information": "Sala de oración",
                 "categories": [
                     "other"
                 ],
@@ -32974,7 +32974,7 @@
                 "identifier": "MA2VN8HIA86K1B",
                 "name": "Centro de Reciclaje",
                 "campus": "OR",
-                "information": "Punto verde de Reciclaje com├║n Oriente",
+                "information": "Punto verde de Reciclaje común Oriente",
                 "categories": [
                     "trash"
                 ],
@@ -32997,7 +32997,7 @@
                 "identifier": "MA2V4RM1ISPNYP",
                 "name": "FEUC",
                 "campus": "OR",
-                "information": "Sala de atenci├│n FEUC",
+                "information": "Sala de atención FEUC",
                 "categories": [
                     "other"
                 ],
@@ -33071,7 +33071,7 @@
             },
             "properties": {
                 "identifier": "MA2WLW7Q3I0CCA",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -33133,9 +33133,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2WGXBYZ0GWJC",
-                "name": "Mes├│n UC",
+                "name": "Mesón UC",
                 "campus": "OR",
-                "information": "Mes├│n uc al interior del centro de eventos, campus oriente",
+                "information": "Mesón uc al interior del centro de eventos, campus oriente",
                 "categories": [
                     "food_lunch"
                 ],
@@ -33181,7 +33181,7 @@
                 "identifier": "TALLER_ARTE_9-OR",
                 "name": "Taller arte 9",
                 "campus": "OR",
-                "information": "Taller n├║mero 9 de la escuela de artes",
+                "information": "Taller número 9 de la escuela de artes",
                 "categories": [
                     "classroom"
                 ],
@@ -33227,7 +33227,7 @@
                 "identifier": "TALLER_ARTE_8-OR",
                 "name": "Taller arte 8",
                 "campus": "OR",
-                "information": "Taller n├║mero 8 de la escuela de artes",
+                "information": "Taller número 8 de la escuela de artes",
                 "categories": [
                     "classroom"
                 ],
@@ -33296,7 +33296,7 @@
                 "identifier": "TALLER_ARTE_5-OR",
                 "name": "Taller arte 5",
                 "campus": "OR",
-                "information": "Taller n├║mero 5 de la escuela de Arte",
+                "information": "Taller número 5 de la escuela de Arte",
                 "categories": [
                     "classroom"
                 ],
@@ -33409,9 +33409,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2ZKSND5YHLVU",
-                "name": "Auditorio Filosof├¡a",
+                "name": "Auditorio Filosofía",
                 "campus": "OR",
-                "information": "Auditorio Filosof├¡a ",
+                "information": "Auditorio Filosofía ",
                 "categories": [
                     "auditorium"
                 ],
@@ -33664,7 +33664,7 @@
                 "identifier": "MA2XP903ZZEJVS",
                 "name": "LAITEC",
                 "campus": "OR",
-                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnol├│gicas",
+                "information": "LAITEC Laboratorio de Artes Interdiciplinarias y Tecnológicas",
                 "categories": [
                     "laboratory"
                 ],
@@ -33777,7 +33777,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2WAQ2NQEBJWA",
-                "name": "Zona segura N┬░ 6",
+                "name": "Zona segura N° 6",
                 "campus": "OR",
                 "information": "Zona segura",
                 "categories": [
@@ -33846,7 +33846,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2W6RG2DJ0W6N",
-                "name": "Zona segura N┬░ 5",
+                "name": "Zona segura N° 5",
                 "campus": "OR",
                 "information": "Zona Segura",
                 "categories": [
@@ -33900,7 +33900,7 @@
             "properties": {
                 "identifier": "MA2W11QUN5P2AG",
                 "name": "Bicicletero",
-                "information": "Bicicletero con estaci├│n de reparaci├│n",
+                "information": "Bicicletero con estación de reparación",
                 "categories": [
                     "park_bicycle"
                 ],
@@ -33940,7 +33940,7 @@
                 "identifier": "AULA_SAN_MATEO-OR",
                 "name": "Aula San Mateo",
                 "campus": "OR",
-                "information": "Aula San Mateo, entre el patio de m├║sica y de la virgen en el segundo piso",
+                "information": "Aula San Mateo, entre el patio de música y de la virgen en el segundo piso",
                 "categories": [
                     "classroom"
                 ],
@@ -33963,7 +33963,7 @@
                 "identifier": "SALAS_IMUC-OR",
                 "name": "Salas IMUC",
                 "campus": "OR",
-                "information": "Acceso a las salas del instituto de m├║sica UC",
+                "information": "Acceso a las salas del instituto de música UC",
                 "categories": [
                     "classroom"
                 ],
@@ -34007,9 +34007,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2VL18XDKMPBQ",
-                "name": "Centro UC S├¡ndrome de Down",
+                "name": "Centro UC Síndrome de Down",
                 "campus": "OR",
-                "information": "Centro UC S├¡ndrome de Down",
+                "information": "Centro UC Síndrome de Down",
                 "categories": [
                     "other"
                 ],
@@ -34214,9 +34214,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2YGVMUK9N1WK",
-                "name": "Direcci├│n de Educaci├│n Continua",
+                "name": "Dirección de Educación Continua",
                 "campus": "OR",
-                "information": "Oficinas de la Direcci├│n  de Educaci├│n Continua, segundo piso en pasillo con vista al patio de la Virgen",
+                "information": "Oficinas de la Dirección  de Educación Continua, segundo piso en pasillo con vista al patio de la Virgen",
                 "categories": [
                     "other"
                 ],
@@ -34259,10 +34259,10 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "SALA_FRAY_ANG├ëLICO-OR",
-                "name": "Sala Fray Ang├®lico",
+                "identifier": "SALA_FRAY_ANGÉLICO-OR",
+                "name": "Sala Fray Angélico",
                 "campus": "OR",
-                "information": "Sala Fray Ang├®lico en el segundo piso al frente de las escaleras",
+                "information": "Sala Fray Angélico en el segundo piso al frente de las escaleras",
                 "categories": [
                     "classroom"
                 ],
@@ -34444,7 +34444,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2ZA5A3BFZPUZ",
-                "name": "Subdirecci├│n dd Bienestar y Calidad de Vida",
+                "name": "Subdirección dd Bienestar y Calidad de Vida",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -34513,9 +34513,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2Z7VT8C89FGH",
-                "name": "Direacci├│n de Inform├ítica",
+                "name": "Direacción de Informática",
                 "campus": "OR",
-                "information": "Direcci├│n de Inform├ítica\nServicio t├®cnico",
+                "information": "Dirección de Informática\nServicio técnico",
                 "categories": [
                     "other"
                 ],
@@ -34536,7 +34536,7 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2ZCDA8CEW0JM",
-                "name": "Est├®tica UC",
+                "name": "Estética UC",
                 "campus": "OR",
                 "information": "",
                 "categories": [
@@ -34674,9 +34674,9 @@
             "type": "Feature",
             "properties": {
                 "identifier": "MA2VUHZLBXXD63",
-                "name": "Reciclaje Electr├│nicos y El├®ctricos",
+                "name": "Reciclaje Electrónicos y Eléctricos",
                 "campus": "OR",
-                "information": "Punto Verde de Reciclaje de Electr├│nicos y Electricos",
+                "information": "Punto Verde de Reciclaje de Electrónicos y Electricos",
                 "categories": [
                     "trash"
                 ],
@@ -35029,9 +35029,9 @@
             },
             "properties": {
                 "identifier": "CDI",
-                "name": "Centro de Innovaci├│n UC - Anacleto Angelini",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
                 "campus": "SJ",
-                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovaci├│n UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovaci├│n como iniciativas de emprendimiento, de alto impacto `econ├│mico, social y cultural`",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
                 "categories": [
                     "building"
                 ],
@@ -35050,7 +35050,7 @@
             },
             "properties": {
                 "identifier": "ALMUERZO2",
-                "name": "Casino El Rinc├│n ",
+                "name": "Casino El Rincón ",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -35075,7 +35075,7 @@
             },
             "properties": {
                 "identifier": "BANO21",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35100,7 +35100,7 @@
             },
             "properties": {
                 "identifier": "BATH-26255348",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35127,8 +35127,8 @@
                 ]
             },
             "properties": {
-                "identifier": "BA├æO UNIVERSAL",
-                "name": "Ba├▒o",
+                "identifier": "BAÑO UNIVERSAL",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -35177,7 +35177,7 @@
             },
             "properties": {
                 "identifier": "MA4G7JJZJHQPFH",
-                "name": "Patio Ingenier├¡a",
+                "name": "Patio Ingeniería",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35221,7 +35221,7 @@
             "properties": {
                 "identifier": "MA4GBH359AS09H",
                 "name": "Edificio Carreras Interdisciplinarias",
-                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n| #  | Unidades |\n|----|---------------------|\n| 1 | Sala de Estudio, Dilab |\n| 2 | Dilab |\n| 3 | Administraci├│n P├║blica |\n| 4 | Escuela de Gobierno |\n\n\n",
+                "information": "![Campus Nororiente - UC](https://infraestructura.uc.cl/images/galeria-habilitaciones/memoria_carreras_interdisc/3_Nor_oriente_resultado.jpg)\n| #  | Unidades |\n|----|---------------------|\n| 1 | Sala de Estudio, Dilab |\n| 2 | Dilab |\n| 3 | Administración Pública |\n| 4 | Escuela de Gobierno |\n\n\n",
                 "categories": [
                     "building"
                 ],
@@ -35241,7 +35241,7 @@
             },
             "properties": {
                 "identifier": "SALAESTUDIO9",
-                "name": "Sala de Estudio Ra├║l Dev├®s",
+                "name": "Sala de Estudio Raúl Devés",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35311,7 +35311,7 @@
             },
             "properties": {
                 "identifier": "MA77CMS00BIYUQ",
-                "name": "Edificio de Ingenier├¡a Qu├¡mica y Bioprocesos",
+                "name": "Edificio de Ingeniería Química y Bioprocesos",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35354,7 +35354,7 @@
             },
             "properties": {
                 "identifier": "MA77B2EWK5F4TL",
-                "name": "Edificio de Ingenieri╠üa Ele╠üctrica y Transporte",
+                "name": "Edificio de Ingeniería Eléctrica y Transporte",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35397,7 +35397,7 @@
             },
             "properties": {
                 "identifier": "MA777ZKC956J8I",
-                "name": "Edificio Ra├║l Dev├®s",
+                "name": "Edificio Raúl Devés",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35440,7 +35440,7 @@
             },
             "properties": {
                 "identifier": "MA779NBRJ6LDMH",
-                "name": "Edificio de Ingenier├¡a Mec├ínica y Metal├║rgica",
+                "name": "Edificio de Ingeniería Mecánica y Metalúrgica",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35499,7 +35499,7 @@
             },
             "properties": {
                 "identifier": "MAT",
-                "name": "Facultad de Matem├íticas",
+                "name": "Facultad de Matemáticas",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -35522,7 +35522,7 @@
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-23546766",
-                "name": "Caf├® Copper",
+                "name": "Café Copper",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35572,7 +35572,7 @@
             },
             "properties": {
                 "identifier": "MASD5TN4EKKMEJ",
-                "name": "├ürea de Estudio DAE",
+                "name": "Área de Estudio DAE",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35595,7 +35595,7 @@
             },
             "properties": {
                 "identifier": "M8QM6HW5GB4HYS",
-                "name": "CAI - Centro de Almunos Ingenier├¡a ",
+                "name": "CAI - Centro de Almunos Ingeniería ",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35716,8 +35716,8 @@
             },
             "properties": {
                 "identifier": "MCC8TXGGX0FGZC",
-                "name": "Sala Ra├║l D├®ves ",
-                "information": "Esto tambi├®n es un auditorio",
+                "name": "Sala Raúl Déves ",
+                "information": "Esto también es un auditorio",
                 "categories": [
                     "studyroom"
                 ],
@@ -35739,9 +35739,9 @@
             },
             "properties": {
                 "identifier": "MA6C3XISRIQ3BY",
-                "name": "├æ99├æ11",
+                "name": "Ñ99Ñ11",
                 "campus": "SJ",
-                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source eUC** y est├í licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft dise├▒ada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificaci├│n y distribuci├│n**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligaci├│n de compartir el c├│digo fuente**: Si haces modificaciones y usas el software en un servidor accesible p├║blicamente, debes ofrecer tambi├®n el c├│digo fuente modificado a los usuarios.\n- **Protecci├│n contra medidas anti-circunvenci├│n**: No se permite restringir la libertad del usuario a trav├®s de medios tecnol├│gicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros t├®rminos distintos.\n\nPara m├ís detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
+                "information": "# Licencia del Proyecto\n\nEste proyecto es parte de **Open Source eUC** y está licenciado bajo la **GNU Affero General Public License v3 (AGPL-3.0)**.\n\n## Resumen de la Licencia AGPL-3.0\n\nLa AGPL-3.0 es una licencia libre y copyleft diseñada para asegurar que el software y sus modificaciones sigan siendo accesibles para toda la comunidad, incluso cuando se utilizan en servidores.\n\n### Puntos clave:\n\n- **Libertad de uso, modificación y distribución**: Puedes usar, modificar y compartir el software, incluso con fines comerciales.\n- **Obligación de compartir el código fuente**: Si haces modificaciones y usas el software en un servidor accesible públicamente, debes ofrecer también el código fuente modificado a los usuarios.\n- **Protección contra medidas anti-circunvención**: No se permite restringir la libertad del usuario a través de medios tecnológicos.\n- **Sin sublicencias**: No se puede relicenciar bajo otros términos distintos.\n\nPara más detalles, consulta la [licencia completa](https://www.gnu.org/licenses/ag",
                 "categories": [
                     "other"
                 ],
@@ -35762,7 +35762,7 @@
             },
             "properties": {
                 "identifier": "SAI",
-                "name": "SAI - Sala de Ayudantes Ingenier├¡a",
+                "name": "SAI - Sala de Ayudantes Ingeniería",
                 "campus": "SJ",
                 "information": "",
                 "categories": [
@@ -35874,7 +35874,7 @@
             },
             "properties": {
                 "identifier": "SAN_AGUSTIN",
-                "name": "Edificio San Agust├¡n",
+                "name": "Edificio San Agustín",
                 "information": "Salas H",
                 "categories": [
                     "building"
@@ -35958,8 +35958,8 @@
             },
             "properties": {
                 "identifier": "MA77GCYP2PRJFG",
-                "name": "Edificio Hern├ín Briones",
-                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Direcci├│n de Investigaci├│n y Postgrado de Ingenier├¡a |\n| 2 | Direcci├│n de Investigaci├│n y Postgrado de Ingenier├¡a |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computaci├│n |",
+                "name": "Edificio Hernán Briones",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Dirección de Investigación y Postgrado de Ingeniería |\n| 2 | Dirección de Investigación y Postgrado de Ingeniería |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computación |",
                 "categories": [
                     "building"
                 ],
@@ -36118,7 +36118,7 @@
             },
             "properties": {
                 "identifier": "MDF83672FIG5ZH",
-                "name": "Z├│calo comercial",
+                "name": "Zócalo comercial",
                 "information": "",
                 "categories": [
                     "yard"
@@ -36164,7 +36164,7 @@
             },
             "properties": {
                 "identifier": "IMC",
-                "name": "(IMC) Instituto de Ingenier├¡a Matem├ítica y Computacional",
+                "name": "(IMC) Instituto de Ingeniería Matemática y Computacional",
                 "information": "",
                 "categories": [
                     "other"
@@ -36211,7 +36211,7 @@
             },
             "properties": {
                 "identifier": "MDV6DF97WDK6VQ",
-                "name": "Pileta Docente Lu├¡s Zegarra Agramont.",
+                "name": "Pileta Docente Luís Zegarra Agramont.",
                 "information": "",
                 "categories": [
                     "other"
@@ -36235,7 +36235,7 @@
             "properties": {
                 "identifier": "CRISOL5",
                 "name": "Crisol Oriente",
-                "information": "**Ubicaci├│n:**  \nSector verde, Segundo Piso  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5006  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 27 PCs Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 480 GB  \n- 1 Impresora Kyocera (tama├▒os carta, oficio, A4)  \n- 1 Scanner EPSON (tama├▒os carta, A4)  \n\n**Sala B:**\n\n- 19 PCs para clases Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n- 1 Pantalla Informativa Samsung (LCD 32ÔÇØ)  \n- Aire Acondicionado: Sala (A) 2 equipos, Sala (B) 1 equipo  \n- Iluminaci├│n Led\n",
+                "information": "**Ubicación:**  \nSector verde, Segundo Piso  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5006  \n\n**Equipamiento:**  \n\n**Sala A:**\n\n- 27 PCs Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 480 GB  \n- 1 Impresora Kyocera (tamaños carta, oficio, A4)  \n- 1 Scanner EPSON (tamaños carta, A4)  \n\n**Sala B:**\n\n- 19 PCs para clases Intel Core i3-2100, 3.1 GHz, 16 GB RAM, SSD 240 GB  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado: Sala (A) 2 equipos, Sala (B) 1 equipo  \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -36307,7 +36307,7 @@
             },
             "properties": {
                 "identifier": "CRISOL1",
-                "name": "Escuela de Ingenier├¡a civil",
+                "name": "Escuela de Ingeniería civil",
                 "information": "",
                 "categories": [
                     "parking"
@@ -36379,7 +36379,7 @@
             "properties": {
                 "identifier": "COMPUTERS-32217130",
                 "name": "Crisol Humanidades",
-                "information": "**Ubicaci├│n:**  \nZ├│calo Biblioteca de Humanidades  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7870  \n\n**Equipamiento:**  \n_(31 equipos para clases)_\n\n- 32 PCs Intel Core i5-3470s, 16 GB de RAM, disco duro SSD de 480 GB    \n- 1 Scanner (tama├▒os carta y oficio)  \n- 1 Pantalla Informativa Samsung (LCD 32ÔÇØ)  \n- Aire Acondicionado  \n- Iluminaci├│n Led\n",
+                "information": "**Ubicación:**  \nZócalo Biblioteca de Humanidades  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7870  \n\n**Equipamiento:**  \n_(31 equipos para clases)_\n\n- 32 PCs Intel Core i5-3470s, 16 GB de RAM, disco duro SSD de 480 GB    \n- 1 Scanner (tamaños carta y oficio)  \n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -36427,7 +36427,7 @@
             "properties": {
                 "identifier": "CRISOL7",
                 "name": "Crisol Alfero",
-                "information": "**Ubicaci├│n:**  \nSubterr├íneo frente a la Biblioteca  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5526  \n\n**Equipamiento:**  \n\n- 78 PCs para clases Intel Core i7-4770, 3.4 GHz, 8 GB RAM, SSD 480 GB WD, HDD 930 GB  \n- 1 equipo para el profesor con las mismas capacidades que el de los alumnos  \n- 1 Impresora Kyocera (tama├▒os carta, oficio, A4)  \n- 1 Scanner HP (especial para diapositivas)  \n- 2 Scanner Epson (tama├▒os carta y oficio)  \n\n- Pantalla Informativa (LCD 32ÔÇØ)  \n- Iluminaci├│n Led  \n- Sistema de amplificaci├│n de audio para el uso de profesores  \n- 3 Proyectores (1 Panasonic, 2 Epson)  \n- 1 Puntero L├íser\n",
+                "information": "**Ubicación:**  \nSubterráneo frente a la Biblioteca  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n5526  \n\n**Equipamiento:**  \n\n- 78 PCs para clases Intel Core i7-4770, 3.4 GHz, 8 GB RAM, SSD 480 GB WD, HDD 930 GB  \n- 1 equipo para el profesor con las mismas capacidades que el de los alumnos  \n- 1 Impresora Kyocera (tamaños carta, oficio, A4)  \n- 1 Scanner HP (especial para diapositivas)  \n- 2 Scanner Epson (tamaños carta y oficio)  \n\n- Pantalla Informativa (LCD 32”)  \n- Iluminación Led  \n- Sistema de amplificación de audio para el uso de profesores  \n- 3 Proyectores (1 Panasonic, 2 Epson)  \n- 1 Puntero Láser\n",
                 "categories": [
                     "crisol"
                 ],
@@ -36450,7 +36450,7 @@
             "properties": {
                 "identifier": "STUDYROOM-32218197",
                 "name": "Crisol Humanidades",
-                "information": "**Ubicaci├│n:**  \nFrente a la Facultad de Letras  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7501  \n\n**Equipamiento:**  \n\n- 6 PCs Intel Core i5-4460, 3.2 GHz, 16 GB RAM, SSD 480 GB\n- 2 PCs Ayuda en L├¡nea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB\n- 5 Espacios de trabajo colaborativo (Smart TV 43ÔÇØ)\n\n- Pantalla Informativa (LCD 55ÔÇØ) \n- Aire acondicionado \n- Iluminaci├│n Led\n",
+                "information": "**Ubicación:**  \nFrente a la Facultad de Letras  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7501  \n\n**Equipamiento:**  \n\n- 6 PCs Intel Core i5-4460, 3.2 GHz, 16 GB RAM, SSD 480 GB\n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB\n- 5 Espacios de trabajo colaborativo (Smart TV 43”)\n\n- Pantalla Informativa (LCD 55”) \n- Aire acondicionado \n- Iluminación Led\n",
                 "categories": [
                     "crisol"
                 ],
@@ -36475,7 +36475,7 @@
             "properties": {
                 "identifier": "CRISOL4",
                 "name": "Crisol Citeduc",
-                "information": "**Sala A (Autoatendida)**\n\n**Ubicaci├│n:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Equipamiento:**  \n\n- 22 PCs Intel Core i5-7400, 3.0 GHz, 16 GB RAM, SSD 240 GB _(Hay 1 equipo con 8 GB RAM)_  \n- 2 PCs Ayuda en L├¡nea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n- 3 Espacios de trabajo colaborativo (Smart TV 43ÔÇØ)  \n\n- Pantalla Informativa (LCD 55ÔÇØ)  \n- Aire Acondicionado  \n- Iluminaci├│n Led\n\n-------------------------------------------------------\n\n**Sala B**\n\n**Ubicaci├│n:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4904  \n\n**Equipamiento:**  \n_(48 equipos para clases)_\n\n- 49 PCs para clases Intel Core i3-2100, 3.0 GHz, 8 GB RAM, SSD 480 GB  \n- 1 Scanner Epson  \n\n- Aire Acondicionado  \n- Iluminaci├│n Led\n\n",
+                "information": "**Sala A (Autoatendida)**\n\n**Ubicación:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Equipamiento:**  \n\n- 22 PCs Intel Core i5-7400, 3.0 GHz, 16 GB RAM, SSD 240 GB _(Hay 1 equipo con 8 GB RAM)_  \n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB  \n- 3 Espacios de trabajo colaborativo (Smart TV 43”)  \n\n- Pantalla Informativa (LCD 55”)  \n- Aire Acondicionado  \n- Iluminación Led\n\n-------------------------------------------------------\n\n**Sala B**\n\n**Ubicación:**  \nEdificio Centro Desarrollo Docente, piso -1  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4904  \n\n**Equipamiento:**  \n_(48 equipos para clases)_\n\n- 49 PCs para clases Intel Core i3-2100, 3.0 GHz, 8 GB RAM, SSD 480 GB  \n- 1 Scanner Epson  \n\n- Aire Acondicionado  \n- Iluminación Led\n\n",
                 "categories": [
                     "crisol"
                 ],
@@ -36520,8 +36520,8 @@
             },
             "properties": {
                 "identifier": "CRISOL3",
-                "name": "Crisol San Joaqu├¡n 1",
-                "information": "**Ubicaci├│n:**  \nAl costado de la sucursal del Banco Ita├║  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4897  \n\n**Equipamiento:**  \n42 Equipos para clases\n\n- 16 PCs Core i7-4790, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 14 PCs Core i5-7400, 16 GB RAM, 3.3 GHz, SSD 240 GB  \n- 18 PCs Core i5, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 1 Scanner (tama├▒os carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32ÔÇØ)  \n- Aire Acondicionado  \n- Iluminaci├│n Led\n",
+                "name": "Crisol San Joaquín 1",
+                "information": "**Ubicación:**  \nAl costado de la sucursal del Banco Itaú  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n4897  \n\n**Equipamiento:**  \n42 Equipos para clases\n\n- 16 PCs Core i7-4790, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 14 PCs Core i5-7400, 16 GB RAM, 3.3 GHz, SSD 240 GB  \n- 18 PCs Core i5, 16 GB RAM, 3.3 GHz, SSD 480 GB  \n- 1 Scanner (tamaños carta y oficio)  \n\n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
                 "categories": [
                     "crisol",
                     "photocopy"
@@ -36571,8 +36571,8 @@
                 ]
             },
             "properties": {
-                "identifier": "(LAT)_LABORATORIO_DE_ARTE_Y_TECNOLOG├ìA-OR",
-                "name": "(LAT) Laboratorio de arte y tecnolog├¡a",
+                "identifier": "(LAT)_LABORATORIO_DE_ARTE_Y_TECNOLOGÍA-OR",
+                "name": "(LAT) Laboratorio de arte y tecnología",
                 "information": "",
                 "categories": [
                     "classroom",
@@ -36671,7 +36671,7 @@
             },
             "properties": {
                 "identifier": "ME35YVCAFZPKZW",
-                "name": "Ba├▒o",
+                "name": "Baño",
                 "information": "",
                 "categories": [
                     "bath"
@@ -36695,7 +36695,7 @@
             },
             "properties": {
                 "identifier": "ME367ZV2WNUH5C",
-                "name": "Oficina de proyectos Ingenier├¡a en Dise├▒o",
+                "name": "Oficina de proyectos Ingeniería en Diseño",
                 "information": "",
                 "categories": [
                     "offices"
@@ -36741,7 +36741,7 @@
             },
             "properties": {
                 "identifier": "ME35D0LMHWK2V7",
-                "name": "Instituto ├ëticas Aplicadas",
+                "name": "Instituto Éticas Aplicadas",
                 "information": "",
                 "categories": [
                     "other"
@@ -36787,7 +36787,7 @@
             },
             "properties": {
                 "identifier": "ME35UOD3G99P8D",
-                "name": "Administraci├│n P├║blica",
+                "name": "Administración Pública",
                 "information": "",
                 "categories": [
                     "other"
@@ -36811,7 +36811,7 @@
             },
             "properties": {
                 "identifier": "DILAB",
-                "name": "Dilab - Sala Major Ingenier├¡a, Dise├▒o e Innovaci├│n",
+                "name": "Dilab - Sala Major Ingeniería, Diseño e Innovación",
                 "information": "",
                 "categories": [
                     "laboratory"
