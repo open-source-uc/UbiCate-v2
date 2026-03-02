@@ -34282,6 +34282,56 @@
         {
             "type": "Feature",
             "properties": {
+                "identifier": "D303_(QUÍMICA_LUNES)-SJ",
+                "name": "D303 (Química lunes)",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "faculties": [
+                    "D"
+                ],
+                "floors": [
+                    1
+                ]        
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61107149492004,
+                    -33.50059134100325
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "identifier": "A4_(CÁLCULO)-SJ",
+                "name": "A4 (Cálculo)",
+                "campus": "SJ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "faculties": [
+                    "ING"
+                ],
+                "floors": [
+                    1
+                ]                  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61253972706669,
+                    -33.500127629995696
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "identifier": "SALA_9-OR",
                 "name": "Sala 9",
                 "campus": "OR",
