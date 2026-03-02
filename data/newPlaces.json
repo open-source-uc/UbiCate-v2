@@ -1,0 +1,31 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61074310095651,
+                    -33.4995840805998
+                ]
+            },
+            "properties": {
+                "identifier": "MM9EP5Q8KE2LT6",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        }
+    ]
+}
