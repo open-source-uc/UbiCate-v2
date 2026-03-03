@@ -32143,29 +32143,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "M8T6QD1JDRBCG3",
-                "name": "English UC",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59339106301933,
-                    -33.446469089093746
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "E101-OR",
                 "name": "E101",
                 "campus": "OR",
@@ -34294,7 +34271,7 @@
                 ],
                 "floors": [
                     1
-                ]        
+                ]
             },
             "geometry": {
                 "type": "Point",
@@ -34319,7 +34296,7 @@
                 ],
                 "floors": [
                     1
-                ]                  
+                ]
             },
             "geometry": {
                 "type": "Point",
