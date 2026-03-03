@@ -31129,49 +31129,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "VR",
-                "name": "Campus Villarrica",
-                "campus": "VR",
-                "information": "",
-                "categories": [
-                    "campus"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -72.22554669349407,
-                            -39.27729344343152
-                        ],
-                        [
-                            -72.22603747436048,
-                            -39.27770591498732
-                        ],
-                        [
-                            -72.22574767994438,
-                            -39.27789044094905
-                        ],
-                        [
-                            -72.22525923612956,
-                            -39.27749967951302
-                        ],
-                        [
-                            -72.22554669349407,
-                            -39.27729344343152
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
@@ -32137,29 +32094,6 @@
                 "coordinates": [
                     -70.59377466438089,
                     -33.446592941606376
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "M8T6QD1JDRBCG3",
-                "name": "English UC",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59339106301933,
-                    -33.446469089093746
                 ]
             }
         },
@@ -34294,7 +34228,7 @@
                 ],
                 "floors": [
                     1
-                ]        
+                ]
             },
             "geometry": {
                 "type": "Point",
@@ -34319,7 +34253,7 @@
                 ],
                 "floors": [
                     1
-                ]                  
+                ]
             },
             "geometry": {
                 "type": "Point",
