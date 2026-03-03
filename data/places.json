@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6113150059356,
+                    -33.49963585563752
+                ]
+            },
+            "properties": {
+                "identifier": "MMB1C5ATMHQORQ",
+                "name": "Auditorio Jorge Krause",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6101810885564,
                     -33.49681024416349
                 ]
