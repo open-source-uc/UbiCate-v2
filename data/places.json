@@ -31129,49 +31129,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "VR",
-                "name": "Campus Villarrica",
-                "campus": "VR",
-                "information": "",
-                "categories": [
-                    "campus"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -72.22554669349407,
-                            -39.27729344343152
-                        ],
-                        [
-                            -72.22603747436048,
-                            -39.27770591498732
-                        ],
-                        [
-                            -72.22574767994438,
-                            -39.27789044094905
-                        ],
-                        [
-                            -72.22525923612956,
-                            -39.27749967951302
-                        ],
-                        [
-                            -72.22554669349407,
-                            -39.27729344343152
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
