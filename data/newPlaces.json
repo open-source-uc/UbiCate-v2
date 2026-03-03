@@ -147,6 +147,7 @@
                 "name": "Hall Universitario",
                 "information": "",
                 "categories": [
+                    "building",
                     "faculty"
                 ],
                 "floors": [
