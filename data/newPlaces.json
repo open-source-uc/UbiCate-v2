@@ -1,0 +1,131 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61183060712068,
+                    -33.49674447610807
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IW9FM2G1108",
+                "name": "Química Lunes piso 2",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61183060712068,
+                    -33.49674447610807
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IW6FD7DR2M8",
+                "name": "Química Lunes piso 2",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6101810885564,
+                    -33.49681024416349
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IUWR5K4YD62",
+                "name": "Subway",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6101810885564,
+                    -33.49681024416349
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IUUXEGN7598",
+                "name": "Subway",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61074310095651,
+                    -33.4995840805998
+                ]
+            },
+            "properties": {
+                "identifier": "MM9EP5Q8KE2LT6",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        }
+    ]
+}
