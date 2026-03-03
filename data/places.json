@@ -30542,16 +30542,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AP-SECTOR",
-                "name": "Sector Pataguas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -30594,6 +30584,18 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "AP-SECTOR",
+                "name": "Sector Pataguas",
+                "information": "Aulas Las Pataguas\nEdificio Pataguas\nAuditorio\nDirección de inclusión\nOmbuds\nUVG",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
