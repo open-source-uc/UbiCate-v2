@@ -4,6 +4,31 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61183060712068,
+                    -33.49674447610807
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IW6FD7DR2M8",
+                "name": "Química Lunes piso 2",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
