@@ -4,6 +4,48 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60815903993586,
+                            -33.4974597275954
+                        ],
+                        [
+                            -70.6081293580316,
+                            -33.49765756297902
+                        ],
+                        [
+                            -70.60839413924472,
+                            -33.49767396803109
+                        ],
+                        [
+                            -70.60842181402089,
+                            -33.49748237253421
+                        ],
+                        [
+                            -70.60815903993586,
+                            -33.4974597275954
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMB0536H7XE38X",
+                "name": "Salas TMP",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59339098632336,
