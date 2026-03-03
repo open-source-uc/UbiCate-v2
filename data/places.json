@@ -6,6 +6,274 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61183060712068,
+                    -33.49674447610807
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IW6FD7DR2M8",
+                "name": "Química Lunes piso 2",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6104395750391,
+                            -33.50025006837038
+                        ],
+                        [
+                            -70.6104079617813,
+                            -33.50046948895544
+                        ],
+                        [
+                            -70.60989773424492,
+                            -33.50042009563199
+                        ],
+                        [
+                            -70.60992438147993,
+                            -33.5002056290993
+                        ],
+                        [
+                            -70.61003223749246,
+                            -33.500214480614716
+                        ],
+                        [
+                            -70.61003680868663,
+                            -33.50020092048232
+                        ],
+                        [
+                            -70.61033200089147,
+                            -33.50022824269321
+                        ],
+                        [
+                            -70.61032690741689,
+                            -33.50024146031958
+                        ],
+                        [
+                            -70.6104395750391,
+                            -33.50025006837038
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMAZC25PAKQMPS",
+                "name": "Carreras de la Salud",
+                "information": "Fonoaudiología\nKinesiología\nNutrición y Dietética\nTerapia Ocupacional",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6101810885564,
+                    -33.49681024416349
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IUWR5K4YD62",
+                "name": "Subway",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61074310095651,
+                    -33.4995840805998
+                ]
+            },
+            "properties": {
+                "identifier": "MM9EP5Q8KE2LT6",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6113150059356,
+                    -33.49963585563752
+                ]
+            },
+            "properties": {
+                "identifier": "MMB1C5ATMHQORQ",
+                "name": "Auditorio Jorge Krause",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6101810885564,
+                    -33.49681024416349
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IUUXEGN7598",
+                "name": "Subway",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ],
+                        [
+                            -70.60878095907752,
+                            -33.497634502712884
+                        ],
+                        [
+                            -70.60882345460391,
+                            -33.498019707395784
+                        ],
+                        [
+                            -70.60932465180952,
+                            -33.498121426094684
+                        ],
+                        [
+                            -70.60948468205086,
+                            -33.498025871721815
+                        ],
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMAZZQBM3L4ZBA",
+                "name": "Aulas Helen Lee Lassen",
+                "information": "DGE - Dirección General Estudiantil",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60815903993586,
+                            -33.4974597275954
+                        ],
+                        [
+                            -70.6081293580316,
+                            -33.49765756297902
+                        ],
+                        [
+                            -70.60839413924472,
+                            -33.49767396803109
+                        ],
+                        [
+                            -70.60842181402089,
+                            -33.49748237253421
+                        ],
+                        [
+                            -70.60815903993586,
+                            -33.4974597275954
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMB0536H7XE38X",
+                "name": "Salas TMP",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64075372711109,
                     -33.440598483380484
                 ]
@@ -25877,26 +26145,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PREUUC_SOCIALES",
-                "name": "PREU UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609997,
                     -33.497403
+                ]
+            },
+            "properties": {
+                "identifier": "PREUUC_SOCIALES",
+                "name": "Preuniversitario UC",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -28799,7 +29067,8 @@
                 "name": "Hall Universitario",
                 "information": "",
                 "categories": [
-                    "building"
+                    "building",
+                    "faculty"
                 ],
                 "floors": [
                     1,
@@ -30371,7 +30640,8 @@
                 "information": "",
                 "categories": [
                     "building",
-                    "laboratory"
+                    "laboratory",
+                    "faculty"
                 ],
                 "floors": [
                     2
@@ -30382,16 +30652,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AP-SECTOR",
-                "name": "Sector Pataguas",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -30434,6 +30694,18 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "AP-SECTOR",
+                "name": "Sector Pataguas",
+                "information": "Aulas Las Pataguas\nEdificio Pataguas\nAuditorio\nDirección de inclusión\nOmbuds\nUVG",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
