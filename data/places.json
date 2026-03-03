@@ -28958,7 +28958,8 @@
                 "name": "Hall Universitario",
                 "information": "",
                 "categories": [
-                    "building"
+                    "building",
+                    "faculty"
                 ],
                 "floors": [
                     1,
