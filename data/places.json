@@ -26145,26 +26145,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PREUUC_SOCIALES",
-                "name": "PREU UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609997,
                     -33.497403
+                ]
+            },
+            "properties": {
+                "identifier": "PREUUC_SOCIALES",
+                "name": "Preuniversitario UC",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
