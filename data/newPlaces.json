@@ -8,6 +8,65 @@
                 "coordinates": [
                     [
                         [
+                            -70.610523,
+                            -33.496728
+                        ],
+                        [
+                            -70.610251,
+                            -33.49672
+                        ],
+                        [
+                            -70.610245,
+                            -33.496784
+                        ],
+                        [
+                            -70.610054,
+                            -33.49677
+                        ],
+                        [
+                            -70.610097,
+                            -33.49635
+                        ],
+                        [
+                            -70.610347,
+                            -33.496373
+                        ],
+                        [
+                            -70.61035,
+                            -33.496353
+                        ],
+                        [
+                            -70.610549,
+                            -33.496365
+                        ],
+                        [
+                            -70.610523,
+                            -33.496728
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "AP-SECTOR",
+                "name": "Sector Pataguas",
+                "information": "Aulas Las Pataguas\nEdificio Pataguas\nAuditorio\nDirección de inclusión\nOmbuds\nUVG",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.60815903993586,
                             -33.4974597275954
                         ],
