@@ -26565,25 +26565,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PATIOSUB_SA",
-                "name": "Patio Subterraneo",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61491,
                     -33.49933
                 ]
+            },
+            "properties": {
+                "identifier": "PATIOSUB_SA",
+                "name": "Patio Subterraneo",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
