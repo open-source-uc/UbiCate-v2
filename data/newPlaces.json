@@ -4,6 +4,48 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60737085629279,
+                            -33.49656144459051
+                        ],
+                        [
+                            -70.60701651165635,
+                            -33.497039084606385
+                        ],
+                        [
+                            -70.60724273438832,
+                            -33.49715005231191
+                        ],
+                        [
+                            -70.60756387895793,
+                            -33.496641879814185
+                        ],
+                        [
+                            -70.60737085629279,
+                            -33.49656144459051
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMC1LK7Q1VBKC8",
+                "name": "Servicios Administración Campus",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60829976093,
