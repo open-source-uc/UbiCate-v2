@@ -36570,16 +36570,16 @@
             },
             "properties": {
                 "identifier": "MDE2I47U7OGITU",
-                "name": "Quiosco Crisol",
-                "campus": "SJ",
+                "name": "Kiosco Crisol",
                 "information": "En android por lo general falla",
                 "categories": [
                     "photocopy"
                 ],
-                "faculties": [],
                 "floors": [
                     -1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
