@@ -24,30 +24,6 @@
                 "campus": "VR",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5944157240301,
-                    -33.44611845251142
-                ]
-            },
-            "properties": {
-                "identifier": "MMAX8AO0FZ4AYF",
-                "name": "Patio Preuniversitario",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
         }
     ]
 }
