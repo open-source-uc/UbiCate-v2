@@ -118,7 +118,7 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
     let errorMessage = "Error desconocido";
     switch (positionError.code) {
       case positionError.PERMISSION_DENIED:
-        errorMessage = "Permisos de ubicación denegados";
+        errorMessage = "Debes activar la geolocalización";
         break;
       case positionError.POSITION_UNAVAILABLE:
         errorMessage = "Ubicación no disponible";
