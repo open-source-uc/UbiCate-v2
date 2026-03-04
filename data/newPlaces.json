@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -72.22579115879957,
+                            -39.27895129142419
+                        ],
+                        [
+                            -72.2262282074207,
+                            -39.27863507204571
+                        ],
+                        [
+                            -72.22602545290539,
+                            -39.27846301090153
+                        ],
+                        [
+                            -72.22558540051328,
+                            -39.27878853162767
+                        ],
+                        [
+                            -72.22579115879957,
+                            -39.27895129142419
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFJX72X9U86D",
+                "name": "Polideportivo",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -72.22589926801697,
                             -39.27769319465211
                         ],
