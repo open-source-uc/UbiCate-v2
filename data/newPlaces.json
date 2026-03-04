@@ -145,30 +145,6 @@
                 "campus": "OR",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59343889034992,
-                    -33.44611346394334
-                ]
-            },
-            "properties": {
-                "identifier": "MMAUO5RLM6VX4B",
-                "name": "Patio de La Virgen",
-                "information": "La escultura se instaló cuando el campus comenzó a consolidarse como espacio universitario, entre finales de los años 50 y década de 1960.",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
         }
     ]
 }
