@@ -1965,7 +1965,7 @@
                 "name": "Edificio Docente",
                 "information": "Salas CS",
                 "categories": [
-                    ""
+                    "faculty"
                 ],
                 "floors": [
                     2
