@@ -226,30 +226,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.611747,
-                    -33.498485
-                ]
-            },
-            "properties": {
-                "identifier": "PUESTO11",
-                "name": "Kiosco Donde la Tía",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6120135564238,
                     -33.49902871494161
                 ]
