@@ -4,6 +4,48 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61854208535678,
+                            -33.419820810289586
+                        ],
+                        [
+                            -70.61802992515615,
+                            -33.420190520457815
+                        ],
+                        [
+                            -70.61751084387154,
+                            -33.41970720112027
+                        ],
+                        [
+                            -70.61801146893237,
+                            -33.419339414483424
+                        ],
+                        [
+                            -70.61854208535678,
+                            -33.419820810289586
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCERH5YS23HFL",
+                "name": "Casona",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61802169022822,
