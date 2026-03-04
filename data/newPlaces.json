@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.5942125637403,
+                    -33.44683793139733
+                ]
+            },
+            "properties": {
+                "identifier": "MMC5FJFKDAZN17",
+                "name": "Casa Coro",
+                "information": "Sala perteneciente al Instituto de Música",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61344150162022,
                     -33.497943925003526
                 ]
