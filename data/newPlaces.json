@@ -4,6 +4,48 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6154182868836,
+                            -33.496835036247596
+                        ],
+                        [
+                            -70.61442252447172,
+                            -33.4967410931978
+                        ],
+                        [
+                            -70.61438497354544,
+                            -33.49730922336203
+                        ],
+                        [
+                            -70.61537202646288,
+                            -33.49744342679284
+                        ],
+                        [
+                            -70.6154182868836,
+                            -33.496835036247596
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMC6A01VV0HOPL",
+                "name": "Centro Médico San Joaquín",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61047967297347,
