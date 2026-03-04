@@ -32142,16 +32142,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FLPVN-012389",
-                "name": "Edificio felipe villanueva",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -32177,6 +32167,19 @@
                             -33.49967259009886
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "FLPVN-012389",
+                "name": "Edificio Felipe Villanueva",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
                 ]
             }
         },
