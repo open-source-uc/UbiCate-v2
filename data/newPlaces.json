@@ -967,32 +967,6 @@
                 "campus": "OR",
                 "faculties": []
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61183060712068,
-                    -33.49674447610807
-                ]
-            },
-            "properties": {
-                "identifier": "MM9IW9FM2G1108",
-                "name": "Química Lunes piso 2",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EA"
-                ]
-            }
         }
     ]
 }
