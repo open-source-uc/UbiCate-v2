@@ -544,47 +544,6 @@
                 "coordinates": [
                     [
                         [
-                            -70.6119811150661,
-                            -33.49898732537561
-                        ],
-                        [
-                            -70.61194003589013,
-                            -33.49928519813425
-                        ],
-                        [
-                            -70.61224415862362,
-                            -33.499305028872655
-                        ],
-                        [
-                            -70.61227336029329,
-                            -33.49900484928583
-                        ],
-                        [
-                            -70.6119811150661,
-                            -33.49898732537561
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMBZG6JOVZC4US",
-                "name": "Centro de Desarrollo Docente CDDoc",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
                             -70.61367039856962,
                             -33.498758029307666
                         ],
