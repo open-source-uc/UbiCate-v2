@@ -523,49 +523,6 @@
                 "coordinates": [
                     [
                         [
-                            -70.61045486479998,
-                            -33.49695796982004
-                        ],
-                        [
-                            -70.61008706688881,
-                            -33.496926935120996
-                        ],
-                        [
-                            -70.61006896197796,
-                            -33.49709413093578
-                        ],
-                        [
-                            -70.61042804270983,
-                            -33.49713299413076
-                        ],
-                        [
-                            -70.61045486479998,
-                            -33.49695796982004
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "CENTRODEMEDICIMIDEUC",
-                "name": "Centro de Medición MIDE UC",
-                "information": "",
-                "categories": [
-                    "building",
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
                             -70.6119811150661,
                             -33.49898732537561
                         ],
