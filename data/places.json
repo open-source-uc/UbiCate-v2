@@ -29397,16 +29397,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "TEMPLO",
-                "name": "Templo",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -29437,6 +29427,18 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "TEMPLO",
+                "name": "Templo",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
