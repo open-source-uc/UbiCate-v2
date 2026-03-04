@@ -102,30 +102,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61174803553385,
-                    -33.500927740891015
-                ]
-            },
-            "properties": {
-                "identifier": "PARKING-9",
-                "name": "Est. Subterráneo CyT",
-                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
-                "categories": [
-                    "parking"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
