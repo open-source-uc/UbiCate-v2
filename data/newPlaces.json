@@ -130,50 +130,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.6099963591088,
-                            -33.49967259009886
-                        ],
-                        [
-                            -70.60998515067352,
-                            -33.499797676189395
-                        ],
-                        [
-                            -70.61054724598705,
-                            -33.499851313407596
-                        ],
-                        [
-                            -70.61055380937208,
-                            -33.49973384605174
-                        ],
-                        [
-                            -70.6099963591088,
-                            -33.49967259009886
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "FLPVN-012389",
-                "name": "Edificio Felipe Villanueva",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "MAT"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59404645115137,
