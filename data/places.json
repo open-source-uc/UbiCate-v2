@@ -14424,25 +14424,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-32306491",
-                "name": "DECON",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60791530249031,
                     -33.49664246884663
                 ]
+            },
+            "properties": {
+                "identifier": "OTHER-32306491",
+                "name": "DECON",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
