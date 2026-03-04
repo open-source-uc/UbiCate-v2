@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.60931149304258,
+                            -33.499634152334345
+                        ],
+                        [
+                            -70.60927883870005,
+                            -33.49987676680085
+                        ],
+                        [
+                            -70.60963681625758,
+                            -33.499914144648905
+                        ],
+                        [
+                            -70.60967693984225,
+                            -33.499660232733376
+                        ],
+                        [
+                            -70.60931149304258,
+                            -33.499634152334345
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZDO0JMAZVV5",
+                "name": "Casino Pérgola",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61363963985413,
                             -33.49890642118775
                         ],
