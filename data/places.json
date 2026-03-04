@@ -16891,25 +16891,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AP303-SJ",
-                "name": "AP303",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    3
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61020027054272,
                     -33.49671548811
                 ]
+            },
+            "properties": {
+                "identifier": "AP303-SJ",
+                "name": "Filosofía ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
