@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.61693733467729,
+                            -33.41877912489153
+                        ],
+                        [
+                            -70.61684949253706,
+                            -33.418845508258705
+                        ],
+                        [
+                            -70.61671172333783,
+                            -33.41872458815155
+                        ],
+                        [
+                            -70.61679670231267,
+                            -33.418659243880995
+                        ],
+                        [
+                            -70.61693733467729,
+                            -33.41877912489153
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCF1V17JU5574",
+                "name": "Doctorado en Arquitectura y Estudios Urbanos",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.6171135098724,
                             -33.41890208432456
                         ],
