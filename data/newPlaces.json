@@ -4,6 +4,65 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61514489458392,
+                            -33.499599878387635
+                        ],
+                        [
+                            -70.61511484646746,
+                            -33.49973640837716
+                        ],
+                        [
+                            -70.61508678838865,
+                            -33.499870312392105
+                        ],
+                        [
+                            -70.61489804004334,
+                            -33.49983801765101
+                        ],
+                        [
+                            -70.6149157997142,
+                            -33.499757549623496
+                        ],
+                        [
+                            -70.61488442538547,
+                            -33.49975444199623
+                        ],
+                        [
+                            -70.61489208166078,
+                            -33.49966646927433
+                        ],
+                        [
+                            -70.61490184466436,
+                            -33.49958631393393
+                        ],
+                        [
+                            -70.61514489458392,
+                            -33.499599878387635
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MA77GCYP2PRJFG",
+                "name": "Edificio Hernán Briones",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Dirección de Investigación y Postgrado de Ingeniería |\n| 2 | Dirección de Investigación y Postgrado de Ingeniería |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computación |",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61026066623343,
