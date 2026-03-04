@@ -29008,16 +29008,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "LA_Y",
-                "name": "Centro Desarrollo Docente",
-                "campus": "SJ",
-                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -29056,6 +29046,18 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "LA_Y",
+                "name": "Centro Desarrollo Docente",
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
