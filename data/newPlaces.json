@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6140060508976,
+                    -33.49812903211218
+                ]
+            },
+            "properties": {
+                "identifier": "ED113_(WEDNESDAY_11AM_CLASS)-SJ",
+                "name": "ED113 (Wednesday 11am class)",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5942125637403,
                     -33.44683793139733
                 ]
