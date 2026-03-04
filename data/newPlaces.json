@@ -8,49 +8,6 @@
                 "coordinates": [
                     [
                         [
-                            -70.614852,
-                            -33.497808
-                        ],
-                        [
-                            -70.614888,
-                            -33.497461
-                        ],
-                        [
-                            -70.614668,
-                            -33.497446
-                        ],
-                        [
-                            -70.614647,
-                            -33.497804
-                        ],
-                        [
-                            -70.614852,
-                            -33.497808
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "COSJ",
-                "name": "Clínica Odontológica",
-                "information": "",
-                "categories": [
-                    "building",
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
                             -70.611723,
                             -33.498246
                         ],
