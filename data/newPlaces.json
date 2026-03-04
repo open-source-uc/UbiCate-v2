@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59384093738508,
-                    -33.445329648971445
-                ]
-            },
-            "properties": {
-                "identifier": "MJA9PVRD0LNH00",
-                "name": "Cafetería",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59404645115137,
                     -33.44592274263415
                 ]
