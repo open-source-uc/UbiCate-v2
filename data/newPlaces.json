@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61130970268061,
+                    -33.497060048720044
+                ]
+            },
+            "properties": {
+                "identifier": "AE107-SJ",
+                "name": "AE107",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61244859110168,
                     -33.50025825472751
                 ]
