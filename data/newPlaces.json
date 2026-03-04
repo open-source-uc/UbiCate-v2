@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60829976093,
+                    -33.49795954224045
+                ]
+            },
+            "properties": {
+                "identifier": "MMC1J7YY4SPWRW",
+                "name": "Punto Limpio / SIBICO",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59354465313659,
                     -33.445617198226
                 ]
