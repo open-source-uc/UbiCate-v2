@@ -36401,7 +36401,8 @@
                 "name": "Edificio San Agustín",
                 "information": "Salas H",
                 "categories": [
-                    "building"
+                    "building",
+                    "faculty"
                 ],
                 "floors": [
                     2
