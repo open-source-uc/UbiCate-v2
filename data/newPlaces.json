@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60743708727045,
+                    -33.497409535622786
+                ]
+            },
+            "properties": {
+                "identifier": "DECON",
+                "name": "DiCTUC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory",
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60791530249031,
                     -33.49664246884663
                 ]
