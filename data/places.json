@@ -5564,7 +5564,8 @@
                 "name": "Huerto San Francisco",
                 "information": "# Huerto San Francisco\n\nEspacio de aprendizaje y cuidado de la naturaleza",
                 "categories": [
-                    "other"
+                    "other",
+                    "faculty"
                 ],
                 "floors": [
                     1
