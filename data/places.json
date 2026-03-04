@@ -11994,26 +11994,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "A1",
-                "name": "A1",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61244859110168,
                     -33.50025825472751
+                ]
+            },
+            "properties": {
+                "identifier": "A1",
+                "name": "A1",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
             }
         },
