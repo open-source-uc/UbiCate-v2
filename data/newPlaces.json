@@ -151,30 +151,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59361295435909,
-                    -33.445567692675795
-                ]
-            },
-            "properties": {
-                "identifier": "MJA9OGIO5DPHQF",
-                "name": "Espacio Vilches",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.594013392677,
                     -33.4462549732888
                 ]
