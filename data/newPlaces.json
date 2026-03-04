@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59404645115137,
-                    -33.44592274263415
-                ]
-            },
-            "properties": {
-                "identifier": "MJ0EQMA52DFYCK",
-                "name": "Kiosco - Xime",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.5942125637403,
                     -33.44683793139733
                 ]
