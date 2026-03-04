@@ -22152,7 +22152,8 @@
                 "name": "Biblioteca Gauss",
                 "information": "",
                 "categories": [
-                    "library"
+                    "library",
+                    "faculty"
                 ],
                 "floors": [
                     1
