@@ -26788,29 +26788,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "PUESTO17",
-                "name": "Puesto de comida",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "food_lunch"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.594023,
-                    -33.445916
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "PUESTO18",
                 "name": "Puesto de comida",
                 "campus": "LC",
