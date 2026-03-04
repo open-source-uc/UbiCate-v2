@@ -60,10 +60,10 @@
             },
             "properties": {
                 "identifier": "PATIOSUB_SA",
-                "name": "Patio Subterráneo",
+                "name": "Patio Subterraneo",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "yard"
                 ],
                 "floors": [
                     1
