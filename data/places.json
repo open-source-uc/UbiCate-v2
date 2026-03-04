@@ -32352,16 +32352,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "EROCHU-012389",
-                "name": "Edificio rolando chuaqui",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -32395,6 +32385,19 @@
                             -33.49975899806645
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "EROCHU-012389",
+                "name": "Edificio Rolando Chuaqui",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
                 ]
             }
         },
