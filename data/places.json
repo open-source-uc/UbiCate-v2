@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59339098632336,
+                    -33.4464691054368
+                ]
+            },
+            "properties": {
+                "identifier": "M8T6QD1JDRBCG3",
+                "name": "English UC",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1,
+                    2
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59343889034992,
                     -33.44611346394334
                 ]
