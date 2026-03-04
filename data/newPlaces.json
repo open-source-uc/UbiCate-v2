@@ -78,30 +78,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6120135564238,
-                    -33.49902871494161
-                ]
-            },
-            "properties": {
-                "identifier": "MDE2I47U7OGITU",
-                "name": "Kiosco Crisol",
-                "information": "En android por lo general falla",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.5942125637403,
                     -33.44683793139733
                 ]
