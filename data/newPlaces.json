@@ -8,6 +8,53 @@
                 "coordinates": [
                     [
                         [
+                            -70.611723,
+                            -33.498246
+                        ],
+                        [
+                            -70.611063,
+                            -33.497565
+                        ],
+                        [
+                            -70.610978,
+                            -33.498233
+                        ],
+                        [
+                            -70.611524,
+                            -33.498273
+                        ],
+                        [
+                            -70.611524,
+                            -33.498231
+                        ],
+                        [
+                            -70.611723,
+                            -33.498246
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "TEMPLO",
+                "name": "Templo",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.60737085629279,
                             -33.49656144459051
                         ],
