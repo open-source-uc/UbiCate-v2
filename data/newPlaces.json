@@ -4,6 +4,1206 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.614852,
+                            -33.497808
+                        ],
+                        [
+                            -70.614888,
+                            -33.497461
+                        ],
+                        [
+                            -70.614668,
+                            -33.497446
+                        ],
+                        [
+                            -70.614647,
+                            -33.497804
+                        ],
+                        [
+                            -70.614852,
+                            -33.497808
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "COSJ",
+                "name": "Clínica Odontológica",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.611723,
+                            -33.498246
+                        ],
+                        [
+                            -70.611063,
+                            -33.497565
+                        ],
+                        [
+                            -70.610978,
+                            -33.498233
+                        ],
+                        [
+                            -70.611524,
+                            -33.498273
+                        ],
+                        [
+                            -70.611524,
+                            -33.498231
+                        ],
+                        [
+                            -70.611723,
+                            -33.498246
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "TEMPLO",
+                "name": "Templo",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60737085629279,
+                            -33.49656144459051
+                        ],
+                        [
+                            -70.60701651165635,
+                            -33.497039084606385
+                        ],
+                        [
+                            -70.60724273438832,
+                            -33.49715005231191
+                        ],
+                        [
+                            -70.60756387895793,
+                            -33.496641879814185
+                        ],
+                        [
+                            -70.60737085629279,
+                            -33.49656144459051
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMC1LK7Q1VBKC8",
+                "name": "Servicios Administración Campus",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60829976093,
+                    -33.49795954224045
+                ]
+            },
+            "properties": {
+                "identifier": "MMC1J7YY4SPWRW",
+                "name": "Punto Limpio / SIBICO",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6074815282653,
+                    -33.49837112049183
+                ]
+            },
+            "properties": {
+                "identifier": "SPORTS_PLACE-23510688",
+                "name": "Piscina",
+                "information": "",
+                "categories": [
+                    "sports_place",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60977904400245,
+                    -33.50078610091318
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-32764405",
+                "name": "PENTA UC",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61114428512911,
+                    -33.49785956186872
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-32305352",
+                "name": "Pastoral UC",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61318693749489,
+                    -33.500789937775814
+                ]
+            },
+            "properties": {
+                "identifier": "METROLOGIA",
+                "name": "DICTUC - Metrología",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61265142702489,
+                    -33.49624207492392
+                ]
+            },
+            "properties": {
+                "identifier": "MEN5BTLXABMZ6E",
+                "name": "Huerto San Francisco",
+                "information": "# Huerto San Francisco\n\nEspacio de aprendizaje y cuidado de la naturaleza",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.612336,
+                            -33.498908
+                        ],
+                        [
+                            -70.611879,
+                            -33.499037
+                        ],
+                        [
+                            -70.611889,
+                            -33.499108
+                        ],
+                        [
+                            -70.611868,
+                            -33.499316
+                        ],
+                        [
+                            -70.61225,
+                            -33.499349
+                        ],
+                        [
+                            -70.612374,
+                            -33.499161
+                        ],
+                        [
+                            -70.612388,
+                            -33.499037
+                        ],
+                        [
+                            -70.612336,
+                            -33.498908
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "LA_Y",
+                "name": "Centro Desarrollo Docente",
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60930437487264,
+                    -33.501126964089664
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-32764370",
+                "name": "Jardín infantil",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6135930493474,
+                            -33.497798977969616
+                        ],
+                        [
+                            -70.61343211680651,
+                            -33.497819108383716
+                        ],
+                        [
+                            -70.61342105269432,
+                            -33.497880058775635
+                        ],
+                        [
+                            -70.61321083456278,
+                            -33.49790102793725
+                        ],
+                        [
+                            -70.61317294836044,
+                            -33.497616126493845
+                        ],
+                        [
+                            -70.61305090785027,
+                            -33.49760606126378
+                        ],
+                        [
+                            -70.61299290508032,
+                            -33.49816887358147
+                        ],
+                        [
+                            -70.61353504657745,
+                            -33.49820186495005
+                        ],
+                        [
+                            -70.6135930493474,
+                            -33.497798977969616
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "HALL_SJ",
+                "name": "Hall Universitario",
+                "information": "Administración del Campus\n\nDARA\n\nDASE\n\nServicio de Salud y Dental",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60746329342221,
+                            -33.500549740747694
+                        ],
+                        [
+                            -70.60757181877132,
+                            -33.50141330052679
+                        ],
+                        [
+                            -70.60809310851972,
+                            -33.501239047466115
+                        ],
+                        [
+                            -70.60795844297701,
+                            -33.500527424480865
+                        ],
+                        [
+                            -70.60746329342221,
+                            -33.500549740747694
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMC18XOIIMSXZO",
+                "name": "Gimnasios",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ],
+                        [
+                            -70.61515802687313,
+                            -33.499533045497266
+                        ],
+                        [
+                            -70.61489626765251,
+                            -33.49947481891747
+                        ],
+                        [
+                            -70.61496062195494,
+                            -33.499309019902185
+                        ],
+                        [
+                            -70.61498568032937,
+                            -33.49922421389841
+                        ],
+                        [
+                            -70.61502269037888,
+                            -33.498939763257724
+                        ],
+                        [
+                            -70.61500580568352,
+                            -33.498940419616616
+                        ],
+                        [
+                            -70.6150153270649,
+                            -33.49890442509619
+                        ],
+                        [
+                            -70.61510026804,
+                            -33.49891842463834
+                        ],
+                        [
+                            -70.61513680396605,
+                            -33.498750380357635
+                        ],
+                        [
+                            -70.61514999328097,
+                            -33.49875023544604
+                        ],
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "SAN_AGUSTIN",
+                "name": "Edificio San Agustín",
+                "information": "Salas H",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61514489458392,
+                            -33.499599878387635
+                        ],
+                        [
+                            -70.61511484646746,
+                            -33.49973640837716
+                        ],
+                        [
+                            -70.61508678838865,
+                            -33.499870312392105
+                        ],
+                        [
+                            -70.61489804004334,
+                            -33.49983801765101
+                        ],
+                        [
+                            -70.6149157997142,
+                            -33.499757549623496
+                        ],
+                        [
+                            -70.61488442538547,
+                            -33.49975444199623
+                        ],
+                        [
+                            -70.61489208166078,
+                            -33.49966646927433
+                        ],
+                        [
+                            -70.61490184466436,
+                            -33.49958631393393
+                        ],
+                        [
+                            -70.61514489458392,
+                            -33.499599878387635
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MA77GCYP2PRJFG",
+                "name": "Edificio Hernán Briones",
+                "information": " | #  | Directorio |\n|----|---------------------|\n| 1 | Dirección de Investigación y Postgrado de Ingeniería |\n| 2 | Dirección de Investigación y Postgrado de Ingeniería |\n| 3 | CEDEUS, CIGIDEN |\n| 4 | Departamento de Ciencias de la Computación |",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026066623343,
+                    -33.50066878367158
+                ]
+            },
+            "properties": {
+                "identifier": "MKFKX5BWTZT6BX",
+                "name": "Edificio Docente",
+                "information": "Salas CS",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60743708727045,
+                    -33.497409535622786
+                ]
+            },
+            "properties": {
+                "identifier": "DECON",
+                "name": "DiCTUC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "laboratory",
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60791530249031,
+                    -33.49664246884663
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-32306491",
+                "name": "DECON",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61045486479998,
+                            -33.49695796982004
+                        ],
+                        [
+                            -70.61008706688881,
+                            -33.496926935120996
+                        ],
+                        [
+                            -70.61006896197796,
+                            -33.49709413093578
+                        ],
+                        [
+                            -70.61042804270983,
+                            -33.49713299413076
+                        ],
+                        [
+                            -70.61045486479998,
+                            -33.49695796982004
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CENTRODEMEDICIMIDEUC",
+                "name": "Centro de Medición MIDE UC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61546305194497,
+                            -33.49769357280825
+                        ],
+                        [
+                            -70.61521796509624,
+                            -33.497659183298126
+                        ],
+                        [
+                            -70.61512257903814,
+                            -33.49764114976907
+                        ],
+                        [
+                            -70.61508905142546,
+                            -33.49763779469349
+                        ],
+                        [
+                            -70.6150109320879,
+                            -33.49796924757455
+                        ],
+                        [
+                            -70.61517907306552,
+                            -33.49797358119724
+                        ],
+                        [
+                            -70.61515375971794,
+                            -33.498058576075735
+                        ],
+                        [
+                            -70.61521980911493,
+                            -33.49806514640003
+                        ],
+                        [
+                            -70.6152424402535,
+                            -33.49798294741327
+                        ],
+                        [
+                            -70.61550898477435,
+                            -33.49801789597161
+                        ],
+                        [
+                            -70.61552155762911,
+                            -33.497968269014564
+                        ],
+                        [
+                            -70.61542298644781,
+                            -33.497955687527984
+                        ],
+                        [
+                            -70.61546305194497,
+                            -33.49769357280825
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CDI",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61503552934835,
+                            -33.497545255512634
+                        ],
+                        [
+                            -70.61496407192341,
+                            -33.497827386452265
+                        ],
+                        [
+                            -70.61508339798314,
+                            -33.4978471479893
+                        ],
+                        [
+                            -70.6150539185955,
+                            -33.4980231687711
+                        ],
+                        [
+                            -70.61509809097231,
+                            -33.49803213955107
+                        ],
+                        [
+                            -70.61511750292458,
+                            -33.49796341229003
+                        ],
+                        [
+                            -70.61553355963086,
+                            -33.498027859611234
+                        ],
+                        [
+                            -70.61554515180934,
+                            -33.497989707489396
+                        ],
+                        [
+                            -70.61545830816054,
+                            -33.49797059405427
+                        ],
+                        [
+                            -70.6154927525518,
+                            -33.49779616865263
+                        ],
+                        [
+                            -70.61551182605814,
+                            -33.49779622831188
+                        ],
+                        [
+                            -70.61553318301556,
+                            -33.49768893945579
+                        ],
+                        [
+                            -70.6152649227342,
+                            -33.49764355594119
+                        ],
+                        [
+                            -70.61525154745587,
+                            -33.497707699301586
+                        ],
+                        [
+                            -70.61520270012393,
+                            -33.49769840422836
+                        ],
+                        [
+                            -70.61522912940465,
+                            -33.49757352058909
+                        ],
+                        [
+                            -70.61503552934835,
+                            -33.497545255512634
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZP0HJO7M1TO",
+                "name": "Centro de Innovación UC Anacleto Angelini",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6119811150661,
+                            -33.49898732537561
+                        ],
+                        [
+                            -70.61194003589013,
+                            -33.49928519813425
+                        ],
+                        [
+                            -70.61224415862362,
+                            -33.499305028872655
+                        ],
+                        [
+                            -70.61227336029329,
+                            -33.49900484928583
+                        ],
+                        [
+                            -70.6119811150661,
+                            -33.49898732537561
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZG6JOVZC4US",
+                "name": "Centro de Desarrollo Docente CDDoc",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60931149304258,
+                            -33.499634152334345
+                        ],
+                        [
+                            -70.60927883870005,
+                            -33.49987676680085
+                        ],
+                        [
+                            -70.60963681625758,
+                            -33.499914144648905
+                        ],
+                        [
+                            -70.60967693984225,
+                            -33.499660232733376
+                        ],
+                        [
+                            -70.60931149304258,
+                            -33.499634152334345
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZDO0JMAZVV5",
+                "name": "Casino Pérgola",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61363963985413,
+                            -33.49890642118775
+                        ],
+                        [
+                            -70.61360944328433,
+                            -33.4990878029681
+                        ],
+                        [
+                            -70.61433972269214,
+                            -33.49914699821704
+                        ],
+                        [
+                            -70.6143595030689,
+                            -33.49896101909288
+                        ],
+                        [
+                            -70.61363963985413,
+                            -33.49890642118775
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZA2IRXAGEN1",
+                "name": "Salas E",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61367039856962,
+                            -33.498758029307666
+                        ],
+                        [
+                            -70.61364827890651,
+                            -33.498896247457125
+                        ],
+                        [
+                            -70.61435573932128,
+                            -33.49895578965581
+                        ],
+                        [
+                            -70.61437168623326,
+                            -33.498790397068525
+                        ],
+                        [
+                            -70.61367039856962,
+                            -33.498758029307666
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZ8CT3XV4D4E",
+                "name": "Aulas Parque",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61314809352633,
+                    -33.50039089238585
+                ]
+            },
+            "properties": {
+                "identifier": "B12",
+                "name": "B12",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61002037090576,
+                    -33.49743344585913
+                ]
+            },
+            "properties": {
+                "identifier": "M2-SJ",
+                "name": "Algebra y Geometria (Catedra)",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61130970268061,
+                    -33.497060048720044
+                ]
+            },
+            "properties": {
+                "identifier": "AE107-SJ",
+                "name": "AE107",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61244859110168,
+                    -33.50025825472751
+                ]
+            },
+            "properties": {
+                "identifier": "A1",
+                "name": "A1",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61023376930646,
+                    -33.49643531629176
+                ]
+            },
+            "properties": {
+                "identifier": "AP601-SJ",
+                "name": "AP303",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61020027054272,
+                    -33.49671548811
+                ]
+            },
+            "properties": {
+                "identifier": "AP303-SJ",
+                "name": "Filosofía ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -72.22561291563085,
