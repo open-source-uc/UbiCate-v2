@@ -22166,26 +22166,27 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_TEO",
-                "name": "Biblioteca de Teología",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "TTF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610826,
                     -33.497838
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_TEO",
+                "name": "Biblioteca de Teología",
+                "information": "",
+                "categories": [
+                    "library",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
                 ]
             }
         },
