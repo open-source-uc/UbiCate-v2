@@ -23307,27 +23307,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DICTUC_SA",
-                "name": "DICTUD",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61497,
                     -33.498952
                 ]
+            },
+            "properties": {
+                "identifier": "DICTUC_SA",
+                "name": "Dictuc",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
