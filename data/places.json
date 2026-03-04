@@ -16615,25 +16615,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AP601-SJ",
-                "name": "AP601",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    6
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61023376930646,
                     -33.49643531629176
                 ]
+            },
+            "properties": {
+                "identifier": "AP601-SJ",
+                "name": "AP303",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    6
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
