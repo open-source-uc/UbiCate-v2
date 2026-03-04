@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61314809352633,
+                    -33.50039089238585
+                ]
+            },
+            "properties": {
+                "identifier": "B12",
+                "name": "B12",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61002037090576,
                     -33.49743344585913
                 ]
