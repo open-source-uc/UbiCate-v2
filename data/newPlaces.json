@@ -33,32 +33,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61084173626253,
-                    -33.499861881010645
-                ]
-            },
-            "properties": {
-                "identifier": "MMC4FVVKRFXFQP",
-                "name": "Biblioteca Gauss",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "MAT"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6398774405061,
                     -33.441062830644185
                 ]
