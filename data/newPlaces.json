@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.61888860957438,
+                            -33.41950488336829
+                        ],
+                        [
+                            -70.61838254595136,
+                            -33.419026171936906
+                        ],
+                        [
+                            -70.61846161839249,
+                            -33.418969852771404
+                        ],
+                        [
+                            -70.61896873631454,
+                            -33.41944856451329
+                        ],
+                        [
+                            -70.61888860957438,
+                            -33.41950488336829
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEV5TYEV1Q2C",
+                "name": "Edificio FADEU",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61854208535678,
                             -33.419820810289586
                         ],
