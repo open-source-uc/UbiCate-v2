@@ -7421,25 +7421,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PARKING-7",
-                "name": "Est. Subterraneo Centro de innovación",
-                "campus": "SJ",
-                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
-                "categories": [
-                    "parking"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61532261345947,
                     -33.4975513178705
                 ]
+            },
+            "properties": {
+                "identifier": "PARKING-7",
+                "name": "Est. Subterráneo Centro de innovación",
+                "information": "### Tarifas año academico 2024\n- **[Ver tarifas 2024 San Joaquin](https://infraestructura.uc.cl/images/estacionamientos/Estacionamiento_SJ_2024.png)**",
+                "categories": [
+                    "parking"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
