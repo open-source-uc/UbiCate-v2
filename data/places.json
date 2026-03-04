@@ -2068,29 +2068,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61185688360676,
-                    -33.50022017804305
-                ]
-            },
-            "properties": {
-                "identifier": "MKFKHEVH2IICCM",
-                "name": "Edificio de Ciencia y Tecnología",
-                "information": "Piso -1 y -2: Estacionamiento. Piso 1: Meson UC, Casino. Piso 2: Salas K 200 a K 204. Piso 3: Salas K 300 a K 307, Laboratorio K 306, Sala de Ayudantes. Piso 4: Laboratorios. Piso 5 : Laboratorios. Piso 6: Laboratorios. Piso 7: Instituto de Ingeniería Biológica y Médica.",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    7
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
