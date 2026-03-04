@@ -159,12 +159,12 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
         const granted = permissionState === "granted";
         setPermissionGranted(granted);
         if (!granted) {
-          setError("Permisos de orientación denegados");
+          setError("Debes activar la geolocalización");
         }
         return granted;
       } catch (error) {
         console.error("Failed to request orientation permission:", error);
-        setError("Error al solicitar permisos de orientación");
+        setError("Debes activar la geolocalización");
         return false;
       }
     }
