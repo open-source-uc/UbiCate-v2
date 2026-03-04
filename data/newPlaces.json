@@ -4,6 +4,48 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61367039856962,
+                            -33.498758029307666
+                        ],
+                        [
+                            -70.61364827890651,
+                            -33.498896247457125
+                        ],
+                        [
+                            -70.61435573932128,
+                            -33.49895578965581
+                        ],
+                        [
+                            -70.61437168623326,
+                            -33.498790397068525
+                        ],
+                        [
+                            -70.61367039856962,
+                            -33.498758029307666
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZ8CT3XV4D4E",
+                "name": "Aulas Parque",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61314809352633,
