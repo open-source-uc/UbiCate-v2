@@ -123,30 +123,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61026066623343,
-                    -33.50066878367158
-                ]
-            },
-            "properties": {
-                "identifier": "MKFKX5BWTZT6BX",
-                "name": "Edificio Docente",
-                "information": "Salas CS",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61314809352633,
                     -33.50039089238585
                 ]
