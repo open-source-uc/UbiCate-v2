@@ -223,30 +223,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.640507,
-                    -33.440524
-                ]
-            },
-            "properties": {
-                "identifier": "PREUC_CC",
-                "name": "Preuniversitario UC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59361295435909,
                     -33.445567692675795
                 ]
