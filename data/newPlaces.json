@@ -78,30 +78,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.594013392677,
-                    -33.4462549732888
-                ]
-            },
-            "properties": {
-                "identifier": "MMAX8P8OE9ZDHS",
-                "name": "Patio La Novia",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.5944157240301,
                     -33.44611845251142
                 ]
