@@ -11896,26 +11896,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "B12",
-                "name": "B12",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61314809352633,
                     -33.50039089238585
+                ]
+            },
+            "properties": {
+                "identifier": "B12",
+                "name": "B12",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
             }
         },
