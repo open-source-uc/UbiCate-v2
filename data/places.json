@@ -29104,25 +29104,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "METROLOGIA",
-                "name": "DICTUC - Metrología",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61318693749489,
                     -33.500789937775814
                 ]
+            },
+            "properties": {
+                "identifier": "METROLOGIA",
+                "name": "DICTUC - Metrología",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
