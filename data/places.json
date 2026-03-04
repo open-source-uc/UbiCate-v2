@@ -4,6 +4,56 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60986849796987,
+                    -33.49842595999158
+                ]
+            },
+            "properties": {
+                "identifier": "MMC4DP4RN27HR5",
+                "name": "Biblioteca Escolar Futuro",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60977136281271,
+                    -33.498336071575494
+                ]
+            },
+            "properties": {
+                "identifier": "MMC4D6BZ5YNBHW",
+                "name": "Biblioteca San Joaquín",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
@@ -785,7 +835,7 @@
             },
             "properties": {
                 "identifier": "ML6TC7H22ACSV6",
-                "name": "MESON UC HALL",
+                "name": "Mesón UC",
                 "information": "",
                 "categories": [
                     "food_lunch"
@@ -16789,25 +16839,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AP603-SJ",
-                "name": "AP603",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    6
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61020976203345,
                     -33.49666370443487
                 ]
+            },
+            "properties": {
+                "identifier": "AP603-SJ",
+                "name": "NT203",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -22102,7 +22152,8 @@
                 "name": "Biblioteca Gauss",
                 "information": "",
                 "categories": [
-                    "library"
+                    "library",
+                    "faculty"
                 ],
                 "floors": [
                     1
@@ -22115,26 +22166,27 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_TEO",
-                "name": "Biblioteca de Teología",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "TTF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610826,
                     -33.497838
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_TEO",
+                "name": "Biblioteca de Teología",
+                "information": "",
+                "categories": [
+                    "library",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
                 ]
             }
         },
