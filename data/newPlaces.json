@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61047967297347,
-                    -33.5005699993455
-                ]
-            },
-            "properties": {
-                "identifier": "CS201-SJ",
-                "name": "CS201",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59384093738508,
                     -33.445329648971445
                 ]
