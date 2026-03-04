@@ -223,30 +223,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59320336555481,
-                    -33.44579617310523
-                ]
-            },
-            "properties": {
-                "identifier": "MMAX7391VO7XNV",
-                "name": "Patio de Música",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59343889034992,
                     -33.44611346394334
                 ]
