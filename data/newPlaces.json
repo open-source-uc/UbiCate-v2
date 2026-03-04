@@ -1,29 +1,4 @@
 {
     "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.22561291563085,
-                    -39.277475839728545
-                ]
-            },
-            "properties": {
-                "identifier": "MJCWQOS9E57TXK",
-                "name": "Crisol Villarrica",
-                "information": "",
-                "categories": [
-                    "crisol"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        }
-    ]
+    "features": []
 }
