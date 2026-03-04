@@ -29941,16 +29941,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "COSJ",
-                "name": "Clínica Odontológica",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -29977,6 +29967,18 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "COSJ",
+                "name": "Clínica Odontológica",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
