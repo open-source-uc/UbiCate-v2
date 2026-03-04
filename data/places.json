@@ -9638,25 +9638,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-32764405",
-                "name": "PENTA UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60977904400245,
                     -33.50078610091318
                 ]
+            },
+            "properties": {
+                "identifier": "OTHER-32764405",
+                "name": "PENTA UC",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
