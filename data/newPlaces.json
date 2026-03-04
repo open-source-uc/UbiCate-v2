@@ -8,6 +8,81 @@
                 "coordinates": [
                     [
                         [
+                            -70.61546305194497,
+                            -33.49769357280825
+                        ],
+                        [
+                            -70.61521796509624,
+                            -33.497659183298126
+                        ],
+                        [
+                            -70.61512257903814,
+                            -33.49764114976907
+                        ],
+                        [
+                            -70.61508905142546,
+                            -33.49763779469349
+                        ],
+                        [
+                            -70.6150109320879,
+                            -33.49796924757455
+                        ],
+                        [
+                            -70.61517907306552,
+                            -33.49797358119724
+                        ],
+                        [
+                            -70.61515375971794,
+                            -33.498058576075735
+                        ],
+                        [
+                            -70.61521980911493,
+                            -33.49806514640003
+                        ],
+                        [
+                            -70.6152424402535,
+                            -33.49798294741327
+                        ],
+                        [
+                            -70.61550898477435,
+                            -33.49801789597161
+                        ],
+                        [
+                            -70.61552155762911,
+                            -33.497968269014564
+                        ],
+                        [
+                            -70.61542298644781,
+                            -33.497955687527984
+                        ],
+                        [
+                            -70.61546305194497,
+                            -33.49769357280825
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CDI",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61503552934835,
                             -33.497545255512634
                         ],
