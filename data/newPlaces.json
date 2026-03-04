@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61154597813618,
+                    -33.50274197826304
+                ]
+            },
+            "properties": {
+                "identifier": "MMC64K5NK7EJ5Q",
+                "name": "Las Colombianas",
+                "information": "Lugar de comida rápida popular por su cercanía y muy buena atención.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61497,
                     -33.498952
                 ]
