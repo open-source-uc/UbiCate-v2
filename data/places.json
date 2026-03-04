@@ -30755,42 +30755,44 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CENTRODEMEDICIMIDEUC",
-                "name": "Centro de Medición MIDE UC",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.610455,
-                            -33.496958
+                            -70.61045486479998,
+                            -33.49695796982004
                         ],
                         [
-                            -70.610428,
-                            -33.497133
+                            -70.61008706688881,
+                            -33.496926935120996
                         ],
                         [
-                            -70.610069,
-                            -33.497094
+                            -70.61006896197796,
+                            -33.49709413093578
                         ],
                         [
-                            -70.610087,
-                            -33.496927
+                            -70.61042804270983,
+                            -33.49713299413076
                         ],
                         [
-                            -70.610455,
-                            -33.496958
+                            -70.61045486479998,
+                            -33.49695796982004
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "CENTRODEMEDICIMIDEUC",
+                "name": "Centro de Medición MIDE UC",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
