@@ -26519,25 +26519,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PREUC_CC",
-                "name": "PREU UC",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640507,
                     -33.440524
                 ]
+            },
+            "properties": {
+                "identifier": "PREUC_CC",
+                "name": "Preuniversitario UC",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
