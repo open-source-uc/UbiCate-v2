@@ -9661,25 +9661,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-32764370",
-                "name": "Jardín infantil",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60930437487264,
                     -33.501126964089664
                 ]
+            },
+            "properties": {
+                "identifier": "OTHER-32764370",
+                "name": "Jardín infantil",
+                "information": "",
+                "categories": [
+                    "other",
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
