@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63969692140388,
+                    -33.44147703897787
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEHAXZQLXLG3",
+                "name": "Patio de Biología",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64009388833782,
                     -33.44103164259602
                 ]
