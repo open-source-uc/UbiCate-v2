@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -72.22169320498072,
+                            -39.27920517978155
+                        ],
+                        [
+                            -72.22207824986842,
+                            -39.27957333472009
+                        ],
+                        [
+                            -72.22232009207164,
+                            -39.27941399801069
+                        ],
+                        [
+                            -72.22191125443001,
+                            -39.279052468912845
+                        ],
+                        [
+                            -72.22169320498072,
+                            -39.27920517978155
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFM6HB8CR1ER",
+                "name": "Residencia Investigadores",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -72.22579115879957,
                             -39.27895129142419
                         ],
