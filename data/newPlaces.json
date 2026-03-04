@@ -4,6 +4,36 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63985,
+                    -33.441733
+                ]
+            },
+            "properties": {
+                "identifier": "B-201",
+                "name": "B-201",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    2,
+                    3,
+                    4
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
