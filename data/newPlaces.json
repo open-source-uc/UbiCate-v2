@@ -80,48 +80,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61378851532936,
-                            -33.50031104973965
-                        ],
-                        [
-                            -70.61382472515106,
-                            -33.4999738743921
-                        ],
-                        [
-                            -70.6135156005621,
-                            -33.49992354960072
-                        ],
-                        [
-                            -70.61347536742687,
-                            -33.500307694767535
-                        ],
-                        [
-                            -70.61378851532936,
-                            -33.50031104973965
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "PLV-012389",
-                "name": "Patio la Virgen",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -72.22554897690345,
