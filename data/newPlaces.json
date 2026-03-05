@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64144063747545,
+                    -33.441077943109356
+                ]
+            },
+            "properties": {
+                "identifier": "ML6U43LQXADXGC",
+                "name": "Abdón Cifuentes Espinoza",
+                "information": "San Felipe, 16 de mayo de 1836 – Santiago, 14 de abril de 1928.\nUna de las figuras católicas más importantes de Chile país en el siglo XIX y el principal precursor del voto femenino.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609898,
                     -33.498421
                 ]
