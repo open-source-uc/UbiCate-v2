@@ -14165,26 +14165,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60999989509583,
+                    -33.49758341449186
+                ]
+            },
             "properties": {
                 "identifier": "M1",
-                "name": "M1",
-                "campus": "SJ",
+                "name": "M1, Cálculo",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [
-                    "SOC"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60999984806563,
-                    -33.497583352718465
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
