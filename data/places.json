@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64040502458452,
+                    -33.441662806640345
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEI7313DVEB2",
+                "name": "Patio de Medicina",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64009388833782,
                     -33.44103164259602
                 ]
