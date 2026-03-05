@@ -17938,7 +17938,7 @@
             },
             "properties": {
                 "identifier": "AP603-SJ",
-                "name": "NT203",
+                "name": "T1220",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -17947,7 +17947,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
