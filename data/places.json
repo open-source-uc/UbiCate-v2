@@ -4,6 +4,29 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64211459011334,
+                    -33.44173607514116
+                ]
+            },
+            "properties": {
+                "identifier": "MMCELUX81H99S9",
+                "name": "Patio Alameda",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
