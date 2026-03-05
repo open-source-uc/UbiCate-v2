@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61021423518498,
+                    -33.49661725950944
+                ]
+            },
+            "properties": {
+                "identifier": "AP102-SJ",
+                "name": "Mi salita unica",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61416958323575,
                     -33.49900967725003
                 ]
