@@ -548,30 +548,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64211459011334,
-                    -33.44173607514116
-                ]
-            },
-            "properties": {
-                "identifier": "MMCELUX81H99S9",
-                "name": "Patio Alameda",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64044625610616,
                     -33.44074232625824
                 ]
