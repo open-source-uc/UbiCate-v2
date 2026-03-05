@@ -18694,24 +18694,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-26347017",
-                "name": "Templo Sagrado Corazón",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61157532445925,
                     -33.498228331597616
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-26347017",
+                "name": "Iglesia del Sagrado Corazón",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TEMPLO"
                 ]
             }
         },
