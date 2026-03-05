@@ -37314,10 +37314,10 @@
             },
             "properties": {
                 "identifier": "MCC8TXGGX0FGZC",
-                "name": "Sala Raúl Déves ",
-                "information": "Esto también es un auditorio",
+                "name": "Auditorio Raúl Déves ",
+                "information": "",
                 "categories": [
-                    "studyroom"
+                    "auditorium"
                 ],
                 "floors": [
                     1
