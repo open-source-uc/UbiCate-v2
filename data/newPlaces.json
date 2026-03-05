@@ -30,32 +30,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640317,
-                    -33.441325
-                ]
-            },
-            "properties": {
-                "identifier": "BIBLIO_DER_COM",
-                "name": "Biblioteca Derecho y Comunicaciones",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "floors": [
-                    -1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "MED"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
