@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64028029662262,
+                    -33.442592125219576
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKEIHQG5XAHG",
+                "name": "Escuela de Medicina UC",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609568,
                     -33.496895
                 ]
