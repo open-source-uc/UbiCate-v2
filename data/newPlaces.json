@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59388967857305,
+                    -33.445405313925484
+                ]
+            },
+            "properties": {
+                "identifier": "MMDN61X31XDRX2",
+                "name": "Patio Facultad",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609568,
                     -33.496895
                 ]
