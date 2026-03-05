@@ -4,6 +4,47 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6420509671135,
+                            -33.44149482499493
+                        ],
+                        [
+                            -70.64185091491257,
+                            -33.441347340061554
+                        ],
+                        [
+                            -70.64166640074586,
+                            -33.441764673153095
+                        ],
+                        [
+                            -70.64180332967979,
+                            -33.44179789764291
+                        ],
+                        [
+                            -70.6420509671135,
+                            -33.44149482499493
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKTLQ1EGJ0I5",
+                "name": "Edificio Alameda 406",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64211459011334,
