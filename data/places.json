@@ -23049,24 +23049,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_DER_COM",
-                "name": "Biblioteca Derecho y Comunicaciones",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640317,
                     -33.441325
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_DER_COM",
+                "name": "Biblioteca Derecho y Comunicaciones",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
