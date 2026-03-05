@@ -4,6 +4,29 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2255397685131,
+                    -39.27751406034376
+                ]
+            },
+            "properties": {
+                "identifier": "MMC7Y50DINIU85",
+                "name": "Museo Leandro Penchulef",
+                "information": "Espacio educativo para la valorización, rescate y preservación del patrimonio histórico cultural local; a través del encuentro, la reflexión e interacción en torno a la historia, memoria histórica, patrimonio cultural y situación actual de las relaciones chileno-mapuche.  ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
