@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64056766101247,
+                    -33.441248319427835
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEG6ZBSMDSSG",
+                "name": "Patio de Comunicaciones",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64082876129548,
                     -33.44101464569997
                 ]
