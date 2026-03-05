@@ -56,32 +56,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61010098084807,
-                    -33.497589984852226
-                ]
-            },
-            "properties": {
-                "identifier": "N13-A",
-                "name": "N13-A- Sala Filosofía ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22554897690345,
                     -39.27747812940465
                 ]
