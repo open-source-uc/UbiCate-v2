@@ -6,6 +6,886 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61808594081835,
+                    -33.418838673714006
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MADA-LC",
+                "name": "Sala MADA",
+                "information": "Sala de clases exclusiva del Magíster de Diseño Avanzado (MADA). Ubicada en el segundo piso del Edificio de Diseño dentro del Campus Lo Contador.",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64044766489212,
+                            -33.443212292400126
+                        ],
+                        [
+                            -70.63982036279603,
+                            -33.443308987153685
+                        ],
+                        [
+                            -70.6400691205235,
+                            -33.44362098815902
+                        ],
+                        [
+                            -70.64044766489212,
+                            -33.443212292400126
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKZSVDNWJFSF",
+                "name": "Escuela de Medicina",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056766101247,
+                    -33.441248319427835
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEG7QLRINJTM",
+                "name": "Patio de Comunicaciones",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64040502458452,
+                    -33.441662806640345
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEI7313DVEB2",
+                "name": "Patio de Medicina",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64009388833782,
+                    -33.44103164259602
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEGM7XGL5BRL",
+                "name": "Patio de Derecho",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056766101247,
+                    -33.441248319427835
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEG6ZBSMDSSG",
+                "name": "Patio de Comunicaciones",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64082876129548,
+                    -33.44101464569997
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEF9BRT1Y70K",
+                "name": "Patio Juan Pablo II",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63969692140388,
+                    -33.44147703897787
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEHAXZQLXLG3",
+                "name": "Patio de Biología",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64116650896597,
+                            -33.44092517443897
+                        ],
+                        [
+                            -70.64079704811583,
+                            -33.441293316420975
+                        ],
+                        [
+                            -70.6401511525767,
+                            -33.44084021661337
+                        ],
+                        [
+                            -70.63972420467837,
+                            -33.44130062446295
+                        ],
+                        [
+                            -70.63959502557056,
+                            -33.441216581942165
+                        ],
+                        [
+                            -70.64038980550492,
+                            -33.440376152260875
+                        ],
+                        [
+                            -70.64116650896597,
+                            -33.44092517443897
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKQ6662EGEJ8",
+                "name": "Edificio Casa Central",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64128925155642,
+                            -33.44244879404592
+                        ],
+                        [
+                            -70.64121383672993,
+                            -33.44265928007191
+                        ],
+                        [
+                            -70.64090060510492,
+                            -33.44254311452715
+                        ],
+                        [
+                            -70.64097150115147,
+                            -33.442371017138555
+                        ],
+                        [
+                            -70.64128925155642,
+                            -33.44244879404592
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDL1XC9UWDOTA",
+                "name": "Escuela de Medicina",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64169355142585,
+                            -33.441274680043165
+                        ],
+                        [
+                            -70.64145128954087,
+                            -33.441664678646895
+                        ],
+                        [
+                            -70.64086600197848,
+                            -33.44125142318994
+                        ],
+                        [
+                            -70.64119402028264,
+                            -33.440932982576875
+                        ],
+                        [
+                            -70.64169355142585,
+                            -33.441274680043165
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKMWIHOO9ICZ",
+                "name": "Centro de Extensión",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6420509671135,
+                            -33.44149482499493
+                        ],
+                        [
+                            -70.64185091491257,
+                            -33.441347340061554
+                        ],
+                        [
+                            -70.64166640074586,
+                            -33.441764673153095
+                        ],
+                        [
+                            -70.64180332967979,
+                            -33.44179789764291
+                        ],
+                        [
+                            -70.6420509671135,
+                            -33.44149482499493
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKTLQ1EGJ0I5",
+                "name": "Edificio Alameda 406",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64211459011334,
+                    -33.44173607514116
+                ]
+            },
+            "properties": {
+                "identifier": "MMCELUX81H99S9",
+                "name": "Patio Alameda",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64258042648771,
+                            -33.44183589427415
+                        ],
+                        [
+                            -70.64232956179785,
+                            -33.4417302107329
+                        ],
+                        [
+                            -70.64206138030366,
+                            -33.442003723059685
+                        ],
+                        [
+                            -70.64223830559477,
+                            -33.442151357195804
+                        ],
+                        [
+                            -70.64245434068731,
+                            -33.4420985197439
+                        ],
+                        [
+                            -70.64258042648771,
+                            -33.44183589427415
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDKS2N8D33OSU",
+                "name": "Edificio Patio Alameda 440",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22541104586506,
+                    -39.27754105181892
+                ]
+            },
+            "properties": {
+                "identifier": "MMC83C03WSZVD0",
+                "name": "Virgen del Lago",
+                "information": "Escultura de la Virgen María, creada por el destacado artista Claudio Di Girolamo, con la colaboración de sus hijos Francesco y Paolo, situada en el Complejo Interdisciplinario para el Desarrollo Sustentable Michel Duran ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2255397685131,
+                    -39.27751406034376
+                ]
+            },
+            "properties": {
+                "identifier": "MMC7Y50DINIU85",
+                "name": "Museo Leandro Penchulef",
+                "information": "Espacio educativo para la valorización, rescate y preservación del patrimonio histórico cultural local; a través del encuentro, la reflexión e interacción en torno a la historia, memoria histórica, patrimonio cultural y situación actual de las relaciones chileno-mapuche.  ",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -72.22520436817886,
+                            -39.27733283958483
+                        ],
+                        [
+                            -72.22487590030764,
+                            -39.277562296904755
+                        ],
+                        [
+                            -72.22461801111743,
+                            -39.2773192561184
+                        ],
+                        [
+                            -72.22494319616449,
+                            -39.27709097835358
+                        ],
+                        [
+                            -72.22520436817886,
+                            -39.27733283958483
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFOQY42FU55D",
+                "name": "Complejo Interdisciplinario Michel Durand Q.",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -72.22169320498072,
+                            -39.27920517978155
+                        ],
+                        [
+                            -72.22207824986842,
+                            -39.27957333472009
+                        ],
+                        [
+                            -72.22232009207164,
+                            -39.27941399801069
+                        ],
+                        [
+                            -72.22191125443001,
+                            -39.279052468912845
+                        ],
+                        [
+                            -72.22169320498072,
+                            -39.27920517978155
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFM6HB8CR1ER",
+                "name": "Residencia Investigadores",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -72.22589926801697,
+                            -39.27769319465211
+                        ],
+                        [
+                            -72.22568878784841,
+                            -39.277839978198756
+                        ],
+                        [
+                            -72.22535126109132,
+                            -39.27755668567709
+                        ],
+                        [
+                            -72.22556553369581,
+                            -39.27740696584977
+                        ],
+                        [
+                            -72.22589926801697,
+                            -39.27769319465211
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFI89E6QJW41",
+                "name": "Edificio Monseñor Paul Webering",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -72.22579115879957,
+                            -39.27895129142419
+                        ],
+                        [
+                            -72.2262282074207,
+                            -39.27863507204571
+                        ],
+                        [
+                            -72.22602545290539,
+                            -39.27846301090153
+                        ],
+                        [
+                            -72.22558540051328,
+                            -39.27878853162767
+                        ],
+                        [
+                            -72.22579115879957,
+                            -39.27895129142419
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFJX72X9U86D",
+                "name": "Polideportivo",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61802169022822,
+                    -33.41976686196242
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEP984GUGDCN",
+                "name": "Patio de los Naranjos",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61693733467729,
+                            -33.41877912489153
+                        ],
+                        [
+                            -70.61684949253706,
+                            -33.418845508258705
+                        ],
+                        [
+                            -70.61671172333783,
+                            -33.41872458815155
+                        ],
+                        [
+                            -70.61679670231267,
+                            -33.418659243880995
+                        ],
+                        [
+                            -70.61693733467729,
+                            -33.41877912489153
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCF1V17JU5574",
+                "name": "Doctorado en Arquitectura y Estudios Urbanos",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6171135098724,
+                            -33.41890208432456
+                        ],
+                        [
+                            -70.61698459899333,
+                            -33.41898245836528
+                        ],
+                        [
+                            -70.61694111098574,
+                            -33.41892282601915
+                        ],
+                        [
+                            -70.61687277268855,
+                            -33.418961716683526
+                        ],
+                        [
+                            -70.61680598753426,
+                            -33.418891713475375
+                        ],
+                        [
+                            -70.61691936698192,
+                            -33.41880356120542
+                        ],
+                        [
+                            -70.61697062070482,
+                            -33.4188489337083
+                        ],
+                        [
+                            -70.61701721499902,
+                            -33.41882171020945
+                        ],
+                        [
+                            -70.6171135098724,
+                            -33.41890208432456
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCF00V7GUQBUH",
+                "name": "Casa de Postgrado",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61854208535678,
+                            -33.419820810289586
+                        ],
+                        [
+                            -70.61802992515615,
+                            -33.420190520457815
+                        ],
+                        [
+                            -70.61751084387154,
+                            -33.41970720112027
+                        ],
+                        [
+                            -70.61801146893237,
+                            -33.419339414483424
+                        ],
+                        [
+                            -70.61854208535678,
+                            -33.419820810289586
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCERH5YS23HFL",
+                "name": "Casona",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61888860957438,
+                            -33.41950488336829
+                        ],
+                        [
+                            -70.61838254595136,
+                            -33.419026171936906
+                        ],
+                        [
+                            -70.61846161839249,
+                            -33.418969852771404
+                        ],
+                        [
+                            -70.61896873631454,
+                            -33.41944856451329
+                        ],
+                        [
+                            -70.61888860957438,
+                            -33.41950488336829
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEV5TYEV1Q2C",
+                "name": "Edificio FADEU",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59354465313659,
+                    -33.445617198226
+                ]
+            },
+            "properties": {
+                "identifier": "MMCCD2C89PH9YH",
+                "name": "Patio Biblioteca",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5944157240301,
                     -33.44611845251142
                 ]
@@ -544,47 +1424,6 @@
                 "coordinates": [
                     [
                         [
-                            -70.6119811150661,
-                            -33.49898732537561
-                        ],
-                        [
-                            -70.61194003589013,
-                            -33.49928519813425
-                        ],
-                        [
-                            -70.61224415862362,
-                            -33.499305028872655
-                        ],
-                        [
-                            -70.61227336029329,
-                            -33.49900484928583
-                        ],
-                        [
-                            -70.6119811150661,
-                            -33.49898732537561
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMBZG6JOVZC4US",
-                "name": "Centro de Desarrollo Docente CDDoc",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
                             -70.61367039856962,
                             -33.498758029307666
                         ],
@@ -1086,8 +1925,8 @@
             },
             "properties": {
                 "identifier": "ML6U43LQXADXGC",
-                "name": "Abdón Cifuentes Espinoza (San Felipe, 16 de mayo de 1836 – Santiago, 14 de abril de 1928)",
-                "information": "Una de las figuras católicas más importantes de Chile país en el siglo XIX y el principal precursor del voto femenino.",
+                "name": "Abdón Cifuentes Espinoza",
+                "information": "San Felipe, 16 de mayo de 1836 – Santiago, 14 de abril de 1928.\nUna de las figuras católicas más importantes de Chile país en el siglo XIX y el principal precursor del voto femenino.",
                 "categories": [
                     "culture"
                 ],
@@ -5234,7 +6073,7 @@
             },
             "properties": {
                 "identifier": "MIT1OVU52AOKVN",
-                "name": "Patio de la virgen",
+                "name": "Patio de la Virgen",
                 "information": "",
                 "categories": [
                     "yard"
@@ -20685,26 +21524,30 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "B-201",
-                "name": "B-201",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "BIO"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.63985,
                     -33.441733
+                ]
+            },
+            "properties": {
+                "identifier": "B-201",
+                "name": "B-201",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    2,
+                    3,
+                    4
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
@@ -22247,47 +23090,51 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_BIOMED",
-                "name": "Biblioteca Biomédica",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640322,
                     -33.441312
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "BIBLIO_DER_COM",
-                "name": "Biblioteca Derecho y Comunicaciones",
-                "campus": "CC",
+                "identifier": "BIBLIO_BIOMED",
+                "name": "Biblioteca Biomédica",
                 "information": "",
                 "categories": [
                     "library"
                 ],
-                "faculties": [],
                 "floors": [
-                    1
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
-            },
+            }
+        },
+        {
+            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640317,
                     -33.441325
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_DER_COM",
+                "name": "Biblioteca Derecho y Comunicaciones",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MED"
                 ]
             }
         },
@@ -22341,26 +23188,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_CS",
-                "name": "Biblioteca de Ciencias Sociales",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609898,
                     -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_CS",
+                "name": "Biblioteca Central",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -26807,7 +27654,7 @@
             },
             "properties": {
                 "identifier": "PATIOSUB_SA",
-                "name": "Patio Subterraneo",
+                "name": "Patio Subterráneo",
                 "information": "",
                 "categories": [
                     "yard"
@@ -32236,16 +33083,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PCC-123",
-                "name": "Patio de comercial",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -32272,6 +33109,17 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "PCC-123",
+                "name": "Patio de Comercial",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
@@ -36467,10 +37315,10 @@
             },
             "properties": {
                 "identifier": "MCC8TXGGX0FGZC",
-                "name": "Sala Raúl Déves ",
-                "information": "Esto también es un auditorio",
+                "name": "Auditorio Raúl Déves ",
+                "information": "",
                 "categories": [
-                    "studyroom"
+                    "auditorium"
                 ],
                 "floors": [
                     1
@@ -36556,14 +37404,14 @@
             },
             "properties": {
                 "identifier": "MCGGBOXX0R023G",
-                "name": "Patio humanidades",
-                "campus": "SJ",
+                "name": "Patio Humanidades",
                 "information": "",
                 "categories": [
                     "yard"
                 ],
-                "faculties": [],
-                "floors": []
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
