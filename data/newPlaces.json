@@ -574,30 +574,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64082876129548,
-                    -33.44101464569997
-                ]
-            },
-            "properties": {
-                "identifier": "MMCEF9BRT1Y70K",
-                "name": "Patio Juan Pablo II",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61396052500996,
                     -33.49702698144406
                 ]
