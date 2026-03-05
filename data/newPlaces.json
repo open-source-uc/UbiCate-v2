@@ -188,48 +188,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.64169355142585,
-                            -33.441274680043165
-                        ],
-                        [
-                            -70.64145128954087,
-                            -33.441664678646895
-                        ],
-                        [
-                            -70.64086600197848,
-                            -33.44125142318994
-                        ],
-                        [
-                            -70.64119402028264,
-                            -33.440932982576875
-                        ],
-                        [
-                            -70.64169355142585,
-                            -33.441274680043165
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMDKMWIHOO9ICZ",
-                "name": "Centro de Extensión",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64028029662262,
