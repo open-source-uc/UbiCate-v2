@@ -502,30 +502,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64009388833782,
-                    -33.44103164259602
-                ]
-            },
-            "properties": {
-                "identifier": "MMCEGM7XGL5BRL",
-                "name": "Patio de Derecho",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64056766101247,
                     -33.441248319427835
                 ]
