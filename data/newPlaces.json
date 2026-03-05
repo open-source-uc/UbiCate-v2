@@ -972,30 +972,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -72.22541104586506,
-                    -39.27754105181892
-                ]
-            },
-            "properties": {
-                "identifier": "MMC83C03WSZVD0",
-                "name": "Virgen del Lago",
-                "information": "Escultura de la Virgen María, creada por el destacado artista Claudio Di Girolamo, con la colaboración de sus hijos Francesco y Paolo, situada en el Complejo Interdisciplinario para el Desarrollo Sustentable Michel Duran ",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22554897690345,
                     -39.27747812940465
                 ]
