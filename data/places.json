@@ -23188,26 +23188,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "BIBLIO_CS",
-                "name": "Biblioteca de Ciencias Sociales",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609898,
                     -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_CS",
+                "name": "Biblioteca Central",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
