@@ -604,48 +604,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -72.22589926801697,
-                            -39.27769319465211
-                        ],
-                        [
-                            -72.22568878784841,
-                            -39.277839978198756
-                        ],
-                        [
-                            -72.22535126109132,
-                            -39.27755668567709
-                        ],
-                        [
-                            -72.22556553369581,
-                            -39.27740696584977
-                        ],
-                        [
-                            -72.22589926801697,
-                            -39.27769319465211
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMCFI89E6QJW41",
-                "name": "Edificio Monseñor Paul Webering",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.63985,
