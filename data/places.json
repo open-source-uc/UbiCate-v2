@@ -4,6 +4,31 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61808594081835,
+                    -33.418838673714006
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MADA-LC",
+                "name": "Sala MADA",
+                "information": "Sala de clases exclusiva del Magíster de Diseño Avanzado (MADA). Ubicada en el segundo piso del Edificio de Diseño dentro del Campus Lo Contador.",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
