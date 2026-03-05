@@ -56,13 +56,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610101,
-                    -33.49759
+                    -70.61010098084807,
+                    -33.497589984852226
                 ]
             },
             "properties": {
                 "identifier": "N13-A",
-                "name": "N13-A- sala filosofía ",
+                "name": "N13-A- Sala Filosofía ",
                 "information": "",
                 "categories": [
                     "classroom"
