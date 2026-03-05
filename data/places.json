@@ -8,6 +8,47 @@
                 "coordinates": [
                     [
                         [
+                            -72.22520436817886,
+                            -39.27733283958483
+                        ],
+                        [
+                            -72.22487590030764,
+                            -39.277562296904755
+                        ],
+                        [
+                            -72.22461801111743,
+                            -39.2773192561184
+                        ],
+                        [
+                            -72.22494319616449,
+                            -39.27709097835358
+                        ],
+                        [
+                            -72.22520436817886,
+                            -39.27733283958483
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMCFOQY42FU55D",
+                "name": "Complejo Interdisciplinario Michel Durand Q.",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "VR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -72.22169320498072,
                             -39.27920517978155
                         ],
