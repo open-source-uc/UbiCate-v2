@@ -368,30 +368,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64044625610616,
-                    -33.44074232625824
-                ]
-            },
-            "properties": {
-                "identifier": "MIT1OVU52AOKVN",
-                "name": "Patio de la Virgen",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
