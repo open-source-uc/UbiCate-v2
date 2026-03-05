@@ -33083,16 +33083,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PCC-123",
-                "name": "Patio de comercial",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -33119,6 +33109,17 @@
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "PCC-123",
+                "name": "Patio de Comercial",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
