@@ -8,6 +8,48 @@
                 "coordinates": [
                     [
                         [
+                            -70.64128925155642,
+                            -33.44244879404592
+                        ],
+                        [
+                            -70.64121383672993,
+                            -33.44265928007191
+                        ],
+                        [
+                            -70.64090060510492,
+                            -33.44254311452715
+                        ],
+                        [
+                            -70.64097150115147,
+                            -33.442371017138555
+                        ],
+                        [
+                            -70.64128925155642,
+                            -33.44244879404592
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMDL1XC9UWDOTA",
+                "name": "Escuela de Medicina",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.64044766489212,
                             -33.443212292400126
                         ],
