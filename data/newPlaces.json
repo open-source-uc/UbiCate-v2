@@ -1348,30 +1348,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59354465313659,
-                    -33.445617198226
-                ]
-            },
-            "properties": {
-                "identifier": "MMCCD2C89PH9YH",
-                "name": "Patio Biblioteca",
-                "information": "",
-                "categories": [
-                    "yard"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22541104586506,
                     -39.27754105181892
                 ]
