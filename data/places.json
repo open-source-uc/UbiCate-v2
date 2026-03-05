@@ -37404,14 +37404,14 @@
             },
             "properties": {
                 "identifier": "MCGGBOXX0R023G",
-                "name": "Patio humanidades",
-                "campus": "SJ",
+                "name": "Patio Humanidades",
                 "information": "",
                 "categories": [
                     "yard"
                 ],
-                "faculties": [],
-                "floors": []
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
