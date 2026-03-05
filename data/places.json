@@ -4,6 +4,29 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61802169022822,
+                    -33.41976686196242
+                ]
+            },
+            "properties": {
+                "identifier": "MMCEP984GUGDCN",
+                "name": "Patio de los Naranjos",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
