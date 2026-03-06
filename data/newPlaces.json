@@ -4,48 +4,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.59417990627381,
-                            -33.44679104604232
-                        ],
-                        [
-                            -70.59423303140416,
-                            -33.44685811045534
-                        ],
-                        [
-                            -70.59415737891415,
-                            -33.44689657677996
-                        ],
-                        [
-                            -70.59410773196745,
-                            -33.44683246622872
-                        ],
-                        [
-                            -70.59417990627381,
-                            -33.44679104604232
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMEV02IWBX2HVC",
-                "name": "Casa Coro",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61021423518498,
