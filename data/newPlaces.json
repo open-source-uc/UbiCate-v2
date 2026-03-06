@@ -290,32 +290,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64076321098214,
-                    -33.44075597028451
-                ]
-            },
-            "properties": {
-                "identifier": "CAPELLAN_CC",
-                "name": "Capellán Hall Universitario",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "MMDKQ6662EGEJ8"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
