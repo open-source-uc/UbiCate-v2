@@ -28027,13 +28027,15 @@
                 "name": "Preuniversitario UC",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "faculty"
                 ],
                 "floors": [
                     1
                 ],
                 "campus": "CC",
-                "faculties": []
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
             }
         },
         {
