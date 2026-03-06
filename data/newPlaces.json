@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64012741543854,
+                    -33.44079127807786
+                ]
+            },
+            "properties": {
+                "identifier": "MMF6Y9KX66Q0YP",
+                "name": "Dirección Superior",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6101810885564,
                     -33.49681024416349
                 ]
