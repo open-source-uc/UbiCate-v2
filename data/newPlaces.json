@@ -136,48 +136,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.59335971656188,
-                            -33.4463658073614
-                        ],
-                        [
-                            -70.59357057921514,
-                            -33.44664916973581
-                        ],
-                        [
-                            -70.593430743982,
-                            -33.446723251249445
-                        ],
-                        [
-                            -70.59321988132876,
-                            -33.446438037074195
-                        ],
-                        [
-                            -70.59335971656188,
-                            -33.4463658073614
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMEUVWEQSKO13F",
-                "name": "English UC",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61021423518498,
