@@ -85,6 +85,24 @@ export async function githubFileOperation(
   }
 }
 
+// Obtener contenido de un blob grande vía Git Blobs API
+async function fetchGithubBlob(sha: string): Promise<string> {
+  const blobUrl = `https://api.github.com/repos/open-source-uc/UbiCate-v2/git/blobs/${sha}`;
+  const response = await fetch(blobUrl, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN_USER}`,
+      Accept: "application/vnd.github+json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Error fetching blob ${sha}: ${response.status} ${response.statusText}`);
+  }
+
+  const blobData: any = await response.json();
+  return Buffer.from(blobData.content, "base64").toString();
+}
+
 // Función mejorada para obtener archivo de GitHub
 export async function fetchGithubFile(path: string): Promise<GithubFileResponse> {
   const url = `https://api.github.com/repos/open-source-uc/UbiCate-v2/contents/${path}?ref=${GITHUB_BRANCH_NAME}`;
@@ -112,7 +130,18 @@ export async function fetchGithubFile(path: string): Promise<GithubFileResponse>
     let parsedData: Places;
 
     try {
-      parsedData = JSON.parse(Buffer.from(fileData.content, "base64").toString());
+      let jsonString: string;
+
+      // Si el archivo es grande (>1MB), la API Contents no incluye el contenido.
+      // En ese caso usamos la Git Blobs API con el SHA del archivo.
+      if (!fileData.content || fileData.encoding === "none") {
+        console.log(`File ${path} is too large for Contents API (sha: ${fileData.sha}). Using Blobs API.`);
+        jsonString = await fetchGithubBlob(fileData.sha);
+      } else {
+        jsonString = Buffer.from(fileData.content, "base64").toString();
+      }
+
+      parsedData = JSON.parse(jsonString);
 
       // Validar la estructura básica del archivo
       if (!parsedData.type || !Array.isArray(parsedData.features)) {

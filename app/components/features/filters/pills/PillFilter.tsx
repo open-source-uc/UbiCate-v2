@@ -19,18 +19,22 @@ const pills: Array<CategoryFilter> = [
   { title: "Facultades, Escuelas, Institutos y otros edificios", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
   { title: "Salas de clases", icon: <Icons.School />, filter: CATEGORIES.CLASSROOM },
   { title: "Salas de estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
+  { title: "Salas Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
-  { title: "Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
+  { title: "Laboratorios", icon: <Icons.Biotech />, filter: CATEGORIES.LABORATORY },
   { title: "Bibliotecas", icon: <Icons.Library />, filter: CATEGORIES.LIBRARY },
-  { title: "Impresoras", icon: <Icons.Print />, filter: CATEGORIES.PHOTOCOPY },
+  { title: "Impresoras / Fotocopias", icon: <Icons.Print />, filter: CATEGORIES.PHOTOCOPY },
   { title: "Deportes", icon: <Icons.Sport />, filter: CATEGORIES.SPORTS_PLACE },
   { title: "Baños", icon: <Icons.Wc />, filter: CATEGORIES.BATH },
-  { title: "Comida", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
   { title: "Agua", icon: <Icons.Water />, filter: CATEGORIES.WATER },
-  { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
-  { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
-  { title: "Bicicletas", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
+  { title: "Comida / Mesón UC", icon: <Icons.Restaurant />, filter: CATEGORIES.FOOD_LUNCH },
+  { title: "Puntos Limpios", icon: <Icons.Recycling />, filter: CATEGORIES.TRASH },
   { title: "Tiendas", icon: <Icons.Shop />, filter: CATEGORIES.SHOP },
+  { title: "Bancos / Cajeros", icon: <Icons.Money />, filter: CATEGORIES.FINANCIAL },
+  { title: "Oficinas", icon: <Icons.Domain />, filter: CATEGORIES.OFFICES },
+  { title: "Bicicleteros", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
+  { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
+  { title: "Cultura", icon: <Icons.Palette />, filter: CATEGORIES.CULTURE },
 ];
 
 function PillFilter() {
@@ -85,10 +89,12 @@ function PillFilter() {
 
       let newActiveFilters: string[];
 
+      // Single-selection behavior: selecting an active category deselects it,
+      // selecting a different category replaces the previous selection.
       if (activeFilters.includes(category)) {
         newActiveFilters = activeFilters.filter((f) => f !== category);
       } else {
-        newActiveFilters = [...activeFilters, category];
+        newActiveFilters = [category];
       }
 
       setActiveFilters(newActiveFilters);

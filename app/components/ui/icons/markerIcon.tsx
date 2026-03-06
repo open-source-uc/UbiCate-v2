@@ -15,7 +15,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.FACULTY]: Icons.School,
   [CATEGORIES.FINANCIAL]: Icons.Money,
   [CATEGORIES.FOOD_LUNCH]: Icons.Restaurant,
-  [CATEGORIES.LABORATORY]: Icons.Default,
+  [CATEGORIES.LABORATORY]: Icons.Biotech,
   [CATEGORIES.OTHER]: Icons.Default,
   [CATEGORIES.PARK_BICYCLE]: Icons.Bike,
   [CATEGORIES.PARKING]: Icons.Parking,
@@ -24,11 +24,13 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.SHOP]: Icons.Shop,
   [CATEGORIES.SPORTS_PLACE]: Icons.Sport,
   [CATEGORIES.STUDYROOM]: Icons.Studyroom,
-  [CATEGORIES.TRASH]: Icons.Default,
+  [CATEGORIES.TRASH]: Icons.Recycling,
   [CATEGORIES.WATER]: Icons.Water,
   [CATEGORIES.USER_LOCATION]: Icons.UserLocation,
   [CATEGORIES.YARD]: Icons.Default,
   [CATEGORIES.CRISOL]: Icons.PersonalComputer,
+  [CATEGORIES.CULTURE]: Icons.Palette,
+  [CATEGORIES.OFFICES]: Icons.Domain,
 };
 
 export default function MarkerIcon({

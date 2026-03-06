@@ -13,7 +13,7 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
-import { Feature, PointFeature, CATEGORIES } from "@/lib/types";
+import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
 import DirectionsComponent from "../components/features/directions/component";
@@ -84,6 +84,31 @@ export default function MapComponent({
   });
   const mapConfig = useMapStyle();
 
+  // Los nombres de campus se muestran mediante el tag; no crear puntos en el mapa.
+
+  // Obtener nombre del campus para el tag
+  const [campusDisplayName, setCampusDisplayName] = React.useState<string | null>(null);
+
+  useEffect(() => {
+    const campusParam = params.get("campus");
+    const campus = campusParam || localStorage.getItem("defaultCampus");
+
+    if (campus) {
+      let fullName: string | undefined;
+
+      if (campus.length === 2) {
+        fullName = siglas.get(campus);
+      } else {
+        const sigla = siglas.get(campus);
+        fullName = sigla ? siglas.get(sigla) : undefined;
+      }
+
+      setCampusDisplayName(fullName || campus);
+    } else {
+      setCampusDisplayName(null);
+    }
+  }, [params]);
+
   useEffect(() => {
     const campusName = params.get("campus");
     if (campusName) {
@@ -91,7 +116,12 @@ export default function MapComponent({
       localStorage.setItem("defaultCampus", campusName);
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
+        zoom:
+          campusName === "SJ" || campusName === "SanJoaquin"
+            ? 15.5
+            : campusName === "VR" || campusName === "Villarrica"
+            ? 14
+            : 17,
       });
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
     }
@@ -123,7 +153,17 @@ export default function MapComponent({
   }, []);
 
   return (
-    <div className="w-full h-full" ref={containerRef}>
+    <div className="w-full h-full relative" ref={containerRef}>
+      {/* Campus tag - solo visible en desktop */}
+      {campusDisplayName ? (
+        <div className="hidden lg:block absolute top-4 right-4 z-10 pointer-events-auto">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
+            <span className="text-xs font-medium text-primary-foreground">Campus {campusDisplayName}</span>
+          </div>
+        </div>
+      ) : null}
+
       <Map
         id="mainMap"
         mapStyle={mapConfig.mapStyle}
@@ -153,6 +193,7 @@ export default function MapComponent({
           <Layer {...mapConfig.customPolygonSectionAreaLayer} />
           <Layer {...mapConfig.customPolygonStrokeLayer} />
         </Source>
+        {/* Campus names removed from map; now shown via tag only */}
         <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
           <Layer {...mapConfig.placesTextLayer} />
         </Source>
