@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59472120923995,
+                    -33.44610649325354
+                ]
+            },
+            "properties": {
+                "identifier": "PREUNIVERSITARIO_UC-OR",
+                "name": "Preuniversitario UC",
+                "information": "E-mail:\n\npreuniversitario.co@uc.cl\n\nTeléfonos:\n\n+56932081646\n+56939310040\n+56955045212\nHorario de atención:\n\nLunes a viernes: 09:00 a 18:30 horas.\nSábado: 09:00 a 13:00 horas.\nConsideraciones y excepciones:\n\nFebrero\n\nSede cerrada. Retoma la atención a público el martes 24 de febrero.\nEl miércoles 25 de febrero, la sede atenderá hasta las 16:30 hrs debido a un corte de agua programado en el Campus.\nEl sábado 28 de febrero, la sede estará cerrada, sin atención a público.",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610784,
                     -33.499831
                 ]
