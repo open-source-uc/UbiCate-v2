@@ -292,32 +292,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.64056326728638,
-                    -33.441037970790575
-                ]
-            },
-            "properties": {
-                "identifier": "MMF2QVLGV8517F",
-                "name": "Auditorio A103",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "MMDKQ6662EGEJ8"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64039965253643,
                     -33.44052766462654
                 ]
