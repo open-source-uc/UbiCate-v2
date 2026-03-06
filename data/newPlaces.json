@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22556291883922,
+                    -39.277682104564654
+                ]
+            },
+            "properties": {
+                "identifier": "MJCZMC7TFWHQKX",
+                "name": "Preuniversitario UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59472120923995,
                     -33.44610649325354
                 ]
