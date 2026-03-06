@@ -614,32 +614,6 @@
                     "AP-SECTOR"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.2255490347743,
-                    -39.27747822186803
-                ]
-            },
-            "properties": {
-                "identifier": "MMC7XL7M8QFJSU",
-                "name": "Museo Leandro Penchulef",
-                "information": "Espacio educativo para la valorización, rescate y preservación del patrimonio histórico cultural local; a través del encuentro, la reflexión e interacción en torno a la historia, memoria histórica, patrimonio cultural y situación actual de las relaciones chileno-mapuche.  ",
-                "categories": [
-                    "culture"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "VR",
-                "faculties": [
-                    "MMCFI89E6QJW41"
-                ]
-            }
         }
     ]
 }
