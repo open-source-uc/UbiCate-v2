@@ -78,32 +78,6 @@
                     "MMDKQ6662EGEJ8"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64034693981209,
-                    -33.440591988535374
-                ]
-            },
-            "properties": {
-                "identifier": "A101-CC",
-                "name": "A101",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": [
-                    "MMDKQ6662EGEJ8"
-                ]
-            }
         }
     ]
 }
