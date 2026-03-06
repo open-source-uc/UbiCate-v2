@@ -1374,13 +1374,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60829976093,
-                    -33.49795954224045
+                    -70.60829937458038,
+                    -33.497959741562745
                 ]
             },
             "properties": {
                 "identifier": "MMC1J7YY4SPWRW",
-                "name": "Punto Limpio / SIBICO",
+                "name": "Punto Limpio SIBICO",
                 "information": "",
                 "categories": [
                     "trash"
