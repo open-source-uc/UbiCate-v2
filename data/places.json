@@ -4182,13 +4182,15 @@
                 "name": "Preuniversitario UC",
                 "information": "",
                 "categories": [
-                    "other"
+                    "faculty"
                 ],
                 "floors": [
                     -1
                 ],
                 "campus": "VR",
-                "faculties": []
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
             }
         },
         {
