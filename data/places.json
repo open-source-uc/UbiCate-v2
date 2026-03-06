@@ -27940,7 +27940,7 @@
             },
             "properties": {
                 "identifier": "PASTORAL_CC",
-                "name": "Pastoral UC",
+                "name": "Dirección de Pastoral UC y Cultura Cristiana",
                 "information": "",
                 "categories": [
                     "other"
@@ -27949,7 +27949,9 @@
                     1
                 ],
                 "campus": "CC",
-                "faculties": []
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
             }
         },
         {
