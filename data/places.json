@@ -6,6 +6,559 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6402047827338,
+                    -33.44069046883331
+                ]
+            },
+            "properties": {
+                "identifier": "MMF6721OQ150N7",
+                "name": "Auditorio A201",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64025347926103,
+                    -33.44068832151913
+                ]
+            },
+            "properties": {
+                "identifier": "MMF6YUWLLTDW91",
+                "name": "Dirección Superior",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64037107969135,
+                    -33.440605417674334
+                ]
+            },
+            "properties": {
+                "identifier": "MMF6B1YIL7100E",
+                "name": "Auditorio A202",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64034693981209,
+                    -33.440591988535374
+                ]
+            },
+            "properties": {
+                "identifier": "A101-CC",
+                "name": "A101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64039965253643,
+                    -33.44052766462654
+                ]
+            },
+            "properties": {
+                "identifier": "MMF2F37QLPUVS0",
+                "name": "Auditorio Cardenal Carlos Oviedo Cavada",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64055417361422,
+                    -33.440634467962575
+                ]
+            },
+            "properties": {
+                "identifier": "MMF61B55SRKDF8",
+                "name": "Consejería Superior",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64012741543854,
+                    -33.44079127807786
+                ]
+            },
+            "properties": {
+                "identifier": "MMF6Y9KX66Q0YP",
+                "name": "Dirección Superior",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64033352876675,
+                    -33.44084266543714
+                ]
+            },
+            "properties": {
+                "identifier": "MMF65BGPGC6W20",
+                "name": "Sala Cuerpo Académico de Larga Trayectoría",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64007980005137,
+                            -33.44162921175909
+                        ],
+                        [
+                            -70.64004805066669,
+                            -33.44160514539893
+                        ],
+                        [
+                            -70.64035610408185,
+                            -33.44130171475272
+                        ],
+                        [
+                            -70.64076550680171,
+                            -33.44161185061226
+                        ],
+                        [
+                            -70.64066611500319,
+                            -33.44171354120299
+                        ],
+                        [
+                            -70.64031635095733,
+                            -33.44147891340554
+                        ],
+                        [
+                            -70.6403212493905,
+                            -33.44160297779104
+                        ],
+                        [
+                            -70.64007980005137,
+                            -33.44162921175909
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMF8KUNSL6ZEAY",
+                "name": "Escuela de Medicina",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056326728638,
+                    -33.441037970790575
+                ]
+            },
+            "properties": {
+                "identifier": "MMF2QVLGV8517F",
+                "name": "Auditorio A103",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.59417990627381,
+                            -33.44679104604232
+                        ],
+                        [
+                            -70.59423303140416,
+                            -33.44685811045534
+                        ],
+                        [
+                            -70.59415737891415,
+                            -33.44689657677996
+                        ],
+                        [
+                            -70.59410773196745,
+                            -33.44683246622872
+                        ],
+                        [
+                            -70.59417990627381,
+                            -33.44679104604232
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMEV02IWBX2HVC",
+                "name": "Casa Coro",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59456656896201,
+                    -33.44662939436886
+                ]
+            },
+            "properties": {
+                "identifier": "MMEUYW35DWMTZ8",
+                "name": "Oficina de Partes",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.59239639280173,
+                            -33.445815876260184
+                        ],
+                        [
+                            -70.59242830341624,
+                            -33.44614693829142
+                        ],
+                        [
+                            -70.59232334127603,
+                            -33.446152488751395
+                        ],
+                        [
+                            -70.59232615845474,
+                            -33.44626698072597
+                        ],
+                        [
+                            -70.59226861199778,
+                            -33.44626578030267
+                        ],
+                        [
+                            -70.59225278672211,
+                            -33.44605570593089
+                        ],
+                        [
+                            -70.59235061569923,
+                            -33.44604730294537
+                        ],
+                        [
+                            -70.59233766774676,
+                            -33.445885245208906
+                        ],
+                        [
+                            -70.59203267152428,
+                            -33.44589844992396
+                        ],
+                        [
+                            -70.59202835553987,
+                            -33.44583362675524
+                        ],
+                        [
+                            -70.59239639280173,
+                            -33.445815876260184
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMEV4WF9D15R9M",
+                "name": "Jardín Infantil",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.59335971656188,
+                            -33.4463658073614
+                        ],
+                        [
+                            -70.59357057921514,
+                            -33.44664916973581
+                        ],
+                        [
+                            -70.593430743982,
+                            -33.446723251249445
+                        ],
+                        [
+                            -70.59321988132876,
+                            -33.446438037074195
+                        ],
+                        [
+                            -70.59335971656188,
+                            -33.4463658073614
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMEUVWEQSKO13F",
+                "name": "English UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.59373096565109,
+                            -33.446153847632814
+                        ],
+                        [
+                            -70.59400470639306,
+                            -33.4465233263707
+                        ],
+                        [
+                            -70.59363045699814,
+                            -33.44671972484139
+                        ],
+                        [
+                            -70.59335741970435,
+                            -33.44634656736713
+                        ],
+                        [
+                            -70.59373096565109,
+                            -33.446153847632814
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMEUUK3ZQUI9BP",
+                "name": "Centro de Extensión Oriente",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.59464440428758,
+                            -33.44583607897956
+                        ],
+                        [
+                            -70.59483721724835,
+                            -33.446100644241746
+                        ],
+                        [
+                            -70.59467868214682,
+                            -33.446184065553815
+                        ],
+                        [
+                            -70.59448301269742,
+                            -33.44591592533695
+                        ],
+                        [
+                            -70.59464440428758,
+                            -33.44583607897956
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMEUXA979W4WEX",
+                "name": "Preuniversitario UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59388967857305,
+                    -33.445405313925484
+                ]
+            },
+            "properties": {
+                "identifier": "MMDN61X31XDRX2",
+                "name": "Patio Facultad",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61808594081835,
                     -33.418838673714006
                 ]
@@ -941,7 +1494,7 @@
                 "name": "Preuniversitario UC",
                 "information": "E-mail:\n\npreuniversitario.co@uc.cl\n\nTeléfonos:\n\n+56932081646\n+56939310040\n+56955045212\nHorario de atención:\n\nLunes a viernes: 09:00 a 18:30 horas.\nSábado: 09:00 a 13:00 horas.\nConsideraciones y excepciones:\n\nFebrero\n\nSede cerrada. Retoma la atención a público el martes 24 de febrero.\nEl miércoles 25 de febrero, la sede atenderá hasta las 16:30 hrs debido a un corte de agua programado en el Campus.\nEl sábado 28 de febrero, la sede estará cerrada, sin atención a público.",
                 "categories": [
-                    "classroom"
+                    "faculty"
                 ],
                 "floors": [
                     1
@@ -1374,16 +1927,16 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60829976093,
-                    -33.49795954224045
+                    -70.60829937458038,
+                    -33.497959741562745
                 ]
             },
             "properties": {
                 "identifier": "MMC1J7YY4SPWRW",
-                "name": "Punto Limpio / SIBICO",
+                "name": "Punto Limpio SIBICO",
                 "information": "",
                 "categories": [
-                    "faculty"
+                    "trash"
                 ],
                 "floors": [
                     1
@@ -1682,7 +2235,9 @@
                 ],
                 "floors": [],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
             }
         },
         {
@@ -3907,13 +4462,15 @@
                 "name": "Preuniversitario UC",
                 "information": "",
                 "categories": [
-                    "other"
+                    "faculty"
                 ],
                 "floors": [
                     -1
                 ],
                 "campus": "VR",
-                "faculties": []
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
             }
         },
         {
@@ -12156,24 +12713,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-32478971",
-                "name": "Salon de honor San Alberto Hurtado",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64074565749998,
                     -33.44078729445298
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-32478971",
+                "name": "Salon de honor San Alberto Hurtado Cruchaga",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
                 ]
             }
         },
@@ -12202,24 +12761,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "CAPELLAN_CC",
-                "name": "Capellán",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64076321098214,
                     -33.44075597028451
+                ]
+            },
+            "properties": {
+                "identifier": "CAPELLAN_CC",
+                "name": "Capellán Hall Universitario",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
                 ]
             }
         },
@@ -14165,26 +14726,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60999989509583,
+                    -33.49758341449186
+                ]
+            },
             "properties": {
                 "identifier": "M1",
-                "name": "M1",
-                "campus": "SJ",
+                "name": "M1, Cálculo",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [
-                    "SOC"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60999984806563,
-                    -33.497583352718465
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -17315,26 +17876,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "R3",
-                "name": "R3",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "LET"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61396052500996,
                     -33.49702698144406
+                ]
+            },
+            "properties": {
+                "identifier": "R3",
+                "name": "R3",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
                 ]
             }
         },
@@ -17938,7 +18499,7 @@
             },
             "properties": {
                 "identifier": "AP603-SJ",
-                "name": "NT203",
+                "name": "T1220",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -17947,7 +18508,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
@@ -18435,24 +18998,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AP006-SJ",
-                "name": "AP006",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61037142701295,
                     -33.496591437233256
+                ]
+            },
+            "properties": {
+                "identifier": "AP006-SJ",
+                "name": "AP006",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
                 ]
             }
         },
@@ -18694,24 +19259,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-26347017",
-                "name": "Templo Sagrado Corazón",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61157532445925,
                     -33.498228331597616
+                ]
+            },
+            "properties": {
+                "identifier": "OTHER-26347017",
+                "name": "Iglesia del Sagrado Corazón",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TEMPLO"
                 ]
             }
         },
@@ -19526,24 +20093,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "C001-SJ",
-                "name": "C001",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61416958323575,
                     -33.49900967725003
+                ]
+            },
+            "properties": {
+                "identifier": "C001-SJ",
+                "name": "C001",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZA2IRXAGEN1"
                 ]
             }
         },
@@ -20621,8 +21190,7 @@
                 "name": "Piscina",
                 "information": "",
                 "categories": [
-                    "sports_place",
-                    "faculty"
+                    "sports_place"
                 ],
                 "floors": [
                     1
@@ -21075,26 +21643,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AG5",
-                "name": "AG5",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "AGC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609568,
                     -33.496895
+                ]
+            },
+            "properties": {
+                "identifier": "AG5",
+                "name": "AG5",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
                 ]
             }
         },
@@ -23250,8 +23818,7 @@
                 "name": "Biblioteca Gauss",
                 "information": "",
                 "categories": [
-                    "library",
-                    "faculty"
+                    "library"
                 ],
                 "floors": [
                     1
@@ -23276,8 +23843,7 @@
                 "name": "Biblioteca de Teología",
                 "information": "",
                 "categories": [
-                    "library",
-                    "faculty"
+                    "library"
                 ],
                 "floors": [
                     1
@@ -27274,26 +27840,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61010098084807,
+                    -33.497589984852226
+                ]
+            },
             "properties": {
                 "identifier": "N13-A",
-                "name": "N13-A",
-                "campus": "SJ",
+                "name": "N13-A- Sala Filosofía ",
                 "information": "",
                 "categories": [
                     "classroom"
                 ],
-                "faculties": [
-                    "SOC"
-                ],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610101,
-                    -33.49759
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -27586,13 +28152,15 @@
                 "name": "Preuniversitario UC",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "faculty"
                 ],
                 "floors": [
                     1
                 ],
                 "campus": "CC",
-                "faculties": []
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
             }
         },
         {
@@ -27609,7 +28177,7 @@
                 "name": "Preuniversitario UC",
                 "information": "",
                 "categories": [
-                    "classroom"
+                    "faculty"
                 ],
                 "floors": [
                     1
@@ -27631,7 +28199,7 @@
             },
             "properties": {
                 "identifier": "PASTORAL_CC",
-                "name": "Pastoral UC",
+                "name": "Dirección de Pastoral UC y Cultura Cristiana",
                 "information": "",
                 "categories": [
                     "other"
@@ -27640,7 +28208,9 @@
                     1
                 ],
                 "campus": "CC",
-                "faculties": []
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
             }
         },
         {
@@ -27693,26 +28263,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PREU_SOCIAL_ING",
-                "name": "Preuniversitario Social",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.613298,
                     -33.500199
+                ]
+            },
+            "properties": {
+                "identifier": "PREU_SOCIAL_ING",
+                "name": "Preuniversitario Social",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
             }
         },
@@ -31380,54 +31950,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MED",
-                "name": "Escuela de Medicina",
-                "campus": "CC",
-                "information": "Alameda Libertador Bernardo O´Higgins 340, 8331150 Santiago de Chile",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.640766,
-                            -33.441611
-                        ],
-                        [
-                            -70.640322,
-                            -33.441281
-                        ],
-                        [
-                            -70.640283,
-                            -33.441313
-                        ],
-                        [
-                            -70.640319,
-                            -33.441336
-                        ],
-                        [
-                            -70.640208,
-                            -33.441406
-                        ],
-                        [
-                            -70.640693,
-                            -33.44173
-                        ],
-                        [
-                            -70.640766,
-                            -33.441611
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -33124,42 +33646,43 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "PLV-012389",
-                "name": "Patio la virgen",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "building"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.6137883355168,
-                            -33.50031109443737
+                            -70.61378851532936,
+                            -33.50031104973965
                         ],
                         [
-                            -70.61347514006417,
-                            -33.50030751696343
+                            -70.61382472515106,
+                            -33.4999738743921
                         ],
                         [
-                            -70.61351589773942,
-                            -33.49992381419967
+                            -70.6135156005621,
+                            -33.49992354960072
                         ],
                         [
-                            -70.6138248017208,
-                            -33.49997390155926
+                            -70.61347536742687,
+                            -33.500307694767535
                         ],
                         [
-                            -70.6137883355168,
-                            -33.50031109443737
+                            -70.61378851532936,
+                            -33.50031104973965
                         ]
                     ]
                 ]
+            },
+            "properties": {
+                "identifier": "PLV-012389",
+                "name": "Patio la Virgen",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
