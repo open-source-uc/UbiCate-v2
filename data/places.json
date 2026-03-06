@@ -31663,54 +31663,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MED",
-                "name": "Escuela de Medicina",
-                "campus": "CC",
-                "information": "Alameda Libertador Bernardo O´Higgins 340, 8331150 Santiago de Chile",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.640766,
-                            -33.441611
-                        ],
-                        [
-                            -70.640322,
-                            -33.441281
-                        ],
-                        [
-                            -70.640283,
-                            -33.441313
-                        ],
-                        [
-                            -70.640319,
-                            -33.441336
-                        ],
-                        [
-                            -70.640208,
-                            -33.441406
-                        ],
-                        [
-                            -70.640693,
-                            -33.44173
-                        ],
-                        [
-                            -70.640766,
-                            -33.441611
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
