@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6402047827338,
+                    -33.44069046883331
+                ]
+            },
+            "properties": {
+                "identifier": "MMF6721OQ150N7",
+                "name": "Auditorio A201",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64034693981209,
                     -33.440591988535374
                 ]
