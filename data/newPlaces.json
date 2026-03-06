@@ -568,30 +568,6 @@
                     "TTF"
                 ]
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6074815282653,
-                    -33.49837112049183
-                ]
-            },
-            "properties": {
-                "identifier": "SPORTS_PLACE-23510688",
-                "name": "Piscina",
-                "information": "",
-                "categories": [
-                    "sports_place"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
         }
     ]
 }
