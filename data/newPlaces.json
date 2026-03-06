@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64076,
+                    -33.440874
+                ]
+            },
+            "properties": {
+                "identifier": "PASTORAL_CC",
+                "name": "Dirección de Pastoral UC y Cultura Cristiana",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64055417361422,
                     -33.440634467962575
                 ]
