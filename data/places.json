@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64039965253643,
+                    -33.44052766462654
+                ]
+            },
+            "properties": {
+                "identifier": "MMF2F37QLPUVS0",
+                "name": "Auditorio Cardenal Carlos Oviedo Cavada",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64055417361422,
                     -33.440634467962575
                 ]
