@@ -140,48 +140,6 @@
                 "coordinates": [
                     [
                         [
-                            -70.59464440428758,
-                            -33.44583607897956
-                        ],
-                        [
-                            -70.59483721724835,
-                            -33.446100644241746
-                        ],
-                        [
-                            -70.59467868214682,
-                            -33.446184065553815
-                        ],
-                        [
-                            -70.59448301269742,
-                            -33.44591592533695
-                        ],
-                        [
-                            -70.59464440428758,
-                            -33.44583607897956
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMEUXA979W4WEX",
-                "name": "Preuniversitario UC",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
                             -70.59335971656188,
                             -33.4463658073614
                         ],
