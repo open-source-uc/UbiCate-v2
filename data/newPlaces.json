@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64074565749998,
+                    -33.44078729445298
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-32478971",
+                "name": "Salon de honor San Alberto Hurtado Cruchaga",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64076321098214,
                     -33.44075597028451
                 ]
