@@ -421,7 +421,7 @@ export const pinkThemeMap: StyleSpecification = {
       "source-layer": "poi",
       minzoom: 12,
       layout: {
-        "visibility": "none",
+        visibility: "none",
       },
       filter: [
         "all",
