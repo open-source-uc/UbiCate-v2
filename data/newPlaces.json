@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60809179558647,
+                    -33.49906599641622
+                ]
+            },
+            "properties": {
+                "identifier": "MMHWYUNQYUZW9D",
+                "name": "Multicancha 4 \"Bombonera\"",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
