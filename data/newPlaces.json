@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6401518588146,
+                    -33.44122620892629
+                ]
+            },
+            "properties": {
+                "identifier": "SALÓN_DE_HONOR-CC",
+                "name": "Salón de honor",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61285108327866,
                     -33.499631944817004
                 ]
