@@ -4,6 +4,70 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.611432,
+                            -33.499301
+                        ],
+                        [
+                            -70.610488,
+                            -33.499201
+                        ],
+                        [
+                            -70.610478,
+                            -33.499425
+                        ],
+                        [
+                            -70.610605,
+                            -33.499578
+                        ],
+                        [
+                            -70.610702,
+                            -33.499646
+                        ],
+                        [
+                            -70.611061,
+                            -33.499667
+                        ],
+                        [
+                            -70.611066,
+                            -33.499639
+                        ],
+                        [
+                            -70.611611,
+                            -33.499683
+                        ],
+                        [
+                            -70.611637,
+                            -33.499379
+                        ],
+                        [
+                            -70.611432,
+                            -33.499301
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "FIS",
+                "name": "Facultad de Física",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61318235919948,
