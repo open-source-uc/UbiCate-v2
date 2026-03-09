@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61318235919948,
+                    -33.497426649550384
+                ]
+            },
+            "properties": {
+                "identifier": "ATACAMA-SJ",
+                "name": "Atacama",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61032829806209,
                     -33.49873601582474
                 ]
