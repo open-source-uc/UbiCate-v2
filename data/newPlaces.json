@@ -259,10 +259,10 @@
                 "name": "Atacama",
                 "information": "",
                 "categories": [
-                    "water"
+                    "classroom"
                 ],
                 "floors": [
-                    1
+                    -1
                 ],
                 "needApproval": true,
                 "campus": "SJ",
