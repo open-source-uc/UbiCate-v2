@@ -4,6 +4,84 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61190374021552,
+                            -33.49732913590343
+                        ],
+                        [
+                            -70.61190694570541,
+                            -33.49717605117534
+                        ],
+                        [
+                            -70.61216359958053,
+                            -33.49719743989406
+                        ],
+                        [
+                            -70.61219461262226,
+                            -33.496906105519436
+                        ],
+                        [
+                            -70.61192706227303,
+                            -33.496890028977894
+                        ],
+                        [
+                            -70.61198787372078,
+                            -33.4964940025452
+                        ],
+                        [
+                            -70.61177618282274,
+                            -33.49647815978416
+                        ],
+                        [
+                            -70.61171684414148,
+                            -33.496881920807986
+                        ],
+                        [
+                            -70.61089025606547,
+                            -33.49680229533782
+                        ],
+                        [
+                            -70.61084668630441,
+                            -33.49708441306618
+                        ],
+                        [
+                            -70.61169102787971,
+                            -33.4971520063349
+                        ],
+                        [
+                            -70.61167694628239,
+                            -33.49730298545484
+                        ],
+                        [
+                            -70.61190374021552,
+                            -33.49732913590343
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "EA",
+                "name": "Facultad de Economía y Administración ",
+                "information": "Piso - 1: Auditorio Francisco Rosende-BCI, Salas AE 001 a 004.\nPiso 1: Salas de Estudio, Salas AE 101 a AE 108, Pastoral.\nPiso 2: Salas AE 201 a 211, Salas de Computación 1 y 2.\nPiso 3: Decanato, Instituto de Economía.\nPiso 4: Escuela de Administración.",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6125554549745,
