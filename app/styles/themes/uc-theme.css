@@ -29,8 +29,8 @@
   --theme-ring: var(--palette-uc-azul-oscuro);
 
   /* Functional colors for app-specific features */
-  --theme-route-primary: var(--palette-pastel-lavender);
-  --theme-route-border: var(--palette-pastel-lilac);
+  --theme-route-primary: var(--palette-uc-celeste);
+  --theme-route-border: var(--palette-uc-blanco);
   --theme-focus-indicator: var(--palette-uc-celeste);
 
   /* Chart Colors */

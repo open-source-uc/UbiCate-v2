@@ -8,6 +8,7 @@ import { getCategoryColor } from "@/lib/map/categoryToColors";
 import PlacesJSON from "@/lib/places/data";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
+import { CloseButton } from "../../ui";
 import * as Icons from "../../ui/icons/icons";
 import MarkerIcon from "../../ui/icons/markerIcon";
 
@@ -185,13 +186,12 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
           {/* Botón de limpiar */}
           {query ? (
             <div className="absolute right-0 top-0 z-20 py-[13px] px-3">
-              <button
+              <CloseButton
                 onClick={handleClearInput}
-                className="p-1 bg-destructive border-none cursor-pointer leading-none rounded-full hover:bg-destructive/80 focus:outline-none group"
+                variant="destructive"
+                size="sm"
                 aria-label="Limpiar búsqueda"
-              >
-                <Icons.Close className="w-4 h-4 fill-input group-hover:fill-secondary/80" />
-              </button>
+              />
             </div>
           ) : null}
         </div>

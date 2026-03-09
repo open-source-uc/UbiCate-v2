@@ -1,4 +1,4 @@
-import * as Icons from "@/app/components/ui/icons/icons";
+import { CloseButton } from "@/app/components/ui";
 import { SubSidebarType } from "@/lib/types";
 
 import CampusButton from "./CampusButton";
@@ -20,13 +20,7 @@ export default function CampusList({
             <p className="text-xs text-muted-foreground">Explora los campus de nuestra universidad</p>
           </div>
         </div>
-        <button
-          onClick={() => setActiveSubSidebar(null)}
-          className="w-8 h-8 bg-primary flex items-center justify-center rounded-full cursor-pointer group hover:bg-secondary transition"
-          aria-label="Cerrar menú"
-        >
-          <Icons.Close className="w-4 h-4 fill-background group-hover:fill-secondary-foreground" />
-        </button>
+        <CloseButton onClick={() => setActiveSubSidebar(null)} />
       </div>
 
       {/* Campus section following sidebar pattern */}

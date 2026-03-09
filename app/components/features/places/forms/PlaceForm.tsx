@@ -6,7 +6,7 @@ import { pinsContext } from "@/app/context/pinsCtx";
 import { usePlaceForm } from "@/app/hooks/usePlaceForm";
 import { PointFeature } from "@/lib/types";
 
-import * as Icons from "../../../ui/icons/icons";
+import { CloseButton } from "../../../ui";
 
 import { CategoriesField } from "./categoriesField";
 import { DescriptionField } from "./descriptionField";
@@ -77,13 +77,7 @@ export default function PlaceForm({
       <Notification notification={notification} />
 
       <form className="space-y-4 text-md px-3 py-5" onSubmit={handleSubmit}>
-        <button
-          onClick={() => onClose?.()}
-          className="flex h-8 w-8 items-center text-background justify-center cursor-pointer rounded-full bg-primary text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          aria-label="Cerrar menú"
-        >
-          <Icons.Close className="h-4 w-4 fill-background" />
-        </button>
+        <CloseButton onClick={() => onClose?.()} />
         <h1 className="text-2xl font-bold text-center text-foreground">{title}</h1>
 
         <PlaceNameField

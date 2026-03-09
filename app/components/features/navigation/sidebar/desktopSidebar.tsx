@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
-import { Button } from "@/app/components/ui/button";
+import { Button, CloseButton } from "@/app/components/ui";
 import * as Icons from "@/app/components/ui/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
@@ -174,13 +174,7 @@ export default function DesktopSidebar() {
                       <p className="text-xs text-muted-foreground">Encuentra lugares y ubicaciones</p>
                     </div>
                   </div>
-                  <button
-                    onClick={() => setActiveSubSidebar(null)}
-                    className="w-8 h-8 bg-primary flex items-center justify-center rounded-full cursor-pointer group hover:bg-secondary transition"
-                    aria-label="Cerrar menú"
-                  >
-                    <Icons.Close className="w-4 h-4 fill-background group-hover:fill-secondary-foreground" />
-                  </button>
+                  <CloseButton onClick={() => setActiveSubSidebar(null)} />
                 </div>
 
                 {/* Search section following sidebar pattern */}
