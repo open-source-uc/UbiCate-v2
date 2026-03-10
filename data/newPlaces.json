@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61773817819488,
+                    -33.41991886598631
+                ]
+            },
+            "properties": {
+                "identifier": "MMKM8BYT4BOPDF",
+                "name": "Librería UC",
+                "information": "",
+                "categories": [
+                    "culture",
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61782477701256,
                     -33.419852507211644
                 ]
