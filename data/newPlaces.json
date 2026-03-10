@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61824782535804,
+                    -33.41955418839442
+                ]
+            },
+            "properties": {
+                "identifier": "MMKMW0AHRDMNJF",
+                "name": "Capilla Lo Contador",
+                "information": "La Capilla de Lo Contador fue levantada durante el siglo XIX por Mercedes Contador, heredera de la propiedad.",
+                "categories": [
+                    "culture",
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61780389184044,
                     -33.41966209374553
                 ]
