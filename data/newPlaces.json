@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61804075235537,
+                    -33.41980464314807
+                ]
+            },
+            "properties": {
+                "identifier": "MMKLDCSID4RWVN",
+                "name": "Patio de los naranjos",
+                "information": "Casona colonial del siglo XVIII. La casa tenía la organización típica de la arquitectura colonial chilena: habitaciones alrededor de patios interiores. \nEl Patio de los Naranjos era uno de esos patios principales y se mantuvo cuando la universidad adaptó el lugar como campus en los años 50.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61438671722343,
                     -33.49887090900714
                 ]
