@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59409875492331,
+                    -33.44670635163057
+                ]
+            },
+            "properties": {
+                "identifier": "MMKQ3OKJCBJT4R",
+                "name": "Sendero Oriente",
+                "information": "La obra fue realizada el año 2024 por encargo del rector Ignacio Sanchez. Participaron los artistas Paula de Soliminihac, Osvaldo Peña y Catalina Ramirez, el arquitecto y paisajista Vicente Donoso, con la asistencia de la oficina Ramsay Arquitectura y Paisaje, el técnico Daniel García y las artistas egresadas de la UC Inés González, Antonia López, Carla Barravechia y Consuelo Deigado.",
+                "categories": [
+                    "culture",
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64064238866715,
                     -33.44168107420454
                 ]
