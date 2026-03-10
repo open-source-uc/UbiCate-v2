@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64064238866715,
+                    -33.44168107420454
+                ]
+            },
+            "properties": {
+                "identifier": "M5-CC",
+                "name": "M5",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMF8KUNSL6ZEAY"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61840436585624,
                     -33.41900011263106
                 ]
