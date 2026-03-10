@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61732532526234,
+                    -33.4188368913099
+                ]
+            },
+            "properties": {
+                "identifier": "MMKLTQPC73WT8P",
+                "name": "Casa Sergio Larraín G. M.",
+                "information": "Centro UC de Patrimonio Cultural",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61831733077263,
                     -33.41939452134159
                 ]
