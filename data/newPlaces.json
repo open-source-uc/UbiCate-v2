@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6147713942942,
+                    -33.498195034682176
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-32215791",
+                "name": "Auditorio Gabriela ",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5938526433071,
                     -33.446447328589926
                 ]
