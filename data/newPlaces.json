@@ -6,6 +6,37 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61813371730044,
+                    -33.41909076400122
+                ]
+            },
+            "properties": {
+                "identifier": "EDIFICIO_DE_LA_ESCUELA_DE_DISEÑO-LC",
+                "name": "Edificio de la Escuela de Diseño",
+                "information": "Arquitecto: Sebastián Irarrázaval, bendecido bajo la figura de San José, patrono de esta facultad",
+                "categories": [
+                    "building",
+                    "culture",
+                    "classroom"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.618113131503,
                     -33.41943707481738
                 ]
