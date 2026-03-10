@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6176979166892,
+                    -33.419745467394485
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_10_LEOPOLDO_BENÍTEZ-LC",
+                "name": "Sala 10 Leopoldo Benítez",
+                "information": "Nombrada así en honor a Leopoldo Benítez, Director del Departamento de Arquitectura (1969-1973).\nEs una de las 31 víctimas fatales UC, entre estudiantes, egresados y docentes asesinados o desaparecidos tras el golpe.",
+                "categories": [
+                    "culture",
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61773817819488,
                     -33.41991886598631
                 ]
