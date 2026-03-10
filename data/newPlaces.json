@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61780389184044,
+                    -33.41966209374553
+                ]
+            },
+            "properties": {
+                "identifier": "MMKMPWQ3SEQPYT",
+                "name": "Refectorio",
+                "information": "Originalmente, un \"refectorio\" es la sala destinada a comedor en monasterios o conventos, y en este campus forma parte del conjunto patrimonial de la antigua casona colonial.",
+                "categories": [
+                    "culture",
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6176979166892,
                     -33.419745467394485
                 ]
