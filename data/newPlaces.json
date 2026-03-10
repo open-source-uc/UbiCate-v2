@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61782477701256,
+                    -33.419852507211644
+                ]
+            },
+            "properties": {
+                "identifier": "MMKM6SYL6GX7EB",
+                "name": "Escultura \"En recuerdo de Benjamín\"",
+                "information": "Escultor: Federico Assler Brown",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61732532526234,
                     -33.4188368913099
                 ]
