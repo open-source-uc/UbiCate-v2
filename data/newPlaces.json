@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.618113131503,
+                    -33.41943707481738
+                ]
+            },
+            "properties": {
+                "identifier": "MMKN1EVWB1TD5I",
+                "name": "Galería Lo Contador",
+                "information": "La Galería Lo Contador es el principal espacio expositivo del Campus Lo Contador de la Universidad Católica, enfocado en la difusión de la arquitectura, el diseño y los estudios urbanos.",
+                "categories": [
+                    "culture",
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61824782535804,
                     -33.41955418839442
                 ]
