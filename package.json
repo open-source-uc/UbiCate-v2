@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev:turbo": "next dev --turbopack -H 0.0.0.0",
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "next dev -H 0.0.0.0 --webpack",
     "build": "next build",
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run lint:fix && npm run pages:build && wrangler pages dev .vercel/output/static",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "knip": "knip"
   },
   "dependencies": {
@@ -25,10 +25,10 @@
     "fuse.js": "^7.0.0",
     "mapbox-gl": "^3.5.0",
     "maplibre-gl": "^5.0.0",
-    "next": "^15.4.5",
+    "next": "16.1.6",
     "ofetch": "^1.4.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-error-boundary": "^6.0.0",
     "react-map-gl": "^8.0.4",
     "react-markdown": "^9.0.3",
@@ -41,12 +41,12 @@
     "@tailwindcss/postcss": "^4.0.9",
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.7",
     "@types/node": "^22.13.8",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^15.2.0",
+    "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0-alpha.1",
     "eslint-plugin-unused-imports": "^4.1.4",
@@ -58,6 +58,8 @@
     "wrangler": "^4.28.0"
   },
   "overrides": {
-    "vercel": "$vercel"
+    "vercel": "$vercel",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3"
   }
 }
