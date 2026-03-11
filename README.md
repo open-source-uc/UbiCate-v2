@@ -28,7 +28,6 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 ### Mantenedores
 
 - [Utmite](https://github.com/Utmite)
-- [IgnacioPalma](https://github.com/IgnacioPalma)
 
 ### Documentación by DeepWiki
 
