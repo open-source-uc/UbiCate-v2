@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, startTransition } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { Source, Layer, useMap } from "react-map-gl/maplibre";
@@ -30,11 +30,11 @@ function DebugMode() {
     try {
       if (typeof window !== "undefined" && window.sessionStorage) {
         const debugModeFromStorage = sessionStorage.getItem("debugMode") === "true";
-        setIsDebugMode(debugModeFromStorage);
+        startTransition(() => setIsDebugMode(debugModeFromStorage));
       }
     } catch (error) {
       console.warn("Unable to access sessionStorage:", error);
-      setIsDebugMode(false);
+      startTransition(() => setIsDebugMode(false));
     }
   }, []);
 
@@ -62,7 +62,7 @@ function DebugMode() {
         const layers = map.getStyle().layers;
         const layerIds = layers.map((layer: any) => layer.id);
         console.log("Available map layers:", layerIds);
-        setMapLayers(layerIds);
+        startTransition(() => setMapLayers(layerIds));
       } else {
         // If style isn't loaded yet, wait for the style.load event
         map.once("style.load", () => {

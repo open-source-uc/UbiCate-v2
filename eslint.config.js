@@ -10,7 +10,7 @@ const tsParser = require("@typescript-eslint/parser");
 module.exports = [
   // Global ignores
   {
-    ignores: ["node_modules/**", ".next/**", ".vercel/**"],
+    ignores: ["node_modules/**", ".next/**", ".vercel/**", "public/sw.js"],
   },
 
   // Next.js core-web-vitals flat config (registers import, @typescript-eslint, react, etc.)

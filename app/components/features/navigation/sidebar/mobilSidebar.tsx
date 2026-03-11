@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, startTransition } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import * as Icons from "@/app/components/ui/icons/icons";
@@ -147,19 +147,25 @@ export default function MobileSidebar() {
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("placeInformation");
-      setSidebarHeight(33);
+      startTransition(() => {
+        setActiveSubSidebar("placeInformation");
+        setSidebarHeight(33);
+      });
     } else {
-      setActiveSubSidebar(null);
-      setSidebarHeight(10);
+      startTransition(() => {
+        setActiveSubSidebar(null);
+        setSidebarHeight(10);
+      });
     }
   }, [selectedPlace, setIsOpen]);
 
   // Handle sidebar close
   useEffect(() => {
     if (isOpen === false) {
-      setActiveSubSidebar(null);
-      setSidebarHeight(10);
+      startTransition(() => {
+        setActiveSubSidebar(null);
+        setSidebarHeight(10);
+      });
     }
   }, [isOpen]);
 

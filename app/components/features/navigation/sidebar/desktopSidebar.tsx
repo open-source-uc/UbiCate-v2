@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, startTransition } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import { Button } from "@/app/components/ui/button";
@@ -50,10 +50,10 @@ export default function DesktopSidebar() {
 
   useEffect(() => {
     if (selectedPlace !== null) {
-      setActiveSubSidebar("placeInformation");
+      startTransition(() => setActiveSubSidebar("placeInformation"));
     }
     if (selectedPlace === null) {
-      setActiveSubSidebar(null);
+      startTransition(() => setActiveSubSidebar(null));
       setIsOpen(false);
     }
   }, [selectedPlace, setIsOpen]);

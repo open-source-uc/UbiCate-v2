@@ -1,4 +1,4 @@
-import { use, useCallback, useMemo, useState, useEffect } from "react";
+import { use, useCallback, useMemo, useState, useEffect, startTransition } from "react";
 
 import { Marker, useMap } from "react-map-gl/maplibre";
 
@@ -37,7 +37,7 @@ export default function UserLocation() {
   useEffect(() => {
     if (mainMap) {
       mainMap.on("move", updateBearing);
-      updateBearing(); // Inicializar bearing
+      startTransition(() => updateBearing()); // Inicializar bearing
     }
 
     return () => {
@@ -58,19 +58,11 @@ export default function UserLocation() {
       console.error("Ubication error:", error);
       setNotification(<DirectionErrorNotification>{error}</DirectionErrorNotification>);
       addCode("locationError");
-      setIsRequestingLocation(false);
+      startTransition(() => setIsRequestingLocation(false));
     } else {
       removeCode("locationError");
     }
   }, [error, setNotification, addCode, removeCode]);
-
-  // Auto teleport cuando se obtiene posición por primera vez
-  useEffect(() => {
-    if (position && hasLocation && isRequestingLocation) {
-      setIsRequestingLocation(false);
-      teleportToUserLocation();
-    }
-  }, [position, hasLocation, isRequestingLocation]);
 
   const teleportToUserLocation = useCallback(() => {
     if (!position || !mainMap) return;
@@ -100,7 +92,15 @@ export default function UserLocation() {
     setTimeout(() => {
       mainMap.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
     }, 600);
-  }, [position, mainMap, setNotification, addCode, removeCode]);
+  }, [position, mainMap, isRequestingLocation, setNotification, addCode, removeCode]);
+
+  // Auto teleport cuando se obtiene posición por primera vez
+  useEffect(() => {
+    if (position && hasLocation && isRequestingLocation) {
+      startTransition(() => setIsRequestingLocation(false));
+      teleportToUserLocation();
+    }
+  }, [position, hasLocation, isRequestingLocation, teleportToUserLocation]);
 
   const handleLocationButtonClick = useCallback(async () => {
     // Si ya está solicitando ubicación, cancelar

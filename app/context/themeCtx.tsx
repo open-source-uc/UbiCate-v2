@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, startTransition, ReactNode } from "react";
 
 import { ThemeId, getThemeIds } from "@/lib/themes";
 
@@ -105,7 +105,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       const saved = localStorage.getItem("theme") as ThemeId | null;
       const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "uc-theme";
 
-      setThemeState(initial);
+      startTransition(() => setThemeState(initial));
 
       if (typeof document !== "undefined") {
         document.documentElement.setAttribute("data-theme", initial);

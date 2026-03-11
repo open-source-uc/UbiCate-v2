@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, startTransition } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 
@@ -14,7 +14,7 @@ export default function Sidebar() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    startTransition(() => setIsClient(true));
 
     const checkIsDesktop = () => {
       setIsDesktop(window.innerWidth >= 1154);

@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, startTransition } from "react";
 
 import Fuse from "fuse.js";
 
@@ -47,10 +47,12 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   }, [numberOfShowResults]);
 
   useEffect(() => {
-    setIsOpen(query.trim().length > 0 && matchingFeatures.length > 0);
-    if (!x.current) setPlaces(matchingFeatures);
+    startTransition(() => {
+      setIsOpen(query.trim().length > 0 && matchingFeatures.length > 0);
+      if (!x.current) setPlaces(matchingFeatures);
+      setSelectedIndex(-1);
+    });
     x.current = null;
-    setSelectedIndex(-1);
   }, [query, matchingFeatures]);
 
   // Manejar clicks fuera del componente

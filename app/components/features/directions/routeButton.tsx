@@ -1,4 +1,4 @@
-import { use, useState, useEffect, useRef } from "react";
+import { use, useState, useEffect, useRef, startTransition } from "react";
 
 import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
@@ -43,8 +43,10 @@ export default function RouteButton({ place }: RouteButtonProps) {
         timeoutRef.current = null;
       }
 
-      setIsWaitingForLocation(false);
-      setShouldCalculateRoute(true);
+      startTransition(() => {
+        setIsWaitingForLocation(false);
+        setShouldCalculateRoute(true);
+      });
     }
   }, [position, status, isWaitingForLocation]);
 
@@ -75,7 +77,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
     setDirectionData(direction, "xd", distance);
     setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
     setSelectedPlace(null);
-    setShouldCalculateRoute(false);
+    startTransition(() => setShouldCalculateRoute(false));
   }, [
     optimalDirection,
     isCalculatingRoute,

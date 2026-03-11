@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 
 export default function DebugPage() {
   const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
@@ -11,11 +11,11 @@ export default function DebugPage() {
     try {
       if (typeof window !== "undefined" && window.sessionStorage) {
         const debugModeFromLocalStorage = sessionStorage.getItem("debugMode") === "true";
-        setIsDebugMode(debugModeFromLocalStorage);
+        startTransition(() => setIsDebugMode(debugModeFromLocalStorage));
       }
     } catch (error) {
       console.warn("Unable to access sessionStorage:", error);
-      setIsDebugMode(false);
+      startTransition(() => setIsDebugMode(false));
     }
   }, []);
 

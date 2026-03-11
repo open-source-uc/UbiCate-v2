@@ -1,4 +1,4 @@
-import { useState, useEffect, type ElementType } from "react";
+import { useState, useEffect, startTransition, type ElementType } from "react";
 
 import {
   DropdownMenu,
@@ -46,12 +46,12 @@ export default function PlaceInformation({
     try {
       if (typeof window !== "undefined" && window.sessionStorage) {
         const debugMode = sessionStorage.getItem("debugMode") === "true";
-        setIsDebug(debugMode);
+        startTransition(() => setIsDebug(debugMode));
       }
     } catch (error) {
       // Storage access might be blocked in incognito mode or PWA
       console.warn("Unable to access sessionStorage:", error);
-      setIsDebug(false);
+      startTransition(() => setIsDebug(false));
     }
   }, []);
 

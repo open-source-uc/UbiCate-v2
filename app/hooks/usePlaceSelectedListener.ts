@@ -1,14 +1,12 @@
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 import { PlaceSelectedEvent } from "@/lib/events/customEvents";
 import { Feature } from "@/lib/types";
 
-export const usePlaceSelectedListener = (callback: (feature: Feature) => void, dependencies: any[] = []) => {
-  const memoizedCallback = useCallback(callback, dependencies);
-
+export const usePlaceSelectedListener = (callback: (feature: Feature) => void) => {
   useEffect(() => {
     const handlePlaceSelected = (event: PlaceSelectedEvent) => {
-      memoizedCallback(event.detail.feature);
+      callback(event.detail.feature);
     };
 
     document.addEventListener("placeSelected", handlePlaceSelected as EventListener);
@@ -16,5 +14,5 @@ export const usePlaceSelectedListener = (callback: (feature: Feature) => void, d
     return () => {
       document.removeEventListener("placeSelected", handlePlaceSelected as EventListener);
     };
-  }, [memoizedCallback]);
+  }, [callback]);
 };
