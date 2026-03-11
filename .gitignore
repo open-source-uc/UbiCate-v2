@@ -46,8 +46,10 @@ public/swe-worker*
 *.osm.pbf
 *.mbtiles
 *.pbf
-**/ubicate-tiles/
-**/glyphs/
+**/ubicate-tiles/*
+**/glyphs/*
 **/node_modules/
 # python env
 .venv
+
+*.pbf

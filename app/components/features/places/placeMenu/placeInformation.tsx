@@ -13,7 +13,6 @@ import { CATEGORIES, CategoryToDisplayName, Feature, siglas } from "@/lib/types"
 import { Button } from "../../../ui/button";
 import * as Icons from "../../../ui/icons/icons";
 import MarkDownComponent from "../../../ui/markDown";
-import RouteButton from "../../directions/routeButton";
 
 import { SidebarLabel } from "./SidebarLabel";
 
@@ -215,7 +214,7 @@ export default function PlaceInformation({
               <span className="text-xs font-semibold tracking-wide">Compartir</span>
             </Button>
 
-            <RouteButton place={place} />
+            {/* <RouteButton place={place} /> */}
 
             {renderOptionControl()}
           </div>
