@@ -53,3 +53,4 @@ public/swe-worker*
 .venv
 
 *.pbf
+.open-next

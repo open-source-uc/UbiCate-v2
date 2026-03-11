@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getRequestContext } from "@cloudflare/next-on-pages";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: "Invalid tile coordinates: must be integers" }, { status: 400 });
     }
 
-    const R2 = getRequestContext().env.R2;
+    const R2 = (await getCloudflareContext()).env.R2;
     const tileKey = `ubicate-tiles/${zNum}/${xNum}/${yNum}.pbf`;
 
     let object;
@@ -89,4 +89,3 @@ export async function OPTIONS(request: NextRequest) {
   });
 }
 
-export const runtime = "edge";

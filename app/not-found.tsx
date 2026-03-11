@@ -17,4 +17,3 @@ export default function NotFound() {
   );
 }
 
-export const runtime = "edge";

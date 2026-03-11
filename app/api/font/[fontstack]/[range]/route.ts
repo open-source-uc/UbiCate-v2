@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getRequestContext } from "@cloudflare/next-on-pages";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
 
@@ -41,7 +41,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   try {
     const { fontstack, range } = await params;
 
-    const R2 = getRequestContext().env.R2;
+    const R2 = (await getCloudflareContext()).env.R2;
 
     const result = await findAvailableFont(R2, fontstack, range);
 
@@ -110,4 +110,3 @@ export async function OPTIONS(request: NextRequest) {
   });
 }
 
-export const runtime = "edge";

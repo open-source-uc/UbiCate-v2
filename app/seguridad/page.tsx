@@ -28,4 +28,3 @@ export default function Page() {
   );
 }
 
-export const runtime = "edge";

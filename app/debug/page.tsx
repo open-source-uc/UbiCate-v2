@@ -73,4 +73,3 @@ export default function DebugPage() {
   );
 }
 
-export const runtime = "edge";
