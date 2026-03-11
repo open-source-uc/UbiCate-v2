@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61023376930646,
+                    -33.49643531629176
+                ]
+            },
+            "properties": {
+                "identifier": "AP601-SJ",
+                "name": "CS404",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6412982216611,
                     -33.439633691317354
                 ]
