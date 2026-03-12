@@ -1711,31 +1711,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60986849796987,
-                    -33.49842595999158
-                ]
-            },
-            "properties": {
-                "identifier": "MMC4DP4RN27HR5",
-                "name": "Biblioteca Escolar Futuro",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
