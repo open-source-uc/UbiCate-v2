@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61468679536664,
+                    -33.497982418652064
+                ]
+            },
+            "properties": {
+                "identifier": "MMPCM5TIA7LU3A",
+                "name": "Mosaico Santa Teresa de Ávila",
+                "information": "Patrona de la facultad de educación, educadora, mística, escritora y doctora de la iglesia",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61023376930646,
                     -33.49643531629176
                 ]
