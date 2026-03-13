@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61453530165227,
+                    -33.49897649190162
+                ]
+            },
+            "properties": {
+                "identifier": "MMPCT9J5LYKO7X",
+                "name": "Edyce",
+                "information": "Escultura Edyce. \nFabricación en acero\nConexiones típicas",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61470833234327,
                     -33.49805310918076
                 ]
