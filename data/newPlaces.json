@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61470833234327,
+                    -33.49805310918076
+                ]
+            },
+            "properties": {
+                "identifier": "MMPCNITPR4SZHP",
+                "name": "auditorio, Gabriela Mistral",
+                "information": "Poeta, ensayista y educadora (1889-1957)",
+                "categories": [
+                    "culture",
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61468679536664,
                     -33.497982418652064
                 ]
