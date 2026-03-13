@@ -34373,25 +34373,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M8T7CR2CTZ5563",
-                "name": "PLOT",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59355186844752,
                     -33.44580463319389
                 ]
+            },
+            "properties": {
+                "identifier": "M8T7CR2CTZ5563",
+                "name": "i-PLOT",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
