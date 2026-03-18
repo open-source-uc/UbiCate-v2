@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61468378903041,
+                    -33.49963006922674
+                ]
+            },
+            "properties": {
+                "identifier": "MMWA8SKCD5RXJ9",
+                "name": "Departamento de Ingeniería Hidráulica y Ambiental (DIHA)",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6402047827338,
                     -33.44069046883331
                 ]
@@ -1706,56 +1729,6 @@
                 "floors": [],
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60986849796987,
-                    -33.49842595999158
-                ]
-            },
-            "properties": {
-                "identifier": "MMC4DP4RN27HR5",
-                "name": "Biblioteca Escolar Futuro",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60977136281271,
-                    -33.498336071575494
-                ]
-            },
-            "properties": {
-                "identifier": "MMC4D6BZ5YNBHW",
-                "name": "Biblioteca San Joaquín",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
             }
         },
         {
@@ -34213,24 +34186,27 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M8T6DN9ETUTVE4",
-                "name": "Librería UC",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.5938526433071,
                     -33.446447328589926
+                ]
+            },
+            "properties": {
+                "identifier": "M8T6DN9ETUTVE4",
+                "name": "Librería UC",
+                "information": "",
+                "categories": [
+                    "shop",
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "MMEUUK3ZQUI9BP"
                 ]
             }
         },
@@ -34420,25 +34396,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M8T7CR2CTZ5563",
-                "name": "PLOT",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59355186844752,
                     -33.44580463319389
                 ]
+            },
+            "properties": {
+                "identifier": "M8T7CR2CTZ5563",
+                "name": "i-PLOT",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
