@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61468378903041,
+                    -33.49963006922674
+                ]
+            },
+            "properties": {
+                "identifier": "MMWA8SKCD5RXJ9",
+                "name": "Departamento de Ingeniería Hidráulica y Ambiental (DIHA)",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6402047827338,
                     -33.44069046883331
                 ]
