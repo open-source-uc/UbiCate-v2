@@ -15919,24 +15919,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DAE",
-                "name": "DAE",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60895692978129,
                     -33.49795265404909
+                ]
+            },
+            "properties": {
+                "identifier": "DAE",
+                "name": "DAE",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
                 ]
             }
         },
