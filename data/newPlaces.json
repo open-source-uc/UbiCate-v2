@@ -58,31 +58,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61225102625586,
-                    -33.4981588897411
-                ]
-            },
-            "properties": {
-                "identifier": "MMWD9CA2DJNQMB",
-                "name": "Punto de Reciclaje",
-                "information": "wefwef",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1,
-                    3
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61417276814015,
                     -33.49785676085729
                 ]
