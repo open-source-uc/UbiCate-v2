@@ -8,6 +8,7 @@ import { Metadata } from "next";
 
 import ManifestFixer from "./components/app/ManifestFixer";
 import SWRegister from "./components/app/SWRegister";
+import AnnouncementHandler from "./components/app/AnnouncementHandler";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),
@@ -60,6 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* End Google Tag Manager */}
       </head>
       <body className="h-full">
+        <AnnouncementHandler />
         {/* Google Tag Manager (noscript) - DTFD / UC*/}
         <noscript>
           <iframe
