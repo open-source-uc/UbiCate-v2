@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60903011258331,
+                    -33.49747904531161
+                ]
+            },
+            "properties": {
+                "identifier": "AL1",
+                "name": "AL1 (Aula Lassen 1)",
+                "information": "Sector Aulas Lassen",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60895692978129,
                     -33.49795265404909
                 ]
