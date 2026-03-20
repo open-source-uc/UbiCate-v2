@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22503041870081,
+                    -39.27727360420529
+                ]
+            },
+            "properties": {
+                "identifier": "MMYZMEZHSU9F8T",
+                "name": "Complejo Interdisciplinario para el Desarrollo Sustentable (CIDS)",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFOQY42FU55D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61748715889298,
                     -33.41946716583093
                 ]
