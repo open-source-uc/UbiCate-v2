@@ -6,9 +6,9 @@ import Script from "next/script";
 
 import { Metadata } from "next";
 
+import AnnouncementHandler from "./components/app/AnnouncementHandler";
 import ManifestFixer from "./components/app/ManifestFixer";
 import SWRegister from "./components/app/SWRegister";
-import AnnouncementHandler from "./components/app/AnnouncementHandler";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),
