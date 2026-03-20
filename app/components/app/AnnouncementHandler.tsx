@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+
 import { Announcement } from "../ui";
 
 export default function AnnouncementHandler() {
@@ -9,13 +10,13 @@ export default function AnnouncementHandler() {
   useEffect(() => {
     // Verificar si el usuario marcó "no volver a mostrar"
     const dontShowAgain = localStorage.getItem("announcement-dont-show");
-    
+
     // Si existe el flag, no mostrar
     if (dontShowAgain === "true") {
       setShowAnnouncement(false);
       return;
     }
-    
+
     // Mostrar el anuncio
     setShowAnnouncement(true);
   }, []);

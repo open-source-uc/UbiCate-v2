@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Button } from "./button";
 
 export interface AnnouncementProps {
   title: string;
@@ -17,7 +16,7 @@ export interface AnnouncementProps {
 const Announcement = React.forwardRef<HTMLDivElement, AnnouncementProps>(
   ({ title, description, actionLabel = "Aceptar", onAction, actionHref, onClose, onDontShowToday, isOpen }, ref) => {
     const [dontShowToday, setDontShowToday] = React.useState(false);
-    
+
     const handleDontShowChange = () => {
       const newValue = !dontShowToday;
       setDontShowToday(newValue);
@@ -37,10 +36,7 @@ const Announcement = React.forwardRef<HTMLDivElement, AnnouncementProps>(
         />
 
         {/* Modal */}
-        <div
-          ref={ref}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        >
+        <div ref={ref} className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 relative">
             {/* Close button */}
             <button
@@ -55,12 +51,8 @@ const Announcement = React.forwardRef<HTMLDivElement, AnnouncementProps>(
 
             {/* Content */}
             <div className="p-8 text-center space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight">
-                {title}
-              </h2>
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
-                {description}
-              </p>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight">{title}</h2>
+              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed font-medium">{description}</p>
 
               {/* Actions */}
               <div className="flex justify-center">
