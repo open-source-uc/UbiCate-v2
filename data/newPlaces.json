@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61191210421904,
+                    -33.500019681536756
+                ]
+            },
+            "properties": {
+                "identifier": "MN3IDSJOISU6Q5",
+                "name": "Precalculo 23",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60892371832026,
                     -33.497939808651886
                 ]
