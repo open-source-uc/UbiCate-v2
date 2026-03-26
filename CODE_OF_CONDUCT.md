@@ -1,9 +1,27 @@
-# Reglas básicas
+# Código de Conducta de Open Source eUC
 
-1. Trata a todo el mundo con respeto. No se tolerará ningún tipo de acoso, caza de brujas, sexismo, racismo o discurso de odio.
+Open Source eUC es una comunidad estudiantil sin fines de lucro que busca compartir conocimiento y código abierto en un entorno seguro, respetuoso e inclusivo. Al contribuir o participar en este repositorio, aceptas regirte por las normas de nuestra comunidad.
 
-2. No se permite el spam ni la autopromoción (invitaciones al servidor, anuncios, etc.) sin permiso de un miembro del personal. Esto también incluye mandar MD a otros miembros.
+## Nuestro Compromiso
 
-3. No se permite contenido NSFW ni obsceno. Esto incluye texto, imágenes o enlaces que presenten desnudos, sexo, violencia u otro tipo de contenido gráfico que pueda herir la sensibilidad del espectador.
+Nos comprometemos a garantizar una experiencia libre de acoso para toda persona que participe en nuestros espacios, independientemente de su edad, identidad de género, nivel de experiencia, nacionalidad, raza, religión o cualquier otra característica personal. Fomentamos la empatía, el respeto por las diferentes opiniones y la retroalimentación constructiva.
 
-4. Si ves algo que va en contra de las normas o que no te haga sentir seguro, informa al personal. ¡Queremos que este proyecto sea un lugar acogedor!
+## Comportamientos Inaceptables
+
+No toleramos conductas inapropiadas en nuestros repositorios ni en ningún otro espacio de la comunidad. Esto incluye, pero no se limita a:
+* Uso de lenguaje o imágenes sexualizadas.
+* Comentarios despectivos, insultos o ataques personales.
+* Cualquier forma de acoso público o privado.
+* Publicación de información privada de terceros sin su consentimiento explícito.
+
+## Reporte de Incidentes
+
+Si eres víctima o testigo de un comportamiento que vulnere estos principios, por favor repórtalo inmediatamente. Puedes contactar a la coordinación a través de:
+* Coordinación de Comunidad e Inclusión: **<comunidad@osuc.dev>**
+* Coordinación General: **<contacto@osuc.dev>**
+
+Todos los reportes serán evaluados e investigados de manera confidencial, puntual y justa por los administradores de la comunidad.
+
+## Código de Conducta Completo
+
+Este documento es un resumen. Para conocer en detalle nuestros estándares completos, el alcance de estas normas y las guías de aplicación ante incidentes, por favor revisa el **[Código de Conducta Completo de Open Source eUC](https://osuc.dev/conduct)**.
