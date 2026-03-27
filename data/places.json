@@ -18428,7 +18428,7 @@
             },
             "properties": {
                 "identifier": "AP601-SJ",
-                "name": "AP303",
+                "name": "CS404",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -18437,7 +18437,9 @@
                     6
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
