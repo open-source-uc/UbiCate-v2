@@ -6,14 +6,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59396700289545,
-                    -33.44588199880851
+                    -70.5939669907093,
+                    -33.445882038047976
                 ]
             },
             "properties": {
                 "identifier": "MNDN1RD30TA7QV",
                 "name": "Punto Verde",
-                "information": "Punto Verde Patio",
+                "information": "Punto Verde Patio Central",
                 "categories": [
                     "trash"
                 ],
