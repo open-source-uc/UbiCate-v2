@@ -10,7 +10,7 @@ export default function LocationButton({ onClick }: { onClick?: () => void }) {
           onClick?.();
         }}
         className={`p-1 rounded-full group
-          bg-primary hover:bg-secondary
+          bg-chart-security hover:bg-secondary
           border-border border-1 
           flex items-center justify-center w-12 h-12 
           pointer-events-auto cursor-pointer
@@ -20,7 +20,7 @@ export default function LocationButton({ onClick }: { onClick?: () => void }) {
         aria-label="Botón de emergencia y seguridad"
         title="Información de seguridad"
       >
-        <Icon.Danger className="w-6 h-6 fill-background group-hover:fill-secondary-foreground" />
+        <Icon.Emergency className="w-6 h-6 text-background group-hover:fill-secondary-foreground" />
       </button>
     </Link>
   );

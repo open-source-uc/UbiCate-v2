@@ -13,6 +13,7 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
+import Places from "@/lib/places/data";
 import { Feature, PointFeature, CATEGORIES } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
@@ -74,7 +75,7 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const params = useSearchParams();
-  const { points, polygons, pointsName } = useSidebar();
+  const { points, polygons, pointsName, setPlaces } = useSidebar();
   const { pins, handlePinDrag, polygon } = use(pinsContext);
   const { handleMapLoad, handlePlaceSelection } = useMapEvents({
     mapRef,
@@ -96,6 +97,14 @@ export default function MapComponent({
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
     }
   }, [params]);
+
+  useEffect(() => {
+    const category = params.get("category");
+    if (!category) return;
+
+    const filteredPlaces = Places.features.filter((feature) => feature.properties.categories.includes(category));
+    setPlaces(filteredPlaces);
+  }, [params, setPlaces]);
 
   const containerRef = useRef<HTMLDivElement>(null);
 

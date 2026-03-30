@@ -3246,7 +3246,7 @@
                 "campus": "LC",
                 "information": "",
                 "categories": [
-                    "other"
+                    "security"
                 ],
                 "faculties": [],
                 "floors": [
@@ -31978,6 +31978,102 @@
                 "floors": [
                     1
                 ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                -70.61586607399154,
+                -33.499126386890715
+                ]
+            },
+            "properties": {
+                "identifier": "MNCHNKK7DEDER2",
+                "name": "DEA Metro San Joaquín",
+                "information": "",
+                "categories": [
+                "dea"
+                ],
+                "floors": [
+                1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                -70.6147575470816,
+                -33.4973573397159
+                ]
+            },
+            "properties": {
+                "identifier": "MNCHTA4AL5P2Q1",
+                "name": "DEA Centro Médico",
+                "information": "",
+                "categories": [
+                "dea"
+                ],
+                "floors": [
+                1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                -70.61542046872589,
+                -33.49867649085427
+                ]
+            },
+            "properties": {
+                "identifier": "MNCHYK843SNCB7",
+                "name": "Seguridad Entrada SJ",
+                "information": "",
+                "categories": [
+                "security"
+                ],
+                "floors": [
+                1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                -70.61308669618758,
+                -33.49625908774863
+                ]
+            },
+            "properties": {
+                "identifier": "MNCI0R7L3BXKSP",
+                "name": "Seguridad Entrada Economía",
+                "information": "",
+                "categories": [
+                "security"
+                ],
+                "floors": [
+                1
+                ],
+                "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
             }

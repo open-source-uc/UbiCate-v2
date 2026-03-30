@@ -11,6 +11,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.CAMPUS]: Icons.Default,
   [CATEGORIES.CLASSROOM]: Icons.School,
   [CATEGORIES.COMPUTERS]: Icons.PersonalComputer,
+  [CATEGORIES.DEA]: Icons.DEA,
   [CATEGORIES.CUSTOM_MARK]: Icons.Pin,
   [CATEGORIES.FACULTY]: Icons.School,
   [CATEGORIES.FINANCIAL]: Icons.Money,
@@ -24,6 +25,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.SHOP]: Icons.Shop,
   [CATEGORIES.SPORTS_PLACE]: Icons.Sport,
   [CATEGORIES.STUDYROOM]: Icons.Studyroom,
+  [CATEGORIES.SECURITY]: Icons.Emergency,
   [CATEGORIES.TRASH]: Icons.Default,
   [CATEGORIES.WATER]: Icons.Water,
   [CATEGORIES.USER_LOCATION]: Icons.UserLocation,
@@ -33,7 +35,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
 
 export default function MarkerIcon({
   label,
-  classname = "w-3 h-3 fill-background",
+  classname = "w-3 h-3 fill-background text-background",
 }: {
   label: CATEGORIES;
   classname?: string;

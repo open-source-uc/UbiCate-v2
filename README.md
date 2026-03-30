@@ -61,6 +61,20 @@ Donde `{Id ubicación}` puede ser:
 - MA777ZKC956J8I
 - ...
 
+También se puede abrir el mapa con una categoría filtrada usando el parámetro `category`:
+
+```
+https://ubicate.osuc.dev/?category={categoría}
+```
+
+Donde `{categoría}` corresponde al identificador interno de la categoría (por ejemplo: `dea`, `security`, `bath`, `classroom`, etc.).
+
+Ejemplo:
+
+```
+https://ubicate.osuc.dev/?category=dea
+```
+
 ## Developing
 
 ### Instalación

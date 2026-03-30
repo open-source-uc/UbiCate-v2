@@ -22,6 +22,7 @@ export enum CATEGORIES {
   CAMPUS = "campus",
   CLASSROOM = "classroom",
   COMPUTERS = "computers",
+  DEA = "dea",
   CUSTOM_MARK = "customMark",
   FACULTY = "faculty",
   FINANCIAL = "financial",
@@ -35,6 +36,7 @@ export enum CATEGORIES {
   SHOP = "shop",
   SPORTS_PLACE = "sports_place",
   STUDYROOM = "studyroom",
+  SECURITY = "security",
   TRASH = "trash",
   WATER = "water",
   USER_LOCATION = "user",
@@ -108,6 +110,7 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.CLASSROOM, "Sala"],
   [CATEGORIES.BATH, "Baño"],
   [CATEGORIES.FOOD_LUNCH, "Comida"],
+  [CATEGORIES.DEA, "DEA"],
   [CATEGORIES.STUDYROOM, "Sala de estudio"],
   [CATEGORIES.LIBRARY, "Biblioteca"],
   [CATEGORIES.TRASH, "Reciclaje"],
@@ -127,6 +130,7 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.CUSTOM_MARK, "Marcador"],
   [CATEGORIES.YARD, "Patio"],
   [CATEGORIES.CRISOL, "Crisol"],
+  [CATEGORIES.SECURITY, "Seguridad"],
 ]);
 
 // Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK
@@ -136,6 +140,7 @@ export const CategoryOptions = [
   CATEGORIES.STUDYROOM,
   CATEGORIES.BATH,
   CATEGORIES.FOOD_LUNCH,
+  CATEGORIES.DEA,
   CATEGORIES.WATER,
   CATEGORIES.TRASH,
   CATEGORIES.PARK_BICYCLE,
@@ -151,5 +156,6 @@ export const CategoryOptions = [
   CATEGORIES.YARD,
   CATEGORIES.LIBRARY,
   CATEGORIES.CRISOL,
+  CATEGORIES.SECURITY,
   CATEGORIES.OTHER,
 ];
