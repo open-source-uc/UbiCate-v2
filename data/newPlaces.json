@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59455277474083,
+                    -33.44589818672231
+                ]
+            },
+            "properties": {
+                "identifier": "MA2ZHO69CRYNHM",
+                "name": "Punto Verde",
+                "information": "Punto verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59434618491909,
                     -33.44600635050045
                 ]
