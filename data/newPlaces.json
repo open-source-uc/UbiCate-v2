@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59396700289545,
+                    -33.44588199880851
+                ]
+            },
+            "properties": {
+                "identifier": "MNDN1RD30TA7QV",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59396058851627,
                     -33.44586736667311
                 ]
