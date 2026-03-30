@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59235849260654,
+                    -33.44633094354831
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOMARTI6VK6O",
+                "name": "Punto de Reparación",
+                "information": "Punto con herramientas para reparación de bicicletas",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59299086253291,
                     -33.445618874828455
                 ]
