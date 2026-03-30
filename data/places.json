@@ -20558,29 +20558,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "WATER-26252561",
-                "name": "Agua",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5941663001955,
-                    -33.44556727279392
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "WATER-26252372",
                 "name": "Agua",
                 "campus": "SJ",
