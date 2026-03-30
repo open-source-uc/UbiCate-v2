@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59373672333929,
+                    -33.445119052444646
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOCIT5AV147T",
+                "name": "Punto Verde",
+                "information": "Punto Verde Casino/Mesón UC/Centro Eventos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59391397673234,
                     -33.445119664762714
                 ]
