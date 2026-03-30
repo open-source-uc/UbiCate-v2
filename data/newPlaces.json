@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59321478128673,
+                    -33.44713460737169
+                ]
+            },
+            "properties": {
+                "identifier": "MNDPMT5HKKEPUY",
+                "name": "Escombros",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59337788427646,
                     -33.44698855107464
                 ]
