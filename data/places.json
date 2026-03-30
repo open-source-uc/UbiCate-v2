@@ -22707,29 +22707,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RECICLAJE34",
-                "name": "Basurero de reciclaje",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593911,
-                    -33.445747
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE35",
                 "name": "Basurero de reciclaje",
                 "campus": "OR",
