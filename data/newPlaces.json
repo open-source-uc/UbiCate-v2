@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59364956529092,
+                    -33.44617414824384
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOZV2IZ5I1GL",
+                "name": "Dispensador de Agua",
+                "information": "Dispensador de Agua Patio la Virgen",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5933543811488,
                     -33.446299258338804
                 ]
