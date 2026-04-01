@@ -11,6 +11,30 @@
                 ]
             },
             "properties": {
+                "identifier": "MNG4C16B3WM7TV",
+                "name": "ADMINISTRACIÓN CAMPUS ORIENTE",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935320732351,
+                    -33.447082331184696
+                ]
+            },
+            "properties": {
                 "identifier": "MNG4BZ2396OL1U",
                 "name": "ADMINISTRACIÓN CAMPUS ORIENTE",
                 "information": "",
