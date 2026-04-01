@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59474265251332,
+                    -33.44613769818238
+                ]
+            },
+            "properties": {
+                "identifier": "MNG490I17DURSZ",
+                "name": "PREUNIVERSITARIO UC",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6398352209017,
                     -33.44172551840179
                 ]
