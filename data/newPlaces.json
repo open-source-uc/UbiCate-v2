@@ -614,32 +614,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61307978348046,
-                    -33.49803512546782
-                ]
-            },
-            "properties": {
-                "identifier": "MC92M5E2K3IO9S",
-                "name": "Kiosco Crisol",
-                "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`\n\nHall",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "HALL_SJ"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.6120028779151,
                     -33.49920032314134
                 ]
