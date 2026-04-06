@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61454141183857,
+                    -33.499525790016364
+                ]
+            },
+            "properties": {
+                "identifier": "MNNE3UU8MR9DBY",
+                "name": "Laboratorio de Biotecnologia y Microbiologia Ambiental DIHA",
+                "information": "Una vez entras al Departamento de Ing. Hidraulica y Ambiental (DIHA), seguir recto y doblar a mano derecha en el pasillo, la entrada al laboratorio se encuentra al fondo a la derecha.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.608993,
                     -33.497909
                 ]
