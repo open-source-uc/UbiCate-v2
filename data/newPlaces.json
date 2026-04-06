@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6142490492212,
+                    -33.49889612660892
+                ]
+            },
+            "properties": {
+                "identifier": "C200-SJ",
+                "name": "C200",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZ8CT3XV4D4E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59234092960935,
                     -33.44635071381148
                 ]
