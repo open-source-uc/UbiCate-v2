@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64056785167202,
+                    -33.44179093579233
+                ]
+            },
+            "properties": {
+                "identifier": "MNNLOJSKATOG74",
+                "name": "Acondicionamiento Físico",
+                "information": "Patio de Medicina",
+                "categories": [
+                    "sports_place",
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61454141183857,
                     -33.499525790016364
                 ]
