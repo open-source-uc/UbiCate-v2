@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61292536981568,
+                    -33.500006851185276
+                ]
+            },
+            "properties": {
+                "identifier": "MNOPMFU06XYSBL",
+                "name": "Laboratorio Mecánica de Fluidos (DIHA)",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6404955296791,
                     -33.44175739705731
                 ]
