@@ -1107,10 +1107,10 @@
             },
             "properties": {
                 "identifier": "DAE",
-                "name": "Desarrollo Estudiantil - DAE",
+                "name": "DAE",
                 "information": "",
                 "categories": [
-                    "offices"
+                    "other"
                 ],
                 "floors": [
                     2
