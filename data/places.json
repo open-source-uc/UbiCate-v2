@@ -2148,14 +2148,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6101810885564,
-                    -33.49681024416349
+                    -70.61017810755895,
+                    -33.496726895065066
                 ]
             },
             "properties": {
                 "identifier": "MM9IUUXEGN7598",
                 "name": "Subway",
-                "information": "",
+                "information": "Acepta Junaeb",
                 "categories": [
                     "food_lunch"
                 ],
@@ -2163,7 +2163,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
