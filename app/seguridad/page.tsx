@@ -13,8 +13,8 @@ export default function Page() {
 
   return (
     <main spellCheck="false" className="w-full pb-7">
-      <div className="min-h-screen w-full flex items-center justify-center">
-        <div className="w-full text-center px-4 max-w-5xl mx-auto mt-84">
+      <div className="min-h-screen w-full flex items-start justify-center pt-8">
+        <div className="w-full text-center px-4 max-w-5xl mx-auto">
           <Link
             href="/"
             className="inline-block mb-6 text-white-ubi hover:text-primary transition-colors duration-200 underline"

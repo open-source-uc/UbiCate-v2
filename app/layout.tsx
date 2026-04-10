@@ -6,15 +6,15 @@ import Script from "next/script";
 
 import { Metadata } from "next";
 
-import AnnouncementHandler from "./components/app/AnnouncementHandler";
+// import AnnouncementHandler from "./components/app/AnnouncementHandler";
 import ManifestFixer from "./components/app/ManifestFixer";
 import SWRegister from "./components/app/SWRegister";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/"),
-  title: "Ubicate UC",
+  title: "Ubicate UC: Mapa interactivo de salas, baños y bibliotecas en campus UC",
   description:
-    "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la Pontificia Universidad Católica (PUC). Nuestra herramienta interactiva te ayuda a navegar de manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. ¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC",
+    "Mapa interactivo para encontrar salas, baños, bibliotecas y casinos en los campus de la Pontificia Universidad Católica. Navega fácil y rápido.",
   icons: {
     apple: "/icons/icon-192x192.png",
   },
@@ -26,12 +26,30 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   keywords: [
+    "Ubicate",
+    "UC",
+    "ubicate",
+    "uc",
+    "Ubicate UC",
+    "Mapa UC",
+    "Mapa interactivo",
     "Salas UC",
     "Campus UC",
-    "Pontificia Universidad Católica de Chile",
-    "Mapa UC",
-    "Ubicate UC",
+    "Salas clases UC",
+    "Baños UC",
+    "Bibliotecas UC",
+    "Casinos UC",
     "San Joaquín",
+    "Casa Central",
+    "Lo Contador",
+    "Oriente",
+    "Villarrica",
+    "Pontificia Universidad Católica",
+    "PUC",
+    "Mapa campus",
+    "Ubicación salas",
+    "Cómo llegar UC",
+    "Navegación campus",
     "Open Source",
   ],
 };
@@ -61,7 +79,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* End Google Tag Manager */}
       </head>
       <body className="h-full">
-        <AnnouncementHandler />
+        {/* Popup de encuesta deshabilitado temporalmente */}
+        {/* <AnnouncementHandler /> */}
         {/* Google Tag Manager (noscript) - DTFD / UC*/}
         <noscript>
           <iframe
