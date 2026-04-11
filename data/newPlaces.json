@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59290933721945,
+                    -33.4934497255019
+                ]
+            },
+            "properties": {
+                "identifier": "MNUS5B4N49CARL",
+                "name": "mi casita",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60660064115584,
                     -33.50061720474324
                 ]
