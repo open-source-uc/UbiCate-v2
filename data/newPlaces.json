@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61077765611917,
+                    -33.499601757778656
+                ]
+            },
+            "properties": {
+                "identifier": "MNVDSLT2MESSYT",
+                "name": "LAB10",
+                "information": "Laboratorio de Física. La entrada varía según el docente. Usualmente es en frente de la facultad de matemáticas pero también puede ser desde la dirección de docencia de física.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59290933721945,
                     -33.4934497255019
                 ]
