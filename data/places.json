@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59509939503401,
+                    -33.44629029489749
+                ]
+            },
+            "properties": {
+                "identifier": "MNDPOWOTTV1YSC",
+                "name": "Residuos Vegetales",
+                "information": "Residuos Vegetales de Poda",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61468378903041,
                     -33.49963006922674
                 ]
@@ -2148,14 +2171,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6101810885564,
-                    -33.49681024416349
+                    -70.61017810755895,
+                    -33.496726895065066
                 ]
             },
             "properties": {
                 "identifier": "MM9IUUXEGN7598",
                 "name": "Subway",
-                "information": "",
+                "information": "Acepta Junaeb",
                 "categories": [
                     "food_lunch"
                 ],
@@ -2163,7 +2186,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
@@ -3414,8 +3439,8 @@
             },
             "properties": {
                 "identifier": "MKWSFBKZQ8DYN1",
-                "name": "Memorial Memorial Ejecutados y Desaparecidos de Ingeniería UC",
-                "information": "La placa incluye a Alan Bruce Catalán, Juan Carlos Rodríguez Araya, Eugenio Ruiz-Tagle Orrego y Héctor Vergara Duxrud. \nEdificio José Luis del Río Rondanelli, Patio de Ingeniería - Av. Vicuña Mackenna 4860, Región Metropolitana\n",
+                "name": "Memorial Ejecutados y Desaparecidos de Ingeniería UC",
+                "information": "La placa incluye a Alan Bruce Catalán, Juan Carlos Rodríguez Araya, Eugenio Ruiz-Tagle Orrego y Héctor Vergara Duxrud. \nEdificio José Luis del Río Rondanelli, Patio de Ingeniería - Av. Vicuña Mackenna 4860, Región Metropolitana.\n",
                 "categories": [
                     "culture"
                 ],
@@ -15919,24 +15944,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "DAE",
-                "name": "DAE",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60895692978129,
                     -33.49795265404909
+                ]
+            },
+            "properties": {
+                "identifier": "DAE",
+                "name": "DAE",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
                 ]
             }
         },
@@ -18426,7 +18453,7 @@
             },
             "properties": {
                 "identifier": "AP601-SJ",
-                "name": "AP303",
+                "name": "CS404",
                 "information": "",
                 "categories": [
                     "classroom"
@@ -18435,7 +18462,9 @@
                     6
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
@@ -20548,29 +20577,6 @@
                 "coordinates": [
                     -70.63944985195062,
                     -33.44164019617787
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "WATER-26252561",
-                "name": "Agua",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5941663001955,
-                    -33.44556727279392
                 ]
             }
         },
@@ -22697,29 +22703,6 @@
                 "coordinates": [
                     -70.59433,
                     -33.445798
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE34",
-                "name": "Basurero de reciclaje",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593911,
-                    -33.445747
                 ]
             }
         },
@@ -35526,8 +35509,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59439101221486,
-                    -33.4460733909955
+                    -70.59434618491909,
+                    -33.44600635050045
                 ]
             },
             "properties": {
@@ -37767,7 +37750,7 @@
             "properties": {
                 "identifier": "MC92M5E2K3IO9S",
                 "name": "Kiosco Crisol",
-                "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`",
+                "information": "En Android siempre da problemas mejor usar el correo `quiosco.crisol@uc.cl`\n\nHall",
                 "categories": [
                     "photocopy"
                 ],
@@ -37775,7 +37758,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "HALL_SJ"
+                ]
             }
         },
         {
