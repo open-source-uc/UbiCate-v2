@@ -3,11 +3,11 @@ import { Metadata } from "next";
 import PlacesJSON from "@/lib/places/data";
 import { Feature } from "@/lib/types";
 
+import H1SEO from "./components/app/H1SEO";
+import StructuredData from "./components/app/StructuredData";
 import NavigationSidebar from "./components/features/navigation/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";
 import Providers from "./providers";
-import StructuredData from "./components/app/StructuredData";
-import H1SEO from "./components/app/H1SEO";
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
@@ -29,10 +29,12 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
 
   let placeDescription = "";
   if (paramPlace) {
-    const infoText = paramPlace.properties.information && paramPlace.properties.information.trim() !== "" 
-      ? ` · ${paramPlace.properties.information}` 
-      : "";
-    placeDescription = `Ubicación: ${paramPlace.properties.name} en ${paramPlace.properties.campus}.${infoText}`.substring(0, 160);
+    const infoText =
+      paramPlace.properties.information && paramPlace.properties.information.trim() !== ""
+        ? ` · ${paramPlace.properties.information}`
+        : "";
+    placeDescription =
+      `Ubicación: ${paramPlace.properties.name} en ${paramPlace.properties.campus}.${infoText}`.substring(0, 160);
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";

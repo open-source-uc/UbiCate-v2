@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+
 import PlacesJSON from "@/lib/places/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
