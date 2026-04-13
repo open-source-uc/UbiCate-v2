@@ -6,24 +6,1248 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61225102625586,
-                    -33.4981588897411
+                    -70.61077765611917,
+                    -33.499601757778656
                 ]
             },
             "properties": {
-                "identifier": "MMWD9CA2DJNQMB",
-                "name": "Punto de Reciclaje",
-                "information": "wefwef",
+                "identifier": "MNVDSLT2MESSYT",
+                "name": "LAB10",
+                "information": "Laboratorio de Física. La entrada varía según el docente. Usualmente es en frente de la facultad de matemáticas pero también puede ser desde la dirección de docencia de física.",
                 "categories": [
-                    "trash"
+                    "laboratory"
                 ],
                 "floors": [
-                    1,
-                    3
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59290933721945,
+                    -33.4934497255019
+                ]
+            },
+            "properties": {
+                "identifier": "MNUS5B4N49CARL",
+                "name": "mi casita",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    6
                 ],
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60660064115584,
+                    -33.50061720474324
+                ]
+            },
+            "properties": {
+                "identifier": "MNT083ACA42EHK",
+                "name": "Punto Verde",
+                "information": "Punto Verde Veterinaria",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60660064115584,
+                    -33.50061720474324
+                ]
+            },
+            "properties": {
+                "identifier": "MNT0814IX91K5Z",
+                "name": "Punto Verde",
+                "information": "Punto Verde Veterinaria",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61292536981568,
+                    -33.500006851185276
+                ]
+            },
+            "properties": {
+                "identifier": "MNOPMFU06XYSBL",
+                "name": "Laboratorio Mecánica de Fluidos (DIHA)",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404955296791,
+                    -33.44175739705731
+                ]
+            },
+            "properties": {
+                "identifier": "MNNLQEKDT4W37Y",
+                "name": "Acondicionamiento Físico",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056785167202,
+                    -33.44179093579233
+                ]
+            },
+            "properties": {
+                "identifier": "MNNLOJSKATOG74",
+                "name": "Acondicionamiento Físico",
+                "information": "Patio de Medicina",
+                "categories": [
+                    "sports_place",
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61454141183857,
+                    -33.499525790016364
+                ]
+            },
+            "properties": {
+                "identifier": "MNNE3UU8MR9DBY",
+                "name": "Laboratorio de Biotecnologia y Microbiologia Ambiental DIHA",
+                "information": "Una vez entras al Departamento de Ing. Hidraulica y Ambiental (DIHA), seguir recto y doblar a mano derecha en el pasillo, la entrada al laboratorio se encuentra al fondo a la derecha.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.608993,
+                    -33.497909
+                ]
+            },
+            "properties": {
+                "identifier": "CARAUC",
+                "name": "CARA UC ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6142490492212,
+                    -33.49889612660892
+                ]
+            },
+            "properties": {
+                "identifier": "C200-SJ",
+                "name": "C200",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZ8CT3XV4D4E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59234092960935,
+                    -33.44635071381148
+                ]
+            },
+            "properties": {
+                "identifier": "MA2W11QUN5P2AG",
+                "name": "-",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935320732351,
+                    -33.447082331184696
+                ]
+            },
+            "properties": {
+                "identifier": "MNG4C16B3WM7TV",
+                "name": "ADMINISTRACIÓN CAMPUS ORIENTE",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935320732351,
+                    -33.447082331184696
+                ]
+            },
+            "properties": {
+                "identifier": "MNG4BZ2396OL1U",
+                "name": "ADMINISTRACIÓN CAMPUS ORIENTE",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59474265251332,
+                    -33.44613769818238
+                ]
+            },
+            "properties": {
+                "identifier": "MNG490I17DURSZ",
+                "name": "PREUNIVERSITARIO UC",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6398352209017,
+                    -33.44172551840179
+                ]
+            },
+            "properties": {
+                "identifier": "LAB_DOCENTES_CC_BIO",
+                "name": "Laboratorios Docentes",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61497388230212,
+                    -33.49961869693632
+                ]
+            },
+            "properties": {
+                "identifier": "MNEK7T8E400GZ8",
+                "name": "Laboratorio de Calidad del Agua y Geoquímica Ambiental",
+                "information": "Laboratorio pertenciente al Departamento de Ingeniería Hidráulica y Ambiental (DIHA). \nUbicado en el piso -1 del edificio Hernán Briones, acceso también a través del piso -1 del edificio San Agustín.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MA77GCYP2PRJFG"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59321478128673,
+                    -33.44713460737169
+                ]
+            },
+            "properties": {
+                "identifier": "MNDPMT5HKKEPUY",
+                "name": "Escombros",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59337788427646,
+                    -33.44698855107464
+                ]
+            },
+            "properties": {
+                "identifier": "MA2VNZPAOPFEFE",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central (PLC) ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59364956529092,
+                    -33.44617414824384
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOZV2IZ5I1GL",
+                "name": "Dispensador de Agua",
+                "information": "Dispensador de Agua Patio la Virgen",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5933543811488,
+                    -33.446299258338804
+                ]
+            },
+            "properties": {
+                "identifier": "RECICLAJE35",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio de la Virgen",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59315552530066,
+                    -33.44654135840123
+                ]
+            },
+            "properties": {
+                "identifier": "MA2VSRRWPNND1P",
+                "name": "Punto Verde",
+                "information": "Punto Verde Caja de Estacionamiento",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5930746850562,
+                    -33.446568805782285
+                ]
+            },
+            "properties": {
+                "identifier": "MA2VUHZLBXXD63",
+                "name": "Reciclaje Electrónicos y Eléctricos (RAEE)",
+                "information": "Campana de Reciclaje de Residuos de Aparatos Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59235849260654,
+                    -33.44633094354831
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOMARTI6VK6O",
+                "name": "Punto de Reparación",
+                "information": "Punto con herramientas para reparación de bicicletas",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59299086253291,
+                    -33.445618874828455
+                ]
+            },
+            "properties": {
+                "identifier": "MA2W988B7KP2AH",
+                "name": "Punto Verde",
+                "information": "Punto Verde ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373672333929,
+                    -33.445119052444646
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOCIT5AV147T",
+                "name": "Punto Verde",
+                "information": "Punto Verde Casino/Mesón UC/Centro Eventos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59391397673234,
+                    -33.445119664762714
+                ]
+            },
+            "properties": {
+                "identifier": "MA2WF31RK5XSWH",
+                "name": "Reciclaje de Vidrio",
+                "information": "Punto verde al interior del centro de eventos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59386019855374,
+                    -33.44554235771625
+                ]
+            },
+            "properties": {
+                "identifier": "MNDO0B3FEFODIE",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Facultad de Artes",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59378452213893,
+                    -33.4456272313886
+                ]
+            },
+            "properties": {
+                "identifier": "M8T7EQ6N3YMJMV",
+                "name": "Dispensador de Agua",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59455277474083,
+                    -33.44589818672231
+                ]
+            },
+            "properties": {
+                "identifier": "MA2ZHO69CRYNHM",
+                "name": "Punto Verde",
+                "information": "Punto verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.594318449597,
+                    -33.44630042705145
+                ]
+            },
+            "properties": {
+                "identifier": "MA2ZOMG0RAYKYU",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Preuniversitario",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5939669907093,
+                    -33.445882038047976
+                ]
+            },
+            "properties": {
+                "identifier": "MNDN1RD30TA7QV",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Central",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59396058851627,
+                    -33.44586736667311
+                ]
+            },
+            "properties": {
+                "identifier": "RECICLAJE34",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59423976568799,
+                    -33.44558654514456
+                ]
+            },
+            "properties": {
+                "identifier": "RECICLAJE33",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6120028779151,
+                    -33.49920032314134
+                ]
+            },
+            "properties": {
+                "identifier": "MN90ZTHF25R2UG",
+                "name": "Sala de Oración Multirreligiosa",
+                "information": "Sala de oración donde todos los credos son bienvenidos",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61095912009478,
+                            -33.4975370025704
+                        ],
+                        [
+                            -70.61080690473318,
+                            -33.49752693733113
+                        ],
+                        [
+                            -70.6107921525836,
+                            -33.49758593080015
+                        ],
+                        [
+                            -70.61055812984705,
+                            -33.497564961562205
+                        ],
+                        [
+                            -70.61049710959196,
+                            -33.49801789597161
+                        ],
+                        [
+                            -70.61074286699295,
+                            -33.49804110180654
+                        ],
+                        [
+                            -70.61073783785105,
+                            -33.498133086319974
+                        ],
+                        [
+                            -70.61091184616089,
+                            -33.49814706572075
+                        ],
+                        [
+                            -70.61095912009478,
+                            -33.4975370025704
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "TTF",
+                "name": "Facultad de Teología",
+                "information": "facultad de Teología\n",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026040345818,
+                    -33.499117855719746
+                ]
+            },
+            "properties": {
+                "identifier": "MDE3PPARGS0YGL",
+                "name": "Fotocopiadora ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614246,
+                    -33.49815
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA4",
+                "name": "Fotocopiadora Pif Kai",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61397349311808,
+                    -33.49748288854448
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA5",
+                "name": "Fotocopiadora ",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61336465367684,
+                    -33.49817148074072
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-37631812",
+                "name": "Cafetón",
+                "information": "Cafetería. Acepta Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61392232057136,
+                    -33.499578413960926
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO4",
+                "name": "Castaño",
+                "information": "Cafetería, acepta Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60996467090563,
+                    -33.50068226941584
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO10",
+                "name": "Juan Frijol",
+                "information": "Comida mexicana, tacos y quesadillas",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61544326327063,
+                    -33.49782781236589
+                ]
+            },
+            "properties": {
+                "identifier": "MN3J2N9V3UZBRE",
+                "name": "IMFD - Instituto Milenio Fundamentos de los Datos",
+                "information": "Se encuentra en el centro de innovación ",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61191210421904,
+                    -33.500019681536756
+                ]
+            },
+            "properties": {
+                "identifier": "MN3IDSJOISU6Q5",
+                "name": "Precalculo 23",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60892371832026,
+                    -33.497939808651886
+                ]
+            },
+            "properties": {
+                "identifier": "MMZ7QX3OKVGV35",
+                "name": "Área Social Salud y Bienestar Estudiantil",
+                "information": "Entre piso 1 y 2",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60903011258331,
+                    -33.49747904531161
+                ]
+            },
+            "properties": {
+                "identifier": "AL1",
+                "name": "AL1 (Aula Lassen 1)",
+                "information": "Sector Aulas Lassen",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60895692978129,
+                    -33.49795265404909
+                ]
+            },
+            "properties": {
+                "identifier": "DAE",
+                "name": "DAE",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22503041870081,
+                    -39.27727360420529
+                ]
+            },
+            "properties": {
+                "identifier": "MMYZMEZHSU9F8T",
+                "name": "Complejo Interdisciplinario para el Desarrollo Sustentable (CIDS)",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFOQY42FU55D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61748715889298,
+                    -33.41946716583093
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MULTIUSO-LC",
+                "name": "Sala Multiuso",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61730781409395,
+                    -33.41929369752461
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-33669872",
+                "name": "Auditorio FCV",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
             }
         },
         {
@@ -259,32 +1483,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "EDU"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61023376930646,
-                    -33.49643531629176
-                ]
-            },
-            "properties": {
-                "identifier": "AP601-SJ",
-                "name": "CS404",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    6
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "AP-SECTOR"
                 ]
             }
         },
@@ -855,84 +2053,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61190374021552,
-                            -33.49732913590343
-                        ],
-                        [
-                            -70.61190694570541,
-                            -33.49717605117534
-                        ],
-                        [
-                            -70.61216359958053,
-                            -33.49719743989406
-                        ],
-                        [
-                            -70.61219461262226,
-                            -33.496906105519436
-                        ],
-                        [
-                            -70.61192706227303,
-                            -33.496890028977894
-                        ],
-                        [
-                            -70.61198787372078,
-                            -33.4964940025452
-                        ],
-                        [
-                            -70.61177618282274,
-                            -33.49647815978416
-                        ],
-                        [
-                            -70.61171684414148,
-                            -33.496881920807986
-                        ],
-                        [
-                            -70.61089025606547,
-                            -33.49680229533782
-                        ],
-                        [
-                            -70.61084668630441,
-                            -33.49708441306618
-                        ],
-                        [
-                            -70.61169102787971,
-                            -33.4971520063349
-                        ],
-                        [
-                            -70.61167694628239,
-                            -33.49730298545484
-                        ],
-                        [
-                            -70.61190374021552,
-                            -33.49732913590343
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "EA",
-                "name": "Facultad de Economía y Administración ",
-                "information": "Piso - 1: Auditorio Francisco Rosende-BCI, Salas AE 001 a 004.\nPiso 1: Salas de Estudio, Salas AE 101 a AE 108, Pastoral.\nPiso 2: Salas AE 201 a 211, Salas de Computación 1 y 2.\nPiso 3: Decanato, Instituto de Economía.\nPiso 4: Escuela de Administración.",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    4
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EA"
-                ]
             }
         },
         {
