@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.608344445579,
+                    -33.4976398296999
+                ]
+            },
+            "properties": {
+                "identifier": "TMP101-SJ",
+                "name": "TMP101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMB0536H7XE38X"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61077765611917,
                     -33.499601757778656
                 ]
