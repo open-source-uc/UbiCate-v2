@@ -6,6 +6,134 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64038632528299,
+                    -33.44046706751657
+                ]
+            },
+            "properties": {
+                "identifier": "JAIME_GUZMÁN-CC",
+                "name": "Jaime Guzmán ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61379928658462,
+                    -33.49781890167755
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32216955",
+                "name": "Pedagogías interfacultades editado",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6140390904765,
+                    -33.49672160206882
+                ]
+            },
+            "properties": {
+                "identifier": "MNXP94MJDEHF1U",
+                "name": "Español UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.609914,
+                    -33.497421
+                ]
+            },
+            "properties": {
+                "identifier": "M2",
+                "name": "M2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.608344445579,
+                    -33.4976398296999
+                ]
+            },
+            "properties": {
+                "identifier": "TMP101-SJ",
+                "name": "TMP101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMB0536H7XE38X"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61077765611917,
                     -33.499601757778656
                 ]
@@ -813,8 +941,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6120028779151,
-                    -33.49920032314134
+                    -70.6120028346777,
+                    -33.49920026728391
                 ]
             },
             "properties": {
@@ -891,32 +1019,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "TTF"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61026040345818,
-                    -33.499117855719746
-                ]
-            },
-            "properties": {
-                "identifier": "MDE3PPARGS0YGL",
-                "name": "Fotocopiadora ",
-                "information": "",
-                "categories": [
-                    "photocopy"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
                 ]
             }
         },
