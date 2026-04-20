@@ -6615,7 +6615,7 @@
                     "classroom"
                 ],
                 "floors": [
-                    1
+                    -1
                 ],
                 "campus": "LC",
                 "faculties": [
