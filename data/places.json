@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64038632528299,
+                    -33.44046706751657
+                ]
+            },
+            "properties": {
+                "identifier": "JAIME_GUZMÁN-CC",
+                "name": "Jaime Guzmán ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59509939503401,
                     -33.44629029489749
                 ]
