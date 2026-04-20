@@ -1089,32 +1089,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61730781409395,
-                    -33.41929369752461
-                ]
-            },
-            "properties": {
-                "identifier": "AUDITORIUM-33669872",
-                "name": "Auditorio FCV",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "floors": [
-                    4
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": [
-                    "AQR-1"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61417276814015,
                     -33.49785676085729
                 ]
