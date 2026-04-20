@@ -16560,26 +16560,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FT-104",
-                "name": "FT-104",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "TTF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61066257868815,
                     -33.49792022222768
+                ]
+            },
+            "properties": {
+                "identifier": "FT-104",
+                "name": "FT-104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
                 ]
             }
         },
