@@ -8815,24 +8815,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-33669872",
-                "name": "Auditorio Diseño",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61730781409395,
                     -33.41929369752461
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-33669872",
+                "name": "Auditorio FCV",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
                 ]
             }
         },
