@@ -17052,24 +17052,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AE108-SJ",
-                "name": "AE108",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61132352941048,
                     -33.49693476962717
+                ]
+            },
+            "properties": {
+                "identifier": "AE108-SJ",
+                "name": "AE108",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
