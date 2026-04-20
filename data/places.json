@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6140390904765,
+                    -33.49672160206882
+                ]
+            },
+            "properties": {
+                "identifier": "MNXP94MJDEHF1U",
+                "name": "Español UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "FIL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6120028346777,
                     -33.49920026728391
                 ]
