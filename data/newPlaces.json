@@ -2032,32 +2032,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6125554549745,
-                    -33.49995917447102
-                ]
-            },
-            "properties": {
-                "identifier": "A6",
-                "name": "A6",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "ING"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61071804428488,
                     -33.50059263394466
                 ]
