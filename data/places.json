@@ -37525,18 +37525,15 @@
             "properties": {
                 "identifier": "SALAESTUDIO9",
                 "name": "Sala de Estudio Raúl Devés",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
-                    "studyroom",
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
+                    "auditorium"
                 ],
                 "floors": [
                     1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
