@@ -27177,24 +27177,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6398352209017,
+                    -33.44172551840179
+                ]
+            },
             "properties": {
                 "identifier": "LAB_DOCENTES_CC_BIO",
                 "name": "Laboratorios Docentes",
-                "campus": "CC",
                 "information": "",
                 "categories": [
                     "laboratory"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.639567,
-                    -33.441918
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
