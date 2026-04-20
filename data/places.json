@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61497388230212,
+                    -33.49961869693632
+                ]
+            },
+            "properties": {
+                "identifier": "MNEK7T8E400GZ8",
+                "name": "Laboratorio de Calidad del Agua y Geoquímica Ambiental",
+                "information": "Laboratorio pertenciente al Departamento de Ingeniería Hidráulica y Ambiental (DIHA). \nUbicado en el piso -1 del edificio Hernán Briones, acceso también a través del piso -1 del edificio San Agustín.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MA77GCYP2PRJFG"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61454141183857,
                     -33.499525790016364
                 ]
