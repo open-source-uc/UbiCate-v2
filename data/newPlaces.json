@@ -813,32 +813,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6120028346777,
-                    -33.49920026728391
-                ]
-            },
-            "properties": {
-                "identifier": "MN90ZTHF25R2UG",
-                "name": "Sala de Oración Multirreligiosa",
-                "information": "Sala de oración donde todos los credos son bienvenidos",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "LA_Y"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.614246,
                     -33.49815
                 ]
