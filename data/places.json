@@ -8472,24 +8472,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M5-CC",
-                "name": "M5",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    4
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64064238866715,
                     -33.44168107420454
+                ]
+            },
+            "properties": {
+                "identifier": "M5-CC",
+                "name": "M5",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMF8KUNSL6ZEAY"
                 ]
             }
         },
