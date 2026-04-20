@@ -14749,26 +14749,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "N15",
-                "name": "N15",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61022047392314,
                     -33.49757859366504
+                ]
+            },
+            "properties": {
+                "identifier": "N15",
+                "name": "N15",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
