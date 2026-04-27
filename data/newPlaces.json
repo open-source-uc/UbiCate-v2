@@ -8,6 +8,63 @@
                 "coordinates": [
                     [
                         [
+                            -70.61227230518169,
+                            -33.498918138288374
+                        ],
+                        [
+                            -70.61190214258913,
+                            -33.49899601122336
+                        ],
+                        [
+                            -70.61188900843263,
+                            -33.499108004319524
+                        ],
+                        [
+                            -70.61186951427668,
+                            -33.49931876095403
+                        ],
+                        [
+                            -70.61237019012256,
+                            -33.499361919258305
+                        ],
+                        [
+                            -70.61240281843587,
+                            -33.499147065753654
+                        ],
+                        [
+                            -70.61243657186414,
+                            -33.498879670909155
+                        ],
+                        [
+                            -70.61227230518169,
+                            -33.498918138288374
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "LA_Y",
+                "name": "Centro Desarrollo Docente",
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61546288430691,
                             -33.49769357280825
                         ],
