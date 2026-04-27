@@ -4,6 +4,83 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61546288430691,
+                            -33.49769357280825
+                        ],
+                        [
+                            -70.61521779745817,
+                            -33.497659183298126
+                        ],
+                        [
+                            -70.61512257903814,
+                            -33.49764128956389
+                        ],
+                        [
+                            -70.61508905142546,
+                            -33.4976379344883
+                        ],
+                        [
+                            -70.6150109320879,
+                            -33.49796924757455
+                        ],
+                        [
+                            -70.61517890542746,
+                            -33.49797372099151
+                        ],
+                        [
+                            -70.61515375971794,
+                            -33.49805871586987
+                        ],
+                        [
+                            -70.61521980911493,
+                            -33.49806514640003
+                        ],
+                        [
+                            -70.61524227261543,
+                            -33.49798294741327
+                        ],
+                        [
+                            -70.61550881713629,
+                            -33.49801789597161
+                        ],
+                        [
+                            -70.61552155762911,
+                            -33.49796840880886
+                        ],
+                        [
+                            -70.61542298644781,
+                            -33.497955827322286
+                        ],
+                        [
+                            -70.61546288430691,
+                            -33.49769357280825
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CDI",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60791530249031,
