@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61036383562251,
+                    -33.500581081425665
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-32379115",
+                "name": "Crisol Carreras de la Salud",
+                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.\nSalas para clases, Total 306 computadores.",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6136066620074,
                     -33.497233103322664
                 ]
