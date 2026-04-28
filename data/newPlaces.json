@@ -4,6 +4,49 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64001520328162,
+                            -33.44097763357434
+                        ],
+                        [
+                            -70.64000049421693,
+                            -33.44097335904872
+                        ],
+                        [
+                            -70.64000049421693,
+                            -33.44097335904872
+                        ],
+                        [
+                            -70.64001520328162,
+                            -33.44097763357434
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MOJ3XBAPQC1K04",
+                "name": "Quiosco Crisol",
+                "information": "Impresión para alumnos",
+                "categories": [
+                    "photocopy",
+                    "photocopy"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61307978348046,
