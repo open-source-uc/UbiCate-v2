@@ -33678,14 +33678,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61346024294069,
-                    -33.49820595363147
+                    -70.61336465367684,
+                    -33.49817148074072
                 ]
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-37631812",
                 "name": "Cafetón",
-                "information": "",
+                "information": "Cafetería. Acepta Junaeb",
                 "categories": [
                     "food_lunch"
                 ],
@@ -33693,7 +33693,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "HALL_SJ"
+                ]
             }
         },
         {
