@@ -30055,14 +30055,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61380387311105,
-                    -33.49951751736092
+                    -70.61392232057136,
+                    -33.499578413960926
                 ]
             },
             "properties": {
                 "identifier": "ALMUERZO4",
                 "name": "Castaño",
-                "information": "",
+                "information": "Cafetería, acepta Junaeb",
                 "categories": [
                     "food_lunch"
                 ],
