@@ -1246,30 +1246,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61392232057136,
-                    -33.499578413960926
-                ]
-            },
-            "properties": {
-                "identifier": "ALMUERZO4",
-                "name": "Castaño",
-                "information": "Cafetería, acepta Junaeb",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60996467090563,
                     -33.50068226941584
                 ]
