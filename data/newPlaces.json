@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59454827184192,
+                    -33.446646587711605
+                ]
+            },
+            "properties": {
+                "identifier": "MOK471J7ONS8N7",
+                "name": "cajero automático",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
