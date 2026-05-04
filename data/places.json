@@ -6,6 +6,259 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59364956529092,
+                    -33.44617414824384
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOZV2IZ5I1GL",
+                "name": "Dispensador de Agua",
+                "information": "Dispensador de Agua Patio la Virgen",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6140390904765,
+                    -33.49672160206882
+                ]
+            },
+            "properties": {
+                "identifier": "MNXP94MJDEHF1U",
+                "name": "Español UC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "FIL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6120028346777,
+                    -33.49920026728391
+                ]
+            },
+            "properties": {
+                "identifier": "MN90ZTHF25R2UG",
+                "name": "Sala de Oración Multirreligiosa",
+                "information": "Sala de oración donde todos los credos son bienvenidos",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61497388230212,
+                    -33.49961869693632
+                ]
+            },
+            "properties": {
+                "identifier": "MNEK7T8E400GZ8",
+                "name": "Laboratorio de Calidad del Agua y Geoquímica Ambiental",
+                "information": "Laboratorio pertenciente al Departamento de Ingeniería Hidráulica y Ambiental (DIHA). \nUbicado en el piso -1 del edificio Hernán Briones, acceso también a través del piso -1 del edificio San Agustín.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MA77GCYP2PRJFG"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61454141183857,
+                    -33.499525790016364
+                ]
+            },
+            "properties": {
+                "identifier": "MNNE3UU8MR9DBY",
+                "name": "Laboratorio de Biotecnologia y Microbiologia Ambiental DIHA",
+                "information": "Una vez entras al Departamento de Ing. Hidraulica y Ambiental (DIHA), seguir recto y doblar a mano derecha en el pasillo, la entrada al laboratorio se encuentra al fondo a la derecha.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22503041870081,
+                    -39.27727360420529
+                ]
+            },
+            "properties": {
+                "identifier": "MMYZMEZHSU9F8T",
+                "name": "Complejo Interdisciplinario para el Desarrollo Sustentable (CIDS)",
+                "information": "",
+                "categories": [
+                    "building"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": [
+                    "MMCFOQY42FU55D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61813371730044,
+                    -33.41909076400122
+                ]
+            },
+            "properties": {
+                "identifier": "EDIFICIO_DE_LA_ESCUELA_DE_DISEÑO-LC",
+                "name": "Edificio de la Escuela de Diseño",
+                "information": "Arquitecto: Sebastián Irarrázaval, bendecido bajo la figura de San José, patrono de esta facultad",
+                "categories": [
+                    "building",
+                    "culture",
+                    "classroom"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "DNO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6176979166892,
+                    -33.419745467394485
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_10_LEOPOLDO_BENÍTEZ-LC",
+                "name": "Sala 10 Leopoldo Benítez",
+                "information": "Nombrada así en honor a Leopoldo Benítez, Director del Departamento de Arquitectura (1969-1973).\nEs una de las 31 víctimas fatales UC, entre estudiantes, egresados y docentes asesinados o desaparecidos tras el golpe.",
+                "categories": [
+                    "culture",
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61780389184044,
+                    -33.41966209374553
+                ]
+            },
+            "properties": {
+                "identifier": "MMKMPWQ3SEQPYT",
+                "name": "Refectorio",
+                "information": "Originalmente, un \"refectorio\" es la sala destinada a comedor en monasterios o conventos, y en este campus forma parte del conjunto patrimonial de la antigua casona colonial.",
+                "categories": [
+                    "culture",
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64038632528299,
+                    -33.44046706751657
+                ]
+            },
+            "properties": {
+                "identifier": "JAIME_GUZMÁN-CC",
+                "name": "Jaime Guzmán ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59509939503401,
                     -33.44629029489749
                 ]
@@ -1700,7 +1953,7 @@
             "properties": {
                 "identifier": "ED113-SJ",
                 "name": "ED113",
-                "information": "Wednesday class @11 AM",
+                "information": "",
                 "categories": [
                     "classroom"
                 ],
@@ -2644,7 +2897,7 @@
             "properties": {
                 "identifier": "ML6ZSR3VNZ2CNN",
                 "name": "Punto de microondas",
-                "information": "",
+                "information": "Se llena más que la chucha ",
                 "categories": [
                     "food_lunch"
                 ],
@@ -6538,7 +6791,7 @@
                     "classroom"
                 ],
                 "floors": [
-                    1
+                    -1
                 ],
                 "campus": "LC",
                 "faculties": [
@@ -8472,24 +8725,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M5-CC",
-                "name": "M5",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    4
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64064238866715,
                     -33.44168107420454
+                ]
+            },
+            "properties": {
+                "identifier": "M5-CC",
+                "name": "M5",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMF8KUNSL6ZEAY"
                 ]
             }
         },
@@ -8706,24 +8961,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AUDITORIUM-33669872",
-                "name": "Auditorio Diseño",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "auditorium"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61730781409395,
                     -33.41929369752461
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-33669872",
+                "name": "Auditorio FCV",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    4
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
                 ]
             }
         },
@@ -12572,24 +12829,27 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "SHOP-32734677",
-                "name": "Librería UC",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "shop"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.64126626136783,
                     -33.44150432835708
+                ]
+            },
+            "properties": {
+                "identifier": "SHOP-32734677",
+                "name": "Librería UC",
+                "information": "",
+                "categories": [
+                    "shop",
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "MMDKMWIHOO9ICZ"
                 ]
             }
         },
@@ -13811,26 +14071,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "A6",
-                "name": "A6",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6125554549745,
                     -33.49995917447102
+                ]
+            },
+            "properties": {
+                "identifier": "A6",
+                "name": "A6",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
             }
         },
@@ -14749,26 +15009,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "N15",
-                "name": "N15",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61022047392314,
                     -33.49757859366504
+                ]
+            },
+            "properties": {
+                "identifier": "N15",
+                "name": "N15",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -14872,26 +15132,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "N4",
-                "name": "N6",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61032829806209,
                     -33.49873601582474
+                ]
+            },
+            "properties": {
+                "identifier": "N4",
+                "name": "N6",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -15114,24 +15374,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "TMP101-SJ",
-                "name": "TMP101",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.608344445579,
                     -33.4976398296999
+                ]
+            },
+            "properties": {
+                "identifier": "TMP101-SJ",
+                "name": "TMP101",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMB0536H7XE38X"
                 ]
             }
         },
@@ -16015,24 +16277,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AL1",
-                "name": "AL1",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60903011258331,
                     -33.49747904531161
+                ]
+            },
+            "properties": {
+                "identifier": "AL1",
+                "name": "AL1 (Aula Lassen 1)",
+                "information": "Sector Aulas Lassen",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
                 ]
             }
         },
@@ -16556,26 +16820,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "FT-104",
-                "name": "FT-104",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "TTF"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61066257868815,
                     -33.49792022222768
+                ]
+            },
+            "properties": {
+                "identifier": "FT-104",
+                "name": "FT-104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
                 ]
             }
         },
@@ -17052,24 +17316,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AE108-SJ",
-                "name": "AE108",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61132352941048,
                     -33.49693476962717
+                ]
+            },
+            "properties": {
+                "identifier": "AE108-SJ",
+                "name": "AE108",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
                 ]
             }
         },
@@ -20024,24 +20290,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "C200-SJ",
-                "name": "C200",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    2
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6142490492212,
                     -33.49889612660892
+                ]
+            },
+            "properties": {
+                "identifier": "C200-SJ",
+                "name": "C200",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZ8CT3XV4D4E"
                 ]
             }
         },
@@ -21472,26 +21740,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "A5",
-                "name": "A5",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61254,
                     -33.499965
+                ]
+            },
+            "properties": {
+                "identifier": "A5",
+                "name": "A5",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
                 ]
             }
         },
@@ -21632,7 +21900,7 @@
             "properties": {
                 "identifier": "AG5",
                 "name": "AG5",
-                "information": "",
+                "information": "Apañe precalculo",
                 "categories": [
                     "classroom"
                 ],
@@ -21743,24 +22011,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "AM3",
-                "name": "AM3",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60908,
                     -33.498032
+                ]
+            },
+            "properties": {
+                "identifier": "AM3",
+                "name": "AM3",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
                 ]
             }
         },
@@ -26230,8 +26500,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61396781304775,
-                    -33.49717865642995
+                    -70.61397349311808,
+                    -33.49748288854448
                 ]
             },
             "properties": {
@@ -27140,24 +27410,26 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6398352209017,
+                    -33.44172551840179
+                ]
+            },
             "properties": {
                 "identifier": "LAB_DOCENTES_CC_BIO",
                 "name": "Laboratorios Docentes",
-                "campus": "CC",
                 "information": "",
                 "categories": [
                     "laboratory"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.639567,
-                    -33.441918
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
                 ]
             }
         },
@@ -27236,26 +27508,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "M2",
-                "name": "M2",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "faculties": [
-                    "SOC"
-                ],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609914,
                     -33.497421
+                ]
+            },
+            "properties": {
+                "identifier": "M2",
+                "name": "M2",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
@@ -28327,7 +28599,7 @@
             "properties": {
                 "identifier": "PUESTO10",
                 "name": "Juan Frijol",
-                "information": "",
+                "information": "Comida mexicana, tacos y quesadillas",
                 "categories": [
                     "food_lunch"
                 ],
@@ -29806,14 +30078,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61380387311105,
-                    -33.49951751736092
+                    -70.61392232057136,
+                    -33.499578413960926
                 ]
             },
             "properties": {
                 "identifier": "ALMUERZO4",
                 "name": "Castaño",
-                "information": "",
+                "information": "Cafetería, acepta Junaeb",
                 "categories": [
                     "food_lunch"
                 ],
@@ -31988,57 +32260,60 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "TTF",
-                "name": "Facultad de Teología",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "faculties": []
-            },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -70.610959,
-                            -33.497537
+                            -70.61095912009478,
+                            -33.4975370025704
                         ],
                         [
-                            -70.610807,
-                            -33.497527
+                            -70.61080690473318,
+                            -33.49752693733113
                         ],
                         [
-                            -70.610792,
-                            -33.497586
+                            -70.6107921525836,
+                            -33.49758593080015
                         ],
                         [
-                            -70.610558,
-                            -33.497565
+                            -70.61055812984705,
+                            -33.497564961562205
                         ],
                         [
-                            -70.610497,
-                            -33.498018
+                            -70.61049710959196,
+                            -33.49801789597161
                         ],
                         [
-                            -70.610743,
-                            -33.498041
+                            -70.61074286699295,
+                            -33.49804110180654
                         ],
                         [
-                            -70.610738,
-                            -33.498133
+                            -70.61073783785105,
+                            -33.498133086319974
                         ],
                         [
-                            -70.610912,
-                            -33.498147
+                            -70.61091184616089,
+                            -33.49814706572075
                         ],
                         [
-                            -70.610959,
-                            -33.497537
+                            -70.61095912009478,
+                            -33.4975370025704
                         ]
                     ]
+                ]
+            },
+            "properties": {
+                "identifier": "TTF",
+                "name": "Facultad de Teología",
+                "information": "facultad de Teología\n",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
                 ]
             }
         },
@@ -33426,14 +33701,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61346024294069,
-                    -33.49820595363147
+                    -70.61336465367684,
+                    -33.49817148074072
                 ]
             },
             "properties": {
                 "identifier": "FOOD_LUNCH-37631812",
                 "name": "Cafetón",
-                "information": "",
+                "information": "Cafetería. Acepta Junaeb",
                 "categories": [
                     "food_lunch"
                 ],
@@ -33441,7 +33716,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "HALL_SJ"
+                ]
             }
         },
         {
@@ -34365,7 +34642,7 @@
             },
             "properties": {
                 "identifier": "M8T7EQ6N3YMJMV",
-                "name": "Agua",
+                "name": "Dispensador de Agua",
                 "information": "",
                 "categories": [
                     "water"
@@ -37323,18 +37600,15 @@
             "properties": {
                 "identifier": "SALAESTUDIO9",
                 "name": "Sala de Estudio Raúl Devés",
-                "campus": "SJ",
                 "information": "",
                 "categories": [
-                    "studyroom",
-                    "classroom"
-                ],
-                "faculties": [
-                    "ING"
+                    "auditorium"
                 ],
                 "floors": [
                     1
-                ]
+                ],
+                "campus": "SJ",
+                "faculties": []
             }
         },
         {
