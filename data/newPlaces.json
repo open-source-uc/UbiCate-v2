@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61516506520195,
+                    -33.49900931082151
+                ]
+            },
+            "properties": {
+                "identifier": "DEPARTAMENTO_DE_INGENIERÍA_Y_GESTIÓN_DE_LA_CONSTRUCCIÓN_(DIGC_UC)-SJ",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC UC)",
+                "information": "",
+                "categories": [
+                    "faculty",
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59454827184192,
                     -33.446646587711605
                 ]
