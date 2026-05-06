@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61389822873208,
+                    -33.499976500884905
+                ]
+            },
+            "properties": {
+                "identifier": "MOUL5QF6KL427O",
+                "name": "Departamento de Ingeniería de Transporte y Logística",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61516506520195,
                     -33.49900931082151
                 ]
