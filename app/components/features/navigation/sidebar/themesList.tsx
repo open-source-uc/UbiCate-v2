@@ -34,47 +34,44 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
           <div className="bg-secondary rounded-lg p-2 space-y-2">
             {themes.map((themeOption) => {
               const IconComponent = themeOption.ui.icon;
+              const isActive = theme === themeOption.id;
               return (
                 <button
                   key={themeOption.id}
                   onClick={() => setTheme(themeOption.id)}
                   type="button"
                   className={`w-full flex items-center gap-3 p-2 rounded-md transition hover:bg-accent/18 ${
-                    theme === themeOption.id ? "bg-primary" : "bg-transparent"
+                    isActive ? "bg-primary" : "bg-transparent"
                   }`}
-                  aria-pressed={theme === themeOption.id}
+                  aria-pressed={isActive}
                 >
                   {/* Icon container following sidebar pattern */}
                   <span
                     className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      theme === themeOption.id ? "bg-primary-foreground/20" : "bg-accent"
+                      isActive ? "bg-primary-foreground/20" : "bg-background/70 border border-border"
                     }`}
                   >
                     <IconComponent
-                      className={`w-5 h-5 ${theme === themeOption.id ? "text-primary-foreground" : "text-foreground"}`}
+                      className={`w-5 h-5 fill-current ${isActive ? "text-primary-foreground" : "text-secondary-foreground"}`}
                     />
                   </span>
 
                   {/* Text content */}
                   <div className="flex-1 text-left">
                     <p
-                      className={`text-sm font-medium ${
-                        theme === themeOption.id ? "text-primary-foreground" : "text-foreground"
-                      }`}
+                      className={`text-sm font-medium ${isActive ? "text-primary-foreground" : "text-secondary-foreground"}`}
                     >
                       {themeOption.ui.name}
                     </p>
                     <p
-                      className={`text-xs ${
-                        theme === themeOption.id ? "text-primary-foreground/70" : "text-muted-foreground"
-                      }`}
+                      className={`text-xs ${isActive ? "text-primary-foreground/80" : "text-muted-foreground"}`}
                     >
                       {themeOption.ui.description}
                     </p>
                   </div>
 
                   {/* Active indicator */}
-                  {theme === themeOption.id && <div className="w-2 h-2 bg-primary-foreground rounded-full" />}
+                  {isActive && <div className="w-2 h-2 bg-primary-foreground rounded-full" />}
                 </button>
               );
             })}

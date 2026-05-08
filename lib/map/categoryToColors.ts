@@ -1,7 +1,7 @@
 import { CATEGORIES } from "@/lib/types";
 
 const categoryToColorMap = new Map<CATEGORIES, string>([
-  [CATEGORIES.FACULTY, "bg-chart-3"], // Facultades - #0176DE
+[CATEGORIES.FACULTY, "bg-chart-3"], // Facultades - #0176DE
   [CATEGORIES.CLASSROOM, "bg-chart-1"], // Salas de clases - #FEC60D
   [CATEGORIES.STUDYROOM, "bg-chart-15"], // Salas de estudio - #0176DE
   [CATEGORIES.AUDITORIUM, "bg-chart-14"], // Auditorios - #29272B
@@ -23,6 +23,8 @@ const categoryToColorMap = new Map<CATEGORIES, string>([
   [CATEGORIES.OFFICES, "bg-chart-14"],
   [CATEGORIES.LABORATORY, "bg-chart-14"],
   [CATEGORIES.TRASH, "bg-chart-14"],
+  [CATEGORIES.DEA, "bg-chart-dea"],
+  [CATEGORIES.SECURITY, "bg-chart-security"],
 ]);
 
 export const getCategoryColor = (category: CATEGORIES): string => {

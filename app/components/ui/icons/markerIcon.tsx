@@ -31,11 +31,13 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.CRISOL]: Icons.PersonalComputer,
   [CATEGORIES.CULTURE]: Icons.Palette,
   [CATEGORIES.OFFICES]: Icons.Domain,
+  [CATEGORIES.SECURITY]: Icons.Emergency,
+  [CATEGORIES.DEA]: Icons.DEA,
 };
 
 export default function MarkerIcon({
   label,
-  classname = "w-3 h-3 fill-background",
+  classname = "w-3 h-3 fill-background text-background",
 }: {
   label: CATEGORIES;
   classname?: string;

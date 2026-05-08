@@ -28,7 +28,6 @@ Los datos iniciales del proyecto son sacados de [almapp/uc-maps-seeds](https://g
 ### Mantenedores
 
 - [Utmite](https://github.com/Utmite)
-- [IgnacioPalma](https://github.com/IgnacioPalma)
 
 ### Documentación by DeepWiki
 
@@ -61,6 +60,20 @@ Donde `{Id ubicación}` puede ser:
 - B12
 - MA777ZKC956J8I
 - ...
+
+También se puede abrir el mapa con una categoría filtrada usando el parámetro `category`:
+
+```
+https://ubicate.osuc.dev/?category={categoría}
+```
+
+Donde `{categoría}` corresponde al identificador interno de la categoría (por ejemplo: `dea`, `security`, `bath`, `classroom`, etc.).
+
+Ejemplo:
+
+```
+https://ubicate.osuc.dev/?category=dea
+```
 
 ## Developing
 
