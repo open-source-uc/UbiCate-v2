@@ -24,8 +24,8 @@ export default function Page() {
             ← Volver a inicio
           </Link>
 
-        <div className="rounded-xl p-6 md:p-8 text-left bg-secondary/70 border border-border/60 backdrop-blur-sm">
-          <p className="text-lg md:text-xl font-bold mb-5 text-white-ubi">
+        <div className="rounded-xl p-6 md:p-8 text-left bg-primary border border-secondary backdrop-blur-sm">
+          <p className="text-lg md:text-xl font-bold mb-5 text-white">
             En caso de emergencia en el campus, comuníquese al siguiente número:
           </p>
 
@@ -39,14 +39,16 @@ export default function Page() {
             <span className="flex-1 px-5 py-3 text-base md:text-lg font-semibold text-center">+56 9 5504 5000</span>
             <span aria-hidden="true" className="hidden md:inline-block w-14 shrink-0" />
           </a>
-                  <div className="rounded-xl p-6 md:p-8 text-left bg-secondary/70 border border-border/60 backdrop-blur-sm">
-          <p className="text-lg md:text-xl font-bold mb-5 text-white-ubi">
+        </div>
+
+        <div className="mt-6 rounded-xl p-6 md:p-8 text-left bg-primary border border-secondary backdrop-blur-sm">
+          <p className="text-lg md:text-xl font-bold mb-5 text-white">
             En caso de necesitar un desfribiliador automático externo (DEA)
           </p>
 
           <FindNearestDeaButton />
         </div>
-        <div className="bg-primary rounded-lg p-8 border-2 text-white w-full text-left border-secondary">
+        <div className="mt-12 bg-primary rounded-lg p-8 border-2 text-white w-full text-left border-secondary">
             <p className="mt-4">Espera la llegada del personal calificado y sigue sus instrucciones.</p>
             <p className="mt-4">
               <strong>
