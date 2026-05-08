@@ -39,30 +39,14 @@ export default function Page() {
             <span className="flex-1 px-5 py-3 text-base md:text-lg font-semibold text-center">+56 9 5504 5000</span>
             <span aria-hidden="true" className="hidden md:inline-block w-14 shrink-0" />
           </a>
-          <h1 className="text-xl font-bold mb-8 text-white-ubi">
-            En caso de emergencia en el campus, comuníquese al siguiente número:
-          </h1>
-          <div className="bg-secondary rounded-lg p-8 mb-6 text-center">
-            <a
-              href="tel:+56 9 5504 5000"
-              className="text-5xl font-bold text-primary transition-colors duration-200 block underline"
-            >
-              +56 9 5504 5000
-            </a>
-          </div>
-          <div className="bg-primary rounded-lg p-8 border-2 text-white w-full text-left border-secondary">
-            <h3 className="mt-0">
-              <strong>En caso de emergencia comunícate a este número:</strong>
-            </h3>
-            <ul className="list-disc list-inside mt-4">
-              <li>Teléfonos Fijos UC: Anexo 5000</li>
-              <li>
-                Celulares:{" "}
-                <Link className="text-yellow-300 underline font-bold" href="tel:+56955045000">
-                  +56 955045000
-                </Link>
-              </li>
-            </ul>
+                  <div className="rounded-xl p-6 md:p-8 text-left bg-secondary/70 border border-border/60 backdrop-blur-sm">
+          <p className="text-lg md:text-xl font-bold mb-5 text-white-ubi">
+            En caso de necesitar un desfribiliador automático externo (DEA)
+          </p>
+
+          <FindNearestDeaButton />
+        </div>
+        <div className="bg-primary rounded-lg p-8 border-2 text-white w-full text-left border-secondary">
             <p className="mt-4">Espera la llegada del personal calificado y sigue sus instrucciones.</p>
             <p className="mt-4">
               <strong>
@@ -482,14 +466,6 @@ export default function Page() {
         </div>
 
         <br />
-
-        <div className="rounded-xl p-6 md:p-8 text-left bg-secondary/70 border border-border/60 backdrop-blur-sm">
-          <p className="text-lg md:text-xl font-bold mb-5 text-white-ubi">
-            En caso de necesitar un desfribiliador automático externo (DEA)
-          </p>
-
-          <FindNearestDeaButton />
-        </div>
       </div>
     </main>
   );
