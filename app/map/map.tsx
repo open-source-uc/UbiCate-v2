@@ -14,6 +14,7 @@ import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
+import Places from "@/lib/places/data";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
 import DirectionsComponent from "../components/features/directions/component";
@@ -74,7 +75,7 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const params = useSearchParams();
-  const { points, polygons, pointsName } = useSidebar();
+  const { points, polygons, pointsName,setPlaces } = useSidebar();
   const { pins, handlePinDrag, polygon } = use(pinsContext);
   const { handleMapLoad, handlePlaceSelection } = useMapEvents({
     mapRef,
@@ -127,6 +128,13 @@ export default function MapComponent({
     }
   }, [params]);
 
+  useEffect(() => {
+    const category = params.get("category");
+    if (!category) return;
+
+    const filteredPlaces = Places.features.filter((feature) => feature.properties.categories.includes(category));
+    setPlaces(filteredPlaces);
+  }, [params, setPlaces]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
