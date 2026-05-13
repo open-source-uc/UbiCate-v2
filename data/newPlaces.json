@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60985980167332,
+                    -33.49817682022046
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-38162238",
+                "name": "Laboratorio digital",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61389822873208,
                     -33.499976500884905
                 ]
