@@ -1,13 +1,16 @@
 export default function StructuredData() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ubicate.uc.cl";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Ubicate UC",
     description:
       "Mapa interactivo para encontrar salas, baños, bibliotecas y casinos en los campus de la Pontificia Universidad Católica. Navega fácil y rápido.",
-    url: "https://ubicate.uc.cl/",
-    logo: "https://ubicate.uc.cl/icons/icon-192x192.png",
-    image: "https://ubicate.uc.cl/icons/icon-192x192.png",
+    url: `${baseUrl}/`,
+    logo: `${baseUrl}/icons/icon-192x192.png`,
+    image: `${baseUrl}/icons/icon-192x192.png`,
+    applicationCategory: "NavigationApplication",
+    operatingSystem: "All",
     sameAs: ["https://github.com/open-source-uc/UbiCate-v2"],
     address: {
       "@type": "PostalAddress",
@@ -42,7 +45,7 @@ export default function StructuredData() {
       telephoneNumber: "+56 2 2354 1500",
       contactType: "Customer Service",
     },
-    organization: {
+    author: {
       "@type": "Organization",
       name: "Open Source UC",
       url: "https://opensourceuc.org",
