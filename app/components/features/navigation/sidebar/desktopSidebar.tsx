@@ -75,7 +75,7 @@ export default function DesktopSidebar() {
             <div className={`${isOpen ? "h-full flex items-center" : "flex items-center"}`}>
               <Button
                 variant="ghost-primary"
-                size="icon"
+                size="icon-lg"
                 onClick={toggleSidebar}
                 icon={<Icons.DockToRight className="w-7 h-7" />}
               />

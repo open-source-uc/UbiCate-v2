@@ -44,13 +44,15 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     title: title,
     description: paramPlace ? placeDescription : defaultDescription,
     alternates: {
-      canonical: `${baseUrl}/`,
+      canonical: paramPlace ? `${baseUrl}/?place=${paramPlaceId}` : `${baseUrl}/`,
     },
     authors: [{ name: "Open Source eUC" }],
     twitter: {
       card: "summary_large_image",
     },
     openGraph: {
+      title: title,
+      description: paramPlace ? placeDescription : defaultDescription,
       images: [
         {
           url: new URL(`${baseUrl}/api/og-image?n=${paramPlace?.properties.name || ""}`),
@@ -82,7 +84,7 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
       "Navegación campus",
       "Open Source",
     ],
-    robots: indexPage ? "index, follow" : "noindex, nofollow",
+    robots: !indexPage ? "noindex, nofollow" : "index, follow",
   };
 }
 

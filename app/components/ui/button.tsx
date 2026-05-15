@@ -16,7 +16,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     | "mapPrimary"
     | "mapSecondary"
     | "mapAccent";
-  size?: "sm" | "md" | "lg" | "icon" | "sidebar" | "sidebar-collapsed";
+  size?: "sm" | "md" | "lg" | "icon" | "icon-lg" | "sidebar" | "sidebar-collapsed";
   icon?: React.ReactNode;
   text?: string;
   isActive?: boolean;
@@ -54,6 +54,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       md: "h-10 py-2 px-4 rounded-md text-sm",
       lg: "h-11 px-8 rounded-md text-base",
       icon: "h-10 w-10 rounded-md",
+      "icon-lg": "h-12 w-12 rounded-md",
       sidebar: "w-full p-2 rounded-md hover:bg-secondary/50 space-x-4 justify-start",
       "sidebar-collapsed": "justify-center px-4 py-3",
     };
@@ -63,6 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       md: "w-5 h-5",
       lg: "w-6 h-6",
       icon: "w-5 h-5",
+      "icon-lg": "w-7 h-7",
       sidebar: "w-10 h-10",
       "sidebar-collapsed": "w-10 h-10",
     };

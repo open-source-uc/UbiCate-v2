@@ -91,6 +91,8 @@
   --color-chart-13: var(--theme-chart-13);
   --color-chart-14: var(--theme-chart-14);
   --color-chart-15: var(--theme-chart-15);
+  --color-chart-dea: var(--theme-chart-dea);
+  --color-chart-security: var(--theme-chart-security);
 }
 
 /* ============== COLOR PALETTE ============== */
@@ -118,6 +120,8 @@
   --palette-cyan-500: #03b5aa;
   --palette-orange-500: #f58a07;
   --palette-gray-500: #2C4251;
+  --palette-gray-600: #143044;
+  --palette-gray-700: #3b4a54;
   --palette-gray-300: #d1d5db;
   --palette-purple-500: #361134;
 
@@ -158,6 +162,11 @@
 
   /* Professional Colors */
   --palette-professional-red-light: #dc2626;
+
+  /* Emergency Colors */
+  --palette-emergency-red: #ef233c;
+  --palette-emergency-yellow: #f58a07;
+  --palette-emergency-green: #18962f;
 
   /* IMPORTANT BELOW */
 
