@@ -52,26 +52,28 @@ export default function ThemesList({ setActiveSubSidebar }: { setActiveSubSideba
                     }`}
                   >
                     <IconComponent
-                      className={`w-5 h-5 fill-current ${isActive ? "text-primary-foreground" : "text-secondary-foreground"}`}
+                      className={`w-5 h-5 fill-current ${
+                        isActive ? "text-primary-foreground" : "text-secondary-foreground"
+                      }`}
                     />
                   </span>
 
                   {/* Text content */}
                   <div className="flex-1 text-left">
                     <p
-                      className={`text-sm font-medium ${isActive ? "text-primary-foreground" : "text-secondary-foreground"}`}
+                      className={`text-sm font-medium ${
+                        isActive ? "text-primary-foreground" : "text-secondary-foreground"
+                      }`}
                     >
                       {themeOption.ui.name}
                     </p>
-                    <p
-                      className={`text-xs ${isActive ? "text-primary-foreground/80" : "text-muted-foreground"}`}
-                    >
+                    <p className={`text-xs ${isActive ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                       {themeOption.ui.description}
                     </p>
                   </div>
 
                   {/* Active indicator */}
-                  {isActive && <div className="w-2 h-2 bg-primary-foreground rounded-full" />}
+                  {isActive ? <div className="w-2 h-2 bg-primary-foreground rounded-full" /> : null}
                 </button>
               );
             })}

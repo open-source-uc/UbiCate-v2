@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { useState } from "react";
 
 import Places from "@/lib/places/data";
 import { CATEGORIES, Feature, PointFeature } from "@/lib/types";

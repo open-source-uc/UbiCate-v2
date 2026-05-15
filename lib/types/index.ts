@@ -109,7 +109,7 @@ export const siglas = new Map<string, string>([
 ]);
 
 export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
-[CATEGORIES.CLASSROOM, "Sala de clase"],
+  [CATEGORIES.CLASSROOM, "Sala de clase"],
   [CATEGORIES.BATH, "Baño"],
   [CATEGORIES.FOOD_LUNCH, "Comida / Mesón UC"],
   [CATEGORIES.STUDYROOM, "Sala de estudio"],

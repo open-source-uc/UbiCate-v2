@@ -139,7 +139,7 @@ function PillFilter() {
         className="grid grid-cols-2 gap-2 scroll-smooth snap-x snap-mandatory overflow-auto-chrome overflow-firefox space-x-2 desktop:flex desktop:flex-col desktop:p-1 no-scrollbar"
         ref={pillsContainer}
       >
-{regularPills.map(({ title, icon, filter }) => (
+        {regularPills.map(({ title, icon, filter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill
               title={title}
