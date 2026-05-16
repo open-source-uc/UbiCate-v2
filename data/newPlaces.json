@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.613673,
+                    -33.499075
+                ]
+            },
+            "properties": {
+                "identifier": "E17",
+                "name": "E17",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZA2IRXAGEN1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60985980167332,
                     -33.49817682022046
                 ]
