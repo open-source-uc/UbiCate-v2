@@ -23070,25 +23070,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE35",
-                "name": "Basurero de reciclaje",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.593421,
-                    -33.44612
+                    -70.5933543811488,
+                    -33.446299258338804
                 ]
+            },
+            "properties": {
+                "identifier": "RECICLAJE35",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio de la Virgen",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
