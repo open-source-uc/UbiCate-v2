@@ -23065,29 +23065,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RECICLAJE4",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614263,
-                    -33.498056
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE5",
                 "name": "Basurero de reciclaje",
                 "campus": "SJ",
