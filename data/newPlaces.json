@@ -1077,30 +1077,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59391397673234,
-                    -33.445119664762714
-                ]
-            },
-            "properties": {
-                "identifier": "MA2WF31RK5XSWH",
-                "name": "Reciclaje de Vidrio",
-                "information": "Punto verde al interior del centro de eventos",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.59386019855374,
                     -33.44554235771625
                 ]
