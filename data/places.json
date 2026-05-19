@@ -22947,31 +22947,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE32",
-                "name": "Basurero de reciclaje",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618145,
-                    -33.418768
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
