@@ -10612,29 +10612,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "WATER-26252672",
-                "name": "Agua",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61802217451802,
-                    -33.41908513400199
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ALMUERZO13",
                 "name": "Mesón UC",
                 "campus": "LC",
