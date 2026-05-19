@@ -200,30 +200,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61859656396118,
-                    -33.41924307643036
-                ]
-            },
-            "properties": {
-                "identifier": "MPD011L2AHUNZZ",
-                "name": "Punto Verde",
-                "information": "Punto Verde",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61814587197848,
                     -33.41871533614522
                 ]
