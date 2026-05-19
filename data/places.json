@@ -22978,25 +22978,25 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59423976568799,
+                    -33.44558654514456
+                ]
+            },
             "properties": {
                 "identifier": "RECICLAJE33",
-                "name": "Basurero de reciclaje",
-                "campus": "OR",
+                "name": "Punto Verde",
                 "information": "",
                 "categories": [
                     "trash"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59433,
-                    -33.445798
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
