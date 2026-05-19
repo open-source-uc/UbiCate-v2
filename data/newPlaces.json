@@ -1077,30 +1077,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59386019855374,
-                    -33.44554235771625
-                ]
-            },
-            "properties": {
-                "identifier": "MNDO0B3FEFODIE",
-                "name": "Punto Verde",
-                "information": "Punto Verde Patio Facultad de Artes",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61544326327063,
                     -33.49782781236589
                 ]
