@@ -10729,29 +10729,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "TRASH-33079511",
-                "name": "Banco de Materiales",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61859074870665,
-                    -33.419537270486735
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "OTHER-33079458",
                 "name": "Nucelo I+D",
                 "campus": "LC",
