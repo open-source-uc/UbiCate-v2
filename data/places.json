@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61795225346724,
+                    -33.419100047977594
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0CKELSZ9BF9",
+                "name": "Agua",
+                "information": "Hidropunto",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61858905640541,
                     -33.41955023594147
                 ]
