@@ -35737,24 +35737,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2ZHO69CRYNHM",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "Punto verde",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59455277474083,
                     -33.44589818672231
+                ]
+            },
+            "properties": {
+                "identifier": "MA2ZHO69CRYNHM",
+                "name": "Punto Verde",
+                "information": "Punto verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
                 ]
             }
         },
