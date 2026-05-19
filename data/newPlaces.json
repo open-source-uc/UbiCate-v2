@@ -1149,30 +1149,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59396058851627,
-                    -33.44586736667311
-                ]
-            },
-            "properties": {
-                "identifier": "RECICLAJE34",
-                "name": "Punto Verde",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61544326327063,
                     -33.49782781236589
                 ]
