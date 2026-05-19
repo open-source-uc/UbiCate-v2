@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61726175599748,
+                    -33.419189099039684
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0I9T5HYRAVA",
+                "name": "Sala de basura",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6175202126153,
                     -33.418771911410666
                 ]
