@@ -22856,31 +22856,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RECICLAJE25",
-                "name": "Basurero de reciclaje",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61845,
-                    -33.419454
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE26",
                 "name": "Basurero de reciclaje",
                 "campus": "SJ",
