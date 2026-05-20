@@ -17,7 +17,7 @@ type CategoryFilter = {
 
 const regularPills: Array<CategoryFilter> = [
   { title: "Facultades, Escuelas, Institutos y otros edificios", icon: <Icons.School />, filter: CATEGORIES.FACULTY },
-  { title: "Edificios de clases", icon: <Icons.School />, filter: CATEGORIES.CLASSROOM_BUILDING },
+  { title: "Salas de clases", icon: <Icons.School />, filter: CATEGORIES.CLASSROOM },
   { title: "Salas de estudio", icon: <Icons.Studyroom />, filter: CATEGORIES.STUDYROOM },
   { title: "Salas Crisol", icon: <Icons.PersonalComputer />, filter: CATEGORIES.CRISOL },
   { title: "Auditorios", icon: <Icons.Auditorium />, filter: CATEGORIES.AUDITORIUM },
@@ -35,6 +35,7 @@ const regularPills: Array<CategoryFilter> = [
   { title: "Bicicleteros", icon: <Icons.Bike />, filter: CATEGORIES.PARK_BICYCLE },
   { title: "Estacionamientos", icon: <Icons.Parking />, filter: CATEGORIES.PARKING },
   { title: "Cultura", icon: <Icons.Palette />, filter: CATEGORIES.CULTURE },
+  { title: "Edificios de clases", icon: <Icons.School />, filter: CATEGORIES.CLASSROOM_BUILDING },
 ];
 
 const emergencyPills: Array<CategoryFilter> = [
