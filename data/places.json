@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61085855513612,
+                    -33.500653479314074
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8QSHYMVHEDB",
+                "name": "ETR College",
+                "information": "Estación de Transferencia de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61183617305656,
                     -33.496521888367454
                 ]
