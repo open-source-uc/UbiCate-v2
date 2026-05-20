@@ -21,6 +21,7 @@ export enum CATEGORIES {
   BUILDING = "building",
   CAMPUS = "campus",
   CLASSROOM = "classroom",
+  CLASSROOM_BUILDING = "classroom_building",
   COMPUTERS = "computers",
   DEA = "dea",
   CUSTOM_MARK = "customMark",
@@ -110,6 +111,7 @@ export const siglas = new Map<string, string>([
 
 export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.CLASSROOM, "Sala de clase"],
+  [CATEGORIES.CLASSROOM_BUILDING, "Edificio de clases"],
   [CATEGORIES.BATH, "Baño"],
   [CATEGORIES.FOOD_LUNCH, "Comida / Mesón UC"],
   [CATEGORIES.STUDYROOM, "Sala de estudio"],
@@ -142,6 +144,7 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
 export const CategoryOptions = [
   CATEGORIES.FACULTY,
   CATEGORIES.CLASSROOM,
+  CATEGORIES.CLASSROOM_BUILDING,
   CATEGORIES.STUDYROOM,
   CATEGORIES.CRISOL,
   CATEGORIES.AUDITORIUM,

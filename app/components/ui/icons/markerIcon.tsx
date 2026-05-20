@@ -10,6 +10,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.BUILDING]: Icons.Default,
   [CATEGORIES.CAMPUS]: Icons.Default,
   [CATEGORIES.CLASSROOM]: Icons.School,
+  [CATEGORIES.CLASSROOM_BUILDING]: Icons.School,
   [CATEGORIES.COMPUTERS]: Icons.PersonalComputer,
   [CATEGORIES.CUSTOM_MARK]: Icons.Pin,
   [CATEGORIES.FACULTY]: Icons.School,

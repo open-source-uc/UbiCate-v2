@@ -3,6 +3,7 @@ import { CATEGORIES } from "@/lib/types";
 const categoryToColorMap = new Map<CATEGORIES, string>([
   [CATEGORIES.FACULTY, "bg-chart-3"], // Facultades - #0176DE
   [CATEGORIES.CLASSROOM, "bg-chart-1"], // Salas de clases - #FEC60D
+  [CATEGORIES.CLASSROOM_BUILDING, "bg-chart-1"], // Salas de clases - #FEC60D
   [CATEGORIES.STUDYROOM, "bg-chart-15"], // Salas de estudio - #0176DE
   [CATEGORIES.AUDITORIUM, "bg-chart-14"], // Auditorios - #29272B
   [CATEGORIES.BATH, "bg-chart-14"], // Baños - #29272B
