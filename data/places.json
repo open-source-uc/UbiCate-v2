@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60660064115584,
+                    -33.50061720474324
+                ]
+            },
+            "properties": {
+                "identifier": "MNT0814IX91K5Z",
+                "name": "Punto Verde",
+                "information": "Punto Verde Veterinaria",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60885656070798,
                     -33.49679331892554
                 ]
