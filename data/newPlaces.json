@@ -374,30 +374,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60801582604769,
-                    -33.497947010829535
-                ]
-            },
-            "properties": {
-                "identifier": "MPE8DMY8LREVBP",
-                "name": "Punto Limpio Central",
-                "information": "Punto Limpio Central (PLC) ",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61129305069261,
                     -33.49886467063589
                 ]
