@@ -6,6 +6,2239 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61585114825323,
+                    -33.49913017078938
+                ]
+            },
+            "properties": {
+                "identifier": "MPEJ47D981FNEY",
+                "name": "DEA Metro San Joaquín",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61541795371012,
+                    -33.498683742949076
+                ]
+            },
+            "properties": {
+                "identifier": "MPEIVFAQUTFBCU",
+                "name": "Seguridad Entrada SJ",
+                "information": "",
+                "categories": [
+                    "security"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61309436612163,
+                    -33.496216896131216
+                ]
+            },
+            "properties": {
+                "identifier": "MPEJ1ZRCC3QYDX",
+                "name": "Seguridad Entrada Economía",
+                "information": "",
+                "categories": [
+                    "security"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61477674414245,
+                    -33.497397458671536
+                ]
+            },
+            "properties": {
+                "identifier": "MPEJ7MX49KR5DC",
+                "name": "DEA Centro Médico",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60660064115584,
+                    -33.50061720474324
+                ]
+            },
+            "properties": {
+                "identifier": "MNT083ACA42EHK",
+                "name": "Punto Verde",
+                "information": "Punto Verde Veterinaria",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60917930455449,
+                    -33.49712755840159
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8RYYAJYDFHC",
+                "name": "ETR FASN",
+                "information": "Estación de Transferencia de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61060537487148,
+                    -33.49722064725346
+                ]
+            },
+            "properties": {
+                "identifier": "MPE9C9HM7RZK97",
+                "name": "Bicicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61363769162467,
+                    -33.49882574231189
+                ]
+            },
+            "properties": {
+                "identifier": "MPE9WVT7ARMHG7",
+                "name": "Agua",
+                "information": "Pisos 2 y 4. Aulas Parque.",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61020239655323,
+                    -33.496601348449715
+                ]
+            },
+            "properties": {
+                "identifier": "MPE9NSBTGG85XH",
+                "name": "Agua",
+                "information": "Piso 2, 4 y 6",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61085855513612,
+                    -33.500653479314074
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8QSHYMVHEDB",
+                "name": "ETR College",
+                "information": "Estación de Transferencia de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61183617305656,
+                    -33.496521888367454
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8PUHL8GVJGU",
+                "name": "ETR FACEA",
+                "information": "Estación de Transferencia de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61163912233663,
+                    -33.50094866653162
+                ]
+            },
+            "properties": {
+                "identifier": "MPE9E9L70PXW43",
+                "name": "Cicletero",
+                "information": "",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60837609857477,
+                    -33.498025169832914
+                ]
+            },
+            "properties": {
+                "identifier": "MPE985S9SHO7YL",
+                "name": "Reciclaje de Aceite",
+                "information": "Contenedor para reciclaje de aceite. Empresa Rendering. Depositar aceite reciclado en botellas plásticas.",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60828047678207,
+                    -33.49799814002842
+                ]
+            },
+            "properties": {
+                "identifier": "MPE96ND325D6CE",
+                "name": "Taller El Container",
+                "information": "Taller de reparación de bicicletas de la organización estudiantil El Container. ",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60824500081681,
+                    -33.49799186390133
+                ]
+            },
+            "properties": {
+                "identifier": "MPE94K2D9BISSO",
+                "name": "SIBICO",
+                "information": "Sistema de Bicicletas Compartidas",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60844693464627,
+                    -33.4980222574835
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8KAA0YU6VIQ",
+                "name": "Sala de basura",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6100371594256,
+                    -33.49588319707287
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8N4F1T9EZF7",
+                "name": "Sala de basura",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6148023682925,
+                    -33.50038305007441
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8Y6IK1IT0JG",
+                "name": "Sala de basura",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61178494841879,
+                    -33.500588154461944
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8EPK4X0M20Y",
+                "name": "Reciclaje Electrónicos y Eléctricos (RAEE)",
+                "information": "Campana de Reciclaje de Residuos de Aparatos Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61438671722343,
+                    -33.49887090900714
+                ]
+            },
+            "properties": {
+                "identifier": "MMJQ98HHR6VI9U",
+                "name": "Reciclaje de Dispositivos Electrónicos",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60835537884599,
+                    -33.498000295900766
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8GDM97MD43M",
+                "name": "Reciclaje Electrónicos y Eléctricos (RAEE)",
+                "information": "Campana de Reciclaje de Residuos de Aparatos Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60801582604769,
+                    -33.497947010829535
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8DMY8LREVBP",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central (PLC) ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60786469237408,
+                    -33.50089976636123
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8CLDAJU8VZB",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMC18XOIIMSXZO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60660064115584,
+                    -33.50061720474324
+                ]
+            },
+            "properties": {
+                "identifier": "MNT0814IX91K5Z",
+                "name": "Punto Verde",
+                "information": "Punto Verde Veterinaria",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60885656070798,
+                    -33.49679331892554
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8BOS2WHGA68",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60895747448907,
+                    -33.49647475309338
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8ASJ8TG6OW8",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60907940764625,
+                    -33.49674895152794
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8A9R0YUDSNJ",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60917833474811,
+                    -33.496942405302626
+                ]
+            },
+            "properties": {
+                "identifier": "MPE89F2KTKWK8D",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60947941727828,
+                    -33.496880111661966
+                ]
+            },
+            "properties": {
+                "identifier": "MPE888AUAO9L3K",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60975408056962,
+                    -33.49677253175299
+                ]
+            },
+            "properties": {
+                "identifier": "MPE85O5AOYLOOV",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60909481730141,
+                    -33.4975313500315
+                ]
+            },
+            "properties": {
+                "identifier": "MPD439GDY2KOAB",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6100829236586,
+                    -33.49806573664122
+                ]
+            },
+            "properties": {
+                "identifier": "MPD42NZSNL6F4K",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610689228184,
+                    -33.49685375412292
+                ]
+            },
+            "properties": {
+                "identifier": "MPD41UK1IECAZP",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61015523086947,
+                    -33.49724536395593
+                ]
+            },
+            "properties": {
+                "identifier": "MPD40WBNFORA46",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60999382387855,
+                    -33.49740205991699
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3ZPV5SZMJ2W",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61022933295615,
+                    -33.49753835613554
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3YQ9DCN4O1N",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61064576564455,
+                    -33.49773648488736
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3Y0KSHQXJ3J",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61094122434673,
+                    -33.496806919504685
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3WXX5ZTNKQ8",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61174520420961,
+                    -33.497218165837666
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3URU49TCTWN",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611644435897,
+                    -33.4969831893603
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3TRURQXVEXB",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61095501014587,
+                    -33.49730384484077
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3S9PD073T4T",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61134593050863,
+                    -33.49732198937557
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3RSB6KKCNUD",
+                "name": "Punto Verde",
+                "information": "Punto Verde.",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61143282781286,
+                    -33.500632132478316
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3LCWCAY5SIE",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61059117171108,
+                    -33.50071851861481
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3KLFMU3TV19",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6105162773054,
+                    -33.50044597710155
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3JV7DD5WW4R",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6108293555912,
+                    -33.500616399521085
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3JDJ7BBTZ90",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60946492178361,
+                    -33.49797963532589
+                ]
+            },
+            "properties": {
+                "identifier": "MPD34D4MR2C36U",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61007946088249,
+                    -33.498675055475516
+                ]
+            },
+            "properties": {
+                "identifier": "MPD32EJPMNNLKJ",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60961808296786,
+                    -33.49969155527234
+                ]
+            },
+            "properties": {
+                "identifier": "MPEA9KQKXZIKEN",
+                "name": "Punto Verde",
+                "information": "Punto Verde metálico",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZDO0JMAZVV5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61028663595454,
+                    -33.49936122066001
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2XWFVI4UTKE",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60993166106198,
+                    -33.49998505974031
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2WR91N9NC3B",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61044874344374,
+                    -33.50030418537661
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2VU0EG1ENT2",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61085619279741,
+                    -33.500349217900755
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3HTT7Y1ALK5",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61176215534336,
+                    -33.49870107764018
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2ST6A8VLX4W",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6129882422931,
+                    -33.49794027693052
+                ]
+            },
+            "properties": {
+                "identifier": "MPEA69TU3CR2UQ",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61355533593023,
+                    -33.49820502234558
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2M3EOBLSRMB",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61330570955774,
+                    -33.49753930247034
+                ]
+            },
+            "properties": {
+                "identifier": "MPEA52OR6GJ82Y",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61446685791205,
+                    -33.49809981324704
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2JNUDO4B4UX",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6145687290103,
+                    -33.497859241488534
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2EXX2GSDRTH",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61388594211056,
+                    -33.49719192796154
+                ]
+            },
+            "properties": {
+                "identifier": "MPEA0J0ZIWTWJD",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6136040513098,
+                    -33.497005470513756
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2DIELZQJ3IO",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61339624395094,
+                    -33.4968541448658
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2AWZ0ENTMJX",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6121389969406,
+                    -33.49981099516643
+                ]
+            },
+            "properties": {
+                "identifier": "MPD222A060CEXC",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61196767042813,
+                    -33.49997910397717
+                ]
+            },
+            "properties": {
+                "identifier": "MPD24ZR8CWETSS",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61243240794018,
+                    -33.49964774890627
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1ZXNSXG5E4N",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61261497214919,
+                    -33.50005792605896
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1Z3IZLM1JRT",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61301638654274,
+                    -33.5001421627986
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1Y4KHIWFMBU",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61281278792609,
+                    -33.50029710439549
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1VYVXG7WODQ",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61323286212213,
+                    -33.499788690554205
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1PUR3FGP9DK",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61366280688574,
+                    -33.49979812648206
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1NYG7A83YWH",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6143599626592,
+                    -33.500369661600224
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1N0GI0G1B8H",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61381978571625,
+                    -33.49946859330587
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1G944F6B9IG",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6137034215196,
+                    -33.499604010788765
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1FJ30K9XLU6",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6138706146398,
+                    -33.49914777858454
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1ELEO85CUEX",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61449388878658,
+                    -33.49916033640983
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1CIK5YSCVRT",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61436178390257,
+                    -33.498803516327435
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1BH41RVTH2X",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZ8CT3XV4D4E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61289198702134,
+                    -33.49866110989752
+                ]
+            },
+            "properties": {
+                "identifier": "MPD1A7S9VWMYA9",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61266764855988,
+                    -33.49840414875521
+                ]
+            },
+            "properties": {
+                "identifier": "MPD19H6CZQP0UT",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6181701314609,
+                    -33.418751765405446
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0XX5RFLSA89",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central (PLC) ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61814587197848,
+                    -33.41871533614522
+                ]
+            },
+            "properties": {
+                "identifier": "MPCZQ7R0SOC8M5",
+                "name": "Reciclaje Electrónicos y Eléctricos (RAEE)",
+                "information": "Campana de Reciclaje de Residuos de Aparatos Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61773849646099,
+                    -33.4191744671719
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0N09QULXDZC",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61739032859897,
+                    -33.41901543005737
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0KC17YPL10O",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61726175599748,
+                    -33.419189099039684
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0I9T5HYRAVA",
+                "name": "Sala de basura",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6175202126153,
+                    -33.418771911410666
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0FOYPV75THZ",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61795225346724,
+                    -33.419100047977594
+                ]
+            },
+            "properties": {
+                "identifier": "MPD0CKELSZ9BF9",
+                "name": "Agua",
+                "information": "Hidropunto",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    -1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61858905640541,
+                    -33.41955023594147
+                ]
+            },
+            "properties": {
+                "identifier": "MPD09CKTNAQARF",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61863807017532,
+                    -33.41920864385152
+                ]
+            },
+            "properties": {
+                "identifier": "MPD04FEB8B1T1U",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": [
+                    "MMCEV5TYEV1Q2C"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61859656396118,
+                    -33.41924307643036
+                ]
+            },
+            "properties": {
+                "identifier": "MPD011L2AHUNZZ",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61803736126616,
+                    -33.419028371949835
+                ]
+            },
+            "properties": {
+                "identifier": "MPCZW3SBX1VUKL",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59321478128673,
+                    -33.44713460737169
+                ]
+            },
+            "properties": {
+                "identifier": "MNDPMT5HKKEPUY",
+                "name": "Escombros",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59235849260654,
+                    -33.44633094354831
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOMARTI6VK6O",
+                "name": "Punto de Reparación",
+                "information": "Punto con herramientas para reparación de bicicletas",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59386019855374,
+                    -33.44554235771625
+                ]
+            },
+            "properties": {
+                "identifier": "MNDO0B3FEFODIE",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Facultad de Artes",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59373672333929,
+                    -33.445119052444646
+                ]
+            },
+            "properties": {
+                "identifier": "MNDOCIT5AV147T",
+                "name": "Punto Verde",
+                "information": "Punto Verde Casino/Mesón UC/Centro Eventos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59396058851627,
+                    -33.44586736667311
+                ]
+            },
+            "properties": {
+                "identifier": "RECICLAJE34",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5939669907093,
+                    -33.445882038047976
+                ]
+            },
+            "properties": {
+                "identifier": "MNDN1RD30TA7QV",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Central",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59364956529092,
                     -33.44617414824384
                 ]
@@ -2167,29 +4400,6 @@
                     "faculty"
                 ],
                 "floors": [],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60829937458038,
-                    -33.497959741562745
-                ]
-            },
-            "properties": {
-                "identifier": "MMC1J7YY4SPWRW",
-                "name": "Punto Limpio SIBICO",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
                 "campus": "SJ",
                 "faculties": []
             }
@@ -7368,31 +9578,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60974410978237,
-                    -33.49832742559909
-                ]
-            },
-            "properties": {
-                "identifier": "MHNQII5L5DY7HM",
-                "name": "Agua",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703404247761,
                     -33.49841407184235
                 ]
@@ -10474,29 +12659,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "WATER-26252672",
-                "name": "Agua",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61802217451802,
-                    -33.41908513400199
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "ALMUERZO13",
                 "name": "Mesón UC",
                 "campus": "LC",
@@ -10585,29 +12747,6 @@
                 "coordinates": [
                     -70.61846398812028,
                     -33.41962527732398
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "TRASH-33079511",
-                "name": "Banco de Materiales",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61859074870665,
-                    -33.419537270486735
                 ]
             }
         },
@@ -16418,29 +18557,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "WATER-32307518",
-                "name": "Agua",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60810526380222,
-                    -33.500832517104065
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "OTHER-32307251",
                 "name": "Centro de alumnos Veterinaria",
                 "campus": "SJ",
@@ -16527,29 +18643,6 @@
                 "coordinates": [
                     -70.60635384423779,
                     -33.50051560019095
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "WATER-32306770",
-                "name": "Agua",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6074387807492,
-                    -33.498784876541436
                 ]
             }
         },
@@ -22396,282 +24489,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RECICLAJE1",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614578,
-                    -33.498941
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE10",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610668,
-                    -33.497743
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE11",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610201,
-                    -33.497524
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE12",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609128,
-                    -33.497152
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE13",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609203,
-                    -33.496848
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE14",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609209,
-                    -33.496736
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE15",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61089,
-                    -33.499022
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE16",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610082,
-                    -33.499423
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE18",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613125,
-                    -33.499857
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE19",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613154,
-                    -33.500213
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE2",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614493,
-                    -33.500369
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE20",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612603,
-                    -33.499814
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE21",
                 "name": "Basurero de reciclaje",
                 "campus": "SJ",
@@ -22689,52 +24506,6 @@
                 "coordinates": [
                     -70.612507,
                     -33.5003
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE22",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611239,
-                    -33.50045
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE23",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610761,
-                    -33.500572
                 ]
             }
         },
@@ -22764,77 +24535,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RECICLAJE25",
-                "name": "Basurero de reciclaje",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61845,
-                    -33.419454
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE26",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614743,
-                    -33.499952
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE27",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61297,
-                    -33.500331
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "RECICLAJE28",
                 "name": "Basurero de reciclaje",
                 "campus": "CC",
@@ -22857,284 +24557,48 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE3",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61373,
-                    -33.499936
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE30",
-                "name": "Basurero de reciclaje",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
+                    -70.59423976568799,
+                    -33.44558654514456
                 ]
             },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61854,
-                    -33.419555
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE31",
-                "name": "Basurero de reciclaje",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.617931,
-                    -33.41917
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE32",
-                "name": "Basurero de reciclaje",
-                "campus": "LC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [
-                    "FADEU"
-                ],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.618145,
-                    -33.418768
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "properties": {
                 "identifier": "RECICLAJE33",
-                "name": "Basurero de reciclaje",
-                "campus": "OR",
+                "name": "Punto Verde",
                 "information": "",
                 "categories": [
                     "trash"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59433,
-                    -33.445798
-                ]
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5933543811488,
+                    -33.446299258338804
+                ]
+            },
             "properties": {
                 "identifier": "RECICLAJE35",
-                "name": "Basurero de reciclaje",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio de la Virgen",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
                 "campus": "OR",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.593421,
-                    -33.44612
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE4",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.614263,
-                    -33.498056
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE5",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613578,
-                    -33.49819
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE6",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613783,
-                    -33.497435
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE7",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.613379,
-                    -33.4968
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE8",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.611423,
-                    -33.496805
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE9",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610955,
-                    -33.496819
-                ]
+                "faculties": []
             }
         },
         {
@@ -26104,75 +27568,6 @@
                     1
                 ],
                 "campus": "LC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610533,
-                    -33.498375
-                ]
-            },
-            "properties": {
-                "identifier": "BICI4",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.609832,
-                    -33.500282
-                ]
-            },
-            "properties": {
-                "identifier": "BICI5",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.608004,
-                    -33.500706
-                ]
-            },
-            "properties": {
-                "identifier": "BICI6",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
                 "faculties": []
             }
         },
@@ -33535,29 +34930,6 @@
         },
         {
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.610355,
-                    -33.497237
-                ]
-            },
-            "properties": {
-                "identifier": "BICI3",
-                "name": "Bicicletero",
-                "information": "## Test",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
             "properties": {
                 "identifier": "STUDYROOM-37148252",
                 "name": "Alvaro Campos",
@@ -35415,25 +36787,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2WF31RK5XSWH",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "Punto verde al interior del centro de eventos",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59373682364821,
                     -33.445099275348916
                 ]
+            },
+            "properties": {
+                "identifier": "MA2WF31RK5XSWH",
+                "name": "Punto Verde",
+                "information": "Punto verde al interior del centro de eventos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -35737,24 +37109,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2ZHO69CRYNHM",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "Punto verde",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59455277474083,
                     -33.44589818672231
+                ]
+            },
+            "properties": {
+                "identifier": "MA2ZHO69CRYNHM",
+                "name": "Punto Verde",
+                "information": "Punto verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
                 ]
             }
         },
@@ -36128,25 +37502,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2W988B7KP2AH",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "Punto Verde",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59299086253291,
                     -33.445618874828455
                 ]
+            },
+            "properties": {
+                "identifier": "MA2W988B7KP2AH",
+                "name": "Punto Verde",
+                "information": "Punto Verde ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -36335,25 +37709,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2ZOMG0RAYKYU",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "Punto verde",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.594318449597,
                     -33.44630042705145
                 ]
+            },
+            "properties": {
+                "identifier": "MA2ZOMG0RAYKYU",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Preuniversitario",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -36845,25 +38219,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2VNZPAOPFEFE",
-                "name": "Centro de Reciclaje",
-                "campus": "OR",
-                "information": "Centro de reciclaje OR",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59337788427646,
                     -33.44698855107464
                 ]
+            },
+            "properties": {
+                "identifier": "MA2VNZPAOPFEFE",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central (PLC) ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -37029,25 +38403,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2VUHZLBXXD63",
-                "name": "Reciclaje Electrónicos y Eléctricos",
-                "campus": "OR",
-                "information": "Punto Verde de Reciclaje de Electrónicos y Electricos",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.5930746850562,
                     -33.446568805782285
                 ]
+            },
+            "properties": {
+                "identifier": "MA2VUHZLBXXD63",
+                "name": "Reciclaje Electrónicos y Eléctricos (RAEE)",
+                "information": "Campana de Reciclaje de Residuos de Aparatos Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -37190,25 +38564,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "MA2VSRRWPNND1P",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "Punto de Reciclaje",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.59315552530066,
                     -33.44654135840123
                 ]
+            },
+            "properties": {
+                "identifier": "MA2VSRRWPNND1P",
+                "name": "Punto Verde",
+                "information": "Punto Verde Caja de Estacionamiento",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
             }
         },
         {
@@ -38630,29 +40004,6 @@
                 "faculties": [
                     "SOC"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61420135582085,
-                    -33.49918653936197
-                ]
-            },
-            "properties": {
-                "identifier": "BICI2",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
