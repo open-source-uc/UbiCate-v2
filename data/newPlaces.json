@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61585114825323,
-                    -33.49913017078938
-                ]
-            },
-            "properties": {
-                "identifier": "MPEJ47D981FNEY",
-                "name": "DEA Metro San Joaquín",
-                "information": "",
-                "categories": [
-                    "dea"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61129305069261,
                     -33.49886467063589
                 ]
