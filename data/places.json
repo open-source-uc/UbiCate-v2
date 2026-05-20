@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61438671722343,
+                    -33.49887090900714
+                ]
+            },
+            "properties": {
+                "identifier": "MMJQ98HHR6VI9U",
+                "name": "Reciclaje de Dispositivos Electrónicos",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60835537884599,
                     -33.498000295900766
                 ]
