@@ -98,10 +98,6 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
             "max-image-preview": "large",
             "max-video-preview": -1,
           },
-          bingbot: {
-            index: true,
-            follow: true,
-          },
         },
   };
 }

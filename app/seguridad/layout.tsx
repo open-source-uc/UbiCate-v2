@@ -7,10 +7,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SecurityLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SecurityLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
