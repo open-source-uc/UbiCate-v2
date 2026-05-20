@@ -7738,31 +7738,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60974410978237,
-                    -33.49832742559909
-                ]
-            },
-            "properties": {
-                "identifier": "MHNQII5L5DY7HM",
-                "name": "Agua",
-                "information": "",
-                "categories": [
-                    "water"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60703404247761,
                     -33.49841407184235
                 ]
