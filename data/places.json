@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61309436612163,
+                    -33.496216896131216
+                ]
+            },
+            "properties": {
+                "identifier": "MPEJ1ZRCC3QYDX",
+                "name": "Seguridad Entrada Economía",
+                "information": "",
+                "categories": [
+                    "security"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61477674414245,
                     -33.497397458671536
                 ]
