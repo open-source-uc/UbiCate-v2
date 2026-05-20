@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61477674414245,
+                    -33.497397458671536
+                ]
+            },
+            "properties": {
+                "identifier": "MPEJ7MX49KR5DC",
+                "name": "DEA Centro Médico",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61585114825323,
                     -33.49913017078938
                 ]
