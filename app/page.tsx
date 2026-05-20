@@ -53,6 +53,8 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     openGraph: {
       title: title,
       description: paramPlace ? placeDescription : defaultDescription,
+      type: "website",
+      locale: "es_CL",
       images: [
         {
           url: new URL(`${baseUrl}/api/og-image?n=${paramPlace?.properties.name || ""}`),
@@ -84,7 +86,23 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
       "Navegación campus",
       "Open Source",
     ],
-    robots: !indexPage ? "noindex, nofollow" : "index, follow",
+    robots: !indexPage
+      ? { index: false, follow: false }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+          bingbot: {
+            index: true,
+            follow: true,
+          },
+        },
   };
 }
 
