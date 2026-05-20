@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60835537884599,
+                    -33.498000295900766
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8GDM97MD43M",
+                "name": "Reciclaje Electrónicos y Eléctricos (RAEE)",
+                "information": "Campana de Reciclaje de Residuos de Aparatos Electrónicos y Electricos",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60801582604769,
                     -33.497947010829535
                 ]
