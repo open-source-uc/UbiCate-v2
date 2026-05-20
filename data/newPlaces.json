@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61363769162467,
+                    -33.49882574231189
+                ]
+            },
+            "properties": {
+                "identifier": "MPE9WVT7ARMHG7",
+                "name": "Agua",
+                "information": "Pisos 2 y 4. Aulas Parque.",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61020239655323,
                     -33.496601348449715
                 ]
