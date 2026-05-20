@@ -104,30 +104,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60837609857477,
-                    -33.498025169832914
-                ]
-            },
-            "properties": {
-                "identifier": "MPE985S9SHO7YL",
-                "name": "Reciclaje de Aceite",
-                "information": "Contenedor para reciclaje de aceite. Empresa Rendering. Depositar aceite reciclado en botellas plásticas.",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60917930455449,
                     -33.49712755840159
                 ]
