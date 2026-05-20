@@ -30,32 +30,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61020239655323,
-                    -33.496601348449715
-                ]
-            },
-            "properties": {
-                "identifier": "MPE9NSBTGG85XH",
-                "name": "Agua",
-                "information": "Piso 2, 4 y 6",
-                "categories": [
-                    "water"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "AP-SECTOR"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61060537487148,
                     -33.49722064725346
                 ]
