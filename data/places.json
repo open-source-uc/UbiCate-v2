@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60917930455449,
+                    -33.49712755840159
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8RYYAJYDFHC",
+                "name": "ETR FASN",
+                "information": "Estación de Transferencia de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61060537487148,
                     -33.49722064725346
                 ]
