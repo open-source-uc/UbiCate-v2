@@ -176,30 +176,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6148023682925,
-                    -33.50038305007441
-                ]
-            },
-            "properties": {
-                "identifier": "MPE8Y6IK1IT0JG",
-                "name": "Sala de basura",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60917930455449,
                     -33.49712755840159
                 ]
