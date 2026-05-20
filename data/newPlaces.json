@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60824500081681,
+                    -33.49799186390133
+                ]
+            },
+            "properties": {
+                "identifier": "MPE94K2D9BISSO",
+                "name": "SIBICO",
+                "information": "Sistema de Bicicletas Compartidas",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6148023682925,
                     -33.50038305007441
                 ]
