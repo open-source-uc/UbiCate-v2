@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60828047678207,
+                    -33.49799814002842
+                ]
+            },
+            "properties": {
+                "identifier": "MPE96ND325D6CE",
+                "name": "Taller El Container",
+                "information": "Taller de reparación de bicicletas de la organización estudiantil El Container. ",
+                "categories": [
+                    "park_bicycle"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60824500081681,
                     -33.49799186390133
                 ]
