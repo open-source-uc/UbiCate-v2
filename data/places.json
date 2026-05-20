@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6145687290103,
+                    -33.497859241488534
+                ]
+            },
+            "properties": {
+                "identifier": "MPD2EXX2GSDRTH",
+                "name": "Punto Verde",
+                "information": "",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61388594211056,
                     -33.49719192796154
                 ]
