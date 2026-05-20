@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61183617305656,
+                    -33.496521888367454
+                ]
+            },
+            "properties": {
+                "identifier": "MPE8PUHL8GVJGU",
+                "name": "ETR FACEA",
+                "information": "Estación de Transferencia de Reciclaje",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61163912233663,
                     -33.50094866653162
                 ]
