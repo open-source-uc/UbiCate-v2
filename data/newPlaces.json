@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22574079122181,
+                    -39.277610111486716
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_1,_2_Y_3-VR",
+                "name": "Salas 3, 4 y 5",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61129305069261,
                     -33.49886467063589
                 ]
