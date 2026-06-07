@@ -4,6 +4,56 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61491191633323,
+                            -33.49947323201294
+                        ],
+                        [
+                            -70.6151472677221,
+                            -33.49876116704979
+                        ],
+                        [
+                            -70.61528304736989,
+                            -33.498972522631846
+                        ],
+                        [
+                            -70.61517140632601,
+                            -33.49951097380928
+                        ],
+                        [
+                            -70.61491191633323,
+                            -33.49947323201294
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "DEPARTAMENTO_DE_INGENIERÍA_Y_GESTIÓN_DE_LA_CONSTRUCCIÓN_(DIGC)-SJ",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC)",
+                "information": "",
+                "categories": [
+                    "offices",
+                    "classroom",
+                    "studyroom",
+                    "faculty",
+                    ""
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61309665127146,
