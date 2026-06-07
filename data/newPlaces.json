@@ -4,6 +4,32 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6151502850476,
+                    -33.498992651707994
+                ]
+            },
+            "properties": {
+                "identifier": "MQ3CN9GF2TEUCI",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC)",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
