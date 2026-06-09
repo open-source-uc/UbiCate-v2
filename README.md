@@ -5,6 +5,10 @@
 
 <h4 align="center"> Ubicate UC </h4>
 
+> [!IMPORTANT]
+> La rama principal para contribuir es `DTFD`. `main` está descontinuada temporalmente por unos meses.
+> Para más detalles sobre el proceso de contribución, revisa [contributing.md](contributing.md).
+
 <p align="center">
   <a href="#Descripción">Descripción</a> •
   <a href="#Uso">Uso</a> •
@@ -344,9 +348,11 @@ Utilice las **issues** para informar cualquier bug o solicitud.
 
 ### Workflow
 
-> PR a development -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a development
+> PR a `DTFD` -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a `DTFD`
 
-La información detallada sobre cómo contribuir se puede encontrar en [contributing.md](contributing.md).
+> [!IMPORTANT]
+> La branch oficial para contribuir es `DTFD`. `main` no estará activa por unos meses.
+> Para más detalles sobre el proceso de contribución, revisa [contributing.md](contributing.md).
 
 ## Necesitas contactarnos
 
