@@ -7,7 +7,7 @@
 
 > [!IMPORTANT]
 > La rama principal para contribuir es `DTFD`. `main` está descontinuada temporalmente por unos meses.
-> Para más detalles sobre el proceso de contribución, revisa [contributing.md](contributing.md).
+> Para más detalles sobre el proceso de contribución, revisa [contributing.md](https://github.com/open-source-uc/UbiCate-v2?tab=contributing-ov-file).
 
 <p align="center">
   <a href="#Descripción">Descripción</a> •
