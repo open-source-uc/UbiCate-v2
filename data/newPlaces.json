@@ -6,6 +6,108 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6151502850476,
+                    -33.498992651707994
+                ]
+            },
+            "properties": {
+                "identifier": "MQ3CN9GF2TEUCI",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC)",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61491191633323,
+                            -33.49947323201294
+                        ],
+                        [
+                            -70.6151472677221,
+                            -33.49876116704979
+                        ],
+                        [
+                            -70.61528304736989,
+                            -33.498972522631846
+                        ],
+                        [
+                            -70.61517140632601,
+                            -33.49951097380928
+                        ],
+                        [
+                            -70.61491191633323,
+                            -33.49947323201294
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "DEPARTAMENTO_DE_INGENIERÍA_Y_GESTIÓN_DE_LA_CONSTRUCCIÓN_(DIGC)-SJ",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC)",
+                "information": "",
+                "categories": [
+                    "offices",
+                    "classroom",
+                    "studyroom",
+                    "faculty",
+                    ""
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61309665127146,
+                    -33.49784972634952
+                ]
+            },
+            "properties": {
+                "identifier": "MQ15A37ZYHZ4AS",
+                "name": "Vicerrectoría de Asuntos Internacionales",
+                "information": "VRAI - Office of the Vice President for International Affairs\nhttps://internacionalizacion.uc.cl/",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22574079122181,
                     -39.277610111486716
                 ]
