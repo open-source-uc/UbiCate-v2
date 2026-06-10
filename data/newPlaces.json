@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61380378867851,
+                    -33.49989265830364
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DPTO._ING._ELÉCTRICA-SJ",
+                "name": "Sala Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61188169247689,
                     -33.500095071823914
                 ]
