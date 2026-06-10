@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61402850053636,
+                    -33.49991312019418
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85X8D1C13HN7",
+                "name": "Laboratorio de Máquinas Eléctricas​",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61392121217617,
                     -33.49986391369732
                 ]
