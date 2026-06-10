@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61188169247689,
+                    -33.500095071823914
+                ]
+            },
+            "properties": {
+                "identifier": "MQ861PCXAZ2WMB",
+                "name": "DEA, Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61196076832121,
                     -33.50018886207544
                 ]
