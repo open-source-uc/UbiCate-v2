@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61392121217617,
+                    -33.49986391369732
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85WHGOJW1ELL",
+                "name": "Laboratorio Docente (DIE)",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61378173730802,
                     -33.499837073779986
                 ]
