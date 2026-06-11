@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610875,
+                    -33.498754
+                ]
+            },
+            "properties": {
+                "identifier": "DIR_ACADEMICA_QIM",
+                "name": "Dirección de Gestión Académica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61192865411724,
                     -33.49966512010654
                 ]
