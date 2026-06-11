@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61192865411724,
+                    -33.49966512010654
+                ]
+            },
+            "properties": {
+                "identifier": "MQ9UEJRKUI5STU",
+                "name": "Instituto para el Desarrollo Sustentable",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
