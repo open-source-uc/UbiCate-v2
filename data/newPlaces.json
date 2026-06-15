@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61246894304817,
+                    -33.49998626642377
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_A-SJ",
+                "name": "Salas A",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610875,
                     -33.498754
                 ]
