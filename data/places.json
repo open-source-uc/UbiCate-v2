@@ -4,6 +4,51 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ],
+                        [
+                            -70.61045511061714,
+                            -33.49695647414214
+                        ],
+                        [
+                            -70.61009099982499,
+                            -33.496927524219785
+                        ],
+                        [
+                            -70.61007485300476,
+                            -33.497085738791085
+                        ],
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MQIAHCWKCB5LH0",
+                "name": "Vicerrectoria de Inteligencia Digital VRID",
+                "information": "En el tercer piso del edificio MIDE UC están las direcciones ejecutiva, de inteligencia artificial, de datos y cómputo y de desarrollo digital de la VRID.",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CENTRODEMEDICIMIDEUC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61585114825323,
@@ -6258,29 +6303,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59430213484451,
-                    -33.445870688446
-                ]
-            },
-            "properties": {
-                "identifier": "MKBG7DGHNRALBI",
-                "name": "Oficina Dirección de Transformación Digital",
-                "information": "",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.64021050682615,
                     -33.44121569499727
                 ]
@@ -9846,29 +9868,6 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59398623809757,
-                    -33.44563583438409
-                ]
-            },
-            "properties": {
-                "identifier": "MGGNJO31C181KV",
-                "name": "Sundirección de Transformación Aplicada",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
                 "faculties": []
             }
         },

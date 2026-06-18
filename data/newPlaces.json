@@ -6,6 +6,352 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61246894304817,
+                    -33.49998626642377
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_A-SJ",
+                "name": "Salas A",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610875,
+                    -33.498754
+                ]
+            },
+            "properties": {
+                "identifier": "DIR_ACADEMICA_QIM",
+                "name": "Dirección de Gestión Académica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61192865411724,
+                    -33.49966512010654
+                ]
+            },
+            "properties": {
+                "identifier": "MQ9UEJRKUI5STU",
+                "name": "Instituto para el Desarrollo Sustentable",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ],
+                        [
+                            -70.61515802687313,
+                            -33.499533045497266
+                        ],
+                        [
+                            -70.61489626765251,
+                            -33.49947481891747
+                        ],
+                        [
+                            -70.61496062195494,
+                            -33.499309019902185
+                        ],
+                        [
+                            -70.61498568032937,
+                            -33.49922421389841
+                        ],
+                        [
+                            -70.61502269037888,
+                            -33.498939763257724
+                        ],
+                        [
+                            -70.61500580568352,
+                            -33.498940419616616
+                        ],
+                        [
+                            -70.6150153270649,
+                            -33.49890442509619
+                        ],
+                        [
+                            -70.61510026804,
+                            -33.49891842463834
+                        ],
+                        [
+                            -70.61513680396605,
+                            -33.498750380357635
+                        ],
+                        [
+                            -70.61514999328097,
+                            -33.49875023544604
+                        ],
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "SAN_AGUSTIN",
+                "name": "Edificio San Agustín",
+                "information": "Salas H",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61380378867851,
+                    -33.49989265830364
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DPTO._ING._ELÉCTRICA-SJ",
+                "name": "Sala Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61188169247689,
+                    -33.500095071823914
+                ]
+            },
+            "properties": {
+                "identifier": "MQ861PCXAZ2WMB",
+                "name": "DEA, Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61196076832121,
+                    -33.50018886207544
+                ]
+            },
+            "properties": {
+                "identifier": "MQ8601OMID275U",
+                "name": "Laboratorio Dpto. Ingeniería Eléctricas Piso: 6",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61402850053636,
+                    -33.49991312019418
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85X8D1C13HN7",
+                "name": "Laboratorio de Máquinas Eléctricas​",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61392121217617,
+                    -33.49986391369732
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85WHGOJW1ELL",
+                "name": "Laboratorio Docente (DIE)",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61378173730802,
+                    -33.499837073779986
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85VI4610PVY5",
+                "name": "Laboratorio de Fabricación de Prototipos (FABLAB)",
+                "information": "Laboratorio del Dpto. Ingeniería Eléctrica para el desarrollo del curso Capstone",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61399094960986,
+                    -33.499895226927514
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85LWSA7B5DWV",
+                "name": "DEA, Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    1,
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61387561462226,
+                    -33.499937723436254
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85H8AVF33DRH",
+                "name": "Departamento de Ingeniería Eléctrica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6151502850476,
                     -33.498992651707994
                 ]
