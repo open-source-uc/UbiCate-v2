@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64058417237216,
+                    -33.44183736727458
+                ]
+            },
+            "properties": {
+                "identifier": "MQPO7W0ZVODP7S",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59367062365843,
                     -33.445679806949016
                 ]
