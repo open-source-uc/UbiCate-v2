@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63943050015317,
+                    -33.441760678202265
+                ]
+            },
+            "properties": {
+                "identifier": "MQPO937PCA1LWF",
+                "name": "Punto Verde",
+                "information": "Punto Verde Fondo Patio Cs Biologicas",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64058417237216,
                     -33.44183736727458
                 ]
