@@ -32,30 +32,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.6401171640572,
-                    -33.44110604632496
-                ]
-            },
-            "properties": {
-                "identifier": "MQPO4KNYGT0NQN",
-                "name": "Punto Verde",
-                "information": "Punto Verde Patio Derecho",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.63981473808154,
                     -33.44141393853519
                 ]
