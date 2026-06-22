@@ -1289,30 +1289,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59234092960935,
-                    -33.44635071381148
-                ]
-            },
-            "properties": {
-                "identifier": "MA2W11QUN5P2AG",
-                "name": "-",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.5935320732351,
                     -33.447082331184696
                 ]
