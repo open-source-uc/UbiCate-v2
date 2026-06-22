@@ -532,30 +532,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59337791055441,
-                    -33.44698860850432
-                ]
-            },
-            "properties": {
-                "identifier": "MA2VNZPAOPFEFE",
-                "name": "Punto Limpio Central",
-                "information": "Punto Limpio Central (PLC) ",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.613673,
                     -33.499075
                 ]
