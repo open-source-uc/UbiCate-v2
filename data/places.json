@@ -38520,14 +38520,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59315552530066,
-                    -33.44654135840123
+                    -70.59315545484424,
+                    -33.44654142201683
                 ]
             },
             "properties": {
                 "identifier": "MA2VSRRWPNND1P",
                 "name": "Punto Verde",
-                "information": "Punto Verde Caja de Estacionamiento",
+                "information": "Punto Verde Caja de Estacionamiento Parking",
                 "categories": [
                     "trash"
                 ],
