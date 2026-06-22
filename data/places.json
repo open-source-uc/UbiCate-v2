@@ -14301,29 +14301,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "RECICLAJE29",
-                "name": "Basurero de reciclaje",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64001870655352,
-                    -33.44131373482885
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "BATH-32736948",
                 "name": "Baño",
                 "campus": "CC",
