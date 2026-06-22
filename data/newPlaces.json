@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59455271810293,
+                    -33.4458981240551
+                ]
+            },
+            "properties": {
+                "identifier": "MA2ZHO69CRYNHM",
+                "name": "Punto Verde",
+                "information": "Punto Verde - Mesón UC",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61246894304817,
                     -33.49998626642377
                 ]
