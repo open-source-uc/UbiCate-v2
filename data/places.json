@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61274693945784,
+                    -33.49935744395315
+                ]
+            },
+            "properties": {
+                "identifier": "MQPP933EVLOZV8",
+                "name": "Punto Verde",
+                "information": "Punto Verde Afuera Edificio Raúl Devés",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.63943050015317,
                     -33.441760678202265
                 ]
