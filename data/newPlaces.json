@@ -104,30 +104,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.640637,
-                    -33.441271
-                ]
-            },
-            "properties": {
-                "identifier": "RECICLAJE24",
-                "name": "Punto Verde",
-                "information": "Punto Verde - Patio Comunicaciones",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "CC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61246894304817,
                     -33.49998626642377
                 ]
