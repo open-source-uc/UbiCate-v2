@@ -6,30 +6,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59367062365843,
-                    -33.445679806949016
-                ]
-            },
-            "properties": {
-                "identifier": "MQPMR7KD9MCHCY",
-                "name": "Punto Verde",
-                "information": "Punto Verde Patio Biblioteca",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61246894304817,
                     -33.49998626642377
                 ]
