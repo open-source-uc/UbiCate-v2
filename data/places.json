@@ -38127,29 +38127,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "MA2Z95PGFXQDPY",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5942600743323,
-                    -33.446338536765545
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_7-OR",
                 "name": "Sala 7",
                 "campus": "OR",
