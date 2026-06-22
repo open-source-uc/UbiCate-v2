@@ -24510,29 +24510,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE28",
-                "name": "Basurero de reciclaje",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640508,
-                    -33.441791
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
