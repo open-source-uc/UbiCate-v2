@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61344150162022,
+                    -33.497943925003526
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TC2TAIL63I6",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61114968646972,
                     -33.49688477831823
                 ]
