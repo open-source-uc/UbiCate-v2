@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61354423350099,
+                    -33.497911948230986
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO12",
+                "name": "Le Paché",
+                "information": "Módulo con venta de platos preparados calientes y fríos, sandwich, bebidas, té, café, postres. Opción vegetariana, vegana y con restricción alimentaria.\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60996467090563,
                     -33.50068226941584
                 ]
