@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61539469153901,
+                    -33.49790520269241
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546703",
+                "name": "Pronto Copec",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61187019177152,
                     -33.50009142926184
                 ]
