@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64056976467448,
+                    -33.44351772274003
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YK3ZMZ8HPEN",
+                "name": "Cafetería Huerto Sur",
+                "information": "Cafetería con platos preparados, bebidas, café, te, sandwich.\nSin convenio Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.63996113036801,
                     -33.44147881068832
                 ]
