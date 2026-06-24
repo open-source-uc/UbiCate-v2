@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546766",
+                "name": "Café Copper",
+                "information": "Restaurant y Cafetería con venta de platos calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nSin convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61006589024713,
                     -33.49818566910695
                 ]
