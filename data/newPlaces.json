@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.2255471432064,
+                    -39.27756802604027
+                ]
+            },
+            "properties": {
+                "identifier": "MQS6MIUL433N0K",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5939022301618,
                     -33.44585748255772
                 ]
