@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6118242294127,
+                    -33.50006086212353
+                ]
+            },
+            "properties": {
+                "identifier": "ML6SD65UU47AXU",
+                "name": "Burga",
+                "information": "Venta de hamburguesas. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60906830471443,
                     -33.4965008558894
                 ]
