@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61860582464703,
+                    -33.41919219590432
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-33081697",
+                "name": "Casino",
+                "information": "Casino con platos preparados en línea, opción vegetariana, comida casera, postres. Variedad tipo de Menú. Cuenta con convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCEV5TYEV1Q2C"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.63978102666722,
                     -33.44112120611347
                 ]
