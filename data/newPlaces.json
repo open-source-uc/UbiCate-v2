@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61324086368903,
+                    -33.498194397002706
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO2",
+                "name": "Work Café Santander",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nSin convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61017810755895,
                     -33.496726895065066
                 ]
