@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6407506658312,
+                    -33.441250339067004
+                ]
+            },
+            "properties": {
+                "identifier": "MQS6VTX51892H7",
+                "name": "Agua",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64054436544839,
                     -33.44166306841193
                 ]
