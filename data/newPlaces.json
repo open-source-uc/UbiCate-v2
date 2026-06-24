@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61099921629949,
+                    -33.49689577254721
+                ]
+            },
+            "properties": {
+                "identifier": "MGZDCUFOX7VRCI",
+                "name": "Cafetón",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.614442,
                     -33.497513
                 ]
