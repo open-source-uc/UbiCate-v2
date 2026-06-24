@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.63981550273624,
+                    -33.44113704039416
+                ]
+            },
+            "properties": {
+                "identifier": "MQS34KIX3DVNHP",
+                "name": "Casino Juan Berrios",
+                "information": "Casino con comida en línea, opción platos vegetarianos, postres, menú Junaeb.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.64075356207607,
                     -33.4411366434011
                 ]
