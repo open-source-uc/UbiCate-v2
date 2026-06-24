@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61532501805132,
+                    -33.4977717290185
+                ]
+            },
+            "properties": {
+                "identifier": "CASH_MACHINE-23511770",
+                "name": "Banco Chile",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61324086368903,
                     -33.498194397002706
                 ]
