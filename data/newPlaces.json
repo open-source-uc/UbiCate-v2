@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59404645115137,
+                    -33.44592274263415
+                ]
+            },
+            "properties": {
+                "identifier": "MJ0EQMA52DFYCK",
+                "name": "Quiosco Tu Cafetería ",
+                "information": "Quiosco con venta de platos preparados, postres, dulces, galletas, té, café.\nConvenio Junaeb vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59375911951065,
                     -33.44509969498771
                 ]
