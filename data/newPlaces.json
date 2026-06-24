@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.5936454934885,
+                    -33.445046940048435
+                ]
+            },
+            "properties": {
+                "identifier": "MA2WFIVIUI123Z",
+                "name": "Casino ISI y FER",
+                "information": "Casino cuenta con preparación de comida en línea. Papas fritas, hot dog, comida casera, opción vegetariana, consomé. Menú y Menú Junaeb Medio de pago Junaeb, convenio vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61854284121584,
                     -33.41915730090297
                 ]
