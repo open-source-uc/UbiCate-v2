@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64157688186737,
+                    -33.44135444678715
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-26253206",
+                "name": "Castaño",
+                "information": "Cafetería con café, te, sandwich, platos preparados, galletas, bebidas.\nCuenta con medio de pago Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKMWIHOO9ICZ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.63981550273624,
                     -33.44113704039416
                 ]
