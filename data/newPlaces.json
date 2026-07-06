@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610128,
+                    -33.498501
+                ]
+            },
+            "properties": {
+                "identifier": "INS_SOCIOLOGIA",
+                "name": "Instituto de Sociología",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61297738878919,
                     -33.500424388265856
                 ]
