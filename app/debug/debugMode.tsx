@@ -204,20 +204,14 @@ resize-x border-2 border-dashed pointer-events-auto"
       {debugMode === 2 && json ? (
         <>
           <Source
-            id="debug-3"
-            type="geojson"
-            data={featuresToGeoJSON(json.features.filter((e) => e.geometry.type === "Point"))}
-          >
-            <Layer {...approvalPointsLayer} />
-            <Layer {...allPlacesTextApprovalLayer} />
-          </Source>
-          <Source
             id="debug-8"
             type="geojson"
-            data={featuresToGeoJSON(json.features.filter((e) => e.geometry.type === "Polygon"))}
+            data={featuresToGeoJSON(json.features)}
           >
             <Layer {...sectionAreaLayerDebug} />
             <Layer {...redLineLayerDebug} />
+			<Layer {...approvalPointsLayer} />
+			<Layer {...allPlacesTextApprovalLayer} />
           </Source>
         </>
       ) : null}
