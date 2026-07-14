@@ -199,16 +199,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       setIsLoaded(true);
     },
-    [
-      mapRef,
-      paramPlace,
-      paramLng,
-      paramLat,
-      setPlaces,
-      handlePlaceSelection,
-      addPin,
-      cancel,
-    ],
+    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel],
   );
 
   useEffect(() => {
