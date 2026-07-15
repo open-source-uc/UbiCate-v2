@@ -13,7 +13,7 @@ import {
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/lib/campus/getCampusBounds";
-import { getFeatureOfLayerFromPoint } from "@/lib/map/getLayerMap";
+import { normalizeFeature } from "@/lib/map/getLayerMap";
 import { Feature, CATEGORIES } from "@/lib/types";
 
 interface UseMapEventsProps {
@@ -121,6 +121,40 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [setSelectedPlace, setIsOpen, mapRef],
   );
 
+  const handleMapClick = useCallback(
+    (e: MapLayerMouseEvent) => {
+      if (!e.features || e.features.length === 0) {
+        create(
+          "deletePins",
+          () => {
+            clearPins();
+          },
+          400,
+        );
+        handlePlaceSelection(null, { openSidebar: false, flyMode: "never" });
+        return;
+      }
+
+      cancel("deletePins");
+
+      const pointFeature = e.features.find((f) => f.geometry.type === "Point");
+      if (pointFeature) {
+        const feature = normalizeFeature(pointFeature);
+        if (!feature) return;
+        handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
+        return;
+      }
+
+      const polygonFeature = e.features.find((f) => f.geometry.type === "Polygon");
+      if (!polygonFeature) return;
+
+      const feature = normalizeFeature(polygonFeature);
+      if (!feature) return;
+      handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
+    },
+    [create, cancel, clearPins, handlePlaceSelection],
+  );
+
   usePlaceSelectedListener((feature) => {
     if (!feature) return;
     handlePlaceSelection(feature, { openSidebar: true, flyMode: "always" });
@@ -158,96 +192,14 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         });
       }
 
-      // evento click en general
-      e.target.on("click", (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, [
-          "area-polygon",
-          "points-layer-2",
-          "points-layer-3",
-          "debug-area-polygon",
-        ]);
-        if (!feature) {
-          create(
-            "deletePins",
-            () => {
-              clearPins();
-            },
-            400,
-          );
-          handlePlaceSelection(null, { openSidebar: false, flyMode: "never" });
-        }
-      });
-
       e.target.on("dblclick", (e: MapLayerMouseEvent) => {
         cancel("deletePins");
         addPin(e.lngLat.lng, e.lngLat.lat);
       });
 
-      // Event listeners para áreas
-      e.target.on("click", ["area-polygon"], (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
-
-        if (!feature) return;
-        setTimeout(() => {
-          handlePlaceSelection(feature, {
-            openSidebar: true,
-            flyMode: "ifOutside",
-          });
-        }, 200);
-      });
-
-      // Event listeners para debug mode
-      let isDebugMode = false;
-      try {
-        if (typeof window !== "undefined" && window.sessionStorage) {
-          isDebugMode = sessionStorage.getItem("debugMode") === "true";
-        }
-      } catch (error) {
-        console.warn("Unable to access sessionStorage:", error);
-      }
-      if (isDebugMode) {
-        e.target.on("click", ["points-layer-2"], (e) => {
-          const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
-          if (!feature) return;
-          setTimeout(() => {
-            setIsOpen(true);
-            handlePlaceSelection(feature, { openSidebar: true, flyMode: "never" });
-          }, 200);
-        });
-
-        e.target.on("click", ["points-layer-3"], (e) => {
-          const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
-          if (!feature) return;
-          setTimeout(() => {
-            setIsOpen(true);
-            handlePlaceSelection(feature, { openSidebar: true, flyMode: "never" });
-          }, 200);
-        });
-
-        e.target.on("click", ["debug-area-polygon"], (e) => {
-          const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
-          if (!feature) return;
-          setTimeout(() => {
-            handlePlaceSelection(feature, { openSidebar: true, flyMode: "never" });
-          }, 200);
-        });
-      }
-
       setIsLoaded(true);
     },
-    [
-      mapRef,
-      paramPlace,
-      paramLng,
-      paramLat,
-      setPlaces,
-      handlePlaceSelection,
-      addPin,
-      setIsOpen,
-      clearPins,
-      create,
-      cancel,
-    ],
+    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel],
   );
 
   useEffect(() => {
@@ -264,6 +216,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
   return {
     handlePlaceSelection,
+    handleMapClick,
     handleMapLoad,
     isLoaded,
   };

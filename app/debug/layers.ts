@@ -4,6 +4,7 @@ export const approvalPointsLayer: LayerProps = {
   id: "points-layer-3",
   type: "circle",
   source: "points",
+  filter: ["==", ["geometry-type"], "Point"],
   paint: {
     "circle-radius": 7,
     "circle-color": "#32CD32",
@@ -81,6 +82,7 @@ export const allPlacesTextApprovalLayer: LayerProps = {
   id: "places-text-127879",
   type: "symbol",
   source: "places",
+  filter: ["==", ["geometry-type"], "Point"],
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
     "text-font": ["Roboto Slab Medium"],
@@ -96,6 +98,7 @@ export const allPlacesTextApprovalLayer: LayerProps = {
 export const redLineLayerDebug: LayerProps = {
   id: "red-line-debug-2",
   type: "line",
+  filter: ["==", ["geometry-type"], "Polygon"],
   paint: {
     "line-color": "#32CD32", // Verde lima
     "line-width": 0.7,
@@ -107,6 +110,7 @@ export const sectionAreaLayerDebug: LayerProps = {
   id: "debug-area-polygon",
   type: "fill",
   source: "states",
+  filter: ["==", ["geometry-type"], "Polygon"],
   paint: {
     "fill-color": "rgba(50, 205, 50, 0.4)", // Verde lima translúcido
   },

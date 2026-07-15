@@ -77,7 +77,7 @@ export default function MapComponent({
   const params = useSearchParams();
   const { points, polygons, pointsName, setPlaces } = useSidebar();
   const { pins, handlePinDrag, polygon } = use(pinsContext);
-  const { handleMapLoad, handlePlaceSelection } = useMapEvents({
+  const { handleMapLoad, handlePlaceSelection, handleMapClick } = useMapEvents({
     mapRef,
     paramPlace,
     paramLng,
@@ -176,6 +176,14 @@ export default function MapComponent({
         id="mainMap"
         mapStyle={mapConfig.mapStyle}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
+        interactiveLayerIds={[
+          "points-layer-2",
+          "points-layer-3",
+          "area-polygon",
+          "debug-area-polygon",
+          "custom-area-polygon",
+        ]}
+        onClick={(e) => handleMapClick(e)}
         onLoad={(e) => handleMapLoad(e)}
         transformRequest={(url, type) => {
           if (type === "Tile" || type === "Glyphs") {
