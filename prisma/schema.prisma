@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+enum GeoGeometryType {
+  Point
+  Polygon
+  MultiPolygon
+}
+
+enum ProposalType {
+  edit
+}
+
+model Campus {
+  id          String          @id @db.VarChar(100)
+  name        String          @db.VarChar(255)
+  shortName   String?         @db.VarChar(100)
+  address     String?         @db.VarChar(500)
+  information String?         @db.Text
+  category    String?         @db.VarChar(100)
+
+  geometryType GeoGeometryType
+  geometry     Json
+
+  places      Place[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@map("campus")
+}
+
+model Place {
+  id           String          @id @db.VarChar(150)
+  name         String          @db.VarChar(500)
+  information  String?         @db.Text
+  needApproval Boolean         @default(false)
+
+  proposalType ProposalType?
+
+  campusId     String?         @db.VarChar(100)
+  campus       Campus?         @relation(fields: [campusId], references: [id], onDelete: SetNull)
+
+  parentPlaceId String?        @db.VarChar(150)
+  parentPlace   Place?         @relation("PlaceHierarchy", fields: [parentPlaceId], references: [id], onDelete: SetNull)
+  childPlaces   Place[]        @relation("PlaceHierarchy")
+
+  geometryType GeoGeometryType
+  geometry     Json
+
+  longitude    Decimal?        @db.Decimal(12, 8)
+  latitude     Decimal?        @db.Decimal(12, 8)
+
+  categories   PlaceCategory[]
+  floors       PlaceFloor[]
+
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([campusId])
+  @@index([parentPlaceId])
+  @@index([name])
+  @@index([geometryType])
+  @@index([needApproval])
+  @@index([updatedAt])
+  @@map("place")
+}
+
+model Category {
+  id        String          @id @db.VarChar(100)
+  name      String?         @db.VarChar(255)
+
+  places    PlaceCategory[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@map("category")
+}
+
+model Floor {
+  id        Int             @id
+
+  places    PlaceFloor[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@map("floor")
+}
+
+model PlaceCategory {
+  placeId    String @db.VarChar(150)
+  categoryId String @db.VarChar(100)
+
+  place      Place    @relation(fields: [placeId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([placeId, categoryId])
+  @@index([categoryId])
+  @@map("place_category")
+}
+
+model PlaceFloor {
+  placeId String @db.VarChar(150)
+  floorId Int
+
+  place   Place @relation(fields: [placeId], references: [id], onDelete: Cascade)
+  floor   Floor @relation(fields: [floorId], references: [id], onDelete: Cascade)
+
+  @@id([placeId, floorId])
+  @@index([floorId])
+  @@map("place_floor")
+}

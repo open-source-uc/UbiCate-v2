@@ -5,7 +5,6 @@
 import { Marker as MapboxMarker } from "react-map-gl/maplibre";
 
 import { PLACE_ICONS } from "@/lib/config/constants";
-import { alwaysVisiblePlaces } from "@/lib/places/data";
 import { Feature, PointFeature } from "@/lib/types";
 
 import * as Icons from "../components/ui/icons/icons";
@@ -54,6 +53,7 @@ function SpecialMarker({
 
 export default function SpecialMarkers() {
   const { setSelectedPlace } = useSidebar();
+  const alwaysVisiblePlaces: PointFeature[] = [];
 
   return (
     <>

@@ -62,7 +62,7 @@ export default function DesktopSidebar() {
   return (
     <>
       {/* Contenedor principal con flex row */}
-      <div className="flex h-screen overflow-y-auto">
+      <div className="flex h-full overflow-y-auto">
         {/* Sidebar principal */}
         <section className={`bg-background text-foreground flex flex-col z-40 h-full pb-4 ${isOpen ? "w-52" : "w-20"}`}>
           <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-6" : "flex-col py-8 space-y-6"}`}>

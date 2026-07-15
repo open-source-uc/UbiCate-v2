@@ -185,6 +185,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       // Event listeners para áreas
       e.target.on("click", ["area-polygon"], (e) => {
+        const target = (e.originalEvent as MouseEvent).target as HTMLElement;
+        if (target?.closest(".maplibregl-marker")) return;
+
         const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
 
         if (!feature) return;

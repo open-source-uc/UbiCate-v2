@@ -1,6 +1,6 @@
 import { point, polygon, booleanPointInPolygon } from "@turf/turf";
 
-import PlacesJSON from "@/lib/places/data";
+import type { Feature } from "@/lib/types";
 
 interface CampusBounds {
   longitudeRange: [number, number];
@@ -149,30 +149,20 @@ export function getCampusNameFromPoint(longitude: number, latitude: number): str
   return null;
 }
 
-export function getFacultiesIdsFromPoint(longitude: number, latitude: number): string[] {
-  // Crea un punto con las coordenadas proporcionadas
+export function getFacultiesIdsFromPoint(longitude: number, latitude: number, features?: Feature[]): string[] {
   const p = point([longitude, latitude]);
-
-  // Array para almacenar los nombres de las facultades
   const facultyNames: string[] = [];
 
-  // Itera sobre los features y busca las facultades que tengan la categoría "faculty"
-  // y cuyo polígono contenga el punto.
-  for (const feature of PlacesJSON.features) {
-    // Verifica si la categoría incluye "faculty" y si la geometría es un Polígono
+  const list = features ?? [];
+  for (const feature of list) {
     if (feature.properties.categories.includes("faculty") && feature.geometry.type === "Polygon") {
-      // Crea un polígono con las coordenadas del feature
       const p2 = polygon(feature.geometry.coordinates);
-
-      // Verifica si el punto está dentro del polígono
       if (booleanPointInPolygon(p, p2)) {
-        // Agrega el nombre de la facultad al array
         facultyNames.push(feature.properties.identifier);
       }
     }
   }
 
-  // Retorna el array de nombres de facultades (vacío si no hay coincidencias)
   return facultyNames;
 }
 // Solo son dos pues a fecha de 2 de mayo del 2025, son los unicos campus que tienen rutas

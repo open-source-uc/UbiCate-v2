@@ -1,0 +1,1782 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22574079122181,
+                    -39.277610111486716
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_1,_2_Y_3-VR",
+                "name": "Salas 4, 5 y 6",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61129305069261,
+                    -33.49886467063589
+                ]
+            },
+            "properties": {
+                "identifier": "MPD3859NBSGHIY",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61088263882343,
+                    -33.499017580676316
+                ]
+            },
+            "properties": {
+                "identifier": "MPD36K9BYWK9VG",
+                "name": "Punto Verde",
+                "information": "Punto Verde",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59337791055441,
+                    -33.44698860850432
+                ]
+            },
+            "properties": {
+                "identifier": "MA2VNZPAOPFEFE",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central (PLC) ",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.613673,
+                    -33.499075
+                ]
+            },
+            "properties": {
+                "identifier": "E17",
+                "name": "E17",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZA2IRXAGEN1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60985980167332,
+                    -33.49817682022046
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-38162238",
+                "name": "Laboratorio digital",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61389822873208,
+                    -33.499976500884905
+                ]
+            },
+            "properties": {
+                "identifier": "MOUL5V3QAM5DCV",
+                "name": "Departamento de Ingeniería de Transporte y Logística",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61389822873208,
+                    -33.499976500884905
+                ]
+            },
+            "properties": {
+                "identifier": "MOUL5QF6KL427O",
+                "name": "Departamento de Ingeniería de Transporte y Logística",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61516506520195,
+                    -33.49900931082151
+                ]
+            },
+            "properties": {
+                "identifier": "DEPARTAMENTO_DE_INGENIERÍA_Y_GESTIÓN_DE_LA_CONSTRUCCIÓN_(DIGC_UC)-SJ",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC UC)",
+                "information": "",
+                "categories": [
+                    "faculty",
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59454827184192,
+                    -33.446646587711605
+                ]
+            },
+            "properties": {
+                "identifier": "MOK471J7ONS8N7",
+                "name": "cajero automático",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.64001520328162,
+                            -33.44097763357434
+                        ],
+                        [
+                            -70.64000049421693,
+                            -33.44097335904872
+                        ],
+                        [
+                            -70.64000049421693,
+                            -33.44097335904872
+                        ],
+                        [
+                            -70.64001520328162,
+                            -33.44097763357434
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MOJ3XBAPQC1K04",
+                "name": "Quiosco Crisol",
+                "information": "Impresión para alumnos",
+                "categories": [
+                    "photocopy",
+                    "photocopy"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61307978348046,
+                    -33.49803512546782
+                ]
+            },
+            "properties": {
+                "identifier": "MC92M5E2K3IO9S",
+                "name": "Quiosco Crisol",
+                "information": "\n\n",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6120135564238,
+                    -33.49902871494161
+                ]
+            },
+            "properties": {
+                "identifier": "MDE2I47U7OGITU",
+                "name": "Kiosco Crisol",
+                "information": "En android por lo general falla",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61036383562251,
+                    -33.500581081425665
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-32379115",
+                "name": "Crisol Carreras de la Salud",
+                "information": "Conecta por dentro con las otras Crisol Carreras de la Salud.\nSalas para clases, Total 306 computadores.",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6136066620074,
+                    -33.497233103322664
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32218197",
+                "name": "Crisol Humanidades 2",
+                "information": "**Ubicación:**  \nFrente a la Facultad de Letras  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7501  \n\n**Equipamiento:**  \n\n- 6 PCs Intel Core i5-4460, 3.2 GHz, 16 GB RAM, SSD 480 GB\n- 2 PCs Ayuda en Línea Lenovo Core i5-3470s, 2.9 GHz, 8 GB RAM, SSD 480 GB\n- 5 Espacios de trabajo colaborativo (Smart TV 43”)\n\n- Pantalla Informativa (LCD 55”) \n- Aire acondicionado \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61389840040871,
+                    -33.497392415033836
+                ]
+            },
+            "properties": {
+                "identifier": "COMPUTERS-32217130",
+                "name": "Crisol Humanidades",
+                "information": "**Ubicación:**  \nZócalo Biblioteca de Humanidades  \n\n**Horario:** [Ver detalles](https://informatica.uc.cl/servicios/salas-crisol/horario-de-atencion-salas-crisol)\n\n**Anexo:**  \n7870  \n\n**Equipamiento:**  \n_(31 equipos para clases)_\n\n- 32 PCs Intel Core i5-3470s, 16 GB de RAM, disco duro SSD de 480 GB    \n- 1 Scanner (tamaños carta y oficio)  \n- 1 Pantalla Informativa Samsung (LCD 32”)  \n- Aire Acondicionado  \n- Iluminación Led\n",
+                "categories": [
+                    "crisol"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61341606018777,
+                    -33.50002567236702
+                ]
+            },
+            "properties": {
+                "identifier": "ME1DJIY4ZRYIIS",
+                "name": "Sala de estudio CAI",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61227230518169,
+                            -33.498918138288374
+                        ],
+                        [
+                            -70.61190214258913,
+                            -33.49899601122336
+                        ],
+                        [
+                            -70.61188900843263,
+                            -33.499108004319524
+                        ],
+                        [
+                            -70.61186951427668,
+                            -33.49931876095403
+                        ],
+                        [
+                            -70.61237019012256,
+                            -33.499361919258305
+                        ],
+                        [
+                            -70.61240281843587,
+                            -33.499147065753654
+                        ],
+                        [
+                            -70.61243657186414,
+                            -33.498879670909155
+                        ],
+                        [
+                            -70.61227230518169,
+                            -33.498918138288374
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "LA_Y",
+                "name": "Centro Desarrollo Docente",
+                "information": "![Test](https://fastly.4sqi.net/img/general/width960/53526630_Wa-pYEQiYKMGXy5yYiFI_8-gY2iT1JuD67TPJV3L6h4.jpg)",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61546288430691,
+                            -33.49769357280825
+                        ],
+                        [
+                            -70.61521779745817,
+                            -33.497659183298126
+                        ],
+                        [
+                            -70.61512257903814,
+                            -33.49764128956389
+                        ],
+                        [
+                            -70.61508905142546,
+                            -33.4976379344883
+                        ],
+                        [
+                            -70.6150109320879,
+                            -33.49796924757455
+                        ],
+                        [
+                            -70.61517890542746,
+                            -33.49797372099151
+                        ],
+                        [
+                            -70.61515375971794,
+                            -33.49805871586987
+                        ],
+                        [
+                            -70.61521980911493,
+                            -33.49806514640003
+                        ],
+                        [
+                            -70.61524227261543,
+                            -33.49798294741327
+                        ],
+                        [
+                            -70.61550881713629,
+                            -33.49801789597161
+                        ],
+                        [
+                            -70.61552155762911,
+                            -33.49796840880886
+                        ],
+                        [
+                            -70.61542298644781,
+                            -33.497955827322286
+                        ],
+                        [
+                            -70.61546288430691,
+                            -33.49769357280825
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "CDI",
+                "name": "Centro de Innovación UC - Anacleto Angelini",
+                "information": "![Test](https://arquitecturaviva.com/assets/uploads/obras/40584/av_medium__av_80950.webp?h=5ca6008b) El **Centro de Innovación UC** Anacleto Angelini es un espacio concebido como un centro _multidisciplinario y generalista_, acoge en su interior tanto proyectos de innovación como iniciativas de emprendimiento, de alto impacto `económico, social y cultural`",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60791530249031,
+                    -33.49664246884663
+                ]
+            },
+            "properties": {
+                "identifier": "MOCUWLPFD0LNZD",
+                "name": "decon",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61020027054272,
+                    -33.49671548811
+                ]
+            },
+            "properties": {
+                "identifier": "AP303-SJ",
+                "name": "Filosofía ",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22576625475583,
+                    -39.27760708478396
+                ]
+            },
+            "properties": {
+                "identifier": "MJCYXFCOB0WL4W",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.22553099625267,
+                    -39.27767190591197
+                ]
+            },
+            "properties": {
+                "identifier": "MK1FZQ9V0DR26E",
+                "name": "Mesón UC",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61379928658462,
+                    -33.49781890167755
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32216955",
+                "name": "Pedagogías interfacultades editado",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61077765611917,
+                    -33.499601757778656
+                ]
+            },
+            "properties": {
+                "identifier": "MNVDSLT2MESSYT",
+                "name": "LAB10",
+                "information": "Laboratorio de Física. La entrada varía según el docente. Usualmente es en frente de la facultad de matemáticas pero también puede ser desde la dirección de docencia de física.",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59290933721945,
+                    -33.4934497255019
+                ]
+            },
+            "properties": {
+                "identifier": "MNUS5B4N49CARL",
+                "name": "mi casita",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61292536981568,
+                    -33.500006851185276
+                ]
+            },
+            "properties": {
+                "identifier": "MNOPMFU06XYSBL",
+                "name": "Laboratorio Mecánica de Fluidos (DIHA)",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404955296791,
+                    -33.44175739705731
+                ]
+            },
+            "properties": {
+                "identifier": "MNNLQEKDT4W37Y",
+                "name": "Acondicionamiento Físico",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056785167202,
+                    -33.44179093579233
+                ]
+            },
+            "properties": {
+                "identifier": "MNNLOJSKATOG74",
+                "name": "Acondicionamiento Físico",
+                "information": "Patio de Medicina",
+                "categories": [
+                    "sports_place",
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.608993,
+                    -33.497909
+                ]
+            },
+            "properties": {
+                "identifier": "CARAUC",
+                "name": "CARA UC ",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59234092960935,
+                    -33.44635071381148
+                ]
+            },
+            "properties": {
+                "identifier": "MA2W11QUN5P2AG",
+                "name": "-",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935320732351,
+                    -33.447082331184696
+                ]
+            },
+            "properties": {
+                "identifier": "MNG4C16B3WM7TV",
+                "name": "ADMINISTRACIÓN CAMPUS ORIENTE",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5935320732351,
+                    -33.447082331184696
+                ]
+            },
+            "properties": {
+                "identifier": "MNG4BZ2396OL1U",
+                "name": "ADMINISTRACIÓN CAMPUS ORIENTE",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59474265251332,
+                    -33.44613769818238
+                ]
+            },
+            "properties": {
+                "identifier": "MNG490I17DURSZ",
+                "name": "PREUNIVERSITARIO UC",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUXA979W4WEX"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61544326327063,
+                    -33.49782781236589
+                ]
+            },
+            "properties": {
+                "identifier": "MN3J2N9V3UZBRE",
+                "name": "IMFD - Instituto Milenio Fundamentos de los Datos",
+                "information": "Se encuentra en el centro de innovación ",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61191210421904,
+                    -33.500019681536756
+                ]
+            },
+            "properties": {
+                "identifier": "MN3IDSJOISU6Q5",
+                "name": "Precalculo 23",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60892371832026,
+                    -33.497939808651886
+                ]
+            },
+            "properties": {
+                "identifier": "MMZ7QX3OKVGV35",
+                "name": "Área Social Salud y Bienestar Estudiantil",
+                "information": "Entre piso 1 y 2",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60895692978129,
+                    -33.49795265404909
+                ]
+            },
+            "properties": {
+                "identifier": "DAE",
+                "name": "DAE",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61417276814015,
+                    -33.49785676085729
+                ]
+            },
+            "properties": {
+                "identifier": "SEM6P2-SJ",
+                "name": "concha acustica",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61167392879725,
+                            -33.49866290403108
+                        ],
+                        [
+                            -70.6114449352026,
+                            -33.49864696760897
+                        ],
+                        [
+                            -70.61144694685936,
+                            -33.498627116973815
+                        ],
+                        [
+                            -70.61125416308641,
+                            -33.49860894385313
+                        ],
+                        [
+                            -70.61066005378962,
+                            -33.498561134548204
+                        ],
+                        [
+                            -70.61060808598995,
+                            -33.49885693672462
+                        ],
+                        [
+                            -70.61050415039062,
+                            -33.498844914538665
+                        ],
+                        [
+                            -70.61048101633787,
+                            -33.49914490951708
+                        ],
+                        [
+                            -70.6116658821702,
+                            -33.499260937119026
+                        ],
+                        [
+                            -70.61170510947704,
+                            -33.49884211868123
+                        ],
+                        [
+                            -70.61173897236586,
+                            -33.49882590270631
+                        ],
+                        [
+                            -70.61175003647804,
+                            -33.49872804762078
+                        ],
+                        [
+                            -70.6116709113121,
+                            -33.49871910086458
+                        ],
+                        [
+                            -70.61167392879725,
+                            -33.49866290403108
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "QIM",
+                "name": "Facultad de Química y de Farmacia",
+                "information": "Piso 1: Laboratorios\nPiso 2: Decanato",
+                "categories": [
+                    "faculty",
+                    ""
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61453530165227,
+                    -33.49897649190162
+                ]
+            },
+            "properties": {
+                "identifier": "MMPCT9J5LYKO7X",
+                "name": "Edyce",
+                "information": "Escultura Edyce. \nFabricación en acero\nConexiones típicas",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61468679536664,
+                    -33.497982418652064
+                ]
+            },
+            "properties": {
+                "identifier": "MMPCM5TIA7LU3A",
+                "name": "Mosaico Santa Teresa de Ávila",
+                "information": "Patrona de la facultad de educación, educadora, mística, escritora y doctora de la iglesia",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6412982216611,
+                    -33.439633691317354
+                ]
+            },
+            "properties": {
+                "identifier": "MMM3PLW4VHVUXC",
+                "name": "Starbucks",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61421300096181,
+                            -33.49663749226727
+                        ],
+                        [
+                            -70.6135041981261,
+                            -33.496581641830616
+                        ],
+                        [
+                            -70.61348745475195,
+                            -33.496711959460015
+                        ],
+                        [
+                            -70.61348187362724,
+                            -33.49673057624724
+                        ],
+                        [
+                            -70.61348187362724,
+                            -33.49670730526235
+                        ],
+                        [
+                            -70.61348187362724,
+                            -33.496711959460015
+                        ],
+                        [
+                            -70.61348745475195,
+                            -33.49671661365645
+                        ],
+                        [
+                            -70.61347629250248,
+                            -33.49672126785362
+                        ],
+                        [
+                            -70.61348745475195,
+                            -33.496711959460015
+                        ],
+                        [
+                            -70.61348187362724,
+                            -33.49670730526235
+                        ],
+                        [
+                            -70.61347071137779,
+                            -33.49672592205054
+                        ],
+                        [
+                            -70.6141850953388,
+                            -33.49680504335995
+                        ],
+                        [
+                            -70.61417393308933,
+                            -33.496800389167234
+                        ],
+                        [
+                            -70.61417951421407,
+                            -33.49679573497437
+                        ],
+                        [
+                            -70.61417393308933,
+                            -33.49679573497437
+                        ],
+                        [
+                            -70.6141850953388,
+                            -33.496800389167234
+                        ],
+                        [
+                            -70.61417393308933,
+                            -33.496800389167234
+                        ],
+                        [
+                            -70.6141850953388,
+                            -33.496800389167234
+                        ],
+                        [
+                            -70.61421300096181,
+                            -33.49663749226727
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "LET",
+                "name": "Facultad de Letras",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61501344233837,
+                    -33.49811527314146
+                ]
+            },
+            "properties": {
+                "identifier": "AUDITORIUM-32215791",
+                "name": "Auditorio Gabriela ",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59409875492331,
+                    -33.44670635163057
+                ]
+            },
+            "properties": {
+                "identifier": "MMKQ3OKJCBJT4R",
+                "name": "Sendero Oriente",
+                "information": "La obra fue realizada el año 2024 por encargo del rector Ignacio Sanchez. Participaron los artistas Paula de Soliminihac, Osvaldo Peña y Catalina Ramirez, el arquitecto y paisajista Vicente Donoso, con la asistencia de la oficina Ramsay Arquitectura y Paisaje, el técnico Daniel García y las artistas egresadas de la UC Inés González, Antonia López, Carla Barravechia y Consuelo Deigado.",
+                "categories": [
+                    "culture",
+                    "yard"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61840436585624,
+                    -33.41900011263106
+                ]
+            },
+            "properties": {
+                "identifier": "MMKNF4R1XUU03M",
+                "name": "Escultura Hombres Águilas, miradas certeras",
+                "information": "Escultora: Marcela Romagnoli Esinosa",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.618113131503,
+                    -33.41943707481738
+                ]
+            },
+            "properties": {
+                "identifier": "MMKN1EVWB1TD5I",
+                "name": "Galería Lo Contador",
+                "information": "La Galería Lo Contador es el principal espacio expositivo del Campus Lo Contador de la Universidad Católica, enfocado en la difusión de la arquitectura, el diseño y los estudios urbanos.",
+                "categories": [
+                    "culture",
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61824782535804,
+                    -33.41955418839442
+                ]
+            },
+            "properties": {
+                "identifier": "MMKMW0AHRDMNJF",
+                "name": "Capilla Lo Contador",
+                "information": "La Capilla de Lo Contador fue levantada durante el siglo XIX por Mercedes Contador, heredera de la propiedad.",
+                "categories": [
+                    "culture",
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61773817819488,
+                    -33.41991886598631
+                ]
+            },
+            "properties": {
+                "identifier": "MMKM8BYT4BOPDF",
+                "name": "Librería UC",
+                "information": "",
+                "categories": [
+                    "culture",
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61782477701256,
+                    -33.419852507211644
+                ]
+            },
+            "properties": {
+                "identifier": "MMKM6SYL6GX7EB",
+                "name": "Escultura \"En recuerdo de Benjamín\"",
+                "information": "Escultor: Federico Assler Brown",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61732532526234,
+                    -33.4188368913099
+                ]
+            },
+            "properties": {
+                "identifier": "MMKLTQPC73WT8P",
+                "name": "Casa Sergio Larraín G. M.",
+                "information": "Centro UC de Patrimonio Cultural",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61831733077263,
+                    -33.41939452134159
+                ]
+            },
+            "properties": {
+                "identifier": "MMKLOBOOPWNB3S",
+                "name": "Centro de Información y Documentación Sergio Larraín G. - M.",
+                "information": "La colección más actualizada y completa, a nivel nacional, de las áreas de Arquitectura, Diseño y Estudios Urbanos, con más de 80.000 ítems en estantería, es lo que se encuentra en la Biblioteca Lo Contador, además de una gran colección de revistas y una selección de libros raros y valiosos, entre los que se encuentran ejemplares únicos en el país.",
+                "categories": [
+                    "culture",
+                    "library"
+                ],
+                "floors": [
+                    -1,
+                    -2,
+                    -3
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61804075235537,
+                    -33.41980464314807
+                ]
+            },
+            "properties": {
+                "identifier": "MMKLDCSID4RWVN",
+                "name": "Patio de los naranjos",
+                "information": "Casona colonial del siglo XVIII. La casa tenía la organización típica de la arquitectura colonial chilena: habitaciones alrededor de patios interiores. \nEl Patio de los Naranjos era uno de esos patios principales y se mantuvo cuando la universidad adaptó el lugar como campus en los años 50.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6401518588146,
+                    -33.44122620892629
+                ]
+            },
+            "properties": {
+                "identifier": "SALÓN_DE_HONOR-CC",
+                "name": "Salón de honor",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61143219470978,
+                            -33.4993006380941
+                        ],
+                        [
+                            -70.61048805713654,
+                            -33.49920110603768
+                        ],
+                        [
+                            -70.61047866940498,
+                            -33.49942477341983
+                        ],
+                        [
+                            -70.61060473322868,
+                            -33.499577985243086
+                        ],
+                        [
+                            -70.61070263385773,
+                            -33.49964620355889
+                        ],
+                        [
+                            -70.61106070876122,
+                            -33.49966745187579
+                        ],
+                        [
+                            -70.61106607317924,
+                            -33.499639493563
+                        ],
+                        [
+                            -70.61161056160927,
+                            -33.499683108526995
+                        ],
+                        [
+                            -70.61163738369942,
+                            -33.49937892165359
+                        ],
+                        [
+                            -70.61143219470978,
+                            -33.4993006380941
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "FIS",
+                "name": "sala seminario teorica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61318235919948,
+                    -33.497426649550384
+                ]
+            },
+            "properties": {
+                "identifier": "ATACAMA-SJ",
+                "name": "Atacama",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60809179558647,
+                    -33.49906599641622
+                ]
+            },
+            "properties": {
+                "identifier": "MMHWYUNQYUZW9D",
+                "name": "Multicancha 4 \"Bombonera\"",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61310663836508,
+                            -33.50037190676038
+                        ],
+                        [
+                            -70.61259616911954,
+                            -33.500326225172046
+                        ],
+                        [
+                            -70.61264713109105,
+                            -33.49967864336572
+                        ],
+                        [
+                            -70.6131636239622,
+                            -33.4997088381947
+                        ],
+                        [
+                            -70.61310663836508,
+                            -33.50037190676038
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MA4G7JJZJHQPFH",
+                "name": "Patio Ingeniería",
+                "information": "",
+                "categories": [
+                    "yard"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
+    ]
+}

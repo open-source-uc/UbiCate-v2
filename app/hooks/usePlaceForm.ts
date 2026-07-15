@@ -1,6 +1,8 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { PointFeature } from "@/lib/types";
@@ -35,6 +37,7 @@ async function updatePlace(body: CreatePlace) {
   });
 }
 export function usePlaceForm(method: "POST" | "PUT", defaultData?: PlaceFormData, onClose?: () => void) {
+  const queryClient = useQueryClient();
   const [notification, setNotification] = useState<NotificationState | null>(null);
   const [data, setData] = useState<Omit<PlaceFormData, "identifier">>(
     defaultData
@@ -56,12 +59,23 @@ export function usePlaceForm(method: "POST" | "PUT", defaultData?: PlaceFormData
     mutationFn: (body: CreatePlace) => {
       return method === "POST" ? createPlace(body) : updatePlace(body);
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       setNotification({
         type: "success",
         message: method === "POST" ? "Ubicación creada" : "Ubicación actualizada",
         visible: true,
       });
+
+      try {
+        const res = await fetch("/api/ubicate", {
+          headers: { "X-Ubicate-Fresh": "true" },
+        });
+        const freshData = await res.json();
+        queryClient.setQueryData(["places"], freshData);
+        queryClient.invalidateQueries({ queryKey: ["ubicate-debug"] });
+      } catch {
+        // offline — continue with cached data
+      }
 
       setTimeout(() => {
         onClose?.();

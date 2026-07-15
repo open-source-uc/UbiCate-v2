@@ -13,7 +13,6 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
-import Places from "@/lib/places/data";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
@@ -75,7 +74,7 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const params = useSearchParams();
-  const { points, polygons, pointsName, setPlaces } = useSidebar();
+  const { points, polygons, pointsName, setPlaces, allFeatures } = useSidebar();
   const { pins, handlePinDrag, polygon } = use(pinsContext);
   const { handleMapLoad, handlePlaceSelection } = useMapEvents({
     mapRef,
@@ -130,11 +129,11 @@ export default function MapComponent({
 
   useEffect(() => {
     const category = params.get("category");
-    if (!category) return;
+    if (!category || allFeatures.length === 0) return;
 
-    const filteredPlaces = Places.features.filter((feature) => feature.properties.categories.includes(category));
+    const filteredPlaces = allFeatures.filter((feature) => feature.properties.categories.includes(category));
     setPlaces(filteredPlaces);
-  }, [params, setPlaces]);
+  }, [params, setPlaces, allFeatures]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -213,7 +212,7 @@ export default function MapComponent({
         </SilentErrorBoundary>
         <DirectionsComponent />
         {points.map((place) => {
-          const primaryCategory = place.properties.categories[0] as CATEGORIES;
+          const primaryCategory = (place.properties.categories[0] ?? "Otros") as CATEGORIES;
           return (
             <Marker
               key={place.properties.identifier}
@@ -224,7 +223,7 @@ export default function MapComponent({
           );
         })}
         {pins.map((pin) => {
-          const primaryCategory = pin.properties.categories[0] as CATEGORIES;
+          const primaryCategory = (pin.properties.categories[0] ?? "Otros") as CATEGORIES;
           let config: HandlePlaceSelectionOptions;
           if (pins.length === 1) {
             config = { openSidebar: true, flyMode: "always" };

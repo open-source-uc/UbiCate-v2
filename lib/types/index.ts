@@ -3,7 +3,7 @@ export interface PointGeometry {
   coordinates: [number, number];
 }
 
-interface PolygonGeometry {
+export interface PolygonGeometry {
   type: "Polygon";
   coordinates: [number, number][][];
 }
@@ -56,8 +56,8 @@ export interface Properties {
   faculties: string[];
   floors?: number[];
   needApproval?: boolean;
-  // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
-  // needApproval sera SIEMPRE undefined en places.json
+  proposalType?: "edit";
+  parentPlaceId?: string;
 }
 
 export interface Feature {

@@ -1,0 +1,318 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "identifier": "SJ",
+        "campus": "SJ",
+        "name": "San Joaquín",
+        "shortName": "SanJoaquin",
+        "address": "Av. Vicuña Mackenna 4860, Macul, Chile",
+        "information": "Incorporado al patrimonio de la Universidad en 1891, legado de Honoria Gandarillas de la chacra Macul (primera hijuela de Macul e Hijuela San Joaquín) con 82 hás., el actual campus San Joaquín de la Universidad comenzó su implementación como ciudad universitaria en los sesenta y continúa en desarrollo.",
+        "categories": "campus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.615236,
+              -33.500917
+            ],
+            [
+              -70.606134,
+              -33.50167
+            ],
+            [
+              -70.606134,
+              -33.50167
+            ],
+            [
+              -70.605826,
+              -33.498789
+            ],
+            [
+              -70.60604052283414,
+              -33.49799114471406
+            ],
+            [
+              -70.606497669645,
+              -33.49729040559786
+            ],
+            [
+              -70.60710140457584,
+              -33.496374511950584
+            ],
+            [
+              -70.60660565411479,
+              -33.49623014331928
+            ],
+            [
+              -70.607434,
+              -33.49564
+            ],
+            [
+              -70.607434,
+              -33.49564
+            ],
+            [
+              -70.61438908270368,
+              -33.4962023398795
+            ],
+            [
+              -70.61423848223734,
+              -33.49736343232953
+            ],
+            [
+              -70.61594189514669,
+              -33.49758257214139
+            ],
+            [
+              -70.61555775791928,
+              -33.49917481175846
+            ],
+            [
+              -70.615236,
+              -33.500917
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "identifier": "CC",
+        "campus": "CC",
+        "name": "Casa Central",
+        "shortName": "CasaCentral",
+        "address": "Av. Alameda 340, Santiago, Chile",
+        "information": "El edificio principal y fundacional de la Universidad se terminó de construir en 1912. Proyecto original de Ignacio Cremonesi, fue concluido por su discípulo Emilio Jecquier. Por su magnificencia fue denominado Palacio Universitario y desde entonces acoge a la Dirección Superior y a varias facultades.",
+        "categories": "campus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.641785,
+              -33.441202
+            ],
+            [
+              -70.640432,
+              -33.440255
+            ],
+            [
+              -70.638986,
+              -33.441794
+            ],
+            [
+              -70.641206,
+              -33.442673
+            ],
+            [
+              -70.641785,
+              -33.441202
+            ]
+          ],
+          [
+            [
+              -70.642630,
+              -33.441740
+            ],
+            [
+              -70.642630,
+              -33.441740
+            ],
+            [
+              -70.642463,
+              -33.442135
+            ],
+            [
+              -70.642209,
+              -33.442207
+            ],
+            [
+              -70.641670,
+              -33.441818
+            ],
+            [
+              -70.641670,
+              -33.441818
+            ],
+            [
+              -70.641906,
+              -33.441278
+            ],
+            [
+              -70.642630,
+              -33.441740
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "identifier": "LC",
+        "campus": "LC",
+        "name": "Lo Contador",
+        "shortName": "LoContador",
+        "address": "El Comendador 1916, Providencia, Chile",
+        "information": "Antigua hacienda del siglo XVIII contemporánea a grandes obras en la ciudad de Santiago como el puente de Calicanto. Su casona es Monumento Nacional y parte del patrimonio arquitectónico de Santiago. Desde 1958 es sede de la Facultad de Arquitectura, Diseño y Estudios Urbanos de la Universidad.",
+        "categories": "campus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.6171923346369,
+              -33.41807375701924
+            ],
+            [
+              -70.61769459395843,
+              -33.418261468555706
+            ],
+            [
+              -70.6180244359011,
+              -33.41844917968729
+            ],
+            [
+              -70.61917138629289,
+              -33.41949096908742
+            ],
+            [
+              -70.61806566614436,
+              -33.42032314022865
+            ],
+            [
+              -70.6167350537612,
+              -33.418977897190906
+            ],
+            [
+              -70.61653639895532,
+              -33.418633761903514
+            ],
+            [
+              -70.6171923346369,
+              -33.41807375701924
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "identifier": "OR",
+        "campus": "OR",
+        "name": "Oriente",
+        "shortName": "Oriente",
+        "address": "Av. Jaime Guzmán Errázuriz 3300, Providencia, Chile",
+        "information": "Construido en 1934 y adquirido por la Universidad a la Congregación de las Monjas Francesas en la década de los setenta (1971), acoge a las carreras de la Facultad de Artes y al Instituto de Estética.",
+        "categories": "campus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.59167350059035,
+              -33.445488370057106
+            ],
+            [
+              -70.5937713060816,
+              -33.44442736060008
+            ],
+            [
+              -70.59524674472695,
+              -33.44640611038612
+            ],
+            [
+              -70.59317974247196,
+              -33.44749004959964
+            ],
+            [
+              -70.59253193762025,
+              -33.446674715474636
+            ],
+            [
+              -70.5921510061879,
+              -33.446907505879636
+            ],
+            [
+              -70.59194176216194,
+              -33.44669262245179
+            ],
+            [
+              -70.59234415452012,
+              -33.44642401741867
+            ],
+            [
+              -70.59167350059035,
+              -33.445488370057106
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "identifier": "VR",
+        "campus": "VR",
+        "name": "Villarrica",
+        "shortName": "Villarrica",
+        "address": "Bernardo OHiggins 501, Villarrica, Chile",
+        "information": "",
+        "categories": "campus"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-72.22556210331032, -39.27732843183001],
+              [-72.2259678401358, -39.27768063304838],
+              [-72.2256652964911, -39.2778803339838],
+              [-72.22525017846716, -39.27752813376937],
+              [-72.22556210331032, -39.27732843183001]
+            ]
+          ],
+          [
+            [
+              [-72.2223576095149, -39.27942136555477],
+              [-72.22208179792216, -39.27960082219558],
+              [-72.22165593789319, -39.279204877434694],
+              [-72.22190462848724, -39.279028670293364],
+              [-72.2223576095149, -39.27942136555477]
+            ]
+          ],
+          [
+            [
+              [-72.22622306355757, -39.278633494003046],
+              [-72.22577927746052, -39.27895883099015],
+              [-72.22558087897002, -39.27879313159588],
+              [-72.22601944405426, -39.27847183531175],
+              [-72.22622306355757, -39.278633494003046]
+            ]
+          ],
+          [
+            [
+              [-72.22494916757942, -39.27707525279376],
+              [-72.2252269233867, -39.27733608288012],
+              [-72.22487631359724, -39.27758633786064],
+              [-72.2246623050245, -39.27737485483684],
+              [-72.22477158599777, -39.277276162540474],
+              [-72.22476703262394, -39.277205667958334],
+              [-72.22494916757942, -39.27707525279376]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

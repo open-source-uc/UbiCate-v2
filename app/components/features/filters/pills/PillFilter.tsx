@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { categoryFilter, PlaceFilter } from "@/app/components/features/filters/pills/placeFilters";
 import { useSidebar } from "@/app/context/sidebarCtx";
@@ -44,23 +44,15 @@ const emergencyPills: Array<CategoryFilter> = [
 ];
 
 function PillFilter() {
-  const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
   const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
-  const { setPlaces, activeFilters, setActiveFilters } = useSidebar();
+  const { setPlaces, activeFilters, setActiveFilters, allFeatures, isDataLoaded } = useSidebar();
+
+  const placesGeoJson = useMemo(() => ({ type: "FeatureCollection", features: allFeatures }), [allFeatures]);
 
   useEffect(() => {
-    const loadGeoJson = async () => {
-      const { default: data } = await import("@/lib/places/data");
-      setPlacesGeoJson(data);
-    };
-
-    loadGeoJson();
-  }, []);
-
-  useEffect(() => {
-    if (!placesGeoJson.features || placesGeoJson.features.length === 0) return;
+    if (!isDataLoaded || allFeatures.length === 0) return;
     if (activeFilters.length === 0) {
       setPlaces([]);
       return;
@@ -87,16 +79,14 @@ function PillFilter() {
 
     setPlaces(allResults);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [placesGeoJson, activeFilters]);
+  }, [placesGeoJson, activeFilters, isDataLoaded]);
 
   const applyFilter = useCallback(
     (filter: PlaceFilter, category: string) => {
-      if (!placesGeoJson) return;
+      if (!isDataLoaded) return;
 
       let newActiveFilters: string[];
 
-      // Single-selection behavior: selecting an active category deselects it,
-      // selecting a different category replaces the previous selection.
       if (activeFilters.includes(category)) {
         newActiveFilters = activeFilters.filter((f) => f !== category);
       } else {
@@ -131,7 +121,7 @@ function PillFilter() {
 
       setPlaces(allResults);
     },
-    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilters, setActiveFilters],
+    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilters, setActiveFilters, isDataLoaded],
   );
 
   return (

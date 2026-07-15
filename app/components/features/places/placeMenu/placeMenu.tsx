@@ -1,8 +1,10 @@
 import { use, useState } from "react";
 
 import { useMutation } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 import { pinsContext } from "@/app/context/pinsCtx";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { Feature } from "@/lib/types";
 
@@ -25,6 +27,7 @@ export default function PlaceMenu({
 }) {
   const [mode, setMode] = useState<"information" | "create" | "edit">("information");
   const { clearPins, addPin } = use(pinsContext);
+  const { refetchPlaces, setSelectedPlace } = useSidebar();
   const [editPlace, setEditPlace] = useState<Feature | null>(null);
 
   const approveMutation = useMutation({
@@ -34,11 +37,13 @@ export default function PlaceMenu({
         body: { identifier, action: "approve" },
       }),
     onSuccess: () => {
-      alert("Se aprobó el lugar");
-      document.location.reload();
+      Swal.fire({ icon: "success", title: "¡Éxito!", text: "Se aprobó el lugar", timer: 2000, showConfirmButton: false });
+      setSelectedPlace(null);
+      onCloseMenu?.();
+      refetchPlaces();
     },
     onError: (error: Error) => {
-      alert("Hubo un error: " + error.message);
+      Swal.fire({ icon: "error", title: "Error", text: error.message });
     },
   });
 
@@ -50,25 +55,45 @@ export default function PlaceMenu({
       }),
     onSuccess: (_, variables) => {
       const action = variables.source === "approved" ? "eliminó" : "rechazó";
-      alert(`Se ${action} el lugar`);
-      document.location.reload();
+      Swal.fire({ icon: "success", title: "¡Éxito!", text: `Se ${action} el lugar`, timer: 2000, showConfirmButton: false });
+      setSelectedPlace(null);
+      onCloseMenu?.();
+      refetchPlaces();
     },
     onError: (error: Error) => {
-      alert("Hubo un error: " + error.message);
+      Swal.fire({ icon: "error", title: "Error", text: error.message });
     },
   });
 
-  const handleApprove = () => {
-    const confirmacion = confirm("Estas seguro de APROBAR el lugar?") ?? false;
-    if (!confirmacion) return;
+  const handleApprove = async () => {
+    const result = await Swal.fire({
+      icon: "warning",
+      title: "¿Estás seguro/a de APROBAR el lugar?",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+    if (!result.isConfirmed) return;
 
     approveMutation.mutate(place?.properties.identifier);
   };
 
-  const handleDelete = (source: "approved" | "pending") => {
+  const handleDelete = async (source: "approved" | "pending") => {
     const action = source === "approved" ? "eliminar" : "rechazar";
-    const confirmacion = confirm(`¿Estás seguro de ${action} el lugar?`) ?? false;
-    if (!confirmacion) return;
+    const result = await Swal.fire({
+      icon: "warning",
+      title: `¿Estás seguro/a de ${action} el lugar?`,
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+    if (!result.isConfirmed) return;
 
     deleteMutation.mutate({
       identifier: place?.properties.identifier,

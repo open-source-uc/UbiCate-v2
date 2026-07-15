@@ -27,7 +27,7 @@ export default function Marker({
   icon,
   offset = [0, 0],
 }: MarkerProps) {
-  const primaryCategory = place.properties.categories[0];
+  const primaryCategory = place.properties.categories[0] ?? "Otros";
   const color = getCategoryColor(primaryCategory.toLowerCase().trim() as CATEGORIES);
   return (
     <MapboxMarker
