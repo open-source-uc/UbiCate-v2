@@ -9,6 +9,7 @@ import { NotificationState } from "../components/features/places/forms/notificat
 
 interface PlaceFormData {
   name: string;
+  popularName: string;
   information: string;
   categories: string[];
   floors: (number | "")[];
@@ -40,12 +41,14 @@ export function usePlaceForm(method: "POST" | "PUT", defaultData?: PlaceFormData
     defaultData
       ? {
           name: defaultData.name,
+          popularName: defaultData.popularName,
           information: defaultData.information,
           categories: defaultData.categories,
           floors: defaultData.floors,
         }
       : {
           name: "",
+          popularName: "",
           information: "",
           categories: [""],
           floors: [],

@@ -27,7 +27,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
 
   const fuse = useMemo(() => {
     return new Fuse(PlacesJSON.features, {
-      keys: ["properties.name"],
+      keys: ["properties.name", "properties.popularName"],
       threshold: 0.3,
     });
   }, []);

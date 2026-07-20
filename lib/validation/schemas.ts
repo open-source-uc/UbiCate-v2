@@ -7,6 +7,7 @@ export const placeSchema = z.object({
       .string({ required_error: "El nombre es obligatorio" })
       .min(1, "El nombre no puede estar vacío")
       .max(100, "El nombre no puede exceder 100 caracteres"),
+    popularName: z.string().max(100, "El nombre popular no puede exceder 100 caracteres").optional(),
     information: z
       .string({ required_error: "La información es obligatoria" })
       .max(300, "La información no puede exceder 300 caracteres"),
