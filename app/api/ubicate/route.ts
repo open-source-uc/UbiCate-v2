@@ -54,6 +54,7 @@ export async function POST(request: NextRequest) {
     let nuevo_punto = createFeatureFromPoints(points, {
       identifier: "",
       name: result.data.data.name,
+      popularName: result.data.data.popularName,
       information: result.data.data.information,
       categories: result.data.data.categories,
       floors: result.data.data.floors,
@@ -150,6 +151,7 @@ export async function PUT(request: NextRequest) {
     let updated_point = createFeatureFromPoints(points, {
       identifier: result.data.identifier,
       name: result.data.data.name,
+      popularName: result.data.data.popularName,
       information: result.data.data.information,
       categories: result.data.data.categories,
       floors: result.data.data.floors,
