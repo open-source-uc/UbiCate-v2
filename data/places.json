@@ -6208,7 +6208,7 @@
             },
             "properties": {
                 "identifier": "MKFJC6BLLPXX9M",
-                "name": "Dirección de Inclusión",
+                "name": "Dirección de Aprendizaje y Acompañamiento Académico",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -6217,7 +6217,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
