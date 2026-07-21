@@ -6,6 +6,34 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6107583464171,
+                    -33.5005803188261
+                ]
+            },
+            "properties": {
+                "identifier": "mrutm059h3x2zl",
+                "name": "Hackaton con amulek",
+                "information": "una hackaton con amulek",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ],
+                "startDate": "2026-07-15",
+                "endDate": "2026-07-22",
+                "parentPlaceId": "FOOD_LUNCH-32380458"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61026603065379,
                     -33.49702522241076
                 ]
