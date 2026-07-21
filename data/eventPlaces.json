@@ -6,6 +6,55 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61231159200216,
+                    -33.498025617319016
+                ]
+            },
+            "properties": {
+                "identifier": "mrv3ipezhp64bq",
+                "name": "evento de prueba",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-07-09",
+                "endDate": "2026-07-30",
+                "parentPlaceId": "mrv3ips7ylt9bx"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61231159200216,
+                    -33.498025617319016
+                ]
+            },
+            "properties": {
+                "identifier": "mrv3ips7ylt9bx",
+                "name": "Lugar de evento de prueba",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6107583464171,
                     -33.5005803188261
                 ]
