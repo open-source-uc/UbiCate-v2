@@ -11,6 +11,34 @@
                 ]
             },
             "properties": {
+                "identifier": "mrut6btndzfabx",
+                "name": "prueba no aceptar",
+                "information": "prueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba largaprueba larga",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CENTRODEMEDICIMIDEUC"
+                ],
+                "startDate": "2026-07-15",
+                "endDate": "2026-07-30",
+                "parentPlaceId": "MKFKZG5LR8SNFI"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026603065379,
+                    -33.49702522241076
+                ]
+            },
+            "properties": {
                 "identifier": "mrut4a3vg9a4b0",
                 "name": "Evento 2 prueba",
                 "information": "",
