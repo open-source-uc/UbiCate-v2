@@ -11,6 +11,34 @@
                 ]
             },
             "properties": {
+                "identifier": "mrut4a3vg9a4b0",
+                "name": "Evento 2 prueba",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CENTRODEMEDICIMIDEUC"
+                ],
+                "startDate": "2026-07-08",
+                "endDate": "2026-07-31",
+                "parentPlaceId": "MKFKZG5LR8SNFI"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61026603065379,
+                    -33.49702522241076
+                ]
+            },
+            "properties": {
                 "identifier": "mrus6w0udcmn38",
                 "name": "asd",
                 "information": "test",
