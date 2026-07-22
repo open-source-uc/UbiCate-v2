@@ -8,6 +8,98 @@
                 "coordinates": [
                     [
                         [
+                            -70.61352244403416,
+                            -33.49874006307352
+                        ],
+                        [
+                            -70.61342052009108,
+                            -33.498596914883585
+                        ],
+                        [
+                            -70.61318985011592,
+                            -33.49862375518712
+                        ],
+                        [
+                            -70.6132434942962,
+                            -33.49888321102673
+                        ],
+                        [
+                            -70.61352244403416,
+                            -33.49874006307352
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "mrwm4a9pxc5kp9",
+                "name": "evento de prueba multiples lugares",
+                "information": "prueba holaaa",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-07-17T17:44",
+                "endDate": "2026-07-31T17:44",
+                "parentPlaceIds": [
+                    "MKFKZG5LR8SNFI",
+                    "mrwm4b4lxmxbwf"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61352244403416,
+                            -33.49874006307352
+                        ],
+                        [
+                            -70.61342052009108,
+                            -33.498596914883585
+                        ],
+                        [
+                            -70.61318985011592,
+                            -33.49862375518712
+                        ],
+                        [
+                            -70.6132434942962,
+                            -33.49888321102673
+                        ],
+                        [
+                            -70.61352244403416,
+                            -33.49874006307352
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "mrwm4b4lxmxbwf",
+                "name": "Lugar de prueba del evento",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
                             -70.61286636242188,
                             -33.49812350309584
                         ],
