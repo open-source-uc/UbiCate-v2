@@ -6,6 +6,51 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61218769816188,
+                    -33.497989736291025
+                ]
+            },
+            "properties": {
+                "identifier": "mrw43pfykxdinj",
+                "name": "Evento de prueba 2",
+                "information": "Prueba del lugar",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-07-22T10:20",
+                "endDate": "2026-07-30T12:00",
+                "parentPlaceId": "mrw43psdxvm3er"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61218769816188,
+                    -33.497989736291025
+                ]
+            },
+            "properties": {
+                "identifier": "mrw43psdxvm3er",
+                "name": "Lugar de prueba del evento, es como una plaza a la entrada",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60881665906562,
                     -33.498498236996454
                 ]
