@@ -4,6 +4,32 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61066257868815,
+                    -33.49792022222768
+                ]
+            },
+            "properties": {
+                "identifier": "FT-104",
+                "name": "FT-104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    20
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
