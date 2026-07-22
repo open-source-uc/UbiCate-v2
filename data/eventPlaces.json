@@ -6,6 +6,34 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6107583464171,
+                    -33.5005803188261
+                ]
+            },
+            "properties": {
+                "identifier": "mrw47gd4l5ufi6",
+                "name": "hola, este evento expirará en 3 2 1",
+                "information": "hola",
+                "categories": [
+                    "events"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ],
+                "startDate": "2026-07-02T10:24",
+                "endDate": "2026-07-22T09:26",
+                "parentPlaceId": "FOOD_LUNCH-32380458"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61026603065379,
                     -33.49702522241076
                 ]
