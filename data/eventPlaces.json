@@ -4,6 +4,80 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.619088,
+                            -33.419498
+                        ],
+                        [
+                            -70.618084,
+                            -33.418578
+                        ],
+                        [
+                            -70.617878,
+                            -33.418744
+                        ],
+                        [
+                            -70.617686,
+                            -33.418641
+                        ],
+                        [
+                            -70.617589,
+                            -33.418692
+                        ],
+                        [
+                            -70.61714,
+                            -33.41843
+                        ],
+                        [
+                            -70.61726,
+                            -33.418137
+                        ],
+                        [
+                            -70.617057,
+                            -33.418062
+                        ],
+                        [
+                            -70.616523,
+                            -33.418626
+                        ],
+                        [
+                            -70.616779,
+                            -33.419039
+                        ],
+                        [
+                            -70.61804,
+                            -33.420279
+                        ],
+                        [
+                            -70.619088,
+                            -33.419498
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "mrz6sf8vwi7za6",
+                "name": "test contador",
+                "information": "evento en campus lo contador",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "LC",
+                "faculties": [],
+                "startDate": "2026-07-10T13:00",
+                "endDate": "2026-07-30T13:00",
+                "parentPlaceIds": [
+                    "LC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61365680314866,
