@@ -4,6 +4,54 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61365680314866,
+                    -33.49652440002035
+                ]
+            },
+            "properties": {
+                "identifier": "mrz4wg5tiv8qmj",
+                "name": "Probando el mostrar desde",
+                "information": "test mostrar desde",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-07-31T12:07",
+                "endDate": "2026-08-07T12:07",
+                "showFrom": "2026-07-18T12:07",
+                "parentPlaceIds": [
+                    "mrz4wgkrt75nrx"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61365680314866,
+                    -33.49652440002035
+                ]
+            },
+            "properties": {
+                "identifier": "mrz4wgkrt75nrx",
+                "name": "Evento de prueba",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
