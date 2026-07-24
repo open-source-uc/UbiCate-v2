@@ -4,6 +4,58 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61226089952602,
+                    -33.49921943543402
+                ]
+            },
+            "properties": {
+                "identifier": "mryzrxmbd55p6u",
+                "name": "prueba muy largaprueba muy largaprueba muy largaprueba muy largaprueba muy largaprueba muy larga",
+                "information": "Prueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy larga",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ],
+                "startDate": "2026-07-16T09:43",
+                "endDate": "2026-07-30T09:43",
+                "parentPlaceIds": [
+                    "FOOD_LUNCH-32380458",
+                    "mryzrz9qe7zzf0"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61226089952602,
+                    -33.49921943543402
+                ]
+            },
+            "properties": {
+                "identifier": "mryzrz9qe7zzf0",
+                "name": "Lugar de prueba",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
