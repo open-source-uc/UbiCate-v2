@@ -6,6 +6,128 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61042667564166,
+                    -33.496667420704895
+                ]
+            },
+            "properties": {
+                "identifier": "MKFJC6BLLPXX9M",
+                "name": "Dirección de Aprendizaje y Acompañamiento Académico",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61195888092733,
+                    -33.499659802954504
+                ]
+            },
+            "properties": {
+                "identifier": "MRXYZZ6XLWTGI5",
+                "name": "Instituto para el Desarrollo Sustentable ",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61066257868815,
+                    -33.49792022222768
+                ]
+            },
+            "properties": {
+                "identifier": "FT-104",
+                "name": "FT-104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    20
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ],
+                        [
+                            -70.61045511061714,
+                            -33.49695647414214
+                        ],
+                        [
+                            -70.61009099982499,
+                            -33.496927524219785
+                        ],
+                        [
+                            -70.61007485300476,
+                            -33.497085738791085
+                        ],
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MQIAHCWKCB5LH0",
+                "name": "Vicerrectoria de Inteligencia Digital VRID",
+                "information": "En el tercer piso del edificio MIDE UC están las direcciones ejecutiva, de inteligencia artificial, de datos y cómputo y de desarrollo digital de la VRID",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CENTRODEMEDICIMIDEUC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610128,
                     -33.498501
                 ]
@@ -3259,89 +3381,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61167392879725,
-                            -33.49866290403108
-                        ],
-                        [
-                            -70.6114449352026,
-                            -33.49864696760897
-                        ],
-                        [
-                            -70.61144694685936,
-                            -33.498627116973815
-                        ],
-                        [
-                            -70.61125416308641,
-                            -33.49860894385313
-                        ],
-                        [
-                            -70.61066005378962,
-                            -33.498561134548204
-                        ],
-                        [
-                            -70.61060808598995,
-                            -33.49885693672462
-                        ],
-                        [
-                            -70.61050415039062,
-                            -33.498844914538665
-                        ],
-                        [
-                            -70.61048101633787,
-                            -33.49914490951708
-                        ],
-                        [
-                            -70.6116658821702,
-                            -33.499260937119026
-                        ],
-                        [
-                            -70.61170510947704,
-                            -33.49884211868123
-                        ],
-                        [
-                            -70.61173897236586,
-                            -33.49882590270631
-                        ],
-                        [
-                            -70.61175003647804,
-                            -33.49872804762078
-                        ],
-                        [
-                            -70.6116709113121,
-                            -33.49871910086458
-                        ],
-                        [
-                            -70.61167392879725,
-                            -33.49866290403108
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "QIM",
-                "name": "Facultad de Química y de Farmacia",
-                "information": "Piso 1: Laboratorios\nPiso 2: Decanato",
-                "categories": [
-                    "faculty",
-                    ""
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "QIM"
-                ]
             }
         },
         {
