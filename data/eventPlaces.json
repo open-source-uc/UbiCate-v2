@@ -6,6 +6,48 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61407383531326,
+                    -33.49876382964445
+                ]
+            },
+            "properties": {
+                "identifier": "ms3ntqsrdewqil",
+                "name": "Lugar 2",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6135050744935,
+                    -33.49769688278791
+                ]
+            },
+            "properties": {
+                "identifier": "ms3m2l2jrreutc",
+                "name": "Epico",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6135050744935,
                     -33.49769688278791
                 ]
@@ -23,29 +65,9 @@
                 "startDate": "2026-07-02T15:19",
                 "endDate": "2026-07-30T15:19",
                 "parentPlaceIds": [
-                    "ms3m2l2jrreutc"
+                    "ms3m2l2jrreutc",
+                    "ms3ntqsrdewqil"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6135050744935,
-                    -33.49769688278791
-                ]
-            },
-            "properties": {
-                "identifier": "ms3m2l2jrreutc",
-                "name": "Lugar 2",
-                "information": "",
-                "categories": [
-                    "events"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
