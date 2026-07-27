@@ -17,7 +17,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // eslint-disable-next-line
-  const [theme, setThemeState] = useState<ThemeId>("");
+  const [theme, setThemeState] = useState<ThemeId>("uc-theme"); // UC theme as default
 
   const getViewportColor = () => {
     if (typeof document === "undefined") return "#150a04"; // fallback
@@ -81,11 +81,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       updateViewportColor(newTheme);
     }
 
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", newTheme);
-      //@ts-ignore
-      cookieStore?.set("ubicate-theme", newTheme);
-    }
+    // Persistencia deshabilitada - siempre usar tema por defecto de UC
+    // if (typeof window !== "undefined") {
+    //   localStorage.setItem("theme", newTheme);
+    //   //@ts-ignore
+    //   cookieStore?.set("ubicate-theme", newTheme);
+    // }
   };
 
   const getNextTheme = (from?: ThemeId): ThemeId => {
@@ -101,15 +102,25 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    // Siempre usar tema por defecto de UC - persistencia deshabilitada
+    // if (typeof window !== "undefined") {
+    //   const saved = localStorage.getItem("theme") as ThemeId | null;
+    //   const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "uc-theme";
+    //
+    //   setThemeState(initial);
+    //
+    //   if (typeof document !== "undefined") {
+    //     document.documentElement.setAttribute("data-theme", initial);
+    //     updateViewportColor(initial);
+    //   }
+    // }
+
+    // Forzar tema UC por defecto
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme") as ThemeId | null;
-      const initial = saved || (document.documentElement.getAttribute("data-theme") as ThemeId) || "";
-
-      setThemeState(initial);
-
+      setThemeState("uc-theme");
       if (typeof document !== "undefined") {
-        document.documentElement.setAttribute("data-theme", initial);
-        updateViewportColor(initial);
+        document.documentElement.setAttribute("data-theme", "uc-theme");
+        updateViewportColor("uc-theme");
       }
     }
   }, []);

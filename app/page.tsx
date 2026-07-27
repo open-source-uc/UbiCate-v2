@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import PlacesJSON from "@/lib/places/data";
 import { Feature } from "@/lib/types";
 
+import H1SEO from "./components/app/H1SEO";
+import StructuredData from "./components/app/StructuredData";
 import NavigationSidebar from "./components/features/navigation/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";
 import Providers from "./providers";
@@ -16,43 +18,43 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     : null;
 
   const defaultDescription =
-    "Encuentra fácilmente salas de clases, baños, bibliotecas y puntos de comida en los campus de la " +
-    "Pontificia Universidad Católica de Chile. Nuestra herramienta interactiva te ayuda a navegar de " +
-    "manera rápida y eficiente, optimizando tu tiempo y mejorando tu experiencia en la universidad. " +
-    "¡Explora y descubre todo lo que necesitas al alcance de tu mano! Busca Salas UC";
+    "Mapa interactivo para encontrar salas, baños, bibliotecas y casinos en los campus de la Pontificia Universidad Católica. Navega fácil y rápido.";
 
-  let title = "Ubicate · Tu mapa en la UC";
+  let title = "Ubicate UC: Mapa interactivo de salas, baños y bibliotecas en campus UC";
   let floor = undefined;
   if (paramPlace) {
-    title =
-      `Ubicate · ${paramPlace.properties.name}` +
-      (floor ? ` · Piso ${floor}` : "") +
-      ` · Campus ${paramPlace.properties.campus}`;
     floor = paramPlace?.properties.floors?.[0];
+    title = `${paramPlace.properties.name} en ${paramPlace.properties.campus} | Ubicate UC`;
   }
 
   let placeDescription = "";
   if (paramPlace) {
-    placeDescription = (floor ? `Piso: ${floor}` : "") + ` · Campus: ${paramPlace.properties.campus}`;
-
-    if (paramPlace.properties.information && paramPlace.properties.information.trim() !== "") {
-      placeDescription += ` · Información: ${paramPlace.properties.information}`;
-    }
+    const infoText =
+      paramPlace.properties.information && paramPlace.properties.information.trim() !== ""
+        ? ` · ${paramPlace.properties.information}`
+        : "";
+    placeDescription =
+      `Ubicación: ${paramPlace.properties.name} en ${paramPlace.properties.campus}.${infoText}`.substring(0, 160);
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const indexPage = process.env.INDEX_PAGE === "TRUE";
 
   return {
     title: title,
     description: paramPlace ? placeDescription : defaultDescription,
     alternates: {
-      canonical: `${baseUrl}/`,
+      canonical: paramPlace ? `${baseUrl}/?place=${paramPlaceId}` : `${baseUrl}/`,
     },
     authors: [{ name: "Open Source eUC" }],
     twitter: {
       card: "summary_large_image",
     },
     openGraph: {
+      title: title,
+      description: paramPlace ? placeDescription : defaultDescription,
+      type: "website",
+      locale: "es_CL",
       images: [
         {
           url: new URL(`${baseUrl}/api/og-image?n=${paramPlace?.properties.name || ""}`),
@@ -61,15 +63,42 @@ export async function generateMetadata(props: { searchParams: Promise<SearchPara
     },
     metadataBase: new URL(baseUrl),
     keywords: [
+      "Ubicate",
+      "Ubicate UC",
+      "Mapa UC",
+      "Mapa interactivo",
       "Salas UC",
       "Campus UC",
-      "Pontificia Universidad Católica de Chile",
-      "Mapa UC",
-      "Ubícate UC",
+      "Salas clases UC",
+      "Baños UC",
+      "Bibliotecas UC",
+      "Casinos UC",
       "San Joaquín",
+      "Casa Central",
+      "Lo Contador",
+      "Oriente",
+      "Villarrica",
+      "Pontificia Universidad Católica",
+      "PUC",
+      "Mapa campus",
+      "Ubicación salas",
+      "Cómo llegar UC",
+      "Navegación campus",
       "Open Source",
-      "Busca Salas UC",
     ],
+    robots: !indexPage
+      ? { index: false, follow: false }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        },
   };
 }
 
@@ -86,6 +115,8 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
 
   return (
     <>
+      <StructuredData />
+      <H1SEO />
       <main spellCheck="false" className="h-full w-full relative flex">
         <Providers>
           <NavigationSidebar />

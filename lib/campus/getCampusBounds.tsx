@@ -15,7 +15,7 @@ const campusBounds: Record<string, CampusBounds> = {
   OR: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
   SanJoaquin: { longitudeRange: [-70.6171, -70.6043], latitudeRange: [-33.5021, -33.4952] },
   LoContador: { longitudeRange: [-70.6198, -70.6154], latitudeRange: [-33.4207, -33.4178] },
-  Villarrica: { longitudeRange: [-72.2264, -72.2244], latitudeRange: [-39.2787, -39.2771] },
+  Villarrica: { longitudeRange: [-72.2223, -72.2203], latitudeRange: [-39.2808, -39.2796] },
   CasaCentral: { longitudeRange: [-70.6424, -70.6386], latitudeRange: [-33.4427, -33.4403] },
   Oriente: { longitudeRange: [-70.597, -70.5902], latitudeRange: [-33.4477, -33.4435] },
 };
@@ -30,8 +30,8 @@ const campusMaxBounds: Record<string, CampusBounds> = {
     latitudeRange: [-33.4286518, -33.4065652],
   },
   VR: {
-    longitudeRange: [-72.22701952051408, -72.2242192943034],
-    latitudeRange: [-39.278605924710156, -39.276849411532424],
+    longitudeRange: [-72.2278, -72.2148],
+    latitudeRange: [-39.2872, -39.2732],
   },
   CC: {
     longitudeRange: [-70.6470478, -70.6323672],
@@ -50,8 +50,8 @@ const campusMaxBounds: Record<string, CampusBounds> = {
     latitudeRange: [-33.4286518, -33.4065652],
   },
   Villarrica: {
-    longitudeRange: [-72.22701952051408, -72.2242192943034],
-    latitudeRange: [-39.278605924710156, -39.276849411532424],
+    longitudeRange: [-72.232, -72.218],
+    latitudeRange: [-39.282, -39.273],
   },
   CasaCentral: {
     longitudeRange: [-70.6470478, -70.6323672],

@@ -78,7 +78,7 @@ export default function UserLocation() {
     const [longitude, latitude] = position.geometry.coordinates;
     const campus = getCampusNameFromPoint(longitude, latitude);
 
-    if (!campus) {
+    if (!campus && isRequestingLocation) {
       setNotification(<DirectionErrorNotification>No estás en un campus UC.</DirectionErrorNotification>);
       addCode("locationError");
       return;
@@ -164,7 +164,7 @@ export default function UserLocation() {
         </Marker>
       ) : null}
 
-      <div className="fixed z-40 bottom-28 desktop:bottom-12 right-2 p-2 desktop:p-1 flex flex-col gap-2">
+      <div className="fixed z-40 bottom-20 desktop:bottom-4 right-2 p-2 desktop:p-1 flex flex-col gap-2">
         <DangerButton />
         <LocationButton
           onClick={handleLocationButtonClick}

@@ -3,7 +3,7 @@ export interface PointGeometry {
   coordinates: [number, number];
 }
 
-interface PolygonGeometry {
+export interface PolygonGeometry {
   type: "Polygon";
   coordinates: [number, number][][];
 }
@@ -21,7 +21,9 @@ export enum CATEGORIES {
   BUILDING = "building",
   CAMPUS = "campus",
   CLASSROOM = "classroom",
+  CLASSROOM_BUILDING = "classroom_building",
   COMPUTERS = "computers",
+  DEA = "dea",
   CUSTOM_MARK = "customMark",
   FACULTY = "faculty",
   FINANCIAL = "financial",
@@ -35,11 +37,15 @@ export enum CATEGORIES {
   SHOP = "shop",
   SPORTS_PLACE = "sports_place",
   STUDYROOM = "studyroom",
+  SECURITY = "security",
   TRASH = "trash",
   WATER = "water",
   USER_LOCATION = "user",
   YARD = "yard",
   CRISOL = "crisol",
+  CULTURE = "culture",
+  OFFICES = "offices",
+  EVENTS = "events",
 }
 
 export interface Properties {
@@ -51,8 +57,40 @@ export interface Properties {
   faculties: string[];
   floors?: number[];
   needApproval?: boolean;
+  displayName?: string;
   // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
   // needApproval sera SIEMPRE undefined en places.json
+}
+
+export interface EventProperties extends Properties {
+  startDate: string;
+  endDate: string;
+  showFrom?: string;
+  parentPlaceIds?: string[];
+}
+
+export function getParentPlaceIds(props: EventProperties): string[] {
+  if (props.parentPlaceIds && props.parentPlaceIds.length > 0) return props.parentPlaceIds;
+  const legacy = (props as unknown as Record<string, unknown>).parentPlaceId;
+  if (typeof legacy === "string") return [legacy];
+  return [];
+}
+
+const GRACE_PERIOD_MS = 24 * 60 * 60 * 1000;
+
+export function isEventVisible(props: EventProperties, now = new Date()): boolean {
+  const end = new Date(props.endDate);
+  if (now > end) {
+    return now.getTime() - end.getTime() <= GRACE_PERIOD_MS;
+  }
+
+  if (props.showFrom) {
+    const showFrom = new Date(props.showFrom);
+    return now >= showFrom;
+  }
+
+  const start = new Date(props.startDate);
+  return now >= start;
 }
 
 export interface Feature {
@@ -84,6 +122,27 @@ export interface JSONFeatures {
   features: Feature[];
 }
 
+export interface EventFeature {
+  type: string;
+  properties: EventProperties;
+  geometry: PointGeometry | PolygonGeometry;
+}
+
+export interface EventLocation {
+  id: string;
+  type: "existing" | "new";
+  placeId?: string;
+  name?: string;
+  information?: string;
+  identifier?: string;
+  pins: PointFeature[];
+}
+
+export interface EventJSONFeatures {
+  type: string;
+  features: (EventFeature | Feature)[];
+}
+
 /*
 SOLO USAR PARA CAMPUS!!!
 
@@ -105,9 +164,10 @@ export const siglas = new Map<string, string>([
 ]);
 
 export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
-  [CATEGORIES.CLASSROOM, "Sala"],
+  [CATEGORIES.CLASSROOM, "Sala de clase"],
+  [CATEGORIES.CLASSROOM_BUILDING, "Edificio de clases"],
   [CATEGORIES.BATH, "Baño"],
-  [CATEGORIES.FOOD_LUNCH, "Comida"],
+  [CATEGORIES.FOOD_LUNCH, "Comida / Mesón UC"],
   [CATEGORIES.STUDYROOM, "Sala de estudio"],
   [CATEGORIES.LIBRARY, "Biblioteca"],
   [CATEGORIES.TRASH, "Reciclaje"],
@@ -116,40 +176,51 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.LABORATORY, "Laboratorio"],
   [CATEGORIES.WATER, "Punto de agua"],
   [CATEGORIES.AUDITORIUM, "Auditorio"],
-  [CATEGORIES.SPORTS_PLACE, "Deporte"],
+  [CATEGORIES.SPORTS_PLACE, "Deportes"],
   [CATEGORIES.COMPUTERS, "Sala de computadores"],
   [CATEGORIES.PHOTOCOPY, "Fotocopias / Impresoras"],
   [CATEGORIES.SHOP, "Tienda"],
   [CATEGORIES.PARKING, "Estacionamiento"],
-  [CATEGORIES.FACULTY, "Facultad"],
+  [CATEGORIES.FACULTY, "Facultades, Escuelas, Institutos y otros edificios"],
   [CATEGORIES.BUILDING, "Edificio"],
   [CATEGORIES.OTHER, "Otro"],
   [CATEGORIES.CUSTOM_MARK, "Marcador"],
   [CATEGORIES.YARD, "Patio"],
-  [CATEGORIES.CRISOL, "Crisol"],
+  [CATEGORIES.CRISOL, "Sala Crisol"],
+  [CATEGORIES.CULTURE, "Cultura"],
+  [CATEGORIES.OFFICES, "Oficinas"],
+  [CATEGORIES.TRASH, "Puntos Limpios"],
+  [CATEGORIES.DEA, "DEA"],
+  [CATEGORIES.SECURITY, "Seguridad"],
+  [CATEGORIES.EVENTS, "Evento"],
 ]);
 
 // Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK
 export const CategoryOptions = [
-  CATEGORIES.CLASSROOM,
-  CATEGORIES.LABORATORY,
-  CATEGORIES.STUDYROOM,
-  CATEGORIES.BATH,
-  CATEGORIES.FOOD_LUNCH,
-  CATEGORIES.WATER,
-  CATEGORIES.TRASH,
-  CATEGORIES.PARK_BICYCLE,
   CATEGORIES.FACULTY,
-  CATEGORIES.FINANCIAL,
+  CATEGORIES.CLASSROOM,
+  CATEGORIES.CLASSROOM_BUILDING,
+  CATEGORIES.STUDYROOM,
+  CATEGORIES.CRISOL,
   CATEGORIES.AUDITORIUM,
-  CATEGORIES.SPORTS_PLACE,
-  CATEGORIES.COMPUTERS,
+  CATEGORIES.LABORATORY,
+  CATEGORIES.LIBRARY,
   CATEGORIES.PHOTOCOPY,
+  CATEGORIES.SPORTS_PLACE,
+  CATEGORIES.BATH,
+  CATEGORIES.WATER,
+  CATEGORIES.FOOD_LUNCH,
+  CATEGORIES.TRASH,
   CATEGORIES.SHOP,
+  CATEGORIES.FINANCIAL,
+  CATEGORIES.OFFICES,
+  CATEGORIES.PARK_BICYCLE,
   CATEGORIES.PARKING,
+  CATEGORIES.CULTURE,
+  CATEGORIES.COMPUTERS,
   CATEGORIES.BUILDING,
   CATEGORIES.YARD,
-  CATEGORIES.LIBRARY,
-  CATEGORIES.CRISOL,
   CATEGORIES.OTHER,
+  CATEGORIES.DEA,
+  CATEGORIES.SECURITY,
 ];

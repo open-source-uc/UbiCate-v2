@@ -1,0 +1,56 @@
+export default function StructuredData() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ubicate.uc.cl";
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Ubicate UC",
+    description:
+      "Mapa interactivo para encontrar salas, baños, bibliotecas y casinos en los campus de la Pontificia Universidad Católica. Navega fácil y rápido.",
+    url: `${baseUrl}/`,
+    logo: `${baseUrl}/icons/icon-192x192.png`,
+    image: `${baseUrl}/icons/icon-192x192.png`,
+    applicationCategory: "https://schema.org/WebApplication",
+    operatingSystem: "All",
+    sameAs: ["https://github.com/open-source-uc/UbiCate-v2"],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "CL",
+      addressLocality: "Santiago",
+      addressRegion: "Región Metropolitana",
+    },
+    areaServed: [
+      {
+        "@type": "Place",
+        name: "Campus San Joaquín",
+      },
+      {
+        "@type": "Place",
+        name: "Campus Casa Central",
+      },
+      {
+        "@type": "Place",
+        name: "Campus Lo Contador",
+      },
+      {
+        "@type": "Place",
+        name: "Campus Oriente",
+      },
+      {
+        "@type": "Place",
+        name: "Campus Villarrica",
+      },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephoneNumber: "+56 2 2354 1500",
+      contactType: "Customer Service",
+    },
+    author: {
+      "@type": "Organization",
+      name: "Open Source UC",
+      url: "https://opensourceuc.org",
+    },
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />;
+}

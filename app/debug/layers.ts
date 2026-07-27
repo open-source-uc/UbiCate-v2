@@ -4,6 +4,7 @@ export const approvalPointsLayer: LayerProps = {
   id: "points-layer-3",
   type: "circle",
   source: "points",
+  filter: ["==", ["geometry-type"], "Point"],
   paint: {
     "circle-radius": 7,
     "circle-color": "#32CD32",
@@ -48,6 +49,10 @@ export const allPointsLayer: LayerProps = {
       "#8A2BE2", // Violeta para fotocopias
       ["in", "shop", ["get", "categories"]],
       "#FF6347", // Tomate para tiendas
+      ["in", "culture", ["get", "categories"]],
+      "#9370DB", // Púrpura medio para cultura
+      ["in", "offices", ["get", "categories"]],
+      "#CD853F", // Marrón claro para oficinas
       ["in", "other", ["get", "categories"]],
       "#A9A9A9", // Gris oscuro para otros
       "#716ADB", // Color por defecto si no hay coincidencias
@@ -77,6 +82,7 @@ export const allPlacesTextApprovalLayer: LayerProps = {
   id: "places-text-127879",
   type: "symbol",
   source: "places",
+  filter: ["==", ["geometry-type"], "Point"],
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
     "text-font": ["Roboto Slab Medium"],
@@ -92,6 +98,7 @@ export const allPlacesTextApprovalLayer: LayerProps = {
 export const redLineLayerDebug: LayerProps = {
   id: "red-line-debug-2",
   type: "line",
+  filter: ["==", ["geometry-type"], "Polygon"],
   paint: {
     "line-color": "#32CD32", // Verde lima
     "line-width": 0.7,
@@ -103,7 +110,59 @@ export const sectionAreaLayerDebug: LayerProps = {
   id: "debug-area-polygon",
   type: "fill",
   source: "states",
+  filter: ["==", ["geometry-type"], "Polygon"],
   paint: {
     "fill-color": "rgba(50, 205, 50, 0.4)", // Verde lima translúcido
+  },
+};
+
+export const eventPointsLayer: LayerProps = {
+  id: "event-points-layer",
+  type: "circle",
+  source: "events",
+  filter: ["==", ["geometry-type"], "Point"],
+  paint: {
+    "circle-radius": 9,
+    "circle-color": "#9333EA",
+    "circle-stroke-width": 0.5,
+    "circle-stroke-color": "#fff",
+  },
+};
+
+export const eventPolygonLayer: LayerProps = {
+  id: "event-polygon-layer",
+  type: "fill",
+  source: "events",
+  filter: ["==", ["geometry-type"], "Polygon"],
+  paint: {
+    "fill-color": "rgba(147, 51, 234, 0.25)",
+  },
+};
+
+export const eventPolygonLineLayer: LayerProps = {
+  id: "event-polygon-line-layer",
+  type: "line",
+  source: "events",
+  filter: ["==", ["geometry-type"], "Polygon"],
+  paint: {
+    "line-color": "#9333EA",
+    "line-width": 2,
+  },
+};
+
+export const eventTextLayer: LayerProps = {
+  id: "event-text-layer",
+  type: "symbol",
+  source: "events",
+  filter: ["all", ["==", ["geometry-type"], "Point"], ["any", ["has", "startDate"], ["has", "eventLabel"]]],
+  layout: {
+    "text-field": ["case", ["has", "eventLabel"], ["get", "eventLabel"], ["get", "name"]],
+    "text-font": ["Roboto Slab Medium"],
+    "text-size": 12,
+    "text-anchor": "top",
+    "text-offset": [0, 0.8],
+  },
+  paint: {
+    "text-color": "#9333EA",
   },
 };

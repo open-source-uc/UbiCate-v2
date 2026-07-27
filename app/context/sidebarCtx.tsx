@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 
 import { Feature, PointFeature, PolygonFeature } from "@/lib/types";
 
@@ -15,14 +15,39 @@ interface SidebarContextType {
   selectedPlace: Feature | null;
   setSelectedPlace: (place: Feature | null) => void;
   pointsName: PointFeature[];
+  activeFilters: string[];
+  setActiveFilters: (filters: string[]) => void;
+  eventCounts: Map<string, number>;
+  setEventCounts: (counts: Map<string, number>) => void;
+  eventPlaceIds: Set<string>;
+  setEventPlaceIds: (ids: Set<string>) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [eventCounts, setEventCounts] = useState<Map<string, number>>(new Map());
+  const [eventPlaceIds, setEventPlaceIds] = useState<Set<string>>(new Set());
 
-  const o = usePlaces();
+  const o = usePlaces(eventCounts);
+
+  useEffect(() => {
+    const savedFilters = localStorage.getItem("ubicateActiveFilters");
+    if (savedFilters) {
+      try {
+        const parsed = JSON.parse(savedFilters);
+        setActiveFilters(parsed);
+      } catch (e) {
+        console.error("Error loading filters from localStorage:", e);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("ubicateActiveFilters", JSON.stringify(activeFilters));
+  }, [activeFilters]);
 
   return (
     <SidebarContext.Provider
@@ -32,6 +57,12 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         ...o,
         places: o.findPlaces,
         pointsName: o.PointsName,
+        activeFilters,
+        setActiveFilters,
+        eventCounts,
+        setEventCounts,
+        eventPlaceIds,
+        setEventPlaceIds,
       }}
     >
       {children}

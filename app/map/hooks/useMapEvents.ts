@@ -3,6 +3,7 @@ import { use, useCallback, useEffect, useState } from "react";
 import { centroid } from "@turf/centroid";
 import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre";
 
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { usePlaceSelectedListener } from "@/app/hooks/usePlaceSelectedListener";
@@ -13,7 +14,7 @@ import {
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/lib/campus/getCampusBounds";
-import { getFeatureOfLayerFromPoint } from "@/lib/map/getLayerMap";
+import { normalizeFeature } from "@/lib/map/getLayerMap";
 import { Feature, CATEGORIES } from "@/lib/types";
 
 interface UseMapEventsProps {
@@ -33,6 +34,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   const [isLoaded, setIsLoaded] = useState(false);
   const { create, cancel } = useTimeoutManager();
   const { addPin, clearPins, pins } = use(pinsContext);
+  const { isPicking, mode, setPicking } = useMapPicking();
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -121,6 +123,54 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [setSelectedPlace, setIsOpen, mapRef],
   );
 
+  const handleMapClick = useCallback(
+    (e: MapLayerMouseEvent) => {
+      if (isPicking) {
+        if (mode === "polygon" || pins.length >= 1) {
+          if (mode === "point" && pins.length >= 1) {
+            setPicking(true, "polygon");
+          }
+          addPin(e.lngLat.lng, e.lngLat.lat);
+        } else {
+          addPin(e.lngLat.lng, e.lngLat.lat);
+        }
+        return;
+      }
+
+      if (!e.features || e.features.length === 0) {
+        create(
+          "deletePins",
+          () => {
+            clearPins();
+          },
+          400,
+        );
+        handlePlaceSelection(null, { openSidebar: false, flyMode: "never" });
+        return;
+      }
+
+      cancel("deletePins");
+
+      const pointFeature =
+        e.features.find((f) => f.geometry.type === "Point" && !("startDate" in f.properties)) ??
+        e.features.find((f) => f.geometry.type === "Point");
+      if (pointFeature) {
+        const feature = normalizeFeature(pointFeature);
+        if (!feature) return;
+        handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
+        return;
+      }
+
+      const polygonFeature = e.features.find((f) => f.geometry.type === "Polygon");
+      if (!polygonFeature) return;
+
+      const feature = normalizeFeature(polygonFeature);
+      if (!feature) return;
+      handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
+    },
+    [isPicking, mode, pins.length, addPin, setPicking, create, cancel, clearPins, handlePlaceSelection],
+  );
+
   usePlaceSelectedListener((feature) => {
     if (!feature) return;
     handlePlaceSelection(feature, { openSidebar: true, flyMode: "always" });
@@ -149,103 +199,27 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         map?.setMaxBounds(getMaxCampusBoundsFromName(defaultCampus));
         map?.fitBounds(getCampusBoundsFromName(defaultCampus), {
           duration: 0,
-          zoom: defaultCampus === "SJ" || defaultCampus === "SanJoaquin" ? 15.5 : 17,
+          zoom:
+            defaultCampus === "SJ" || defaultCampus === "SanJoaquin"
+              ? 15.5
+              : defaultCampus === "VR" || defaultCampus === "Villarrica"
+              ? 14
+              : 17,
         });
       }
-
-      // evento click en general
-      e.target.on("click", (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, [
-          "area-polygon",
-          "points-layer-2",
-          "points-layer-3",
-          "debug-area-polygon",
-        ]);
-        if (!feature) {
-          create(
-            "deletePins",
-            () => {
-              clearPins();
-            },
-            400,
-          );
-          handlePlaceSelection(null, { openSidebar: false, flyMode: "never" });
-        }
-      });
 
       e.target.on("dblclick", (e: MapLayerMouseEvent) => {
         cancel("deletePins");
         addPin(e.lngLat.lng, e.lngLat.lat);
       });
 
-      // Event listeners para áreas
-      e.target.on("click", ["area-polygon"], (e) => {
-        const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["area-polygon"]);
-
-        if (!feature) return;
-        setTimeout(() => {
-          handlePlaceSelection(feature, {
-            openSidebar: true,
-            flyMode: "ifOutside",
-          });
-        }, 200);
-      });
-
-      // Event listeners para debug mode
-      let isDebugMode = false;
-      try {
-        if (typeof window !== "undefined" && window.sessionStorage) {
-          isDebugMode = sessionStorage.getItem("debugMode") === "true";
-        }
-      } catch (error) {
-        console.warn("Unable to access sessionStorage:", error);
-      }
-      if (isDebugMode) {
-        e.target.on("click", ["points-layer-2"], (e) => {
-          const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-2"]);
-          if (!feature) return;
-          setTimeout(() => {
-            setIsOpen(true);
-            handlePlaceSelection(feature, { openSidebar: true, flyMode: "never" });
-          }, 200);
-        });
-
-        e.target.on("click", ["points-layer-3"], (e) => {
-          const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["points-layer-3"]);
-          if (!feature) return;
-          setTimeout(() => {
-            setIsOpen(true);
-            handlePlaceSelection(feature, { openSidebar: true, flyMode: "never" });
-          }, 200);
-        });
-
-        e.target.on("click", ["debug-area-polygon"], (e) => {
-          const feature = getFeatureOfLayerFromPoint(e.target, e.point, ["debug-area-polygon"]);
-          if (!feature) return;
-          setTimeout(() => {
-            handlePlaceSelection(feature, { openSidebar: true, flyMode: "never" });
-          }, 200);
-        });
-      }
-
       setIsLoaded(true);
     },
-    [
-      mapRef,
-      paramPlace,
-      paramLng,
-      paramLat,
-      setPlaces,
-      handlePlaceSelection,
-      addPin,
-      setIsOpen,
-      clearPins,
-      create,
-      cancel,
-    ],
+    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel],
   );
 
   useEffect(() => {
+    if (isPicking) return;
     let config: HandlePlaceSelectionOptions;
     if (pins.length === 1) {
       config = { openSidebar: true, flyMode: "always" };
@@ -255,10 +229,11 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     if (pins.length > 0) {
       handlePlaceSelection(pins[pins.length - 1] ?? null, config);
     }
-  }, [pins]);
+  }, [pins, isPicking]);
 
   return {
     handlePlaceSelection,
+    handleMapClick,
     handleMapLoad,
     isLoaded,
   };

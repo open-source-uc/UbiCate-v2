@@ -55,14 +55,15 @@ export const placesTextLayer: LayerProps = {
   type: "symbol",
   source: "places",
   layout: {
-    "text-field": ["get", "name"],
+    "text-field": ["coalesce", ["get", "displayName"], ["get", "name"]],
     "text-font": ["Roboto Slab Medium"],
     "text-size": 11,
     "text-anchor": "top",
     "text-offset": [0, 1],
+    "symbol-sort-key": 1,
   },
   paint: {
-    "text-color": "#1a202c", // Texto más oscuro para mejor contraste
+    "text-color": ["case", ["in", "events", ["get", "categories"]], "#9333EA", "#1a202c"],
     "text-halo-color": "rgba(255, 255, 255, 0.95)", // Halo blanco más opaco
     "text-halo-width": 2.5, // Halo más ancho para mejor legibilidad
   },

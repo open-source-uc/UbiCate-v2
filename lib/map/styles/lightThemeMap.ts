@@ -10,7 +10,6 @@ export const lightThemeMap: StyleSpecification = {
       tiles: ["/api/{z}/{x}/{y}"],
       minzoom: 0,
       maxzoom: 14,
-      attribution: "© OpenStreetMap contributors, © OSUC contributors",
     },
   },
   layers: [
@@ -421,33 +420,20 @@ export const lightThemeMap: StyleSpecification = {
       source: "localtiles",
       "source-layer": "poi",
       minzoom: 12,
+      layout: {
+        visibility: "none",
+      },
       filter: [
         "all",
         ["has", "name:latin"],
-        [
-          "any",
-          ["<=", ["get", "rank"], 1],
-          ["==", ["get", "class"], "university"],
-          ["==", ["get", "class"], "college"],
-        ],
+        ["any", ["<=", ["get", "rank"], 1]],
+        ["!=", ["get", "class"], "university"],
+        ["!=", ["get", "class"], "college"],
         ["!=", ["get", "class"], "bus_stop"],
         ["!=", ["get", "class"], "railway"],
         ["!=", ["get", "class"], "pharmacy"],
         ["!=", ["get", "class"], "doctor"],
       ],
-      layout: {
-        "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
-        "text-font": [
-          "case",
-          ["in", ["get", "class"], ["literal", ["university", "college"]]],
-          ["literal", ["Roboto Slab SemiBold", "Arial Unicode MS Bold"]],
-          ["literal", ["Roboto Slab Medium", "Arial Unicode MS Regular"]],
-        ],
-        "text-size": ["case", ["in", ["get", "class"], ["literal", ["university", "college"]]], 14, 13],
-        "symbol-sort-key": ["get", "rank"],
-        "text-offset": [0, 0],
-        "text-anchor": "center",
-      },
       paint: {
         "text-halo-color": "#ffffff",
         "text-halo-width": 1,

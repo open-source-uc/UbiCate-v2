@@ -8,6 +8,7 @@ import { getCategoryColor } from "@/lib/map/categoryToColors";
 import PlacesJSON from "@/lib/places/data";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
+import * as Icons from "../../ui/icons/icons";
 import MarkerIcon from "../../ui/icons/markerIcon";
 
 interface SearchDropdownProps {
@@ -151,11 +152,11 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   };
 
   return (
-    <div className="relative" ref={containerRef}>
+    <div className="relative w-full" ref={containerRef}>
       {/* Contenedor principal del geocoder */}
-      <div className="relative bg-secondary outline-1 outline-secondary rounded-2xl z-10 border-none w-full min-w-60 max-w-md">
+      <div className="relative w-full shadow-xl desktop:shadow-none bg-input outline-1 outline-border rounded-lg z-10 border-none">
         {/* Input */}
-        <div className="relative text-foreground font-medium">
+        <div className="relative text-foreground font-regular">
           <input
             ref={inputRef}
             type="text"
@@ -164,54 +165,53 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             onKeyDown={handleKeyDown}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
-            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-2xl outline-none focus:z-20 focus:outline-[color:var(--color-focus-indicator)] focus:outline-1 focus:outline-offset-[-1px] focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
-            placeholder="Buscar lugares por nombre..."
+            className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-lg outline-none focus:z-20 focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
+            placeholder="Buscar en Ubicate"
             autoComplete="off"
+            autoFocus
+            aria-label="Buscar lugares"
+            aria-autocomplete="list"
+            aria-controls={isOpen ? "search-results-list" : undefined}
+            aria-expanded={isOpen}
+            aria-activedescendant={selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined}
+            role="combobox"
           />
 
           {/* Ícono de búsqueda */}
-          <div className="absolute top-3 left-3 w-6 h-6 pointer-events-none">
-            <svg className="w-full h-full" viewBox="0 0 24 24">
-              <path
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
+          <div className="absolute top-3 left-3 w-7 h-7 pointer-events-none" tabIndex={-1}>
+            <Icons.Search className="w-6 h-6 fill-muted-foreground" />
           </div>
 
           {/* Botón de limpiar */}
           {query ? (
-            <button
-              onClick={handleClearInput}
-              className="absolute right-2 top-2 z-20 p-0 m-0 border-none cursor-pointer bg-secondary leading-none"
-            >
-              <svg className="w-5 h-5 mt-2 mr-1" viewBox="0 0 24 24">
-                <path
-                  d="M6 18L18 6M6 6l12 12"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </button>
+            <div className="absolute right-0 top-0 z-20 py-[13px] px-3">
+              <button
+                onClick={handleClearInput}
+                className="p-1 bg-destructive border-none cursor-pointer leading-none rounded-full hover:bg-destructive/80 focus:outline-none group"
+                aria-label="Limpiar búsqueda"
+              >
+                <Icons.Close className="w-4 h-4 fill-input group-hover:fill-secondary/80" />
+              </button>
+            </div>
           ) : null}
         </div>
       </div>
 
       {/* Sugerencias */}
       {isOpen && matchingFeatures.length > 0 ? (
-        <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000]">
+        <div className="absolute left-0 right-0 top-full mt-1.5 z-[1000] w-full">
           <div
-            className="bg-secondary rounded-xl rounded-t-lg overflow-hidden text-base border border-secondary"
+            className="w-full shadow-xl bg-input text-foreground rounded-lg overflow-hidden border border-border"
             style={{ maxHeight: dropdownHeight }}
           >
-            <ul ref={listRef} className="list-none m-0 p-0 overflow-y-auto" style={{ maxHeight: dropdownHeight }}>
+            <ul
+              ref={listRef}
+              className="list-none m-0 p-0 overflow-y-auto w-full"
+              style={{ maxHeight: dropdownHeight }}
+              role="listbox"
+              id="search-results-list"
+              aria-label="Resultados de búsqueda"
+            >
               {matchingFeatures.map((feature, index) => {
                 const primaryCategory = feature.properties.categories[0];
                 const color = getCategoryColor(primaryCategory as CATEGORIES);
@@ -225,24 +225,34 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                 return (
                   <li
                     key={index}
+                    id={`search-result-${index}`}
+                    role="option"
+                    aria-selected={index === selectedIndex}
+                    aria-label={`${placeName}, ${campusName}`}
                     className={`
-                      ${index === selectedIndex ? "bg-secundary" : "hover:bg-secundary/50"}
+                      relative
+                      ${
+                        index === selectedIndex
+                          ? "bg-muted before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary"
+                          : ""
+                      }
                     `}
                   >
                     <a
-                      className="cursor-pointer block py-2 px-3 no-underline"
+                      className="cursor-pointer block py-3 px-3 no-underline"
                       onClick={() => handleSelect(feature)}
                       onMouseEnter={() => setSelectedIndex(index)}
+                      tabIndex={-1}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-center justify-center gap-3">
                         {/* Contenedor del ícono con tamaño adaptativo */}
                         <div
                           className={`${getIconContainerSize(
                             placeName,
-                          )} flex items-center justify-center rounded text-xs flex-shrink-0 mt-1 ${color}`}
+                          )} flex items-center justify-center rounded text-xs flex-shrink-0 ${color}`}
                         >
                           <MarkerIcon
-                            classname={getIconSize(placeName)}
+                            classname={`${getIconSize(placeName)} fill-background`}
                             label={feature.properties.categories[0] as CATEGORIES}
                           />
                         </div>
@@ -254,14 +264,14 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                               needsVerySmallText
                                 ? "text-xs break-words"
                                 : needsSmallText
-                                ? "text-sm break-words"
-                                : "text-base"
+                                ? "text-xs break-words"
+                                : "text-sm"
                             }`}
                           >
                             {placeName}
                           </div>
                           <div
-                            className={`text-left leading-tight mt-0.5 ${
+                            className={`text-left leading-tight mt-0.4 ${
                               needsVerySmallText
                                 ? "text-xs break-words opacity-75"
                                 : needsSmallText

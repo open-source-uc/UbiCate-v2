@@ -14,7 +14,8 @@ interface MarkerProps {
   onMouseEnter?: (place: Feature | null) => void;
   onDrag?: (e: MarkerDragEvent) => void;
   onDragEnd?: (e: MarkerDragEvent) => void;
-  offset?: [number, number]; // Added offset prop
+  offset?: [number, number];
+  category?: CATEGORIES;
 }
 
 export default function Marker({
@@ -26,8 +27,9 @@ export default function Marker({
   onDragEnd,
   icon,
   offset = [0, 0],
+  category,
 }: MarkerProps) {
-  const primaryCategory = place.properties.categories[0];
+  const primaryCategory = category || (place.properties.categories[0] as CATEGORIES);
   const color = getCategoryColor(primaryCategory.toLowerCase().trim() as CATEGORIES);
   return (
     <MapboxMarker
@@ -51,7 +53,7 @@ export default function Marker({
         }}
       >
         <div
-          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ring-secondary ring-1 w-5 h-5 z-50 ${color}`}
+          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ring-border ring-1 w-5 h-5 z-50 ${color}`}
         >
           {icon}
         </div>

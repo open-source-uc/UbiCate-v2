@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { use, useEffect, useRef } from "react";
+import React, { use, useEffect, useMemo, useRef } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike } from "maplibre-gl";
@@ -13,18 +13,21 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
-import { Feature, PointFeature, CATEGORIES } from "@/lib/types";
+import Places from "@/lib/places/data";
+import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
 import DirectionsComponent from "../components/features/directions/component";
 import UserLocation from "../components/features/directions/userLocation";
 import MarkerIcon from "../components/ui/icons/markerIcon";
+import { useMapPicking } from "../context/mapPickingCtx";
 import { pinsContext } from "../context/pinsCtx";
 import { useSidebar } from "../context/sidebarCtx";
 
 import { HandlePlaceSelectionOptions, useMapEvents } from "./hooks/useMapEvents";
 import { useMapStyle } from "./hooks/useMapStyle";
 import Marker from "./marker";
+import PickingOverlay from "./pickingOverlay";
 
 interface InitialViewState extends Partial<ViewState> {
   bounds?: LngLatBoundsLike;
@@ -74,15 +77,57 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const params = useSearchParams();
-  const { points, polygons, pointsName } = useSidebar();
+  const { points, polygons, pointsName, setPlaces, activeFilters, eventPlaceIds } = useSidebar();
+  const isEventsFilter = activeFilters.includes(CATEGORIES.EVENTS);
   const { pins, handlePinDrag, polygon } = use(pinsContext);
-  const { handleMapLoad, handlePlaceSelection } = useMapEvents({
+  const { isPicking, isForEvent } = useMapPicking();
+  const isEventMode = isEventsFilter || isPicking || isForEvent;
+  const { handleMapLoad, handlePlaceSelection, handleMapClick } = useMapEvents({
     mapRef,
     paramPlace,
     paramLng,
     paramLat,
   });
   const mapConfig = useMapStyle();
+
+  const displayPointsName = useMemo(() => {
+    if (!isEventsFilter) return pointsName;
+    return pointsName.map((p) => ({
+      ...p,
+      properties: {
+        ...p.properties,
+        categories:
+          eventPlaceIds.has(p.properties.identifier) && !p.properties.categories.includes(CATEGORIES.EVENTS)
+            ? [CATEGORIES.EVENTS, ...p.properties.categories]
+            : p.properties.categories,
+      },
+    }));
+  }, [pointsName, isEventsFilter, eventPlaceIds]);
+
+  // Los nombres de campus se muestran mediante el tag; no crear puntos en el mapa.
+
+  // Obtener nombre del campus para el tag
+  const [campusDisplayName, setCampusDisplayName] = React.useState<string | null>(null);
+
+  useEffect(() => {
+    const campusParam = params.get("campus");
+    const campus = campusParam || localStorage.getItem("defaultCampus");
+
+    if (campus) {
+      let fullName: string | undefined;
+
+      if (campus.length === 2) {
+        fullName = siglas.get(campus);
+      } else {
+        const sigla = siglas.get(campus);
+        fullName = sigla ? siglas.get(sigla) : undefined;
+      }
+
+      setCampusDisplayName(fullName || campus);
+    } else {
+      setCampusDisplayName(null);
+    }
+  }, [params]);
 
   useEffect(() => {
     const campusName = params.get("campus");
@@ -91,12 +136,24 @@ export default function MapComponent({
       localStorage.setItem("defaultCampus", campusName);
       mapRef.current?.getMap()?.fitBounds(getCampusBoundsFromName(campusName), {
         duration: 0,
-        zoom: campusName === "SJ" || campusName === "SanJoaquin" ? 15.5 : 17,
+        zoom:
+          campusName === "SJ" || campusName === "SanJoaquin"
+            ? 15.5
+            : campusName === "VR" || campusName === "Villarrica"
+            ? 14
+            : 17,
       });
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
     }
   }, [params]);
 
+  useEffect(() => {
+    const category = params.get("category");
+    if (!category) return;
+
+    const filteredPlaces = Places.features.filter((feature) => feature.properties.categories.includes(category));
+    setPlaces(filteredPlaces);
+  }, [params, setPlaces]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -123,11 +180,31 @@ export default function MapComponent({
   }, []);
 
   return (
-    <div className="w-full h-full" ref={containerRef}>
+    <div className="w-full h-full relative" ref={containerRef}>
+      {/* Campus tag - solo visible en desktop */}
+      {campusDisplayName ? (
+        <div className="hidden lg:block absolute top-4 right-4 z-10 pointer-events-auto">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
+            <span className="text-xs font-medium text-primary-foreground">Campus {campusDisplayName}</span>
+          </div>
+        </div>
+      ) : null}
+
       <Map
         id="mainMap"
         mapStyle={mapConfig.mapStyle}
         initialViewState={createInitialViewState(params.get("campus"), paramPlace, paramLng, paramLat)}
+        interactiveLayerIds={[
+          "points-layer-2",
+          "points-layer-3",
+          "area-polygon",
+          "debug-area-polygon",
+          "custom-area-polygon",
+          "event-points-layer",
+          "event-polygon-layer",
+        ]}
+        onClick={(e) => handleMapClick(e)}
         onLoad={(e) => handleMapLoad(e)}
         transformRequest={(url, type) => {
           if (type === "Tile" || type === "Glyphs") {
@@ -146,31 +223,57 @@ export default function MapComponent({
           <Layer {...mapConfig.campusBorderLayer} />
         </Source>
         <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
-          <Layer {...mapConfig.sectionAreaLayer} />
-          <Layer {...mapConfig.sectionStrokeLayer} />
+          <Layer
+            id="area-polygon"
+            type="fill"
+            paint={{
+              "fill-color": isEventMode ? "rgba(147, 51, 234, 0.1)" : "rgba(1, 95, 255, 0.1)",
+            }}
+          />
+          <Layer
+            id="area-stroke"
+            type="line"
+            paint={{
+              "line-color": isEventMode ? "#9333EA" : "#015FFF",
+              "line-width": 0.7,
+              "line-dasharray": [4, 2],
+            }}
+          />
         </Source>
-        <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(polygon)}>
+        <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(isEventMode ? [] : polygon)}>
           <Layer {...mapConfig.customPolygonSectionAreaLayer} />
           <Layer {...mapConfig.customPolygonStrokeLayer} />
         </Source>
-        <Source id="places" type="geojson" data={featuresToGeoJSON([...pointsName, ...polygons])}>
+        <Source id="event-polygon-area" type="geojson" data={featuresToGeoJSON(isEventMode ? polygon : [])}>
+          <Layer id="event-polygon-fill" type="fill" paint={{ "fill-color": "rgba(147, 51, 234, 0.3)" }} />
+          <Layer
+            id="event-polygon-stroke"
+            type="line"
+            paint={{ "line-color": "#9333EA", "line-width": 0.7, "line-dasharray": [4, 2] }}
+          />
+        </Source>
+        {/* Campus names removed from map; now shown via tag only */}
+        <Source id="places" type="geojson" data={featuresToGeoJSON([...displayPointsName, ...polygons])}>
           <Layer {...mapConfig.placesTextLayer} />
         </Source>
         <SilentErrorBoundary>
           <DebugMode />
         </SilentErrorBoundary>
+        <PickingOverlay />
         <SilentErrorBoundary>
           <UserLocation />
         </SilentErrorBoundary>
         <DirectionsComponent />
         {points.map((place) => {
-          const primaryCategory = place.properties.categories[0] as CATEGORIES;
+          const isEventPlace = eventPlaceIds.has(place.properties.identifier);
+          const primaryCategory = isEventPlace ? CATEGORIES.EVENTS : (place.properties.categories[0] as CATEGORIES);
           return (
             <Marker
               key={place.properties.identifier}
               place={place as PointFeature}
               onClick={() => handlePlaceSelection(place, { openSidebar: true, flyMode: "ifOutside" })}
               icon={<MarkerIcon label={primaryCategory} />}
+              category={isEventPlace ? CATEGORIES.EVENTS : undefined}
             />
           );
         })}
