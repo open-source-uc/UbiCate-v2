@@ -6,6 +6,27 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61218769816188,
+                    -33.497989736291025
+                ]
+            },
+            "properties": {
+                "identifier": "ms3f73croz814v",
+                "name": "Lugar de prueba del evento, ess como una plaza a la entrada",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61365680314866,
                     -33.49652440002035
                 ]
@@ -432,25 +453,25 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61026603065379,
-                    -33.49702522241076
+                    -70.61218769816188,
+                    -33.497989736291025
                 ]
             },
             "properties": {
-                "identifier": "mrw45ed54buwio",
-                "name": "askdjaskd",
-                "information": "kasdkas",
+                "identifier": "mrw43pfykxdinj",
+                "name": "Evento de prueba 3",
+                "information": "Prueba del lugard",
                 "categories": [
                     "events"
                 ],
                 "floors": [],
                 "campus": "SJ",
-                "faculties": [
-                    "CENTRODEMEDICIMIDEUC"
-                ],
-                "startDate": "2026-07-02T09:23",
-                "endDate": "2026-07-23T09:23",
-                "parentPlaceId": "MKFKZG5LR8SNFI"
+                "faculties": [],
+                "startDate": "2026-07-22T10:20",
+                "endDate": "2026-07-30T12:00",
+                "parentPlaceIds": [
+                    "ms3f73croz814v"
+                ]
             }
         },
         {
