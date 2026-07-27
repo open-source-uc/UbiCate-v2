@@ -6,6 +6,27 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60778490421397,
+                    -33.496321952657254
+                ]
+            },
+            "properties": {
+                "identifier": "mrz9pun291louu",
+                "name": "Este es un lugar de evento expirado",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60815688082323,
                     -33.498530644216395
                 ]
@@ -60,27 +81,6 @@
             "properties": {
                 "identifier": "mrz4wgkrt75nrx",
                 "name": "Evento de prueba",
-                "information": "",
-                "categories": [
-                    "events"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60778490421397,
-                    -33.496321952657254
-                ]
-            },
-            "properties": {
-                "identifier": "mrz9pun291louu",
-                "name": "Este es un lugar de evento expirado",
                 "information": "",
                 "categories": [
                     "events"
@@ -216,7 +216,7 @@
             },
             "properties": {
                 "identifier": "mrz9pu847hnoe0",
-                "name": "evento expiradooooo",
+                "name": "evento expirado",
                 "information": "evento expirado descripcion",
                 "categories": [
                     "events"
