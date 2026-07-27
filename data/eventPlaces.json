@@ -6,6 +6,27 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60778490421397,
+                    -33.496321952657254
+                ]
+            },
+            "properties": {
+                "identifier": "mrz9pun291louu",
+                "name": "Este es un lugar de evento expirado",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61218769816188,
                     -33.497989736291025
                 ]
@@ -148,7 +169,7 @@
             },
             "properties": {
                 "identifier": "mrz9pu847hnoe0",
-                "name": "evento expirado",
+                "name": "evento expiradooooo",
                 "information": "evento expirado descripcion",
                 "categories": [
                     "events"
@@ -161,27 +182,6 @@
                 "parentPlaceIds": [
                     "mrz9pun291louu"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60778490421397,
-                    -33.496321952657254
-                ]
-            },
-            "properties": {
-                "identifier": "mrz9pun291louu",
-                "name": "Este es un lugar de evento expirado",
-                "information": "",
-                "categories": [
-                    "events"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": []
             }
         },
         {
