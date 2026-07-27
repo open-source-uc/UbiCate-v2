@@ -6,6 +6,53 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6135050744935,
+                    -33.49769688278791
+                ]
+            },
+            "properties": {
+                "identifier": "ms3m2kq6pn7efb",
+                "name": "huerto secundario ",
+                "information": "kajdkasjdk",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-07-02T15:19",
+                "endDate": "2026-07-30T15:19",
+                "parentPlaceIds": [
+                    "ms3m2l2jrreutc"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6135050744935,
+                    -33.49769688278791
+                ]
+            },
+            "properties": {
+                "identifier": "ms3m2l2jrreutc",
+                "name": "Lugar 2",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60856179812006,
                     -33.496965426614196
                 ]
