@@ -1058,30 +1058,6 @@
                 ]
             },
             "properties": {
-                "identifier": "mrw35zr8q9h0jo",
-                "name": "Hackaton de prueba",
-                "information": "Este evento será muy importante",
-                "categories": [
-                    "events"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": [],
-                "startDate": "2026-07-09T10:50",
-                "endDate": "2026-07-31T12:00",
-                "parentPlaceId": "mrw3606i6umuk9"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60881665906562,
-                    -33.498498236996454
-                ]
-            },
-            "properties": {
                 "identifier": "mrw3606i6umuk9",
                 "name": "zona de prueba para evento",
                 "information": "",
