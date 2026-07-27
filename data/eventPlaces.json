@@ -4,15 +4,35 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
+                "type": "Polygon",
                 "coordinates": [
-                    -70.60856179812006,
-                    -33.496965426614196
+                    [
+                        [
+                            -70.61208944610092,
+                            -33.49856150025781
+                        ],
+                        [
+                            -70.61201358177362,
+                            -33.49971288353554
+                        ],
+                        [
+                            -70.61049629522698,
+                            -33.49981410331101
+                        ],
+                        [
+                            -70.61086044399794,
+                            -33.498637416109965
+                        ],
+                        [
+                            -70.61208944610092,
+                            -33.49856150025781
+                        ]
+                    ]
                 ]
             },
             "properties": {
-                "identifier": "ms3lh788si9xzl",
-                "name": "Lugar 1",
+                "identifier": "ms3p74t30vno17",
+                "name": "Lugar 3 poli",
                 "information": "",
                 "categories": [
                     "events"
@@ -20,7 +40,7 @@
                 "floors": [],
                 "campus": "SJ",
                 "faculties": [
-                    "AGC"
+                    "QIM"
                 ]
             }
         },
@@ -71,6 +91,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60856179812006,
+                    -33.496965426614196
+                ]
+            },
+            "properties": {
+                "identifier": "ms3lh788si9xzl",
+                "name": "Lugar 1",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6135050744935,
                     -33.49769688278791
                 ]
@@ -89,7 +132,8 @@
                 "endDate": "2026-07-30T15:19",
                 "parentPlaceIds": [
                     "ms3m2l2jrreutc",
-                    "ms3ntqsrdewqil"
+                    "ms3ntqsrdewqil",
+                    "ms3p74t30vno17"
                 ]
             }
         },
