@@ -6,13 +6,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60778490421397,
-                    -33.496321952657254
+                    -70.60750724073043,
+                    -33.49758724090735
                 ]
             },
             "properties": {
-                "identifier": "mrz9pun291louu",
-                "name": "Este es un lugar de evento expiradoasd",
+                "identifier": "ms3kekdcanj3fa",
+                "name": "lugar test editar",
                 "information": "",
                 "categories": [
                     "events"
@@ -210,8 +210,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60778490421397,
-                    -33.496321952657254
+                    -70.60750724073043,
+                    -33.49758724090735
                 ]
             },
             "properties": {
@@ -227,7 +227,8 @@
                 "startDate": "2026-07-17T14:22",
                 "endDate": "2026-07-24T14:22",
                 "parentPlaceIds": [
-                    "mrz9pun291louu"
+                    "ms3kekdcanj3fa",
+                    "MKFKZG5LR8SNFI"
                 ]
             }
         },
