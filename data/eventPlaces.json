@@ -890,52 +890,6 @@
                 ]
             },
             "properties": {
-                "identifier": "mrwjkuv09drc7o",
-                "name": "asd",
-                "information": "",
-                "categories": [
-                    "events"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "SJ",
-                "faculties": [],
-                "startDate": "2026-07-15T16:35",
-                "endDate": "2026-07-30T16:35",
-                "parentPlaceId": "mrwjkv8rajvuhl"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61286636242188,
-                            -33.49812350309584
-                        ],
-                        [
-                            -70.61267324337301,
-                            -33.49865136376187
-                        ],
-                        [
-                            -70.61192222484901,
-                            -33.498271125471646
-                        ],
-                        [
-                            -70.61234064945477,
-                            -33.497917726032554
-                        ],
-                        [
-                            -70.61286636242188,
-                            -33.49812350309584
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
                 "identifier": "mrwjkv8rajvuhl",
                 "name": "evento increible",
                 "information": "",
