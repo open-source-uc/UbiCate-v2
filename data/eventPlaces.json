@@ -1,4 +1,56 @@
 {
     "type": "FeatureCollection",
-    "features": []
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60856179812006,
+                    -33.496965426614196
+                ]
+            },
+            "properties": {
+                "identifier": "ms3lh6wargq8zm",
+                "name": "Huerto San Francisco",
+                "information": "kajdksa",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ],
+                "startDate": "2026-07-09T15:02",
+                "endDate": "2026-07-29T15:03",
+                "parentPlaceIds": [
+                    "ms3lh788si9xzl"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60856179812006,
+                    -33.496965426614196
+                ]
+            },
+            "properties": {
+                "identifier": "ms3lh788si9xzl",
+                "name": "Lugar 1",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        }
+    ]
 }
