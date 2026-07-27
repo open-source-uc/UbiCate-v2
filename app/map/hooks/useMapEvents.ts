@@ -3,6 +3,7 @@ import { use, useCallback, useEffect, useState } from "react";
 import { centroid } from "@turf/centroid";
 import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre";
 
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { usePlaceSelectedListener } from "@/app/hooks/usePlaceSelectedListener";
@@ -33,6 +34,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   const [isLoaded, setIsLoaded] = useState(false);
   const { create, cancel } = useTimeoutManager();
   const { addPin, clearPins, pins } = use(pinsContext);
+  const { isPicking, mode, setPicking } = useMapPicking();
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -123,6 +125,18 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
   const handleMapClick = useCallback(
     (e: MapLayerMouseEvent) => {
+      if (isPicking) {
+        if (mode === "polygon" || pins.length >= 1) {
+          if (mode === "point" && pins.length >= 1) {
+            setPicking(true, "polygon");
+          }
+          addPin(e.lngLat.lng, e.lngLat.lat);
+        } else {
+          addPin(e.lngLat.lng, e.lngLat.lat);
+        }
+        return;
+      }
+
       if (!e.features || e.features.length === 0) {
         create(
           "deletePins",
@@ -137,7 +151,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       cancel("deletePins");
 
-      const pointFeature = e.features.find((f) => f.geometry.type === "Point");
+      const pointFeature =
+        e.features.find((f) => f.geometry.type === "Point" && !("startDate" in f.properties)) ??
+        e.features.find((f) => f.geometry.type === "Point");
       if (pointFeature) {
         const feature = normalizeFeature(pointFeature);
         if (!feature) return;
@@ -152,7 +168,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       if (!feature) return;
       handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
     },
-    [create, cancel, clearPins, handlePlaceSelection],
+    [isPicking, mode, pins.length, addPin, setPicking, create, cancel, clearPins, handlePlaceSelection],
   );
 
   usePlaceSelectedListener((feature) => {
@@ -203,6 +219,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   );
 
   useEffect(() => {
+    if (isPicking) return;
     let config: HandlePlaceSelectionOptions;
     if (pins.length === 1) {
       config = { openSidebar: true, flyMode: "always" };
@@ -212,7 +229,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     if (pins.length > 0) {
       handlePlaceSelection(pins[pins.length - 1] ?? null, config);
     }
-  }, [pins]);
+  }, [pins, isPicking]);
 
   return {
     handlePlaceSelection,

@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Source, Layer, useMap } from "react-map-gl/maplibre";
 
+import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import Places from "@/lib/places/data";
-import { JSONFeatures } from "@/lib/types";
+import { normalizeIdentifier } from "@/lib/places/utils";
+import { EventFeature, EventLocation, Feature, getParentPlaceIds, JSONFeatures, PointFeature } from "@/lib/types";
 
 import {
   allPointsLayer,
@@ -17,15 +20,22 @@ import {
   allPlacesTextApprovalLayer,
   redLineLayerDebug,
   sectionAreaLayerDebug,
+  eventPointsLayer,
+  eventPolygonLayer,
+  eventPolygonLineLayer,
+  eventTextLayer,
 } from "./layers";
 
 function DebugMode() {
   const [isDebugMode, setIsDebugMode] = useState(false);
   const [debugMode, setDebugMode] = useState(1);
+  const [showEventForm, setShowEventForm] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<EventFeature | null>(null);
   const mainMap = useMap();
   const [mapLayers, setMapLayers] = useState<string[]>([]);
+  const { isPicking } = useMapPicking();
+  const queryClient = useQueryClient();
 
-  // Safely check for debug mode on client side only
   useEffect(() => {
     try {
       if (typeof window !== "undefined" && window.sessionStorage) {
@@ -53,8 +63,122 @@ function DebugMode() {
     staleTime: 5 * 60 * 1000,
   });
 
+  const { data: eventsData } = useQuery({
+    queryKey: ["events-debug"],
+    queryFn: async () => {
+      const response = await apiClient("/api/events");
+      return response;
+    },
+    enabled: isDebugMode,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const { data: approvedData } = useQuery({
+    queryKey: ["places"],
+    queryFn: async () => {
+      const response = await apiClient("/api/ubicate");
+      return response;
+    },
+    enabled: isDebugMode,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const eventJson: EventFeature[] = eventsData?.events?.features || [];
+
+  const approvedIdentifiers = useMemo(
+    () =>
+      new Set(
+        (approvedData?.approved_places?.features || []).map((f: Feature) =>
+          normalizeIdentifier(f.properties.identifier),
+        ),
+      ),
+    [approvedData],
+  );
+
+  const eventPlaceMap = useMemo(() => {
+    const map = new Map<string, Feature>();
+    for (const item of eventJson) {
+      if ((item as any).properties?.startDate) continue;
+      map.set(normalizeIdentifier(item.properties.identifier), item as unknown as Feature);
+    }
+    return map;
+  }, [eventJson]);
+
+  const debugEventFeatures = useMemo(() => {
+    const approvedFeatures = new Map<string, Feature>();
+    for (const f of (approvedData?.approved_places?.features || []) as Feature[]) {
+      approvedFeatures.set(normalizeIdentifier(f.properties.identifier), f);
+    }
+
+    const enriched: (EventFeature | Feature)[] = [...eventJson];
+    const enrichedIndex = new Map<string, number>();
+    for (let i = 0; i < enriched.length; i++) {
+      enrichedIndex.set(normalizeIdentifier(enriched[i].properties.identifier), i);
+    }
+
+    for (const item of eventJson) {
+      if (!("startDate" in item.properties)) continue;
+      const parentIds = getParentPlaceIds(item.properties);
+      for (const parentId of parentIds) {
+        const normId = normalizeIdentifier(parentId);
+        const existingIdx = enrichedIndex.get(normId);
+        if (existingIdx !== undefined) {
+          const existing = enriched[existingIdx];
+          enriched[existingIdx] = {
+            ...existing,
+            properties: { ...existing.properties, eventLabel: item.properties.name },
+          } as unknown as Feature;
+        } else {
+          const approvedFeature = approvedFeatures.get(normId);
+          if (approvedFeature) {
+            enrichedIndex.set(normId, enriched.length);
+            enriched.push({
+              ...approvedFeature,
+              properties: { ...approvedFeature.properties, eventLabel: item.properties.name },
+            } as unknown as Feature);
+          }
+        }
+      }
+    }
+
+    return enriched;
+  }, [eventJson, approvedData]);
+
+  function buildLocationsFromParentIds(parentIds: string[]): EventLocation[] {
+    return parentIds.map((id) => {
+      const normId = normalizeIdentifier(id);
+      if (approvedIdentifiers.has(normId)) {
+        return { id: `existing-${id}`, type: "existing" as const, placeId: id, pins: [] };
+      }
+      const placeFeature = eventPlaceMap.get(normId);
+      if (placeFeature) {
+        const pins: PointFeature[] = [];
+        if (placeFeature.geometry.type === "Point") {
+          pins.push({
+            type: "Feature",
+            properties: {} as any,
+            geometry: { type: "Point", coordinates: placeFeature.geometry.coordinates as [number, number] },
+          });
+        } else if (placeFeature.geometry.type === "Polygon") {
+          const coords = (placeFeature.geometry.coordinates as [number, number][][])[0].slice(0, -1);
+          for (const c of coords) {
+            pins.push({ type: "Feature", properties: {} as any, geometry: { type: "Point", coordinates: c } });
+          }
+        }
+        return {
+          id: `new-${id}`,
+          type: "new" as const,
+          name: placeFeature.properties.name,
+          information: placeFeature.properties.information || "",
+          identifier: placeFeature.properties.identifier,
+          pins,
+        };
+      }
+      return { id: `existing-${id}`, type: "existing" as const, placeId: id, pins: [] };
+    });
+  }
+
   useEffect(() => {
-    // Log all layer IDs when the map is loaded
     if (isDebugMode && mainMap.mainMap) {
       const map = mainMap.mainMap.getMap();
 
@@ -64,7 +188,6 @@ function DebugMode() {
         console.log("Available map layers:", layerIds);
         setMapLayers(layerIds);
       } else {
-        // If style isn't loaded yet, wait for the style.load event
         map.once("style.load", () => {
           const layers = map.getStyle().layers;
           const layerIds = layers.map((layer: any) => layer.id);
@@ -88,7 +211,6 @@ function DebugMode() {
   }
 
   const json: JSONFeatures | null = ubicateData?.new_places;
-  console.log(json);
 
   return (
     <>
@@ -106,7 +228,25 @@ resize-x border-2 border-dashed pointer-events-auto"
             <input type="radio" checked={debugMode === 2} onChange={() => setDebugMode(2)} className="mr-2" />
             Punto new/update
           </label>
-          <h2 className="text-xl font-bold mb-4">Categorías</h2>
+          <br />
+          <label className="flex items-center">
+            <input type="radio" checked={debugMode === 3} onChange={() => setDebugMode(3)} className="mr-2" />
+            Eventos
+          </label>
+
+          <div className="mt-3">
+            <button
+              onClick={() => {
+                setEditingEvent(null);
+                setShowEventForm(true);
+              }}
+              className="w-full px-3 py-2 bg-purple-600 text-white rounded text-sm hover:bg-purple-700"
+            >
+              + Crear Evento
+            </button>
+          </div>
+
+          <h2 className="text-xl font-bold mb-4 mt-4">Categorías</h2>
         </div>
         <ul className="space-y-2">
           <li className="flex items-center">
@@ -163,6 +303,9 @@ resize-x border-2 border-dashed pointer-events-auto"
           <li className="flex items-center">
             <span className="w-6 h-6 bg-[#716ADB] mr-2" /> Color por Defecto
           </li>
+          <li className="flex items-center">
+            <span className="w-6 h-6 bg-[#9333EA] mr-2" /> Eventos - Púrpura
+          </li>
         </ul>
 
         {mapLayers.length > 0 && (
@@ -210,6 +353,55 @@ resize-x border-2 border-dashed pointer-events-auto"
             <Layer {...allPlacesTextApprovalLayer} />
           </Source>
         </>
+      ) : null}
+
+      {debugMode === 3 && debugEventFeatures.length > 0 ? (
+        <>
+          <Source id="debug-events" type="geojson" data={featuresToGeoJSON(debugEventFeatures)}>
+            <Layer {...eventPolygonLayer} />
+            <Layer {...eventPolygonLineLayer} />
+            <Layer {...eventPointsLayer} />
+            <Layer {...eventTextLayer} />
+          </Source>
+        </>
+      ) : null}
+
+      {showEventForm ? (
+        <div
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/50 pointer-events-auto ${
+            isPicking ? "hidden" : ""
+          }`}
+        >
+          <div className="bg-background rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-auto">
+            <EventPlaceForm
+              defaultData={
+                editingEvent
+                  ? {
+                      name: editingEvent.properties.name,
+                      information: editingEvent.properties.information,
+                      categories: editingEvent.properties.categories,
+                      floors: editingEvent.properties.floors || [],
+                      startDate: editingEvent.properties.startDate,
+                      endDate: editingEvent.properties.endDate,
+                      showFrom: editingEvent.properties.showFrom || "",
+                      locations: buildLocationsFromParentIds(getParentPlaceIds(editingEvent.properties)),
+                      identifier: editingEvent.properties.identifier,
+                    }
+                  : undefined
+              }
+              method={editingEvent ? "PUT" : "POST"}
+              submitButtonText={editingEvent ? "Actualizar Evento" : "Crear Evento"}
+              title={editingEvent ? "Editar Evento" : "Nuevo Evento"}
+              onClose={() => {
+                setShowEventForm(false);
+                setEditingEvent(null);
+              }}
+              onSuccess={() => {
+                document.location.reload();
+              }}
+            />
+          </div>
+        </div>
       ) : null}
     </>
   );

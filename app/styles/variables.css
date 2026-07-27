@@ -93,6 +93,7 @@
   --color-chart-15: var(--theme-chart-15);
   --color-chart-dea: var(--theme-chart-dea);
   --color-chart-security: var(--theme-chart-security);
+  --color-chart-events: var(--theme-chart-events);
 }
 
 /* ============== COLOR PALETTE ============== */

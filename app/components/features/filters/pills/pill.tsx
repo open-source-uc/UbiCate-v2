@@ -9,6 +9,8 @@ interface PillProps {
   activateClassName?: string;
   noActivateClassName?: string;
   className?: string;
+  description?: string;
+  onEdit?: () => void;
 }
 
 function Pill({
@@ -20,6 +22,8 @@ function Pill({
   noActivateClassName = "bg-background text-foreground",
   className = "w-full rounded-lg flex items-center px-2 py-1.5 border-1 border-border min-h-[48px]",
   icon,
+  description,
+  onEdit,
 }: PillProps) {
   const iconElement = React.isValidElement<{ className?: string }>(icon)
     ? React.cloneElement(icon, {
@@ -44,9 +48,33 @@ function Pill({
           {iconElement}
         </div>
       </div>
-      <span className="px-2 text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm leading-tight text-left flex-1">
-        {title}
-      </span>
+      <div className="px-2 text-left flex-1 min-w-0">
+        <span className="text-xs font-medium group-hover:text-secondary-foreground desktop:text-sm leading-tight block truncate">
+          {title}
+        </span>
+        {description ? (
+          <span className="text-[10px] text-muted-foreground leading-tight block truncate mt-0.5">{description}</span>
+        ) : null}
+      </div>
+      {onEdit ? (
+        <span
+          role="button"
+          tabIndex={0}
+          onClick={(e) => {
+            e.stopPropagation();
+            onEdit();
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.stopPropagation();
+              onEdit();
+            }
+          }}
+          className="text-[10px] text-muted-foreground hover:text-foreground shrink-0 ml-1"
+        >
+          Edit
+        </span>
+      ) : null}
     </button>
   );
 }

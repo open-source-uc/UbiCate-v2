@@ -5,7 +5,7 @@ import { Feature, PointFeature, PolygonFeature } from "@/lib/types";
 /*
 Este hook solo se usa sidebarCtx 
 */
-export default function usePlaces(): {
+export default function usePlaces(eventCounts: Map<string, number> = new Map()): {
   findPlaces: Feature[];
   points: PointFeature[];
   polygons: PolygonFeature[];
@@ -41,20 +41,28 @@ export default function usePlaces(): {
 
           const pisoTexto = safeArray.length === 1 ? "Piso" : "Pisos";
 
+          const hasDisplayName = !!(e as any).properties.displayName;
+          let name =
+            hasDisplayName || (e.properties.floors?.length === 1 && e.properties.floors[0] === 1)
+              ? e.properties.name
+              : `${e.properties.name}\n ${pisoTexto}: ${str}`;
+
+          const eventCount = eventCounts.get(e.properties.identifier);
+          if (eventCount && eventCount > 1) {
+            name = `${name}\n ${eventCount} eventos`;
+          }
+
           const updatedE = {
             ...e,
             properties: {
               ...e.properties,
-              name:
-                e.properties.floors?.length === 1 && e.properties.floors[0] === 1
-                  ? e.properties.name
-                  : `${e.properties.name}\n ${pisoTexto}: ${str}`,
+              name,
             },
           };
 
           return updatedE;
         }),
-    [findPlaces],
+    [findPlaces, eventCounts],
   );
 
   const Polygons = useMemo(() => findPlaces.filter((e) => e.geometry.type === "Polygon"), [findPlaces]);

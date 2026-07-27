@@ -34,6 +34,7 @@ const categoryIcons: Record<CATEGORIES, React.ComponentType<{ className?: string
   [CATEGORIES.OFFICES]: Icons.Domain,
   [CATEGORIES.SECURITY]: Icons.Emergency,
   [CATEGORIES.DEA]: Icons.DEA,
+  [CATEGORIES.EVENTS]: Icons.Event,
 };
 
 export default function MarkerIcon({

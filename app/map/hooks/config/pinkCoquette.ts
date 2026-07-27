@@ -5,7 +5,7 @@ export const placesTextLayer: LayerProps = {
   type: "symbol",
   source: "places",
   layout: {
-    "text-field": ["get", "name"],
+    "text-field": ["coalesce", ["get", "displayName"], ["get", "name"]],
     "text-font": ["Roboto Slab Medium", "Arial Unicode MS Regular"],
     "text-size": 16,
     "text-anchor": "top",
@@ -13,7 +13,7 @@ export const placesTextLayer: LayerProps = {
     "symbol-sort-key": 1,
   },
   paint: {
-    "text-color": "#701a75", // Púrpura oscuro para máxima legibilidad
+    "text-color": ["case", ["in", "events", ["get", "categories"]], "#9333EA", "#701a75"],
     "text-halo-color": "rgba(253, 242, 248, 0.98)", // Halo rosa muy claro más opaco
     "text-halo-width": 3,
   },

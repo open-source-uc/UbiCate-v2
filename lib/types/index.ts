@@ -3,7 +3,7 @@ export interface PointGeometry {
   coordinates: [number, number];
 }
 
-interface PolygonGeometry {
+export interface PolygonGeometry {
   type: "Polygon";
   coordinates: [number, number][][];
 }
@@ -45,6 +45,7 @@ export enum CATEGORIES {
   CRISOL = "crisol",
   CULTURE = "culture",
   OFFICES = "offices",
+  EVENTS = "events",
 }
 
 export interface Properties {
@@ -56,8 +57,40 @@ export interface Properties {
   faculties: string[];
   floors?: number[];
   needApproval?: boolean;
+  displayName?: string;
   // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
   // needApproval sera SIEMPRE undefined en places.json
+}
+
+export interface EventProperties extends Properties {
+  startDate: string;
+  endDate: string;
+  showFrom?: string;
+  parentPlaceIds?: string[];
+}
+
+export function getParentPlaceIds(props: EventProperties): string[] {
+  if (props.parentPlaceIds && props.parentPlaceIds.length > 0) return props.parentPlaceIds;
+  const legacy = (props as unknown as Record<string, unknown>).parentPlaceId;
+  if (typeof legacy === "string") return [legacy];
+  return [];
+}
+
+const GRACE_PERIOD_MS = 24 * 60 * 60 * 1000;
+
+export function isEventVisible(props: EventProperties, now = new Date()): boolean {
+  const end = new Date(props.endDate);
+  if (now > end) {
+    return now.getTime() - end.getTime() <= GRACE_PERIOD_MS;
+  }
+
+  if (props.showFrom) {
+    const showFrom = new Date(props.showFrom);
+    return now >= showFrom;
+  }
+
+  const start = new Date(props.startDate);
+  return now >= start;
 }
 
 export interface Feature {
@@ -87,6 +120,27 @@ export interface PolygonFeature {
 export interface JSONFeatures {
   type: string;
   features: Feature[];
+}
+
+export interface EventFeature {
+  type: string;
+  properties: EventProperties;
+  geometry: PointGeometry | PolygonGeometry;
+}
+
+export interface EventLocation {
+  id: string;
+  type: "existing" | "new";
+  placeId?: string;
+  name?: string;
+  information?: string;
+  identifier?: string;
+  pins: PointFeature[];
+}
+
+export interface EventJSONFeatures {
+  type: string;
+  features: (EventFeature | Feature)[];
 }
 
 /*
@@ -138,6 +192,7 @@ export const CategoryToDisplayName: Map<CATEGORIES, string> = new Map([
   [CATEGORIES.TRASH, "Puntos Limpios"],
   [CATEGORIES.DEA, "DEA"],
   [CATEGORIES.SECURITY, "Seguridad"],
+  [CATEGORIES.EVENTS, "Evento"],
 ]);
 
 // Existe pues hay categorias que no deben ser opciones en los formularios, como CUSTOM_MARK

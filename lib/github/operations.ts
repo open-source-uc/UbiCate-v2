@@ -26,8 +26,12 @@ export async function createGithubFile(path: string, initialContent: Places): Pr
     });
 
     if (!response.ok) {
-      const errorData: any = await response.json();
-      throw new Error(`Failed to create file ${path}: ${errorData.message}`);
+      const errorText = await response.text();
+      let errorData: any = {};
+      try {
+        errorData = JSON.parse(errorText);
+      } catch {}
+      throw new Error(`Failed to create file ${path}: ${errorData.message || errorText}`);
     }
 
     const data: any = await response.json();
@@ -70,12 +74,16 @@ export async function githubFileOperation(
     });
 
     if (!response.ok) {
-      const errorData: any = await response.json();
-      // Si es un error de SHA, podría ser una condición de carrera
-      if (errorData.message && errorData.message.includes("SHA")) {
-        throw new Error(`Concurrent modification detected: ${errorData.message}`);
+      const errorText = await response.text();
+      let errorData: any = {};
+      try {
+        errorData = JSON.parse(errorText);
+      } catch {}
+      const msg = errorData.message || errorText || "No details";
+      if (msg.includes("SHA")) {
+        throw new Error(`Concurrent modification detected: ${msg}`);
       }
-      throw new Error(`GitHub API error (${response.status}): ${errorData.message}`);
+      throw new Error(`GitHub API error (${response.status}): ${msg}`);
     }
 
     return await response.json();
@@ -183,6 +191,20 @@ export async function fetchNewPlaces(retryCount = 3): Promise<GithubFileResponse
       console.log(`Retrying fetchNewPlaces. Attempts remaining: ${retryCount - 1}`);
       await new Promise((resolve) => setTimeout(resolve, 1000)); // Esperar 1 segundo antes de reintentar
       return fetchNewPlaces(retryCount - 1);
+    }
+    throw error;
+  }
+}
+
+// Obtener eventos con manejo de reintentos
+export async function fetchEventPlaces(retryCount = 3): Promise<GithubFileResponse> {
+  try {
+    return await fetchGithubFile("data/eventPlaces.json");
+  } catch (error) {
+    if (retryCount > 0) {
+      console.log(`Retrying fetchEventPlaces. Attempts remaining: ${retryCount - 1}`);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      return fetchEventPlaces(retryCount - 1);
     }
     throw error;
   }

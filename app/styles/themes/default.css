@@ -51,4 +51,5 @@
   --theme-chart-13: var(--palette-gray-600);
   --theme-chart-dea: var(--palette-emergency-green);
   --theme-chart-security: var(--palette-emergency-red);
+  --theme-chart-events: var(--palette-purple-500);
 }

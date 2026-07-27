@@ -115,3 +115,54 @@ export const sectionAreaLayerDebug: LayerProps = {
     "fill-color": "rgba(50, 205, 50, 0.4)", // Verde lima translúcido
   },
 };
+
+export const eventPointsLayer: LayerProps = {
+  id: "event-points-layer",
+  type: "circle",
+  source: "events",
+  filter: ["==", ["geometry-type"], "Point"],
+  paint: {
+    "circle-radius": 9,
+    "circle-color": "#9333EA",
+    "circle-stroke-width": 0.5,
+    "circle-stroke-color": "#fff",
+  },
+};
+
+export const eventPolygonLayer: LayerProps = {
+  id: "event-polygon-layer",
+  type: "fill",
+  source: "events",
+  filter: ["==", ["geometry-type"], "Polygon"],
+  paint: {
+    "fill-color": "rgba(147, 51, 234, 0.25)",
+  },
+};
+
+export const eventPolygonLineLayer: LayerProps = {
+  id: "event-polygon-line-layer",
+  type: "line",
+  source: "events",
+  filter: ["==", ["geometry-type"], "Polygon"],
+  paint: {
+    "line-color": "#9333EA",
+    "line-width": 2,
+  },
+};
+
+export const eventTextLayer: LayerProps = {
+  id: "event-text-layer",
+  type: "symbol",
+  source: "events",
+  filter: ["all", ["==", ["geometry-type"], "Point"], ["any", ["has", "startDate"], ["has", "eventLabel"]]],
+  layout: {
+    "text-field": ["case", ["has", "eventLabel"], ["get", "eventLabel"], ["get", "name"]],
+    "text-font": ["Roboto Slab Medium"],
+    "text-size": 12,
+    "text-anchor": "top",
+    "text-offset": [0, 0.8],
+  },
+  paint: {
+    "text-color": "#9333EA",
+  },
+};

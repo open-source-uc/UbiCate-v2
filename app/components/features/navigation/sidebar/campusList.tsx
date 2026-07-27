@@ -1,5 +1,8 @@
+import { useMemo } from "react";
+
 import * as Icons from "@/app/components/ui/icons/icons";
-import { SubSidebarType } from "@/lib/types";
+import { allEvents } from "@/lib/places/eventsData";
+import { isEventVisible, siglas, SubSidebarType } from "@/lib/types";
 
 import CampusButton from "./CampusButton";
 
@@ -10,6 +13,24 @@ export default function CampusList({
   handleCampusClick: (campus: string) => void;
   setActiveSubSidebar: (value: SubSidebarType) => void;
 }) {
+  const now = new Date();
+
+  const campusEventCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const ev of allEvents) {
+      if (!isEventVisible(ev.properties, now)) continue;
+      const campusCode = ev.properties.campus;
+      if (!campusCode) continue;
+      counts[campusCode] = (counts[campusCode] || 0) + 1;
+    }
+    return counts;
+  }, [allEvents]);
+
+  const getEventCount = (campusName: string) => {
+    const code = siglas.get(campusName);
+    return code ? campusEventCounts[code] || 0 : 0;
+  };
+
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
@@ -38,30 +59,35 @@ export default function CampusList({
               displayName="San Joaquín"
               imageSrc="/images/campus/san_joaquin.jpg"
               onClick={handleCampusClick}
+              eventCount={getEventCount("SanJoaquin")}
             />
             <CampusButton
               name="CasaCentral"
               displayName="Casa Central"
               imageSrc="/images/campus/casa_central.jpg"
               onClick={handleCampusClick}
+              eventCount={getEventCount("CasaCentral")}
             />
             <CampusButton
               name="Oriente"
               displayName="Oriente"
               imageSrc="/images/campus/oriente.jpg"
               onClick={handleCampusClick}
+              eventCount={getEventCount("Oriente")}
             />
             <CampusButton
               name="LoContador"
               displayName="Lo Contador"
               imageSrc="/images/campus/lo_contador.jpg"
               onClick={handleCampusClick}
+              eventCount={getEventCount("LoContador")}
             />
             <CampusButton
               name="Villarrica"
               displayName="Villarrica"
               imageSrc="/images/campus/villarrica.png"
               onClick={handleCampusClick}
+              eventCount={getEventCount("Villarrica")}
               className="col-span-2 md:col-span-1"
             />
           </div>

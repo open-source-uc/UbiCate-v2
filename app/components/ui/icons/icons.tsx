@@ -672,3 +672,28 @@ export function Emergency({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function Event({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-slot="icon" className={className ?? ""}>
+      <path
+        fill="currentColor"
+        d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"
+      />
+    </svg>
+  );
+}
+
+export function Delete({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      data-slot="icon"
+      className={className}
+    >
+      <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-760h240v-40H360v40Zm0 0v-40 40Zm-80 560h400-400Z" />
+    </svg>
+  );
+}

@@ -17,6 +17,10 @@ interface SidebarContextType {
   pointsName: PointFeature[];
   activeFilters: string[];
   setActiveFilters: (filters: string[]) => void;
+  eventCounts: Map<string, number>;
+  setEventCounts: (counts: Map<string, number>) => void;
+  eventPlaceIds: Set<string>;
+  setEventPlaceIds: (ids: Set<string>) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
@@ -24,8 +28,10 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [eventCounts, setEventCounts] = useState<Map<string, number>>(new Map());
+  const [eventPlaceIds, setEventPlaceIds] = useState<Set<string>>(new Set());
 
-  const o = usePlaces();
+  const o = usePlaces(eventCounts);
 
   useEffect(() => {
     const savedFilters = localStorage.getItem("ubicateActiveFilters");
@@ -53,6 +59,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         pointsName: o.PointsName,
         activeFilters,
         setActiveFilters,
+        eventCounts,
+        setEventCounts,
+        eventPlaceIds,
+        setEventPlaceIds,
       }}
     >
       {children}

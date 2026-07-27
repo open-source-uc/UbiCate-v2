@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { DirectionsProvider } from "./context/directionsCtx";
+import { MapPickingProvider } from "./context/mapPickingCtx";
 import { NotificationProvider } from "./context/notificationCtx";
 import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
@@ -33,9 +34,11 @@ export default function Providers({ children }: ProvidersProps) {
         <SidebarProvider>
           <DirectionsProvider>
             <PinsProvider>
-              <NotificationProvider>
-                <ThemeProvider>{children}</ThemeProvider>
-              </NotificationProvider>
+              <MapPickingProvider>
+                <NotificationProvider>
+                  <ThemeProvider>{children}</ThemeProvider>
+                </NotificationProvider>
+              </MapPickingProvider>
             </PinsProvider>
           </DirectionsProvider>
         </SidebarProvider>

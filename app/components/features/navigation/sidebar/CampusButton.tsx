@@ -1,14 +1,24 @@
 import Image from "next/image";
 
+import * as Icons from "@/app/components/ui/icons/icons";
+
 interface CampusButtonProps {
   name: string;
   displayName: string;
   imageSrc: string;
   onClick: (campus: string) => void;
+  eventCount?: number;
   className?: string;
 }
 
-export default function CampusButton({ name, displayName, imageSrc, onClick, className = "" }: CampusButtonProps) {
+export default function CampusButton({
+  name,
+  displayName,
+  imageSrc,
+  onClick,
+  eventCount = 0,
+  className = "",
+}: CampusButtonProps) {
   return (
     <button
       onClick={() => onClick(name)}
@@ -31,6 +41,12 @@ export default function CampusButton({ name, displayName, imageSrc, onClick, cla
           {displayName}
         </span>
       </div>
+      {eventCount > 0 ? (
+        <span className="absolute top-2 right-2 h-5 flex items-center gap-1 px-1.5 text-[10px] font-bold rounded-full bg-chart-events text-background whitespace-nowrap">
+          <Icons.Event className="h-3 w-3 fill-background" />
+          {eventCount} {eventCount === 1 ? "Evento" : "Eventos"}
+        </span>
+      ) : null}
     </button>
   );
 }
