@@ -11,9 +11,9 @@
                 ]
             },
             "properties": {
-                "identifier": "ms3lh6wargq8zm",
-                "name": "Huerto San Francisco",
-                "information": "kajdksa",
+                "identifier": "ms3lh788si9xzl",
+                "name": "Lugar 1",
+                "information": "",
                 "categories": [
                     "events"
                 ],
@@ -21,11 +21,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "AGC"
-                ],
-                "startDate": "2026-07-09T15:02",
-                "endDate": "2026-07-29T15:03",
-                "parentPlaceIds": [
-                    "ms3lh788si9xzl"
                 ]
             }
         },
@@ -39,9 +34,9 @@
                 ]
             },
             "properties": {
-                "identifier": "ms3lh788si9xzl",
-                "name": "Lugar 1",
-                "information": "",
+                "identifier": "ms3lh6wargq8zm",
+                "name": "Huerto San Francisco uhhhh",
+                "information": "kajdksa",
                 "categories": [
                     "events"
                 ],
@@ -49,6 +44,11 @@
                 "campus": "SJ",
                 "faculties": [
                     "AGC"
+                ],
+                "startDate": "2026-07-09T15:02",
+                "endDate": "2026-07-29T15:03",
+                "parentPlaceIds": [
+                    "ms3lh788si9xzl"
                 ]
             }
         }
