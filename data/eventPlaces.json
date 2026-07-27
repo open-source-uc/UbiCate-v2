@@ -6,6 +6,29 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60856179812006,
+                    -33.496965426614196
+                ]
+            },
+            "properties": {
+                "identifier": "ms3lh788si9xzl",
+                "name": "Lugar 1",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61407383531326,
                     -33.49876382964445
                 ]
@@ -80,29 +103,6 @@
                 ]
             },
             "properties": {
-                "identifier": "ms3lh788si9xzl",
-                "name": "Lugar 1",
-                "information": "",
-                "categories": [
-                    "events"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": [
-                    "AGC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60856179812006,
-                    -33.496965426614196
-                ]
-            },
-            "properties": {
                 "identifier": "ms3lh6wargq8zm",
                 "name": "Huerto San Francisco uhhhh",
                 "information": "kajdksa",
@@ -117,7 +117,8 @@
                 "startDate": "2026-07-09T15:02",
                 "endDate": "2026-07-29T15:03",
                 "parentPlaceIds": [
-                    "ms3lh788si9xzl"
+                    "ms3lh788si9xzl",
+                    "MKFKZG5LR8SNFI"
                 ]
             }
         }
