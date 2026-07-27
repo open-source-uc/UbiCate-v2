@@ -379,13 +379,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61226089952602,
-                    -33.49921943543402
+                    -70.6107583464171,
+                    -33.5005803188261
                 ]
             },
             "properties": {
                 "identifier": "mryzrxmbd55p6u",
-                "name": "prueba muy largaprueba muy largaprueba muy largaprueba muy largaprueba muy largaprueba muy larga",
+                "name": "prueba muycorta",
                 "information": "Prueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy largaPrueba muy larga",
                 "categories": [
                     "events"
@@ -393,13 +393,12 @@
                 "floors": [],
                 "campus": "SJ",
                 "faculties": [
-                    "LA_Y"
+                    "D"
                 ],
                 "startDate": "2026-07-16T09:43",
                 "endDate": "2026-07-30T09:43",
                 "parentPlaceIds": [
-                    "FOOD_LUNCH-32380458",
-                    "mryzrz9qe7zzf0"
+                    "FOOD_LUNCH-32380458"
                 ]
             }
         },
