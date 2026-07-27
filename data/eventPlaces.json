@@ -6,6 +6,27 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61365680314866,
+                    -33.49652440002035
+                ]
+            },
+            "properties": {
+                "identifier": "mrz4wgkrt75nrx",
+                "name": "Evento de prueba",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60778490421397,
                     -33.496321952657254
                 ]
@@ -34,27 +55,6 @@
             "properties": {
                 "identifier": "mrw43psdxvm3er",
                 "name": "Lugar de prueba del evento, es como una plaza a la entrada",
-                "information": "",
-                "categories": [
-                    "events"
-                ],
-                "floors": [],
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61365680314866,
-                    -33.49652440002035
-                ]
-            },
-            "properties": {
-                "identifier": "ms3eirzn4yyios",
-                "name": "Evento de pruebatest",
                 "information": "",
                 "categories": [
                     "events"
@@ -195,7 +195,7 @@
             },
             "properties": {
                 "identifier": "mrz4wg5tiv8qmj",
-                "name": "Probando el mostrar desde antes",
+                "name": "Probando el mostrar desdex2",
                 "information": "test mostrar desde",
                 "categories": [
                     "events"
@@ -207,7 +207,7 @@
                 "endDate": "2026-08-07T12:07",
                 "showFrom": "2026-07-18T12:07",
                 "parentPlaceIds": [
-                    "ms3eirzn4yyios"
+                    "mrz4wgkrt75nrx"
                 ]
             }
         },
