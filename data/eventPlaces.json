@@ -11,20 +11,15 @@
                 ]
             },
             "properties": {
-                "identifier": "ms3ib2luejxc0v",
-                "name": "test",
-                "information": "testdescrpipcion",
+                "identifier": "ms3ib36j58ern7",
+                "name": "Lugar 1",
+                "information": "",
                 "categories": [
                     "events"
                 ],
                 "floors": [],
                 "campus": "SJ",
-                "faculties": [],
-                "startDate": "2026-07-06T13:34",
-                "endDate": "2026-07-31T13:34",
-                "parentPlaceIds": [
-                    "ms3ib36j58ern7"
-                ]
+                "faculties": []
             }
         },
         {
@@ -37,15 +32,20 @@
                 ]
             },
             "properties": {
-                "identifier": "ms3ib36j58ern7",
-                "name": "Lugar 1",
-                "information": "",
+                "identifier": "ms3ib2luejxc0v",
+                "name": "test evento nombre",
+                "information": "testdescrpipcion",
                 "categories": [
                     "events"
                 ],
                 "floors": [],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [],
+                "startDate": "2026-07-06T13:34",
+                "endDate": "2026-07-31T13:34",
+                "parentPlaceIds": [
+                    "ms3ib36j58ern7"
+                ]
             }
         },
         {
