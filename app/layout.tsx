@@ -7,6 +7,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 
 // import AnnouncementHandler from "./components/app/AnnouncementHandler";
+import ConnectionBadge from "./components/app/ConnectionBadge";
 import ManifestFixer from "./components/app/ManifestFixer";
 import SWRegister from "./components/app/SWRegister";
 
@@ -92,6 +93,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </noscript>
         {/* End Google Tag Manager (noscript) - DTFD / UC */}
         <div className="w-full h-dvh flex flex-col justify-between">{children}</div>
+        <ConnectionBadge />
         <SWRegister />
         <ManifestFixer />
       </body>
