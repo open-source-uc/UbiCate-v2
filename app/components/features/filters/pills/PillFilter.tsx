@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 
 import { categoryFilter, PlaceFilter } from "@/app/components/features/filters/pills/placeFilters";
 import { useSidebar } from "@/app/context/sidebarCtx";
@@ -44,74 +44,23 @@ const emergencyPills: Array<CategoryFilter> = [
 ];
 
 function PillFilter() {
-  const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
   const { setPlaces, activeFilters, setActiveFilters, allFeatures, isDataLoaded } = useSidebar();
 
   const placesGeoJson = useMemo(() => ({ type: "FeatureCollection", features: allFeatures }), [allFeatures]);
 
-  useEffect(() => {
-    if (!isDataLoaded || allFeatures.length === 0) return;
-    if (activeFilters.length === 0) {
-      setPlaces([]);
-      return;
-    }
-
-    const allResults: any[] = [];
-    const seenIds = new Set<string>();
-
-    activeFilters.forEach((cat) => {
-      const results = placesFilteredByCategory[cat] || categoryFilter(placesGeoJson, cat);
-
-      if (!placesFilteredByCategory[cat]) {
-        setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
-      }
-
-      results.forEach((feature: any) => {
-        const featureId = feature.properties?.id || JSON.stringify(feature);
-        if (!seenIds.has(featureId)) {
-          seenIds.add(featureId);
-          allResults.push(feature);
-        }
-      });
-    });
-
-    setPlaces(allResults);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [placesGeoJson, activeFilters, isDataLoaded]);
-
-  const applyFilter = useCallback(
-    (filter: PlaceFilter, category: string) => {
-      if (!isDataLoaded) return;
-
-      let newActiveFilters: string[];
-
-      if (activeFilters.includes(category)) {
-        newActiveFilters = activeFilters.filter((f) => f !== category);
-      } else {
-        newActiveFilters = [category];
-      }
-
-      setActiveFilters(newActiveFilters);
-
-      if (newActiveFilters.length === 0) {
-        setPlaces([]);
-        return;
-      }
-
+  // Recalcula SIEMPRE desde placesGeoJson (el allFeatures actual). Antes se cacheaba por categoría en un
+  // estado que no se refrescaba al llegar datos nuevos → los pills mostraban lo viejo hasta un F5.
+  const buildFilteredPlaces = useCallback(
+    (filters: string[], filterFn: PlaceFilter = categoryFilter) => {
       const allResults: any[] = [];
       const seenIds = new Set<string>();
 
-      newActiveFilters.forEach((cat) => {
-        const results = placesFilteredByCategory[cat] || filter(placesGeoJson, cat);
-
-        if (!placesFilteredByCategory[cat]) {
-          setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
-        }
-
+      filters.forEach((cat) => {
+        const results = filterFn(placesGeoJson, cat);
         results.forEach((feature: any) => {
-          const featureId = feature.properties?.id || JSON.stringify(feature);
+          const featureId = feature.properties?.identifier ?? feature.properties?.id ?? JSON.stringify(feature);
           if (!seenIds.has(featureId)) {
             seenIds.add(featureId);
             allResults.push(feature);
@@ -119,9 +68,33 @@ function PillFilter() {
         });
       });
 
-      setPlaces(allResults);
+      return allResults;
     },
-    [placesGeoJson, placesFilteredByCategory, setPlaces, activeFilters, setActiveFilters, isDataLoaded],
+    [placesGeoJson],
+  );
+
+  // Al cambiar los datos (allFeatures → placesGeoJson) o los filtros activos, recarga los puntos del mapa.
+  useEffect(() => {
+    if (!isDataLoaded || allFeatures.length === 0) return;
+    if (activeFilters.length === 0) {
+      setPlaces([]);
+      return;
+    }
+    setPlaces(buildFilteredPlaces(activeFilters));
+  }, [buildFilteredPlaces, activeFilters, isDataLoaded, allFeatures.length, setPlaces]);
+
+  const applyFilter = useCallback(
+    (filter: PlaceFilter, category: string) => {
+      if (!isDataLoaded) return;
+
+      const newActiveFilters = activeFilters.includes(category)
+        ? activeFilters.filter((f) => f !== category)
+        : [category];
+
+      setActiveFilters(newActiveFilters);
+      setPlaces(newActiveFilters.length === 0 ? [] : buildFilteredPlaces(newActiveFilters, filter));
+    },
+    [buildFilteredPlaces, setPlaces, activeFilters, setActiveFilters, isDataLoaded],
   );
 
   return (

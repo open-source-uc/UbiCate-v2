@@ -37,7 +37,13 @@ export default function PlaceMenu({
         body: { identifier, action: "approve" },
       }),
     onSuccess: () => {
-      Swal.fire({ icon: "success", title: "¡Éxito!", text: "Se aprobó el lugar", timer: 2000, showConfirmButton: false });
+      Swal.fire({
+        icon: "success",
+        title: "¡Éxito!",
+        text: "Se aprobó el lugar",
+        timer: 2000,
+        showConfirmButton: false,
+      });
       setSelectedPlace(null);
       onCloseMenu?.();
       refetchPlaces();
@@ -55,7 +61,13 @@ export default function PlaceMenu({
       }),
     onSuccess: (_, variables) => {
       const action = variables.source === "approved" ? "eliminó" : "rechazó";
-      Swal.fire({ icon: "success", title: "¡Éxito!", text: `Se ${action} el lugar`, timer: 2000, showConfirmButton: false });
+      Swal.fire({
+        icon: "success",
+        title: "¡Éxito!",
+        text: `Se ${action} el lugar`,
+        timer: 2000,
+        showConfirmButton: false,
+      });
       setSelectedPlace(null);
       onCloseMenu?.();
       refetchPlaces();

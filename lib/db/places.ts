@@ -69,9 +69,16 @@ async function loadAndCacheCampuses(): Promise<Feature[]> {
   return features;
 }
 
-export async function getAllPlaces(): Promise<{ approved: Feature[]; newPlaces: Feature[] }> {
-  const cached = cache.get<{ approved: Feature[]; newPlaces: Feature[] }>(CACHE_KEY_PLACES);
-  if (cached) return cached;
+export async function getAllPlaces(options?: {
+  bypassCache?: boolean;
+}): Promise<{ approved: Feature[]; newPlaces: Feature[] }> {
+  // bypassCache=true → salta la Capa 1 (cache en memoria) y lee directo de la BD.
+  // Lo usan el modo debug (siempre datos frescos) y el refetch post-mutación.
+  // loadAndCacheAllPlaces() además repuebla la Capa 1 con los datos frescos.
+  if (!options?.bypassCache) {
+    const cached = cache.get<{ approved: Feature[]; newPlaces: Feature[] }>(CACHE_KEY_PLACES);
+    if (cached) return cached;
+  }
   return loadAndCacheAllPlaces();
 }
 

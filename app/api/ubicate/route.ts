@@ -55,9 +55,12 @@ async function buildFeature(points: any[], properties: Record<string, unknown>):
   } as Feature;
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const { approved, newPlaces } = await getAllPlaces();
+    // X-Ubicate-Fresh: "true" → salta la Capa 1 (cache en memoria) y lee directo de la BD.
+    // Lo envían el modo debug (siempre datos frescos) y el refetch post-mutación.
+    const bypassCache = request.headers.get("X-Ubicate-Fresh") === "true";
+    const { approved, newPlaces } = await getAllPlaces({ bypassCache });
 
     const approvedCollection = { type: "FeatureCollection", features: approved };
     const newPlacesCollection = { type: "FeatureCollection", features: newPlaces };
