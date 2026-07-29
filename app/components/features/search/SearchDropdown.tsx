@@ -5,7 +5,6 @@ import Fuse from "fuse.js";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { emitPlaceSelectedEvent } from "@/lib/events/customEvents";
 import { getCategoryColor } from "@/lib/map/categoryToColors";
-import PlacesJSON from "@/lib/places/data";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
 import * as Icons from "../../ui/icons/icons";
@@ -23,17 +22,18 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { setPlaces } = useSidebar();
+  const { setPlaces, allFeatures } = useSidebar();
 
   const fuse = useMemo(() => {
-    return new Fuse(PlacesJSON.features, {
+    if (allFeatures.length === 0) return null;
+    return new Fuse(allFeatures, {
       keys: ["properties.name"],
       threshold: 0.3,
     });
-  }, []);
+  }, [allFeatures]);
 
   const matchingFeatures = useMemo((): Feature[] => {
-    if (!query.trim()) return [];
+    if (!query.trim() || !fuse) return [];
 
     const results = fuse.search(query);
     return results.slice(0, 20).map((result) => result.item);

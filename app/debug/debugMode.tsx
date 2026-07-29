@@ -9,9 +9,8 @@ import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceFor
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
-import Places from "@/lib/places/data";
 import { normalizeIdentifier } from "@/lib/places/utils";
-import { EventFeature, EventLocation, Feature, getParentPlaceIds, JSONFeatures, PointFeature } from "@/lib/types";
+import { EventFeature, EventLocation, Feature, getParentPlaceIds, PointFeature } from "@/lib/types";
 
 import {
   allPointsLayer,
@@ -48,6 +47,24 @@ function DebugMode() {
     }
   }, []);
 
+  // Exit debug mode on offline
+  useEffect(() => {
+    const handleOffline = () => {
+      sessionStorage.removeItem("debugMode");
+      setIsDebugMode(false);
+    };
+    window.addEventListener("offline", handleOffline);
+    return () => window.removeEventListener("offline", handleOffline);
+  }, []);
+
+  // Exit debug mode if already offline on mount
+  useEffect(() => {
+    if (typeof navigator !== "undefined" && !navigator.onLine) {
+      sessionStorage.removeItem("debugMode");
+      setIsDebugMode(false);
+    }
+  }, []);
+
   const {
     data: ubicateData,
     isLoading,
@@ -56,7 +73,9 @@ function DebugMode() {
   } = useQuery({
     queryKey: ["ubicate-debug"],
     queryFn: async () => {
-      const response = await apiClient("/api/ubicate");
+      const response = await apiClient("/api/ubicate", {
+        headers: { "X-Ubicate-Fresh": "true" },
+      });
       return response;
     },
     enabled: isDebugMode,
@@ -210,7 +229,8 @@ function DebugMode() {
     throw new Error("Failed to fetch GeoJSON data " + error?.message);
   }
 
-  const json: JSONFeatures | null = ubicateData?.new_places;
+  const approvedFeatures: Feature[] = ubicateData?.approved_places?.features ?? [];
+  const newPlacesFeatures: Feature[] = ubicateData?.new_places?.features ?? [];
 
   return (
     <>
@@ -218,6 +238,15 @@ function DebugMode() {
         className="fixed right-0 top-44 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/5 overflow-auto 
 resize-x border-2 border-dashed pointer-events-auto"
       >
+        <button
+          onClick={() => {
+            sessionStorage.removeItem("debugMode");
+            setIsDebugMode(false);
+          }}
+          className="mb-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Salir de modo debug
+        </button>
         <div className="mt-4">
           <label className="flex items-center">
             <input type="radio" checked={debugMode === 1} onChange={() => setDebugMode(1)} className="mr-2" />
@@ -329,14 +358,14 @@ resize-x border-2 border-dashed pointer-events-auto"
           <Source
             id="debug-1"
             type="geojson"
-            data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Polygon"))}
+            data={featuresToGeoJSON(approvedFeatures.filter((e) => e.geometry.type === "Polygon"))}
           >
             <Layer {...redLineLayerDebug} />
           </Source>
           <Source
             id="debug-2"
             type="geojson"
-            data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Point"))}
+            data={featuresToGeoJSON(approvedFeatures.filter((e) => e.geometry.type === "Point"))}
           >
             <Layer {...allPointsLayer} />
             <Layer {...allPlacesTextLayer} />
@@ -344,11 +373,21 @@ resize-x border-2 border-dashed pointer-events-auto"
         </>
       )}
 
-      {debugMode === 2 && json ? (
+      {debugMode === 2 && newPlacesFeatures.length > 0 ? (
         <>
-          <Source id="debug-8" type="geojson" data={featuresToGeoJSON(json.features)}>
+          <Source
+            id="debug-8"
+            type="geojson"
+            data={featuresToGeoJSON(newPlacesFeatures.filter((e) => e.geometry.type === "Polygon"))}
+          >
             <Layer {...sectionAreaLayerDebug} />
             <Layer {...redLineLayerDebug} />
+          </Source>
+          <Source
+            id="debug-3"
+            type="geojson"
+            data={featuresToGeoJSON(newPlacesFeatures.filter((e) => e.geometry.type === "Point"))}
+          >
             <Layer {...approvalPointsLayer} />
             <Layer {...allPlacesTextApprovalLayer} />
           </Source>

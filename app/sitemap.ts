@@ -1,11 +1,12 @@
 import { MetadataRoute } from "next";
 
-import PlacesJSON from "@/lib/places/data";
+import { getAllPlaces } from "@/lib/db/places";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
-  // Homepage
+  const { approved } = await getAllPlaces();
+
   const sitemapEntries: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -14,17 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Agregar todos los lugares como query params en homepage
-  if (PlacesJSON.features && Array.isArray(PlacesJSON.features)) {
-    PlacesJSON.features.forEach((place) => {
-      if (place.properties?.identifier) {
-        sitemapEntries.push({
-          url: `${baseUrl}/?place=${encodeURIComponent(place.properties.identifier)}`,
-          lastModified: new Date(),
-          priority: 0.8,
-        });
-      }
-    });
+  for (const place of approved) {
+    if (place.properties?.identifier) {
+      sitemapEntries.push({
+        url: `${baseUrl}/?place=${encodeURIComponent(place.properties.identifier)}`,
+        lastModified: new Date(),
+        priority: 0.8,
+      });
+    }
   }
 
   return sitemapEntries;

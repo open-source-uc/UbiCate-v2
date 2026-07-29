@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { useMutation } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { EventLocation, PointFeature } from "@/lib/types";
-
-import { NotificationState } from "../components/features/places/forms/notification";
 
 export interface EventFormData {
   name: string;
@@ -44,7 +43,6 @@ export function useEventPlaceForm(
   defaultData?: EventFormData & { identifier?: string },
   onClose?: () => void,
 ) {
-  const [notification, setNotification] = useState<NotificationState | null>(null);
   const [data, setData] = useState<Omit<EventFormData, "identifier">>(
     defaultData
       ? {
@@ -73,40 +71,28 @@ export function useEventPlaceForm(
     mutationFn: (body: CreateEvent) => {
       return method === "POST" ? createEvent(body) : updateEvent(body);
     },
-    onSuccess: () => {
-      setNotification({
-        type: "success",
-        message: method === "POST" ? "Evento creado" : "Evento actualizado",
-        visible: true,
+    onSuccess: async (result: { message?: string }) => {
+      // Los eventos son admin-only y se publican de inmediato (sin aprobación).
+      await Swal.fire({
+        icon: "success",
+        title: "¡Listo!",
+        text: result?.message || (method === "POST" ? "Evento creado" : "Evento actualizado"),
+        confirmButtonText: "Entendido",
       });
-
-      setTimeout(() => {
-        onClose?.();
-      }, 2000);
+      onClose?.();
     },
     onError: (error: any) => {
-      setNotification({
-        type: "error",
-        message: error.data?.message || error.message || "Ha ocurrido un error",
-        visible: true,
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.data?.message || error.message || "Ha ocurrido un error",
       });
     },
   });
 
-  useEffect(() => {
-    if (notification?.visible) {
-      const timer = setTimeout(() => {
-        setNotification((prev) => (prev ? { ...prev, visible: false } : null));
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [notification]);
-
   return {
     data,
     setData,
-    notification,
     eventMutation,
     isLoading: eventMutation.isPending,
   };

@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 
-import Places from "@/lib/places/data";
 import { CATEGORIES, Feature, PointFeature } from "@/lib/types";
 
 import * as Icon from "../components/ui/icons/icons";
+import { useSidebar } from "../context/sidebarCtx";
 
 function toRadians(value: number): number {
   return (value * Math.PI) / 180;
@@ -26,8 +26,8 @@ function haversineDistanceMeters(lat1: number, lng1: number, lat2: number, lng2:
   return earthRadiusMeters * c;
 }
 
-function getNearestDea(latitude: number, longitude: number): PointFeature | null {
-  const deaPoints = Places.features.filter((feature: Feature): feature is PointFeature => {
+function getNearestDea(latitude: number, longitude: number, allFeatures: Feature[]): PointFeature | null {
+  const deaPoints = allFeatures.filter((feature: Feature): feature is PointFeature => {
     return feature.geometry.type === "Point" && feature.properties.categories.includes(CATEGORIES.DEA);
   });
 
@@ -51,6 +51,7 @@ function getNearestDea(latitude: number, longitude: number): PointFeature | null
 export default function FindNearestDeaButton() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const { allFeatures } = useSidebar();
 
   const goToDeaFilter = () => {
     router.push("/?category=dea");
@@ -66,7 +67,7 @@ export default function FindNearestDeaButton() {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const nearestDea = getNearestDea(position.coords.latitude, position.coords.longitude);
+        const nearestDea = getNearestDea(position.coords.latitude, position.coords.longitude, allFeatures);
         setIsLoading(false);
 
         if (!nearestDea) {

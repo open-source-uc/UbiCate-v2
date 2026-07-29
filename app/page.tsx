@@ -1,29 +1,26 @@
 import { Metadata } from "next";
 
-import PlacesJSON from "@/lib/places/data";
-import { Feature } from "@/lib/types";
+import { getPlaceById } from "@/lib/db/places";
+import type { Feature } from "@/lib/types";
 
 import H1SEO from "./components/app/H1SEO";
 import StructuredData from "./components/app/StructuredData";
 import NavigationSidebar from "./components/features/navigation/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";
 import Providers from "./providers";
+
 type SearchParams = { campus?: string; place?: string; lng?: number; lat?: number };
 
 export async function generateMetadata(props: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const searchParams = await props.searchParams;
   const paramPlaceId: string | undefined = searchParams?.place;
-  const paramPlace: Feature | null = paramPlaceId
-    ? PlacesJSON.features.find((place) => place.properties.identifier === paramPlaceId) ?? null
-    : null;
+  const paramPlace: Feature | null = paramPlaceId ? await getPlaceById(paramPlaceId) : null;
 
   const defaultDescription =
     "Mapa interactivo para encontrar salas, baños, bibliotecas y casinos en los campus de la Pontificia Universidad Católica. Navega fácil y rápido.";
 
   let title = "Ubicate UC: Mapa interactivo de salas, baños y bibliotecas en campus UC";
-  let floor = undefined;
   if (paramPlace) {
-    floor = paramPlace?.properties.floors?.[0];
     title = `${paramPlace.properties.name} en ${paramPlace.properties.campus} | Ubicate UC`;
   }
 
@@ -107,17 +104,13 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
   const paramLng: number | undefined = searchParams?.lng;
   const paramLat: number | undefined = searchParams?.lat;
 
-  const paramPlace: Feature | null = searchParams?.place
-    ? (PlacesJSON.features.find(
-        (place) => place.properties.identifier.toUpperCase() === searchParams?.place?.toUpperCase(),
-      ) as Feature) ?? null
-    : null;
+  const paramPlace: Feature | null = searchParams?.place ? await getPlaceById(searchParams.place) : null;
 
   return (
     <>
       <StructuredData />
       <H1SEO />
-      <main spellCheck="false" className="h-full w-full relative flex">
+      <main spellCheck="false" className="h-full w-full relative">
         <Providers>
           <NavigationSidebar />
           <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
@@ -126,5 +119,3 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
     </>
   );
 }
-
-export const runtime = "edge";

@@ -11,7 +11,6 @@ import * as Icons from "../../../ui/icons/icons";
 import { CategoriesField } from "./categoriesField";
 import { DescriptionField } from "./descriptionField";
 import { FloorsField } from "./floorsField";
-import { Notification } from "./notification";
 import { PlaceNameField } from "./placeNameField";
 import { SubmitButton } from "./submitButton";
 
@@ -49,7 +48,7 @@ export default function PlaceForm({
 }) {
   const { pins } = use(pinsContext);
 
-  const { data, setData, notification, placeMutation, isLoading } = usePlaceForm(method, defaultData, onClose);
+  const { data, setData, placeMutation, isLoading } = usePlaceForm(method, defaultData, onClose);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,8 +73,6 @@ export default function PlaceForm({
 
   return (
     <>
-      <Notification notification={notification} />
-
       <form className="space-y-4 text-md px-3 py-5" onSubmit={handleSubmit}>
         <button
           onClick={() => onClose?.()}

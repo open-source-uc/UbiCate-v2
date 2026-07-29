@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import * as Icons from "@/app/components/ui/icons/icons";
-import { allEvents } from "@/lib/places/eventsData";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { isEventVisible, siglas, SubSidebarType } from "@/lib/types";
 
 import CampusButton from "./CampusButton";
@@ -14,6 +14,7 @@ export default function CampusList({
   setActiveSubSidebar: (value: SubSidebarType) => void;
 }) {
   const now = new Date();
+  const { allEvents } = useSidebar();
 
   const campusEventCounts = useMemo(() => {
     const counts: Record<string, number> = {};

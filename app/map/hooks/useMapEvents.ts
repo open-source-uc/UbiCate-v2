@@ -213,6 +213,8 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         addPin(e.lngLat.lng, e.lngLat.lat);
       });
 
+      // Nota: el manejo de clics (puntos con prioridad sobre polígonos, y capas de debug) se hace
+      // en handleMapClick vía e.features de los interactiveLayerIds del mapa, no con listeners por capa.
       setIsLoaded(true);
     },
     [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel],

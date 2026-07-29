@@ -13,7 +13,6 @@ import { EventLocation, Feature, siglas } from "@/lib/types";
 import * as Icons from "../../../ui/icons/icons";
 
 import { DescriptionField } from "./descriptionField";
-import { Notification } from "./notification";
 import { PlaceNameField } from "./placeNameField";
 import { SubmitButton } from "./submitButton";
 
@@ -50,7 +49,7 @@ export default function EventPlaceForm({
   const [parentSearch, setParentSearch] = useState("");
   const [selectedParentName, setSelectedParentName] = useState("");
 
-  const { data, setData, notification, eventMutation, isLoading } = useEventPlaceForm(method, defaultData, () => {
+  const { data, setData, eventMutation, isLoading } = useEventPlaceForm(method, defaultData, () => {
     onSuccess?.();
     onClose?.();
   });
@@ -170,8 +169,6 @@ export default function EventPlaceForm({
 
   return (
     <>
-      <Notification notification={notification} />
-
       <form className="space-y-4 text-md px-3 py-5" onSubmit={handleSubmit}>
         <button
           onClick={() => onClose?.()}

@@ -1,39 +1,55 @@
-import "@/lib/setup-proxy";
-
 import { NextRequest, NextResponse } from "next/server";
 
-import { fetchApprovedPlaces, fetchEventPlaces, githubFileOperation } from "@/lib/github/operations";
-import { createFeatureFromPoints, generateRandomIdWithTimestamp, normalizeIdentifier } from "@/lib/places/utils";
-import { EventFeature, Feature, getParentPlaceIds } from "@/lib/types";
+import { booleanClockwise, centroid } from "@turf/turf";
+
+import "@/lib/setup-proxy";
+import { createEvent, deleteEvent, getAllEvents, updateEvent } from "@/lib/db/events";
+import { getAllPlaces, getCampusNameForPoint, getFacultyForPoint } from "@/lib/db/places";
+import { generateRandomIdWithTimestamp, normalizeIdentifier } from "@/lib/places/utils";
+import type { EventFeature, Feature } from "@/lib/types";
 import { eventDeleteSchema, eventPlaceSchema, eventPutSchema } from "@/lib/validation/schemas";
 
 const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
 
-const emptyCollection = { type: "FeatureCollection", features: [] };
+function buildGeometry(points: any[]): { geometry: any; lng: number; lat: number } | null {
+  if (points.length === 0) return null;
 
-export async function GET() {
-  try {
-    const { fileData: eventPlaces } = await fetchEventPlaces();
-
-    return NextResponse.json(
-      {
-        message: "Success",
-        events: eventPlaces,
-      },
-      { status: 200 },
-    );
-  } catch (error) {
-    console.error("Error in GET events:", error);
-    return NextResponse.json(
-      {
-        message: "Success",
-        events: emptyCollection,
-      },
-      { status: 200 },
-    );
+  if (points.length === 1) {
+    const coords = points[0].geometry.coordinates;
+    return { geometry: { type: "Point", coordinates: coords }, lng: coords[0], lat: coords[1] };
   }
+
+  if (points.length < 3) return null;
+
+  const coordinates = points.map((p: any) => p.geometry.coordinates);
+  coordinates.push(coordinates[0]);
+  const geometry = { type: "Polygon" as const, coordinates: [coordinates] };
+
+  if (booleanClockwise(geometry as any)) {
+    geometry.coordinates[0].reverse();
+  }
+
+  const center = centroid({ type: "Feature", geometry } as any);
+  return { geometry, lng: center.geometry.coordinates[0], lat: center.geometry.coordinates[1] };
 }
 
+// Construye un Feature resolviendo campus/facultades contra la BD (igual que /api/ubicate).
+async function buildFeature(points: any[], properties: Record<string, unknown>): Promise<Feature | null> {
+  const result = buildGeometry(points);
+  if (!result) return null;
+
+  const campus = (await getCampusNameForPoint(result.lng, result.lat)) || "";
+  const faculties = campus ? await getFacultyForPoint(result.lng, result.lat) : [];
+
+  return {
+    type: "Feature",
+    geometry: result.geometry,
+    properties: { ...properties, campus, faculties },
+  } as Feature;
+}
+
+// Resuelve las ubicaciones del evento: "existing" → id real del lugar aprobado;
+// "new" → construye un Feature (que luego se persistirá como Place isEventOnly).
 async function resolveLocations(
   locations: Array<{
     type: string;
@@ -45,8 +61,7 @@ async function resolveLocations(
   }>,
   categories: string[],
   floors: number[],
-  eventPlaces: Feature[],
-  approvedPlaces?: Feature[],
+  approvedPlaces: Feature[],
 ): Promise<{ parentPlaceIds: string[]; newPlaceFeatures: Feature[] }> {
   const parentPlaceIds: string[] = [];
   const newPlaceFeatures: Feature[] = [];
@@ -54,24 +69,23 @@ async function resolveLocations(
   for (const loc of locations) {
     if (loc.type === "existing" && loc.placeId) {
       const normalizedId = normalizeIdentifier(loc.placeId);
-      const exists = approvedPlaces?.some((f) => normalizeIdentifier(f.properties.identifier) === normalizedId);
-      if (!exists) {
-        continue;
-      }
-      parentPlaceIds.push(loc.placeId);
+      const place = approvedPlaces.find((f) => normalizeIdentifier(f.properties.identifier) === normalizedId);
+      if (!place) continue;
+      parentPlaceIds.push(place.properties.identifier);
     } else if (loc.type === "new" && loc.name) {
       const locPoints = loc.points || [];
       if (locPoints.length === 0) continue;
 
-      const feature = createFeatureFromPoints(locPoints, {
-        identifier: loc.identifier || generateRandomIdWithTimestamp(),
+      const feature = await buildFeature(locPoints, {
+        identifier: normalizeIdentifier(loc.identifier || generateRandomIdWithTimestamp()),
         name: loc.name,
         information: loc.information || "",
         categories,
         floors,
+        needApproval: false,
       });
 
-      if (feature) {
+      if (feature && feature.properties.campus !== "") {
         newPlaceFeatures.push(feature);
         parentPlaceIds.push(feature.properties.identifier);
       }
@@ -81,116 +95,116 @@ async function resolveLocations(
   return { parentPlaceIds, newPlaceFeatures };
 }
 
+// Construye el Feature del evento (su geometría propia): desde el primer punto "new" o,
+// si no hay, desde la geometría del primer lugar existente asociado.
+async function buildEventFeature(
+  locations: Array<{ type: string; placeId?: string; points?: any[] }>,
+  props: { identifier: string; name: string; information: string; categories: string[]; floors: number[] },
+  approvedPlaces: Feature[],
+): Promise<Feature | null> {
+  const firstNewPoint = locations.find((l) => l.type === "new" && l.points && l.points.length > 0)?.points?.[0];
+
+  if (firstNewPoint) {
+    return buildFeature([firstNewPoint], props);
+  }
+
+  const firstExisting = locations.find((l) => l.type === "existing" && l.placeId);
+  if (firstExisting) {
+    const place = approvedPlaces.find(
+      (f) => normalizeIdentifier(f.properties.identifier) === normalizeIdentifier(firstExisting.placeId!),
+    );
+    if (place) {
+      return {
+        type: "Feature",
+        geometry: place.geometry,
+        properties: { ...props, campus: place.properties.campus, faculties: place.properties.faculties },
+      } as Feature;
+    }
+  }
+
+  return null;
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const bypassCache = request.headers.get("X-Ubicate-Fresh") === "true";
+    const { events, eventPlaces } = await getAllEvents({ bypassCache });
+
+    return NextResponse.json(
+      {
+        message: "Success",
+        events: { type: "FeatureCollection", features: [...events, ...eventPlaces] },
+      },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error("Error in GET events:", error);
+    return NextResponse.json(
+      { message: "Success", events: { type: "FeatureCollection", features: [] } },
+      { status: 200 },
+    );
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const token = request.headers.get("ubicate-token");
-
     if (token !== API_UBICATE_SECRET) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
     const body = await request.json();
     const result = eventPlaceSchema.safeParse(body);
-
     if (!result.success) {
       const firstError = result.error.issues[0]?.message || "Error de validación";
       return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const { data, points, locations } = result.data;
+    const { data, locations } = result.data;
 
     if (data.startDate > data.endDate) {
       return NextResponse.json({ message: "La fecha de inicio debe ser anterior a la fecha de fin" }, { status: 400 });
     }
-
     if (locations.length === 0) {
       return NextResponse.json({ message: "Debe agregar al menos un lugar" }, { status: 400 });
     }
 
-    const firstNewLocationPoint = locations.find((l) => l.type === "new" && l.points && l.points.length > 0)
-      ?.points?.[0];
+    const { approved } = await getAllPlaces();
 
-    let approvedPlaces: Feature[] | undefined;
-    const hasExisting = locations.some((l) => l.type === "existing");
+    const eventProps = {
+      identifier: normalizeIdentifier(generateRandomIdWithTimestamp()),
+      name: data.name,
+      information: data.information,
+      categories: data.categories,
+      floors: data.floors,
+    };
 
-    if (hasExisting) {
-      const { fileData } = await fetchApprovedPlaces();
-      approvedPlaces = fileData.features;
-    }
-
-    let nuevoEvento: Feature | null = null;
-
-    if (firstNewLocationPoint) {
-      nuevoEvento = createFeatureFromPoints([firstNewLocationPoint], {
-        identifier: "",
-        name: data.name,
-        information: data.information,
-        categories: data.categories,
-        floors: data.floors,
-      });
-    } else if (hasExisting && approvedPlaces && approvedPlaces.length > 0) {
-      const firstExisting = locations.find((l) => l.type === "existing");
-      if (firstExisting) {
-        const place = approvedPlaces.find(
-          (f) => normalizeIdentifier(f.properties.identifier) === normalizeIdentifier(firstExisting.placeId!),
-        );
-        if (place) {
-          nuevoEvento = {
-            type: "Feature",
-            geometry: place.geometry,
-            properties: {
-              identifier: "",
-              name: data.name,
-              information: data.information,
-              categories: data.categories,
-              floors: data.floors,
-              campus: place.properties.campus,
-              faculties: place.properties.faculties,
-            },
-          };
-        }
-      }
-    }
-
-    if (!nuevoEvento) {
+    const eventBase = await buildEventFeature(locations, eventProps, approved);
+    if (!eventBase) {
       return NextResponse.json(
         { message: "Se requiere al menos un lugar o punto para ubicar un evento" },
         { status: 400 },
       );
     }
-
-    if (nuevoEvento.properties.campus === "") {
+    if (eventBase.properties.campus === "") {
       return NextResponse.json({ message: "El evento no está dentro de un campus" }, { status: 400 });
-    }
-
-    nuevoEvento.properties.identifier = generateRandomIdWithTimestamp();
-
-    const { url: eventsUrl, fileData: eventPlaces, file_sha: eventsSha } = await fetchEventPlaces();
-    const normalizedId = normalizeIdentifier(nuevoEvento.properties.identifier);
-    const existsInEvents = eventPlaces.features.some(
-      (feature) => normalizeIdentifier(feature.properties.identifier) === normalizedId,
-    );
-
-    if (existsInEvents) {
-      return NextResponse.json({ message: "¡El evento ya existe!" }, { status: 400 });
     }
 
     const { parentPlaceIds, newPlaceFeatures } = await resolveLocations(
       locations,
       data.categories,
       data.floors,
-      eventPlaces.features as Feature[],
-      approvedPlaces,
+      approved,
     );
 
-    for (const f of newPlaceFeatures) {
-      eventPlaces.features.unshift(f as any);
+    if (parentPlaceIds.length === 0) {
+      return NextResponse.json({ message: "Debe agregar al menos un lugar válido" }, { status: 400 });
     }
 
     const eventFeature: EventFeature = {
-      ...nuevoEvento,
+      ...eventBase,
       properties: {
-        ...nuevoEvento.properties,
+        ...eventBase.properties,
         startDate: data.startDate,
         endDate: data.endDate,
         ...(data.showFrom ? { showFrom: data.showFrom } : {}),
@@ -198,25 +212,12 @@ export async function POST(request: NextRequest) {
       },
     };
 
-    eventPlaces.features.unshift(eventFeature);
-    await githubFileOperation(
-      eventsUrl,
-      eventFeature,
-      eventPlaces,
-      eventsSha,
-      newPlaceFeatures.length > 0 ? "CREATE_EVENT_PLACE" : "CREATE_EVENT",
-    );
-
-    return NextResponse.json({
-      message: "¡El evento fue creado!",
-    });
+    await createEvent(eventFeature, newPlaceFeatures);
+    return NextResponse.json({ message: "¡El evento fue creado!" });
   } catch (error) {
     console.error("Error in POST event:", error);
     return NextResponse.json(
-      {
-        error: "Error al procesar la solicitud",
-        message: error instanceof Error ? error.message : "Unknown error",
-      },
+      { error: "Error al procesar la solicitud", message: error instanceof Error ? error.message : "Unknown error" },
       { status: 400 },
     );
   }
@@ -225,141 +226,69 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     const token = request.headers.get("ubicate-token");
-
     if (token !== API_UBICATE_SECRET) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
     const body = await request.json();
     const result = eventPutSchema.safeParse(body);
-
     if (!result.success) {
       const firstError = result.error.issues[0]?.message || "Error de validación";
       return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const { data, points, identifier, locations } = result.data;
+    const { data, identifier, locations } = result.data;
 
     if (data.startDate > data.endDate) {
       return NextResponse.json({ message: "La fecha de inicio debe ser anterior a la fecha de fin" }, { status: 400 });
     }
-
     if (locations.length === 0) {
       return NextResponse.json({ message: "Debe agregar al menos un lugar" }, { status: 400 });
     }
 
-    const firstNewLocationPoint = locations.find((l) => l.type === "new" && l.points && l.points.length > 0)
-      ?.points?.[0];
-
-    const hasExisting = locations.some((l) => l.type === "existing");
-    let approvedPlaces: Feature[] | undefined;
-
-    if (hasExisting) {
-      const { fileData } = await fetchApprovedPlaces();
-      approvedPlaces = fileData.features;
+    const normalizedId = normalizeIdentifier(identifier);
+    const { events } = await getAllEvents();
+    const existing = events.find((e) => normalizeIdentifier(e.properties.identifier) === normalizedId);
+    if (!existing) {
+      return NextResponse.json({ message: "¡El evento NO existe!" }, { status: 404 });
     }
 
-    let updatedEvento: Feature | null = null;
+    const { approved } = await getAllPlaces();
 
-    if (firstNewLocationPoint) {
-      updatedEvento = createFeatureFromPoints([firstNewLocationPoint], {
-        identifier,
-        name: data.name,
-        information: data.information,
-        categories: data.categories,
-        floors: data.floors,
-      });
-    } else if (hasExisting && approvedPlaces && approvedPlaces.length > 0) {
-      const firstExisting = locations.find((l) => l.type === "existing");
-      if (firstExisting) {
-        const place = approvedPlaces.find(
-          (f) => normalizeIdentifier(f.properties.identifier) === normalizeIdentifier(firstExisting.placeId!),
-        );
-        if (place) {
-          updatedEvento = {
-            type: "Feature",
-            geometry: place.geometry,
-            properties: {
-              identifier,
-              name: data.name,
-              information: data.information,
-              categories: data.categories,
-              floors: data.floors,
-              campus: place.properties.campus,
-              faculties: place.properties.faculties,
-            },
-          };
-        }
-      }
-    }
+    const eventProps = {
+      identifier: existing.properties.identifier,
+      name: data.name,
+      information: data.information,
+      categories: data.categories,
+      floors: data.floors,
+    };
 
-    if (!updatedEvento) {
+    const eventBase = await buildEventFeature(locations, eventProps, approved);
+    if (!eventBase) {
       return NextResponse.json(
         { message: "Se requiere al menos un lugar o punto para ubicar un evento" },
         { status: 400 },
       );
     }
-
-    if (updatedEvento.properties.campus === "") {
+    if (eventBase.properties.campus === "") {
       return NextResponse.json({ message: "El evento no está dentro de un campus" }, { status: 400 });
-    }
-
-    const normalizedIdentifier = normalizeIdentifier(identifier);
-    const { url: eventsUrl, fileData: eventPlaces, file_sha: eventsSha } = await fetchEventPlaces();
-    const eventIndex = eventPlaces.features.findIndex(
-      (feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-    );
-
-    if (eventIndex === -1) {
-      return NextResponse.json({ message: "¡El evento NO existe!" }, { status: 404 });
-    }
-
-    // Remove old location features referenced by THIS event (but not by other events)
-    const oldEvent = eventPlaces.features[eventIndex] as any;
-    const oldParentIds = oldEvent.properties?.startDate ? getParentPlaceIds(oldEvent.properties) : [];
-    const oldParentIdSet = new Set(oldParentIds.map(normalizeIdentifier));
-
-    const referencedByOthers = new Set<string>();
-    for (let i = 0; i < eventPlaces.features.length; i++) {
-      if (i === eventIndex) continue;
-      const feature = eventPlaces.features[i];
-      if (!(feature as any).properties?.startDate) continue;
-      const ids = getParentPlaceIds(feature.properties as any);
-      for (const id of ids) {
-        referencedByOthers.add(normalizeIdentifier(id));
-      }
-    }
-
-    eventPlaces.features = eventPlaces.features.filter((f) => {
-      if ((f as any).properties?.startDate) return true;
-      const normId = normalizeIdentifier(f.properties.identifier);
-      if (oldParentIdSet.has(normId) && !referencedByOthers.has(normId)) {
-        return false;
-      }
-      return true;
-    });
-
-    // Re-find event index after filtering (indices may have shifted)
-    const updatedEventIndex = eventPlaces.features.findIndex(
-      (feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-    );
-
-    if (updatedEventIndex === -1) {
-      return NextResponse.json({ message: "Error al actualizar: evento no encontrado tras limpieza" }, { status: 500 });
     }
 
     const { parentPlaceIds, newPlaceFeatures } = await resolveLocations(
       locations,
       data.categories,
       data.floors,
-      eventPlaces.features as Feature[],
-      approvedPlaces,
+      approved,
     );
 
+    if (parentPlaceIds.length === 0) {
+      return NextResponse.json({ message: "Debe agregar al menos un lugar válido" }, { status: 400 });
+    }
+
     const eventFeature: EventFeature = {
-      ...updatedEvento,
+      ...eventBase,
       properties: {
-        ...updatedEvento.properties,
+        ...eventBase.properties,
         startDate: data.startDate,
         endDate: data.endDate,
         ...(data.showFrom ? { showFrom: data.showFrom } : {}),
@@ -367,41 +296,12 @@ export async function PUT(request: NextRequest) {
       },
     };
 
-    eventPlaces.features[updatedEventIndex] = eventFeature;
-
-    for (const f of newPlaceFeatures) {
-      eventPlaces.features.unshift(f as any);
-    }
-
-    const referencedIds = new Set<string>();
-    for (const feature of eventPlaces.features) {
-      if (!(feature as any).properties?.startDate) continue;
-      const ids = getParentPlaceIds(feature.properties as any);
-      for (const id of ids) {
-        referencedIds.add(normalizeIdentifier(id));
-      }
-    }
-    eventPlaces.features = eventPlaces.features.filter((f) => {
-      if ((f as any).properties?.startDate) return true;
-      return referencedIds.has(normalizeIdentifier(f.properties.identifier));
-    });
-
-    await githubFileOperation(
-      eventsUrl,
-      eventFeature,
-      eventPlaces,
-      eventsSha,
-      newPlaceFeatures.length > 0 ? "UPDATE_EVENT_PLACE" : "UPDATE_EVENT",
-    );
-
+    await updateEvent(existing.properties.identifier, eventFeature, newPlaceFeatures);
     return NextResponse.json({ message: "¡El evento fue actualizado!" });
   } catch (error) {
     console.error("Error in PUT event:", error);
     return NextResponse.json(
-      {
-        error: "Error al procesar la solicitud",
-        message: error instanceof Error ? error.message : "Unknown error",
-      },
+      { error: "Error al procesar la solicitud", message: error instanceof Error ? error.message : "Unknown error" },
       { status: 400 },
     );
   }
@@ -410,56 +310,30 @@ export async function PUT(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   try {
     const token = request.headers.get("ubicate-token");
-
     if (token !== API_UBICATE_SECRET) {
       return NextResponse.json({ message: "No autorizado" }, { status: 401 });
     }
 
     const body = await request.json();
     const result = eventDeleteSchema.safeParse(body);
-
     if (!result.success) {
       const firstError = result.error.issues[0]?.message || "Error de validación";
       return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
-    const normalizedIdentifier = normalizeIdentifier(result.data.identifier);
-    const { url: eventsUrl, fileData: eventPlaces, file_sha: eventsSha } = await fetchEventPlaces();
-    const eventIndex = eventPlaces.features.findIndex(
-      (feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
-    );
-
-    if (eventIndex === -1) {
+    const normalizedId = normalizeIdentifier(result.data.identifier);
+    const { events } = await getAllEvents();
+    const existing = events.find((e) => normalizeIdentifier(e.properties.identifier) === normalizedId);
+    if (!existing) {
       return NextResponse.json({ message: "¡El evento NO existe!" }, { status: 404 });
     }
 
-    const eventToDelete = eventPlaces.features[eventIndex];
-    eventPlaces.features.splice(eventIndex, 1);
-
-    const referencedIds = new Set<string>();
-    for (const feature of eventPlaces.features) {
-      if (!(feature as any).properties?.startDate) continue;
-      const ids = getParentPlaceIds(feature.properties as any);
-      for (const id of ids) {
-        referencedIds.add(normalizeIdentifier(id));
-      }
-    }
-
-    eventPlaces.features = eventPlaces.features.filter((f) => {
-      if ((f as any).properties?.startDate) return true;
-      return referencedIds.has(normalizeIdentifier(f.properties.identifier));
-    });
-
-    await githubFileOperation(eventsUrl, eventToDelete, eventPlaces, eventsSha, "DELETE_EVENT");
-
+    await deleteEvent(existing.properties.identifier);
     return NextResponse.json({ message: "¡El evento fue eliminado!" });
   } catch (error) {
     console.error("Error in DELETE event:", error);
     return NextResponse.json(
-      {
-        error: "Error al procesar la solicitud",
-        message: error instanceof Error ? error.message : "Unknown error",
-      },
+      { error: "Error al procesar la solicitud", message: error instanceof Error ? error.message : "Unknown error" },
       { status: 400 },
     );
   }

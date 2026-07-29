@@ -58,8 +58,9 @@ export interface Properties {
   floors?: number[];
   needApproval?: boolean;
   displayName?: string;
-  // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
-  // needApproval sera SIEMPRE undefined en places.json
+  // Propuestas de edición (flujo Prisma): proposalType="edit" + parentPlaceId apuntan al lugar original.
+  proposalType?: "edit";
+  parentPlaceId?: string;
 }
 
 export interface EventProperties extends Properties {

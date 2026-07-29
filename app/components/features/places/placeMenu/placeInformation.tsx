@@ -11,8 +11,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
-import { allEvents } from "@/lib/places/eventsData";
 import { normalizeIdentifier } from "@/lib/places/utils";
 import {
   CATEGORIES,
@@ -84,6 +84,8 @@ export default function PlaceInformation({
       setIsDebug(false);
     }
   }, []);
+
+  const { allEvents } = useSidebar();
 
   const { data: approvedData } = useQuery({
     queryKey: ["places"],

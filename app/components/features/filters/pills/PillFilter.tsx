@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 
-import { categoryFilter, PlaceFilter } from "@/app/components/features/filters/pills/placeFilters";
+import { getActiveEvents } from "@/app/components/features/filters/pills/placeFilters";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { getCategoryColor } from "@/lib/map/categoryToColors";
-import { allEvents as staticAllEvents, default as eventsJSON } from "@/lib/places/eventsData";
-import { CATEGORIES, EventFeature, Feature, getParentPlaceIds, isEventVisible } from "@/lib/types";
+import { CATEGORIES } from "@/lib/types";
 
 import * as Icons from "../../../ui/icons/icons";
 
@@ -44,203 +43,20 @@ const emergencyPills: Array<CategoryFilter> = [
   { title: "DEA", icon: <Icons.DEA />, filter: CATEGORIES.DEA },
 ];
 
-function getActiveEvents(events: EventFeature[]): EventFeature[] {
-  const now = new Date();
-  return events.filter((ev) => isEventVisible(ev.properties, now));
-}
-
-function getEventPlaces(
-  events: EventFeature[],
-  placesGeoJson: { features: any[] },
-  eventPlaceFeatures: Feature[],
-): { places: Feature[] } {
-  const places: Feature[] = [];
-  const seenIds = new Set<string>();
-  const eventsByPlace = new Map<string, EventFeature[]>();
-
-  events.forEach((event) => {
-    const parentIds = getParentPlaceIds(event.properties);
-    parentIds.forEach((id) => {
-      const list = eventsByPlace.get(id) || [];
-      list.push(event);
-      eventsByPlace.set(id, list);
-    });
-  });
-
-  eventPlaceFeatures.forEach((place) => {
-    const featureId = place.properties.identifier;
-    if (seenIds.has(featureId)) return;
-    seenIds.add(featureId);
-
-    const eventList = eventsByPlace.get(featureId) || [];
-    const displayName =
-      eventList.length === 1
-        ? eventList[0].properties.name
-        : eventList.length > 1
-        ? `${eventList.length} eventos`
-        : undefined;
-    places.push({ ...place, properties: { ...place.properties, displayName } });
-  });
-
-  events.forEach((event) => {
-    const parentIds = getParentPlaceIds(event.properties);
-    parentIds.forEach((parentPlaceId) => {
-      const parentPlace =
-        placesGeoJson.features.find((f: Feature) => f.properties.identifier === parentPlaceId) ||
-        eventPlaceFeatures.find((f) => f.properties.identifier === parentPlaceId);
-
-      if (parentPlace) {
-        const featureId = parentPlace.properties?.identifier || JSON.stringify(parentPlace);
-        if (!seenIds.has(featureId)) {
-          seenIds.add(featureId);
-          const eventList = eventsByPlace.get(featureId) || [];
-          const displayName = eventList.length === 1 ? eventList[0].properties.name : `${eventList.length} eventos`;
-          places.push({ ...parentPlace, properties: { ...parentPlace.properties, displayName } });
-        }
-      }
-    });
-  });
-
-  return { places };
-}
-
 function PillFilter() {
-  const [placesGeoJson, setPlacesGeoJson] = useState<{ type: string; features: any[] }>({ type: "", features: [] });
-  const [placesFilteredByCategory, setPlacesFilteredByCategory] = useState<{ [key: string]: any[] }>({});
   const pillsContainer = useRef<HTMLDivElement | null>(null);
 
-  const { setPlaces, activeFilters, setActiveFilters, setEventCounts, setEventPlaceIds } = useSidebar();
+  // El procesamiento de filtros → puntos del mapa (incluidos eventos) vive en el efecto central de
+  // sidebarCtx, para que funcione aunque el sidebar esté cerrado. Aquí solo se hace toggle del filtro.
+  const { activeFilters, setActiveFilters, allEvents } = useSidebar();
 
-  const allEvents: EventFeature[] = useMemo(() => staticAllEvents, []);
-  const activeEvents = useMemo(() => getActiveEvents(allEvents), [allEvents]);
-  const eventPlaceFeatures: Feature[] = useMemo(
-    () => eventsJSON.features.filter((f): f is Feature => !("startDate" in f.properties)),
-    [],
-  );
+  const hasActiveEvents = useMemo(() => getActiveEvents(allEvents).length > 0, [allEvents]);
 
-  useEffect(() => {
-    const loadGeoJson = async () => {
-      const { default: data } = await import("@/lib/places/data");
-      setPlacesGeoJson(data);
-    };
-
-    loadGeoJson();
-  }, []);
-
-  useEffect(() => {
-    if (!placesGeoJson.features || placesGeoJson.features.length === 0) return;
-    if (activeFilters.length === 0) {
-      setPlaces([]);
-      setEventCounts(new Map());
-      setEventPlaceIds(new Set());
-      return;
-    }
-
-    const allResults: any[] = [];
-    const seenIds = new Set<string>();
-    const currentEventPlaceIds = new Set<string>();
-
-    activeFilters.forEach((cat) => {
-      if (cat === CATEGORIES.EVENTS) {
-        const { places } = getEventPlaces(activeEvents, placesGeoJson, eventPlaceFeatures);
-        places.forEach((place) => {
-          const featureId = place.properties?.identifier || JSON.stringify(place);
-          if (!seenIds.has(featureId)) {
-            seenIds.add(featureId);
-            allResults.push(place);
-            currentEventPlaceIds.add(place.properties.identifier);
-          }
-        });
-      } else {
-        const results = placesFilteredByCategory[cat] || categoryFilter(placesGeoJson, cat);
-
-        if (!placesFilteredByCategory[cat]) {
-          setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
-        }
-
-        results.forEach((feature: any) => {
-          const featureId = feature.properties?.id || JSON.stringify(feature);
-          if (!seenIds.has(featureId)) {
-            seenIds.add(featureId);
-            allResults.push(feature);
-          }
-        });
-      }
-    });
-
-    setEventCounts(new Map());
-    setEventPlaceIds(currentEventPlaceIds);
-    setPlaces(allResults);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [placesGeoJson, activeFilters, activeEvents, eventPlaceFeatures]);
-
-  const applyFilter = useCallback(
-    (filter: PlaceFilter | ((geojson: any, cat: string) => any[]), category: string) => {
-      if (!placesGeoJson) return;
-
-      let newActiveFilters: string[];
-
-      if (activeFilters.includes(category)) {
-        newActiveFilters = activeFilters.filter((f) => f !== category);
-      } else {
-        newActiveFilters = [category];
-      }
-
-      setActiveFilters(newActiveFilters);
-
-      if (newActiveFilters.length === 0) {
-        setPlaces([]);
-        setEventCounts(new Map());
-        setEventPlaceIds(new Set());
-        return;
-      }
-
-      const allResults: any[] = [];
-      const seenIds = new Set<string>();
-      const currentEventPlaceIds = new Set<string>();
-
-      newActiveFilters.forEach((cat) => {
-        if (cat === CATEGORIES.EVENTS) {
-          const { places } = getEventPlaces(activeEvents, placesGeoJson, eventPlaceFeatures);
-          places.forEach((place) => {
-            const featureId = place.properties?.identifier || JSON.stringify(place);
-            if (!seenIds.has(featureId)) {
-              seenIds.add(featureId);
-              allResults.push(place);
-              currentEventPlaceIds.add(place.properties.identifier);
-            }
-          });
-        } else {
-          const results = placesFilteredByCategory[cat] || filter(placesGeoJson, cat);
-
-          if (!placesFilteredByCategory[cat]) {
-            setPlacesFilteredByCategory((prev) => ({ ...prev, [cat]: results }));
-          }
-
-          results.forEach((feature: any) => {
-            const featureId = feature.properties?.id || JSON.stringify(feature);
-            if (!seenIds.has(featureId)) {
-              seenIds.add(featureId);
-              allResults.push(feature);
-            }
-          });
-        }
-      });
-
-      setEventCounts(new Map());
-      setEventPlaceIds(currentEventPlaceIds);
-      setPlaces(allResults);
+  const toggleFilter = useCallback(
+    (category: string) => {
+      setActiveFilters(activeFilters.includes(category) ? activeFilters.filter((f) => f !== category) : [category]);
     },
-    [
-      placesGeoJson,
-      placesFilteredByCategory,
-      setPlaces,
-      activeFilters,
-      setActiveFilters,
-      activeEvents,
-      setEventCounts,
-      setEventPlaceIds,
-    ],
+    [activeFilters, setActiveFilters],
   );
 
   return (
@@ -256,17 +72,17 @@ function PillFilter() {
           <div className="mt-1 h-px w-full bg-border" />
         </div>
 
-        {activeEvents.length > 0 && (
+        {hasActiveEvents ? (
           <div className="snap-start flex-shrink-0 w-full min-w-[120px]">
             <Pill
               title="Eventos"
               icon={<Icons.Event />}
               bg_color={getCategoryColor(CATEGORIES.EVENTS)}
-              onClick={() => applyFilter(categoryFilter, CATEGORIES.EVENTS)}
+              onClick={() => toggleFilter(CATEGORIES.EVENTS)}
               active={activeFilters.includes(CATEGORIES.EVENTS)}
             />
           </div>
-        )}
+        ) : null}
 
         {regularPills.map(({ title, icon, filter }) => (
           <div key={title} className="snap-start flex-shrink-0 w-full min-w-[120px]">
@@ -274,7 +90,7 @@ function PillFilter() {
               title={title}
               icon={icon}
               bg_color={getCategoryColor(filter)}
-              onClick={() => applyFilter(categoryFilter, filter)}
+              onClick={() => toggleFilter(filter)}
               active={activeFilters.includes(filter)}
             />
           </div>
@@ -293,7 +109,7 @@ function PillFilter() {
               title={title}
               icon={icon}
               bg_color={getCategoryColor(filter)}
-              onClick={() => applyFilter(categoryFilter, filter)}
+              onClick={() => toggleFilter(filter)}
               active={activeFilters.includes(filter)}
             />
           </div>
