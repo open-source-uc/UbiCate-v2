@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { PointFeature } from "@/lib/types";
-
-import { NotificationState } from "../components/features/places/forms/notification";
 
 interface PlaceFormData {
   name: string;
@@ -38,7 +37,6 @@ async function updatePlace(body: CreatePlace) {
 }
 export function usePlaceForm(method: "POST" | "PUT", defaultData?: PlaceFormData, onClose?: () => void) {
   const queryClient = useQueryClient();
-  const [notification, setNotification] = useState<NotificationState | null>(null);
   const [data, setData] = useState<Omit<PlaceFormData, "identifier">>(
     defaultData
       ? {
@@ -59,13 +57,7 @@ export function usePlaceForm(method: "POST" | "PUT", defaultData?: PlaceFormData
     mutationFn: (body: CreatePlace) => {
       return method === "POST" ? createPlace(body) : updatePlace(body);
     },
-    onSuccess: async () => {
-      setNotification({
-        type: "success",
-        message: method === "POST" ? "Ubicación creada" : "Ubicación actualizada",
-        visible: true,
-      });
-
+    onSuccess: async (result: { message?: string }) => {
       try {
         const res = await fetch("/api/ubicate", {
           headers: { "X-Ubicate-Fresh": "true" },
@@ -77,33 +69,34 @@ export function usePlaceForm(method: "POST" | "PUT", defaultData?: PlaceFormData
         // offline — continue with cached data
       }
 
-      setTimeout(() => {
-        onClose?.();
-      }, 2000);
+      // Crear/editar NO es una actualización directa: genera una PROPUESTA que un administrador debe
+      // aprobar (tanto en modo normal como en debug). Preferimos el mensaje del servidor, que ya explica
+      // el flujo de aprobación según el caso (lugar nuevo / pendiente / propuesta de edición).
+      await Swal.fire({
+        icon: "success",
+        title: "¡Propuesta enviada!",
+        text:
+          result?.message ??
+          (method === "POST"
+            ? "La ubicación fue propuesta. Un administrador debe aprobarla antes de que aparezca en el mapa."
+            : "La edición fue propuesta. Un administrador debe aprobarla antes de que se aplique."),
+        confirmButtonText: "Entendido",
+      });
+
+      onClose?.();
     },
     onError: (error: any) => {
-      setNotification({
-        type: "error",
-        message: error.data?.message || error.message || "Ha ocurrido un error",
-        visible: true,
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.data?.message || error.message || "Ha ocurrido un error",
       });
     },
   });
 
-  useEffect(() => {
-    if (notification?.visible) {
-      const timer = setTimeout(() => {
-        setNotification((prev) => (prev ? { ...prev, visible: false } : null));
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [notification]);
-
   return {
     data,
     setData,
-    notification,
     placeMutation,
     isLoading: placeMutation.isPending,
   };
