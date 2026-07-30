@@ -14,4 +14,4 @@ if (process.env.NODE_ENV === 'development') {
   await setupDevPlatform();
 }
 
-export default withSerwist({});
+export default withSerwist({ devIndicators: false });

@@ -16,6 +16,7 @@ import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
+import Changelog from "../components/features/changelog/Changelog";
 import DirectionsComponent from "../components/features/directions/component";
 import UserLocation from "../components/features/directions/userLocation";
 import MarkerIcon from "../components/ui/icons/markerIcon";
@@ -180,15 +181,16 @@ export default function MapComponent({
 
   return (
     <div className="w-full h-full relative" ref={containerRef}>
-      {/* Campus tag - solo visible en desktop */}
-      {campusDisplayName ? (
-        <div className="hidden lg:block absolute top-4 right-4 z-10 pointer-events-auto">
+      {/* Desktop: tag "Novedades" a la izquierda del tag de campus. En mobile va en TopMobileSidebar. */}
+      <div className="hidden lg:flex absolute top-4 right-4 z-10 items-center gap-2 pointer-events-auto">
+        <Changelog />
+        {campusDisplayName ? (
           <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
             <span className="text-xs font-medium text-primary-foreground">Campus {campusDisplayName}</span>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
 
       <Map
         id="mainMap"

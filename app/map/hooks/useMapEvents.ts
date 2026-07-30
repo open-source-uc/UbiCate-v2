@@ -3,6 +3,7 @@ import { use, useCallback, useEffect, useState } from "react";
 import { centroid } from "@turf/centroid";
 import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre";
 
+import { useAppLoading } from "@/app/context/appLoadingCtx";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
@@ -35,6 +36,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   const { create, cancel } = useTimeoutManager();
   const { addPin, clearPins, pins } = use(pinsContext);
   const { isPicking, mode, setPicking } = useMapPicking();
+  const { setMapLoaded } = useAppLoading();
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -216,8 +218,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       // Nota: el manejo de clics (puntos con prioridad sobre polígonos, y capas de debug) se hace
       // en handleMapClick vía e.features de los interactiveLayerIds del mapa, no con listeners por capa.
       setIsLoaded(true);
+      setMapLoaded();
     },
-    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel],
+    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel, setMapLoaded],
   );
 
   useEffect(() => {

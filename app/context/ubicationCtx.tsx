@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useRef, ReactNode } from "react";
 
 import { CATEGORIES, PointGeometry, Properties } from "@/lib/types";
 
@@ -19,18 +19,20 @@ interface LocationOrientationData {
     properties: Properties;
     geometry: PointGeometry;
   } | null;
-  alpha: number | null;
+  /** Rumbo del dispositivo en grados: 0 = norte, sentido horario. */
+  heading: number | null;
   cardinal: string | null;
-  isCalibrated: boolean;
+  hasCompass: boolean;
   hasLocation: boolean;
   error: string | null;
 }
 
 interface UbicationContextType extends LocationOrientationData {
-  calibrateCompass: () => void;
   setTracking: (enabled: boolean) => void;
   isTracking: boolean;
   requestLocation: () => Promise<void>;
+  /** En iOS DEBE llamarse desde un gesto del usuario. */
+  requestOrientation: () => Promise<boolean>;
 }
 
 const UbicationContext = createContext<UbicationContextType | undefined>(undefined);
@@ -63,21 +65,54 @@ function normalizeAngle(angle: number): number {
   return normalized;
 }
 
+const HEADING_UPDATE_THRESHOLD_DEG = 1.5;
+const LOW_ACCURACY_TIMEOUT_MS = 30000;
+
+function angleDelta(a: number, b: number): number {
+  const diff = Math.abs(a - b) % 360;
+  return diff > 180 ? 360 - diff : diff;
+}
+
+// Rumbo de brújula: 0 = norte, horario. iOS entrega `webkitCompassHeading` ya en ese formato; el resto
+// entrega `alpha`, que es antihorario.
+function readCompassHeading(event: DeviceOrientationEvent): number | null {
+  const webkitHeading = (event as DeviceOrientationEvent & { webkitCompassHeading?: number }).webkitCompassHeading;
+  if (typeof webkitHeading === "number" && !Number.isNaN(webkitHeading)) return normalizeAngle(webkitHeading);
+
+  if (event.alpha == null) return null;
+  return normalizeAngle(360 - event.alpha);
+}
+
+// En Chrome/Android `deviceorientation` no es absoluto: su alpha parte de un origen arbitrario.
+function getOrientationEventName(): "deviceorientationabsolute" | "deviceorientation" {
+  return "ondeviceorientationabsolute" in window ? "deviceorientationabsolute" : "deviceorientation";
+}
+
+function getCurrentPosition(positionOptions: PositionOptions): Promise<GeolocationPosition> {
+  return new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, positionOptions));
+}
+
+function needsOrientationPermission(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    "DeviceOrientationEvent" in window &&
+    typeof (DeviceOrientationEvent as unknown as { requestPermission?: unknown }).requestPermission === "function"
+  );
+}
+
 export function UbicationProvider({ children, options = defaultOptions }: UbicationProviderProps) {
   const [position, setPosition] = useState<{
     type: string;
     properties: Properties;
     geometry: PointGeometry;
   } | null>(null);
-  const [alpha, setAlpha] = useState<number | null>(null);
-  const [isCalibrated, setIsCalibrated] = useState(false);
+  const [heading, setHeading] = useState<number | null>(null);
+  const [hasCompass, setHasCompass] = useState(false);
   const [hasLocation, setHasLocation] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [watchId, setWatchId] = useState<number | null>(null);
-  const [orientationActive, setOrientationActive] = useState(false);
-  const [calibrationOffset, setCalibrationOffset] = useState<number>(0);
+  const orientationActive = useRef(false);
   const [isTracking, setIsTracking] = useState(false);
-  const [permissionGranted, setPermissionGranted] = useState(false);
 
   const isGeolocationAvailable = useCallback(() => {
     return (
@@ -132,86 +167,46 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
     setHasLocation(false);
   }, []);
 
-  // FIJO: Handle device orientation events - Versión simplificada como la original
-  const handleOrientation = useCallback(
-    (event: DeviceOrientationEvent) => {
-      if (event.alpha == null) return;
+  const handleOrientation = useCallback((event: DeviceOrientationEvent) => {
+    const next = readCompassHeading(event);
+    if (next === null) return;
 
-      let finalAlpha = event.alpha;
-
-      // Solo aplicar calibración si está calibrado
-      if (isCalibrated) {
-        finalAlpha = normalizeAngle(event.alpha - calibrationOffset);
-      } else {
-        finalAlpha = normalizeAngle(event.alpha);
-      }
-
-      setAlpha(finalAlpha);
-    },
-    [isCalibrated, calibrationOffset],
-  );
-
-  // FIJO: Función para solicitar permisos de orientación
-  const requestOrientationPermission = useCallback(async (): Promise<boolean> => {
-    if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
-      try {
-        const permissionState = await (DeviceOrientationEvent as any).requestPermission();
-        const granted = permissionState === "granted";
-        setPermissionGranted(granted);
-        if (!granted) {
-          setError("Debes activar la geolocalización");
-        }
-        return granted;
-      } catch (error) {
-        console.error("Failed to request orientation permission:", error);
-        setError("Debes activar la geolocalización");
-        return false;
-      }
-    }
-    // En dispositivos que no requieren permisos explícitos
-    setPermissionGranted(true);
-    return true;
+    setHasCompass(true);
+    setHeading((prev) => (prev !== null && angleDelta(prev, next) < HEADING_UPDATE_THRESHOLD_DEG ? prev : next));
   }, []);
 
-  // FIJO: Iniciar listener de orientación
-  const startOrientationListener = useCallback(async () => {
-    if (orientationActive || typeof window === "undefined") return;
+  // Sin brújula la app sigue siendo usable (el marcador no gira), así que un rechazo no se trata como error.
+  const requestOrientationPermission = useCallback(async (): Promise<boolean> => {
+    if (!needsOrientationPermission()) return true;
 
-    // Solicitar permisos primero
-    const hasPermission = await requestOrientationPermission();
-    if (!hasPermission) return;
+    try {
+      const requestPermission = (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<string> })
+        .requestPermission;
+      return (await requestPermission()) === "granted";
+    } catch (err) {
+      console.warn("No se pudo obtener permiso de orientación:", err);
+      return false;
+    }
+  }, []);
 
-    // Agregar listener
-    window.addEventListener("deviceorientation", handleOrientation);
-    setOrientationActive(true);
-    setError(null);
-  }, [orientationActive, handleOrientation, requestOrientationPermission]);
+  const requestOrientation = useCallback(async (): Promise<boolean> => {
+    if (typeof window === "undefined" || !("DeviceOrientationEvent" in window)) return false;
+    if (orientationActive.current) return true;
 
-  // FIJO: Detener listener de orientación
+    const granted = await requestOrientationPermission();
+    if (!granted) return false;
+
+    window.addEventListener(getOrientationEventName(), handleOrientation);
+    orientationActive.current = true;
+    return true;
+  }, [handleOrientation, requestOrientationPermission]);
+
   const stopOrientationListener = useCallback(() => {
-    if (!orientationActive || typeof window === "undefined") return;
+    if (!orientationActive.current || typeof window === "undefined") return;
 
-    window.removeEventListener("deviceorientation", handleOrientation);
-    setOrientationActive(false);
-  }, [orientationActive, handleOrientation]);
-
-  // FIJO: Calibrar la brújula - Mucho más simple
-  const calibrateCompass = useCallback(() => {
-    if (!orientationActive) {
-      setError("Orientación no disponible para calibrar");
-      return;
-    }
-
-    if (alpha === null) {
-      setError("No hay datos de orientación disponibles");
-      return;
-    }
-
-    // Usar el valor actual como offset de calibración
-    setCalibrationOffset(alpha);
-    setIsCalibrated(true);
-    setError(null);
-  }, [alpha, orientationActive]);
+    window.removeEventListener(getOrientationEventName(), handleOrientation);
+    orientationActive.current = false;
+  }, [handleOrientation]);
 
   // Función para solicitar ubicación una sola vez
   const requestLocation = useCallback(async () => {
@@ -220,29 +215,50 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
       return;
     }
 
+    // iOS rechaza la geolocalización en orígenes no seguros SIN mostrar el diálogo de permiso.
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setError("La ubicación necesita una conexión segura (HTTPS)");
+      return;
+    }
+
     setError(null);
 
-    return new Promise<void>((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          handlePositionUpdate(position);
-          resolve();
-        },
-        (error) => {
-          handlePositionError(error);
-          reject(error);
-        },
-        {
-          enableHighAccuracy: options.enableHighAccuracy,
-          maximumAge: options.maximumAge,
-          timeout: options.timeout,
-        },
+    try {
+      handlePositionUpdate(
+        await getCurrentPosition({
+          enableHighAccuracy: true,
+          maximumAge: 0,
+          timeout: options.timeout ?? defaultOptions.timeout,
+        }),
       );
-    });
+    } catch (err) {
+      const geoError = err as GeolocationPositionError;
+
+      // iOS suele agotar el tiempo con alta precisión bajo techo: reintento con precisión baja.
+      if (geoError.code === geoError.TIMEOUT || geoError.code === geoError.POSITION_UNAVAILABLE) {
+        try {
+          handlePositionUpdate(
+            await getCurrentPosition({
+              enableHighAccuracy: false,
+              maximumAge: options.maximumAge,
+              timeout: LOW_ACCURACY_TIMEOUT_MS,
+            }),
+          );
+          return;
+        } catch (fallbackError) {
+          handlePositionError(fallbackError as GeolocationPositionError);
+          throw fallbackError;
+        }
+      }
+
+      handlePositionError(geoError);
+      throw geoError;
+    }
   }, [isGeolocationAvailable, handlePositionUpdate, handlePositionError, options]);
 
   const startTracking = useCallback(() => {
-    if (watchId || !isGeolocationAvailable()) {
+    // `watchId` puede ser 0 (es un id válido): comparar contra null, no por truthiness.
+    if (watchId !== null || !isGeolocationAvailable()) {
       console.warn("Already tracking or geolocation not available");
       return;
     }
@@ -287,14 +303,15 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
     [isTracking, startTracking, stopTracking],
   );
 
-  // FIJO: Iniciar orientación automáticamente al montar
+  // Donde no hace falta permiso (Android, escritorio) se engancha solo; en iOS lo hace el botón.
   useEffect(() => {
-    startOrientationListener();
+    if (!needsOrientationPermission()) requestOrientation();
 
     return () => {
       stopOrientationListener();
     };
-  }, []); // Solo ejecutar una vez al montar
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -309,19 +326,19 @@ export function UbicationProvider({ children, options = defaultOptions }: Ubicat
     };
   }, [watchId, isGeolocationAvailable]);
 
-  const cardinal = alpha !== null ? calculateCardinal(alpha, options.cardinalPoints || 8) : null;
+  const cardinal = heading !== null ? calculateCardinal(heading, options.cardinalPoints || 8) : null;
 
   const value: UbicationContextType = {
     position,
-    alpha,
+    heading,
     cardinal,
-    isCalibrated,
+    hasCompass,
     hasLocation,
     error,
-    calibrateCompass,
     setTracking,
     isTracking,
     requestLocation,
+    requestOrientation,
   };
 
   return <UbicationContext.Provider value={value}>{children}</UbicationContext.Provider>;
@@ -337,15 +354,15 @@ export function useUbication(): UbicationContextType {
     console.warn("useUbication should only be used on the client side");
     return {
       position: null,
-      alpha: null,
+      heading: null,
       cardinal: null,
-      isCalibrated: false,
+      hasCompass: false,
       hasLocation: false,
       error: null,
-      calibrateCompass: () => {},
       setTracking: () => {},
       isTracking: false,
       requestLocation: async () => {},
+      requestOrientation: async () => false,
     };
   }
 

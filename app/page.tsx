@@ -3,7 +3,9 @@ import { Metadata } from "next";
 import { getPlaceById } from "@/lib/db/places";
 import type { Feature } from "@/lib/types";
 
+import ConnectionBadge from "./components/app/ConnectionBadge";
 import H1SEO from "./components/app/H1SEO";
+import LoadingScreen from "./components/app/LoadingScreen";
 import StructuredData from "./components/app/StructuredData";
 import NavigationSidebar from "./components/features/navigation/sidebar/NavigationSidebar";
 import MapPage from "./map/mapPage";
@@ -112,6 +114,8 @@ export default async function Page(props: { searchParams: Promise<SearchParams> 
       <H1SEO />
       <main spellCheck="false" className="h-full w-full relative">
         <Providers>
+          <LoadingScreen />
+          <ConnectionBadge />
           <NavigationSidebar />
           <MapPage paramPlace={paramPlace} paramLat={paramLat} paramLng={paramLng} />
         </Providers>

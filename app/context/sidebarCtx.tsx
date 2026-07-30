@@ -1,10 +1,11 @@
 "use client";
 
-import { createContext, useContext, ReactNode, useState, useEffect, useMemo, useCallback } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect, useMemo, useCallback, useRef } from "react";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { categoryFilter, getActiveEvents, getEventPlaces } from "@/app/components/features/filters/pills/placeFilters";
+import { AppLoadError, fetchJsonOrThrow, LoadErrorKind, markAppLoadedOnce } from "@/lib/api/loadError";
 import { CATEGORIES, EventFeature, Feature, JSONFeatures, PointFeature, PolygonFeature } from "@/lib/types";
 
 import usePlaces from "../hooks/usePlaces";
@@ -14,6 +15,12 @@ import usePlaces from "../hooks/usePlaces";
 const REFETCH_ONLINE_MS = (Number(process.env.NEXT_PUBLIC_REFETCH_ONLINE_SECONDS) || 300) * 1000;
 const REFETCH_OFFLINE_MS = (Number(process.env.NEXT_PUBLIC_REFETCH_OFFLINE_SECONDS) || 30) * 1000;
 const REFETCH_IN_BACKGROUND = process.env.NEXT_PUBLIC_REFETCH_IN_BACKGROUND === "true";
+
+// Margen tras el primer request exitoso: el refresh fresco va en paralelo y puede tardar un poco más en
+// delatar que el servidor está caído.
+const FIRST_RESULT_GRACE_MS = 2000;
+
+export type FirstRequestResult = "ok" | LoadErrorKind;
 
 interface SidebarContextType {
   isOpen: boolean;
@@ -35,6 +42,11 @@ interface SidebarContextType {
   allEvents: EventFeature[];
   eventPlaces: Feature[];
   isDataLoaded: boolean;
+  // Solo tiene valor cuando la app se quedó sin datos que mostrar (ni frescos ni de cache).
+  loadError: LoadErrorKind | null;
+  firstRequestResult: FirstRequestResult | null;
+  isRetryingLoad: boolean;
+  retryLoad: () => void;
   refetchPlaces: (opts?: { syncMap?: boolean }) => void;
 }
 
@@ -48,14 +60,22 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOnline, setIsOnline] = useState<boolean>(true);
   const queryClient = useQueryClient();
 
-  const { data, isSuccess } = useQuery({
+  const {
+    data,
+    isSuccess,
+    error,
+    fetchStatus,
+    refetch: retryLoad,
+  } = useQuery({
     queryKey: ["places"],
     queryFn: () =>
-      fetch("/api/ubicate").then((r) => r.json()) as Promise<{
+      fetchJsonOrThrow<{
         approved_places: JSONFeatures;
         new_places: JSONFeatures;
         message: string;
-      }>,
+      }>("/api/ubicate"),
+    // Un solo reintento: si falla, avisar rápido con la pantalla de error en vez de esperar el backoff.
+    retry: 1,
     staleTime: REFETCH_ONLINE_MS,
     networkMode: "offlineFirst",
     // Polling adaptativo: agresivo si estamos offline (busca reconexión), relajado si hay conexión.
@@ -69,6 +89,39 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     if (!data) return [];
     return data.approved_places?.features ?? [];
   }, [data]);
+
+  // `fetchStatus === "paused"` es React Query esperando red en networkMode offlineFirst.
+  const fetchFailure: LoadErrorKind | null = useMemo(() => {
+    if (fetchStatus === "paused") return "offline";
+    if (!error) return null;
+    return error instanceof AppLoadError ? error.kind : "database";
+  }, [error, fetchStatus]);
+
+  const loadError: LoadErrorKind | null = data ? null : fetchFailure;
+
+  // Cubre el refetch con X-Ubicate-Fresh, que no pasa por el estado de la query.
+  const [manualServerError, setManualServerError] = useState(false);
+
+  const [firstRequestResult, setFirstRequestResult] = useState<FirstRequestResult | null>(null);
+  const firstResultSettled = useRef(false);
+
+  useEffect(() => {
+    if (firstResultSettled.current) return;
+
+    const settle = (result: FirstRequestResult) => {
+      firstResultSettled.current = true;
+      setFirstRequestResult(result);
+    };
+
+    if (fetchFailure) return settle(fetchFailure);
+    if (manualServerError) return settle("database");
+    if (!isSuccess) return;
+    // Datos servidos por el cache del SW estando sin conexión: igual hay que avisarlo.
+    if (typeof navigator !== "undefined" && !navigator.onLine) return settle("offline");
+
+    const timer = setTimeout(() => settle("ok"), FIRST_RESULT_GRACE_MS);
+    return () => clearTimeout(timer);
+  }, [fetchFailure, manualServerError, isSuccess]);
 
   // Eventos por el MISMO flujo de 3 capas (offlineFirst + SW + Capa 1). El endpoint devuelve en una
   // sola colección los eventos (con startDate) y sus lugares inline (isEventOnly, sin startDate).
@@ -115,6 +168,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("ubicateActiveFilters", JSON.stringify(activeFilters));
   }, [activeFilters]);
 
+  useEffect(() => {
+    if (isSuccess) markAppLoadedOnce();
+  }, [isSuccess]);
+
   // Trae datos frescos del servidor saltándose TODAS las capas de cache (SW + memoria del servidor)
   // vía el header X-Ubicate-Fresh. syncMap=true además fuerza los lugares aprobados al mapa (post-mutación);
   // syncMap=false solo refresca los datos y deja que allFeatures/PillFilter reconstruyan el mapa (carga/reconexión).
@@ -122,22 +179,20 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     async (opts?: { syncMap?: boolean }) => {
       const syncMap = opts?.syncMap ?? true;
       try {
-        const res = await fetch("/api/ubicate", {
-          headers: { "X-Ubicate-Fresh": "true" },
-        });
-        const freshData = (await res.json()) as {
+        const freshData = await fetchJsonOrThrow<{
           approved_places: { features: Feature[] };
           new_places: { features: Feature[] };
           message: string;
-        };
+        }>("/api/ubicate", { headers: { "X-Ubicate-Fresh": "true" } });
         queryClient.setQueryData(["places"], freshData);
         queryClient.invalidateQueries({ queryKey: ["ubicate-debug"] });
+        setManualServerError(false);
         const inDebugMode = typeof window !== "undefined" && sessionStorage.getItem("debugMode") === "true";
         if (syncMap && !inDebugMode) {
           o.setPlaces(freshData.approved_places?.features ?? []);
         }
-      } catch {
-        // offline — debug mode handles auto-exit, normal app stays on cache
+      } catch (err) {
+        setManualServerError(err instanceof AppLoadError && err.kind === "database");
       }
     },
     [queryClient, o.setPlaces],
@@ -226,6 +281,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         allEvents,
         eventPlaces,
         isDataLoaded: isSuccess,
+        loadError,
+        firstRequestResult,
+        isRetryingLoad: fetchStatus === "fetching",
+        retryLoad,
         refetchPlaces,
       }}
     >

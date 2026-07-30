@@ -5,43 +5,61 @@
   },
   {
     "name": "Benjamín Vicente Goecke",
-    "career": "Ingeniería"
+    "career": "Ingeniería",
+    "photo": "/contributors/osuc/benjamin_vicente.jpg",
+    "github": "https://github.com/benjavicente"
   },
   {
     "name": "Agustín Covarrubias",
     "career": "Ingeniería"
   },
-  { 
+  {
     "name": "Vicente Muñoz",
-    "career": "Licenciatura en Ingeniería en Ciencia de Datos"
+    "career": "Licenciatura en Ingeniería en Ciencia de Datos",
+    "photo": "/contributors/osuc/vicente_muñoz.jpg",
+    "github": "https://github.com/Utmite"
   },
-{
+  {
     "name": "Ignacio Palma",
-    "career": "Licenciatura en Ingeniería en Ciencia de Datos"
+    "career": "Licenciatura en Ingeniería en Ciencia de Datos",
+    "photo": "/contributors/osuc/ignacio_palma.jpg",
+    "github": "https://github.com/IgnacioPalma"
   },
   {
     "name": "Mauricio Cari Leal",
-    "career": "Ingeniería"
+    "career": "Ingeniería",
+    "photo": "/contributors/osuc/mauricio_cari.jpg",
+    "github": "https://github.com/mc-cari"
   },
   {
     "name": "Felipe Aguilar",
-    "career": "Ingeniería"
+    "career": "Ingeniería",
+    "photo": "/contributors/osuc/felipe_aguilar.jpg",
+    "github": "https://github.com/pipeaw"
   },
   {
     "name": "Diego Costa",
-    "career": "Ingeniería"
+    "career": "Ingeniería",
+    "photo": "/contributors/osuc/diego_costa.jpg",
+    "github": "https://github.com/diegocostares"
   },
   {
     "name": "Víctor Moreno",
-    "career": "Licenciatura en Ingeniería en Ciencia de la Computación"
+    "career": "Licenciatura en Ingeniería en Ciencia de la Computación",
+    "photo": "/contributors/osuc/victor_moreno.jpg",
+    "github": "https://github.com/viccmoor"
   },
   {
     "name": "Pablo Cruzat",
-    "career": "Licenciatura en Ingeniería en Ciencia de la Computación"
+    "career": "Licenciatura en Ingeniería en Ciencia de la Computación",
+    "photo": "/contributors/osuc/pablo_cruzval.jpg",
+    "github": "https://github.com/PabloCruzval"
   },
   {
     "name": "Daniela Victorero",
-    "career": "Licenciatura en Ingeniería en Ciencia de Datos"
+    "career": "Licenciatura en Ingeniería en Ciencia de Datos",
+    "photo": "/contributors/osuc/daniela_victorero.jpg",
+    "github": "https://github.com/dvictorerol"
   },
   {
     "name": "Benjamín Cheuquian",
