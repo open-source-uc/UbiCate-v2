@@ -1,6 +1,52 @@
 {
     "type": "FeatureCollection",
     "features": [
- 
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60808128378146,
+                    -33.49929112852507
+                ]
+            },
+            "properties": {
+                "identifier": "ms7oehlec0wet4",
+                "name": "prueba muy larga",
+                "information": "prueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremadamente largaprueba extremada",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-07-15T11:35",
+                "endDate": "2026-07-17T11:35",
+                "parentPlaceIds": [
+                    "ms7oei3uq0it10"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60808128378146,
+                    -33.49929112852507
+                ]
+            },
+            "properties": {
+                "identifier": "ms7oei3uq0it10",
+                "name": "Lugar 1",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        }
     ]
 }
