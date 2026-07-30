@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useChangelogs } from "@/app/hooks/useChangelogs";
 import type { ChangelogChangeType } from "@/lib/changelog/types";
 
 const INITIAL_VISIBLE = 5;
+const MODAL_EXIT_MS = 180;
 
 const TYPE_META: Record<ChangelogChangeType, { label: string; className: string }> = {
   new: { label: "Nuevo", className: "bg-emerald-500/15 text-emerald-600" },
@@ -29,6 +30,7 @@ function SparkleIcon() {
 
 export default function Changelog() {
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
   const { entries, isLoading, isError } = useChangelogs();
@@ -36,15 +38,27 @@ export default function Changelog() {
   const visibleEntries = showAll ? entries : entries.slice(0, INITIAL_VISIBLE);
   const canToggle = entries.length > INITIAL_VISIBLE;
 
+  // Se desmonta al terminar la animación de salida, no al hacer click.
+  const closeModal = useCallback(() => setClosing(true), []);
+
+  useEffect(() => {
+    if (!closing) return;
+    const timer = setTimeout(() => {
+      setOpen(false);
+      setClosing(false);
+    }, MODAL_EXIT_MS);
+    return () => clearTimeout(timer);
+  }, [closing]);
+
   // Cerrar con Escape mientras el modal está abierto.
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") closeModal();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [open, closeModal]);
 
   useEffect(() => {
     if (!open) setShowAll(false);
@@ -64,14 +78,18 @@ export default function Changelog() {
 
       {open ? (
         <div
-          className="fixed inset-0 z-[1500] flex items-center justify-center bg-black/50 p-4"
-          onClick={() => setOpen(false)}
+          className={`fixed inset-0 z-[1500] flex items-center justify-center bg-black/50 p-4 ${
+            closing ? "anim-fade-out" : "anim-fade-in"
+          }`}
+          onClick={closeModal}
           role="dialog"
           aria-modal="true"
           aria-label="Novedades"
         >
           <div
-            className="flex max-h-[80vh] w-full max-w-md flex-col overflow-hidden rounded-xl bg-background text-foreground shadow-xl"
+            className={`flex max-h-[80vh] w-full max-w-md flex-col overflow-hidden rounded-xl bg-background text-foreground shadow-xl ${
+              closing ? "anim-scale-out" : "anim-scale-in"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -82,7 +100,7 @@ export default function Changelog() {
               </div>
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={closeModal}
                 aria-label="Cerrar"
                 className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               >

@@ -55,8 +55,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       lg: "h-11 px-8 rounded-md text-base",
       icon: "h-10 w-10 rounded-md",
       "icon-lg": "h-12 w-12 rounded-md",
-      sidebar: "w-full p-2 rounded-md hover:bg-secondary/50 space-x-4 justify-start",
-      "sidebar-collapsed": "justify-center px-4 py-3",
+      sidebar: "w-full p-2 rounded-md hover:bg-secondary/50 space-x-4 justify-start transition-all duration-200",
+      "sidebar-collapsed": "justify-center px-4 py-3 transition-all duration-200",
     };
 
     const iconSizes = {
@@ -83,9 +83,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const getIconWrapperClass = () => {
       if (size === "sidebar" || size === "sidebar-collapsed") {
+        // shrink-0: sin esto flexbox achica el ícono mientras el sidebar todavía está angosto y se ve
+        // como si el ícono "creciera" al terminar la animación.
         return cn(
           iconSizes[size],
-          "rounded-lg flex items-center justify-center",
+          "shrink-0 rounded-lg flex items-center justify-center",
           isActive ? "bg-secondary" : "bg-primary",
           iconColors[variant],
         );
@@ -101,10 +103,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <>
             {icon ? (
               <span className={getIconWrapperClass()}>
-                <div className="w-6 h-6 flex items-center justify-center">{icon}</div>
+                <div className="w-6 h-6 shrink-0 flex items-center justify-center">{icon}</div>
               </span>
             ) : null}
-            {text && size === "sidebar" ? <span className="text-md block">{text}</span> : null}
+            {text && size === "sidebar" ? (
+              <span className="anim-fade-in text-md block whitespace-nowrap">{text}</span>
+            ) : null}
           </>
         );
       }

@@ -19,6 +19,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const x = useRef<null | string>(null);
+  const hasSearched = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,11 +48,24 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   }, [numberOfShowResults]);
 
   useEffect(() => {
-    setIsOpen(query.trim().length > 0 && matchingFeatures.length > 0);
+    const hasQuery = query.trim().length > 0;
+    setIsOpen(hasQuery && matchingFeatures.length > 0);
+    setSelectedIndex(-1);
+
+    // Montarse sin búsqueda no debe pisar el mapa: si no, abrir el panel de búsqueda borra los puntos que
+    // ya estaban dibujados. Recién después de la primera búsqueda, limpiar el input sí limpia el mapa.
+    if (!hasQuery && !hasSearched.current) return;
+    if (hasQuery) hasSearched.current = true;
+
     if (!x.current) setPlaces(matchingFeatures);
     x.current = null;
-    setSelectedIndex(-1);
   }, [query, matchingFeatures]);
+
+  // `autoFocus` haría que el navegador scrollee para revelar el input mientras el subsidebar todavía se
+  // está abriendo, arrastrando el contenedor. Con preventScroll el foco no mueve nada.
+  useEffect(() => {
+    inputRef.current?.focus({ preventScroll: true });
+  }, []);
 
   // Manejar clicks fuera del componente
   useEffect(() => {
@@ -168,7 +182,6 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
             className="w-full border-none bg-transparent m-0 h-12 px-11 text-ellipsis whitespace-nowrap overflow-hidden rounded-lg outline-none focus:z-20 focus:shadow-[0_0_0_2px_var(--color-focus-indicator)]"
             placeholder="Buscar en Ubicate"
             autoComplete="off"
-            autoFocus
             aria-label="Buscar lugares"
             aria-autocomplete="list"
             aria-controls={isOpen ? "search-results-list" : undefined}

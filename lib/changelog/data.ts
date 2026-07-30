@@ -17,6 +17,7 @@ const CHANGELOGS: ChangelogEntry[] = [
         text: "Ahora el sistema te hace saber cuando estás sin internet, en línea o si el servidor presenta problemas.",
       },
       { type: "improved", text: "Optimizaciones generales al sistema." },
+      { type: "improved", text: "Mejoras visuales." },
       { type: "improved", text: "Actualización a la sección de créditos." },
       { type: "fixed", text: "Solucionado error que no mostraba la dirección de la geolocalización correctamente." },
       { type: "fixed", text: "Geolocalización ahora funciona en dispositivos iOS." },

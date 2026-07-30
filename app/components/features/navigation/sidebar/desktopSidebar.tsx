@@ -21,11 +21,24 @@ import FooterOptionsSidebar from "./footerOptionsSidebar";
 import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
+const SUBSIDEBAR_ANIM_MS = 200;
+
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
   const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
+  // El contenido sobrevive al cierre lo que dura la animación, para que el panel no se vacíe de golpe.
+  const [renderedSubSidebar, setRenderedSubSidebar] = useState<SubSidebarType>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    if (activeSubSidebar !== null) {
+      setRenderedSubSidebar(activeSubSidebar);
+      return;
+    }
+    const timer = setTimeout(() => setRenderedSubSidebar(null), SUBSIDEBAR_ANIM_MS);
+    return () => clearTimeout(timer);
+  }, [activeSubSidebar]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -64,15 +77,22 @@ export default function DesktopSidebar() {
       {/* Contenedor principal con flex row */}
       <div className="flex h-full overflow-y-auto">
         {/* Sidebar principal */}
-        <section className={`bg-background text-foreground flex flex-col z-40 h-full pb-4 ${isOpen ? "w-52" : "w-20"}`}>
-          <div className={`flex items-center p-4  ${isOpen ? "flex-row gap-6" : "flex-col py-8 space-y-6"}`}>
+        <section
+          className={`bg-background text-foreground flex flex-col z-40 h-full pb-4 overflow-x-hidden transition-[width] duration-200 ease-out motion-reduce:transition-none ${
+            isOpen ? "w-52" : "w-20"
+          }`}
+        >
+          {/* Geometría fija en ambos estados: gutter de 16px y botón de 48px. Colapsado (80px) el botón
+              queda centrado y su eje coincide con el de los íconos del nav, así nada se mueve al abrir. */}
+          <div className="flex items-center gap-4 p-4">
             {/* Logo - visible only when expanded */}
-            <Link href="/" className={`${isOpen ? "block" : "hidden"}`}>
-              <img src="/logo.svg" className="pl-2 w-40 h-20" alt="Logo" />
+            <Link href="/" className={`min-w-0 ${isOpen ? "block anim-fade-in" : "hidden"}`}>
+              <img src="/logo.svg" className="h-12 w-auto max-w-full object-contain object-left" alt="Logo" />
             </Link>
 
-            {/* Toggle button */}
-            <div className={`${isOpen ? "h-full flex items-center" : "flex items-center"}`}>
+            {/* Toggle button: ml-auto lo mantiene pegado al borde derecho, así acompaña el ancho en vez
+                de saltar cuando aparece el logo. */}
+            <div className="ml-auto shrink-0 flex items-center">
               <Button
                 variant="ghost-primary"
                 size="icon-lg"
@@ -84,11 +104,11 @@ export default function DesktopSidebar() {
 
           {/* Navigation */}
           <nav className="flex-1">
-            <div className={`${isOpen ? "pt-5 px-4" : ""} flex flex-col`}>
+            <div className="flex flex-col gap-2 pt-5 px-3">
               {/* Search button */}
               <Button
                 variant="ghost"
-                size={isOpen ? "sidebar" : "sidebar-collapsed"}
+                size="sidebar"
                 onClick={() => (isOpen ? toggleSubSidebar("buscar") : handleCollapsedClick("buscar"))}
                 icon={<Icons.Search />}
                 text={isOpen ? "Buscar" : undefined}
@@ -97,7 +117,7 @@ export default function DesktopSidebar() {
               {/* Campus button */}
               <Button
                 variant="ghost"
-                size={isOpen ? "sidebar" : "sidebar-collapsed"}
+                size="sidebar"
                 onClick={() => (isOpen ? toggleSubSidebar("campus") : handleCollapsedClick("campus"))}
                 icon={<Icons.Map />}
                 text={isOpen ? "Campus" : undefined}
@@ -106,28 +126,20 @@ export default function DesktopSidebar() {
               {/* Usage Guide button */}
               <Button
                 variant="ghost"
-                size={isOpen ? "sidebar" : "sidebar-collapsed"}
+                size="sidebar"
                 onClick={() => (isOpen ? toggleSubSidebar("guías") : handleCollapsedClick("guías"))}
                 icon={<Icons.Info className="w-6 h-6" />}
                 text={isOpen ? "Guía" : undefined}
                 isActive={activeSubSidebar === "guías"}
               />
-              {/* <Button
-                variant="ghost"
-                size={isOpen ? "sidebar" : "sidebar-collapsed"}
-                onClick={() => (isOpen ? toggleSubSidebar("temas") : handleCollapsedClick("temas"))}
-                icon={<Icons.Palette />}
-                text={isOpen ? "Temas" : undefined}
-                isActive={activeSubSidebar === "temas"}
-              /> */}
             </div>
           </nav>
 
           {/* Footer - visible only when expanded */}
-          <div className={`flex flex-col space-y-4 px-4 ${isOpen ? "block" : "hidden"}`}>
+          <div className={`flex flex-col space-y-4 px-3 ${isOpen ? "block anim-fade-in" : "hidden"}`}>
             <FooterOptionsSidebar />
           </div>
-          <div className={`flex justify-center ${!isOpen ? "block" : "hidden"}`}>
+          <div className={`flex justify-center ${!isOpen ? "block anim-fade-in" : "hidden"}`}>
             <div className="w-10 h-10 rounded-xl bg-primary">
               <Link href="/creditos" className="font-semibold block hover:underline">
                 <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
@@ -140,22 +152,26 @@ export default function DesktopSidebar() {
 
         {/* Segunda sección - subsidebar - always rendered but with dynamic width */}
         <section
-          className={`shadow-lg h-full overflow-hidden bg-background text-foreground border-l-1 border-border ${
+          className={`shadow-lg h-full overflow-hidden bg-background text-foreground border-l-1 border-border transition-[width,opacity,padding] duration-200 ease-out motion-reduce:transition-none ${
             activeSubSidebar !== null ? "w-96 opacity-100 p-2" : "w-0 opacity-0 p-0"
           }`}
+          aria-hidden={activeSubSidebar === null}
+          inert={activeSubSidebar === null}
         >
-          <div className={`${activeSubSidebar !== null ? "block overflow-auto h-full" : "hidden"}`}>
-            {activeSubSidebar === "campus" && (
+          {/* Ancho fijo (w-96 menos el p-2 del padre): así el contenido se revela recortado en vez de
+              comprimirse mientras el panel se abre. */}
+          <div className="overflow-auto h-full w-[23rem]">
+            {renderedSubSidebar === "campus" && (
               <div className="w-full h-full space-y-4">
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
               </div>
             )}
-            {activeSubSidebar === "guías" && (
+            {renderedSubSidebar === "guías" && (
               <div className="w-full h-full">
                 <UsageGuide onClose={() => setActiveSubSidebar(null)} />
               </div>
             )}
-            {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
+            {renderedSubSidebar === "placeInformation" && selectedPlace !== null && (
               <div className="w-full h-full">
                 <NotificationErrorBoundary>
                   <PlaceMenu
@@ -173,7 +189,7 @@ export default function DesktopSidebar() {
                 </NotificationErrorBoundary>
               </div>
             )}
-            {activeSubSidebar === "buscar" && (
+            {renderedSubSidebar === "buscar" && (
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between w-full px-4 py-3">
