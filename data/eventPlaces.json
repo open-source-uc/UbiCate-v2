@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.614223,
+                    -33.498144
+                ]
+            },
+            "properties": {
+                "identifier": "ms8alv9lxjew3c",
+                "name": "Taller de caporal [Interculturalidad]",
+                "information": "Descubre los pasos básicos del caporal y de cholita. No necesitas experiencia previa, ¡solo ganas de aprender y disfrutar bailando! Lugar específico Zona Interculturalidad. Organiza Trawün-Tinkuy. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ED215"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.614193,
                     -33.498119
                 ]
