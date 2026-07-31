@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6079225296399,
+                    -33.50110026104785
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bn9bgjsqp9i",
+                "name": "Desafíos Tenis de Mesa [Deportes]",
+                "information": "Desafíos y Juegos - se entregarán premios Lugar específico Gimnasio B Sur. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "SPORTS_PLACE-32757564"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61198453181025,
                     -33.498086300182564
                 ]
