@@ -4,6 +4,35 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "ms893v7nvr6oud",
+                "name": "No llegues tarde: arma tu propio reloj [Bibliotecas UC]",
+                "information": "Taller para aprender a fabricar su propio reloj de pared, utilizando motores de reloj y trozos de mdf proporcionados por Bibliotecas a través de técnicas de corte láser e impresión 3D. Lugar específico Maker Space, Biblioteca SJ. Organiza Bibliotecas UC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
