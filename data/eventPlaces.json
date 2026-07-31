@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61314809352633,
+                    -33.50039089238585
+                ]
+            },
+            "properties": {
+                "identifier": "ms89g048qvi64x",
+                "name": "El mercado de los problemas [Innovación, Tecnología e Inteligencia Artificial]",
+                "information": "Cada emprendimiento o investigación no nace de la formacion de un equipo, de una idea millonaria ni de una revelación divina, nave de un problema y de un dolor de una o varias personas. Es por esto que en la dinámica sirve como una especie de \"venteo\" sobre problemas para definir el scope de un emprendimiento o investigación, las mejores ideas nacen de los problemas más fuertes, pero hay que saber definirlos y afrontarlos Lugar específico Sala B2 Ingeniería Civil. Organiza UNITE. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "B12"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61314946476031,
                     -33.500386760583815
                 ]
