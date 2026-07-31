@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61141798921658,
+                    -33.497070944220134
+                ]
+            },
+            "properties": {
+                "identifier": "ms89x8rcia01lb",
+                "name": "Desafíos Públicos con LEGO® Serious Play® [Compromiso Público]",
+                "information": "Esta actividad invita a las y los participantes a reflexionar de manera creativa sobre problemáticas de interés público mediante la metodología Lego Serious Play, que utiliza piezas de LEGO como herramienta para facilitar el pensamiento, el diálogo y la construcción colectiva de ideas. Lugar específico Zona Compromiso Público. Organiza Formación para el Compromiso Público (CDDoc) y Puentes UC. . Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE105-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6118885504913,
                     -33.49730668618527
                 ]
