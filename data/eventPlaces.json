@@ -11,6 +11,35 @@
                 ]
             },
             "properties": {
+                "identifier": "ms8daqh93a4dhd",
+                "name": "Taller de Caligrafía China [Interculturalidad]",
+                "information": "Aprende los fundamentos de la escritura tradicional china utilizando tinta y pinceles, mientras descubres el significado cultural detrás de los trazos y pictogramas. El taller será guiado por estudiantes del Club y requiere inscripción presencial. No se necesita experiencia previa. Lugar específico Zona Interculturalidad. Organiza Xuexi CLub. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T12:30",
+                "endDate": "2026-08-03T13:10",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "T2222"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614145,
+                    -33.498077
+                ]
+            },
+            "properties": {
                 "identifier": "ms8d9jtwevw9il",
                 "name": "Taller de Caligrafía China [Interculturalidad]",
                 "information": "Aprende los fundamentos de la escritura tradicional china utilizando tinta y pinceles, mientras descubres el significado cultural detrás de los trazos y pictogramas. El taller será guiado por estudiantes del Club y requiere inscripción presencial. No se necesita experiencia previa. Lugar específico Zona Interculturalidad. Organiza Xuexi CLub. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
