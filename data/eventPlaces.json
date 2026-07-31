@@ -6,6 +6,78 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60968360653146,
+                    -33.49794040469271
+                ]
+            },
+            "properties": {
+                "identifier": "ms88suhwfv084p",
+                "name": "Mural colectivo: Autorretratos en comunidad [Arte y Cultura]",
+                "information": "Actividad participativa en la que los participantes crearán un autorretrato en tiza para integrarlo a un mural colectivo. A medida que avance la jornada, el mural se convertirá en un mosaico de identidades que celebra la diversidad de la comunidad UC y nos invita a reencontrarnos, reconocernos y construir comunidad entre todas y todos. Lugar específico Explanada Aulas Lassen. Organiza Tejiendo Niñez. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms88suwiv2om63"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60968360653146,
+                            -33.49794040469271
+                        ],
+                        [
+                            -70.60946902981087,
+                            -33.49782409573189
+                        ],
+                        [
+                            -70.60928127517946,
+                            -33.497488588238646
+                        ],
+                        [
+                            -70.6092866395977,
+                            -33.49730070347404
+                        ],
+                        [
+                            -70.60975870838405,
+                            -33.49734991142807
+                        ],
+                        [
+                            -70.60968360653146,
+                            -33.49794040469271
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms88suwiv2om63",
+                "name": "Explanada Aulas Lassen",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60967911049676,
                     -33.4979445884567
                 ]
