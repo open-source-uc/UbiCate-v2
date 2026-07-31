@@ -6,6 +6,94 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60958407999867,
+                    -33.50018609382329
+                ]
+            },
+            "properties": {
+                "identifier": "ms8dmijkd0b963",
+                "name": "Tour guiado por las instalaciones deportivas UC [Deportes]",
+                "information": "¡Conoce todos los espacios deportivos que tiene la UC! Lugar específico Área de Deportes. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8dmj4yid3ts7"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60958407999867,
+                            -33.50018609382329
+                        ],
+                        [
+                            -70.60912255996104,
+                            -33.49998404513781
+                        ],
+                        [
+                            -70.6091571739638,
+                            -33.49830028775578
+                        ],
+                        [
+                            -70.60624959772301,
+                            -33.49818482890738
+                        ],
+                        [
+                            -70.60596114769906,
+                            -33.49903152355614
+                        ],
+                        [
+                            -70.60614575571412,
+                            -33.50057094715695
+                        ],
+                        [
+                            -70.60803798787074,
+                            -33.500561325844124
+                        ],
+                        [
+                            -70.60815336788033,
+                            -33.50093655623846
+                        ],
+                        [
+                            -70.60944562398774,
+                            -33.50067678152297
+                        ],
+                        [
+                            -70.60958407999867,
+                            -33.50018609382329
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8dmj4yid3ts7",
+                "name": "Área de Deportes",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60902397312917,
                     -33.500854285877
                 ]
