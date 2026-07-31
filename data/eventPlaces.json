@@ -6,6 +6,78 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60968273877019,
+                    -33.497957370244585
+                ]
+            },
+            "properties": {
+                "identifier": "ms89ro8rj3bat3",
+                "name": "Blu Nout en vivo: sesión de jamming [Arte y Cultura]",
+                "information": "Lugar específico Explanada Aulas Lassen. Organiza Blu Nout. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms89roqe1manpq"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60968273877019,
+                            -33.497957370244585
+                        ],
+                        [
+                            -70.6097578406221,
+                            -33.49733108950237
+                        ],
+                        [
+                            -70.60923212765546,
+                            -33.49729082844265
+                        ],
+                        [
+                            -70.60922676323723,
+                            -33.49743845223666
+                        ],
+                        [
+                            -70.60948425530299,
+                            -33.49782764103444
+                        ],
+                        [
+                            -70.60968273877019,
+                            -33.497957370244585
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms89roqe1manpq",
+                "name": "Explanadas Aulas Lassen",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61045352285046,
                     -33.498224363837615
                 ]
