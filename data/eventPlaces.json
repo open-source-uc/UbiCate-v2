@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61396,
+                    -33.498055
+                ]
+            },
+            "properties": {
+                "identifier": "ms8czs6r2od6aj",
+                "name": "Fusión de sabores [Interculturalidad]",
+                "information": "Pon a prueba tus conocimientos sobre distintas culturas participando en entretenidos Kahoot, uno por cada país. Al finalizar cada juego, podrás degustar un postre o comida típica y, en algunas estaciones, preparar tu propia receta, convirtiendo el aprendizaje en una experiencia interactiva y llena de sabor. Lugar específico Zona Interculturalidad. Organiza RAE. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T11:15",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "T3224"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.614842,
                     -33.498235
                 ]
