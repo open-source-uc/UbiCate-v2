@@ -21671,29 +21671,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-27007733",
-                "name": "Dirección inclusión",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61040985685648,
-                    -33.4965992259542
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
