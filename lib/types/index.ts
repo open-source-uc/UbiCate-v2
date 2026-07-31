@@ -67,8 +67,7 @@ export interface EventProperties extends Properties {
   endDate: string;
   showFrom?: string;
   parentPlaceIds?: string[];
-  // Piso opcional por lugar del evento: { [placeId]: piso }
-  parentPlaceFloors?: Record<string, number>;
+  parentPlaceFloors?: Record<string, number | undefined>;
 }
 
 export function getParentPlaceIds(props: EventProperties): string[] {
