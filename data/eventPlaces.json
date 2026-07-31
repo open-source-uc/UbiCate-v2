@@ -4,6 +4,85 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61546305194497,
+                            -33.49769357280825
+                        ],
+                        [
+                            -70.61521796509624,
+                            -33.497659183298126
+                        ],
+                        [
+                            -70.61512257903814,
+                            -33.49764114976907
+                        ],
+                        [
+                            -70.61508905142546,
+                            -33.49763779469349
+                        ],
+                        [
+                            -70.6150109320879,
+                            -33.49796924757455
+                        ],
+                        [
+                            -70.61517907306552,
+                            -33.49797358119724
+                        ],
+                        [
+                            -70.61515375971794,
+                            -33.498058576075735
+                        ],
+                        [
+                            -70.61521980911493,
+                            -33.49806514640003
+                        ],
+                        [
+                            -70.6152424402535,
+                            -33.49798294741327
+                        ],
+                        [
+                            -70.61550898477435,
+                            -33.49801789597161
+                        ],
+                        [
+                            -70.61552155762911,
+                            -33.497968269014564
+                        ],
+                        [
+                            -70.61542298644781,
+                            -33.497955687527984
+                        ],
+                        [
+                            -70.61546305194497,
+                            -33.49769357280825
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a7lftibmu22",
+                "name": "Visita guiada al Centro de Innovación UC: Ideas para resolver los desafíos del país",
+                "information": "Ven a conocer este icónico edificio, donde se vive la innovación. Te invitamos a visitar sus espacios y laboratorios para informarte sobre el quehacer del Centro e inspirarte a través de una experiencia diseñada especialmente para promover el espíritu innovador. Lugar específico Centro de Innovación UC. Organiza Centro de Innovación. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:20",
+                "endDate": "2026-08-03T11:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.61200096029263,
