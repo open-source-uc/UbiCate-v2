@@ -6,6 +6,74 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6067197866369,
+                    -33.5009344397558
+                ]
+            },
+            "properties": {
+                "identifier": "ms88k2x99eaora",
+                "name": "Entrenamiento libre y acondicionamiento físico guiado [Deportes]",
+                "information": "Profesor realizará mediciones e inducción al entrenamiento físico con sobrecargas Lugar específico Bunker Fit. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms88k392ra7uf1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6067197866369,
+                            -33.5009344397558
+                        ],
+                        [
+                            -70.60741869173356,
+                            -33.500873673778294
+                        ],
+                        [
+                            -70.60735244480497,
+                            -33.50057812955338
+                        ],
+                        [
+                            -70.6066932878661,
+                            -33.500619561047486
+                        ],
+                        [
+                            -70.6067197866369,
+                            -33.5009344397558
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms88k392ra7uf1",
+                "name": "Lugar 1",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.607301314151,
                     -33.50067488880139
                 ]
