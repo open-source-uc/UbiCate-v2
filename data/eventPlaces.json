@@ -4,6 +4,35 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.613911,
+                    -33.49806
+                ]
+            },
+            "properties": {
+                "identifier": "ms8de2xg8odz52",
+                "name": "Llaveros del mundo [Interculturalidad]",
+                "information": "Taller de llaveros interculturales: Diseña y decora un llavero inspirado en la interculturalidad, utilizando símbolos representativos de distintos países y culturas. Recibirás ideas e inspiración para crear un recuerdo único y significativo de la bienvenida al segundo semestre: Reencuentro con la experiencia UC. Lugar específico Zona Interculturalidad. Organiza RAE. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T11:15",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "T3225"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
