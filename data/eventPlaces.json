@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61132352941048,
+                    -33.49693476962717
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c216a5fglpa",
+                "name": "Bienestar con Huellas  [Recreación y Bienestar]",
+                "information": "Iniciativa desarrollada en la UC desde el 2016, en colaboración con una corporación especializada, que ofrece Actividades Asistidas con Animales (AAA) orientadas a promover el bienestar de los y las estudiantes durante períodos de alta demanda académica. Lugar específico Zona Recreación y Bienestar. Organiza Salud y Bienestar. . Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T12:30",
+                "endDate": "2026-08-03T15:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE108-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60944836586714,
                     -33.50051234782852
                 ]
