@@ -6,6 +6,74 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61343811227465,
+                    -33.49973740116629
+                ]
+            },
+            "properties": {
+                "identifier": "ms89lzpwlrdoe8",
+                "name": "Explora la ingeniería a través de experiencias tecnológicas e interactivas",
+                "information": " Lugar específico Sala B4 Ingeniería Civil. Organiza Ingeniería Eléctrica UC. . Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms89m04a40v7z4"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61343811227465,
+                            -33.49973740116629
+                        ],
+                        [
+                            -70.61374268201682,
+                            -33.49976197959761
+                        ],
+                        [
+                            -70.61373531339405,
+                            -33.49993402842132
+                        ],
+                        [
+                            -70.61348478021868,
+                            -33.49992993202506
+                        ],
+                        [
+                            -70.61343811227465,
+                            -33.49973740116629
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms89m04a40v7z4",
+                "name": "Salida desde B14 hacia Sala Departamento de Ingeniería Eléctrica, 1er piso, patio de la Virgen.",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610231,
                     -33.497607
                 ]
