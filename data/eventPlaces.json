@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60689993202686,
+                    -33.498613137650544
+                ]
+            },
+            "properties": {
+                "identifier": "ms88oifcjlp220",
+                "name": "Clases abiertas de los Talleres Deportivos UC [Deportes]",
+                "information": "Se presentarán diversas muestras de talleres con 1 hora de duración cada uno: Naginata, Bailes Urbanos. Zona de Juegos Infables - Tenis, Fútbol Lugar específico Canchas 1-2-3 de Futbolito Pasto Sintético. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MHDRQGPWVI03G3"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60703404247761,
                     -33.49841407184235
                 ]
