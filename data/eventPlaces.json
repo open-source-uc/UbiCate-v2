@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61020976203345,
+                    -33.49666370443487
+                ]
+            },
+            "properties": {
+                "identifier": "ms8aspfliyefh1",
+                "name": "Karaoke chino [Interculturalidad]",
+                "information": "Disfruta de un entretenido espacio para conocer y cantar canciones tradicionales chinas, ópera y éxitos del pop chino, guiado por una integrante de la comunidad china del Club. ¡Anímate a descubrir la cultura china a través de su música! Lugar específico Zona Interculturalidad. Organiza Xuexi CLub. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AP603-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61251835909026,
                     -33.50023153305832
                 ]
