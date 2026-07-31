@@ -4,6 +4,33 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61176818067842,
+                    -33.496783417813425
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a8oc4m4jxgn",
+                "name": "Ciclo Lúdico Tabletuc: Juegos de mesa para todos los niveles [Recreación y Bienestar]",
+                "information": "Ven a desconectarte y compartir con otros estudiantes en un ambiente entretenido y acogedor. Durante esta jornada podrás disfrutar de juegos de mesa y cartas para todos los niveles, desde partidas para principiantes hasta juegos más estratégicos para quienes quieran aprender y jugar con calma. Lugar específico Zona Recreación y Bienestar. Organiza TableTUC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE102-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
