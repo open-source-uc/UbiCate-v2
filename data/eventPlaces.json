@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61130970268061,
+                    -33.497060048720044
+                ]
+            },
+            "properties": {
+                "identifier": "ms8ccbqtndiiie",
+                "name": "Taller: ¡Involúcrate! Construye tu trayectoria en compromiso público [Compromiso Público]",
+                "information": "\"¿Qué tipo de profesional quieres ser? ¿Cómo te gustaría aportar al país desde tu paso por la universidad?\nEn este taller diseñarás tu propia trayectoria de compromiso público, identificando los intereses, experiencias y oportunidades que te acercan al impacto que quieres generar. A través de actividades participativas, construirás un mapa de tu recorrido ideal y propondrás nuevas iniciativas para fortalecer el compromiso público en la universidad.\"",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE107-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610231,
                     -33.497607
                 ]
