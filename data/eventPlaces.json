@@ -6,6 +6,76 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6104269106766,
+                    -33.498253810137705
+                ]
+            },
+            "properties": {
+                "identifier": "ms924kr8dsz1fe",
+                "name": "Traducciones imposibles [Formación ciudadana y diálogo]",
+                "information": "Traducción imposible: Los participantes intentan traducir expresiones idiomáticas de distintas lenguas y luego descubren su verdadero significado y el contexto cultural detrás de ellas. Conecta la palabra: Juego de memoria o asociación en el que se deben relacionar palabras equivalentes entre distintos idiomas, destacando similitudes y diferencias lingüísticas. (para estas dos se piensa el mismo material). Escribe un mensaje sin palabras: Los participantes comunican una idea mediante dibujos o gestos y luego reflexionan sobre el papel del lenguaje en la comunicación y la integración. Lugar específico Sector librerías UC - Itaú. Organiza Letras en Acción. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms924l9d3cvkdx"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6104269106766,
+                            -33.498253810137705
+                        ],
+                        [
+                            -70.61017310458018,
+                            -33.498217893839225
+                        ],
+                        [
+                            -70.6101377255487,
+                            -33.4983679725603
+                        ],
+                        [
+                            -70.61038537877009,
+                            -33.49840260607475
+                        ],
+                        [
+                            -70.6104269106766,
+                            -33.498253810137705
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms924l9d3cvkdx",
+                "name": "Sector librerías UC - Itaú",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61042083952128,
                     -33.498239789101305
                 ]
