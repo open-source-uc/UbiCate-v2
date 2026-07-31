@@ -4,6 +4,71 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61507698148489,
+                            -33.4982630946601
+                        ],
+                        [
+                            -70.6150209903717,
+                            -33.49809002975138
+                        ],
+                        [
+                            -70.61486508697271,
+                            -33.497927868456706
+                        ],
+                        [
+                            -70.61464983969927,
+                            -33.49796113950573
+                        ],
+                        [
+                            -70.61389312148094,
+                            -33.49785489577499
+                        ],
+                        [
+                            -70.6136829033494,
+                            -33.498050048632805
+                        ],
+                        [
+                            -70.61376504600048,
+                            -33.498223113621464
+                        ],
+                        [
+                            -70.61483591794968,
+                            -33.49831593670384
+                        ],
+                        [
+                            -70.61507698148489,
+                            -33.4982630946601
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c5738a401xp",
+                "name": "Taller de Soran Bushi: Baile tradicional japonés  [Interculturalidad]",
+                "information": "El taller consiste en una instancia de inmersión cultural donde se enseñarán los movimientos fundamentales del Soran Bushi, danza tradicional originaria de Hokkaido. Durante la actividad, se realizará una breve contextualización histórica sobre su origen en la labor pesquera, seguida por la instrucción práctica de la coreografía y la ejecución de cánticos tradicionales. La metodología está diseñada para fomentar la coordinación, el trabajo en equipo y la expresión corporal de los asistentes, sin requerir experiencia previa. Se proporcionarán estampillas fabricadas para incentivar la participación en los talleres. Lugar específico Zona Interculturalidad. Organiza KOTONOHA Nippon Club. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T12:30",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60820426446412,
