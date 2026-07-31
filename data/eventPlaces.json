@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609659,
+                    -33.4969
+                ]
+            },
+            "properties": {
+                "identifier": "ms8dg6s3vycfha",
+                "name": "Taller de Almácigos [Sustentabilidad]",
+                "information": "Taller de Almacigos para la comunidad donde se preparará el sustrato desde 0 y se plantara un plantin con el sustrato hecho por los participantes en las macetas que realizaran La Raíz. Además se regalaran plantines y semillas para todos los que lleguen Lugar específico AG4 - Facultad de Agronomía y Sistemas Naturales. Organiza Huerto Simbionte. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ],
+                "startDate": "2026-08-03T11:15",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AG4"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.613911,
                     -33.49806
                 ]
