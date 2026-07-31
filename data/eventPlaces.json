@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60792325310791,
+                    -33.500527032410226
+                ]
+            },
+            "properties": {
+                "identifier": "ms89a8zdtl03q6",
+                "name": "Desafíos de Básquet y Handball: Precisión y Agilidad [Deportes]",
+                "information": "Se desarrollarán muestras y desafíos - Torneo Basquet 3x3 y lanzamientos al aro - Concurso de lanzamientos de penales y tiros libres de Handball. Lugar específico Polideportivo A. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MHDRCXF6CY7PJ7"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61114428512911,
                     -33.49785956186872
                 ]
