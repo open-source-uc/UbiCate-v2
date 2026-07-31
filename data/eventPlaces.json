@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61156191567117,
+                    -33.496981670915325
+                ]
+            },
+            "properties": {
+                "identifier": "ms8aa5n4b2vjig",
+                "name": "Gaming it back [Recreación y Bienestar]",
+                "information": "Pon a prueba tus habilidades en partidas 1 vs. 1 de videojuegos en un espacio pensado para la sana competencia y la diversión. Vive la emoción de cada partida proyectada en pantalla, comparte con otros estudiantes y disfruta de una experiencia dinámica que promueve la estrategia, el compañerismo y la integración. Lugar específico Zona Recreación y Bienestar. Organiza Gaming Ucé. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE104-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61176818067842,
                     -33.496783417813425
                 ]
