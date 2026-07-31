@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "ms8ds6bla0g3bi",
+                "name": "Kit Calm [Espacio de autorregulación sensorial]",
+                "information": "Esta iniciativa busca promover la regulación emocional mediante la elaboración de manualidades con un enfoque sensorial, favoreciendo especialmente el manejo de estados de ansiedad. A través del uso de materiales y objetos de fácil acceso, se invita a las y los estudiantes a desarrollar estrategias de autorregulación que faciliten la conexión con emociones de calma y tranquilidad, al mismo tiempo que fortalecen habilidades de atención plena, curiosidad y apertura a la experiencia. Lugar específico Biblioteca Escolar Futuro, 1er. piso Bib San Joaquín. Organiza Salud y Bienestar. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.614106,
                     -33.498087
                 ]
