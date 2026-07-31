@@ -6,6 +6,82 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61189167675536,
+                    -33.49715209279911
+                ]
+            },
+            "properties": {
+                "identifier": "ms8acbexsl3sw4",
+                "name": "Ciclo Lúdico Tabletuc: Partidas rápidas de juegos de mesa [Recreación y Bienestar]",
+                "information": "Haz una pausa y disfruta de una partida de 10 minutos. Un espacio para desconectarte, compartir con otros estudiantes y fortalecer la comunidad a través de juegos entretenidos y estratégicos. Lugar específico Zona Recreación y Bienestar. Organiza TableTUC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8acc00ghldv0"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61189167675536,
+                            -33.49715209279911
+                        ],
+                        [
+                            -70.61117284473907,
+                            -33.49710288473264
+                        ],
+                        [
+                            -70.61121039566537,
+                            -33.496906052187036
+                        ],
+                        [
+                            -70.61169319328816,
+                            -33.49693289301589
+                        ],
+                        [
+                            -70.61197214302551,
+                            -33.496767374444346
+                        ],
+                        [
+                            -70.61189167675536,
+                            -33.49715209279911
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8acc00ghldv0",
+                "name": "Pasillo central Facultad de Economía",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61156191567117,
                     -33.496981670915325
                 ]
