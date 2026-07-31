@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61265142702489,
+                    -33.49624207492392
+                ]
+            },
+            "properties": {
+                "identifier": "ms8cgk8zbrt12n",
+                "name": "Gestión de residuos orgánicos con lombrices [Sustentabilidad]",
+                "information": "Gestión de residuos orgánicos con lombrices Lugar específico Huerto San Francisco. Organiza Dirección de Sustentabilidad. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T13:30",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MEN5BTLXABMZ6E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6119231175779,
                     -33.49716896164382
                 ]
