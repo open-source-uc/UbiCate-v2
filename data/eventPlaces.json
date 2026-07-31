@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610231,
+                    -33.497607
+                ]
+            },
+            "properties": {
+                "identifier": "ms89jgjjm847wv",
+                "name": "Modelo de Naciones Unidas: La experiencia que transforma tu carrera profesional",
+                "information": "Conversatorio que busca acercar a estudiantes de todas las carreras al impacto que la participación en Modelos de Naciones Unidas (MUN) tiene en su desarrollo académico, profesional y personal. Participarán un diplomático, un profesional y un estudiante con experiencia en MUN, quienes compartirán cómo esta instancia fortaleció habilidades como liderazgo, negociación, comunicación y trabajo en equipo. Además, se abrirá un espacio de diálogo con el público para reflexionar sobre cómo estas competencias potencian la inserción laboral y el desarrollo profesional, independiente de la disciplina de origen. Lugar específico Sala N12. Organiza PUCUNS. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T11:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "N12"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609898,
                     -33.498421
                 ]
