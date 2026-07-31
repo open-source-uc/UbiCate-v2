@@ -6,6 +6,110 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61214604255773,
+                    -33.49718590291503
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a1e4skinbh5",
+                "name": "Muro de Ideas: Construyamos una universidad más amigable con todas las edades [Compromiso Público]",
+                "information": "Actividad participativa de reflexión dirigida a la comunidad UC, que invita a compartir ideas y experiencias sobre la importancia de promover espacios intergeneracionales dentro de la universidad. A través de una pregunta orientadora, las y los participantes podrán escribir sus respuestas en una pizarra colaborativa, generando un espacio de diálogo y visibilización de distintas perspectivas.",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8a1emw5r24yg"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61214604255773,
+                            -33.49718590291503
+                        ],
+                        [
+                            -70.61217822906579,
+                            -33.49691749504564
+                        ],
+                        [
+                            -70.6119368302547,
+                            -33.4969040746304
+                        ],
+                        [
+                            -70.61197438118036,
+                            -33.4965864575272
+                        ],
+                        [
+                            -70.61176516887734,
+                            -33.4965864575272
+                        ],
+                        [
+                            -70.61171688911524,
+                            -33.49688618073942
+                        ],
+                        [
+                            -70.61118581173037,
+                            -33.49685486642291
+                        ],
+                        [
+                            -70.61114289638589,
+                            -33.4971411683274
+                        ],
+                        [
+                            -70.611695431443,
+                            -33.497150115247
+                        ],
+                        [
+                            -70.61168470260719,
+                            -33.49731115963516
+                        ],
+                        [
+                            -70.61187245723795,
+                            -33.49732457998732
+                        ],
+                        [
+                            -70.61191000816424,
+                            -33.497176955999166
+                        ],
+                        [
+                            -70.61214604255773,
+                            -33.49718590291503
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a1emw5r24yg",
+                "name": "Piso 1 Facultad de Economía y Administración",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61182536742228,
                     -33.49690462947072
                 ]
