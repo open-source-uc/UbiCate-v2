@@ -4,6 +4,59 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ],
+                        [
+                            -70.60878095907752,
+                            -33.497634502712884
+                        ],
+                        [
+                            -70.60882345460391,
+                            -33.498019707395784
+                        ],
+                        [
+                            -70.60932465180952,
+                            -33.498121426094684
+                        ],
+                        [
+                            -70.60948468205086,
+                            -33.498025871721815
+                        ],
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8dni4jutp2a0",
+                "name": "Talleres DAE: Acuarela [Arte y Cultura]",
+                "information": "Experiencia de iniciación a la acuarela, donde las y los asistentes explorarán técnicas básicas de color y pincelada para realizar una creación artística de manera guiada.. No se requiere experiencia previa. Lugar específico Hall Aulas Lassen. Organiza DAE-Desarrollo Estudiantil. . Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ],
+                "startDate": "2026-08-03T11:30",
+                "endDate": "2026-08-03T12:20",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60958407999867,
