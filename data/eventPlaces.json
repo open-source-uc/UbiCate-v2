@@ -4,6 +4,76 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61042083952128,
+                    -33.498239789101305
+                ]
+            },
+            "properties": {
+                "identifier": "ms9236seirhef5",
+                "name": "¿Cómo se dice? Adivina el idioma [Formación ciudadana y diálogo]",
+                "information": "Los participantes giran una ruleta que indica un idioma y deben adivinar el significado o la pronunciación de un saludo o expresión. Luego un voluntario explica su significado y contexto cultural, para luego dar a conocer el proyecto de voluntariado. / Se presentan audios o frases escritas en diferentes idiomas para que los asistentes identifiquen cuál es. Al final se explica brevemente cada lengua y la importancia de la inserción social además del voluntariado. (considerados en la misma ruleta) Lugar específico Sector librerías UC - Itaú. Organiza Letras en Acción. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms9237ee18a996"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61042083952128,
+                            -33.498239789101305
+                        ],
+                        [
+                            -70.6101323428987,
+                            -33.49822097846361
+                        ],
+                        [
+                            -70.61012165783853,
+                            -33.49836750332627
+                        ],
+                        [
+                            -70.61041252891911,
+                            -33.498377403645364
+                        ],
+                        [
+                            -70.61042083952128,
+                            -33.498239789101305
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms9237ee18a996",
+                "name": "Sector librerías UC - Itaú",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
