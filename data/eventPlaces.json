@@ -4,6 +4,35 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.609519,
+                    -33.497116
+                ]
+            },
+            "properties": {
+                "identifier": "ms8d71cgw5x8rn",
+                "name": "Explora tu Fauna San Joaquín [Sustentabilidad]",
+                "information": "Invitación a la comunidad univesitaria a conocer e identificar la biodiversidad de fauna que habita en el Campus San Joaquín. Los participantes aprenderán a reconocer, junto a Silvet, las especies más comunes en el campus, comprenderán la diferencia entre especies nativas e introducidas, conocerán buenas prácticas para observar fauna y descubriran herramientas utiles para esto mismo. Como cierre los asistentes participarán en un salida al campus para poner en práctica lo aprendido y reflexionar sobre nuestro rol en este ecosistema. Esta última instancia contará con la colaboración de La Raíz - Contemplación Natural, quienes aportarán desde su experiencia en conexión con la naturaleza.  Lugar específico AG2 - Facultad de Agronomía y Sistemas Naturales. Organiza Silvet. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T11:40",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AG2"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
