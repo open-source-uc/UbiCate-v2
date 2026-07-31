@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "ms89hmhqjqeh75",
+                "name": "Espacio de baja estimulación sensorial [Espacio de autorregulación sensorial]",
+                "information": "Espacio con mantas de peso, sillón tipo pera, fidget toys, audifonos de cancelación de ruido. Este espacio se encuentra habilitado para el evento, dentro de Bibliotecas, sin embargo, dentro de la UC es provisto por la DAp, por lo que se podrá asistira la DAp después de utilizar este espacio. En la DAp se ubica sala de baja estimulación original que está disponible para todos los estudiantes durante todo el año, para que tengan la referencia real de donde se ubica siempre. Lugar específico Sala de Estudio 7, 1er piso Biblioteca San Joaquín. Organiza DAE y DAp. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61314809352633,
                     -33.50039089238585
                 ]
