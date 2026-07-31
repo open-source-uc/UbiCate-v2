@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609568,
+                    -33.496895
+                ]
+            },
+            "properties": {
+                "identifier": "ms8d2c361mdi8j",
+                "name": "Construcción de Maceteros [Sustentabilidad]",
+                "information": "Actividad práctica en la que las y los participantes construirán maceteros de madera utilizando materiales y herramientas básicas, promoviendo el trabajo colaborativo y el aprendizaje de habilidades relacionadas con el uso sostenible de materiales. Lugar específico AG5 - Facultad de Agronomía y Sistemas Naturales. Organiza La Raíz. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T11:10",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AG5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61396,
                     -33.498055
                 ]
