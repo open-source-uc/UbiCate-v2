@@ -6,6 +6,38 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "ms89ttqh556e7l",
+                "name": "Juega en la biblioteca  [Bibliotecas UC]",
+                "information": "Invitamos a toda la comunidad a jugar juegos de mesa y armar puzzles al interior de las cuatro bibliotecas del campus San Joaquín; Gauss; Teología y Humanidades. Lugar específico Bibliotecas San Joaquín, Humanidades, Teología, Gauss. Organiza Bibliotecas UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T17:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_CS",
+                    "BIBLIO_HUM",
+                    "BIBLIO_TEO",
+                    "BIBLIO_MAT"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60968273877019,
                     -33.497957370244585
                 ]
