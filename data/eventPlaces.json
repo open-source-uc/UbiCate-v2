@@ -4,6 +4,82 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61198453181025,
+                    -33.498086300182564
+                ]
+            },
+            "properties": {
+                "identifier": "ms8blbyn9d97ph",
+                "name": "Novato Challenge [Interculturalidad]",
+                "information": "Una experiencia de integración donde los estudiantes participarán en desafíos colaborativos que pondrán a prueba su comunicación, creatividad y trabajo en equipo. A través de dinámicas guiadas en inglés, los participantes fortalecerán vínculos con sus compañeros mientras desarrollan sus habilidades comunicativas de forma entretenida. Lugar específico Explanada pastos centrales. Organiza English UC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8blckcx4xvit"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61198453181025,
+                            -33.498086300182564
+                        ],
+                        [
+                            -70.6120542692446,
+                            -33.497205033724214
+                        ],
+                        [
+                            -70.61215619318699,
+                            -33.49717819298075
+                        ],
+                        [
+                            -70.61222593062134,
+                            -33.496985834075076
+                        ],
+                        [
+                            -70.61281065218652,
+                            -33.497021621811044
+                        ],
+                        [
+                            -70.61266581289962,
+                            -33.49814892791446
+                        ],
+                        [
+                            -70.61198453181025,
+                            -33.498086300182564
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8blckcx4xvit",
+                "name": "Explanada pastos centrales",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
