@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61314946476031,
+                    -33.500386760583815
+                ]
+            },
+            "properties": {
+                "identifier": "ms89es1jhmdib8",
+                "name": "Taller CPU te enseña [Innovación, Tecnología e Inteligencia Artificial]",
+                "information": "Taller de Ensamblaje y desensamblaje de computadores, mantención/limpieza de un computador. Se desarrollará con 1 taller con 2 grupos, por hora, acompañando en paralelo a un grupo de 10 inscritos que deseen aprender. Los computadores sobre los que trabajar son provistos por la misma organización. Lugar específico Sala B1, Fac. Ingeniería Civil. Organiza CPU. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "B11"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.612511,
                     -33.500141
                 ]
