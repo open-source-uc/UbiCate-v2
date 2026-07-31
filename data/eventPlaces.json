@@ -6,6 +6,78 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60967911049676,
+                    -33.4979445884567
+                ]
+            },
+            "properties": {
+                "identifier": "ms88rk90adwm76",
+                "name": "Talleres DAE: Exposición de fotografía [Arte y Cultura]",
+                "information": "Muestra de fotografía que reúne los trabajos desarrollados por las y los participantes del taller de fotografía, invitando a recorrer diversas miradas, experiencias y formas de representar el entorno a través de la imagen. Lugar específico Explanada Aulas Lassen. Organiza DAE-Desarrollo Estudiantil. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms88rkmoedjcu2"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60967911049676,
+                            -33.4979445884567
+                        ],
+                        [
+                            -70.60945916935825,
+                            -33.49781933265288
+                        ],
+                        [
+                            -70.6092553214728,
+                            -33.49746145792722
+                        ],
+                        [
+                            -70.60931433007134,
+                            -33.49728252000957
+                        ],
+                        [
+                            -70.60975957676784,
+                            -33.497331727973965
+                        ],
+                        [
+                            -70.60967911049676,
+                            -33.4979445884567
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms88rkmoedjcu2",
+                "name": "Explanada Aulas Lassen",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60856994241476,
                     -33.500603211395834
                 ]
