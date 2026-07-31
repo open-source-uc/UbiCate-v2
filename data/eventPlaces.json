@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61155883325564,
+                    -33.49708325454853
+                ]
+            },
+            "properties": {
+                "identifier": "ms8af0ujvt5w2g",
+                "name": "Snack Attack [Recreación y Bienestar]",
+                "information": "Actividad demostrativa dirigida por un chef de le carrera de Nutrición, en la que los y las estudiantes aprenderán a preparar colaciones saludables, rápidas y de bajo costo, utilizando ingredientes de fácil acceso. A través de una preparación en vivo, se entregarán herramientas prácticas para incorporar opciones de alimentación equilibrada en la rutina diaria, especialmente durante períodos de alta carga académica, cuando el tiempo disponible para cocinar suele ser limitado. Lugar específico Zona Recreación y Bienestar. Organiza Salud y Bienestar. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE103-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61114428512911,
                     -33.49785956186872
                 ]
