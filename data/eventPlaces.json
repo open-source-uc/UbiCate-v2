@@ -6,6 +6,86 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6119231175779,
+                    -33.49716896164382
+                ]
+            },
+            "properties": {
+                "identifier": "ms8cfi66i8rolo",
+                "name": "Talk2Me [Interculturalidad]",
+                "information": "Se realizará una actividad orientada a practicar inglés y conocer más sobre las oportunidades de intercambio semestral. Para ello, se habilitará una pizarra con la invitación \"Práctica inglés aquí\". Los participantes podrán sumarse a una dinámica de conversación en la que deberán extraer una pregunta o tema desde un sombrero para iniciar un diálogo en inglés de manera espontánea y entretenida.  Lugar específico Zona Interculturalidad. Organiza VRAI UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T13:30",
+                "endDate": "2026-08-03T14:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8cfiny84ipoa"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6119231175779,
+                            -33.49716896164382
+                        ],
+                        [
+                            -70.6119660329224,
+                            -33.49669477375161
+                        ],
+                        [
+                            -70.61174072736472,
+                            -33.49665451239491
+                        ],
+                        [
+                            -70.6117299985289,
+                            -33.49689160677648
+                        ],
+                        [
+                            -70.61120964997983,
+                            -33.49688713330394
+                        ],
+                        [
+                            -70.61118282789,
+                            -33.49713764742853
+                        ],
+                        [
+                            -70.6119231175779,
+                            -33.49716896164382
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8cfiny84ipoa",
+                "name": "Espacio Central Facultad de Educación",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61114428512911,
                     -33.49785956186872
                 ]
