@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61394,
+                    -33.497495
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c9zt7v5eii2",
+                "name": "Cine en Bibliotecas - \"Kimetsu no Yaiba (Demon Slayer), Infinity Castle 1\" [Bibliotecas UC]",
+                "information": "Una invitación a ver el estreno de la película de animé \"Kimetsu no Yaiba, (Demon Slayer), Infinity Castle 1\" (cuyo estreno oficial es el 28 de julio).  La película se proyectará en la Sala Multiuso de la Biblioteca de Humanidades, 1° piso. Lugar específico Biblioteca Humanidades. Organiza Bibliotecas UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_HUM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609658,
                     -33.497122
                 ]
