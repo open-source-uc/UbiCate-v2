@@ -6,6 +6,58 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61225739843213,
+                    -33.4990268757441
+                ]
+            },
+            "properties": {
+                "identifier": "ms91z2o7dq2rjx",
+                "name": "Cabina de audio \"¿Qué es para mí la docencia extraordinaria?\" [Formación extraordinaria]",
+                "information": "Cabina que registra audios. Las y los asistentes podrán entrar de forma individual a la cabina y responder por un teléfono a la pregunta \"¿Qué es para mí la docencia extraordinaria?\" dejando registro de audio de la respuesta. Lugar específico Hall edificio CDDoc. Organiza CDDoc. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms91z3ap0avbiv"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61225739843213,
+                    -33.4990268757441
+                ]
+            },
+            "properties": {
+                "identifier": "ms91z3ap0avbiv",
+                "name": "Hall edificio CDDOC",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61017675403977,
                     -33.49805190353458
                 ]
