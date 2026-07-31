@@ -6,6 +6,84 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60802287192699,
+                    -33.50081732724429
+                ]
+            },
+            "properties": {
+                "identifier": "ms88wl3pon525s",
+                "name": "Simultánea de Ajedrez con Seleccionados UC [Deportes]",
+                "information": "Participación de seleccionados en encuentros simultáneos con estudiantes Lugar específico Exterior Polideportivo A. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms88wlgtbvjue7"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60802287192699,
+                            -33.50081732724429
+                        ],
+                        [
+                            -70.60797427018336,
+                            -33.50051336729399
+                        ],
+                        [
+                            -70.60744208109132,
+                            -33.50055186894597
+                        ],
+                        [
+                            -70.60743236074283,
+                            -33.500482971239386
+                        ],
+                        [
+                            -70.60803988253755,
+                            -33.50042217910009
+                        ],
+                        [
+                            -70.6081176453272,
+                            -33.50081935363972
+                        ],
+                        [
+                            -70.60802287192699,
+                            -33.50081732724429
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms88wlgtbvjue7",
+                "name": "Exterior Polideportivo A",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MMC18XOIIMSXZO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60968360653146,
                     -33.49794040469271
                 ]
