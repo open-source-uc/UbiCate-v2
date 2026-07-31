@@ -11,6 +11,35 @@
                 ]
             },
             "properties": {
+                "identifier": "ms8b94lqasi9ks",
+                "name": "Mi foto por siempre - Taller de digitalización [Bibliotecas UC]",
+                "information": "En esta actividad se aprenderá sobre preservación y digitalización de materiales. Posteriormente, podrán realizar la digitalización de sus propios objetos o fotografías, con supervisión del equipo. Se permitirá un máximo de 4 fotos u objetos por persona. Esta actividad se desarrollará en el 3° piso de la Biblioteca de Humanidades, específicamente en el Laboratorio de Patrimonio Documental y Humanidades Digitales. Lugar específico Biblioteca Humanidades. Organiza Bibliotecas UC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_HUM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61394,
+                    -33.497495
+                ]
+            },
+            "properties": {
                 "identifier": "ms8b77zsjbvjx7",
                 "name": "Desafío ping-pong [Bibliotecas UC]",
                 "information": "El equipo de la Baiblioteca de Humanidades desafía a los estudiantes a un \"frente a frente con Domingo y Alfredo\". A través de mini partidos de ping-pong, los estudiantes competirán por la revancha del 1° lugar en este deporte.  Lugar específico Biblioteca Humanidades. Organiza Bibliotecas UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
