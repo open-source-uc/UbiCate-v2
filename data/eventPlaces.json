@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610197,
+                    -33.497883
+                ]
+            },
+            "properties": {
+                "identifier": "ms8b2um5brtqa1",
+                "name": "La escucha activa: Una habilidad para convivir [Formación ciudadana y diálogo]",
+                "information": "Se trata de un taller en que se plantean de forma colaborativa elementos clave para el diálogo y se profundiza en una experiencia de escucha activa con herramientas inspiradas en el enfoque Nansen sobre el diálogo Lugar específico Sala N10. Organiza OMBUDS. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T11:30",
+                "endDate": "2026-08-03T12:50",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "N10"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61265142702489,
                     -33.49624207492392
                 ]
