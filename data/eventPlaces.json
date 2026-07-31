@@ -6,6 +6,110 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6118885504913,
+                    -33.49730668618527
+                ]
+            },
+            "properties": {
+                "identifier": "ms89vspurhzsor",
+                "name": "Ruleta ODS [Compromiso Público]",
+                "information": "La actividad consiste en una ruleta con los 17 Objetivos de Desarrollo Sostenible (ODS). Cada participante hace girar la ruleta y de acuerdo al objetivo deberá responder una pregunta. Lugar específico Zona Compromiso Público. Organiza Formación para el Compromiso Publico (CDDoc). Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms89vt9tmeb4p5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6118885504913,
+                            -33.49730668618527
+                        ],
+                        [
+                            -70.61192073699937,
+                            -33.49719037637303
+                        ],
+                        [
+                            -70.61215140697462,
+                            -33.49722169056925
+                        ],
+                        [
+                            -70.61217822906447,
+                            -33.49693091545971
+                        ],
+                        [
+                            -70.61192610141696,
+                            -33.496904074631296
+                        ],
+                        [
+                            -70.61194755908922,
+                            -33.49662224542914
+                        ],
+                        [
+                            -70.61177053329423,
+                            -33.49663119240236
+                        ],
+                        [
+                            -70.61172225353214,
+                            -33.49689960115942
+                        ],
+                        [
+                            -70.61119117614729,
+                            -33.496845919474765
+                        ],
+                        [
+                            -70.61117508289324,
+                            -33.497123274487414
+                        ],
+                        [
+                            -70.61171152469633,
+                            -33.49718142945866
+                        ],
+                        [
+                            -70.61171152469633,
+                            -33.497284318926575
+                        ],
+                        [
+                            -70.6118885504913,
+                            -33.49730668618527
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms89vt9tmeb4p5",
+                "name": "Piso 1 Facultad de Economía y Administración",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609898,
                     -33.498421
                 ]
