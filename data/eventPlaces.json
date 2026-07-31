@@ -4,6 +4,59 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ],
+                        [
+                            -70.60878095907752,
+                            -33.497634502712884
+                        ],
+                        [
+                            -70.60882345460391,
+                            -33.498019707395784
+                        ],
+                        [
+                            -70.60932465180952,
+                            -33.498121426094684
+                        ],
+                        [
+                            -70.60948468205086,
+                            -33.498025871721815
+                        ],
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8d4nbxk271k4",
+                "name": "Talleres DAE: Collage [Arte y Cultura]",
+                "information": "Experiencia creativa de exploración del collage, donde las y los asistentes combinarán imágenes, colores y texturas para crear una composición personal a partir de distintos materiales. No se requiere experiencia previa. Lugar específico Hall Aulas Lassen. Organiza DAE-Desarrollo Estudiantil. . Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T11:20",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.609568,
