@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61244859110168,
+                    -33.50025825472751
+                ]
+            },
+            "properties": {
+                "identifier": "ms89bvrq32ex0n",
+                "name": "Inteligencia Digital al Servicio del Humano: Experiencias Interactivas del Nodo IA UC",
+                "information": "Experiencias Interactivas del Nodo IA UC: Espacio interactivo dirigido a estudiantes UC para conocer y experimentar con herramientas de inteligencia digital aplicadas al aprendizaje, la investigación y la vida universitaria. Los participantes podrán interactuar con NotebookLM, Research IA, AyudantIA UC y el Chatbot UC, explorando casos de uso para la comprensión de documentos, búsqueda de información científica, apoyo al estudio y orientación sobre servicios universitarios. La experiencia incorpora además una reflexión sobre el uso ético y responsable de la inteligencia artificial, basada en los Lineamientos UC y los documentos de referencia del Nodo IA. Lugar específico Sala A1 Ingeniería Civil. Organiza Nodo IA VRID. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "A1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60792325310791,
                     -33.500527032410226
                 ]
