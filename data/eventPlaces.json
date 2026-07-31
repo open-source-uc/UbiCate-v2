@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61169574499807,
+                    -33.4970007354698
+                ]
+            },
+            "properties": {
+                "identifier": "ms8ai2isf7mgsz",
+                "name": "Workshop k-pop [Recreación y Bienestar]",
+                "information": "Prepárate para vivir una experiencia llena de ritmo, energía y K-pop. La actividad comenzará con una impactante presentación de una de nuestras coreografías más destacadas, presentada previamente en nuestros eventos. Luego, uno de nuestros integrantes te invitará a ser parte de un dinámico taller de K-pop, donde aprenderás paso a paso una coreografía de un grupo y canción seleccionados por nuestra administración. ¡Una oportunidad perfecta para bailar, divertirte y sentirte como un verdadero idol! Lugar específico Zona Recreación y Bienestar. Organiza Kpop Dance Ucé. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE204-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61155883325564,
                     -33.49708325454853
                 ]
