@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61265142702489,
+                    -33.49624207492392
+                ]
+            },
+            "properties": {
+                "identifier": "ms8aznssiunz8s",
+                "name": "BiciTour Sustentable [Sustentabilidad]",
+                "information": "Actividad recreativa y de integración que consiste en recorrer las principales instalaciones y espacios del campus utilizando bicicletas. Su objetivo es promover la actividad física, el conocimiento del entorno universitario y la convivencia entre los participantes de una manera sostenible y entretenida. Lugar específico Huerto San Francisco. Organiza Taller El Container con apoyo de Dirección de Sustentabilidad. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T11:30",
+                "endDate": "2026-08-03T12:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MEN5BTLXABMZ6E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60762800333626,
                     -33.501133653362665
                 ]
