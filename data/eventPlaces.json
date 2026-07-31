@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61114428512911,
+                    -33.49785956186872
+                ]
+            },
+            "properties": {
+                "identifier": "ms8cdr5vsnrgsj",
+                "name": "Actividades organizadas por proyectos de estudiantes [Sello UC: Identidad Católica]",
+                "information": "Proyectos estudiantiles de pastoral realizarán distintas actividades favoreciendo la participación y el encuentro de forma lúdica Lugar específico Pastoral UC. Organiza Pastoral UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "OTHER-32305352"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61130970268061,
                     -33.497060048720044
                 ]
