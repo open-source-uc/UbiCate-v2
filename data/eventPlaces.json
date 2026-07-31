@@ -11,6 +11,35 @@
                 ]
             },
             "properties": {
+                "identifier": "ms8dqw0wjfpry8",
+                "name": "Experiencia: Diplomacía de los pandas [Interculturalidad]",
+                "information": "Descubre cómo los pandas se han convertido en embajadores culturales de China. A través de un video y una actividad interactiva de cartografía, conocerás el alcance de la diplomacia china y el rol de estos icónicos animales en las relaciones internacionales. Lugar específico Zona Interculturalidad. Organiza Xuexi CLub. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T13:30",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "T2223"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614106,
+                    -33.498087
+                ]
+            },
+            "properties": {
                 "identifier": "ms8dpejfyhxuhy",
                 "name": "Experiencia: Diplomacía de los pandas [Interculturalidad]",
                 "information": "Descubre cómo los pandas se han convertido en embajadores culturales de China. A través de un video y una actividad interactiva de cartografía, conocerás el alcance de la diplomacia china y el rol de estos icónicos animales en las relaciones internacionales. Lugar específico Zona Interculturalidad. Organiza Xuexi CLub. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
