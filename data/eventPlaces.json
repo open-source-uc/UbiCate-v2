@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61394,
+                    -33.497495
+                ]
+            },
+            "properties": {
+                "identifier": "ms8b77zsjbvjx7",
+                "name": "Desafío ping-pong [Bibliotecas UC]",
+                "information": "El equipo de la Baiblioteca de Humanidades desafía a los estudiantes a un \"frente a frente con Domingo y Alfredo\". A través de mini partidos de ping-pong, los estudiantes competirán por la revancha del 1° lugar en este deporte.  Lugar específico Biblioteca Humanidades. Organiza Bibliotecas UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_HUM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61131143452633,
                     -33.49694045565313
                 ]
