@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61020583989226,
+                    -33.49768509061892
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bw9r884m92u",
+                "name": "El arte de debatir [Formación ciudadana y diálogo]",
+                "information": "Se realizará en un auditorio o sala grande un debate de exposición con 4 integrantes de la sociedad de debate PUCC simulando el formato parlamentario británico y con un tema al azar. Dentro de los 15 minutos de preparación se explicará la dinámica y se responderá a preguntas y respuestas. Luego del debate, el público actuará como jueces asignando los ganadores y una breve justificación, quienes participen recibirán un premio. Esta actividad se repetirá dos veces. Lugar específico Sala N13B. Organiza Sociedad de Debate PUCC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "N13-B"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.610213,
                     -33.497705
                 ]
