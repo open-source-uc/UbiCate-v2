@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61399,
+                    -33.498099
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bfuazln0x60",
+                "name": "Taller Confección de Chapetu [Interculturalidad]",
+                "information": "Conoce el significado de este tradicional accesorio mapuche a través de una breve introducción sobre los pueblos indígenas en Chile. Luego, confecciona tu propio chapetu con materiales incluidos y guía paso a paso. Lugar específico Zona Interculturalidad. Organiza Trawün-Tinkuy. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ED112"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60762800333626,
                     -33.501133653362665
                 ]
