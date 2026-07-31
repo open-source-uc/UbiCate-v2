@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.607301314151,
+                    -33.50067488880139
+                ]
+            },
+            "properties": {
+                "identifier": "ms88ge5dwo73x6",
+                "name": "Desafíos de Escalada para todos: Rutas de Muro y Boulder [Deportes]",
+                "information": "Desafíos de escalada y rutas, con entrenador y seleccionados de la UC. Lugar específico Boulder - Muro Escalada. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "SPORTS_PLACE-32763597"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609898,
                     -33.498421
                 ]
