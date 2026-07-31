@@ -4,6 +4,59 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ],
+                        [
+                            -70.60878095907752,
+                            -33.497634502712884
+                        ],
+                        [
+                            -70.60882345460391,
+                            -33.498019707395784
+                        ],
+                        [
+                            -70.60932465180952,
+                            -33.498121426094684
+                        ],
+                        [
+                            -70.60948468205086,
+                            -33.498025871721815
+                        ],
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8925ybpzi8s4",
+                "name": "Conoce el Pasaporte Cultural UC [Arte y Cultura]",
+                "information": "Lanzamiento del Pasaporte Cultural UC, una iniciativa que invita a las y los estudiantes a explorar la oferta artística y cultural de la Universidad. Durante la jornada podrán retirar su pasaporte y dar el primer paso para disfrutar de experiencias culturales a lo largo del semestre. Lugar específico Hall Aulas Lassen. Organiza Dirección de Artes y Patrimonio Cultural. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6079225296399,
