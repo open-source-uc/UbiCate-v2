@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609658,
+                    -33.497122
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c8nfvcxharm",
+                "name": "Movilidad en Bici 101 [Sustentabilidad]",
+                "information": "Charla/conversatorio acerca de la movilidad urbana en bicicleta, se abordarán temas como convivencia vial, seguridad, comodidad, mecánica básica y tips en general, se busca derribar barreras y acercar la bicicleta a la comunidad mostrándoles el rol del Taller El Container dentro de la UC y generando un espacio de apoyo para todos los ciclistas. Lugar específico AG1 - Facultad de Agronomía y Sistemas Naturales. Organiza Taller El Container. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AG1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61045076038141,
                     -33.498405085981325
                 ]
