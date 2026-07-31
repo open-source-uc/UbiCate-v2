@@ -6,6 +6,74 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61126401830748,
+                    -33.49679300058392
+                ]
+            },
+            "properties": {
+                "identifier": "ms8btwrv1m3ks8",
+                "name": "Encuentro de acuarela [Recreación y Bienestar]",
+                "information": "Encuentro práctico de acuarela dirigido a personas con o sin experiencia, donde los participantes compartirán un espacio para realizar su propia obra o opcionalmente una acuarela guiada. Lugar específico Zona Recreación y Bienestar. Organiza Vocalía Arte y Cultura FEUC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8btxcu231uf0"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61126401830748,
+                            -33.49679300058392
+                        ],
+                        [
+                            -70.61079194952049,
+                            -33.49678852710634
+                        ],
+                        [
+                            -70.61084559370082,
+                            -33.49635459864425
+                        ],
+                        [
+                            -70.61134984899584,
+                            -33.49644406860822
+                        ],
+                        [
+                            -70.61126401830748,
+                            -33.49679300058392
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8btxcu231uf0",
+                "name": "Pastos de Facultad de Economía",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61114428512911,
                     -33.49785956186872
                 ]
