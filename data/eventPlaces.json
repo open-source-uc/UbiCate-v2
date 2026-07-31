@@ -4,6 +4,86 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6111691402889,
+                    -33.496887417775774
+                ]
+            },
+            "properties": {
+                "identifier": "ms8apbn010jw7n",
+                "name": "Conecta con tu bienestar [Recreación y Bienestar]",
+                "information": "Te invitamos a recorrer de manera interactiva temáticas sobre salud mental, derribar mitos y reconocer cómo te sientes a través de un mapa de emociones. Finaliza compartiendo tu emoción de forma anónima en un mural colectivo, contribuyendo a visibilizar la diversidad de emociones presentes en nuestra comunidad. Lugar específico Zona Recreación y Bienestar. Organiza PALSI. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8apc4chvc8a5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6111691402889,
+                            -33.496887417775774
+                        ],
+                        [
+                            -70.6117270397636,
+                            -33.49694557290548
+                        ],
+                        [
+                            -70.61174313301827,
+                            -33.49666821732247
+                        ],
+                        [
+                            -70.61195770973949,
+                            -33.496699531707534
+                        ],
+                        [
+                            -70.61190942997678,
+                            -33.497191613404176
+                        ],
+                        [
+                            -70.61115304703486,
+                            -33.49710214421273
+                        ],
+                        [
+                            -70.6111691402889,
+                            -33.496887417775774
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8apc4chvc8a5",
+                "name": "Pasillo central Facultad de Economía",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
