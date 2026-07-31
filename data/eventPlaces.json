@@ -6,6 +6,58 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61200096029263,
+                    -33.4991701721771
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a5hikmemfu3",
+                "name": "Inmersamente: realidad virtual para la docencia transformadora [Formación Extraordinaria]",
+                "information": "En este espacio, los estudiantes explorarán las tecnologías de Virtualab, conocerán sus aplicaciones y reflexionarán sobre su aporte a la docencia mediante experiencias prácticas con visores Oculus.",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8a5i107gxao7"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61200096029263,
+                    -33.4991701721771
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a5i107gxao7",
+                "name": "Virtualab, Piso -1 Edificio CDDOC",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61217822906579,
                     -33.49692644198817
                 ]
