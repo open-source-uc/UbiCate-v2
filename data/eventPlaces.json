@@ -6,6 +6,86 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61119059795973,
+                    -33.49710214421116
+                ]
+            },
+            "properties": {
+                "identifier": "ms8aqlgu4qlamm",
+                "name": "Botiquín de autocuidado [Recreación y Bienestar]",
+                "information": "Gira la ruleta y descubre un desafío de bienestar. Cada categoría representa un aspecto fundamental del autocuidado y te permitirá llevarte un kit de autocuidado con un elemento simbólico, información sobre las redes de apoyo de la Universidad y un recordatorio para seguir cultivando hábitos saludables. Lugar específico Zona Recreación y Bienestar. Organiza Vocalía de Bienestar FEUC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8aqlws34b10n"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61119059795973,
+                            -33.49710214421116
+                        ],
+                        [
+                            -70.61191479439357,
+                            -33.497173719572125
+                        ],
+                        [
+                            -70.61196307415631,
+                            -33.496708478671174
+                        ],
+                        [
+                            -70.61175922627086,
+                            -33.496690584739824
+                        ],
+                        [
+                            -70.61174313301684,
+                            -33.496923205550885
+                        ],
+                        [
+                            -70.611228148886,
+                            -33.496896364720044
+                        ],
+                        [
+                            -70.61119059795973,
+                            -33.49710214421116
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8aqlws34b10n",
+                "name": "Pasillo central Facultad de Economía",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6111691402889,
                     -33.496887417775774
                 ]
