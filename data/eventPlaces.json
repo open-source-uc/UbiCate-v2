@@ -6,6 +6,58 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61226168115942,
+                    -33.499014720902586
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bp63sn9clqa",
+                "name": "Zona literaria [Formación extraordinaria]",
+                "information": "Espacio con tablets y asientos para participar del concurso \"Docencia extraordinaria en 101 palabras\" con café Lugar específico Hall edificio CDDoc. Organiza CDDoc. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-30T09:00",
+                "parentPlaceIds": [
+                    "ms8bp6v6xbrw3k"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61226168115942,
+                    -33.499014720902586
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bp6v6xbrw3k",
+                "name": "Hall edificio CDDOC",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6079225296399,
                     -33.50110026104785
                 ]
