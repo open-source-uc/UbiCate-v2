@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.614193,
+                    -33.498119
+                ]
+            },
+            "properties": {
+                "identifier": "ms8akregy8c4rl",
+                "name": "Voces Cruzadas: historia, archivos e interculturalidad [Interculturalidad]",
+                "information": "Los archivos conservan las huellas de encuentros, diálogos y conflictos entre personas y culturas. Voces Cruzadas: historia, archivos e interculturalidad invita a explorar esas huellas mediante el trabajo con documentos históricos, poniendo en práctica herramientas de análisis propias del oficio de la historia para comprender cómo se construyeron las relaciones interculturales en distintos contextos y momentos. Lugar específico ED111. Organiza CIIR y Programa Interculturalidad UC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T12:20",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ED111"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61039500411431,
                     -33.49847622661081
                 ]
