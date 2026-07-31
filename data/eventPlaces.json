@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60703404247761,
+                    -33.49841407184235
+                ]
+            },
+            "properties": {
+                "identifier": "ms88n90vjxdcka",
+                "name": "Fútbol para Reencontrarnos: con selección chilena de fútbol de amputados y fútbol UC [Deportes]",
+                "information": "Participarán las selecciones de fútbol hombres y mujeres desafiando a estudiantes, además de la selección chilena de fútbol de amputados. Lugar específico Cancha de Fútbol Sintético. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MHDRQ7LFP87P73"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60715742409229,
                     -33.49819823030836
                 ]
