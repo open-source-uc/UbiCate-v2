@@ -35,6 +35,59 @@
                 ]
             },
             "properties": {
+                "identifier": "ms8dcvr24h2i6m",
+                "name": "Concierto Alicanto [Arte y Cultura]",
+                "information": "Propuesta escénico-musical que reúne una selección de canciones emblemáticas del teatro musical, interpretadas en formato de concierto por el elenco de la compañía. A través de interpretaciones vocales, actuación y una puesta en escena dinámica, el espectáculo invita al público a recorrer distintos estilos, emociones y relatos que han marcado este género. Lugar específico Teatro Aulas Lassen. Organiza Compañia Alicanto. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ],
+                "startDate": "2026-08-03T13:30",
+                "endDate": "2026-08-03T14:10",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ],
+                        [
+                            -70.60878095907752,
+                            -33.497634502712884
+                        ],
+                        [
+                            -70.60882345460391,
+                            -33.498019707395784
+                        ],
+                        [
+                            -70.60932465180952,
+                            -33.498121426094684
+                        ],
+                        [
+                            -70.60948468205086,
+                            -33.498025871721815
+                        ],
+                        [
+                            -70.60907316226258,
+                            -33.497443980221696
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
                 "identifier": "ms8dbwtuor4bjb",
                 "name": "Concierto Alicanto [Arte y Cultura]",
                 "information": "Propuesta escénico-musical que reúne una selección de canciones emblemáticas del teatro musical, interpretadas en formato de concierto por el elenco de la compañía. A través de interpretaciones vocales, actuación y una puesta en escena dinámica, el espectáculo invita al público a recorrer distintos estilos, emociones y relatos que han marcado este género. Lugar específico Teatro Aulas Lassen. Organiza Compañia Alicanto. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
