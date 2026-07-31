@@ -6,6 +6,78 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61017675403977,
+                    -33.49805190353458
+                ]
+            },
+            "properties": {
+                "identifier": "ms91ux04kjdp2q",
+                "name": "Voces: diálogo ciudadano y bien común [Formación ciudadana y diálogo]",
+                "information": "Se realizarán rondas entre 30-40 minutos con 15 participantes con el fin de enseñar la metodología del curso desde una temática a definir. En este espacio se trabajará la distinción entre diálogo, escucha activa y discusión. Lugar específico Pastos sociales alrededor de Huerto Violeta Parra / Sala 13A si llueve. Organiza Secretaría general. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms91uxleb432xb"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61017675403977,
+                            -33.49805190353458
+                        ],
+                        [
+                            -70.61021585231268,
+                            -33.49771531215749
+                        ],
+                        [
+                            -70.61003071048822,
+                            -33.497693256266636
+                        ],
+                        [
+                            -70.60998471251945,
+                            -33.49804710879504
+                        ],
+                        [
+                            -70.61017675403977,
+                            -33.49805190353458
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms91uxleb432xb",
+                "name": "Pastos sociales alrededor de Huerto Violeta Parra / Sala 13A si llueve",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61251835909026,
                     -33.50023153305832
                 ]
