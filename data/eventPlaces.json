@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.614842,
+                    -33.498235
+                ]
+            },
+            "properties": {
+                "identifier": "ms8cvmm21kcieo",
+                "name": "Taller Archivo Vivo: Explorando el Legado Chileno Japonés Nikkei en Chile [Interculturalidad]",
+                "information": "En este taller interactivo, guiado por Keisuke Iitomi del Archivo Histórico Nikkei de Chile, se invitará a descubrir el legado histórico de la comunidad chileno-japonesa. Dejando atrás el formato de charla tradicional, se busca entregar una experiencia inmersiva donde será posible explorar archivos, fotografías y relatos vivos. Será una oportunidad para interactuar con fuentes históricas reales, reflexionar sobre la identidad bicultural y acercarse a la cultura japonesa desde una perspectiva humana y local. Lugar específico Zona Interculturalidad. Organiza KOTONOHA Nippon Club. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ],
+                "startDate": "2026-08-03T10:30",
+                "endDate": "2026-08-03T11:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ED110"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60985980167332,
                     -33.49817682022046
                 ]
