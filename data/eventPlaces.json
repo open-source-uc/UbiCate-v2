@@ -6,6 +6,76 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61041710917613,
+                    -33.49820571872435
+                ]
+            },
+            "properties": {
+                "identifier": "ms89os614m6gu8",
+                "name": "Disidencias en el Reencuentro UC [Formación ciudadana y diálogo]",
+                "information": "Se gira una ruleta donde se decidirá el tipo de pregunta que se hará relacionada a disidencias, en caso de acertar estará dentro de los participantes por una pizza. Lugar específico Sector librerías UC - Itaú. Organiza Vocalía de Disidencias FEUC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms89osp7njrqxj"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61041710917613,
+                            -33.49820571872435
+                        ],
+                        [
+                            -70.6101747019851,
+                            -33.49819299636694
+                        ],
+                        [
+                            -70.61016622620951,
+                            -33.498245299380756
+                        ],
+                        [
+                            -70.61040524308966,
+                            -33.49827357126561
+                        ],
+                        [
+                            -70.61041710917613,
+                            -33.49820571872435
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms89osp7njrqxj",
+                "name": "Sector librerías UC - Itaú",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61343811227465,
                     -33.49973740116629
                 ]
