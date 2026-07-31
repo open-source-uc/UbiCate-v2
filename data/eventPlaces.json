@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60856994241476,
+                    -33.500603211395834
+                ]
+            },
+            "properties": {
+                "identifier": "ms88po5gid2e03",
+                "name": "Taller de Tenis [Deportes]",
+                "information": "Taller de tenis que tiene por objetivo fomentar la actividad física, el uso responsable del tiempo libre y la participación de estudiantes comprometidos con el servicio a los demás. Lugar específico Canchas de baldosas 7,8 y 9. Organiza Tu Deporte UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "SPORTS_PLACE-32757455"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60689993202686,
                     -33.498613137650544
                 ]
