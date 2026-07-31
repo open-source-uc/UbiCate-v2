@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61182536742228,
+                    -33.49690462947072
+                ]
+            },
+            "properties": {
+                "identifier": "ms89zbj4t4jtgj",
+                "name": "Juego Diseño de Ciudad Justa  [Compromiso Público]",
+                "information": "Con cuatro tipos de piezas que simbolizan vivienda digna, equipamiento social, parques y espacios públicos, y transporte asequible; el público podrá moverse sobre el tablero ubicando y reubicando estos elementos en las diferentes comunas de la ciudad. A partir de estos movimientos y de las interacciones generadas entre piezas, desplazamientos, y “jugadores”, se busca generar una conversación en torno a las diferentes miradas de cómo debería o podría ser una ciudad justa y el acceso a una mejor calidad de vida.  Lugar específico Zona Compromiso Público. Organiza Formación para el Compromiso Publico (CDDoc) + ARQ UC. . Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AULAMAGNA_COMERCIAL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61141798921658,
                     -33.497070944220134
                 ]
