@@ -6,6 +6,76 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61045352285046,
+                    -33.498224363837615
+                ]
+            },
+            "properties": {
+                "identifier": "ms89qans8hcnhk",
+                "name": "Promotores del Diálogo [Formación ciudadana y diálogo]",
+                "information": "Entre 2 a 5 personas, cada uno recibe una hoja y lápices para realizar un dibujo que represente las partes más importantes de su identidad. Tras esto, se pedirá que se explique en grupos qué representaron y qué significa para eso. Tras esto, se les pedirá realizar pequeñas reflexiones sobre cómo se sintieron compartiendo esto con otras personas Lugar específico Sector librerías UC - Itaú. Organiza Subdirección de Desarrollo Estudiantil de la Facultad de Educación. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms89qb2s1zf0b4"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61045352285046,
+                            -33.498224363837615
+                        ],
+                        [
+                            -70.61013165776924,
+                            -33.49820647021954
+                        ],
+                        [
+                            -70.61010483567877,
+                            -33.498327252066
+                        ],
+                        [
+                            -70.61044815843287,
+                            -33.49837198603969
+                        ],
+                        [
+                            -70.61045352285046,
+                            -33.498224363837615
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms89qb2s1zf0b4",
+                "name": "Sector librerías UC - Itaú",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61041710917613,
                     -33.49820571872435
                 ]
