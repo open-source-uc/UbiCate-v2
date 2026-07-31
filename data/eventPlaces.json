@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610231,
+                    -33.497607
+                ]
+            },
+            "properties": {
+                "identifier": "ms8cb5rn93kldk",
+                "name": "Simulación ONU [Formación ciudadana y diálogo]",
+                "information": "Actividad práctica e introductoria que permitirá a los participantes vivir la experiencia de un Modelo de Naciones Unidas. Tras una breve capacitación sobre el funcionamiento de la ONU, las reglas básicas de debate y el rol de las delegaciones, cada asistente representará a un país y defenderá su postura frente a una problemática internacional. A través del diálogo, la negociación y la construcción de consensos, los participantes desarrollarán habilidades de comunicación, pensamiento crítico, argumentación y trabajo colaborativo, experimentando de primera fuente cómo se desarrollan los debates diplomáticos en un MUN. Lugar específico Sala N12. Organiza PUCUNS. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T13:00",
+                "endDate": "2026-08-03T14:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "N12"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61394,
                     -33.497495
                 ]
