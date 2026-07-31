@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60762800333626,
+                    -33.501133653362665
+                ]
+            },
+            "properties": {
+                "identifier": "ms8aymeu3i04zd",
+                "name": "Clase abierta de Lucha Olímpica  [Deportes]",
+                "information": "Lucha Olímpica. Clase abierta desde 0.  Lugar específico Dojo. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T12:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "SPORTS_PLACE-32757213"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61020976203345,
                     -33.49666370443487
                 ]
