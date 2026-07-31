@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61131143452633,
+                    -33.49694045565313
+                ]
+            },
+            "properties": {
+                "identifier": "ms8b4t52npyp57",
+                "name": "Scinesia en movimiento [Recreación y Bienestar]",
+                "information": "¡Actívate, aprende y disfruta! Esta clase de danza urbana nivel básico está diseñada para que explores el ritmo y el movimiento de forma entretenida y accesible para todos. A través de un calentamiento, el aprendizaje de una coreografía paso a paso y una práctica grupal, vivirás una experiencia dinámica, inclusiva y llena de buena energía, donde lo más importante es pasarlo bien mientras bailas. Lugar específico Zona Recreación y Bienestar. Organiza Scinecia. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T13:20",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "AE210-SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61130970268061,
                     -33.497060048720044
                 ]
