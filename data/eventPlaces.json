@@ -11,6 +11,36 @@
                 ]
             },
             "properties": {
+                "identifier": "ms88ezmlwdbrld",
+                "name": "Espacios de Bienestar Bibliotecas UC [Espacio de autorregulación sensorial]",
+                "information": "Espacio de Bienestar existente dentro de cada Biblioteca UC Lugar específico Bibliotecas UC San Joaquín y Humanidades. Organiza Bibliotecas UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "BIBLIO_CS",
+                    "BIBLIO_HUM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
                 "identifier": "ms88d97s87jook",
                 "name": "Ajedretón [Bibliotecas UC]",
                 "information": "Invitamos a toda la comunidad a un torneo de ajedrez interbibliotecas. Los juegos finales se realizarán en el tablero gigante. Lugar específico Biblioteca San Joaquín . Organiza Bibliotecas UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
