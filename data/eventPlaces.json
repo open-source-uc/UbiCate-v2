@@ -1,6 +1,34 @@
 {
     "type": "FeatureCollection",
     "features": [
-
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61314826648663,
+                    -33.50039646835331
+                ]
+            },
+            "properties": {
+                "identifier": "ms88b8pcvgsvhl",
+                "name": "El profesional del futuro: Cómo la IA está redefiniendo el mercado laboral",
+                "information": "Charla para entender la Inteligencia Artificial no como una amenaza, sino como un catalizador estratégico para sus futuras carreras profesionales. Se busca revisar su impacto dentro de la visión de industria, su valoración en la academia y el desarrollo de habilidades del futuro.  Lugar específico Sala B3 Ingeniería Civil. Organiza CLIC. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ],
+                "startDate": "2026-08-03T00:00",
+                "endDate": "2026-08-03T13:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "B13"
+                ]
+            }
+        }
     ]
 }
