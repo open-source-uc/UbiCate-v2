@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610213,
+                    -33.497705
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bv2fbymoq3w",
+                "name": "Break the Case [Formación ciudadana y diálogo]",
+                "information": "Break the Case es una instancia para resolver en equipo, y contra el reloj, problemas reales de política pública. Cada grupo recibe una situación concreta, como la realidad de un municipio, y tiene 20 minutos para diseñar juntos una propuesta que la aborde. Cuando se acaba el tiempo, un panel de jueces evalúa las soluciones con una rúbrica y elige a un equipo ganador, que se lleva un premio en libros. Lugar específico Sala N11. Organiza Laboratorio Estudiantil de Políticas Públicas. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T12:40",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "N11"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61126401830748,
                     -33.49679300058392
                 ]
