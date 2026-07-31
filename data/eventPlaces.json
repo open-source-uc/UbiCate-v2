@@ -6,6 +6,74 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61211900512913,
+                    -33.49949392321884
+                ]
+            },
+            "properties": {
+                "identifier": "ms927ldj5s9540",
+                "name": "Explora IDS [Sustentabilidad]",
+                "information": "Recorrido: EXPLORA IDS será un tour por las dependencias del Instituto para conocer su quehacer de forma lúdica y acompañados por destacados académicos del instituto para el desarrollo sustentable Lugar específico Edificio IDS. Organiza Instituto para el Desarrollo Sustentable. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T11:30",
+                "endDate": "2026-08-03T12:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms927lvy177ey9"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61211900512913,
+                            -33.49949392321884
+                        ],
+                        [
+                            -70.61180079511631,
+                            -33.499468357704096
+                        ],
+                        [
+                            -70.61177119418458,
+                            -33.49971960467374
+                        ],
+                        [
+                            -70.61210949054396,
+                            -33.499733709745136
+                        ],
+                        [
+                            -70.61211900512913,
+                            -33.49949392321884
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms927lvy177ey9",
+                "name": "Edificio IDS",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61211515168907,
                     -33.499497323075595
                 ]
