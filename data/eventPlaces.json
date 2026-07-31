@@ -6,6 +6,58 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61226237803514,
+                    -33.499017938976436
+                ]
+            },
+            "properties": {
+                "identifier": "ms920mc6blaaeb",
+                "name": "Conversemos sobre docencia extraordinaria [Formación extraordinaria]",
+                "information": "Juego moderado por un guía, con tarjetas con diversas preguntas de reflexión sobre la docencia extraordinaria. Al ver un grupo de asistentes, se acercará, invitará a sacar una tarjeta y se invitará a conversar y reflexionar en conjunto.  Lugar específico Hall edificio CDDoc. Organiza CDDoc. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms920mudnqio2g"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61226237803514,
+                    -33.499017938976436
+                ]
+            },
+            "properties": {
+                "identifier": "ms920mudnqio2g",
+                "name": "Hall edificio CDDOC",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61225739843213,
                     -33.4990268757441
                 ]
