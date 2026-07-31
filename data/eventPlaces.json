@@ -11,6 +11,33 @@
                 ]
             },
             "properties": {
+                "identifier": "ms88zoc0aqmc83",
+                "name": "Clínica de Gimnasia Artística [Deportes]",
+                "information": "Clase guiada grupal para conocer los aparatos centrales y distintas pruebas de la gimnasia artística. Implementada por el profesor Felipe Cubillos. Lugar específico Gimnasio B Sur. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T11:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "SPORTS_PLACE-32757564"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6079225296399,
+                    -33.50110026104785
+                ]
+            },
+            "properties": {
                 "identifier": "ms88y42of4i4mn",
                 "name": "Vóleibol Piso: Concursos y Desafíos para reencontrarnos [Deportes]",
                 "information": "Pato Osorio y Salinas - Rey de la cancha y desafíos. Premios Lugar específico Gimnasio B Norte. Organiza Deportes UC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
