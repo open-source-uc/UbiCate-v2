@@ -6,6 +6,110 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61217822906579,
+                    -33.49692644198817
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a3lvy1tgo14",
+                "name": "Juego ¿Cuánto sabes de actualidad? [Compromiso Público]",
+                "information": "Pon a prueba tus conocimientos sobre temas públicos y contigencia nacional. Gira la ruleta, responde preguntas y desafíate una dinámica entretenida para aprender más sobre el país y sus instituciones.",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ],
+                "startDate": "2026-08-03T10:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8a3maka5ocej"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61217822906579,
+                            -33.49692644198817
+                        ],
+                        [
+                            -70.61194755909052,
+                            -33.496913021574294
+                        ],
+                        [
+                            -70.611974381181,
+                            -33.49661329845396
+                        ],
+                        [
+                            -70.61176516887734,
+                            -33.496599877991514
+                        ],
+                        [
+                            -70.61173298236928,
+                            -33.49687276032017
+                        ],
+                        [
+                            -70.61116971847635,
+                            -33.49683697252271
+                        ],
+                        [
+                            -70.61112143871426,
+                            -33.497109854103
+                        ],
+                        [
+                            -70.61168470260719,
+                            -33.49715458870681
+                        ],
+                        [
+                            -70.61166324493495,
+                            -33.497329053438094
+                        ],
+                        [
+                            -70.61184563514814,
+                            -33.497329053438094
+                        ],
+                        [
+                            -70.61187782165618,
+                            -33.49719037637197
+                        ],
+                        [
+                            -70.61216213581179,
+                            -33.49723063747941
+                        ],
+                        [
+                            -70.61217822906579,
+                            -33.49692644198817
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8a3maka5ocej",
+                "name": "Piso 1 Facultad de Economía y Administración",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61214604255773,
                     -33.49718590291503
                 ]
