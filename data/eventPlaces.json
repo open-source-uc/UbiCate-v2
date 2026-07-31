@@ -4,6 +4,76 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61045076038141,
+                    -33.498405085981325
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c773di949x5",
+                "name": "Trabajadores: ¡Conozcamos un poco más! [Formación ciudadana y diálogo]",
+                "information": "Se realizarán preguntas a las personas que se acerquen las cuales durarán alrededor de 5-10 minutos con la intención de que conozcan sobre derechos laborales y la historia de trabajadores en la UC. Lugar específico Sector librerías UC - Itaú. Organiza Vocalía de Trabajadores FEUC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:30",
+                "endDate": "2026-08-03T13:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8c77om2vslom"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61045076038141,
+                            -33.498405085981325
+                        ],
+                        [
+                            -70.61046148921723,
+                            -33.49823062341853
+                        ],
+                        [
+                            -70.6100967087915,
+                            -33.49821720320682
+                        ],
+                        [
+                            -70.61005915786522,
+                            -33.49840061258705
+                        ],
+                        [
+                            -70.61045076038141,
+                            -33.498405085981325
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c77om2vslom",
+                "name": "Sector librerías UC - Itaú",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
