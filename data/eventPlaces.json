@@ -6,6 +6,76 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6103756585284,
+                    -33.498440873129816
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bxy641likfc",
+                "name": "Memorice de los Derechos Humanos [Formación ciudadana y diálogo]",
+                "information": "Actividad lúdica y participativa en la que las personas deberán relacionar conceptos de Derechos Humanos con sus respectivas definiciones mediante un juego de memorice. Quienes encuentren correctamente los pares podrán recibir un pequeño premio, como un dulce. Lugar específico Sector librerías UC - Itaú. Organiza Vocalía de Memoria y DD.HH FEUC. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8bxyo72fowt5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6103756585284,
+                            -33.498440873129816
+                        ],
+                        [
+                            -70.61003233577426,
+                            -33.49842297955757
+                        ],
+                        [
+                            -70.61003770019249,
+                            -33.49823509682079
+                        ],
+                        [
+                            -70.61042393829048,
+                            -33.498252990432974
+                        ],
+                        [
+                            -70.6103756585284,
+                            -33.498440873129816
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8bxyo72fowt5",
+                "name": "Sector librerías UC - Itaú",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61020583989226,
                     -33.49768509061892
                 ]
