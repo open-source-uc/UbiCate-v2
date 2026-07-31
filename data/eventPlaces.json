@@ -6,6 +6,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61251835909026,
+                    -33.50023153305832
+                ]
+            },
+            "properties": {
+                "identifier": "ms8dtfmec4zwhq",
+                "name": "IA para una Universidad Más Humana: Conectando personas, fortaleciendo comunidades",
+                "information": "IA para una Universidad Más Humana es una experiencia participativa desarrollada por la Vicerrectoría de Inteligencia Digital UC y el Nodo IA UC, que invita a las y los estudiantes a reflexionar sobre el papel de la inteligencia digital en la vida universitaria y su contribución al aprendizaje, la colaboración y la construcción de comunidad. A través de un desafío colaborativo, las y los participantes identificarán una problemática o una oportunidad presente en la experiencia estudiantil y explorarán, con el apoyo de herramientas de inteligencia digital, distintas alternativas para abordarla desde un enfoque centrado en las personas. Durante el proceso, experimentarán metodologías de innovación, trabajo colaborativo y pensamiento crítico, comprendiendo que el verdadero valor de la inteligencia digital no reside únicamente en la tecnología, sino en la capacidad de las personas para utilizarla con criterio, responsabilidad y propósito. Lugar específico Sala A2 Ingeniería Civil. Organiza Nodo IA VRID. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ],
+                "startDate": "2026-08-03T14:00",
+                "endDate": "2026-08-03T15:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "A2"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.609898,
                     -33.498421
                 ]
