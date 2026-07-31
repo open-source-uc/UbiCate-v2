@@ -4,6 +4,33 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60944836586714,
+                    -33.50051234782852
+                ]
+            },
+            "properties": {
+                "identifier": "ms8c0zbbykg6lk",
+                "name": "Lanzamientos de tiros libre en básquetbol [Deportes]",
+                "information": "Lanzamientos al aro con premios",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T12:00",
+                "endDate": "2026-08-03T14:00",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "SPORTS_PLACE-32757660"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
