@@ -67,6 +67,8 @@ export interface EventProperties extends Properties {
   endDate: string;
   showFrom?: string;
   parentPlaceIds?: string[];
+  // Piso opcional por lugar del evento: { [placeId]: piso }
+  parentPlaceFloors?: Record<string, number>;
 }
 
 export function getParentPlaceIds(props: EventProperties): string[] {
@@ -77,6 +79,13 @@ export function getParentPlaceIds(props: EventProperties): string[] {
 }
 
 const GRACE_PERIOD_MS = 24 * 60 * 60 * 1000;
+
+// Un evento está vencido cuando terminó hace más del período de gracia.
+// Mientras esté dentro de la gracia sigue siendo visible (ver isEventVisible).
+export function isEventExpired(props: EventProperties, now = new Date()): boolean {
+  const end = new Date(props.endDate);
+  return now.getTime() - end.getTime() > GRACE_PERIOD_MS;
+}
 
 export function isEventVisible(props: EventProperties, now = new Date()): boolean {
   const end = new Date(props.endDate);
@@ -135,6 +144,7 @@ export interface EventLocation {
   name?: string;
   information?: string;
   identifier?: string;
+  floor?: number;
   pins: PointFeature[];
 }
 

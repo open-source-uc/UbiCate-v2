@@ -8,6 +8,7 @@ import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useEventPlaceForm, EventFormData } from "@/app/hooks/useEventPlaceForm";
 import { apiClient } from "@/lib/api/ubicateApiClient";
+import { normalizeIdentifier } from "@/lib/places/utils";
 import { EventLocation, Feature, siglas } from "@/lib/types";
 
 import * as Icons from "../../../ui/icons/icons";
@@ -72,6 +73,16 @@ export default function EventPlaceForm({
 
   const approvedFeatures: Feature[] = useMemo(() => approvedData?.approved_places?.features || [], [approvedData]);
 
+  const approvedById = useMemo(() => {
+    const map = new Map<string, Feature>();
+    for (const f of approvedFeatures) {
+      map.set(normalizeIdentifier(f.properties.identifier), f);
+    }
+    return {
+      get: (placeId: string) => map.get(normalizeIdentifier(placeId)),
+    };
+  }, [approvedFeatures]);
+
   const filteredParents =
     parentSearch.length >= 2
       ? approvedFeatures
@@ -81,7 +92,7 @@ export default function EventPlaceForm({
 
   useEffect(() => {
     clearPins();
-    if (method === "POST") {
+    if (method === "POST" && (defaultData?.locations?.length ?? 0) === 0) {
       setLocations([]);
     }
     setForEvent(true);
@@ -158,6 +169,7 @@ export default function EventPlaceForm({
         name: l.name,
         information: l.information,
         identifier: l.identifier,
+        ...(typeof l.floor === "number" ? { floor: l.floor } : {}),
         points: l.type === "new" ? l.pins : [],
       })),
       identifier: defaultData?.identifier,
@@ -240,52 +252,79 @@ export default function EventPlaceForm({
             Lugares del evento
           </label>
 
-          {locations.map((loc, index) => (
-            <div key={loc.id} className="flex items-center gap-2 p-3 rounded-lg border border-border bg-accent/5">
-              <Icons.Map className="h-4 w-4 text-primary shrink-0" />
-              <div className="flex-1 min-w-0">
-                {loc.type === "new" ? (
-                  <input
-                    type="text"
-                    value={loc.name || ""}
-                    onChange={(e) =>
-                      setLocations((prev) => prev.map((l) => (l.id === loc.id ? { ...l, name: e.target.value } : l)))
-                    }
-                    className="block w-full text-sm p-1 rounded border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2"
-                    placeholder={`Lugar ${index + 1}`}
-                    disabled={isLoading}
-                  />
-                ) : (
-                  <span className="text-sm text-foreground truncate block">{loc.name}</span>
-                )}
-                {loc.type === "new" && loc.pins.length > 0 && (
-                  <span className="text-xs text-muted-foreground">
-                    {loc.pins.length === 1
-                      ? `${loc.pins[0].geometry.coordinates[0].toFixed(
-                          4,
-                        )}, ${loc.pins[0].geometry.coordinates[1].toFixed(4)}`
-                      : `${loc.pins.length} puntos (polígono)`}
-                  </span>
-                )}
-                {loc.type === "existing" && loc.placeId ? (
-                  <span className="text-xs text-muted-foreground">
-                    {(() => {
-                      const parent = approvedFeatures.find((f) => f.properties.identifier === loc.placeId);
-                      return parent ? siglas.get(parent.properties.campus) || parent.properties.campus : "";
-                    })()}
-                  </span>
-                ) : null}
+          {locations.map((loc, index) => {
+            // Un lugar existente no se puede renombrar desde el evento: se muestra su nombre y campus reales
+            const parent = loc.type === "existing" && loc.placeId ? approvedById.get(loc.placeId) : undefined;
+            const parentCampus = parent ? siglas.get(parent.properties.campus) || parent.properties.campus : "";
+
+            return (
+              <div key={loc.id} className="flex items-center gap-2 p-3 rounded-lg border border-border bg-accent/5">
+                <Icons.Map className="h-4 w-4 text-primary shrink-0" />
+                <div className="flex-1 min-w-0">
+                  {loc.type === "new" ? (
+                    <input
+                      type="text"
+                      value={loc.name || ""}
+                      onChange={(e) =>
+                        setLocations((prev) => prev.map((l) => (l.id === loc.id ? { ...l, name: e.target.value } : l)))
+                      }
+                      className="block w-full text-sm p-1 rounded border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2"
+                      placeholder={`Lugar ${index + 1}`}
+                      disabled={isLoading}
+                    />
+                  ) : (
+                    <span className="text-sm font-medium text-foreground truncate block">
+                      {parent?.properties.name || loc.name || "Lugar existente"}
+                    </span>
+                  )}
+                  {loc.type === "new" && loc.pins.length > 0 && (
+                    <span className="text-xs text-muted-foreground">
+                      {loc.pins.length === 1
+                        ? `${loc.pins[0].geometry.coordinates[0].toFixed(
+                            4,
+                          )}, ${loc.pins[0].geometry.coordinates[1].toFixed(4)}`
+                        : `${loc.pins.length} puntos (polígono)`}
+                    </span>
+                  )}
+                  {loc.type === "existing" && parentCampus ? (
+                    <span className="text-xs text-muted-foreground">{parentCampus}</span>
+                  ) : null}
+                  <div className="mt-1 flex items-center gap-2">
+                    <label className="text-xs text-muted-foreground shrink-0" htmlFor={`floor-${loc.id}`}>
+                      Piso
+                    </label>
+                    <input
+                      id={`floor-${loc.id}`}
+                      type="number"
+                      inputMode="numeric"
+                      step={1}
+                      value={loc.floor ?? ""}
+                      onChange={(e) => {
+                        const raw = e.target.value;
+                        const floor = raw === "" ? undefined : Number.parseInt(raw, 10);
+                        setLocations((prev) =>
+                          prev.map((l) =>
+                            l.id === loc.id ? { ...l, floor: Number.isNaN(floor as number) ? undefined : floor } : l,
+                          ),
+                        );
+                      }}
+                      className="w-20 text-sm p-1 rounded border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2"
+                      placeholder="Opcional"
+                      disabled={isLoading}
+                    />
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveLocation(loc.id)}
+                  className="text-sm text-destructive hover:underline shrink-0"
+                  disabled={isLoading}
+                >
+                  Quitar
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => handleRemoveLocation(loc.id)}
-                className="text-sm text-destructive hover:underline shrink-0"
-                disabled={isLoading}
-              >
-                Quitar
-              </button>
-            </div>
-          ))}
+            );
+          })}
 
           <div className="flex gap-2">
             <button

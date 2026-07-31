@@ -21,6 +21,8 @@ interface SidebarContextType {
   setEventCounts: (counts: Map<string, number>) => void;
   eventPlaceIds: Set<string>;
   setEventPlaceIds: (ids: Set<string>) => void;
+  hiddenPlaceIds: Set<string>;
+  togglePlaceHidden: (identifier: string) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);

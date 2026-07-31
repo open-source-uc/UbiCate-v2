@@ -70,15 +70,14 @@ function getEventPlaces(
   eventPlaceFeatures.forEach((place) => {
     const featureId = place.properties.identifier;
     if (seenIds.has(featureId)) return;
+
+    // Un lugar de evento sin eventos que lo apunten no se muestra
+    const eventList = eventsByPlace.get(featureId) || [];
+    if (eventList.length === 0) return;
+
     seenIds.add(featureId);
 
-    const eventList = eventsByPlace.get(featureId) || [];
-    const displayName =
-      eventList.length === 1
-        ? eventList[0].properties.name
-        : eventList.length > 1
-        ? `${eventList.length} eventos`
-        : undefined;
+    const displayName = eventList.length === 1 ? eventList[0].properties.name : `${eventList.length} eventos`;
     places.push({ ...place, properties: { ...place.properties, displayName } });
   });
 

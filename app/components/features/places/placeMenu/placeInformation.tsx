@@ -11,9 +11,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
-import { allEvents } from "@/lib/places/eventsData";
-import { normalizeIdentifier } from "@/lib/places/utils";
+import staticEventsJSON from "@/lib/places/eventsData";
+import { getParentPlaceFloor, normalizeIdentifier } from "@/lib/places/utils";
 import {
   CATEGORIES,
   CategoryToDisplayName,
@@ -62,6 +63,7 @@ export default function PlaceInformation({
   const [editingEvent, setEditingEvent] = useState<EventFeature | null>(null);
   const [showEventForm, setShowEventForm] = useState(false);
   const { isPicking } = useMapPicking();
+  const { hiddenPlaceIds, togglePlaceHidden } = useSidebar();
   const queryClient = useQueryClient();
 
   const toggleEventExpand = useCallback((id: string) => {
@@ -94,6 +96,26 @@ export default function PlaceInformation({
     staleTime: 5 * 60 * 1000,
   });
 
+  const { data: eventsData } = useQuery({
+    queryKey: ["events-debug"],
+    queryFn: async () => {
+      const response = await apiClient("/api/events");
+      return response;
+    },
+    enabled: isDebug,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const eventsFeatures: (EventFeature | Feature)[] = useMemo(
+    () => (isDebug ? eventsData?.events?.features || [] : staticEventsJSON.features),
+    [isDebug, eventsData],
+  );
+
+  const allEvents: EventFeature[] = useMemo(
+    () => eventsFeatures.filter((f): f is EventFeature => "startDate" in f.properties),
+    [eventsFeatures],
+  );
+
   const approvedIdentifiers = useMemo(
     () =>
       new Set(
@@ -106,18 +128,24 @@ export default function PlaceInformation({
 
   const eventPlaceMap = useMemo(() => {
     const map = new Map<string, Feature>();
-    for (const item of allEvents) {
+    for (const item of eventsFeatures) {
       if ((item as any).properties?.startDate) continue;
-      map.set(normalizeIdentifier(item.properties.identifier), item as unknown as Feature);
+      map.set(normalizeIdentifier(item.properties.identifier), item as Feature);
     }
     return map;
-  }, [allEvents]);
+  }, [eventsFeatures]);
 
-  function buildLocationsFromParentIds(parentIds: string[]): EventLocation[] {
+  const eventFileIdentifiers = useMemo(
+    () => new Set(eventsFeatures.map((f) => normalizeIdentifier(f.properties.identifier))),
+    [eventsFeatures],
+  );
+
+  function buildLocationsFromParentIds(parentIds: string[], props?: EventProperties): EventLocation[] {
     return parentIds.map((id) => {
       const normId = normalizeIdentifier(id);
+      const floor = props ? getParentPlaceFloor(props, id) : undefined;
       if (approvedIdentifiers.has(normId)) {
-        return { id: `existing-${id}`, type: "existing" as const, placeId: id, pins: [] };
+        return { id: `existing-${id}`, type: "existing" as const, placeId: id, floor, pins: [] };
       }
       const placeFeature = eventPlaceMap.get(normId);
       if (placeFeature) {
@@ -140,12 +168,60 @@ export default function PlaceInformation({
           name: placeFeature.properties.name,
           information: placeFeature.properties.information || "",
           identifier: placeFeature.properties.identifier,
+          floor,
           pins,
         };
       }
-      return { id: `existing-${id}`, type: "existing" as const, placeId: id, pins: [] };
+      return { id: `existing-${id}`, type: "existing" as const, placeId: id, floor, pins: [] };
     });
   }
+
+  function buildLocationFromPlace(): EventLocation {
+    const identifier = place.properties.identifier;
+    const normId = normalizeIdentifier(identifier);
+    const placeFeature = eventPlaceMap.get(normId);
+    const isCustomMarkPlace = place.properties.categories.includes(CATEGORIES.CUSTOM_MARK);
+
+    if (!placeFeature && !isCustomMarkPlace) {
+      return {
+        id: `existing-${identifier}`,
+        type: "existing",
+        placeId: identifier,
+        name: place.properties.name,
+        pins: [],
+      };
+    }
+
+    const geometry = (placeFeature ?? place).geometry;
+    const pins: PointFeature[] = [];
+    if (geometry.type === "Point") {
+      pins.push({
+        type: "Feature",
+        properties: {} as any,
+        geometry: { type: "Point", coordinates: geometry.coordinates as [number, number] },
+      });
+    } else if (geometry.type === "Polygon") {
+      const coords = (geometry.coordinates as [number, number][][])[0].slice(0, -1);
+      for (const c of coords) {
+        pins.push({ type: "Feature", properties: {} as any, geometry: { type: "Point", coordinates: c } });
+      }
+    }
+
+    return {
+      id: `new-${identifier}`,
+      type: "new",
+      name: place.properties.name,
+      information: place.properties.information || "",
+      ...(placeFeature ? { identifier } : {}),
+      pins,
+    };
+  }
+
+  const handleAddEvent = () => {
+    setEditingEvent(null);
+    setShowEventForm(true);
+  };
+
   const isEventFeature = "startDate" in place.properties;
 
   const approvedPlaceMap = useMemo(() => {
@@ -241,7 +317,7 @@ export default function PlaceInformation({
 
   const isCustomMark = place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK);
   const needsApproval = place.properties.needApproval === true;
-  const isEventCreatedPlace = eventPlaceMap.has(normalizeIdentifier(place.properties.identifier));
+  const isEventCreatedPlace = eventFileIdentifiers.has(normalizeIdentifier(place.properties.identifier));
 
   const availableOptions: AvailableOption[] = [];
 
@@ -261,6 +337,8 @@ export default function PlaceInformation({
       availableOptions.push({ action: onDelete, icon: null, label: "Eliminar" });
     }
   }
+
+  const showAddEvent = isDebug && !isEventFeature;
 
   const categoryLabel = place.properties?.categories?.[0]
     ? CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"
@@ -368,18 +446,45 @@ export default function PlaceInformation({
 
       <section className="flex-1 overflow-y-auto">
         <div className="flex h-full flex-col gap-6 px-4 pb-6 pt-5">
-          <div className="grid grid-cols-3 gap-3">
-            <Button
-              onClick={handleShare}
-              aria-label="Compartir esta ubicación"
-              variant="mapPrimary"
-              className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl"
+          <div className="space-y-3">
+            <label
+              title="Al recargar la página los puntos escondidos por esta opción volverán a aparecer"
+              className="flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-border/80 bg-accent/5 px-3 py-2"
             >
-              <Icons.Share className="h-5 w-5 fill-background" />
-              <span className="text-xs font-semibold tracking-wide">Compartir</span>
-            </Button>
+              <input
+                type="checkbox"
+                checked={hiddenPlaceIds.has(place.properties.identifier)}
+                onChange={() => togglePlaceHidden(place.properties.identifier)}
+                className="h-4 w-4 cursor-pointer accent-primary"
+              />
+              <span className="text-xs font-semibold text-foreground">Ocultar por ahora</span>
+            </label>
 
-            {renderOptionControl()}
+            <div className="grid grid-cols-3 gap-3">
+              <Button
+                onClick={handleShare}
+                aria-label="Compartir esta ubicación"
+                variant="mapPrimary"
+                className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl"
+              >
+                <Icons.Share className="h-5 w-5 fill-background" />
+                <span className="text-xs font-semibold tracking-wide">Compartir</span>
+              </Button>
+
+              {showAddEvent ? (
+                <Button
+                  onClick={handleAddEvent}
+                  aria-label="Agregar un evento en este lugar"
+                  variant="ghost"
+                  className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl bg-chart-events text-background border border-transparent hover:bg-chart-events/90"
+                >
+                  <Icons.Event className="h-5 w-5 fill-background" />
+                  <span className="text-xs font-semibold tracking-wide text-center leading-tight">Agregar Evento</span>
+                </Button>
+              ) : null}
+
+              {renderOptionControl()}
+            </div>
           </div>
 
           {activeAssociatedEvents.length > 0 && (
@@ -402,19 +507,29 @@ export default function PlaceInformation({
 
                     <div className="pl-4 pr-3 pt-2 pb-3">
                       <div className="flex items-center justify-between">
-                        {(() => {
-                          const tag = formatEventTag(
-                            event.properties.startDate,
-                            event.properties.endDate,
-                            now,
-                            isDebug ? Infinity : undefined,
-                          );
-                          return tag ? (
-                            <span className="inline-block mb-1.5 px-2 py-0.5 text-[10px] font-semibold rounded-md bg-chart-events/15 text-chart-events">
-                              {tag}
-                            </span>
-                          ) : null;
-                        })()}
+                        <div className="flex items-center gap-1.5">
+                          {(() => {
+                            const tag = formatEventTag(
+                              event.properties.startDate,
+                              event.properties.endDate,
+                              now,
+                              isDebug ? Infinity : undefined,
+                            );
+                            return tag ? (
+                              <span className="inline-block mb-1.5 px-2 py-0.5 text-[10px] font-semibold rounded-md bg-chart-events/15 text-chart-events">
+                                {tag}
+                              </span>
+                            ) : null;
+                          })()}
+                          {(() => {
+                            const floor = getParentPlaceFloor(event.properties, place.properties.identifier);
+                            return typeof floor === "number" ? (
+                              <span className="inline-block mb-1.5 px-2 py-0.5 text-[10px] font-semibold rounded-md bg-chart-events/15 text-chart-events">
+                                Piso {floor}
+                              </span>
+                            ) : null;
+                          })()}
+                        </div>
                         {isDebug ? (
                           <div className="flex items-center gap-1 mb-1.5">
                             <button
@@ -509,7 +624,7 @@ export default function PlaceInformation({
         </div>
       </section>
 
-      {showEventForm && editingEvent ? (
+      {showEventForm ? (
         <div
           className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/50 pointer-events-auto ${
             isPicking ? "hidden" : ""
@@ -517,20 +632,36 @@ export default function PlaceInformation({
         >
           <div className="bg-background rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-auto">
             <EventPlaceForm
-              defaultData={{
-                name: editingEvent.properties.name,
-                information: editingEvent.properties.information,
-                categories: editingEvent.properties.categories,
-                floors: editingEvent.properties.floors || [],
-                startDate: editingEvent.properties.startDate,
-                endDate: editingEvent.properties.endDate,
-                showFrom: editingEvent.properties.showFrom || "",
-                locations: buildLocationsFromParentIds(getParentPlaceIds(editingEvent.properties)),
-                identifier: editingEvent.properties.identifier,
-              }}
-              method="PUT"
-              submitButtonText="Actualizar Evento"
-              title="Editar Evento"
+              defaultData={
+                editingEvent
+                  ? {
+                      name: editingEvent.properties.name,
+                      information: editingEvent.properties.information,
+                      categories: editingEvent.properties.categories,
+                      floors: editingEvent.properties.floors || [],
+                      startDate: editingEvent.properties.startDate,
+                      endDate: editingEvent.properties.endDate,
+                      showFrom: editingEvent.properties.showFrom || "",
+                      locations: buildLocationsFromParentIds(
+                        getParentPlaceIds(editingEvent.properties),
+                        editingEvent.properties,
+                      ),
+                      identifier: editingEvent.properties.identifier,
+                    }
+                  : {
+                      name: "",
+                      information: "",
+                      categories: ["events"],
+                      floors: [],
+                      startDate: "",
+                      endDate: "",
+                      showFrom: "",
+                      locations: [buildLocationFromPlace()],
+                    }
+              }
+              method={editingEvent ? "PUT" : "POST"}
+              submitButtonText={editingEvent ? "Actualizar Evento" : "Crear Evento"}
+              title={editingEvent ? "Editar Evento" : "Nuevo Evento"}
               onClose={() => {
                 setShowEventForm(false);
                 setEditingEvent(null);

@@ -58,6 +58,7 @@ const eventLocationSchema = z
     name: z.string().optional(),
     information: z.string().max(2500).optional(),
     identifier: z.string().optional(),
+    floor: z.number().int("El piso debe ser un número entero").optional(),
     points: z
       .array(
         z.object({

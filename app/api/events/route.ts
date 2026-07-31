@@ -3,6 +3,7 @@ import "@/lib/setup-proxy";
 import { NextRequest, NextResponse } from "next/server";
 
 import { fetchApprovedPlaces, fetchEventPlaces, githubFileOperation } from "@/lib/github/operations";
+import { EventPlacesFeature, pruneEventPlaces } from "@/lib/places/eventPlaces";
 import { createFeatureFromPoints, generateRandomIdWithTimestamp, normalizeIdentifier } from "@/lib/places/utils";
 import { EventFeature, Feature, getParentPlaceIds } from "@/lib/types";
 import { eventDeleteSchema, eventPlaceSchema, eventPutSchema } from "@/lib/validation/schemas";
@@ -11,9 +12,57 @@ const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
 
 const emptyCollection = { type: "FeatureCollection", features: [] };
 
-export async function GET() {
+/*
+Aplica la limpieza sobre la colección recién bajada de GitHub: se van los eventos
+vencidos y los lugares de evento que quedaron huérfanos.
+
+Muta el objeto recibido (es el mismo que después se commitea) y devuelve si hubo cambios,
+para no generar commits vacíos.
+
+keepEventIds sirve para que una mutación no borre el evento que está escribiendo:
+en debug se pueden editar eventos ya vencidos y no queremos que el PUT los haga desaparecer.
+*/
+function cleanEventPlaces(eventPlaces: { features: any[] }, keepEventIds: string[] = []): boolean {
+  const { features, changed, removedEvents, removedPlaces } = pruneEventPlaces(
+    eventPlaces.features as EventPlacesFeature[],
+    { dropExpiredEvents: true, keepEventIds },
+  );
+
+  if (changed) {
+    console.log(
+      `Limpieza de eventos: ${removedEvents.length} evento(s) vencido(s), ${removedPlaces.length} lugar(es) huérfano(s)`,
+    );
+    eventPlaces.features = features as any[];
+  }
+
+  return changed;
+}
+
+export async function GET(request: NextRequest) {
   try {
-    const { fileData: eventPlaces } = await fetchEventPlaces();
+    const { url: eventsUrl, fileData: eventPlaces, file_sha: eventsSha } = await fetchEventPlaces();
+
+    const changed = cleanEventPlaces(eventPlaces);
+
+    /*
+    La limpieza se persiste solo si la request viene autenticada (modo debug).
+    Un GET anónimo igual recibe la colección ya limpia, pero no dispara un commit:
+    este endpoint es público y no queremos que cualquiera pueda generar escrituras.
+    */
+    if (changed && request.headers.get("ubicate-token") === API_UBICATE_SECRET) {
+      try {
+        await githubFileOperation(
+          eventsUrl,
+          { properties: { name: "limpieza automática", identifier: "-" } } as Feature,
+          eventPlaces,
+          eventsSha,
+          "CLEAN_EVENTS",
+        );
+      } catch (error) {
+        // Si el commit falla igual devolvemos la colección limpia: es solo mantenimiento
+        console.error("No se pudo persistir la limpieza de eventos:", error);
+      }
+    }
 
     return NextResponse.json(
       {
@@ -41,15 +90,17 @@ async function resolveLocations(
     name?: string;
     information?: string;
     identifier?: string;
+    floor?: number;
     points?: any[];
   }>,
   categories: string[],
   floors: number[],
   eventPlaces: Feature[],
   approvedPlaces?: Feature[],
-): Promise<{ parentPlaceIds: string[]; newPlaceFeatures: Feature[] }> {
+): Promise<{ parentPlaceIds: string[]; newPlaceFeatures: Feature[]; parentPlaceFloors: Record<string, number> }> {
   const parentPlaceIds: string[] = [];
   const newPlaceFeatures: Feature[] = [];
+  const parentPlaceFloors: Record<string, number> = {};
 
   for (const loc of locations) {
     if (loc.type === "existing" && loc.placeId) {
@@ -59,6 +110,9 @@ async function resolveLocations(
         continue;
       }
       parentPlaceIds.push(loc.placeId);
+      if (typeof loc.floor === "number") {
+        parentPlaceFloors[loc.placeId] = loc.floor;
+      }
     } else if (loc.type === "new" && loc.name) {
       const locPoints = loc.points || [];
       if (locPoints.length === 0) continue;
@@ -74,11 +128,14 @@ async function resolveLocations(
       if (feature) {
         newPlaceFeatures.push(feature);
         parentPlaceIds.push(feature.properties.identifier);
+        if (typeof loc.floor === "number") {
+          parentPlaceFloors[feature.properties.identifier] = loc.floor;
+        }
       }
     }
   }
 
-  return { parentPlaceIds, newPlaceFeatures };
+  return { parentPlaceIds, newPlaceFeatures, parentPlaceFloors };
 }
 
 export async function POST(request: NextRequest) {
@@ -166,6 +223,8 @@ export async function POST(request: NextRequest) {
     nuevoEvento.properties.identifier = generateRandomIdWithTimestamp();
 
     const { url: eventsUrl, fileData: eventPlaces, file_sha: eventsSha } = await fetchEventPlaces();
+    cleanEventPlaces(eventPlaces);
+
     const normalizedId = normalizeIdentifier(nuevoEvento.properties.identifier);
     const existsInEvents = eventPlaces.features.some(
       (feature) => normalizeIdentifier(feature.properties.identifier) === normalizedId,
@@ -175,7 +234,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "¡El evento ya existe!" }, { status: 400 });
     }
 
-    const { parentPlaceIds, newPlaceFeatures } = await resolveLocations(
+    const { parentPlaceIds, newPlaceFeatures, parentPlaceFloors } = await resolveLocations(
       locations,
       data.categories,
       data.floors,
@@ -184,6 +243,8 @@ export async function POST(request: NextRequest) {
     );
 
     for (const f of newPlaceFeatures) {
+      const normId = normalizeIdentifier(f.properties.identifier);
+      if (eventPlaces.features.some((x) => normalizeIdentifier(x.properties.identifier) === normId)) continue;
       eventPlaces.features.unshift(f as any);
     }
 
@@ -195,6 +256,7 @@ export async function POST(request: NextRequest) {
         endDate: data.endDate,
         ...(data.showFrom ? { showFrom: data.showFrom } : {}),
         parentPlaceIds,
+        ...(Object.keys(parentPlaceFloors).length > 0 ? { parentPlaceFloors } : {}),
       },
     };
 
@@ -306,6 +368,9 @@ export async function PUT(request: NextRequest) {
 
     const normalizedIdentifier = normalizeIdentifier(identifier);
     const { url: eventsUrl, fileData: eventPlaces, file_sha: eventsSha } = await fetchEventPlaces();
+    // El evento que se está editando se preserva aunque esté vencido
+    cleanEventPlaces(eventPlaces, [identifier]);
+
     const eventIndex = eventPlaces.features.findIndex(
       (feature) => normalizeIdentifier(feature.properties.identifier) === normalizedIdentifier,
     );
@@ -348,7 +413,7 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ message: "Error al actualizar: evento no encontrado tras limpieza" }, { status: 500 });
     }
 
-    const { parentPlaceIds, newPlaceFeatures } = await resolveLocations(
+    const { parentPlaceIds, newPlaceFeatures, parentPlaceFloors } = await resolveLocations(
       locations,
       data.categories,
       data.floors,
@@ -364,27 +429,19 @@ export async function PUT(request: NextRequest) {
         endDate: data.endDate,
         ...(data.showFrom ? { showFrom: data.showFrom } : {}),
         parentPlaceIds,
+        ...(Object.keys(parentPlaceFloors).length > 0 ? { parentPlaceFloors } : {}),
       },
     };
 
     eventPlaces.features[updatedEventIndex] = eventFeature;
 
     for (const f of newPlaceFeatures) {
+      const normId = normalizeIdentifier(f.properties.identifier);
+      if (eventPlaces.features.some((x) => normalizeIdentifier(x.properties.identifier) === normId)) continue;
       eventPlaces.features.unshift(f as any);
     }
 
-    const referencedIds = new Set<string>();
-    for (const feature of eventPlaces.features) {
-      if (!(feature as any).properties?.startDate) continue;
-      const ids = getParentPlaceIds(feature.properties as any);
-      for (const id of ids) {
-        referencedIds.add(normalizeIdentifier(id));
-      }
-    }
-    eventPlaces.features = eventPlaces.features.filter((f) => {
-      if ((f as any).properties?.startDate) return true;
-      return referencedIds.has(normalizeIdentifier(f.properties.identifier));
-    });
+    cleanEventPlaces(eventPlaces, [identifier]);
 
     await githubFileOperation(
       eventsUrl,
@@ -436,19 +493,7 @@ export async function DELETE(request: NextRequest) {
     const eventToDelete = eventPlaces.features[eventIndex];
     eventPlaces.features.splice(eventIndex, 1);
 
-    const referencedIds = new Set<string>();
-    for (const feature of eventPlaces.features) {
-      if (!(feature as any).properties?.startDate) continue;
-      const ids = getParentPlaceIds(feature.properties as any);
-      for (const id of ids) {
-        referencedIds.add(normalizeIdentifier(id));
-      }
-    }
-
-    eventPlaces.features = eventPlaces.features.filter((f) => {
-      if ((f as any).properties?.startDate) return true;
-      return referencedIds.has(normalizeIdentifier(f.properties.identifier));
-    });
+    cleanEventPlaces(eventPlaces);
 
     await githubFileOperation(eventsUrl, eventToDelete, eventPlaces, eventsSha, "DELETE_EVENT");
 

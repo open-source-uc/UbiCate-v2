@@ -1,17 +1,27 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Source, Layer, useMap } from "react-map-gl/maplibre";
 
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
+import { useSidebar } from "@/app/context/sidebarCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import Places from "@/lib/places/data";
-import { normalizeIdentifier } from "@/lib/places/utils";
-import { EventFeature, EventLocation, Feature, getParentPlaceIds, JSONFeatures, PointFeature } from "@/lib/types";
+import { pruneEventPlaces } from "@/lib/places/eventPlaces";
+import { getParentPlaceFloor, normalizeIdentifier } from "@/lib/places/utils";
+import {
+  EventFeature,
+  EventLocation,
+  EventProperties,
+  Feature,
+  getParentPlaceIds,
+  JSONFeatures,
+  PointFeature,
+} from "@/lib/types";
 
 import {
   allPointsLayer,
@@ -34,6 +44,7 @@ function DebugMode() {
   const mainMap = useMap();
   const [mapLayers, setMapLayers] = useState<string[]>([]);
   const { isPicking } = useMapPicking();
+  const { hiddenPlaceIds } = useSidebar();
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -83,7 +94,20 @@ function DebugMode() {
     staleTime: 5 * 60 * 1000,
   });
 
-  const eventJson: EventFeature[] = eventsData?.events?.features || [];
+  /*
+  El overlay de debug sí muestra los eventos vencidos (dropExpiredEvents: false),
+  pero nunca los lugares de evento huérfanos: sin un evento que los apunte no representan nada.
+  */
+  const eventJson: EventFeature[] = useMemo(
+    () => pruneEventPlaces(eventsData?.events?.features || [], { dropExpiredEvents: false }).features as EventFeature[],
+    [eventsData],
+  );
+
+  const visibleFeatures = useCallback(
+    <T extends Feature | EventFeature>(features: T[]) =>
+      features.filter((f) => !hiddenPlaceIds.has(f.properties.identifier)),
+    [hiddenPlaceIds],
+  );
 
   const approvedIdentifiers = useMemo(
     () =>
@@ -144,11 +168,12 @@ function DebugMode() {
     return enriched;
   }, [eventJson, approvedData]);
 
-  function buildLocationsFromParentIds(parentIds: string[]): EventLocation[] {
+  function buildLocationsFromParentIds(parentIds: string[], props?: EventProperties): EventLocation[] {
     return parentIds.map((id) => {
       const normId = normalizeIdentifier(id);
+      const floor = props ? getParentPlaceFloor(props, id) : undefined;
       if (approvedIdentifiers.has(normId)) {
-        return { id: `existing-${id}`, type: "existing" as const, placeId: id, pins: [] };
+        return { id: `existing-${id}`, type: "existing" as const, placeId: id, floor, pins: [] };
       }
       const placeFeature = eventPlaceMap.get(normId);
       if (placeFeature) {
@@ -171,10 +196,11 @@ function DebugMode() {
           name: placeFeature.properties.name,
           information: placeFeature.properties.information || "",
           identifier: placeFeature.properties.identifier,
+          floor,
           pins,
         };
       }
-      return { id: `existing-${id}`, type: "existing" as const, placeId: id, pins: [] };
+      return { id: `existing-${id}`, type: "existing" as const, placeId: id, floor, pins: [] };
     });
   }
 
@@ -329,14 +355,14 @@ resize-x border-2 border-dashed pointer-events-auto"
           <Source
             id="debug-1"
             type="geojson"
-            data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Polygon"))}
+            data={featuresToGeoJSON(visibleFeatures(Places.features.filter((e) => e.geometry.type === "Polygon")))}
           >
             <Layer {...redLineLayerDebug} />
           </Source>
           <Source
             id="debug-2"
             type="geojson"
-            data={featuresToGeoJSON(Places.features.filter((e) => e.geometry.type === "Point"))}
+            data={featuresToGeoJSON(visibleFeatures(Places.features.filter((e) => e.geometry.type === "Point")))}
           >
             <Layer {...allPointsLayer} />
             <Layer {...allPlacesTextLayer} />
@@ -346,7 +372,7 @@ resize-x border-2 border-dashed pointer-events-auto"
 
       {debugMode === 2 && json ? (
         <>
-          <Source id="debug-8" type="geojson" data={featuresToGeoJSON(json.features)}>
+          <Source id="debug-8" type="geojson" data={featuresToGeoJSON(visibleFeatures(json.features))}>
             <Layer {...sectionAreaLayerDebug} />
             <Layer {...redLineLayerDebug} />
             <Layer {...approvalPointsLayer} />
@@ -357,7 +383,7 @@ resize-x border-2 border-dashed pointer-events-auto"
 
       {debugMode === 3 && debugEventFeatures.length > 0 ? (
         <>
-          <Source id="debug-events" type="geojson" data={featuresToGeoJSON(debugEventFeatures)}>
+          <Source id="debug-events" type="geojson" data={featuresToGeoJSON(visibleFeatures(debugEventFeatures))}>
             <Layer {...eventPolygonLayer} />
             <Layer {...eventPolygonLineLayer} />
             <Layer {...eventPointsLayer} />
@@ -384,7 +410,10 @@ resize-x border-2 border-dashed pointer-events-auto"
                       startDate: editingEvent.properties.startDate,
                       endDate: editingEvent.properties.endDate,
                       showFrom: editingEvent.properties.showFrom || "",
-                      locations: buildLocationsFromParentIds(getParentPlaceIds(editingEvent.properties)),
+                      locations: buildLocationsFromParentIds(
+                        getParentPlaceIds(editingEvent.properties),
+                        editingEvent.properties,
+                      ),
                       identifier: editingEvent.properties.identifier,
                     }
                   : undefined

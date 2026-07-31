@@ -13,21 +13,43 @@ export default function usePlaces(eventCounts: Map<string, number> = new Map()):
   selectedPlace: Feature | null;
   setSelectedPlace: (place: Feature | null | ((prev: Feature | null) => Feature | null)) => void;
   PointsName: PointFeature[];
+  hiddenPlaceIds: Set<string>;
+  togglePlaceHidden: (identifier: string) => void;
 } {
-  const [findPlaces, setFindPlaces] = useState<Feature[]>([]);
+  const [allFindPlaces, setAllFindPlaces] = useState<Feature[]>([]);
   const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
+  // Ocultar es solo para la sesión: no se persiste, al recargar vuelven a aparecer
+  const [hiddenPlaceIds, setHiddenPlaceIds] = useState<Set<string>>(new Set());
+
+  const togglePlaceHidden = useCallback((identifier: string) => {
+    if (!identifier) return;
+    setHiddenPlaceIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(identifier)) {
+        next.delete(identifier);
+      } else {
+        next.add(identifier);
+      }
+      return next;
+    });
+  }, []);
 
   const setPlaces = useCallback(
     (e: Feature[] | Feature | null) => {
       if (Array.isArray(e)) {
-        setFindPlaces(e);
+        setAllFindPlaces(e);
       } else if (e) {
-        setFindPlaces([e]);
+        setAllFindPlaces([e]);
       } else {
-        setFindPlaces([]);
+        setAllFindPlaces([]);
       }
     },
-    [setFindPlaces],
+    [setAllFindPlaces],
+  );
+
+  const findPlaces = useMemo(
+    () => allFindPlaces.filter((e) => !hiddenPlaceIds.has(e.properties.identifier)),
+    [allFindPlaces, hiddenPlaceIds],
   );
 
   const PointsName = useMemo(
@@ -76,5 +98,7 @@ export default function usePlaces(eventCounts: Map<string, number> = new Map()):
     selectedPlace,
     setSelectedPlace,
     PointsName: PointsName as PointFeature[],
+    hiddenPlaceIds,
+    togglePlaceHidden,
   };
 }
