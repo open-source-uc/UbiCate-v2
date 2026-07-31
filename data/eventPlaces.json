@@ -6,6 +6,76 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61039500411431,
+                    -33.49847622661081
+                ]
+            },
+            "properties": {
+                "identifier": "ms8ajj833jm8m0",
+                "name": "¿Quién quiere ser ciudadano? [Formación ciudadana y diálogo]",
+                "information": "La actividad consiste en una trivia sobre educación ciudadana al estilo del programa de televisión \"Quién quiere ser millonario\". Participarán estudiantes, uno a la vez, respondiendo las preguntas que prepararemos. Existirán comodines como los del programa “llamar a un amigo”, “comodín 50%” o “comodín del público” (dónde alguien del público podrá darle la respuesta al participante).  Lugar específico Aire libre sector Itaú / Castaño. Organiza Recreo Ciudadano. Sin inscripción. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T11:00",
+                "endDate": "2026-08-03T12:30",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "ms8ajjy3yhhs86"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61039500411431,
+                            -33.49847622661081
+                        ],
+                        [
+                            -70.60990147765573,
+                            -33.49852096050857
+                        ],
+                        [
+                            -70.60990684207394,
+                            -33.49821229614722
+                        ],
+                        [
+                            -70.61042182620477,
+                            -33.498257030180305
+                        ],
+                        [
+                            -70.61039500411431,
+                            -33.49847622661081
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "ms8ajjy3yhhs86",
+                "name": "Aire libre sector Itaú / Castaño",
+                "information": "",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61169574499807,
                     -33.4970007354698
                 ]
