@@ -6,6 +6,33 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.60985980167332,
+                    -33.49817682022046
+                ]
+            },
+            "properties": {
+                "identifier": "ms8co0jte7sd1w",
+                "name": "Espacio Tranqui: Experiencia inmersiva para la autorregulación",
+                "information": "4 Talleres de realidad virtual con uso de oculus, para aprender técnicas de regulación sensorial. La actividad parte con una charla sobre técnicas de regulación física y sensorial, para luego proceder a vivenciar una experiencia inmersiva para poner en práctica estas técnicas, por medio de los oculus. Lugar específico Laboratorio Digital Bibliotecas UC. Organiza DAp. Cupos limitados, con inscripción Previa. Para más información ingresa a esta actividad dentro del sitio https://www.uc.cl/agenda/evento/reencuentro-uc",
+                "categories": [
+                    "events"
+                ],
+                "floors": [],
+                "campus": "SJ",
+                "faculties": [],
+                "startDate": "2026-08-03T10:40",
+                "endDate": "2026-08-03T11:10",
+                "showFrom": "2026-07-31T09:00",
+                "parentPlaceIds": [
+                    "LABORATORY-38162238"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61226172299791,
                     -33.49901308608427
                 ]
