@@ -5,6 +5,7 @@ import { use, useEffect, useState } from "react";
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { siglas } from "@/lib/types";
 
+import Changelog from "../../changelog/Changelog";
 import { SearchDropdown } from "../../search/SearchDropdown";
 
 export default function TopMobileSidebar() {
@@ -43,12 +44,15 @@ export default function TopMobileSidebar() {
         <div className="flex items-center gap-3">
           <SearchDropdown numberOfShowResults={5} />
         </div>
-        {campusName ? (
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm w-fit">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
-            <span className="text-xs font-medium text-primary-foreground">Campus {campusName}</span>
-          </div>
-        ) : null}
+        <div className="flex items-center gap-2 w-fit">
+          {campusName ? (
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm w-fit">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
+              <span className="text-xs font-medium text-primary-foreground">Campus {campusName}</span>
+            </div>
+          ) : null}
+          <Changelog />
+        </div>
         {component ? component : null}
       </div>
     </section>

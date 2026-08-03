@@ -13,7 +13,6 @@ import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceFor
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
-import staticEventsJSON from "@/lib/places/eventsData";
 import { getParentPlaceFloor, normalizeIdentifier } from "@/lib/places/utils";
 import {
   CATEGORIES,
@@ -87,6 +86,8 @@ export default function PlaceInformation({
     }
   }, []);
 
+  const { allEvents: contextEvents, eventPlaces } = useSidebar();
+
   const { data: approvedData } = useQuery({
     queryKey: ["places"],
     queryFn: async () => {
@@ -96,19 +97,17 @@ export default function PlaceInformation({
     staleTime: 5 * 60 * 1000,
   });
 
-  const { data: eventsData } = useQuery({
+  // Debug lee eventos frescos de la API (X-Ubicate-Fresh); comparte key ["events-debug"] con el overlay.
+  const { data: eventsDebugData } = useQuery({
     queryKey: ["events-debug"],
-    queryFn: async () => {
-      const response = await apiClient("/api/events");
-      return response;
-    },
+    queryFn: async () => apiClient("/api/events", { headers: { "X-Ubicate-Fresh": "true" } }),
     enabled: isDebug,
     staleTime: 5 * 60 * 1000,
   });
 
   const eventsFeatures: (EventFeature | Feature)[] = useMemo(
-    () => (isDebug ? eventsData?.events?.features || [] : staticEventsJSON.features),
-    [isDebug, eventsData],
+    () => (isDebug ? eventsDebugData?.events?.features ?? [] : [...contextEvents, ...eventPlaces]),
+    [isDebug, eventsDebugData, contextEvents, eventPlaces],
   );
 
   const allEvents: EventFeature[] = useMemo(
@@ -234,7 +233,9 @@ export default function PlaceInformation({
 
   const displayTitle = useMemo(() => {
     if (!isEventFeature) return place.properties.name;
-    const currentEvent = allEvents.find((e) => e.properties.identifier === place.properties.identifier);
+    const currentEvent = allEvents.find(
+      (e) => normalizeIdentifier(e.properties.identifier) === normalizeIdentifier(place.properties.identifier),
+    );
     const props = (currentEvent || place).properties;
     const parentIds = getParentPlaceIds(props as EventProperties);
     for (const id of parentIds) {
@@ -248,12 +249,12 @@ export default function PlaceInformation({
   }, [isEventFeature, place, allEvents, eventPlaceMap, approvedPlaceMap]);
 
   const associatedEvents = useMemo(() => {
-    const events = allEvents.filter((ev) => {
-      const ids = getParentPlaceIds(ev.properties);
-      return ids.includes(place?.properties.identifier || "");
-    });
+    const normId = normalizeIdentifier(place?.properties.identifier || "");
+    const events = allEvents.filter((ev) =>
+      getParentPlaceIds(ev.properties).some((id) => normalizeIdentifier(id) === normId),
+    );
     if (isEventFeature) {
-      const ev = allEvents.find((e) => e.properties.identifier === place.properties.identifier);
+      const ev = allEvents.find((e) => normalizeIdentifier(e.properties.identifier) === normId);
       if (ev && !events.some((e) => e.properties.identifier === ev.properties.identifier)) {
         events.unshift(ev);
       }
@@ -273,8 +274,10 @@ export default function PlaceInformation({
         body: { identifier },
       }),
     onSuccess: () => {
-      alert("El evento fue eliminado");
-      document.location.reload();
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+      queryClient.invalidateQueries({ queryKey: ["events-debug"] });
+      queryClient.invalidateQueries({ queryKey: ["places"] });
+      queryClient.invalidateQueries({ queryKey: ["ubicate-debug"] });
     },
     onError: (error: Error) => {
       alert("Hubo un error: " + error.message);
@@ -667,7 +670,10 @@ export default function PlaceInformation({
                 setEditingEvent(null);
               }}
               onSuccess={() => {
-                document.location.reload();
+                queryClient.invalidateQueries({ queryKey: ["events"] });
+                queryClient.invalidateQueries({ queryKey: ["events-debug"] });
+                queryClient.invalidateQueries({ queryKey: ["places"] });
+                queryClient.invalidateQueries({ queryKey: ["ubicate-debug"] });
               }}
             />
           </div>

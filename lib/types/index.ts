@@ -58,8 +58,9 @@ export interface Properties {
   floors?: number[];
   needApproval?: boolean;
   displayName?: string;
-  // needApproval es solo para saber si un pin esta en newPlaces.json, si esta en places.json se mostrara igual
-  // needApproval sera SIEMPRE undefined en places.json
+  // Propuestas de edición (flujo Prisma): proposalType="edit" + parentPlaceId apuntan al lugar original.
+  proposalType?: "edit";
+  parentPlaceId?: string;
 }
 
 export interface EventProperties extends Properties {
@@ -77,7 +78,7 @@ export function getParentPlaceIds(props: EventProperties): string[] {
   return [];
 }
 
-const GRACE_PERIOD_MS = 24 * 60 * 60 * 1000;
+export const GRACE_PERIOD_MS = (Number(process.env.NEXT_PUBLIC_EVENTS_GRACE_PERIOD) || 86400) * 1000;
 
 // Un evento está vencido cuando terminó hace más del período de gracia.
 // Mientras esté dentro de la gracia sigue siendo visible (ver isEventVisible).

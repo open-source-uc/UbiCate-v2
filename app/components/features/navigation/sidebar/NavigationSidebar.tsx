@@ -33,7 +33,7 @@ export default function Sidebar() {
   return (
     <>
       {isDesktop ? (
-        <aside>
+        <aside className="absolute left-0 top-0 h-full z-50">
           <NotificationBarDesktop />
           <NotificationErrorBoundary>
             <DesktopSidebar />

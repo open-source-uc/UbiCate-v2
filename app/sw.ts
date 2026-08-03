@@ -1,5 +1,5 @@
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
-import { NetworkFirst, Serwist, StaleWhileRevalidate } from "serwist";
+import { ExpirationPlugin, NetworkFirst, NetworkOnly, Serwist, StaleWhileRevalidate } from "serwist";
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
@@ -26,9 +26,35 @@ const serwist = new Serwist({
       }),
     },
     {
+      matcher: ({ url, request }) =>
+        url.pathname === "/api/ubicate" && request.headers.get("X-Ubicate-Fresh") === "true",
+      handler: new NetworkOnly(),
+    },
+    {
+      matcher: ({ url }) => url.pathname === "/api/ubicate",
+      handler: new StaleWhileRevalidate({
+        cacheName: "ubicate-data",
+        plugins: [new ExpirationPlugin({ maxEntries: 5, maxAgeSeconds: 2592000 })],
+      }),
+    },
+    {
+      // Eventos: mismo patrón que /api/ubicate. NetworkOnly con X-Ubicate-Fresh (debug/refetch),
+      // StaleWhileRevalidate 30 días para carga offline.
+      matcher: ({ url, request }) =>
+        url.pathname === "/api/events" && request.headers.get("X-Ubicate-Fresh") === "true",
+      handler: new NetworkOnly(),
+    },
+    {
+      matcher: ({ url }) => url.pathname === "/api/events",
+      handler: new StaleWhileRevalidate({
+        cacheName: "ubicate-events",
+        plugins: [new ExpirationPlugin({ maxEntries: 5, maxAgeSeconds: 2592000 })],
+      }),
+    },
+    {
       matcher: ({ url }) => url.pathname.startsWith("/api/"),
       handler: new StaleWhileRevalidate({
-        cacheName: "map-tiles",
+        cacheName: "api-responses",
         plugins: [
           {
             cacheWillUpdate: async ({ response }) => (response.status === 200 ? response : null),

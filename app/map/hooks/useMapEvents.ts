@@ -3,6 +3,7 @@ import { use, useCallback, useEffect, useState } from "react";
 import { centroid } from "@turf/centroid";
 import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre";
 
+import { useAppLoading } from "@/app/context/appLoadingCtx";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
@@ -14,6 +15,7 @@ import {
   getMaxCampusBoundsFromName,
   getMaxCampusBoundsFromPoint,
 } from "@/lib/campus/getCampusBounds";
+import type { FlyToEvent } from "@/lib/events/customEvents";
 import { normalizeFeature } from "@/lib/map/getLayerMap";
 import { Feature, CATEGORIES } from "@/lib/types";
 
@@ -35,6 +37,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   const { create, cancel } = useTimeoutManager();
   const { addPin, clearPins, pins } = use(pinsContext);
   const { isPicking, mode, setPicking } = useMapPicking();
+  const { setMapLoaded } = useAppLoading();
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -176,6 +179,18 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     handlePlaceSelection(feature, { openSidebar: true, flyMode: "always" });
   });
 
+  useEffect(() => {
+    const handleFlyTo = (e: Event) => {
+      const { lng, lat, zoom } = (e as FlyToEvent).detail;
+      const map = mapRef.current?.getMap();
+      if (!map) return;
+      map.setMaxBounds(undefined);
+      map.flyTo({ center: [lng, lat], zoom: zoom ?? 17, essential: true, duration: 600 });
+    };
+    document.addEventListener("mapFlyTo", handleFlyTo as EventListener);
+    return () => document.removeEventListener("mapFlyTo", handleFlyTo as EventListener);
+  }, [mapRef]);
+
   const handleMapLoad = useCallback(
     async (e: MapEvent) => {
       e.target.doubleClickZoom.disable();
@@ -213,9 +228,12 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         addPin(e.lngLat.lng, e.lngLat.lat);
       });
 
+      // Nota: el manejo de clics (puntos con prioridad sobre polígonos, y capas de debug) se hace
+      // en handleMapClick vía e.features de los interactiveLayerIds del mapa, no con listeners por capa.
       setIsLoaded(true);
+      setMapLoaded();
     },
-    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel],
+    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel, setMapLoaded],
   );
 
   useEffect(() => {

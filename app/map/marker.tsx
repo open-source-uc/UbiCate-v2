@@ -29,7 +29,7 @@ export default function Marker({
   offset = [0, 0],
   category,
 }: MarkerProps) {
-  const primaryCategory = category || (place.properties.categories[0] as CATEGORIES);
+  const primaryCategory = category || place.properties.categories[0] || "Otros";
   const color = getCategoryColor(primaryCategory.toLowerCase().trim() as CATEGORIES);
   return (
     <MapboxMarker

@@ -7,6 +7,12 @@ import Script from "next/script";
 import { Metadata } from "next";
 
 // import AnnouncementHandler from "./components/app/AnnouncementHandler";
+import {
+  LOADING_IMAGE,
+  LOADING_IMAGE_MEDIA,
+  LOADING_IMAGE_MOBILE,
+  LOADING_IMAGE_MOBILE_MEDIA,
+} from "./components/app/LoadingScreenView";
 import ManifestFixer from "./components/app/ManifestFixer";
 import SWRegister from "./components/app/SWRegister";
 
@@ -66,6 +72,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="es" data-theme="uc-theme">
       <head>
+        {/* Portada de carga: primero en el head para que se pinte cuanto antes */}
+        <link
+          rel="preload"
+          as="image"
+          href={LOADING_IMAGE_MOBILE}
+          media={LOADING_IMAGE_MOBILE_MEDIA}
+          fetchPriority="high"
+        />
+        <link rel="preload" as="image" href={LOADING_IMAGE} media={LOADING_IMAGE_MEDIA} fetchPriority="high" />
         {/* Google Tag Manager UC - DTFD */}
         <Script id="gtm-script" strategy="beforeInteractive">
           {`

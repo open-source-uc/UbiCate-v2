@@ -18,3 +18,25 @@ export const emitPlaceSelectedEvent = (feature: Feature): void => {
 
   document.dispatchEvent(event);
 };
+
+interface FlyToDetail {
+  lng: number;
+  lat: number;
+  zoom?: number;
+}
+
+export interface FlyToEvent extends CustomEvent<FlyToDetail> {
+  type: "mapFlyTo";
+  detail: FlyToDetail;
+}
+
+// Centra el mapa en unas coordenadas sin seleccionar lugar ni tocar la URL (a diferencia de placeSelected).
+export const emitFlyToEvent = (lng: number, lat: number, zoom?: number): void => {
+  const event = new CustomEvent("mapFlyTo", {
+    detail: { lng, lat, zoom },
+    bubbles: true,
+    cancelable: false,
+  }) as FlyToEvent;
+
+  document.dispatchEvent(event);
+};

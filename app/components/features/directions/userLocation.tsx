@@ -15,17 +15,8 @@ import LocationButton from "./locationButton";
 export default function UserLocation() {
   const { mainMap } = useMap();
   const { setNotification, addCode, removeCode } = use(NotificationContext);
-  const {
-    position,
-    alpha,
-    setTracking,
-    isTracking,
-    requestLocation,
-    calibrateCompass,
-    isCalibrated,
-    hasLocation,
-    error,
-  } = useUbication();
+  const { position, heading, setTracking, isTracking, requestLocation, requestOrientation, hasLocation, error } =
+    useUbication();
 
   const [bearing, setBearing] = useState(0);
   const [isRequestingLocation, setIsRequestingLocation] = useState(false);
@@ -47,10 +38,11 @@ export default function UserLocation() {
     };
   }, [mainMap, updateBearing]);
 
+  // El marcador vive en la pantalla, no en el mundo: hay que descontarle la rotación del mapa.
   const rotation = useMemo(() => {
-    if (alpha === null) return 0; // Valor por defecto
-    return -(alpha - bearing + 360) % 360;
-  }, [alpha, bearing]);
+    if (heading === null) return 0;
+    return (heading - bearing + 360) % 360;
+  }, [heading, bearing]);
 
   // Manejar errores de ubicación
   useEffect(() => {
@@ -122,15 +114,11 @@ export default function UserLocation() {
     removeCode("locationError");
 
     try {
-      // Primero intentar obtener ubicación una vez
+      // En iOS los dos diálogos de permiso no pueden convivir: primero la brújula (que además exige
+      // invocarse dentro del gesto, sin await previo) y recién después la ubicación.
+      await requestOrientation();
       await requestLocation();
 
-      // Si no tenemos orientación calibrada, intentar calibrar
-      if (!isCalibrated && typeof window !== "undefined" && "DeviceOrientationEvent" in window) {
-        await calibrateCompass();
-      }
-
-      // Iniciar tracking continuo
       setTracking(true);
     } catch (error) {
       console.error("Error requesting location:", error);
@@ -141,9 +129,8 @@ export default function UserLocation() {
     hasLocation,
     isTracking,
     isRequestingLocation,
-    isCalibrated,
     requestLocation,
-    calibrateCompass,
+    requestOrientation,
     setTracking,
     teleportToUserLocation,
     removeCode,

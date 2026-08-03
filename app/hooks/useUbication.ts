@@ -18,20 +18,21 @@ export function useUbication(initialTracking?: boolean) {
     console.warn("UbicationProvider not found, returning fallback values");
     return {
       position: null,
-      alpha: null,
+      heading: null,
       cardinal: null,
-      isCalibrated: false,
+      hasCompass: false,
       hasLocation: false,
       error: "UbicationProvider no encontrado",
-      calibrateCompass: () => {
-        console.warn("calibrateCompass called but UbicationProvider is not available");
-      },
       setTracking: (_tracking: boolean) => {
         console.warn("setTracking called but UbicationProvider is not available");
       },
       isTracking: false,
       requestLocation: async () => {
         console.warn("requestLocation called but UbicationProvider is not available");
+      },
+      requestOrientation: async () => {
+        console.warn("requestOrientation called but UbicationProvider is not available");
+        return false;
       },
     };
   }

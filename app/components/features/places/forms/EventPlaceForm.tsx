@@ -3,18 +3,19 @@
 import { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useEventPlaceForm, EventFormData } from "@/app/hooks/useEventPlaceForm";
 import { apiClient } from "@/lib/api/ubicateApiClient";
+import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { normalizeIdentifier } from "@/lib/places/utils";
 import { EventLocation, Feature, siglas } from "@/lib/types";
 
 import * as Icons from "../../../ui/icons/icons";
 
 import { DescriptionField } from "./descriptionField";
-import { Notification } from "./notification";
 import { PlaceNameField } from "./placeNameField";
 import { SubmitButton } from "./submitButton";
 
@@ -46,12 +47,12 @@ export default function EventPlaceForm({
   submitButtonText?: string;
   title?: string;
 }) {
-  const { pins, clearPins } = use(pinsContext);
+  const { pins, clearPins, addPin } = use(pinsContext);
   const { isPicking, setPicking, setForEvent } = useMapPicking();
   const [parentSearch, setParentSearch] = useState("");
-  const [selectedParentName, setSelectedParentName] = useState("");
+  const [addMode, setAddMode] = useState<"none" | "existing" | "new">("none");
 
-  const { data, setData, notification, eventMutation, isLoading } = useEventPlaceForm(method, defaultData, () => {
+  const { data, setData, eventMutation, isLoading } = useEventPlaceForm(method, defaultData, () => {
     onSuccess?.();
     onClose?.();
   });
@@ -120,13 +121,51 @@ export default function EventPlaceForm({
         pins: [],
       },
     ]);
-    setSelectedParentName("");
     setParentSearch("");
+    setAddMode("none");
   };
 
-  const handleRemoveLocation = (id: string) => {
+  const handleRemoveLocation = async (id: string) => {
+    const result = await Swal.fire({
+      icon: "warning",
+      title: "¿Quitar este lugar del evento?",
+      showCancelButton: true,
+      confirmButtonText: "Quitar",
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      reverseButtons: true,
+    });
+    if (!result.isConfirmed) return;
     setLocations((prev) => prev.filter((l) => l.id !== id));
   };
+
+  // Muestra la ubicación en el mapa (oculta el modal vía isPicking). En un lugar "new" se puede mover
+  // y se guarda al terminar (efecto de activeLocationId); un lugar existente es solo lectura.
+  const handleViewLocation = useCallback(
+    (loc: EventLocation) => {
+      clearPins();
+      const coords: [number, number][] = [];
+      if (loc.type === "new") {
+        for (const p of loc.pins) coords.push(p.geometry.coordinates);
+      } else if (loc.placeId) {
+        const geom = approvedById.get(loc.placeId)?.geometry;
+        if (geom?.type === "Point") coords.push(geom.coordinates);
+        else if (geom?.type === "Polygon") for (const c of geom.coordinates[0].slice(0, -1)) coords.push(c);
+      }
+      if (coords.length === 0) return;
+
+      for (const [lng, lat] of coords) addPin(lng, lat);
+
+      const lng = coords.reduce((sum, c) => sum + c[0], 0) / coords.length;
+      const lat = coords.reduce((sum, c) => sum + c[1], 0) / coords.length;
+      emitFlyToEvent(lng, lat);
+
+      setActiveLocationId(loc.type === "new" ? loc.id : null);
+      setPicking(true, coords.length > 1 ? "polygon" : "point");
+    },
+    [clearPins, addPin, approvedById, setPicking],
+  );
 
   const handleStartPicking = useCallback(() => {
     pickingFromUser.current = true;
@@ -147,6 +186,7 @@ export default function EventPlaceForm({
           pins: [...pins],
         },
       ]);
+      setAddMode("none");
     }
   }, [isPicking]);
 
@@ -178,12 +218,8 @@ export default function EventPlaceForm({
     eventMutation.mutate(body as any);
   };
 
-  const showParentSearch = !isPicking;
-
   return (
     <>
-      <Notification notification={notification} />
-
       <form className="space-y-4 text-md px-3 py-5" onSubmit={handleSubmit}>
         <button
           onClick={() => onClose?.()}
@@ -314,32 +350,64 @@ export default function EventPlaceForm({
                     />
                   </div>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => handleRemoveLocation(loc.id)}
-                  className="text-sm text-destructive hover:underline shrink-0"
-                  disabled={isLoading}
-                >
-                  Quitar
-                </button>
+                <div className="flex shrink-0 flex-col items-end gap-1">
+                  <button
+                    type="button"
+                    onClick={() => handleViewLocation(loc)}
+                    className="text-sm text-primary hover:underline"
+                    disabled={isLoading || isPicking}
+                  >
+                    Ver
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveLocation(loc.id)}
+                    className="text-sm text-destructive hover:underline"
+                    disabled={isLoading}
+                  >
+                    Quitar
+                  </button>
+                </div>
               </div>
             );
           })}
 
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={handleStartPicking}
-              className="flex-1 p-2.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={isLoading || isPicking}
-            >
-              Ubicar en mapa
-            </button>
-          </div>
+          {addMode === "none" ? (
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => setAddMode("existing")}
+                className="p-2.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isLoading || isPicking}
+              >
+                Agregar lugar existente
+              </button>
+              <button
+                type="button"
+                onClick={() => setAddMode("new")}
+                className="p-2.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isLoading || isPicking}
+              >
+                Crear lugar de evento
+              </button>
+            </div>
+          ) : null}
 
-          {showParentSearch ? (
-            <div className="space-y-2">
-              <p className="text-xs text-foreground/80 text-center italic">O busca un lugar existente para asociar</p>
+          {addMode === "existing" ? (
+            <div className="space-y-2 rounded-lg border border-border p-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-medium text-foreground">Asociar un lugar existente</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAddMode("none");
+                    setParentSearch("");
+                  }}
+                  className="text-xs text-muted-foreground hover:underline"
+                >
+                  Cancelar
+                </button>
+              </div>
               <div className="relative">
                 <input
                   type="text"
@@ -347,6 +415,7 @@ export default function EventPlaceForm({
                   onChange={(e) => setParentSearch(e.target.value)}
                   className="block p-3 w-full text-sm rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Buscar lugar..."
+                  autoFocus
                   disabled={isLoading}
                 />
                 {filteredParents.length > 0 && (
@@ -367,6 +436,30 @@ export default function EventPlaceForm({
                   </div>
                 )}
               </div>
+            </div>
+          ) : null}
+
+          {addMode === "new" ? (
+            <div className="space-y-2 rounded-lg border border-border p-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-medium text-foreground">Crear lugar de evento</p>
+                <button
+                  type="button"
+                  onClick={() => setAddMode("none")}
+                  className="text-xs text-muted-foreground hover:underline"
+                >
+                  Cancelar
+                </button>
+              </div>
+              <p className="text-xs text-muted-foreground">Marca 1 punto, o 3 o más para un polígono.</p>
+              <button
+                type="button"
+                onClick={handleStartPicking}
+                className="w-full p-2.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isLoading || isPicking}
+              >
+                Ubicar en mapa
+              </button>
             </div>
           ) : null}
         </div>

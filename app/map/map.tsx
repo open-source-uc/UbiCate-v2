@@ -13,10 +13,10 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
-import Places from "@/lib/places/data";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
+import Changelog from "../components/features/changelog/Changelog";
 import DirectionsComponent from "../components/features/directions/component";
 import UserLocation from "../components/features/directions/userLocation";
 import MarkerIcon from "../components/ui/icons/markerIcon";
@@ -77,7 +77,7 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const params = useSearchParams();
-  const { points, polygons, pointsName, setPlaces, activeFilters, eventPlaceIds } = useSidebar();
+  const { points, polygons, pointsName, setPlaces, activeFilters, eventPlaceIds, allFeatures } = useSidebar();
   const isEventsFilter = activeFilters.includes(CATEGORIES.EVENTS);
   const { pins, handlePinDrag, polygon } = use(pinsContext);
   const { isPicking, isForEvent } = useMapPicking();
@@ -149,11 +149,11 @@ export default function MapComponent({
 
   useEffect(() => {
     const category = params.get("category");
-    if (!category) return;
+    if (!category || allFeatures.length === 0) return;
 
-    const filteredPlaces = Places.features.filter((feature) => feature.properties.categories.includes(category));
+    const filteredPlaces = allFeatures.filter((feature) => feature.properties.categories.includes(category));
     setPlaces(filteredPlaces);
-  }, [params, setPlaces]);
+  }, [params, setPlaces, allFeatures]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -181,15 +181,16 @@ export default function MapComponent({
 
   return (
     <div className="w-full h-full relative" ref={containerRef}>
-      {/* Campus tag - solo visible en desktop */}
-      {campusDisplayName ? (
-        <div className="hidden lg:block absolute top-4 right-4 z-10 pointer-events-auto">
+      {/* Desktop: tag "Novedades" a la izquierda del tag de campus. En mobile va en TopMobileSidebar. */}
+      <div className="hidden lg:flex absolute top-4 right-4 z-10 items-center gap-2 pointer-events-auto">
+        <Changelog />
+        {campusDisplayName ? (
           <div className="flex items-center gap-2 px-3 py-1.5 bg-primary rounded-lg shadow-sm">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
             <span className="text-xs font-medium text-primary-foreground">Campus {campusDisplayName}</span>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
 
       <Map
         id="mainMap"
@@ -266,7 +267,9 @@ export default function MapComponent({
         <DirectionsComponent />
         {points.map((place) => {
           const isEventPlace = eventPlaceIds.has(place.properties.identifier);
-          const primaryCategory = isEventPlace ? CATEGORIES.EVENTS : (place.properties.categories[0] as CATEGORIES);
+          const primaryCategory = isEventPlace
+            ? CATEGORIES.EVENTS
+            : ((place.properties.categories[0] ?? "Otros") as CATEGORIES);
           return (
             <Marker
               key={place.properties.identifier}
@@ -278,7 +281,7 @@ export default function MapComponent({
           );
         })}
         {pins.map((pin) => {
-          const primaryCategory = pin.properties.categories[0] as CATEGORIES;
+          const primaryCategory = (pin.properties.categories[0] ?? "Otros") as CATEGORIES;
           let config: HandlePlaceSelectionOptions;
           if (pins.length === 1) {
             config = { openSidebar: true, flyMode: "always" };

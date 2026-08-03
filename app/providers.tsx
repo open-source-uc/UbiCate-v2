@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import { AppLoadingProvider } from "./context/appLoadingCtx";
 import { DirectionsProvider } from "./context/directionsCtx";
 import { MapPickingProvider } from "./context/mapPickingCtx";
 import { NotificationProvider } from "./context/notificationCtx";
@@ -30,19 +31,21 @@ export default function Providers({ children }: ProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <UbicationProvider>
-        <SidebarProvider>
-          <DirectionsProvider>
-            <PinsProvider>
-              <MapPickingProvider>
-                <NotificationProvider>
-                  <ThemeProvider>{children}</ThemeProvider>
-                </NotificationProvider>
-              </MapPickingProvider>
-            </PinsProvider>
-          </DirectionsProvider>
-        </SidebarProvider>
-      </UbicationProvider>
+      <AppLoadingProvider>
+        <UbicationProvider>
+          <SidebarProvider>
+            <DirectionsProvider>
+              <PinsProvider>
+                <MapPickingProvider>
+                  <NotificationProvider>
+                    <ThemeProvider>{children}</ThemeProvider>
+                  </NotificationProvider>
+                </MapPickingProvider>
+              </PinsProvider>
+            </DirectionsProvider>
+          </SidebarProvider>
+        </UbicationProvider>
+      </AppLoadingProvider>
     </QueryClientProvider>
   );
 }

@@ -16,7 +16,6 @@ export const approvalPointsLayer: LayerProps = {
 export const allPointsLayer: LayerProps = {
   id: "points-layer-2",
   type: "circle",
-  source: "points",
   paint: {
     "circle-radius": 7,
     "circle-color": [
@@ -65,7 +64,6 @@ export const allPointsLayer: LayerProps = {
 export const allPlacesTextLayer: LayerProps = {
   id: "places-text-127879",
   type: "symbol",
-  source: "places",
   layout: {
     "text-field": ["concat", ["get", "name"], "\n", ["get", "categories"], "\n", ["get", "floors"]],
     "text-font": ["Roboto Slab Medium"],

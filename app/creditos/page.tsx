@@ -1,14 +1,49 @@
 import Link from "next/link";
 
 import Contribuir from "@/app/creditos/contributor";
+import TeamMember, { TeamMemberProps } from "@/app/creditos/teamMember";
 import contributorsData from "@/data/contributors.json";
 
 type Contributor = {
   name: string;
   career: string;
+  photo?: string;
+  github?: string;
 };
 
 const contributors: Contributor[] = contributorsData;
+
+const digitalDevelopmentTeams: { team: string; lead?: TeamMemberProps; members: TeamMemberProps[] }[] = [
+  {
+    team: "Célula API & Servicios",
+    lead: {
+      name: "Fernando Amulek San Juan Altamirano",
+      area: "Subdirección de Proyectos y Soluciones Digitales",
+      role: "Jefe de Proyectos",
+      photo: "/contributors/fernando_amulek.jpg",
+    },
+    members: [
+      {
+        name: "Maximiliano Flores",
+        area: "Subdirección de Proyectos y Soluciones Digitales",
+        role: "Consultor",
+        photo: "/contributors/maximiliano_flores.png",
+      },
+      {
+        name: "Ivan Nunez",
+        area: "Subdirección de Proyectos y Soluciones Digitales",
+        role: "Consultor",
+        photo: "/contributors/ivan_nunez.png",
+      },
+      {
+        name: "Fabian Salazar",
+        area: "Subdirección de Proyectos y Soluciones Digitales",
+        role: "Consultor",
+        photo: "/contributors/fabian_salazar.png",
+      },
+    ],
+  },
+];
 
 export default function Page() {
   return (
@@ -73,7 +108,7 @@ export default function Page() {
         {contributors.length > 0 ? (
           <ul className="list-none grid gap-6 p-0 grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4">
             {contributors.map((contributor) => (
-              <Contribuir key={contributor.name} name={contributor.name} career={contributor.career} />
+              <Contribuir key={contributor.name} {...contributor} />
             ))}
           </ul>
         ) : (
@@ -82,6 +117,32 @@ export default function Page() {
             aportado.
           </p>
         )}
+      </section>
+
+      <section className="pt-8 mx-auto px-4 space-y-8">
+        <div className="space-y-3 text-left">
+          <h2 className="text-2xl font-regular text-background">Contribuidores Dirección de Desarrollo Digital</h2>
+          <p className="text-lg font-light text-muted">
+            En el marco de la alianza entre la universidad y los estudiantes de{" "}
+            <Link href="https://osuc.dev" className="underline">
+              Open Source UC
+            </Link>
+            , la Dirección de Desarrollo Digital ha designado a desarrolladores que trabajan para la universidad para
+            colaborar de forma sostenida en el proyecto. A continuación se muestra el equipo a cargo de esa labor.
+          </p>
+        </div>
+
+        {digitalDevelopmentTeams.map(({ team, lead, members }) => (
+          <div key={team} className="border-l border-background/20 pl-6 space-y-4">
+            <h3 className="text-xs font-medium uppercase tracking-widest text-muted">{team}</h3>
+            <ul className="list-none grid gap-4 p-0 tablet:grid-cols-2 desktop:grid-cols-3">
+              {lead ? <TeamMember key={lead.name} {...lead} isLead /> : null}
+              {members.map((member) => (
+                <TeamMember key={member.name} {...member} />
+              ))}
+            </ul>
+          </div>
+        ))}
       </section>
     </main>
   );

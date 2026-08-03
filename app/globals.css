@@ -19,6 +19,89 @@
   --mobile-sidebar-expanded: 0; /* 0 = collapsed/small, 1 = expanded */
 }
 
+/* =============================================== */
+/*            ANIMACIONES DE ENTRADA/SALIDA        */
+/* =============================================== */
+
+@keyframes ubicate-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ubicate-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ubicate-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ubicate-scale-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98) translateY(4px);
+  }
+}
+
+@keyframes ubicate-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-in {
+  animation: ubicate-fade-in 200ms ease-out both;
+}
+
+.anim-fade-out {
+  animation: ubicate-fade-out 180ms ease-in both;
+}
+
+.anim-scale-in {
+  animation: ubicate-scale-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-scale-out {
+  animation: ubicate-scale-out 180ms ease-in both;
+}
+
+.anim-slide-up {
+  animation: ubicate-slide-up 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-in,
+  .anim-fade-out,
+  .anim-scale-in,
+  .anim-scale-out,
+  .anim-slide-up {
+    animation: none;
+  }
+}
+
 /* Hide MapLibre attribution controls - credits shown in dedicated page */
 .maplibregl-ctrl-bottom-right {
   display: none !important;
