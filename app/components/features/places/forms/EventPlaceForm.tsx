@@ -100,10 +100,12 @@ export default function EventPlaceForm({
     return () => setForEvent(false);
   }, []);
 
+  // Al salir del modo edición se guarda la geometría editada. Con 0 pins (Cancelar o Limpiar sin
+  // marcar) no se pisa la que ya tenía el lugar: Cancelar solo devuelve al formulario.
   useEffect(() => {
     if (activeLocationId && !isPicking) {
       const loc = locations.find((l) => l.id === activeLocationId);
-      if (loc && loc.type === "new") {
+      if (loc && loc.type === "new" && pins.length > 0) {
         setLocations((prev) => prev.map((l) => (l.id === activeLocationId ? { ...l, pins: [...pins] } : l)));
       }
       setActiveLocationId(null);
@@ -140,18 +142,20 @@ export default function EventPlaceForm({
     setLocations((prev) => prev.filter((l) => l.id !== id));
   };
 
-  // Muestra la ubicación en el mapa (oculta el modal vía isPicking). En un lugar "new" se puede mover
-  // y se guarda al terminar (efecto de activeLocationId); un lugar existente es solo lectura.
+  // Muestra la ubicación en el mapa (oculta el modal vía isPicking). En un lugar "new" se abre el modo
+  // edición y se guarda al terminar (efecto de activeLocationId); un lugar existente de la app entra en
+  // modo vista (`viewOnly`): se ve su geometría, sin herramientas ni edición.
   const handleViewLocation = useCallback(
     (loc: EventLocation) => {
       clearPins();
       const coords: [number, number][] = [];
+      const existingPlace = loc.type !== "new" && loc.placeId ? approvedById.get(loc.placeId) ?? null : null;
       if (loc.type === "new") {
         for (const p of loc.pins) coords.push(p.geometry.coordinates);
-      } else if (loc.placeId) {
-        const geom = approvedById.get(loc.placeId)?.geometry;
-        if (geom?.type === "Point") coords.push(geom.coordinates);
-        else if (geom?.type === "Polygon") for (const c of geom.coordinates[0].slice(0, -1)) coords.push(c);
+      } else if (existingPlace) {
+        const geom = existingPlace.geometry;
+        if (geom.type === "Point") coords.push(geom.coordinates);
+        else if (geom.type === "Polygon") for (const c of geom.coordinates[0].slice(0, -1)) coords.push(c);
       }
       if (coords.length === 0) return;
 
@@ -162,7 +166,10 @@ export default function EventPlaceForm({
       emitFlyToEvent(lng, lat);
 
       setActiveLocationId(loc.type === "new" ? loc.id : null);
-      setPicking(true, coords.length > 1 ? "polygon" : "point");
+      setPicking(true, coords.length > 1 ? "polygon" : "point", {
+        viewOnly: loc.type !== "new",
+        place: existingPlace,
+      });
     },
     [clearPins, addPin, approvedById, setPicking],
   );
@@ -173,21 +180,23 @@ export default function EventPlaceForm({
     setPicking(true, "point");
   }, [clearPins, setPicking]);
 
+  // Salir del modo edición cierra la sesión de "Ubicar en mapa" pase lo que pase: si se canceló (sin
+  // pins) no se agrega el lugar y se vuelve al formulario, sin dejar la bandera armada para la próxima.
   useEffect(() => {
-    if (!isPicking && pins.length > 0 && pickingFromUser.current) {
-      pickingFromUser.current = false;
-      setLocations((prev) => [
-        ...prev,
-        {
-          id: nextLocationId(),
-          type: "new",
-          name: `Lugar ${prev.length + 1}`,
-          information: "",
-          pins: [...pins],
-        },
-      ]);
-      setAddMode("none");
-    }
+    if (isPicking || !pickingFromUser.current) return;
+    pickingFromUser.current = false;
+    if (pins.length === 0) return;
+    setLocations((prev) => [
+      ...prev,
+      {
+        id: nextLocationId(),
+        type: "new",
+        name: `Lugar ${prev.length + 1}`,
+        information: "",
+        pins: [...pins],
+      },
+    ]);
+    setAddMode("none");
   }, [isPicking]);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -451,7 +460,10 @@ export default function EventPlaceForm({
                   Cancelar
                 </button>
               </div>
-              <p className="text-xs text-muted-foreground">Marca 1 punto, o 3 o más para un polígono.</p>
+              <p className="text-xs text-muted-foreground">
+                Se abre el modo edición: elige punto o polígono en la barra de herramientas. Cancelar vuelve a este
+                formulario sin agregar el lugar.
+              </p>
               <button
                 type="button"
                 onClick={handleStartPicking}

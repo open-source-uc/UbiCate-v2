@@ -55,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       lg: "h-11 px-8 rounded-md text-base",
       icon: "h-10 w-10 rounded-md",
       "icon-lg": "h-12 w-12 rounded-md",
-      sidebar: "w-full p-2 rounded-md hover:bg-secondary/50 space-x-4 justify-start transition-all duration-200",
+      sidebar: "w-full p-2 rounded-md space-x-4 justify-start transition-all duration-200",
       "sidebar-collapsed": "justify-center px-4 py-3 transition-all duration-200",
     };
 

@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import { Button } from "@/app/components/ui/button";
 import * as Icons from "@/app/components/ui/icons/icons";
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
-import { SubSidebarType } from "@/lib/types";
+import { Feature, SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
@@ -25,6 +26,7 @@ const SUBSIDEBAR_ANIM_MS = 200;
 
 export default function DesktopSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isPlaceFormOpen } = useMapPicking();
   const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   // El contenido sobrevive al cierre lo que dura la animación, para que el panel no se vacíe de golpe.
@@ -62,15 +64,23 @@ export default function DesktopSidebar() {
     setActiveSubSidebar(null);
   };
 
+  // El panel del lugar se mantiene mientras haya un formulario abierto: aunque algo deseleccione el
+  // lugar, la propuesta solo se descarta con la x del formulario.
+  const lastPlaceRef = useRef<Feature | null>(null);
+  useEffect(() => {
+    if (selectedPlace !== null) lastPlaceRef.current = selectedPlace;
+  }, [selectedPlace]);
+  const menuPlace = selectedPlace ?? (isPlaceFormOpen ? lastPlaceRef.current : null);
+
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
+      return;
     }
-    if (selectedPlace === null) {
-      setActiveSubSidebar(null);
-      setIsOpen(false);
-    }
-  }, [selectedPlace, setIsOpen]);
+    if (isPlaceFormOpen) return;
+    setActiveSubSidebar(null);
+    setIsOpen(false);
+  }, [selectedPlace, setIsOpen, isPlaceFormOpen]);
 
   return (
     <>
@@ -171,11 +181,11 @@ export default function DesktopSidebar() {
                 <UsageGuide onClose={() => setActiveSubSidebar(null)} />
               </div>
             )}
-            {renderedSubSidebar === "placeInformation" && selectedPlace !== null && (
+            {renderedSubSidebar === "placeInformation" && menuPlace !== null && (
               <div className="w-full h-full">
                 <NotificationErrorBoundary>
                   <PlaceMenu
-                    place={selectedPlace}
+                    place={menuPlace}
                     onCloseMenu={() => {
                       setSelectedPlace(null);
                       toggleSubSidebar(null);

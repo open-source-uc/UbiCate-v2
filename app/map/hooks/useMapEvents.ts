@@ -1,4 +1,4 @@
-import { use, useCallback, useEffect, useState } from "react";
+import { use, useCallback, useEffect, useRef, useState } from "react";
 
 import { centroid } from "@turf/centroid";
 import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre";
@@ -32,12 +32,19 @@ export interface HandlePlaceSelectionOptions {
 }
 
 export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapEventsProps) {
-  const { setPlaces, setSelectedPlace, setIsOpen } = useSidebar();
+  const { setPlaces, setSelectedPlace, setIsOpen, selectedPlace } = useSidebar();
   const [isLoaded, setIsLoaded] = useState(false);
   const { create, cancel } = useTimeoutManager();
-  const { addPin, clearPins, pins } = use(pinsContext);
-  const { isPicking, mode, setPicking } = useMapPicking();
+  const { addPin, insertPin, clearPins, pins } = use(pinsContext);
+  const { isPicking, mode, setPicking, isForEvent, isPlaceFormOpen, isViewOnly } = useMapPicking();
   const { setMapLoaded } = useAppLoading();
+
+  const isForEventRef = useRef(isForEvent);
+  const isPickingRef = useRef(isPicking);
+  useEffect(() => {
+    isForEventRef.current = isForEvent;
+    isPickingRef.current = isPicking;
+  }, [isForEvent, isPicking]);
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -126,19 +133,29 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [setSelectedPlace, setIsOpen, mapRef],
   );
 
+  // Propuesta en curso: geometría marcada en modo edición, con el formulario abierto o todavía en el
+  // menú del pin ("Agregar"). Mientras dure, la selección queda congelada y solo la x del sidebar la
+  // descarta: cambiar de lugar seleccionado desmonta el menú/formulario y se pierde el trabajo.
+  const selectionLocked =
+    !isPicking &&
+    !isForEvent &&
+    (isPlaceFormOpen ||
+      (pins.length > 0 && selectedPlace?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) === true));
+
   const handleMapClick = useCallback(
     (e: MapLayerMouseEvent) => {
       if (isPicking) {
-        if (mode === "polygon" || pins.length >= 1) {
-          if (mode === "point" && pins.length >= 1) {
-            setPicking(true, "polygon");
-          }
+        if (isViewOnly) return;
+        if (mode === "point") {
+          clearPins();
           addPin(e.lngLat.lng, e.lngLat.lat);
         } else {
-          addPin(e.lngLat.lng, e.lngLat.lat);
+          insertPin(e.lngLat.lng, e.lngLat.lat);
         }
         return;
       }
+
+      if (selectionLocked) return;
 
       if (!e.features || e.features.length === 0) {
         create(
@@ -171,7 +188,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       if (!feature) return;
       handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
     },
-    [isPicking, mode, pins.length, addPin, setPicking, create, cancel, clearPins, handlePlaceSelection],
+    [isPicking, isViewOnly, selectionLocked, mode, addPin, insertPin, create, cancel, clearPins, handlePlaceSelection],
   );
 
   usePlaceSelectedListener((feature) => {
@@ -223,9 +240,11 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         });
       }
 
-      e.target.on("dblclick", (e: MapLayerMouseEvent) => {
+      e.target.on("dblclick", () => {
         cancel("deletePins");
-        addPin(e.lngLat.lng, e.lngLat.lat);
+        if (!isForEventRef.current && !isPickingRef.current) {
+          setPicking(true, "point");
+        }
       });
 
       // Nota: el manejo de clics (puntos con prioridad sobre polígonos, y capas de debug) se hace
@@ -236,8 +255,10 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel, setMapLoaded],
   );
 
+  // Con el formulario abierto manda el formulario: mover/rehacer la geometría no debe cambiar el lugar
+  // seleccionado (cambiarlo desmonta el formulario y se pierde lo escrito).
   useEffect(() => {
-    if (isPicking) return;
+    if (isPicking || isPlaceFormOpen) return;
     let config: HandlePlaceSelectionOptions;
     if (pins.length === 1) {
       config = { openSidebar: true, flyMode: "always" };
@@ -247,12 +268,13 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     if (pins.length > 0) {
       handlePlaceSelection(pins[pins.length - 1] ?? null, config);
     }
-  }, [pins, isPicking]);
+  }, [pins, isPicking, isPlaceFormOpen]);
 
   return {
     handlePlaceSelection,
     handleMapClick,
     handleMapLoad,
     isLoaded,
+    selectionLocked,
   };
 }

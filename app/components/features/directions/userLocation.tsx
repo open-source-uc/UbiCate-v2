@@ -2,6 +2,7 @@ import { use, useCallback, useMemo, useState, useEffect } from "react";
 
 import { Marker, useMap } from "react-map-gl/maplibre";
 
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
 import { useUbication } from "@/app/hooks/useUbication";
 import { getCampusNameFromPoint, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
@@ -14,6 +15,7 @@ import LocationButton from "./locationButton";
 
 export default function UserLocation() {
   const { mainMap } = useMap();
+  const { isPicking } = useMapPicking();
   const { setNotification, addCode, removeCode } = use(NotificationContext);
   const { position, heading, setTracking, isTracking, requestLocation, requestOrientation, hasLocation, error } =
     useUbication();
@@ -151,14 +153,16 @@ export default function UserLocation() {
         </Marker>
       ) : null}
 
-      <div className="fixed z-40 bottom-20 desktop:bottom-4 right-2 p-2 desktop:p-1 flex flex-col gap-2">
-        <DangerButton />
-        <LocationButton
-          onClick={handleLocationButtonClick}
-          // loading={isRequestingLocation}
-          // active={hasLocation && !!position}
-        />
-      </div>
+      {!isPicking ? (
+        <div className="fixed z-40 bottom-20 desktop:bottom-4 right-2 p-2 desktop:p-1 flex flex-col gap-2">
+          <DangerButton />
+          <LocationButton
+            onClick={handleLocationButtonClick}
+            // loading={isRequestingLocation}
+            // active={hasLocation && !!position}
+          />
+        </div>
+      ) : null}
     </>
   );
 }

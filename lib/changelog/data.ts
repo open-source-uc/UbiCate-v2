@@ -3,8 +3,8 @@ import type { ChangelogEntry } from "./types";
 // Ordenados del más reciente al más antiguo (el más nuevo arriba).
 const CHANGELOGS: ChangelogEntry[] = [
   {
-    id: "v3-0-0",
-    version: "v3.0.0",
+    id: "v2-0-0",
+    version: "v2.0.0",
     date: "2026-07-30",
     title: "Un nuevo Ubícate",
     description: "Ha llegado un nuevo Ubícate, con una fase de cambios por delante y transparencia a sus usuarios.",

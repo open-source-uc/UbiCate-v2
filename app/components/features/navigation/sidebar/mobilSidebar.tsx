@@ -6,9 +6,10 @@ import { useEffect, useRef, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import * as Icons from "@/app/components/ui/icons/icons";
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
-import { SubSidebarType } from "@/lib/types";
+import { Feature, SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
@@ -20,6 +21,7 @@ import UsageGuide from "./usageGuide";
 
 export default function MobileSidebar() {
   const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
+  const { isPlaceFormOpen } = useMapPicking();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -145,24 +147,33 @@ export default function MobileSidebar() {
     }
   };
 
+  // El panel del lugar se mantiene mientras haya un formulario abierto: aunque algo deseleccione el
+  // lugar, la propuesta solo se descarta con la x del formulario.
+  const lastPlaceRef = useRef<Feature | null>(null);
+  useEffect(() => {
+    if (selectedPlace !== null) lastPlaceRef.current = selectedPlace;
+  }, [selectedPlace]);
+  const menuPlace = selectedPlace ?? (isPlaceFormOpen ? lastPlaceRef.current : null);
+
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
       setSidebarHeight(33);
-    } else {
-      setActiveSubSidebar(null);
-      setSidebarHeight(10);
+      return;
     }
-  }, [selectedPlace, setIsOpen]);
+    if (isPlaceFormOpen) return;
+    setActiveSubSidebar(null);
+    setSidebarHeight(10);
+  }, [selectedPlace, setIsOpen, isPlaceFormOpen]);
 
   // Handle sidebar close
   useEffect(() => {
-    if (isOpen === false) {
+    if (isOpen === false && !isPlaceFormOpen) {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
     }
-  }, [isOpen]);
+  }, [isOpen, isPlaceFormOpen]);
 
   // Update CSS custom property for attribution positioning
   useEffect(() => {
@@ -359,10 +370,10 @@ export default function MobileSidebar() {
                   <ThemesList setActiveSubSidebar={setActiveSubSidebar} />
                 </div>
               )} */}
-              {activeSubSidebar === "placeInformation" && selectedPlace !== null && (
+              {activeSubSidebar === "placeInformation" && menuPlace !== null && (
                 <NotificationErrorBoundary>
                   <PlaceMenu
-                    place={selectedPlace}
+                    place={menuPlace}
                     onCloseMenu={() => {
                       setSelectedPlace(null);
                       toggleSubSidebar(null);

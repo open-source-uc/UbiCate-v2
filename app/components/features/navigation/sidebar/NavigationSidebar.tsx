@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 
 import DesktopSidebar from "./desktopSidebar";
 import MobileSidebar from "./mobilSidebar";
@@ -12,6 +13,7 @@ import TopMobileSidebar from "./topMobilSidebar";
 export default function Sidebar() {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const { isPicking } = useMapPicking();
 
   useEffect(() => {
     setIsClient(true);
@@ -31,7 +33,7 @@ export default function Sidebar() {
   }
 
   return (
-    <>
+    <div className={isPicking ? "hidden" : "contents"}>
       {isDesktop ? (
         <aside className="absolute left-0 top-0 h-full z-50">
           <NotificationBarDesktop />
@@ -49,6 +51,6 @@ export default function Sidebar() {
           </footer>
         </>
       )}
-    </>
+    </div>
   );
 }

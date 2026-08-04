@@ -253,9 +253,11 @@ function DebugMode() {
 
   return (
     <>
+      {/* En modo edición el mapa queda limpio: se oculta (no se desmonta) para no perder el estado del panel */}
       <div
-        className="fixed right-0 top-44 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/5 overflow-auto 
-resize-x border-2 border-dashed pointer-events-auto"
+        className={`fixed right-0 top-44 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/5 overflow-auto resize-x border-2 border-dashed pointer-events-auto ${
+          isPicking ? "hidden" : ""
+        }`}
       >
         <button
           onClick={() => {

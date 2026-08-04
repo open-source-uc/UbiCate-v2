@@ -62,6 +62,7 @@ export const metadata: Metadata = {
 
 const roboto = Roboto({
   subsets: ["latin"],
+  variable: "--font-roboto",
 });
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -70,7 +71,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // const themeCookie = cookieStore.get("ubicate-theme")?.value;
 
   return (
-    <html lang="es" data-theme="uc-theme">
+    <html lang="es" data-theme="uc-theme" className={roboto.variable}>
       <head>
         {/* Portada de carga: primero en el head para que se pinte cuanto antes */}
         <link
@@ -81,6 +82,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           fetchPriority="high"
         />
         <link rel="preload" as="image" href={LOADING_IMAGE} media={LOADING_IMAGE_MEDIA} fetchPriority="high" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200"
+        />
         {/* Google Tag Manager UC - DTFD */}
         <Script id="gtm-script" strategy="beforeInteractive">
           {`

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { apiClient } from "@/lib/api/ubicateApiClient";
-import { Feature } from "@/lib/types";
+import { CATEGORIES, Feature } from "@/lib/types";
 
 import PlaceForm from "../forms/PlaceForm";
 
@@ -119,6 +119,8 @@ export default function PlaceMenu({
         <PlaceInformation
           place={place}
           onClose={() => {
+            // La x es la única salida que descarta la geometría marcada en modo edición.
+            if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK)) clearPins();
             onCloseMenu?.();
           }}
           onCreate={() => {

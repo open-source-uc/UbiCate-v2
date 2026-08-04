@@ -2,6 +2,7 @@
 
 import { use, useEffect } from "react";
 
+import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { usePlaceForm } from "@/app/hooks/usePlaceForm";
 import { PointFeature } from "@/lib/types";
@@ -47,8 +48,14 @@ export default function PlaceForm({
   title?: string;
 }) {
   const { pins } = use(pinsContext);
+  const { setPlaceFormOpen } = useMapPicking();
 
   const { data, setData, placeMutation, isLoading } = usePlaceForm(method, defaultData, onClose);
+
+  useEffect(() => {
+    setPlaceFormOpen(true);
+    return () => setPlaceFormOpen(false);
+  }, [setPlaceFormOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
