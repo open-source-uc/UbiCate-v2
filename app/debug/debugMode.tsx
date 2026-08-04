@@ -401,7 +401,6 @@ function DebugMode() {
             type="geojson"
             data={featuresToGeoJSON(visibleFeatures(newPlacesFeatures.filter((e) => e.geometry.type === "Polygon")))}
           >
-
             <Layer {...sectionAreaLayerDebug} />
             <Layer {...redLineLayerDebug} />
           </Source>

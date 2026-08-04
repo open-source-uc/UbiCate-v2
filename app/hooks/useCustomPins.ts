@@ -92,7 +92,10 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
 
   const [state, dispatch] = useReducer(pinsReducer, { pins: [], past: [], future: [] });
   const customPins = state.pins;
-  const commit = useCallback((updater: (prev: CustomPin[]) => CustomPin[]) => dispatch({ type: "commit", updater }), []);
+  const commit = useCallback(
+    (updater: (prev: CustomPin[]) => CustomPin[]) => dispatch({ type: "commit", updater }),
+    [],
+  );
   const lastPinIndexRef = useRef<number>(0);
 
   const buildPin = useCallback(

@@ -78,9 +78,7 @@ export default function PickingOverlay() {
 
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-end pb-8 pointer-events-none">
           <div className="pointer-events-auto bg-background rounded-xl shadow-xl px-6 py-4 flex flex-col items-center gap-4">
-            <p className="text-sm text-foreground font-medium">
-              Visualización de lugar existente.
-            </p>
+            <p className="text-sm text-foreground font-medium">Visualización de lugar existente.</p>
             <button
               type="button"
               onClick={handleCancel}

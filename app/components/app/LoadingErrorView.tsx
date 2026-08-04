@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { hasAppLoadedOnce, LoadErrorKind } from "@/lib/api/loadError";
 
@@ -61,7 +61,12 @@ export default function LoadingErrorView({
   onRetry,
   forceFirstVisit,
 }: LoadingErrorViewProps) {
-  const [storedFirstVisit] = useState(() => !hasAppLoadedOnce());
+  // Se lee una sola vez al montar: `markAppLoadedOnce()` puede correr después y voltear el valor,
+  // y el copy de la pantalla no debe cambiar a mitad de camino.
+  const firstVisitRef = useRef<boolean | null>(null);
+  if (firstVisitRef.current === null) firstVisitRef.current = !hasAppLoadedOnce();
+  const storedFirstVisit = firstVisitRef.current;
+
   const [minRetryActive, setMinRetryActive] = useState(false);
   const { icon, title, message } = getContent(kind, forceFirstVisit ?? storedFirstVisit);
 
