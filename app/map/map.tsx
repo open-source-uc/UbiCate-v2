@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { use, useEffect, useMemo, useRef, useState } from "react";
 
 import { bbox } from "@turf/bbox";
-import type { LngLatBoundsLike, MapMouseEvent } from "maplibre-gl";
+import type { LngLatBoundsLike, MapMouseEvent, MapTouchEvent } from "maplibre-gl";
 import type { ViewState, PointLike, PaddingOptions, MarkerDragEvent, MapRef } from "react-map-gl/maplibre";
 import { Map, Source, Layer, Marker as MapLibreMarker } from "react-map-gl/maplibre";
 
@@ -94,10 +94,12 @@ export default function MapComponent({
   const { points, polygons, pointsName, setPlaces, activeFilters, eventPlaceIds, allFeatures } = useSidebar();
   const isEventsFilter = activeFilters.includes(CATEGORIES.EVENTS);
   const { pins, setPinsFromCoords, handlePinDrag, polygon, removePin } = use(pinsContext);
-  const { isPicking, isForEvent, isDrawingRect, setDrawingRect, setPicking, isViewOnly } = useMapPicking();
+  const { isPicking, isForEvent, isDrawingRect, setDrawingRect, setPicking, isViewOnly, isCreatingPlace } =
+    useMapPicking();
   const isEventMode = isEventsFilter || isPicking || isForEvent;
   const [selectedPinId, setSelectedPinId] = useState<string | null>(null);
   const wasDraggingRef = useRef(false);
+  const rectJustFinishedRef = useRef(false);
   const [rectPreview, setRectPreview] = useState<[number, number][] | null>(null);
 
   useEffect(() => {
@@ -111,35 +113,70 @@ export default function MapComponent({
     map.dragPan.disable();
     map.getCanvas().style.cursor = "crosshair";
     let start: { lng: number; lat: number } | null = null;
+    // En touchend maplibre ya no trae coordenadas (no quedan dedos en pantalla), así que se cierra el
+    // rectángulo con la última posición vista en touchmove.
+    let lastTouch: { lng: number; lat: number } | null = null;
 
-    const onDown = (e: MapMouseEvent) => {
-      start = { lng: e.lngLat.lng, lat: e.lngLat.lat };
+    const begin = (lngLat: { lng: number; lat: number }) => {
+      start = { lng: lngLat.lng, lat: lngLat.lat };
       setRectPreview(null);
     };
-    const onMove = (e: MapMouseEvent) => {
+    const drag = (lngLat: { lng: number; lat: number }) => {
       if (!start) return;
-      setRectPreview(rectangleRing(start, { lng: e.lngLat.lng, lat: e.lngLat.lat }));
+      setRectPreview(rectangleRing(start, { lng: lngLat.lng, lat: lngLat.lat }));
     };
-    const onUp = (e: MapMouseEvent) => {
-      if (!start) return;
+    const finish = (lngLat: { lng: number; lat: number } | null) => {
+      if (!start || !lngLat) return;
       const s = start;
-      const end = { lng: e.lngLat.lng, lat: e.lngLat.lat };
+      const end = { lng: lngLat.lng, lat: lngLat.lat };
       start = null;
       setRectPreview(null);
       if (Math.abs(s.lng - end.lng) < 1e-6 || Math.abs(s.lat - end.lat) < 1e-6) return;
       setPinsFromCoords(rectangleRing(s, end));
+      // El `click` que maplibre emite después del touchend/mouseup llegaría con el cuadrado ya
+      // desarmado y agregaría un vértice suelto.
+      rectJustFinishedRef.current = true;
+      setTimeout(() => {
+        rectJustFinishedRef.current = false;
+      }, 400);
       setPicking(true, "polygon");
       setDrawingRect(false);
+    };
+
+    const onDown = (e: MapMouseEvent) => begin(e.lngLat);
+    const onMove = (e: MapMouseEvent) => drag(e.lngLat);
+    const onUp = (e: MapMouseEvent) => finish(e.lngLat);
+
+    // Un solo dedo dibuja; con dos o más se deja pasar el gesto de zoom/rotar.
+    const onTouchStart = (e: MapTouchEvent) => {
+      if (e.points.length > 1) return;
+      lastTouch = { lng: e.lngLat.lng, lat: e.lngLat.lat };
+      begin(e.lngLat);
+    };
+    const onTouchMove = (e: MapTouchEvent) => {
+      if (e.points.length > 1) return;
+      lastTouch = { lng: e.lngLat.lng, lat: e.lngLat.lat };
+      drag(e.lngLat);
+    };
+    const onTouchEnd = () => {
+      finish(lastTouch);
+      lastTouch = null;
     };
 
     map.on("mousedown", onDown);
     map.on("mousemove", onMove);
     map.on("mouseup", onUp);
+    map.on("touchstart", onTouchStart);
+    map.on("touchmove", onTouchMove);
+    map.on("touchend", onTouchEnd);
 
     return () => {
       map.off("mousedown", onDown);
       map.off("mousemove", onMove);
       map.off("mouseup", onUp);
+      map.off("touchstart", onTouchStart);
+      map.off("touchmove", onTouchMove);
+      map.off("touchend", onTouchEnd);
       map.dragPan.enable();
       map.getCanvas().style.cursor = "";
       setRectPreview(null);
@@ -153,19 +190,19 @@ export default function MapComponent({
   });
   const mapConfig = useMapStyle();
 
-  const displayPointsName = useMemo(() => {
-    if (!isEventsFilter) return pointsName;
-    return pointsName.map((p) => ({
-      ...p,
-      properties: {
-        ...p.properties,
-        categories:
-          eventPlaceIds.has(p.properties.identifier) && !p.properties.categories.includes(CATEGORIES.EVENTS)
-            ? [CATEGORIES.EVENTS, ...p.properties.categories]
-            : p.properties.categories,
-      },
-    }));
-  }, [pointsName, isEventsFilter, eventPlaceIds]);
+  // La etiqueta se pinta morada con `["in", "events", ["get", "categories"]]` (ver los temas), así que
+  // el lugar con evento necesita la categoría aunque no la tenga guardada. Va sobre puntos Y polígonos:
+  // dejando los polígonos fuera, sus labels ("N eventos" incluido) quedaban negros.
+  const labelFeatures = useMemo(() => {
+    if (isCreatingPlace) return [];
+    const features = [...pointsName, ...polygons];
+    if (!isEventsFilter) return features;
+    return features.map((p) =>
+      eventPlaceIds.has(p.properties.identifier) && !p.properties.categories.includes(CATEGORIES.EVENTS)
+        ? { ...p, properties: { ...p.properties, categories: [CATEGORIES.EVENTS, ...p.properties.categories] } }
+        : p,
+    );
+  }, [pointsName, polygons, isEventsFilter, eventPlaceIds, isCreatingPlace]);
 
   // Los nombres de campus se muestran mediante el tag; no crear puntos en el mapa.
 
@@ -271,7 +308,7 @@ export default function MapComponent({
           "event-polygon-layer",
         ]}
         onClick={(e) => {
-          if (isDrawingRect) return;
+          if (isDrawingRect || rectJustFinishedRef.current) return;
           if (selectedPinId) {
             setSelectedPinId(null);
             return;
@@ -295,7 +332,9 @@ export default function MapComponent({
         <Source id="campusSmall" type="geojson" data={Campus as GeoJSON.FeatureCollection<GeoJSON.Geometry>}>
           <Layer {...mapConfig.campusBorderLayer} />
         </Source>
-        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(polygons)}>
+        {/* Los lugares del filtro (puntos, polígonos y labels) se esconden mientras se crea un punto:
+            el lienzo tiene que quedar limpio para dibujar. */}
+        <Source id="areas-uc" type="geojson" data={featuresToGeoJSON(isCreatingPlace ? [] : polygons)}>
           <Layer
             id="area-polygon"
             type="fill"
@@ -351,7 +390,7 @@ export default function MapComponent({
           />
         </Source>
         {/* Campus names removed from map; now shown via tag only */}
-        <Source id="places" type="geojson" data={featuresToGeoJSON([...displayPointsName, ...polygons])}>
+        <Source id="places" type="geojson" data={featuresToGeoJSON(labelFeatures)}>
           <Layer {...mapConfig.placesTextLayer} />
         </Source>
         <SilentErrorBoundary>
@@ -362,7 +401,7 @@ export default function MapComponent({
           <UserLocation />
         </SilentErrorBoundary>
         <DirectionsComponent />
-        {points.map((place) => {
+        {(isCreatingPlace ? [] : points).map((place) => {
           const isEventPlace = eventPlaceIds.has(place.properties.identifier);
           const primaryCategory = isEventPlace
             ? CATEGORIES.EVENTS

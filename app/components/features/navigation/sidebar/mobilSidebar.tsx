@@ -20,8 +20,8 @@ import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
-  const { isPlaceFormOpen } = useMapPicking();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal } = useSidebar();
+  const { isCreatingPlace } = useMapPicking();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -147,13 +147,13 @@ export default function MobileSidebar() {
     }
   };
 
-  // El panel del lugar se mantiene mientras haya un formulario abierto: aunque algo deseleccione el
-  // lugar, la propuesta solo se descarta con la x del formulario.
+  // El panel del lugar se mantiene mientras se esté creando un punto (`isCreatingPlace`): aunque algo
+  // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
   const lastPlaceRef = useRef<Feature | null>(null);
   useEffect(() => {
     if (selectedPlace !== null) lastPlaceRef.current = selectedPlace;
   }, [selectedPlace]);
-  const menuPlace = selectedPlace ?? (isPlaceFormOpen ? lastPlaceRef.current : null);
+  const menuPlace = selectedPlace ?? (isCreatingPlace ? lastPlaceRef.current : null);
 
   // Handle when a specific place is selected
   useEffect(() => {
@@ -162,18 +162,27 @@ export default function MobileSidebar() {
       setSidebarHeight(33);
       return;
     }
-    if (isPlaceFormOpen) return;
+    if (isCreatingPlace) return;
     setActiveSubSidebar(null);
     setSidebarHeight(10);
-  }, [selectedPlace, setIsOpen, isPlaceFormOpen]);
+  }, [selectedPlace, setIsOpen, isCreatingPlace]);
+
+  // Clic en el mapa: cierra el panel abierto sea cual sea. El efecto de arriba no basta porque si
+  // `selectedPlace` ya era null no se vuelve a disparar.
+  useEffect(() => {
+    if (closeSignal === 0 || isCreatingPlace) return;
+    setActiveSubSidebar(null);
+    setSidebarHeight(10);
+    setIsOpen(false);
+  }, [closeSignal, setIsOpen, isCreatingPlace]);
 
   // Handle sidebar close
   useEffect(() => {
-    if (isOpen === false && !isPlaceFormOpen) {
+    if (isOpen === false && !isCreatingPlace) {
       setActiveSubSidebar(null);
       setSidebarHeight(10);
     }
-  }, [isOpen, isPlaceFormOpen]);
+  }, [isOpen, isCreatingPlace]);
 
   // Update CSS custom property for attribution positioning
   useEffect(() => {

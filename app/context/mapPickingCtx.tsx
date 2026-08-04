@@ -1,8 +1,11 @@
 "use client";
 
-import { createContext, ReactNode, useCallback, useContext, useState } from "react";
+import { createContext, ReactNode, use, useCallback, useContext, useState } from "react";
 
-import { Feature } from "@/lib/types";
+import { CATEGORIES, Feature } from "@/lib/types";
+
+import { pinsContext } from "./pinsCtx";
+import { useSidebar } from "./sidebarCtx";
 
 export type PickingMode = "point" | "polygon";
 
@@ -16,6 +19,15 @@ interface MapPickingContextType {
   isViewOnly: boolean;
   // Lugar que se está mirando en esa sesión, para pintar su ficha.
   viewPlace: Feature | null;
+  /**
+   * "Se está creando un punto": hay una propuesta de lugar en curso — modo edición activo, formulario
+   * abierto, o geometría marcada con su pin seleccionado (el menú con "Agregar"). Es el estado que
+   * gobierna todo lo que no debe interrumpir ese trabajo: cerrar el sidebar, cambiar la selección y
+   * dibujar los lugares del filtro en el mapa.
+   */
+  isCreatingPlace: boolean;
+  /** Solo la parte "hay una propuesta pendiente", fuera del modo edición. */
+  hasPendingProposal: boolean;
   setPicking: (v: boolean, mode?: PickingMode, opts?: { viewOnly?: boolean; place?: Feature | null }) => void;
   setForEvent: (v: boolean) => void;
   setDrawingRect: (v: boolean) => void;
@@ -30,6 +42,8 @@ const MapPickingContext = createContext<MapPickingContextType>({
   isPlaceFormOpen: false,
   isViewOnly: false,
   viewPlace: null,
+  isCreatingPlace: false,
+  hasPendingProposal: false,
   setPicking: () => {},
   setForEvent: () => {},
   setDrawingRect: () => {},
@@ -69,6 +83,17 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
     setIsPlaceFormOpen(v);
   }, []);
 
+  // El provider vive dentro de Sidebar y Pins (ver providers.tsx), así que puede derivar acá el estado
+  // de "propuesta en curso" y no repetirlo en cada consumidor. El flujo de eventos queda afuera: sus
+  // pins son un borrador del modal, no una propuesta de lugar.
+  const { pins } = use(pinsContext);
+  const { selectedPlace } = useSidebar();
+  const hasPendingProposal =
+    !isForEvent &&
+    (isPlaceFormOpen ||
+      (pins.length > 0 && selectedPlace?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) === true));
+  const isCreatingPlace = isPicking || hasPendingProposal;
+
   return (
     <MapPickingContext.Provider
       value={{
@@ -79,6 +104,8 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         isPlaceFormOpen,
         isViewOnly,
         viewPlace,
+        isCreatingPlace,
+        hasPendingProposal,
         setPicking,
         setForEvent,
         setDrawingRect,

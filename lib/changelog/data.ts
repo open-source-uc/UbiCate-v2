@@ -9,7 +9,8 @@ const CHANGELOGS: ChangelogEntry[] = [
     title: "Un nuevo Ubícate",
     description: "Ha llegado un nuevo Ubícate, con una fase de cambios por delante y transparencia a sus usuarios.",
     changes: [
-      { type: "new", text: "¿Quieres hacer una caminata en la UC? Explora la nueva sección de circuitos!" },
+      { type: "new", text: "¿Quieres hacer una caminata en la UC? Explora la nueva sección de circuitos." },
+      { type: "new", text: "¿Te era difícil proponer lugares? Prueba el nuevo modo edición." },
       { type: "new", text: "Pantalla de carga con mensajes específicos en caso de error al cargar." },
       { type: "new", text: "Desde ahora nuestros usuarios podrán ver las novedades de Ubícate." },
       {

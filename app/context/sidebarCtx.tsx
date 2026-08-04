@@ -25,6 +25,10 @@ export type FirstRequestResult = "ok" | LoadErrorKind;
 interface SidebarContextType {
   isOpen: boolean;
   setIsOpen: (e: boolean) => void;
+  // El panel abierto (buscar / campus / guía / lugar) es state local de cada sidebar, así que para
+  // cerrarlo desde afuera —un clic en el mapa— se emite esta señal y cada sidebar reacciona.
+  closeSidebar: () => void;
+  closeSignal: number;
   places: Feature[];
   points: PointFeature[];
   polygons: PolygonFeature[];
@@ -56,6 +60,8 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [closeSignal, setCloseSignal] = useState<number>(0);
+  const closeSidebar = useCallback(() => setCloseSignal((n) => n + 1), []);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [eventCounts, setEventCounts] = useState<Map<string, number>>(new Map());
   const [eventPlaceIds, setEventPlaceIds] = useState<Set<string>>(new Set());
@@ -270,6 +276,8 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
       value={{
         isOpen,
         setIsOpen,
+        closeSidebar,
+        closeSignal,
         ...o,
         places: o.findPlaces,
         pointsName: o.PointsName,

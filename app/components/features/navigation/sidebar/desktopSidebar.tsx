@@ -25,8 +25,8 @@ import UsageGuide from "./usageGuide";
 const SUBSIDEBAR_ANIM_MS = 200;
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace } = useSidebar();
-  const { isPlaceFormOpen } = useMapPicking();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal } = useSidebar();
+  const { isCreatingPlace } = useMapPicking();
   const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   // El contenido sobrevive al cierre lo que dura la animación, para que el panel no se vacíe de golpe.
@@ -64,23 +64,31 @@ export default function DesktopSidebar() {
     setActiveSubSidebar(null);
   };
 
-  // El panel del lugar se mantiene mientras haya un formulario abierto: aunque algo deseleccione el
-  // lugar, la propuesta solo se descarta con la x del formulario.
+  // El panel del lugar se mantiene mientras se esté creando un punto (`isCreatingPlace`): aunque algo
+  // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
   const lastPlaceRef = useRef<Feature | null>(null);
   useEffect(() => {
     if (selectedPlace !== null) lastPlaceRef.current = selectedPlace;
   }, [selectedPlace]);
-  const menuPlace = selectedPlace ?? (isPlaceFormOpen ? lastPlaceRef.current : null);
+  const menuPlace = selectedPlace ?? (isCreatingPlace ? lastPlaceRef.current : null);
 
   useEffect(() => {
     if (selectedPlace !== null) {
       setActiveSubSidebar("placeInformation");
       return;
     }
-    if (isPlaceFormOpen) return;
+    if (isCreatingPlace) return;
     setActiveSubSidebar(null);
     setIsOpen(false);
-  }, [selectedPlace, setIsOpen, isPlaceFormOpen]);
+  }, [selectedPlace, setIsOpen, isCreatingPlace]);
+
+  // Clic en el mapa: cierra el panel abierto sea cual sea (buscar, campus, guía o el lugar). El efecto
+  // de arriba no basta: si `selectedPlace` ya era null, no se vuelve a disparar.
+  useEffect(() => {
+    if (closeSignal === 0 || isCreatingPlace) return;
+    setActiveSubSidebar(null);
+    setIsOpen(false);
+  }, [closeSignal, setIsOpen, isCreatingPlace]);
 
   return (
     <>

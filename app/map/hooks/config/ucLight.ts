@@ -56,7 +56,7 @@ export const placesTextLayer: LayerProps = {
   type: "symbol",
   source: "places",
   layout: {
-    "text-field": ["get", "name"],
+    "text-field": ["coalesce", ["get", "displayName"], ["get", "name"]],
     "text-font": ["Open Sans Semibold"],
     "text-size": 11,
     "text-anchor": "top",
@@ -64,7 +64,7 @@ export const placesTextLayer: LayerProps = {
     "symbol-sort-key": 1,
   },
   paint: {
-    "text-color": "#000000", // Negro UC para texto
+    "text-color": ["case", ["in", "events", ["get", "categories"]], "#9333EA", "#000000"],
     "text-halo-color": "rgba(255, 255, 255, 0.9)", // Halo blanco UC
     "text-halo-width": 2.5,
   },

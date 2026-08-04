@@ -27,6 +27,34 @@ export default function PickingOverlay() {
     resetHistory();
   }, [isPicking, resetHistory]);
 
+  // Ctrl/⌘ + Z deshace y Ctrl/⌘ + Y rehace, solo dentro del modo edición y sin foco en un campo de
+  // texto (ahí el atajo le pertenece al input).
+  useEffect(() => {
+    if (!isPicking || isViewOnly) return;
+
+    const isTyping = (target: EventTarget | null) => {
+      const el = target as HTMLElement | null;
+      if (!el) return false;
+      return el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName);
+    };
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!(e.ctrlKey || e.metaKey) || e.altKey || isTyping(e.target)) return;
+
+      const key = e.key.toLowerCase();
+      if (key === "z") {
+        e.preventDefault();
+        undo();
+      } else if (key === "y") {
+        e.preventDefault();
+        redo();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isPicking, isViewOnly, undo, redo]);
+
   if (!isPicking) return null;
 
   const handleCancel = () => {
@@ -128,7 +156,7 @@ export default function PickingOverlay() {
             onClick={undo}
             disabled={!canUndo}
             className={toolClass(false)}
-            title="Deshacer"
+            title="Deshacer (Ctrl+Z)"
             aria-label="Deshacer"
           >
             <MaterialSymbol name="undo" className="text-[22px]" />
@@ -138,7 +166,7 @@ export default function PickingOverlay() {
             onClick={redo}
             disabled={!canRedo}
             className={toolClass(false)}
-            title="Rehacer"
+            title="Rehacer (Ctrl+Y)"
             aria-label="Rehacer"
           >
             <MaterialSymbol name="redo" className="text-[22px]" />

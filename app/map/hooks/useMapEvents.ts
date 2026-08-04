@@ -32,11 +32,11 @@ export interface HandlePlaceSelectionOptions {
 }
 
 export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapEventsProps) {
-  const { setPlaces, setSelectedPlace, setIsOpen, selectedPlace } = useSidebar();
+  const { setPlaces, setSelectedPlace, setIsOpen, selectedPlace, closeSidebar } = useSidebar();
   const [isLoaded, setIsLoaded] = useState(false);
   const { create, cancel } = useTimeoutManager();
-  const { addPin, insertPin, clearPins, pins } = use(pinsContext);
-  const { isPicking, mode, setPicking, isForEvent, isPlaceFormOpen, isViewOnly } = useMapPicking();
+  const { addPin, insertPin, clearPins, setPinsFromCoords, pins } = use(pinsContext);
+  const { isPicking, mode, setPicking, isForEvent, isViewOnly, isPlaceFormOpen, hasPendingProposal } = useMapPicking();
   const { setMapLoaded } = useAppLoading();
 
   const isForEventRef = useRef(isForEvent);
@@ -133,22 +133,18 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [setSelectedPlace, setIsOpen, mapRef],
   );
 
-  // Propuesta en curso: geometría marcada en modo edición, con el formulario abierto o todavía en el
-  // menú del pin ("Agregar"). Mientras dure, la selección queda congelada y solo la x del sidebar la
-  // descarta: cambiar de lugar seleccionado desmonta el menú/formulario y se pierde el trabajo.
-  const selectionLocked =
-    !isPicking &&
-    !isForEvent &&
-    (isPlaceFormOpen ||
-      (pins.length > 0 && selectedPlace?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) === true));
+  // Con una propuesta en curso la selección queda congelada y solo la x del sidebar la descarta:
+  // cambiar de lugar seleccionado desmonta el menú/formulario y se pierde el trabajo.
+  const selectionLocked = !isPicking && hasPendingProposal;
 
   const handleMapClick = useCallback(
     (e: MapLayerMouseEvent) => {
       if (isPicking) {
         if (isViewOnly) return;
         if (mode === "point") {
-          clearPins();
-          addPin(e.lngLat.lng, e.lngLat.lat);
+          // Reubicar es UN paso de historial: con clearPins() + addPin() el usuario tenía que deshacer
+          // dos veces (el punto nuevo y el borrado del anterior) para ver un solo cambio en pantalla.
+          setPinsFromCoords([[e.lngLat.lng, e.lngLat.lat]]);
         } else {
           insertPin(e.lngLat.lng, e.lngLat.lat);
         }
@@ -165,6 +161,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
           },
           400,
         );
+        // Cierra cualquier panel abierto (buscar, campus, guía, lugar). Con una propuesta en curso no
+        // se llega hasta acá: `selectionLocked` retorna antes para no perder el trabajo del formulario.
+        closeSidebar();
         handlePlaceSelection(null, { openSidebar: false, flyMode: "never" });
         return;
       }
@@ -188,7 +187,19 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       if (!feature) return;
       handlePlaceSelection(feature, { openSidebar: true, flyMode: "ifOutside" });
     },
-    [isPicking, isViewOnly, selectionLocked, mode, addPin, insertPin, create, cancel, clearPins, handlePlaceSelection],
+    [
+      isPicking,
+      isViewOnly,
+      selectionLocked,
+      mode,
+      insertPin,
+      setPinsFromCoords,
+      create,
+      cancel,
+      clearPins,
+      closeSidebar,
+      handlePlaceSelection,
+    ],
   );
 
   usePlaceSelectedListener((feature) => {
@@ -240,11 +251,40 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         });
       }
 
-      e.target.on("dblclick", () => {
+      const enterPicking = () => {
         cancel("deletePins");
         if (!isForEventRef.current && !isPickingRef.current) {
           setPicking(true, "point");
         }
+      };
+
+      e.target.on("dblclick", enterPicking);
+
+      // En táctil no se puede confiar en `dblclick` (el navegador se lo come con el doble tap para
+      // zoom), así que el doble tap se detecta a mano: dos toques de UN dedo, seguidos y en el mismo
+      // punto. Los gestos de dos dedos (zoom/rotar) no cuentan.
+      let lastTapAt = 0;
+      let lastTapPoint: { x: number; y: number } | null = null;
+      e.target.on("touchend", (ev) => {
+        const touch = ev.originalEvent.changedTouches?.[0];
+        if (!touch || ev.originalEvent.touches.length > 0) return;
+
+        const now = Date.now();
+        const point = { x: touch.clientX, y: touch.clientY };
+        const isDoubleTap =
+          lastTapPoint !== null &&
+          now - lastTapAt < 300 &&
+          Math.hypot(point.x - lastTapPoint.x, point.y - lastTapPoint.y) < 30;
+
+        if (!isDoubleTap) {
+          lastTapAt = now;
+          lastTapPoint = point;
+          return;
+        }
+
+        lastTapAt = 0;
+        lastTapPoint = null;
+        enterPicking();
       });
 
       // Nota: el manejo de clics (puntos con prioridad sobre polígonos, y capas de debug) se hace
