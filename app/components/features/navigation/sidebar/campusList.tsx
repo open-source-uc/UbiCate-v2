@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import * as Icons from "@/app/components/ui/icons/icons";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { isEventVisible, siglas, SubSidebarType } from "@/lib/types";
+import { nowInChile } from "@/lib/utils/time";
 
 import CampusButton from "./CampusButton";
 
@@ -13,7 +14,7 @@ export default function CampusList({
   handleCampusClick: (campus: string) => void;
   setActiveSubSidebar: (value: SubSidebarType) => void;
 }) {
-  const now = new Date();
+  const now = nowInChile();
   const { allEvents } = useSidebar();
 
   const campusEventCounts = useMemo(() => {

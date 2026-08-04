@@ -1,3 +1,5 @@
+import { GRACE_PERIOD_MS, nowInChile, parseEventDate } from "@/lib/utils/time";
+
 export interface PointGeometry {
   type: "Point";
   coordinates: [number, number];
@@ -78,27 +80,28 @@ export function getParentPlaceIds(props: EventProperties): string[] {
   return [];
 }
 
-export const GRACE_PERIOD_MS = (Number(process.env.NEXT_PUBLIC_EVENTS_GRACE_PERIOD) || 86400) * 1000;
+export { GRACE_PERIOD_MS };
 
-// Un evento está vencido cuando terminó hace más del período de gracia.
-// Mientras esté dentro de la gracia sigue siendo visible (ver isEventVisible).
-export function isEventExpired(props: EventProperties, now = new Date()): boolean {
-  const end = new Date(props.endDate);
+// Vencimiento y visibilidad se evalúan SIEMPRE en hora Chile: las fechas del evento se parsean con
+// parseEventDate y el "ahora" por defecto es nowInChile (ver lib/utils/time.ts). Pasar un `new Date()`
+// crudo mezcla espacios y adelanta el vencimiento varias horas.
+export function isEventExpired(props: EventProperties, now = nowInChile()): boolean {
+  const end = parseEventDate(props.endDate);
   return now.getTime() - end.getTime() > GRACE_PERIOD_MS;
 }
 
-export function isEventVisible(props: EventProperties, now = new Date()): boolean {
-  const end = new Date(props.endDate);
+export function isEventVisible(props: EventProperties, now = nowInChile()): boolean {
+  const end = parseEventDate(props.endDate);
   if (now > end) {
     return now.getTime() - end.getTime() <= GRACE_PERIOD_MS;
   }
 
   if (props.showFrom) {
-    const showFrom = new Date(props.showFrom);
+    const showFrom = parseEventDate(props.showFrom);
     return now >= showFrom;
   }
 
-  const start = new Date(props.startDate);
+  const start = parseEventDate(props.startDate);
   return now >= start;
 }
 

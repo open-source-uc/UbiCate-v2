@@ -26,7 +26,7 @@ import {
   PointFeature,
   siglas,
 } from "@/lib/types";
-import { formatEventTag } from "@/lib/utils/time";
+import { formatEventTag, nowInChile } from "@/lib/utils/time";
 
 import { Button } from "../../../ui/button";
 import * as Icons from "../../../ui/icons/icons";
@@ -262,7 +262,7 @@ export default function PlaceInformation({
     return events;
   }, [allEvents, place, isEventFeature]);
 
-  const now = new Date();
+  const now = nowInChile();
   const activeAssociatedEvents = isDebug
     ? associatedEvents
     : associatedEvents.filter((ev) => isEventVisible(ev.properties, now));

@@ -1,4 +1,5 @@
 import { EventFeature, Feature, getParentPlaceIds, isEventExpired } from "@/lib/types";
+import { nowInChile } from "@/lib/utils/time";
 
 import { normalizeIdentifier } from "./utils";
 
@@ -21,7 +22,7 @@ export function isEventFeature(feature: EventPlacesFeature): feature is EventFea
 }
 
 export interface PruneOptions {
-  /** Momento contra el que se evalúa el vencimiento. Por defecto, ahora. */
+  /** Momento contra el que se evalúa el vencimiento. Por defecto, la hora actual de Chile. */
   now?: Date;
   /**
    * Si es true, además de los lugares huérfanos se descartan los eventos vencidos
@@ -61,7 +62,7 @@ export interface PruneResult {
  * filtro en el paso 1 y dejá el paso 2 tal cual: se recalcula solo.
  */
 export function pruneEventPlaces(features: EventPlacesFeature[], options: PruneOptions = {}): PruneResult {
-  const { now = new Date(), dropExpiredEvents = false, keepEventIds = [] } = options;
+  const { now = nowInChile(), dropExpiredEvents = false, keepEventIds = [] } = options;
 
   const keep = new Set(keepEventIds.map(normalizeIdentifier));
   const removedEvents: EventFeature[] = [];

@@ -1,5 +1,11 @@
+-- CreateSchema
+CREATE SCHEMA IF NOT EXISTS "public";
+
 -- CreateEnum
 CREATE TYPE "GeoGeometryType" AS ENUM ('Point', 'Polygon', 'MultiPolygon');
+
+-- CreateEnum
+CREATE TYPE "ProposalType" AS ENUM ('edit');
 
 -- CreateTable
 CREATE TABLE "campus" (
@@ -23,12 +29,14 @@ CREATE TABLE "place" (
     "name" VARCHAR(500) NOT NULL,
     "information" TEXT,
     "needApproval" BOOLEAN NOT NULL DEFAULT false,
+    "proposalType" "ProposalType",
     "campusId" VARCHAR(100),
     "parentPlaceId" VARCHAR(150),
     "geometryType" "GeoGeometryType" NOT NULL,
     "geometry" JSONB NOT NULL,
     "longitude" DECIMAL(12,8),
     "latitude" DECIMAL(12,8),
+    "isEventOnly" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -70,6 +78,36 @@ CREATE TABLE "place_floor" (
     CONSTRAINT "place_floor_pkey" PRIMARY KEY ("placeId","floorId")
 );
 
+-- CreateTable
+CREATE TABLE "event" (
+    "id" VARCHAR(150) NOT NULL,
+    "name" VARCHAR(500) NOT NULL,
+    "information" TEXT,
+    "campusId" VARCHAR(100),
+    "geometryType" "GeoGeometryType" NOT NULL,
+    "geometry" JSONB NOT NULL,
+    "longitude" DECIMAL(12,8),
+    "latitude" DECIMAL(12,8),
+    "categories" TEXT[],
+    "floors" INTEGER[],
+    "startDate" TIMESTAMP(3) NOT NULL,
+    "endDate" TIMESTAMP(3) NOT NULL,
+    "showFrom" TIMESTAMP(3),
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "event_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "event_place" (
+    "eventId" VARCHAR(150) NOT NULL,
+    "placeId" VARCHAR(150) NOT NULL,
+    "floor" INTEGER,
+
+    CONSTRAINT "event_place_pkey" PRIMARY KEY ("eventId","placeId")
+);
+
 -- CreateIndex
 CREATE INDEX "place_campusId_idx" ON "place"("campusId");
 
@@ -83,10 +121,31 @@ CREATE INDEX "place_name_idx" ON "place"("name");
 CREATE INDEX "place_geometryType_idx" ON "place"("geometryType");
 
 -- CreateIndex
+CREATE INDEX "place_needApproval_idx" ON "place"("needApproval");
+
+-- CreateIndex
+CREATE INDEX "place_isEventOnly_idx" ON "place"("isEventOnly");
+
+-- CreateIndex
+CREATE INDEX "place_updatedAt_idx" ON "place"("updatedAt");
+
+-- CreateIndex
 CREATE INDEX "place_category_categoryId_idx" ON "place_category"("categoryId");
 
 -- CreateIndex
 CREATE INDEX "place_floor_floorId_idx" ON "place_floor"("floorId");
+
+-- CreateIndex
+CREATE INDEX "event_campusId_idx" ON "event"("campusId");
+
+-- CreateIndex
+CREATE INDEX "event_startDate_idx" ON "event"("startDate");
+
+-- CreateIndex
+CREATE INDEX "event_endDate_idx" ON "event"("endDate");
+
+-- CreateIndex
+CREATE INDEX "event_place_placeId_idx" ON "event_place"("placeId");
 
 -- AddForeignKey
 ALTER TABLE "place" ADD CONSTRAINT "place_campusId_fkey" FOREIGN KEY ("campusId") REFERENCES "campus"("id") ON DELETE SET NULL ON UPDATE CASCADE;
@@ -105,3 +164,12 @@ ALTER TABLE "place_floor" ADD CONSTRAINT "place_floor_placeId_fkey" FOREIGN KEY 
 
 -- AddForeignKey
 ALTER TABLE "place_floor" ADD CONSTRAINT "place_floor_floorId_fkey" FOREIGN KEY ("floorId") REFERENCES "floor"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "event" ADD CONSTRAINT "event_campusId_fkey" FOREIGN KEY ("campusId") REFERENCES "campus"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "event_place" ADD CONSTRAINT "event_place_eventId_fkey" FOREIGN KEY ("eventId") REFERENCES "event"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "event_place" ADD CONSTRAINT "event_place_placeId_fkey" FOREIGN KEY ("placeId") REFERENCES "place"("id") ON DELETE CASCADE ON UPDATE CASCADE;

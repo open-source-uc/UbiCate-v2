@@ -1,5 +1,6 @@
 import type { EventFeature, Feature } from "@/lib/types";
 import { getParentPlaceIds, isEventVisible } from "@/lib/types";
+import { nowInChile } from "@/lib/utils/time";
 
 export interface PlaceFilter {
   (geoJson: any, query: string): any[];
@@ -24,7 +25,7 @@ export const nameFilter: PlaceFilter = (geoJson, query) => {
 // ----- Eventos -----
 
 // Eventos visibles ahora (según showFrom/startDate/endDate + periodo de gracia).
-export function getActiveEvents(events: EventFeature[], now: Date = new Date()): EventFeature[] {
+export function getActiveEvents(events: EventFeature[], now: Date = nowInChile()): EventFeature[] {
   return events.filter((ev) => isEventVisible(ev.properties, now));
 }
 

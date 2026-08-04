@@ -6,6 +6,216 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.22550960185339,
+                    -39.277659009767476
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_1-VR",
+                "name": "Sala 1",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61274693945784,
+                    -33.49935744395315
+                ]
+            },
+            "properties": {
+                "identifier": "MQPP933EVLOZV8",
+                "name": "Punto Verde",
+                "information": "Punto Verde Afuera Edificio Raúl Devés",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63943050015317,
+                    -33.441760678202265
+                ]
+            },
+            "properties": {
+                "identifier": "MQPO937PCA1LWF",
+                "name": "Punto Verde",
+                "information": "Punto Verde Fondo Patio Cs Biologicas",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": [
+                    "BIO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63981473808154,
+                    -33.44141393853519
+                ]
+            },
+            "properties": {
+                "identifier": "MQPO3UDLW5PU1Q",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Cs Biologicas",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6401171640572,
+                    -33.44110604632496
+                ]
+            },
+            "properties": {
+                "identifier": "MQPO4KNYGT0NQN",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Derecho",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64058417237216,
+                    -33.44183736727458
+                ]
+            },
+            "properties": {
+                "identifier": "MQPO7W0ZVODP7S",
+                "name": "Punto Limpio Central",
+                "information": "Punto Limpio Central",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59367062365843,
+                    -33.445679806949016
+                ]
+            },
+            "properties": {
+                "identifier": "MQPMR7KD9MCHCY",
+                "name": "Punto Verde",
+                "information": "Punto Verde Patio Biblioteca",
+                "categories": [
+                    "trash"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ],
+                        [
+                            -70.61045511061714,
+                            -33.49695647414214
+                        ],
+                        [
+                            -70.61009099982499,
+                            -33.496927524219785
+                        ],
+                        [
+                            -70.61007485300476,
+                            -33.497085738791085
+                        ],
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MQIAHCWKCB5LH0",
+                "name": "Vicerrectoria de Inteligencia Digital VRID",
+                "information": "En el tercer piso del edificio MIDE UC están las direcciones ejecutiva, de inteligencia artificial, de datos y cómputo y de desarrollo digital de la VRID.",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "CENTRODEMEDICIMIDEUC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61585114825323,
                     -33.49913017078938
                 ]
@@ -2178,29 +2388,6 @@
                 "identifier": "MNDOCIT5AV147T",
                 "name": "Punto Verde",
                 "information": "Punto Verde Casino/Mesón UC/Centro Eventos",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59396058851627,
-                    -33.44586736667311
-                ]
-            },
-            "properties": {
-                "identifier": "RECICLAJE34",
-                "name": "Punto Verde",
-                "information": "",
                 "categories": [
                     "trash"
                 ],
@@ -6021,7 +6208,7 @@
             },
             "properties": {
                 "identifier": "MKFJC6BLLPXX9M",
-                "name": "Dirección de Inclusión",
+                "name": "Dirección de Aprendizaje y Acompañamiento Académico",
                 "information": "",
                 "categories": [
                     "faculty"
@@ -6030,7 +6217,9 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "AP-SECTOR"
+                ]
             }
         },
         {
@@ -6251,29 +6440,6 @@
                 "faculties": [
                     "EDU"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59430213484451,
-                    -33.445870688446
-                ]
-            },
-            "properties": {
-                "identifier": "MKBG7DGHNRALBI",
-                "name": "Oficina Dirección de Transformación Digital",
-                "information": "",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
-                "faculties": []
             }
         },
         {
@@ -9846,29 +10012,6 @@
                     1
                 ],
                 "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59398623809757,
-                    -33.44563583438409
-                ]
-            },
-            "properties": {
-                "identifier": "MGGNJO31C181KV",
-                "name": "Sundirección de Transformación Aplicada",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
                 "faculties": []
             }
         },
@@ -14296,29 +14439,6 @@
                 "coordinates": [
                     -70.63996113036801,
                     -33.44147881068832
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE29",
-                "name": "Basurero de reciclaje",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.64001870655352,
-                    -33.44131373482885
                 ]
             }
         },
@@ -21551,29 +21671,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "OTHER-27007733",
-                "name": "Dirección inclusión",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61040985685648,
-                    -33.4965992259542
-                ]
-            }
-        },
-        {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
@@ -24488,71 +24585,25 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE21",
-                "name": "Basurero de reciclaje",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612507,
-                    -33.5003
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "identifier": "RECICLAJE24",
-                "name": "Basurero de reciclaje",
-                "campus": "CC",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.640637,
                     -33.441271
                 ]
-            }
-        },
-        {
-            "type": "Feature",
+            },
             "properties": {
-                "identifier": "RECICLAJE28",
-                "name": "Basurero de reciclaje",
-                "campus": "CC",
-                "information": "",
+                "identifier": "RECICLAJE24",
+                "name": "Punto Verde",
+                "information": "Punto Verde - Patio Comunicaciones",
                 "categories": [
                     "trash"
                 ],
-                "faculties": [],
                 "floors": [
                     1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.640508,
-                    -33.441791
-                ]
+                ],
+                "campus": "CC",
+                "faculties": []
             }
         },
         {
@@ -27568,29 +27619,6 @@
                     1
                 ],
                 "campus": "LC",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.639994,
-                    -33.441524
-                ]
-            },
-            "properties": {
-                "identifier": "BICI8",
-                "name": "Bicicletero",
-                "information": "",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "CC",
                 "faculties": []
             }
         },
@@ -37112,14 +37140,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59455277474083,
-                    -33.44589818672231
+                    -70.59455271810293,
+                    -33.4458981240551
                 ]
             },
             "properties": {
                 "identifier": "MA2ZHO69CRYNHM",
                 "name": "Punto Verde",
-                "information": "Punto verde",
+                "information": "Punto Verde - Mesón UC",
                 "categories": [
                     "trash"
                 ],
@@ -37567,29 +37595,6 @@
                     -70.59245317035295,
                     -33.446097408124565
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59234092960935,
-                    -33.44635071381148
-                ]
-            },
-            "properties": {
-                "identifier": "MA2W11QUN5P2AG",
-                "name": "Bicicletero",
-                "information": "Bicicletero con estación de reparación",
-                "categories": [
-                    "park_bicycle"
-                ],
-                "floors": [
-                    1
-                ],
-                "campus": "OR",
-                "faculties": []
             }
         },
         {
@@ -38128,29 +38133,6 @@
         {
             "type": "Feature",
             "properties": {
-                "identifier": "MA2Z95PGFXQDPY",
-                "name": "Reciclaje",
-                "campus": "OR",
-                "information": "",
-                "categories": [
-                    "trash"
-                ],
-                "faculties": [],
-                "floors": [
-                    -1
-                ]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.5942600743323,
-                    -33.446338536765545
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "identifier": "SALA_7-OR",
                 "name": "Sala 7",
                 "campus": "OR",
@@ -38222,8 +38204,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59337788427646,
-                    -33.44698855107464
+                    -70.59337791055441,
+                    -33.44698860850432
                 ]
             },
             "properties": {
@@ -38567,14 +38549,14 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59315552530066,
-                    -33.44654135840123
+                    -70.59315545484424,
+                    -33.44654142201683
                 ]
             },
             "properties": {
                 "identifier": "MA2VSRRWPNND1P",
                 "name": "Punto Verde",
-                "information": "Punto Verde Caja de Estacionamiento",
+                "information": "Punto Verde Caja de Estacionamiento Parking",
                 "categories": [
                     "trash"
                 ],

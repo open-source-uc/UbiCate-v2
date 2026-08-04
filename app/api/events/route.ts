@@ -200,7 +200,7 @@ export async function POST(request: NextRequest) {
     if (data.startDate > data.endDate) {
       return NextResponse.json({ message: "La fecha de inicio debe ser anterior a la fecha de fin" }, { status: 400 });
     }
-    if (isEventExpired({ endDate: data.endDate } as EventProperties, new Date())) {
+    if (isEventExpired({ endDate: data.endDate } as EventProperties)) {
       return NextResponse.json(
         { message: "La fecha de fin no debe estar expirada" },
         { status: 400 },
@@ -277,7 +277,7 @@ export async function PUT(request: NextRequest) {
     if (data.startDate > data.endDate) {
       return NextResponse.json({ message: "La fecha de inicio debe ser anterior a la fecha de fin" }, { status: 400 });
     }
-    if (isEventExpired({ endDate: data.endDate } as EventProperties, new Date())) {
+    if (isEventExpired({ endDate: data.endDate } as EventProperties)) {
       return NextResponse.json(
         { message: "La fecha de fin no debe estar expirada" },
         { status: 400 },

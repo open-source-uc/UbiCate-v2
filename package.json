@@ -12,7 +12,12 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "knip": "knip"
+    "knip": "knip",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:deploy": "prisma migrate deploy",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "npx tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
@@ -61,6 +66,7 @@
     "prettier": "3.0.0",
     "prisma": "^7.9.1",
     "serwist": "^9.0.15",
+    "tsx": "^4.20.6",
     "typescript": "^5.8.3",
     "vercel": "39.1.1",
     "wrangler": "^4.28.0"

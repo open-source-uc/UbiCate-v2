@@ -6,6 +6,2541 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_CS",
+                "name": "Biblioteca San Joaquín ",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61037142701295,
+                    -33.496591437233256
+                ]
+            },
+            "properties": {
+                "identifier": "AP006-SJ",
+                "name": "AP006",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61030147597194,
+                    -33.49897002906657
+                ]
+            },
+            "properties": {
+                "identifier": "N6",
+                "name": "N4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61020432195241,
+                    -33.49668706385611
+                ]
+            },
+            "properties": {
+                "identifier": "AP103-SJ",
+                "name": "AP103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61034271493554,
+                    -33.498582103544834
+                ]
+            },
+            "properties": {
+                "identifier": "N8",
+                "name": "N8",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612041,
+                    -33.499107
+                ]
+            },
+            "properties": {
+                "identifier": "J3",
+                "name": "J3",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61074310095651,
+                    -33.4995840805998
+                ]
+            },
+            "properties": {
+                "identifier": "MM9EP5Q8KE2LT6",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61042667564166,
+                    -33.496667420704895
+                ]
+            },
+            "properties": {
+                "identifier": "MKFJC6BLLPXX9M",
+                "name": "Dirección de Aprendizaje y Acompañamiento Académico",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61195888092733,
+                    -33.499659802954504
+                ]
+            },
+            "properties": {
+                "identifier": "MRXYZZ6XLWTGI5",
+                "name": "Instituto para el Desarrollo Sustentable ",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61066257868815,
+                    -33.49792022222768
+                ]
+            },
+            "properties": {
+                "identifier": "FT-104",
+                "name": "FT-104",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    20
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TTF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ],
+                        [
+                            -70.61045511061714,
+                            -33.49695647414214
+                        ],
+                        [
+                            -70.61009099982499,
+                            -33.496927524219785
+                        ],
+                        [
+                            -70.61007485300476,
+                            -33.497085738791085
+                        ],
+                        [
+                            -70.61042039495406,
+                            -33.49712748045959
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MQIAHCWKCB5LH0",
+                "name": "Vicerrectoria de Inteligencia Digital VRID",
+                "information": "En el tercer piso del edificio MIDE UC están las direcciones ejecutiva, de inteligencia artificial, de datos y cómputo y de desarrollo digital de la VRID",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CENTRODEMEDICIMIDEUC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610128,
+                    -33.498501
+                ]
+            },
+            "properties": {
+                "identifier": "INS_SOCIOLOGIA",
+                "name": "Instituto de Sociología",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61297738878919,
+                    -33.500424388265856
+                ]
+            },
+            "properties": {
+                "identifier": "B21",
+                "name": "B21",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6135930493474,
+                            -33.497798977969616
+                        ],
+                        [
+                            -70.61343211680651,
+                            -33.497819108383716
+                        ],
+                        [
+                            -70.61342105269432,
+                            -33.497880058775635
+                        ],
+                        [
+                            -70.61321083456278,
+                            -33.49790102793725
+                        ],
+                        [
+                            -70.61317294836044,
+                            -33.497616126493845
+                        ],
+                        [
+                            -70.61305090785027,
+                            -33.49760606126378
+                        ],
+                        [
+                            -70.61299290508032,
+                            -33.49816887358147
+                        ],
+                        [
+                            -70.61353504657745,
+                            -33.49820186495005
+                        ],
+                        [
+                            -70.6135930493474,
+                            -33.497798977969616
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "HALL_SJ",
+                "name": "Hall Universitario",
+                "information": "Administración del Campus\n\nDARA\n\nDASE\n\nServicio de Salud y Dental\n\nVicerrectoría de Asuntos Internacionales",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60931149304258,
+                            -33.499634152334345
+                        ],
+                        [
+                            -70.60927883870005,
+                            -33.49987676680085
+                        ],
+                        [
+                            -70.60963681625758,
+                            -33.499914144648905
+                        ],
+                        [
+                            -70.60967693984225,
+                            -33.499660232733376
+                        ],
+                        [
+                            -70.60931149304258,
+                            -33.499634152334345
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMBZDO0JMAZVV5",
+                "name": "edificio mide",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZDO0JMAZVV5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6407506658312,
+                    -33.441250339067004
+                ]
+            },
+            "properties": {
+                "identifier": "MQS6VTX51892H7",
+                "name": "Agua",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64054436544839,
+                    -33.44166306841193
+                ]
+            },
+            "properties": {
+                "identifier": "WATER-26252761",
+                "name": "Agua",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6136664539332,
+                    -33.498831296047406
+                ]
+            },
+            "properties": {
+                "identifier": "MQS6R6P4XF61Y3",
+                "name": "Agua",
+                "information": "",
+                "categories": [
+                    "water"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZ8CT3XV4D4E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.2255471432064,
+                    -39.27756802604027
+                ]
+            },
+            "properties": {
+                "identifier": "MQS6MIUL433N0K",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "VR",
+                "faculties": [
+                    "MMCFI89E6QJW41"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5939022301618,
+                    -33.44585748255772
+                ]
+            },
+            "properties": {
+                "identifier": "MQS6K9O2RZ8P7E",
+                "name": "Librería La Tala",
+                "information": "",
+                "categories": [
+                    "shop"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "TEMPLO_OR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.640385,
+                    -33.441015
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA15",
+                "name": "Fotocopiadora de Derecho",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61397349311808,
+                    -33.49748288854448
+                ]
+            },
+            "properties": {
+                "identifier": "FOTOCOPIA5",
+                "name": "Fotocopiadora Imprenta Universitaria",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61532501805132,
+                    -33.4977717290185
+                ]
+            },
+            "properties": {
+                "identifier": "CASH_MACHINE-23511770",
+                "name": "Banco Chile",
+                "information": "",
+                "categories": [
+                    "financial"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61324086368903,
+                    -33.498194397002706
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO2",
+                "name": "Work Café Santander",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nSin convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61017810755895,
+                    -33.496726895065066
+                ]
+            },
+            "properties": {
+                "identifier": "MM9IUUXEGN7598",
+                "name": "Subway",
+                "information": "Módulo con venta de platos calientes y fríos, wraps, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61035864184294,
+                    -33.49817790939321
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO7",
+                "name": "Starbucks",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sandwich, té, café, postres. \nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610896,
+                    -33.496978
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO1",
+                "name": "Casino RocknRolla",
+                "information": "Casino con venta de platos preparados en línea calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61350389900275,
+                    -33.497966992312044
+                ]
+            },
+            "properties": {
+                "identifier": "SODEXO_HALL",
+                "name": "Casino RocknRolla",
+                "information": "Casino con venta de platos preparados en línea calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana y vegana.\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61539469153901,
+                    -33.49790520269241
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546703",
+                "name": "Pronto Copec",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CDI"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61187019177152,
+                    -33.50009142926184
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546931",
+                "name": "Piatto Pastas",
+                "information": "Casino con venta de platos preparados en línea calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61365832769172,
+                    -33.49816677301593
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO13",
+                "name": "Mahalo Sushi & Gohan",
+                "information": "Módulo con venta de platos preparados calientes y fríos, especialidad roll, gohan. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60781487722299,
+                    -33.50095032956365
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-36975794",
+                "name": "Cafetería Piatto",
+                "information": "Cafetería con venta de platos preparados, wraps, sandwich, bebidas, té, café, postres. Opción vegetariana \nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMC18XOIIMSXZO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6118242294127,
+                    -33.50006086212353
+                ]
+            },
+            "properties": {
+                "identifier": "ML6SD65UU47AXU",
+                "name": "Burga",
+                "information": "Venta de hamburguesas. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60906830471443,
+                    -33.4965008558894
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO6",
+                "name": "Paradiso",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61354423350099,
+                    -33.497911948230986
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO12",
+                "name": "Le Paché",
+                "information": "Módulo con venta de platos preparados calientes y fríos, sandwich, bebidas, té, café, postres. Opción vegetariana, vegana y con restricción alimentaria.\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60996467090563,
+                    -33.50068226941584
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO10",
+                "name": "Juan Frijol",
+                "information": "Módulo con venta de platos preparados especialidad mexicana, tacos y quesadillas. Opción vegetariana.  Convenio Junaeb vigente",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61363276621337,
+                    -33.49714374488435
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546836",
+                "name": "Fortuna",
+                "information": "Módulo con venta de platos preparados calientes y fríos, wraps, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6138661732852,
+                    -33.49882385938008
+                ]
+            },
+            "properties": {
+                "identifier": "FORK001",
+                "name": "Fork",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZ8CT3XV4D4E"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61358,
+                    -33.497342
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO2",
+                "name": "Casino El Rincón ",
+                "information": "Casino de platos preparados en línea calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.611747,
+                    -33.498485
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO11",
+                "name": "Quiosco Donde la Tía",
+                "information": "Quiosco venta de revistas, bebidas, snacks.\nSin convenio Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61316637666317,
+                    -33.500130348343866
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO6",
+                "name": "De La Roca",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61423309021697,
+                    -33.49989013336953
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-23546766",
+                "name": "Café Copper",
+                "information": "Restaurant y Cafetería con venta de platos calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nSin convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61006589024713,
+                    -33.49818566910695
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO3",
+                "name": "Castaño",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6107583464171,
+                    -33.5005803188261
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-32380458",
+                "name": "Castaño",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61392232057136,
+                    -33.499578413960926
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO4",
+                "name": "Castaño",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6097892850785,
+                    -33.49793943581164
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO8",
+                "name": "Caprioli",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados, snack. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61348631368553,
+                    -33.49899173628513
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO3",
+                "name": "Caprioli ",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "CCL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61099921629949,
+                    -33.49689577254721
+                ]
+            },
+            "properties": {
+                "identifier": "MGZDCUFOX7VRCI",
+                "name": "Cafetón",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.614442,
+                    -33.497513
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO1",
+                "name": "Bon Appetit ",
+                "information": "Quiosco con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61326841413585,
+                    -33.4996545711821
+                ]
+            },
+            "properties": {
+                "identifier": "PUESTO4",
+                "name": "Achoclonados",
+                "information": "Módulo con venta de platos preparados, helados, café, té, wraps, opción vegetariana.\nConvenio Juneab vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60959123104682,
+                    -33.49978635822835
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TDMSQ7EJPR0",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMBZDO0JMAZVV5"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6119029624556,
+                    -33.50002252898073
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TE8EEEPX8DL",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61344150162022,
+                    -33.497943925003526
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TC2TAIL63I6",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61114968646972,
+                    -33.49688477831823
+                ]
+            },
+            "properties": {
+                "identifier": "MQS4YGK64ZX00B",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61113582065532,
+                    -33.496985304054355
+                ]
+            },
+            "properties": {
+                "identifier": "ML6TCU5QICL8F4",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59377466438089,
+                    -33.446592941606376
+                ]
+            },
+            "properties": {
+                "identifier": "M8T6ESP4PI0LOC",
+                "name": "Castaño",
+                "information": "Cafetería con platos preparados, te, café, dulces, galletas, bebidas, opción vegetariana.\nConvenio Junaeb vigente",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": [
+                    "MMEUUK3ZQUI9BP"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59404645115137,
+                    -33.44592274263415
+                ]
+            },
+            "properties": {
+                "identifier": "MJ0EQMA52DFYCK",
+                "name": "Quiosco Tu Cafetería ",
+                "information": "Quiosco con venta de platos preparados, postres, dulces, galletas, té, café.\nConvenio Junaeb vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59375911951065,
+                    -33.44509969498771
+                ]
+            },
+            "properties": {
+                "identifier": "MA2WGXBYZ0GWJC",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59384093738508,
+                    -33.445329648971445
+                ]
+            },
+            "properties": {
+                "identifier": "MJA9PVRD0LNH00",
+                "name": "Cafetería Camba",
+                "information": "Cafetería con platos preparados, sandwichs, té, café, bebidas, opción vegetariana.\nConvenio Juneab vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.5936454934885,
+                    -33.445046940048435
+                ]
+            },
+            "properties": {
+                "identifier": "MA2WFIVIUI123Z",
+                "name": "Casino ISI y FER",
+                "information": "Casino cuenta con preparación de comida en línea. Papas fritas, hot dog, comida casera, opción vegetariana, consomé. Menú y Menú Junaeb Medio de pago Junaeb, convenio vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61854284121584,
+                    -33.41915730090297
+                ]
+            },
+            "properties": {
+                "identifier": "MQS4KBAFKQKJQL",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCEV5TYEV1Q2C"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.617635,
+                    -33.419581
+                ]
+            },
+            "properties": {
+                "identifier": "ALMUERZO13",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61750512586346,
+                    -33.41947455350437
+                ]
+            },
+            "properties": {
+                "identifier": "MH24OCF37BPI5J",
+                "name": "Cafetería Huerto Sur",
+                "information": "Cafetería con platos preparados, dulces, té, café, galletas, opción vegetariana.\nMedio de pago Junaeb vigente.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "AQR-1"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61839623937897,
+                    -33.41940777293648
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-33079161",
+                "name": "Quiosco RocknRolla",
+                "information": "Ofrece pizzas, hotdog, sandwichs, gohan, bebidas, té, café opción vegetariana.\nConvenio Junaeb activado.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61860582464703,
+                    -33.41919219590432
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-33081697",
+                "name": "Casino",
+                "information": "Casino con platos preparados en línea, opción vegetariana, comida casera, postres. Variedad tipo de Menú. Cuenta con convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCEV5TYEV1Q2C"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63978102666722,
+                    -33.44112120611347
+                ]
+            },
+            "properties": {
+                "identifier": "MQS40MA5NNKROR",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63975199885105,
+                    -33.44120606824676
+                ]
+            },
+            "properties": {
+                "identifier": "ML6ZBO8HVA6QWH",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64049496171951,
+                    -33.44148242503334
+                ]
+            },
+            "properties": {
+                "identifier": "MQS3ZG4BHMLOFX",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMF8KUNSL6ZEAY"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64019004651705,
+                    -33.44112979577037
+                ]
+            },
+            "properties": {
+                "identifier": "MQS3YLDJ9P2DDX",
+                "name": "Punto de microondas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "DE"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6398774405061,
+                    -33.441062830644185
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YNK8SGAWVOE",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6404198333621,
+                    -33.44136468945289
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-34029632",
+                "name": "Mesón UC",
+                "information": "Mesón UC cuenta con máquinas vending, máquina de agua fría y caliente, microondas apanelados, aderezos, lavaplatos.\nHorario de 07.30 a 22.30 hrs. de lunes a viernes  ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMF8KUNSL6ZEAY"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64235553086422,
+                    -33.44179316674327
+                ]
+            },
+            "properties": {
+                "identifier": "MH3FQZECZXQCW9",
+                "name": "Starbucks",
+                "information": "Cafetería con opciones de postres, dulces, café.\nCuenta con medio de pago Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKS2N8D33OSU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64056976467448,
+                    -33.44351772274003
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YK3ZMZ8HPEN",
+                "name": "Cafetería Huerto Sur",
+                "information": "Cafetería con platos preparados, bebidas, café, te, sandwich.\nSin convenio Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63996113036801,
+                    -33.44147881068832
+                ]
+            },
+            "properties": {
+                "identifier": "SODEXO_CC",
+                "name": "Work Café",
+                "information": "Cafetería con sandwich, platos preparados, café, postres. Promociones utilizando tu tarjeta Santander como medio de pago.  Sin convenio Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64158533642843,
+                    -33.441382691994555
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-34032900",
+                "name": "Copper ",
+                "information": "Cafetería con platos preparados, sandwich, postres, opción vegana.\nSin convenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKMWIHOO9ICZ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64159417935485,
+                    -33.44136805212361
+                ]
+            },
+            "properties": {
+                "identifier": "MKVC00F2EMN3ML",
+                "name": "Copper La Cava ",
+                "information": "Cava del siglo XIX de Francisco Lira Argomedo, hoy habilitada como restaurante y cafetería Copper.\nAv. Alameda Libertador Bernardo O'Higgins 390, Santiago.  Sin convenio Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKMWIHOO9ICZ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64157688186737,
+                    -33.44135444678715
+                ]
+            },
+            "properties": {
+                "identifier": "FOOD_LUNCH-26253206",
+                "name": "Castaño",
+                "information": "Cafetería con café, te, sandwich, platos preparados, galletas, bebidas.\nCuenta con medio de pago Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKMWIHOO9ICZ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.63981550273624,
+                    -33.44113704039416
+                ]
+            },
+            "properties": {
+                "identifier": "MQS34KIX3DVNHP",
+                "name": "Casino Juan Berrios",
+                "information": "Casino con comida en línea, opción platos vegetarianos, postres, menú Junaeb.",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64075356207607,
+                    -33.4411366434011
+                ]
+            },
+            "properties": {
+                "identifier": "ML6YLWJXBDVV9T",
+                "name": "Castaño",
+                "information": "Cafetería con variedad de te, café, sandwich, platos preparados, dulces, galletas.\nCuenta con medio de pago Junaeb",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61246894304817,
+                    -33.49998626642377
+                ]
+            },
+            "properties": {
+                "identifier": "SALAS_A-SJ",
+                "name": "Salas A",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610875,
+                    -33.498754
+                ]
+            },
+            "properties": {
+                "identifier": "DIR_ACADEMICA_QIM",
+                "name": "Dirección de Gestión Académica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "QIM"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61192865411724,
+                    -33.49966512010654
+                ]
+            },
+            "properties": {
+                "identifier": "MQ9UEJRKUI5STU",
+                "name": "Instituto para el Desarrollo Sustentable",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ],
+                        [
+                            -70.61515802687313,
+                            -33.499533045497266
+                        ],
+                        [
+                            -70.61489626765251,
+                            -33.49947481891747
+                        ],
+                        [
+                            -70.61496062195494,
+                            -33.499309019902185
+                        ],
+                        [
+                            -70.61498568032937,
+                            -33.49922421389841
+                        ],
+                        [
+                            -70.61502269037888,
+                            -33.498939763257724
+                        ],
+                        [
+                            -70.61500580568352,
+                            -33.498940419616616
+                        ],
+                        [
+                            -70.6150153270649,
+                            -33.49890442509619
+                        ],
+                        [
+                            -70.61510026804,
+                            -33.49891842463834
+                        ],
+                        [
+                            -70.61513680396605,
+                            -33.498750380357635
+                        ],
+                        [
+                            -70.61514999328097,
+                            -33.49875023544604
+                        ],
+                        [
+                            -70.61527857975705,
+                            -33.49898399255645
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "SAN_AGUSTIN",
+                "name": "Edificio San Agustín",
+                "information": "Salas H",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61380378867851,
+                    -33.49989265830364
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_DPTO._ING._ELÉCTRICA-SJ",
+                "name": "Sala Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61188169247689,
+                    -33.500095071823914
+                ]
+            },
+            "properties": {
+                "identifier": "MQ861PCXAZ2WMB",
+                "name": "DEA, Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61196076832121,
+                    -33.50018886207544
+                ]
+            },
+            "properties": {
+                "identifier": "MQ8601OMID275U",
+                "name": "Laboratorio Dpto. Ingeniería Eléctricas Piso: 6",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61402850053636,
+                    -33.49991312019418
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85X8D1C13HN7",
+                "name": "Laboratorio de Máquinas Eléctricas​",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61392121217617,
+                    -33.49986391369732
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85WHGOJW1ELL",
+                "name": "Laboratorio Docente (DIE)",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61378173730802,
+                    -33.499837073779986
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85VI4610PVY5",
+                "name": "Laboratorio de Fabricación de Prototipos (FABLAB)",
+                "information": "Laboratorio del Dpto. Ingeniería Eléctrica para el desarrollo del curso Capstone",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61399094960986,
+                    -33.499895226927514
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85LWSA7B5DWV",
+                "name": "DEA, Dpto. Ing. Eléctrica",
+                "information": "",
+                "categories": [
+                    "dea"
+                ],
+                "floors": [
+                    1,
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61387561462226,
+                    -33.499937723436254
+                ]
+            },
+            "properties": {
+                "identifier": "MQ85H8AVF33DRH",
+                "name": "Departamento de Ingeniería Eléctrica",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6151502850476,
+                    -33.498992651707994
+                ]
+            },
+            "properties": {
+                "identifier": "MQ3CN9GF2TEUCI",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC)",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61491191633323,
+                            -33.49947323201294
+                        ],
+                        [
+                            -70.6151472677221,
+                            -33.49876116704979
+                        ],
+                        [
+                            -70.61528304736989,
+                            -33.498972522631846
+                        ],
+                        [
+                            -70.61517140632601,
+                            -33.49951097380928
+                        ],
+                        [
+                            -70.61491191633323,
+                            -33.49947323201294
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "DEPARTAMENTO_DE_INGENIERÍA_Y_GESTIÓN_DE_LA_CONSTRUCCIÓN_(DIGC)-SJ",
+                "name": "Departamento de Ingeniería y Gestión de la Construcción (DIGC)",
+                "information": "",
+                "categories": [
+                    "offices",
+                    "classroom",
+                    "studyroom",
+                    "faculty",
+                    ""
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SAN_AGUSTIN"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61309665127146,
+                    -33.49784972634952
+                ]
+            },
+            "properties": {
+                "identifier": "MQ15A37ZYHZ4AS",
+                "name": "Vicerrectoría de Asuntos Internacionales",
+                "information": "VRAI - Office of the Vice President for International Affairs\nhttps://internacionalizacion.uc.cl/",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22574079122181,
                     -39.277610111486716
                 ]
@@ -77,30 +2612,6 @@
                 "faculties": [
                     "QIM"
                 ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.59337791055441,
-                    -33.44698860850432
-                ]
-            },
-            "properties": {
-                "identifier": "MA2VNZPAOPFEFE",
-                "name": "Punto Limpio Central",
-                "information": "Punto Limpio Central (PLC) ",
-                "categories": [
-                    "trash"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
             }
         },
         {
@@ -865,30 +3376,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.59234092960935,
-                    -33.44635071381148
-                ]
-            },
-            "properties": {
-                "identifier": "MA2W11QUN5P2AG",
-                "name": "-",
-                "information": "",
-                "categories": [
-                    "other"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "OR",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.5935320732351,
                     -33.447082331184696
                 ]
@@ -1080,89 +3567,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.61167392879725,
-                            -33.49866290403108
-                        ],
-                        [
-                            -70.6114449352026,
-                            -33.49864696760897
-                        ],
-                        [
-                            -70.61144694685936,
-                            -33.498627116973815
-                        ],
-                        [
-                            -70.61125416308641,
-                            -33.49860894385313
-                        ],
-                        [
-                            -70.61066005378962,
-                            -33.498561134548204
-                        ],
-                        [
-                            -70.61060808598995,
-                            -33.49885693672462
-                        ],
-                        [
-                            -70.61050415039062,
-                            -33.498844914538665
-                        ],
-                        [
-                            -70.61048101633787,
-                            -33.49914490951708
-                        ],
-                        [
-                            -70.6116658821702,
-                            -33.499260937119026
-                        ],
-                        [
-                            -70.61170510947704,
-                            -33.49884211868123
-                        ],
-                        [
-                            -70.61173897236586,
-                            -33.49882590270631
-                        ],
-                        [
-                            -70.61175003647804,
-                            -33.49872804762078
-                        ],
-                        [
-                            -70.6116709113121,
-                            -33.49871910086458
-                        ],
-                        [
-                            -70.61167392879725,
-                            -33.49866290403108
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "QIM",
-                "name": "Facultad de Química y de Farmacia",
-                "information": "Piso 1: Laboratorios\nPiso 2: Decanato",
-                "categories": [
-                    "faculty",
-                    ""
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "QIM"
-                ]
             }
         },
         {

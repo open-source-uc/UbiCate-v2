@@ -1,6 +1,7 @@
 import { getParentPlaceFloor } from "@/lib/places/utils";
 import { prisma } from "@/lib/prisma";
 import { GRACE_PERIOD_MS, type EventFeature, type Feature } from "@/lib/types";
+import { nowInChile } from "@/lib/utils/time";
 
 import { cache } from "./cache";
 import { eventToFeature, featureToEventData, featureToPlaceData, placeToFeature } from "./transform";
@@ -176,7 +177,9 @@ export async function deleteEvent(id: string): Promise<void> {
 
 // keepIds exceptúa eventos que no deben borrarse (p. ej. el que una mutación acaba de escribir).
 export async function pruneExpiredEvents(keepIds: string[] = []): Promise<boolean> {
-  const cutoff = new Date(Date.now() - GRACE_PERIOD_MS);
+  // endDate en la BD es la hora de pared de Chile guardada como UTC, así que el corte tiene que
+  // calcularse desde la hora Chile: con Date.now() (UTC real) se borraban eventos 3-4 horas antes.
+  const cutoff = new Date(nowInChile().getTime() - GRACE_PERIOD_MS);
   const { count } = await prisma.event.deleteMany({
     where: { endDate: { lt: cutoff }, id: { notIn: keepIds } },
   });
