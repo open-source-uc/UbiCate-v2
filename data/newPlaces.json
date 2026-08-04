@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.612511,
+                    -33.500141
+                ]
+            },
+            "properties": {
+                "identifier": "A3",
+                "name": "A3",
+                "information": "Facultad de Ingeniería",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6098777057118,
                     -33.49907110849295
                 ]
