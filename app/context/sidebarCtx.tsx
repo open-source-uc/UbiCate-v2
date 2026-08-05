@@ -68,6 +68,13 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOnline, setIsOnline] = useState<boolean>(true);
   const queryClient = useQueryClient();
 
+  // React Query borra `error` al INICIAR cualquier fetch mientras no haya datos (fetchState en
+  // query-core), así que el refetch por foco de ventana hacía desaparecer la pantalla de error al
+  // minimizar y volver. El error queda pegado acá hasta que un fetch traiga datos de verdad.
+  const [stickyLoadError, setStickyLoadError] = useState<LoadErrorKind | null>(null);
+  // Con la pantalla de error arriba no se sigue golpeando la red sola: solo Reintentar o un F5.
+  const isLoadBlocked = stickyLoadError !== null;
+
   const {
     data,
     isSuccess,
@@ -88,9 +95,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     networkMode: "offlineFirst",
     // Polling adaptativo: agresivo si estamos offline (busca reconexión), relajado si hay conexión.
     // Este path pasa por el SW + cache del servidor (Capa 1), así no golpea la BD en cada tick.
-    refetchInterval: isOnline ? REFETCH_ONLINE_MS : REFETCH_OFFLINE_MS,
+    refetchInterval: isLoadBlocked ? false : isOnline ? REFETCH_ONLINE_MS : REFETCH_OFFLINE_MS,
     refetchIntervalInBackground: REFETCH_IN_BACKGROUND,
-    refetchOnReconnect: true,
+    refetchOnReconnect: !isLoadBlocked,
+    refetchOnWindowFocus: !isLoadBlocked,
   });
 
   const allFeatures = useMemo(() => {
@@ -105,7 +113,12 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     return error instanceof AppLoadError ? error.kind : "database";
   }, [error, fetchStatus]);
 
-  const loadError: LoadErrorKind | null = data ? null : fetchFailure;
+  useEffect(() => {
+    if (data) return setStickyLoadError(null);
+    if (fetchFailure) setStickyLoadError(fetchFailure);
+  }, [data, fetchFailure]);
+
+  const loadError: LoadErrorKind | null = data ? null : stickyLoadError;
 
   // Cubre el refetch con X-Ubicate-Fresh, que no pasa por el estado de la query.
   const [manualServerError, setManualServerError] = useState(false);
@@ -142,9 +155,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
       }>,
     staleTime: REFETCH_ONLINE_MS,
     networkMode: "offlineFirst",
-    refetchInterval: isOnline ? REFETCH_ONLINE_MS : REFETCH_OFFLINE_MS,
+    refetchInterval: isLoadBlocked ? false : isOnline ? REFETCH_ONLINE_MS : REFETCH_OFFLINE_MS,
     refetchIntervalInBackground: REFETCH_IN_BACKGROUND,
-    refetchOnReconnect: true,
+    refetchOnReconnect: !isLoadBlocked,
+    refetchOnWindowFocus: !isLoadBlocked,
   });
 
   const { allEvents, eventPlaces } = useMemo(() => {
@@ -206,12 +220,17 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     [queryClient, o.setPlaces],
   );
 
+  // Se lee dentro de los listeners sin volver a suscribirlos: cambiar las deps del efecto relanzaría
+  // el refetch de montaje, que es justo lo que no queremos con la pantalla de error arriba.
+  const isLoadBlockedRef = useRef(isLoadBlocked);
+  isLoadBlockedRef.current = isLoadBlocked;
+
   // Al cargar con conexión → buscar enseguida datos frescos del servidor. Al reconectar → volver a
   // pedirlos y restaurar la cadencia online. Al perder conexión → cambiar a polling agresivo (offline).
   useEffect(() => {
     const goOnline = () => {
       setIsOnline(true);
-      refetchPlaces({ syncMap: false });
+      if (!isLoadBlockedRef.current) refetchPlaces({ syncMap: false });
     };
     const goOffline = () => setIsOnline(false);
 
