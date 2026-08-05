@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61345417321176,
+                    -33.49792074524397
+                ]
+            },
+            "properties": {
+                "identifier": "MSGHR09D50Q1AY",
+                "name": "Casino Campus Sabores",
+                "information": "Tres tipos de Menú\nMenú Junaeb\nAlmuerzo de casa\nSandwichs\nCafetería\nAcepta Junaeb y todo medio de pago\nHorario de 08:30 a 18:30 de lun a vie",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61169574499807,
                     -33.4970007354698
                 ]
