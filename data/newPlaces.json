@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61089981969684,
+                    -33.49933954298243
+                ]
+            },
+            "properties": {
+                "identifier": "MSIY9WIV7CG75X",
+                "name": "Facultad de Física",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60856994241476,
                     -33.500603211395834
                 ]
