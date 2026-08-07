@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.610958,
+                    -33.499468
+                ]
+            },
+            "properties": {
+                "identifier": "DIR_DOCENCIA_FIS",
+                "name": "Dirección de Docencia",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61089981969684,
                     -33.49933954298243
                 ]
