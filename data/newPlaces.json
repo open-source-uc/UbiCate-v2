@@ -4,6 +4,48 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.610716674844,
+                            -33.49928452182047
+                        ],
+                        [
+                            -70.61072511810539,
+                            -33.49924197380466
+                        ],
+                        [
+                            -70.61077170271832,
+                            -33.49927713318073
+                        ],
+                        [
+                            -70.610716674844,
+                            -33.49928452182047
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MSIYF1HEQS1SB7",
+                "name": "Fesem CienUC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.610958,
