@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59377920386297,
+                    -33.446192143801476
+                ]
+            },
+            "properties": {
+                "identifier": "MSJ1GOEDFHFUEK",
+                "name": "Casa Violeta Parra",
+                "information": "La muestra titulada Paz y Justicia es la segunda de este nuevo espacio dedicado a la obra visual de la folclorista nacional Violeta Parra. En ella se reúnen más de 30 piezas entre pinturas, papel maché y sus destacadas arpilleras. Obras emblemáticas como “Contra la guerra”, “Prisionero inocente” y “Viva la paz” dialogan entre si hablándonos y dando fe de una temática que atravesó siempre su producción artística estando al centro de sus preocupaciones e intereses.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
