@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61024903375703,
+                    -33.50059297552472
+                ]
+            },
+            "properties": {
+                "identifier": "CS403-SJ",
+                "name": "CS403",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61021423518498,
                     -33.49661725950944
                 ]
