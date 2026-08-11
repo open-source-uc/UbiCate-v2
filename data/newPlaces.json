@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61342676327033,
+                    -33.498158266513
+                ]
+            },
+            "properties": {
+                "identifier": "MSORG7WEG0XEHN",
+                "name": "Galería Arte Hall Universitario",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61796240314763,
                     -33.42006068251823
                 ]
