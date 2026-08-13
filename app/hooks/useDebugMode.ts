@@ -1,39 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+
+import {
+  getDebugModeServerSnapshot,
+  getDebugModeSnapshot,
+  setDebugModeEnabled,
+  subscribeDebugMode,
+} from "@/lib/debug/debugModeStore";
+
+/**
+ * Solo lee el flag. Úsalo cuando el componente quiera saber si está en modo debug sin encargarse de
+ * apagarlo.
+ */
+export function useIsDebugMode(): boolean {
+  return useSyncExternalStore(subscribeDebugMode, getDebugModeSnapshot, getDebugModeServerSnapshot);
+}
 
 /**
  * El modo debug muestra propuestas pendientes y permite aprobar/rechazar, así que NO puede servir datos
  * cacheados: se apaga solo al perder conexión (ver CLAUDE.md, "Dos modos").
+ *
+ * `setDebugModeEnabled` no es un setState de React sino una escritura al store externo, así que el
+ * efecto no reintroduce el problema de "setState sincrónico dentro de un efecto".
  */
 export function useDebugMode(): boolean {
-  const [isDebugMode, setIsDebugMode] = useState(false);
+  const isDebugMode = useIsDebugMode();
 
   useEffect(() => {
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        setIsDebugMode(sessionStorage.getItem("debugMode") === "true");
-      }
-    } catch (error) {
-      console.warn("Unable to access sessionStorage:", error);
-      setIsDebugMode(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleOffline = () => {
-      sessionStorage.removeItem("debugMode");
-      setIsDebugMode(false);
-    };
-    window.addEventListener("offline", handleOffline);
-    return () => window.removeEventListener("offline", handleOffline);
-  }, []);
-
-  useEffect(() => {
-    if (typeof navigator !== "undefined" && !navigator.onLine) {
-      sessionStorage.removeItem("debugMode");
-      setIsDebugMode(false);
-    }
+    const disable = () => setDebugModeEnabled(false);
+    if (typeof navigator !== "undefined" && !navigator.onLine) disable();
+    window.addEventListener("offline", disable);
+    return () => window.removeEventListener("offline", disable);
   }, []);
 
   return isDebugMode;

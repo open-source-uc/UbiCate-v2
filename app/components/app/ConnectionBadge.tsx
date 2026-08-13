@@ -52,6 +52,9 @@ export default function ConnectionBadge() {
 
   useEffect(() => {
     if (!firstRequestResult) return;
+    // El badge es transitorio: se muestra y un timer lo esconde. No es estado derivable en el render,
+    // es una reacción de una sola vez al resultado del primer request.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     showBadge(testBadge ?? RESULT_TO_BADGE[firstRequestResult]);
   }, [firstRequestResult, testBadge, showBadge]);
 

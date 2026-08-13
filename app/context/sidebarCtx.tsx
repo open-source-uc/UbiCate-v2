@@ -1,6 +1,16 @@
 "use client";
 
-import { createContext, useContext, ReactNode, useState, useEffect, useMemo, useCallback, useRef } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useCallback,
+  useRef,
+} from "react";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -39,13 +49,16 @@ interface SidebarContextType {
   // El panel abierto (buscar / campus / guía / lugar) es state local de cada sidebar, así que para
   // cerrarlo desde afuera —un clic en el mapa— se emite esta señal y cada sidebar reacciona.
   closeSidebar: () => void;
-  closeSignal: number;
+  // Suscripción, no contador: devuelve la función para desuscribirse.
+  subscribeToClose: (listener: () => void) => () => void;
   places: Feature[];
   points: PointFeature[];
   polygons: PolygonFeature[];
   setPlaces: (e: Feature[] | Feature | null) => void;
   selectedPlace: Feature | null;
   setSelectedPlace: (place: Feature | null) => void;
+  // Última selección no nula, para que el panel del lugar sobreviva mientras se crea un punto.
+  lastSelectedPlace: Feature | null;
   pointsName: PointFeature[];
   activeFilters: string[];
   setActiveFilters: (filters: string[]) => void;
@@ -64,7 +77,7 @@ interface SidebarContextType {
   selectedRoute: RouteFeature | null;
   setSelectedRoute: (route: RouteFeature | null) => void;
   // Señal para abrir el panel de Rutas desde fuera del sidebar (clic en la línea del mapa).
-  openRoutesPanelSignal: number;
+  subscribeToOpenRoutesPanel: (listener: () => void) => () => void;
   openRoutesPanel: (route?: RouteFeature | null) => void;
   // Ruta cuya ficha debe mostrarse. Se guarda el Feature completo, no un id: el id tendría que volver a
   // resolverse contra `routes` y el que entrega maplibre viene de properties serializadas.
@@ -83,15 +96,36 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [closeSignal, setCloseSignal] = useState<number>(0);
-  const closeSidebar = useCallback(() => setCloseSignal((n) => n + 1), []);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [eventCounts, setEventCounts] = useState<Map<string, number>>(new Map());
   const [eventPlaceIds, setEventPlaceIds] = useState<Set<string>>(new Set());
   const [isOnline, setIsOnline] = useState<boolean>(true);
   const [selectedRoute, setSelectedRoute] = useState<RouteFeature | null>(null);
-  const [openRoutesPanelSignal, setOpenRoutesPanelSignal] = useState<number>(0);
   const [routeDetail, setRouteDetail] = useState<RouteFeature | null>(null);
+
+  // "Cierra el panel" y "abre el panel de Rutas" son EVENTOS, no estado. Antes eran contadores que
+  // cada sidebar observaba con un useEffect + setState; ahora los sidebars registran un callback y el
+  // contexto lo invoca, así el cambio de UI ocurre en un handler y no dentro de un efecto.
+  const closeListeners = useRef(new Set<() => void>());
+  const routesPanelListeners = useRef(new Set<() => void>());
+
+  const subscribeToClose = useCallback((listener: () => void) => {
+    closeListeners.current.add(listener);
+    return () => {
+      closeListeners.current.delete(listener);
+    };
+  }, []);
+
+  const subscribeToOpenRoutesPanel = useCallback((listener: () => void) => {
+    routesPanelListeners.current.add(listener);
+    return () => {
+      routesPanelListeners.current.delete(listener);
+    };
+  }, []);
+
+  const closeSidebar = useCallback(() => {
+    for (const listener of closeListeners.current) listener();
+  }, []);
 
   // Elegir una ruta en la lista la dibuja y cierra cualquier ficha abierta.
   const selectRoute = useCallback((route: RouteFeature | null) => {
@@ -101,7 +135,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
 
   const openRoutesPanel = useCallback((route?: RouteFeature | null) => {
     setRouteDetail(route ?? null);
-    setOpenRoutesPanelSignal((n) => n + 1);
+    for (const listener of routesPanelListeners.current) listener();
   }, []);
   const queryClient = useQueryClient();
 
@@ -151,6 +185,8 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   }, [error, fetchStatus]);
 
   useEffect(() => {
+    // Latch pegajoso de loadError: React Query borra `error` al INICIAR cualquier fetch mientras no hay datos, así que el error se retiene acá. Ver CLAUDE.md.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (data) return setStickyLoadError(null);
     if (fetchFailure) setStickyLoadError(fetchFailure);
   }, [data, fetchFailure]);
@@ -223,6 +259,8 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   // `routesPanel` es el simétrico). Va en su propio efecto y no en el efecto central de filtros, que
   // también corre en cada refetch de datos y borraría la ruta sin que el usuario tocara nada.
   useEffect(() => {
+    // Ruta dibujada y filtros se excluyen entre sí; va en su propio efecto a propósito (ver el comentario de arriba).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (activeFilters.length > 0) selectRoute(null);
   }, [activeFilters, selectRoute]);
 
@@ -238,12 +276,17 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   }, [eventsData]);
 
   const o = usePlaces(eventCounts);
+  // `setPlaces` es estable (useCallback dentro de usePlaces). Se destructura para poder usarlo como
+  // dependencia sin arrastrar todo `o`, que se recrea en cada render y haría correr los efectos siempre.
+  const { setPlaces } = o;
 
   useEffect(() => {
     const savedFilters = localStorage.getItem("ubicateActiveFilters");
     if (savedFilters) {
       try {
         const parsed = JSON.parse(savedFilters);
+        // localStorage solo existe en el cliente: leerlo durante el render rompería la hidratación.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setActiveFilters(parsed);
       } catch (e) {
         console.error("Error loading filters from localStorage:", e);
@@ -279,19 +322,21 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         setManualServerError(false);
         const inDebugMode = typeof window !== "undefined" && sessionStorage.getItem("debugMode") === "true";
         if (syncMap && !inDebugMode) {
-          o.setPlaces(freshData.approved_places?.features ?? []);
+          setPlaces(freshData.approved_places?.features ?? []);
         }
       } catch (err) {
         setManualServerError(err instanceof AppLoadError && err.kind === "database");
       }
     },
-    [queryClient, o.setPlaces],
+    [queryClient, setPlaces],
   );
 
   // Se lee dentro de los listeners sin volver a suscribirlos: cambiar las deps del efecto relanzaría
   // el refetch de montaje, que es justo lo que no queremos con la pantalla de error arriba.
-  const isLoadBlockedRef = useRef(isLoadBlocked);
-  isLoadBlockedRef.current = isLoadBlocked;
+  // useEffectEvent da esa lectura "no reactiva" sin escribir una ref durante el render.
+  const refetchIfNotBlocked = useEffectEvent(() => {
+    if (!isLoadBlocked) refetchPlaces({ syncMap: false, fresh: false });
+  });
 
   // Al cargar con conexión → buscar enseguida datos frescos del servidor. Al reconectar → volver a
   // pedirlos y restaurar la cadencia online. Al perder conexión → cambiar a polling agresivo (offline).
@@ -302,12 +347,14 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
       setIsOnline(true);
       clearTimeout(reconnectTimer);
       reconnectTimer = setTimeout(() => {
-        if (!isLoadBlockedRef.current) refetchPlaces({ syncMap: false, fresh: false });
+        refetchIfNotBlocked();
       }, Math.random() * RECONNECT_JITTER_MS);
     };
     const goOffline = () => setIsOnline(false);
 
     if (typeof navigator !== "undefined") {
+      // navigator.onLine solo existe en el cliente.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOnline(navigator.onLine);
       if (navigator.onLine) refetchPlaces({ syncMap: false, fresh: false });
     }
@@ -326,7 +373,9 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   // de eventos (categoría EVENTS) y publica eventPlaceIds para que el mapa marque esos lugares.
   useEffect(() => {
     if (activeFilters.length === 0) {
-      o.setPlaces([]);
+      setPlaces([]);
+      // Efecto central que recalcula los puntos del mapa desde los filtros activos. Ver CLAUDE.md.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setEventPlaceIds(new Set());
       return;
     }
@@ -361,8 +410,8 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
 
     setEventCounts(new Map());
     setEventPlaceIds(nextEventPlaceIds);
-    o.setPlaces(results);
-  }, [allFeatures, allEvents, eventPlaces, activeFilters, o.setPlaces]);
+    setPlaces(results);
+  }, [allFeatures, allEvents, eventPlaces, activeFilters, setPlaces]);
 
   return (
     <SidebarContext.Provider
@@ -370,7 +419,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         isOpen,
         setIsOpen,
         closeSidebar,
-        closeSignal,
+        subscribeToClose,
         ...o,
         places: o.findPlaces,
         pointsName: o.PointsName,
@@ -386,7 +435,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         routes,
         selectedRoute,
         setSelectedRoute: selectRoute,
-        openRoutesPanelSignal,
+        subscribeToOpenRoutesPanel,
         openRoutesPanel,
         routeDetail,
         isDataLoaded: isSuccess,

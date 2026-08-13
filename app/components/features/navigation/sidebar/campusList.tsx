@@ -14,10 +14,11 @@ export default function CampusList({
   handleCampusClick: (campus: string) => void;
   setActiveSubSidebar: (value: SubSidebarType) => void;
 }) {
-  const now = nowInChile();
   const { allEvents } = useSidebar();
 
   const campusEventCounts = useMemo(() => {
+    // `now` se calcula dentro del memo: afuera cambiaba en cada render y anulaba la memoización.
+    const now = nowInChile();
     const counts: Record<string, number> = {};
     for (const ev of allEvents) {
       if (!isEventVisible(ev.properties, now)) continue;

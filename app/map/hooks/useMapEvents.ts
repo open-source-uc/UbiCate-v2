@@ -308,7 +308,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       setIsLoaded(true);
       setMapLoaded();
     },
-    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel, setMapLoaded],
+    [mapRef, paramPlace, paramLng, paramLat, setPlaces, handlePlaceSelection, addPin, cancel, setPicking, setMapLoaded],
   );
 
   // Con el formulario abierto manda el formulario: mover/rehacer la geometría no debe cambiar el lugar
@@ -326,6 +326,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     if (pins.length > 0) {
       handlePlaceSelection(pins[pins.length - 1] ?? null, config);
     }
+    // Depende SOLO de pins y de las tres guardas. Agregar `handlePlaceSelection` lo relanzaría cuando cambia
+    // su identidad y volvería a seleccionar el último vértice, tapando el formulario. Ver CLAUDE.md.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pins, isPicking, isPlaceFormOpen, isForRoute]);
 
   return {

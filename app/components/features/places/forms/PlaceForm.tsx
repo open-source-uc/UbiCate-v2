@@ -76,6 +76,9 @@ export default function PlaceForm({
         floors: [1],
       }));
     }
+    // Depende SOLO de isPicking: la geometría se guarda al salir del modo edición. Con `pins.length` en las
+    // deps se reescribiría el formulario en cada vértice. Ver modo_edicion.md.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

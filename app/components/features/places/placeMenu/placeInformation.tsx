@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, type ElementType } from "react";
+import { useState, useCallback, useMemo, type ElementType } from "react";
 
 import {
   DropdownMenu,
@@ -12,6 +12,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useIsDebugMode } from "@/app/hooks/useDebugMode";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { getParentPlaceFloor, normalizeIdentifier } from "@/lib/places/utils";
 import {
@@ -57,7 +58,7 @@ export default function PlaceInformation({
   onApprove?: () => void;
   onReject?: () => void;
 }) {
-  const [isDebug, setIsDebug] = useState<boolean>(false);
+  const isDebug = useIsDebugMode();
   const [expandedEvents, setExpandedEvents] = useState<Set<string>>(new Set());
   const [editingEvent, setEditingEvent] = useState<EventFeature | null>(null);
   const [showEventForm, setShowEventForm] = useState(false);
@@ -72,18 +73,6 @@ export default function PlaceInformation({
       else next.add(id);
       return next;
     });
-  }, []);
-
-  useEffect(() => {
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        const debugMode = sessionStorage.getItem("debugMode") === "true";
-        setIsDebug(debugMode);
-      }
-    } catch (error) {
-      console.warn("Unable to access sessionStorage:", error);
-      setIsDebug(false);
-    }
   }, []);
 
   const { allEvents: contextEvents, eventPlaces } = useSidebar();

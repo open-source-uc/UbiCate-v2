@@ -43,6 +43,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
         timeoutRef.current = null;
       }
 
+      // Reacción de una sola vez a que por fin llegó la posición del GPS.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsWaitingForLocation(false);
       setShouldCalculateRoute(true);
     }
@@ -75,6 +77,8 @@ export default function RouteButton({ place }: RouteButtonProps) {
     setDirectionData(direction, "xd", distance);
     setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
     setSelectedPlace(null);
+    // Cierra el ciclo de cálculo cuando el hook de direcciones entrega el resultado.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setShouldCalculateRoute(false);
   }, [
     optimalDirection,

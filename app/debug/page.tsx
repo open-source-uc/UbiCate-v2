@@ -2,33 +2,14 @@
 
 import Link from "next/link";
 
-import { useState, useEffect } from "react";
+import { useIsDebugMode } from "@/app/hooks/useDebugMode";
+import { setDebugModeEnabled } from "@/lib/debug/debugModeStore";
 
 export default function DebugPage() {
-  const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
-
-  useEffect(() => {
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        const debugModeFromLocalStorage = sessionStorage.getItem("debugMode") === "true";
-        setIsDebugMode(debugModeFromLocalStorage);
-      }
-    } catch (error) {
-      console.warn("Unable to access sessionStorage:", error);
-      setIsDebugMode(false);
-    }
-  }, []);
+  const isDebugMode = useIsDebugMode();
 
   const toggleDebugMode = () => {
-    const newDebugMode = !isDebugMode;
-    setIsDebugMode(newDebugMode);
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        sessionStorage.setItem("debugMode", newDebugMode.toString());
-      }
-    } catch (error) {
-      console.warn("Unable to set sessionStorage:", error);
-    }
+    setDebugModeEnabled(!isDebugMode);
   };
 
   return (

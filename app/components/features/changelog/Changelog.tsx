@@ -46,6 +46,8 @@ export default function Changelog() {
     const timer = setTimeout(() => {
       setOpen(false);
       setClosing(false);
+      // El "ver todas" se resetea junto con el cierre, no en un efecto aparte que observe `open`.
+      setShowAll(false);
     }, MODAL_EXIT_MS);
     return () => clearTimeout(timer);
   }, [closing]);
@@ -59,10 +61,6 @@ export default function Changelog() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, closeModal]);
-
-  useEffect(() => {
-    if (!open) setShowAll(false);
-  }, [open]);
 
   return (
     <>

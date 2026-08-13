@@ -11,39 +11,36 @@ interface UsageGuideProps {
 type AccordionKey =
   "buscar" | "agregar" | "modificar" | "iphone" | "android" | "iphone_ubicacion" | "android_ubicacion";
 
+// Vive fuera de UsageGuide a propósito: definido dentro, React lo trataba como un componente nuevo
+// en cada render y desmontaba/remontaba cada acordeón.
+function AccordionItem({
+  title,
+  children,
+  isOpen,
+  onToggle,
+}: {
+  title: string;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div className="rounded-lg bg-[#0176DE] transition">
+      <button onClick={onToggle} className="w-full px-4 py-3 flex items-center justify-between transition">
+        <span className="font-semibold text-left text-white">{title}</span>
+        <Icons.ExpandMore className={`w-5 h-5 text-white transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+      {isOpen ? <div className="px-4 py-3 text-sm space-y-2 text-white">{children}</div> : null}
+    </div>
+  );
+}
+
 export default function UsageGuide({ onClose }: UsageGuideProps) {
   const [openAccordion, setOpenAccordion] = useState<AccordionKey | null>(null);
 
   const toggleAccordion = (key: AccordionKey) => {
     setOpenAccordion(openAccordion === key ? null : key);
   };
-
-  function AccordionItem({
-    title,
-    children,
-    id,
-    index,
-  }: {
-    title: string;
-    children: React.ReactNode;
-    id: AccordionKey;
-    index: number;
-  }) {
-    return (
-      <div className="rounded-lg bg-[#0176DE] transition">
-        <button
-          onClick={() => toggleAccordion(id)}
-          className="w-full px-4 py-3 flex items-center justify-between transition"
-        >
-          <span className="font-semibold text-left text-white">{title}</span>
-          <Icons.ExpandMore
-            className={`w-5 h-5 text-white transition-transform ${openAccordion === id ? "rotate-180" : ""}`}
-          />
-        </button>
-        {openAccordion === id && <div className="px-4 py-3 text-sm space-y-2 text-white">{children}</div>}
-      </div>
-    );
-  }
 
   return (
     <div className="flex flex-col h-full">
@@ -67,7 +64,11 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
       {/* Content - Accordions (match other tabs: no nested scroll) */}
       <section className="flex-1 px-4 pt-4 pb-8">
         <div className="space-y-3">
-          <AccordionItem id="buscar" title="¿Cómo buscar un lugar?" index={0}>
+          <AccordionItem
+            title="¿Cómo buscar un lugar?"
+            isOpen={openAccordion === "buscar"}
+            onToggle={() => toggleAccordion("buscar")}
+          >
             <div className="space-y-2">
               <p>
                 Utiliza la barra de búsqueda en la parte superior para encontrar salas, baños, bibliotecas y otros
@@ -77,7 +78,11 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
             </div>
           </AccordionItem>
 
-          <AccordionItem id="agregar" title="¿Cómo agregar un lugar?" index={1}>
+          <AccordionItem
+            title="¿Cómo agregar un lugar?"
+            isOpen={openAccordion === "agregar"}
+            onToggle={() => toggleAccordion("agregar")}
+          >
             <div className="space-y-2">
               <p>
                 Para agregar un nuevo lugar, <strong>presiona dos veces</strong> en el punto del mapa donde deseas
@@ -100,7 +105,11 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
             </div>
           </AccordionItem>
 
-          <AccordionItem id="modificar" title="¿Cómo modificar un lugar?" index={2}>
+          <AccordionItem
+            title="¿Cómo modificar un lugar?"
+            isOpen={openAccordion === "modificar"}
+            onToggle={() => toggleAccordion("modificar")}
+          >
             <div className="space-y-2">
               <p>Selecciona un lugar en el mapa presionando sobre él.</p>
               <p>Se abrirá un panel con la información del lugar.</p>
@@ -114,7 +123,11 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
               </p>
             </div>
           </AccordionItem>
-          <AccordionItem id="iphone" title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu iPhone?" index={3}>
+          <AccordionItem
+            title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu iPhone?"
+            isOpen={openAccordion === "iphone"}
+            onToggle={() => toggleAccordion("iphone")}
+          >
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
               <p>2. Presiona en el ícono de compartir (cuadrado con flecha hacia arriba)</p>
@@ -128,9 +141,9 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
             </div>
           </AccordionItem>
           <AccordionItem
-            id="iphone_ubicacion"
             title="¿Cómo dar permisos de ubicación a Ubicate en tu iPhone?"
-            index={3}
+            isOpen={openAccordion === "iphone_ubicacion"}
+            onToggle={() => toggleAccordion("iphone_ubicacion")}
           >
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza.</p>
@@ -158,7 +171,11 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
               <p>Siguiendo estos pasos, Ubicate podrá acceder a tu ubicación y te mostrará tu posición en el mapa.</p>
             </div>
           </AccordionItem>
-          <AccordionItem id="android" title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu Android?" index={4}>
+          <AccordionItem
+            title="¿Cómo agregar Ubicate a tu pantalla de inicio en tu Android?"
+            isOpen={openAccordion === "android"}
+            onToggle={() => toggleAccordion("android")}
+          >
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza</p>
               <p>2. Presiona en el menú (tres puntos verticales)</p>
@@ -172,9 +189,9 @@ export default function UsageGuide({ onClose }: UsageGuideProps) {
             </div>
           </AccordionItem>
           <AccordionItem
-            id="android_ubicacion"
             title="¿Cómo dar permisos de ubicación a Ubicate en tu Android?"
-            index={4}
+            isOpen={openAccordion === "android_ubicacion"}
+            onToggle={() => toggleAccordion("android_ubicacion")}
           >
             <div className="space-y-2">
               <p>1. Abre Ubicate en tu navegador de confianza.</p>

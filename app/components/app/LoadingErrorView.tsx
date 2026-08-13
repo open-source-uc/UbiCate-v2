@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { hasAppLoadedOnce, LoadErrorKind } from "@/lib/api/loadError";
 
@@ -62,10 +62,11 @@ export default function LoadingErrorView({
   forceFirstVisit,
 }: LoadingErrorViewProps) {
   // Se lee una sola vez al montar: `markAppLoadedOnce()` puede correr después y voltear el valor,
-  // y el copy de la pantalla no debe cambiar a mitad de camino.
-  const firstVisitRef = useRef<boolean | null>(null);
-  if (firstVisitRef.current === null) firstVisitRef.current = !hasAppLoadedOnce();
-  const storedFirstVisit = firstVisitRef.current;
+  // y el copy de la pantalla no debe cambiar a mitad de camino. El inicializador diferido de
+  // useState corre solo en el primer render, sin tocar una ref durante el render.
+  // Sin setter a propósito: es un valor de solo lectura congelado en el primer render.
+  // eslint-disable-next-line react/hook-use-state
+  const [storedFirstVisit] = useState(() => !hasAppLoadedOnce());
 
   const [minRetryActive, setMinRetryActive] = useState(false);
   const { icon, title, message } = getContent(kind, forceFirstVisit ?? storedFirstVisit);

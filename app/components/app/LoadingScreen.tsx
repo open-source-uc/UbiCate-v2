@@ -52,6 +52,8 @@ export default function LoadingScreen() {
   }, [isDone]);
 
   useEffect(() => {
+    // Volver a mostrar la portada cuando aparece un error de carga es coordinación con estado de otro árbol, no algo derivable en el render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (activeError) setIsUnmounted(false);
   }, [activeError]);
 

@@ -11,13 +11,25 @@ export default function usePlaces(eventCounts: Map<string, number> = new Map()):
   polygons: PolygonFeature[];
   setPlaces: (places: Feature[] | Feature | null) => void;
   selectedPlace: Feature | null;
-  setSelectedPlace: (place: Feature | null | ((prev: Feature | null) => Feature | null)) => void;
+  setSelectedPlace: (place: Feature | null) => void;
+  // Última selección no nula. Los sidebars la usan para seguir mostrando la ficha mientras se crea un
+  // punto, aunque algo deseleccione el lugar.
+  lastSelectedPlace: Feature | null;
   PointsName: PointFeature[];
   hiddenPlaceIds: Set<string>;
   togglePlaceHidden: (identifier: string) => void;
 } {
   const [allFindPlaces, setAllFindPlaces] = useState<Feature[]>([]);
   const [selectedPlace, setSelectedPlace] = useState<Feature | null>(null);
+  // Se actualiza en la misma transición que `selectedPlace`, dentro del handler. Antes cada sidebar la
+  // recordaba con una ref escrita en un efecto y leída durante el render, que es impuro: guardarla
+  // acá, junto al estado que refleja, deja a los sidebars derivando sin memoria propia.
+  const [lastSelectedPlace, setLastSelectedPlace] = useState<Feature | null>(null);
+
+  const selectPlace = useCallback((place: Feature | null) => {
+    setSelectedPlace(place);
+    if (place !== null) setLastSelectedPlace(place);
+  }, []);
   // Ocultar es solo para la sesión: no se persiste, al recargar vuelven a aparecer
   const [hiddenPlaceIds, setHiddenPlaceIds] = useState<Set<string>>(new Set());
 
@@ -96,7 +108,8 @@ export default function usePlaces(eventCounts: Map<string, number> = new Map()):
     polygons: Polygons as PolygonFeature[],
     setPlaces,
     selectedPlace,
-    setSelectedPlace,
+    setSelectedPlace: selectPlace,
+    lastSelectedPlace,
     PointsName: PointsName as PointFeature[],
     hiddenPlaceIds,
     togglePlaceHidden,

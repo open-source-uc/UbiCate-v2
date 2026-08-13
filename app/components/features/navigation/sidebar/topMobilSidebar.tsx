@@ -8,34 +8,29 @@ import { siglas } from "@/lib/types";
 import Changelog from "../../changelog/Changelog";
 import { SearchDropdown } from "../../search/SearchDropdown";
 
+// Si es una sigla corta (2 letras), obtener el nombre completo.
+// Si es un nombre largo, obtener la sigla y luego el nombre completo.
+function resolveCampusName(campus: string): string {
+  if (campus.length === 2) {
+    // Es una sigla como "SJ", obtener nombre completo directamente
+    return siglas.get(campus) || campus;
+  }
+  // Es un nombre largo como "SanJoaquin", primero obtener la sigla
+  const sigla = siglas.get(campus);
+  return (sigla ? siglas.get(sigla) : undefined) || campus;
+}
+
 export default function TopMobileSidebar() {
   const { component } = use(NotificationContext);
   const searchParams = useSearchParams();
   const [campusName, setCampusName] = useState<string | null>(null);
 
   useEffect(() => {
-    const campusParam = searchParams.get("campus");
-    const campus = campusParam || localStorage.getItem("defaultCampus");
-
-    if (campus) {
-      // Si es una sigla corta (2 letras), obtener el nombre completo
-      // Si es un nombre largo, obtener la sigla y luego el nombre completo
-      let fullName: string | undefined;
-
-      if (campus.length === 2) {
-        // Es una sigla como "SJ", obtener nombre completo directamente
-        fullName = siglas.get(campus);
-      } else {
-        // Es un nombre largo como "SanJoaquin", primero obtener la sigla
-        const sigla = siglas.get(campus);
-        // Luego usar la sigla para obtener el nombre completo
-        fullName = sigla ? siglas.get(sigla) : undefined;
-      }
-
-      setCampusName(fullName || campus);
-    } else {
-      setCampusName(null);
-    }
+    const campus = searchParams.get("campus") || localStorage.getItem("defaultCampus");
+    // El fallback lee `localStorage`, que solo existe en el cliente: derivarlo durante el render
+    // reventaría en el servidor y provocaría un mismatch de hidratación.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCampusName(campus ? resolveCampusName(campus) : null);
   }, [searchParams]);
 
   return (

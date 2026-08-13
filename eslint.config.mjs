@@ -70,17 +70,6 @@ export default defineConfig([
       "react/jsx-no-leaked-render": "error",
       // useState should be destructured
       "react/hook-use-state": "error",
-      /* React Hooks: nivel de señal previo al upgrade — NO son reglas apagadas, son warnings.
-         eslint-config-next@16 trae eslint-plugin-react-hooks@7, que sube `exhaustive-deps` de
-         warning a error y añade cinco reglas que antes no existían. Dejarlas en error convertía
-         82 patrones preexistentes en errores duros y rompía `npm run preview`, que corre
-         `lint:fix && cf:preview` y se detiene si el lint falla. Limpiarlas es un trabajo aparte. */
-      "react-hooks/exhaustive-deps": "warn",
-      "react-hooks/set-state-in-effect": "warn",
-      "react-hooks/refs": "warn",
-      "react-hooks/static-components": "warn",
-      "react-hooks/immutability": "warn",
-      "react-hooks/use-memo": "warn",
     },
   },
   globalIgnores([

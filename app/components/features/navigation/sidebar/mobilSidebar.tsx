@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import * as Icons from "@/app/components/ui/icons/icons";
@@ -10,7 +10,7 @@ import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
-import { Feature, SubSidebarType } from "@/lib/types";
+import { SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
@@ -23,7 +23,15 @@ import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal, openRoutesPanelSignal } = useSidebar();
+  const {
+    isOpen,
+    setIsOpen,
+    selectedPlace,
+    setSelectedPlace,
+    lastSelectedPlace,
+    subscribeToClose,
+    subscribeToOpenRoutesPanel,
+  } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
@@ -145,15 +153,13 @@ export default function MobileSidebar() {
 
   // El panel del lugar se mantiene mientras se esté creando un punto (`isCreatingPlace`): aunque algo
   // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
-  const lastPlaceRef = useRef<Feature | null>(null);
-  useEffect(() => {
-    if (selectedPlace !== null) lastPlaceRef.current = selectedPlace;
-  }, [selectedPlace]);
-  const menuPlace = selectedPlace ?? (isCreatingPlace ? lastPlaceRef.current : null);
+  const menuPlace = selectedPlace ?? (isCreatingPlace ? lastSelectedPlace : null);
 
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
+      // Coordinación entre árboles: seleccionar un lugar en el mapa abre su panel y fija la altura del sheet.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSubSidebar("placeInformation");
       setSidebarHeight(33);
       return;
@@ -165,25 +171,28 @@ export default function MobileSidebar() {
 
   // Clic en el mapa: cierra el panel abierto sea cual sea. El efecto de arriba no basta porque si
   // `selectedPlace` ya era null no se vuelve a disparar.
-  useEffect(() => {
-    if (closeSignal === 0 || isCreatingPlace) return;
+  const handleCloseSignal = useEffectEvent(() => {
+    if (isCreatingPlace) return;
     setActiveSubSidebar(null);
     setSidebarHeight(10);
     setIsOpen(false);
-  }, [closeSignal, setIsOpen, isCreatingPlace]);
+  });
+  useEffect(() => subscribeToClose(handleCloseSignal), [subscribeToClose]);
 
   // Clic en la línea de una ruta en el mapa: se abre su ficha. Acá sí hay que abrir el sheet, o el
   // efecto de "sidebar cerrado" lo baja de inmediato.
-  useEffect(() => {
-    if (openRoutesPanelSignal === 0) return;
+  const handleOpenRoutesPanel = useEffectEvent(() => {
     setIsOpen(true);
     setSidebarHeight(45);
     setActiveSubSidebar("routeInformation");
-  }, [openRoutesPanelSignal, setIsOpen]);
+  });
+  useEffect(() => subscribeToOpenRoutesPanel(handleOpenRoutesPanel), [subscribeToOpenRoutesPanel]);
 
   // Handle sidebar close
   useEffect(() => {
     if (isOpen === false && !isCreatingPlace) {
+      // Cerrar el sheet resetea el panel activo y su altura.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSubSidebar(null);
       setSidebarHeight(10);
     }
@@ -213,6 +222,9 @@ export default function MobileSidebar() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
+    // Red de seguridad para un desmontaje a mitad de un drag. Meter los handlers en las deps re-registraría
+    // la limpieza en cada render, que es peor que el caso raro que cubre.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -238,6 +250,9 @@ export default function MobileSidebar() {
     } catch (error) {
       console.warn("Unable to access sessionStorage:", error);
     }
+    // Solo al montar: abre el sheet la primera vez de la sesión. Con `create` y `setIsOpen` en las deps
+    // volvería a dispararse y el sheet se abriría solo cada vez que cambien.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -249,7 +264,6 @@ export default function MobileSidebar() {
           height: isOpen ? `${sidebarHeight}dvh` : "4rem",
           transition: enableTransition ? "all 300ms" : "none",
         }}
-        aria-expanded={isOpen}
         role="dialog"
         aria-label="Panel de navegación móvil"
       >

@@ -84,9 +84,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="preload" as="image" href={LOADING_IMAGE} media={LOADING_IMAGE_MEDIA} fetchPriority="high" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* display=block y no swap/optional a propósito: Material Symbols dibuja los iconos con
+            ligaduras, así que mientras la fuente no cargue el fallback mostraría el nombre del icono
+            como texto crudo. `block` oculta el glifo hasta que llega.
+            La regla no-page-custom-font apunta a pages/_document.js; en el layout raíz del App
+            Router la fuente sí se carga para toda la app, así que acá es un falso positivo. */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200&display=block"
         />
         {/* Google Tag Manager UC - DTFD */}
         <Script id="gtm-script" strategy="beforeInteractive">

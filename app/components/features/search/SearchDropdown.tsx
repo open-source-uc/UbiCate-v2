@@ -49,6 +49,8 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
 
   useEffect(() => {
     const hasQuery = query.trim().length > 0;
+    // La apertura del dropdown y el volcado al mapa dependen de `hasSearched`, que no es derivable en el render (ver el comentario de abajo).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsOpen(hasQuery && matchingFeatures.length > 0);
     setSelectedIndex(-1);
 
@@ -59,7 +61,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
 
     if (!x.current) setPlaces(matchingFeatures);
     x.current = null;
-  }, [query, matchingFeatures]);
+  }, [query, matchingFeatures, setPlaces]);
 
   // `autoFocus` haría que el navegador scrollee para revelar el input mientras el subsidebar todavía se
   // está abriendo, arrastrando el contenedor. Con preventScroll el foco no mueve nada.

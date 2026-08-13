@@ -30,6 +30,8 @@ export default function UserLocation() {
   useEffect(() => {
     if (mainMap) {
       mainMap.on("move", updateBearing);
+      // updateBearing lee el bearing del mapa (sistema externo) para inicializarlo al montar.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       updateBearing(); // Inicializar bearing
     }
 
@@ -52,20 +54,15 @@ export default function UserLocation() {
       console.error("Ubication error:", error);
       setNotification(<DirectionErrorNotification>{error}</DirectionErrorNotification>);
       addCode("locationError");
+      // Un error de ubicación cancela la solicitud en curso.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsRequestingLocation(false);
     } else {
       removeCode("locationError");
     }
   }, [error, setNotification, addCode, removeCode]);
 
-  // Auto teleport cuando se obtiene posición por primera vez
-  useEffect(() => {
-    if (position && hasLocation && isRequestingLocation) {
-      setIsRequestingLocation(false);
-      teleportToUserLocation();
-    }
-  }, [position, hasLocation, isRequestingLocation]);
-
+  // Declarada antes del efecto que la usa: al revés, el efecto la capturaba en su zona muerta temporal.
   const teleportToUserLocation = useCallback(() => {
     if (!position || !mainMap) return;
 
@@ -94,7 +91,17 @@ export default function UserLocation() {
     setTimeout(() => {
       mainMap.getMap().setMaxBounds(getMaxCampusBoundsFromName(campus));
     }, 600);
-  }, [position, mainMap, setNotification, addCode, removeCode]);
+  }, [position, mainMap, isRequestingLocation, setNotification, addCode, removeCode]);
+
+  // Auto teleport cuando se obtiene posición por primera vez
+  useEffect(() => {
+    if (position && hasLocation && isRequestingLocation) {
+      // Llegó la posición: se cierra la solicitud en curso antes de volar hacia ella.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsRequestingLocation(false);
+      teleportToUserLocation();
+    }
+  }, [position, hasLocation, isRequestingLocation, teleportToUserLocation]);
 
   const handleLocationButtonClick = useCallback(async () => {
     // Si ya está solicitando ubicación, cancelar
@@ -129,7 +136,6 @@ export default function UserLocation() {
   }, [
     position,
     hasLocation,
-    isTracking,
     isRequestingLocation,
     requestLocation,
     requestOrientation,

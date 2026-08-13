@@ -63,6 +63,9 @@ export default function RouteForm({
       setPicking(true, "line");
     }
     return () => setForRoute(false);
+    // Init de una sola vez al abrir el formulario de ruta (entra en modo línea o restaura la geometría).
+    // Con estas deps volvería a entrar en modo edición y perdería el trazo. Ver routes.md.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Al salir del modo edición se guarda la geometría. Con menos de 2 pins (Cancelar o Limpiar) no se
@@ -75,6 +78,8 @@ export default function RouteForm({
     }
     if (!wasPickingRef.current) return;
     wasPickingRef.current = false;
+    // Al salir del modo edición se guarda la geometría de la ruta. Con menos de 2 pins no se pisa la anterior.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (pins.length >= 2) setRouteCoords(pins.map((p) => p.geometry.coordinates));
   }, [isPicking, pins]);
 

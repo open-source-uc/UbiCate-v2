@@ -8,17 +8,11 @@ export default function AnnouncementHandler() {
   const [showAnnouncement, setShowAnnouncement] = useState(false);
 
   useEffect(() => {
-    // Verificar si el usuario marcó "no volver a mostrar"
-    const dontShowAgain = localStorage.getItem("announcement-dont-show");
-
-    // Si existe el flag, no mostrar
-    if (dontShowAgain === "true") {
-      setShowAnnouncement(false);
-      return;
-    }
-
-    // Mostrar el anuncio
-    setShowAnnouncement(true);
+    // `localStorage` solo existe en el cliente: leerlo durante el render haría que el primer render
+    // del cliente difiera del HTML del servidor (mismatch de hidratación). Por eso la inicialización
+    // vive en un efecto y el setState sincrónico es intencional.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setShowAnnouncement(localStorage.getItem("announcement-dont-show") !== "true");
   }, []);
 
   const handleClose = () => {

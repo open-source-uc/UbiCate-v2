@@ -94,10 +94,15 @@ export default function EventPlaceForm({
   useEffect(() => {
     clearPins();
     if (method === "POST" && (defaultData?.locations?.length ?? 0) === 0) {
+      // Init al montar el formulario: limpia los pins y arma el modo evento. Ver modo_edicion.md.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocations([]);
     }
     setForEvent(true);
     return () => setForEvent(false);
+    // Init de una sola vez al abrir el formulario. Con estas deps se relanzaría y borraría los pins que el
+    // usuario ya dibujó. Ver modo_edicion.md.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Al salir del modo edición se guarda la geometría editada. Con 0 pins (Cancelar o Limpiar sin
@@ -106,10 +111,15 @@ export default function EventPlaceForm({
     if (activeLocationId && !isPicking) {
       const loc = locations.find((l) => l.id === activeLocationId);
       if (loc && loc.type === "new" && pins.length > 0) {
+        // Al salir del modo edición se guarda la geometría dibujada en el lugar activo. Con 0 pins no se pisa la anterior.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLocations((prev) => prev.map((l) => (l.id === activeLocationId ? { ...l, pins: [...pins] } : l)));
       }
       setActiveLocationId(null);
     }
+    // Depende SOLO de isPicking: corre al salir del modo edición. Con `pins` o `locations` en las deps
+    // guardaría la geometría en cada movimiento del pin, no al confirmar. Ver modo_edicion.md.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPicking]);
 
   const handleSelectParent = (feature: Feature) => {
@@ -186,6 +196,8 @@ export default function EventPlaceForm({
     if (isPicking || !pickingFromUser.current) return;
     pickingFromUser.current = false;
     if (pins.length === 0) return;
+    // Al salir del modo edición se agrega el lugar recién dibujado; si se canceló (sin pins) no se agrega nada.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocations((prev) => [
       ...prev,
       {
@@ -197,6 +209,9 @@ export default function EventPlaceForm({
       },
     ]);
     setAddMode("none");
+    // Depende SOLO de isPicking: el lugar se agrega al salir del modo edición, no en cada pin nuevo.
+    // Ver modo_edicion.md.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPicking]);
 
   const handleSubmit = (e: React.FormEvent) => {

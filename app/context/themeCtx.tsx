@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useCallback, useEffect, useState, ReactNode } from "react";
 
 import { ThemeId, getThemeIds } from "@/lib/themes";
 
@@ -25,7 +25,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return getComputedStyle(document.documentElement).getPropertyValue("--color-background").trim();
   };
 
-  const updateViewportColor = (currentTheme: ThemeId) => {
+  // useCallback sin deps: solo toca el DOM, no lee valores reactivos. Estable, así puede entrar en las
+  // deps de los efectos de abajo sin hacerlos correr en cada render.
+  const updateViewportColor = useCallback((currentTheme: ThemeId) => {
     if (typeof document === "undefined") return;
 
     // Apply theme first to get correct CSS variable values
@@ -71,7 +73,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       document.head.appendChild(metaTileColor);
     }
     metaTileColor.setAttribute("content", color);
-  };
+  }, []);
 
   const setTheme = (newTheme: ThemeId) => {
     setThemeState(newTheme);
@@ -117,17 +119,20 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     // Forzar tema UC por defecto
     if (typeof window !== "undefined") {
+      // Fuerza el tema por defecto al montar y sincroniza el atributo data-theme del DOM.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setThemeState("uc-theme");
       if (typeof document !== "undefined") {
         document.documentElement.setAttribute("data-theme", "uc-theme");
         updateViewportColor("uc-theme");
       }
     }
-  }, []);
+    // updateViewportColor es estable, así que sigue corriendo una sola vez al montar.
+  }, [updateViewportColor]);
 
   useEffect(() => {
     updateViewportColor(theme);
-  }, [theme]);
+  }, [theme, updateViewportColor]);
 
   return (
     <ThemeContext.Provider

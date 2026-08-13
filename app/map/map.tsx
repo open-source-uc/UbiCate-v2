@@ -153,6 +153,8 @@ export default function MapComponent({
   const [rectPreview, setRectPreview] = useState<[number, number][] | null>(null);
 
   useEffect(() => {
+    // Salir del modo edición deselecciona el pin activo.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!isPicking) setSelectedPinId(null);
   }, [isPicking]);
 
@@ -273,6 +275,8 @@ export default function MapComponent({
         fullName = sigla ? siglas.get(sigla) : undefined;
       }
 
+      // El fallback lee localStorage, que solo existe en el cliente.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCampusDisplayName(fullName || campus);
     } else {
       setCampusDisplayName(null);

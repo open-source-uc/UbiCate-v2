@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useRef } from "react";
+import { use, useEffect, useEffectEvent, useRef } from "react";
 
 import { PickingMode, useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
@@ -36,14 +36,17 @@ export default function PickingOverlay() {
   // Geometría con la que se entró al modo edición. Si el formulario está abierto, Cancelar la restaura
   // en vez de dejar la propuesta sin geometría: solo la x del sidebar descarta el trabajo.
   const pinsOnEnterRef = useRef<PointFeature[]>([]);
-  const pinsRef = useRef(pins);
-  pinsRef.current = pins;
+  // useEffectEvent lee los pins más recientes sin volverlos dependencia del efecto: el snapshot debe
+  // tomarse solo al ENTRAR al modo edición, no cada vez que se mueve un pin.
+  const captureEntryGeometry = useEffectEvent(() => {
+    pinsOnEnterRef.current = pins;
+    resetHistory();
+  });
   // El historial de deshacer/rehacer es por sesión: cada entrada al modo edición arranca en blanco.
   useEffect(() => {
     if (!isPicking) return;
-    pinsOnEnterRef.current = pinsRef.current;
-    resetHistory();
-  }, [isPicking, resetHistory]);
+    captureEntryGeometry();
+  }, [isPicking]);
 
   // Ctrl/⌘ + Z deshace y Ctrl/⌘ + Y rehace, solo dentro del modo edición y sin foco en un campo de
   // texto (ahí el atajo le pertenece al input).

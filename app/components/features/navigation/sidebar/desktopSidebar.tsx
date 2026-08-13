@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import { Button } from "@/app/components/ui/button";
@@ -12,7 +12,7 @@ import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
-import { Feature, SubSidebarType } from "@/lib/types";
+import { SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
@@ -28,7 +28,15 @@ import UsageGuide from "./usageGuide";
 const SUBSIDEBAR_ANIM_MS = 200;
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal, openRoutesPanelSignal } = useSidebar();
+  const {
+    isOpen,
+    setIsOpen,
+    selectedPlace,
+    setSelectedPlace,
+    lastSelectedPlace,
+    subscribeToClose,
+    subscribeToOpenRoutesPanel,
+  } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
@@ -38,6 +46,8 @@ export default function DesktopSidebar() {
 
   useEffect(() => {
     if (activeSubSidebar !== null) {
+      // El contenido del panel sobrevive al cierre lo que dura la animación: es estado con retardo, no derivable.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setRenderedSubSidebar(activeSubSidebar);
       return;
     }
@@ -65,14 +75,12 @@ export default function DesktopSidebar() {
 
   // El panel del lugar se mantiene mientras se esté creando un punto (`isCreatingPlace`): aunque algo
   // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
-  const lastPlaceRef = useRef<Feature | null>(null);
-  useEffect(() => {
-    if (selectedPlace !== null) lastPlaceRef.current = selectedPlace;
-  }, [selectedPlace]);
-  const menuPlace = selectedPlace ?? (isCreatingPlace ? lastPlaceRef.current : null);
+  const menuPlace = selectedPlace ?? (isCreatingPlace ? lastSelectedPlace : null);
 
   useEffect(() => {
     if (selectedPlace !== null) {
+      // Coordinación entre árboles: seleccionar un lugar en el mapa abre su panel en el sidebar.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSubSidebar("placeInformation");
       return;
     }
@@ -83,18 +91,19 @@ export default function DesktopSidebar() {
 
   // Clic en el mapa: cierra el panel abierto sea cual sea (buscar, campus, guía o el lugar). El efecto
   // de arriba no basta: si `selectedPlace` ya era null, no se vuelve a disparar.
-  useEffect(() => {
-    if (closeSignal === 0 || isCreatingPlace) return;
+  const handleCloseSignal = useEffectEvent(() => {
+    if (isCreatingPlace) return;
     setActiveSubSidebar(null);
     setIsOpen(false);
-  }, [closeSignal, setIsOpen, isCreatingPlace]);
+  });
+  useEffect(() => subscribeToClose(handleCloseSignal), [subscribeToClose]);
 
   // Clic en la línea de una ruta en el mapa: se abre su ficha. NO se expande el sidebar principal: el
   // panel basta y abrirlo entero es invasivo para un clic en el mapa.
-  useEffect(() => {
-    if (openRoutesPanelSignal === 0) return;
+  const handleOpenRoutesPanel = useEffectEvent(() => {
     setActiveSubSidebar("routeInformation");
-  }, [openRoutesPanelSignal]);
+  });
+  useEffect(() => subscribeToOpenRoutesPanel(handleOpenRoutesPanel), [subscribeToOpenRoutesPanel]);
 
   return (
     <>

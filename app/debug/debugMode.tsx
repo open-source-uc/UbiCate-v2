@@ -8,8 +8,10 @@ import { Source, Layer, useMap } from "react-map-gl/maplibre";
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useDebugMode } from "@/app/hooks/useDebugMode";
 import { useRoutesDebug } from "@/app/hooks/useRoutes";
 import { apiClient } from "@/lib/api/ubicateApiClient";
+import { setDebugModeEnabled } from "@/lib/debug/debugModeStore";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import { pruneEventPlaces } from "@/lib/places/eventPlaces";
 import { getParentPlaceFloor, normalizeIdentifier } from "@/lib/places/utils";
@@ -32,7 +34,8 @@ import {
 } from "./layers";
 
 function DebugMode() {
-  const [isDebugMode, setIsDebugMode] = useState(false);
+  // useDebugMode ya encapsula la lectura del flag y el apagado automático al perder conexión.
+  const isDebugMode = useDebugMode();
   const [debugMode, setDebugMode] = useState(1);
   const [showEventForm, setShowEventForm] = useState(false);
   const [editingEvent, setEditingEvent] = useState<EventFeature | null>(null);
@@ -41,36 +44,6 @@ function DebugMode() {
   const { isPicking, isForRoute } = useMapPicking();
   const { hiddenPlaceIds, selectedRoute } = useSidebar();
   const queryClient = useQueryClient();
-
-  useEffect(() => {
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        const debugModeFromStorage = sessionStorage.getItem("debugMode") === "true";
-        setIsDebugMode(debugModeFromStorage);
-      }
-    } catch (error) {
-      console.warn("Unable to access sessionStorage:", error);
-      setIsDebugMode(false);
-    }
-  }, []);
-
-  // Exit debug mode on offline
-  useEffect(() => {
-    const handleOffline = () => {
-      sessionStorage.removeItem("debugMode");
-      setIsDebugMode(false);
-    };
-    window.addEventListener("offline", handleOffline);
-    return () => window.removeEventListener("offline", handleOffline);
-  }, []);
-
-  // Exit debug mode if already offline on mount
-  useEffect(() => {
-    if (typeof navigator !== "undefined" && !navigator.onLine) {
-      sessionStorage.removeItem("debugMode");
-      setIsDebugMode(false);
-    }
-  }, []);
 
   const {
     data: ubicateData,
@@ -220,6 +193,8 @@ function DebugMode() {
         const layers = map.getStyle().layers;
         const layerIds = layers.map((layer: any) => layer.id);
         console.log("Available map layers:", layerIds);
+        // Lee las capas del estilo de maplibre, un sistema externo que no existe durante el render.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMapLayers(layerIds);
       } else {
         map.once("style.load", () => {
@@ -262,10 +237,7 @@ function DebugMode() {
         }`}
       >
         <button
-          onClick={() => {
-            sessionStorage.removeItem("debugMode");
-            setIsDebugMode(false);
-          }}
+          onClick={() => setDebugModeEnabled(false)}
           className="mb-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
         >
           Salir de modo debug
