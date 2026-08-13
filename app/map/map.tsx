@@ -290,8 +290,8 @@ export default function MapComponent({
           campusName === "SJ" || campusName === "SanJoaquin"
             ? 15.5
             : campusName === "VR" || campusName === "Villarrica"
-            ? 14
-            : 17,
+              ? 14
+              : 17,
       });
       mapRef.current?.getMap().setMaxBounds(getMaxCampusBoundsFromName(localStorage.getItem("defaultCampus")));
     }

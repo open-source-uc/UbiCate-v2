@@ -1,4 +1,4 @@
-import { StyleSpecification } from "maplibre-gl";
+import type { StyleSpecification } from "maplibre-gl";
 
 export const darkThemeMap: StyleSpecification = {
   version: 8,

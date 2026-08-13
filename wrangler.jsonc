@@ -1,15 +1,25 @@
 /**
  * For more details on how to configure Wrangler, refer to:
  * https://developers.cloudflare.com/workers/wrangler/configuration/
+ *
+ * Desde la migración de @cloudflare/next-on-pages (deprecado) a @opennextjs/cloudflare el deploy
+ * es un Worker, no Cloudflare Pages: por eso `main` + `assets` en vez de `pages_build_output_dir`.
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "ubicate-v2",
+	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-07-15",
 	"compatibility_flags": [
-		"nodejs_compat"
+		"nodejs_compat",
+		// Lo exige OpenNext: obliga a que los fetch salgan a internet en vez de resolverse
+		// dentro del propio Worker.
+		"global_fetch_strictly_public"
 	],
-	"pages_build_output_dir": ".vercel/output/static",
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
 	"observability": {
 		"enabled": true
 	},

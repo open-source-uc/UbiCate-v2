@@ -27,7 +27,7 @@ function SpecialMarker({
   offset = [0, 0],
 }: SpecialMarkerProps) {
   const iconConfig = PLACE_ICONS[place.properties.identifier];
-  const Icon = iconConfig ? (Icons as any)[iconConfig.icon] ?? Icons.Default : Icons.Default;
+  const Icon = iconConfig ? ((Icons as any)[iconConfig.icon] ?? Icons.Default) : Icons.Default;
 
   return (
     <MapboxMarker

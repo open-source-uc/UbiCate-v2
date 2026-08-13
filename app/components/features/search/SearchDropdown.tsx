@@ -277,8 +277,8 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                               needsVerySmallText
                                 ? "text-xs break-words"
                                 : needsSmallText
-                                ? "text-xs break-words"
-                                : "text-sm"
+                                  ? "text-xs break-words"
+                                  : "text-sm"
                             }`}
                           >
                             {placeName}
@@ -288,8 +288,8 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                               needsVerySmallText
                                 ? "text-xs break-words opacity-75"
                                 : needsSmallText
-                                ? "text-xs break-words opacity-75"
-                                : "text-sm opacity-75"
+                                  ? "text-xs break-words opacity-75"
+                                  : "text-sm opacity-75"
                             }`}
                           >
                             {campusName}

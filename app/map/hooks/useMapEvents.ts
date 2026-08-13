@@ -260,8 +260,8 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
             defaultCampus === "SJ" || defaultCampus === "SanJoaquin"
               ? 15.5
               : defaultCampus === "VR" || defaultCampus === "Villarrica"
-              ? 14
-              : 17,
+                ? 14
+                : 17,
         });
       }
 

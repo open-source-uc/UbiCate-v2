@@ -9,13 +9,7 @@ interface UsageGuideProps {
 }
 
 type AccordionKey =
-  | "buscar"
-  | "agregar"
-  | "modificar"
-  | "iphone"
-  | "android"
-  | "iphone_ubicacion"
-  | "android_ubicacion";
+  "buscar" | "agregar" | "modificar" | "iphone" | "android" | "iphone_ubicacion" | "android_ubicacion";
 
 export default function UsageGuide({ onClose }: UsageGuideProps) {
   const [openAccordion, setOpenAccordion] = useState<AccordionKey | null>(null);

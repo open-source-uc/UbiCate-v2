@@ -14,12 +14,12 @@ function NullFallback() {
 export function NotificationErrorBoundary({ children }: { children: React.ReactNode }) {
   const { setNotification } = use(NotificationContext);
 
-  function logError(error: Error, info: ErrorInfo) {
+  function logError(error: unknown, info: ErrorInfo) {
     console.error("ErrorBoundary capturó un error:", error);
     console.error("Component Stack:", info?.componentStack ?? "(sin stack)");
     setNotification(
       <DirectionErrorNotification>
-        Error: {error?.message} - {info?.componentStack}
+        Error: {error instanceof Error ? error.message : String(error)} - {info?.componentStack}
       </DirectionErrorNotification>,
     );
   }

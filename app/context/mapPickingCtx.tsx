@@ -85,7 +85,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
       if (m) setMode(m);
       const viewOnly = v && opts?.viewOnly === true;
       setIsViewOnly(viewOnly);
-      setViewPlace(viewOnly ? opts?.place ?? null : null);
+      setViewPlace(viewOnly ? (opts?.place ?? null) : null);
     },
     [],
   );

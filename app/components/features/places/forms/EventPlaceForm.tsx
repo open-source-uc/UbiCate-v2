@@ -149,7 +149,7 @@ export default function EventPlaceForm({
     (loc: EventLocation) => {
       clearPins();
       const coords: [number, number][] = [];
-      const existingPlace = loc.type !== "new" && loc.placeId ? approvedById.get(loc.placeId) ?? null : null;
+      const existingPlace = loc.type !== "new" && loc.placeId ? (approvedById.get(loc.placeId) ?? null) : null;
       if (loc.type === "new") {
         for (const p of loc.pins) coords.push(p.geometry.coordinates);
       } else if (existingPlace) {

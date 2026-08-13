@@ -166,7 +166,7 @@ function preparePlace(source: PlaceSource, validCampusIds: Set<string>): Prepare
   // jerarquía por facultad (se deriva de faculties[0]). El explícito manda. Los lugares inline de
   // evento no cuelgan de nadie, igual que cuando los crea la app.
   const declaredParent = cleanString(properties.parentPlaceId);
-  const facultyParent = isEventOnly ? null : cleanStringArray(properties.faculties)[0] ?? null;
+  const facultyParent = isEventOnly ? null : (cleanStringArray(properties.faculties)[0] ?? null);
 
   return {
     row: {

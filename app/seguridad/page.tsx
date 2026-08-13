@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import * as Icon from "../components/ui/icons/icons";
+import Providers from "../providers";
 
 import FindNearestDeaButton from "./FindNearestDeaButton";
 
@@ -48,7 +49,12 @@ export default function Page() {
               En caso de necesitar un desfribiliador automático externo (DEA)
             </p>
 
-            <FindNearestDeaButton />
+            {/* FindNearestDeaButton llama useSidebar() para leer allFeatures, y el layout raíz no
+                monta Providers (solo lo hace app/page.tsx). Sin este wrapper el hook lanza y el
+                prerender de /seguridad falla. Se envuelve solo el botón, no la página entera. */}
+            <Providers>
+              <FindNearestDeaButton />
+            </Providers>
           </div>
           <div className="mt-12 bg-primary rounded-lg p-8 border-2 text-white w-full text-left border-secondary">
             <p className="mt-4">Espera la llegada del personal calificado y sigue sus instrucciones.</p>
@@ -474,5 +480,3 @@ export default function Page() {
     </main>
   );
 }
-
-export const runtime = "edge";

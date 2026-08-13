@@ -8,7 +8,7 @@ function NullFallback() {
   return null;
 }
 
-function logError(error: Error, info: ErrorInfo) {
+function logError(error: unknown, info: ErrorInfo) {
   console.error("ErrorBoundary capturó un error:", error);
   console.error("Component Stack:", info?.componentStack ?? "(sin stack)");
 }

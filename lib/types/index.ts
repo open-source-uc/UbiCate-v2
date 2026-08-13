@@ -16,14 +16,7 @@ export interface LineGeometry {
 }
 
 export type SubSidebarType =
-  | "temas"
-  | "buscar"
-  | "campus"
-  | "guías"
-  | "rutas"
-  | "routeInformation"
-  | "placeInformation"
-  | null;
+  "temas" | "buscar" | "campus" | "guías" | "rutas" | "routeInformation" | "placeInformation" | null;
 
 export enum CATEGORIES {
   AUDITORIUM = "auditorium",

@@ -106,7 +106,7 @@ export default function PlaceInformation({
   });
 
   const eventsFeatures: (EventFeature | Feature)[] = useMemo(
-    () => (isDebug ? eventsDebugData?.events?.features ?? [] : [...contextEvents, ...eventPlaces]),
+    () => (isDebug ? (eventsDebugData?.events?.features ?? []) : [...contextEvents, ...eventPlaces]),
     [isDebug, eventsDebugData, contextEvents, eventPlaces],
   );
 

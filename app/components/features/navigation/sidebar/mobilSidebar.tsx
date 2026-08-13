@@ -365,12 +365,12 @@ export default function MobileSidebar() {
               activeSubSidebar === "campus"
                 ? "campus"
                 : activeSubSidebar === "temas"
-                ? "temas"
-                : activeSubSidebar === "placeInformation"
-                ? "información del lugar"
-                : activeSubSidebar === "routeInformation"
-                ? "información de la ruta"
-                : activeSubSidebar
+                  ? "temas"
+                  : activeSubSidebar === "placeInformation"
+                    ? "información del lugar"
+                    : activeSubSidebar === "routeInformation"
+                      ? "información de la ruta"
+                      : activeSubSidebar
             }`}
             aria-hidden={!activeSubSidebar}
           >
