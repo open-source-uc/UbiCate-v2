@@ -11,12 +11,17 @@ import { PinsProvider } from "./context/pinsCtx";
 import { SidebarProvider } from "./context/sidebarCtx";
 import { ThemeProvider } from "./context/themeCtx";
 import { UbicationProvider } from "./context/ubicationCtx";
+import { usePreloadIconFont } from "./hooks/usePreloadIconFont";
 
 interface ProvidersProps {
   children: React.ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {
+  // Se dispara acá y no en el modo edición: para cuando el usuario entra, la fuente ya está lista.
+  // El chunk de markdown lo precarga `LoadingScreen`, porque además la portada espera por él.
+  usePreloadIconFont();
+
   // eslint-disable-next-line
   const [queryClient] = useState(
     () =>

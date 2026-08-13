@@ -117,6 +117,7 @@ export default function MapComponent({
     isForEvent,
     isForRoute,
     routePlaceIds,
+    routeDraftName,
     isDrawingRect,
     setDrawingRect,
     setPicking,
@@ -164,6 +165,19 @@ export default function MapComponent({
 
     map.dragPan.disable();
     map.getCanvas().style.cursor = "crosshair";
+
+    // ⚠️ maplibre decide el `touch-action` del lienzo según qué handlers estén activos: con dragPan y
+    // zoom/rotar juntos queda en `none`, pero al deshabilitar dragPan (arriba) pasa a `pan-x pan-y` y el
+    // navegador se queda con el arrastre vertical. En móvil eso disparaba el pull-to-refresh en vez de
+    // dibujar el rectángulo. Se fuerza `none` mientras dura el dibujo y se restaura al salir.
+    const canvasContainer = map.getCanvasContainer();
+    const canvas = map.getCanvas();
+    const previousTouchAction = {
+      container: canvasContainer.style.touchAction,
+      canvas: canvas.style.touchAction,
+    };
+    canvasContainer.style.touchAction = "none";
+    canvas.style.touchAction = "none";
     let start: { lng: number; lat: number } | null = null;
     // En touchend maplibre ya no trae coordenadas (no quedan dedos en pantalla), así que se cierra el
     // rectángulo con la última posición vista en touchmove.
@@ -231,6 +245,8 @@ export default function MapComponent({
       map.off("touchend", onTouchEnd);
       map.dragPan.enable();
       map.getCanvas().style.cursor = "";
+      canvasContainer.style.touchAction = previousTouchAction.container;
+      canvas.style.touchAction = previousTouchAction.canvas;
       setRectPreview(null);
     };
   }, [isDrawingRect, setPinsFromCoords, setPicking, setDrawingRect]);
@@ -313,23 +329,26 @@ export default function MapComponent({
   useEffect(() => {
     if (!containerRef.current) return;
 
-    let timeout: ReturnType<typeof setTimeout> | null = null;
+    // ⚠️ Antes esto iba con un debounce de 175 ms para no re-medir en cada frame de la animación del
+    // sidebar. El efecto colateral era que la corrección de tamaño llegaba TARDE y de golpe: el mapa y
+    // los puntos daban un salto visible un rato después de abrir la ficha de un lugar.
+    // Con rAF se re-mide como mucho una vez por frame, así el lienzo acompaña la animación en vez de
+    // saltar al final, y el costo sigue acotado.
+    let frame: number | null = null;
 
     const observer = new ResizeObserver(() => {
-      if (timeout) clearTimeout(timeout);
-
-      timeout = setTimeout(() => {
-        if (mapRef.current) {
-          mapRef.current.resize();
-        }
-      }, 175); // 200 para evitar resize excesivos, debido a la animación de la sidebar que dura 150ms
+      if (frame !== null) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        mapRef.current?.resize();
+      });
     });
 
     observer.observe(containerRef.current);
 
     return () => {
       observer.disconnect();
-      if (timeout) clearTimeout(timeout);
+      if (frame !== null) cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -446,7 +465,15 @@ export default function MapComponent({
         {/* Ruta en construcción. idPrefix propio: el RouteLayer de las direcciones puede estar montado
             a la vez y maplibre no admite dos sources con el mismo id. */}
         {isDrawingLine && line ? (
-          <RouteLayer route={line} idPrefix="route-draft" color={ROUTE_COLOR} borderColor={ROUTE_BORDER_COLOR} />
+          <RouteLayer
+            route={line}
+            idPrefix="route-draft"
+            // Se rotula en vivo lo que se va escribiendo en el formulario. Con el nombre vacío se pasa
+            // undefined y no se monta la capa de texto, en vez de dibujar una etiqueta en blanco.
+            label={routeDraftName.trim() || undefined}
+            color={ROUTE_COLOR}
+            borderColor={ROUTE_BORDER_COLOR}
+          />
         ) : null}
         {/* Ruta guardada que el usuario eligió en el panel. No convive con el dibujo: mientras se edita
             manda el borrador. */}

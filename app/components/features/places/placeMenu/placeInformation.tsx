@@ -284,19 +284,39 @@ export default function PlaceInformation({
     setShowEventForm(true);
   };
 
+  // El enlace se arma acá y no se lee de `window.location.href`: la app dejó de escribir `place` y
+  // `lng`/`lat` en la URL al interactuar, así que la barra de direcciones ya no describe la selección.
+  const buildShareUrl = () => {
+    const url = new URL(window.location.href);
+    // Se descartan los parámetros con los que se entró: el enlace describe lo que está seleccionado ahora.
+    url.search = "";
+
+    if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK) && place.geometry.type === "Point") {
+      const [lng, lat] = place.geometry.coordinates;
+      url.searchParams.set("lng", String(lng));
+      url.searchParams.set("lat", String(lat));
+    } else {
+      url.searchParams.set("place", place.properties.identifier);
+    }
+
+    return url.toString();
+  };
+
   const handleShare = async () => {
     if (typeof window === "undefined") return;
+
+    const shareUrl = buildShareUrl();
 
     try {
       if (navigator.share) {
         await navigator.share({
-          url: window.location.href,
+          url: shareUrl,
         });
         return;
       }
 
       if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(window.location.href);
+        await navigator.clipboard.writeText(shareUrl);
         console.log("Enlace copiado al portapapeles");
         return;
       }

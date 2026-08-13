@@ -24,6 +24,9 @@ interface MapPickingContextType {
   /** Lugares que el formulario de ruta tiene asociados ahora mismo, para pintarlos en el mapa. */
   routePlaceIds: string[];
   setRoutePlaceIds: (ids: string[]) => void;
+  // Nombre que el formulario de ruta va escribiendo, para rotular el trazo en el mapa mientras se edita.
+  routeDraftName: string;
+  setRouteDraftName: (name: string) => void;
   isDrawingRect: boolean;
   isPlaceFormOpen: boolean;
   // Sesión de solo lectura: se muestra la geometría en el mapa sin herramientas ni edición.
@@ -53,6 +56,8 @@ const MapPickingContext = createContext<MapPickingContextType>({
   isForRoute: false,
   allowedModes: PLACE_MODES,
   routePlaceIds: [],
+  routeDraftName: "",
+  setRouteDraftName: () => {},
   setRoutePlaceIds: () => {},
   isDrawingRect: false,
   isPlaceFormOpen: false,
@@ -73,6 +78,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
   const [isForEvent, setIsForEvent] = useState(false);
   const [isForRoute, setIsForRoute] = useState(false);
   const [routePlaceIds, setRoutePlaceIds] = useState<string[]>([]);
+  const [routeDraftName, setRouteDraftName] = useState("");
   const [isDrawingRect, setIsDrawingRect] = useState(false);
   const [isPlaceFormOpen, setIsPlaceFormOpen] = useState(false);
   const [isViewOnly, setIsViewOnly] = useState(false);
@@ -96,7 +102,10 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
 
   const setForRoute = useCallback((v: boolean) => {
     setIsForRoute(v);
-    if (!v) setRoutePlaceIds([]);
+    if (!v) {
+      setRoutePlaceIds([]);
+      setRouteDraftName("");
+    }
   }, []);
 
   const setDrawingRect = useCallback((v: boolean) => {
@@ -132,6 +141,8 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         allowedModes,
         routePlaceIds,
         setRoutePlaceIds,
+        routeDraftName,
+        setRouteDraftName,
         isDrawingRect,
         isPlaceFormOpen,
         isViewOnly,

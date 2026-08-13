@@ -1,10 +1,12 @@
-import dynamic from "next/dynamic";
-
 import React from "react";
 
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
+// ⚠️ Import estático a propósito: antes era `next/dynamic` con `ssr: false` y la descripción aparecía
+// tarde la primera vez, con un salto de layout al resolverse el chunk. Diferirlo no ahorraba casi nada,
+// porque `remark-gfm` —que sí es estático— ya arrastra unified, remark-parse y micromark; lo único que
+// quedaba fuera era react-markdown y sus tres deps propias. No lo vuelvas a poner en `dynamic`.
 
 function MarkDownComponent(props: { children: string }) {
   // react-markdown 10 quitó la prop `className`: las clases van en un contenedor propio.

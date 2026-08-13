@@ -17,7 +17,7 @@ import {
 } from "@/lib/campus/getCampusBounds";
 import type { FlyToEvent } from "@/lib/events/customEvents";
 import { normalizeFeature } from "@/lib/map/getLayerMap";
-import { Feature, CATEGORIES } from "@/lib/types";
+import { Feature } from "@/lib/types";
 
 interface UseMapEventsProps {
   mapRef: React.RefObject<MapRef | null>;
@@ -51,10 +51,12 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
+      // ⚠️ Seleccionar un lugar NO toca la barra de direcciones. Los parámetros `place` y `lng`/`lat`
+      // son solo de entrada (un enlace compartido) y los arma el botón Compartir de `placeInformation`.
+      // Antes cada clic en el mapa hacía replaceState y la URL cambiaba sola mientras se navegaba.
       setSelectedPlace(place);
       const title = document.querySelector("title");
       if (!place) {
-        window.history.replaceState(null, "", "?");
         if (title) {
           title.textContent = "Ubicate UC - Mapa";
         }
@@ -68,16 +70,6 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
         title.textContent = place ? `${place.properties.name}` : "Ubicate UC - Mapa";
       }
 
-      if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK)) {
-        window.history.replaceState(
-          null,
-          "",
-          `?lng=${place.geometry.coordinates[0]}&lat=${place.geometry.coordinates[1]}`,
-        );
-      } else {
-        window.history.replaceState(null, "", `?place=${place.properties.identifier}`);
-      }
-
       let center: [number, number] = [0, 0];
 
       if (place.geometry.type === "Polygon") {
@@ -89,10 +81,28 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       const [lng, lat] = center;
       const map = mapRef.current?.getMap();
-      map?.setMaxBounds(undefined);
-      setTimeout(() => {
-        map?.setMaxBounds(getMaxCampusBoundsFromPoint(lng, lat));
-      }, 600);
+
+      // ⚠️ Los límites del campus se establecen al cargar (`handleMapLoad`, y `map.tsx` cuando cambia el
+      // param `campus`) y NO se tocan al seleccionar un lugar del mismo campus. Antes esto los borraba y
+      // los reponía con un setTimeout en CADA selección: al reponerlos maplibre reencuadra la cámara, y
+      // se veía el mapa y los puntos saltando hacia un lado unos 600 ms después de abrir la ficha.
+      // Solo se rehace el ciclo si el lugar cae en OTRO campus, que es para lo que existe el
+      // `setMaxBounds(undefined)`: sin quitarlos primero, el vuelo hacia el otro campus queda bloqueado.
+      const targetBounds = getMaxCampusBoundsFromPoint(lng, lat);
+      const currentBounds = map?.getMaxBounds();
+      const isSameCampus =
+        !!currentBounds &&
+        currentBounds.getWest() === targetBounds[0] &&
+        currentBounds.getSouth() === targetBounds[1] &&
+        currentBounds.getEast() === targetBounds[2] &&
+        currentBounds.getNorth() === targetBounds[3];
+
+      if (!isSameCampus) {
+        map?.setMaxBounds(undefined);
+        setTimeout(() => {
+          map?.setMaxBounds(targetBounds);
+        }, 600);
+      }
 
       const flyMode = options?.flyMode || "always";
       if (flyMode === "never") {
@@ -238,6 +248,13 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       e.target.doubleClickZoom.disable();
       mapRef.current?.getMap().setMinZoom(15);
       const map = mapRef.current?.getMap();
+
+      // ⚠️ Se re-mide el lienzo ANTES de fijar nada. `onLoad` puede llegar con el layout todavía sin
+      // asentar (portada de carga arriba, sidebar aún sin montar), y maplibre calcula la restricción de
+      // `setMaxBounds` contra las dimensiones que su `transform` cree tener: con un viewport equivocado
+      // los límites quedan mal calculados y el mapa se sale del campus. Era el motivo de que "los bounds
+      // estén definidos pero no se respeten".
+      map?.resize();
 
       if (paramPlace) {
         map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));

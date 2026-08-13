@@ -39,7 +39,7 @@ export default function RouteForm({
   title?: string;
 }) {
   const { pins, clearPins, setPinsFromCoords } = use(pinsContext);
-  const { isPicking, setPicking, setForRoute, setRoutePlaceIds } = useMapPicking();
+  const { isPicking, setPicking, setForRoute, setRoutePlaceIds, setRouteDraftName } = useMapPicking();
   const { allFeatures } = useSidebar();
   const queryClient = useQueryClient();
   const [placeSearch, setPlaceSearch] = useState("");
@@ -88,6 +88,11 @@ export default function RouteForm({
   useEffect(() => {
     setRoutePlaceIds(data.placeIds);
   }, [data.placeIds, setRoutePlaceIds]);
+
+  // El nombre se rotula sobre el trazo mientras se escribe, igual que los lugares asociados.
+  useEffect(() => {
+    setRouteDraftName(data.name);
+  }, [data.name, setRouteDraftName]);
 
   const handleRedraw = () => {
     // El historial se reinicia al entrar al picking, así que los pins van ANTES.
