@@ -10,40 +10,34 @@ const CACHE_KEY_EVENTS = "allEvents";
 const CACHE_TTL = 5 * 60 * 1000;
 
 const eventInclude = {
-  campus: true,
   places: { include: { place: true } },
 } as const;
 
 const inlinePlaceInclude = {
-  campus: true,
   categories: { include: { category: true } },
   floors: { include: { floor: true } },
 } as const;
 
-async function loadAndCacheAllEvents(): Promise<{ events: EventFeature[]; eventPlaces: Feature[] }> {
+async function loadAllEvents(): Promise<{ events: EventFeature[]; eventPlaces: Feature[] }> {
   const [events, inlinePlaces] = await Promise.all([
     prisma.event.findMany({ include: eventInclude }),
     prisma.place.findMany({ where: { isEventOnly: true }, include: inlinePlaceInclude }),
   ]);
 
-  const result = {
+  return {
     events: events.map((e) => eventToFeature(e)),
     eventPlaces: inlinePlaces.map((p) => placeToFeature(p)),
   };
-
-  cache.set(CACHE_KEY_EVENTS, result, CACHE_TTL);
-  return result;
 }
 
 export async function getAllEvents(options?: {
   bypassCache?: boolean;
 }): Promise<{ events: EventFeature[]; eventPlaces: Feature[] }> {
   // bypassCache=true → salta la Capa 1 y lee directo de la BD (debug / refetch post-mutación).
-  if (!options?.bypassCache) {
-    const cached = cache.get<{ events: EventFeature[]; eventPlaces: Feature[] }>(CACHE_KEY_EVENTS);
-    if (cached) return cached;
-  }
-  return loadAndCacheAllEvents();
+  return cache.getOrLoad(CACHE_KEY_EVENTS, loadAllEvents, {
+    ttlMs: CACHE_TTL,
+    forceFresh: options?.bypassCache,
+  });
 }
 
 // Crea una fila Place "inline" (isEventOnly=true) para una ubicación nueva de un evento.
@@ -120,7 +114,7 @@ export async function createEvent(event: EventFeature, newPlaces: Feature[]): Pr
     });
   });
 
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_EVENTS);
 }
 
 export async function updateEvent(id: string, event: EventFeature, newPlaces: Feature[]): Promise<void> {
@@ -166,13 +160,13 @@ export async function updateEvent(id: string, event: EventFeature, newPlaces: Fe
   });
 
   await cleanupOrphanInlinePlaces();
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_EVENTS);
 }
 
 export async function deleteEvent(id: string): Promise<void> {
   await prisma.event.delete({ where: { id } });
   await cleanupOrphanInlinePlaces();
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_EVENTS);
 }
 
 // keepIds exceptúa eventos que no deben borrarse (p. ej. el que una mutación acaba de escribir).
@@ -184,6 +178,6 @@ export async function pruneExpiredEvents(keepIds: string[] = []): Promise<boolea
     where: { endDate: { lt: cutoff }, id: { notIn: keepIds } },
   });
   await cleanupOrphanInlinePlaces();
-  if (count > 0) cache.invalidate();
+  if (count > 0) cache.invalidate(CACHE_KEY_EVENTS);
   return count > 0;
 }

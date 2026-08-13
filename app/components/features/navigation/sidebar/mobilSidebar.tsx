@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import * as Icons from "@/app/components/ui/icons/icons";
+import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
@@ -13,14 +14,16 @@ import { Feature, SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
+import RouteInformation from "../../routes/routeInformation";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import RoutesPanel from "./routesPanel";
 import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
 export default function MobileSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal, openRoutesPanelSignal } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
@@ -31,20 +34,13 @@ export default function MobileSidebar() {
   const lastHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-  const handleToggleSidebar = () => {
-    toggleSidebar();
-  };
-
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
-    handleToggleSidebar();
+    setIsOpen(false);
     setActiveSubSidebar(null);
   };
 
@@ -176,6 +172,15 @@ export default function MobileSidebar() {
     setIsOpen(false);
   }, [closeSignal, setIsOpen, isCreatingPlace]);
 
+  // Clic en la línea de una ruta en el mapa: se abre su ficha. Acá sí hay que abrir el sheet, o el
+  // efecto de "sidebar cerrado" lo baja de inmediato.
+  useEffect(() => {
+    if (openRoutesPanelSignal === 0) return;
+    setIsOpen(true);
+    setSidebarHeight(45);
+    setActiveSubSidebar("routeInformation");
+  }, [openRoutesPanelSignal, setIsOpen]);
+
   // Handle sidebar close
   useEffect(() => {
     if (isOpen === false && !isCreatingPlace) {
@@ -277,7 +282,7 @@ export default function MobileSidebar() {
                     <div className="bg-primary text-background flex rounded-md p-2">
                       <button
                         onClick={() => toggleSubSidebar("campus")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer outline-none focus:outline-none focus-visible:outline-none ${
                           activeSubSidebar === "campus" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "campus"}
@@ -289,8 +294,24 @@ export default function MobileSidebar() {
                         <p className="text-sm tablet:text-md mt-1">Campus</p>
                       </button>
                       <button
+                        onClick={() => toggleSubSidebar("rutas")}
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer outline-none focus:outline-none focus-visible:outline-none ${
+                          activeSubSidebar === "rutas" ? "bg-primary" : "bg-transparent"
+                        }`}
+                        aria-pressed={activeSubSidebar === "rutas"}
+                        tabIndex={isOpen ? 0 : -1}
+                      >
+                        <span className="relative w-10 h-10 rounded-lg flex items-center justify-center bg-background group-hover:bg-secondary transition">
+                          <MaterialSymbol name="route" className="text-[22px] text-secondary-foreground transition" />
+                          <span className="pointer-events-none absolute left-1/2 -top-1 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-secondary-foreground shadow-sm">
+                            Nuevo
+                          </span>
+                        </span>
+                        <p className="text-sm tablet:text-md mt-1">Rutas</p>
+                      </button>
+                      <button
                         onClick={() => toggleSubSidebar("guías")}
-                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer ${
+                        className={`w-full flex flex-col items-center justify-center p-2 rounded-sm transition group hover:bg-accent/15 cursor-pointer outline-none focus:outline-none focus-visible:outline-none ${
                           activeSubSidebar === "guías" ? "bg-primary" : "bg-transparent"
                         }`}
                         aria-pressed={activeSubSidebar === "guías"}
@@ -347,6 +368,8 @@ export default function MobileSidebar() {
                 ? "temas"
                 : activeSubSidebar === "placeInformation"
                 ? "información del lugar"
+                : activeSubSidebar === "routeInformation"
+                ? "información de la ruta"
                 : activeSubSidebar
             }`}
             aria-hidden={!activeSubSidebar}
@@ -372,6 +395,13 @@ export default function MobileSidebar() {
             >
               {activeSubSidebar === "campus" && (
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
+              )}
+              {activeSubSidebar === "rutas" && <RoutesPanel onClose={() => setActiveSubSidebar(null)} />}
+              {activeSubSidebar === "routeInformation" && (
+                <RouteInformation
+                  onClose={() => setActiveSubSidebar(null)}
+                  onBack={() => setActiveSubSidebar("rutas")}
+                />
               )}
               {activeSubSidebar === "guías" && <UsageGuide onClose={() => setActiveSubSidebar(null)} />}
               {/* {activeSubSidebar === "temas" && (

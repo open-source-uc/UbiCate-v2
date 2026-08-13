@@ -2,7 +2,7 @@
 
 import { use, useEffect, useRef } from "react";
 
-import { useMapPicking } from "@/app/context/mapPickingCtx";
+import { PickingMode, useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
 import { PointFeature } from "@/lib/types";
 
@@ -10,9 +10,27 @@ import MaterialSymbol from "../components/ui/icons/MaterialSymbol";
 
 import PlaceViewCard from "./placeViewCard";
 
+const MODE_TOOLS: Record<PickingMode, { icon: string; label: string }> = {
+  point: { icon: "distance", label: "Modo punto" },
+  polygon: { icon: "polyline", label: "Modo polígono" },
+  line: { icon: "route", label: "Modo ruta" },
+};
+
+const MIN_PINS: Record<PickingMode, number> = { point: 1, line: 2, polygon: 3 };
+
 export default function PickingOverlay() {
-  const { isPicking, mode, setPicking, isDrawingRect, setDrawingRect, isPlaceFormOpen, isViewOnly, viewPlace } =
-    useMapPicking();
+  const {
+    isPicking,
+    mode,
+    allowedModes,
+    isForRoute,
+    setPicking,
+    isDrawingRect,
+    setDrawingRect,
+    isPlaceFormOpen,
+    isViewOnly,
+    viewPlace,
+  } = useMapPicking();
   const { clearPins, setPins, pins, undo, redo, resetHistory, canUndo, canRedo } = use(pinsContext);
 
   // Geometría con la que se entró al modo edición. Si el formulario está abierto, Cancelar la restaura
@@ -58,7 +76,9 @@ export default function PickingOverlay() {
   if (!isPicking) return null;
 
   const handleCancel = () => {
-    if (isPlaceFormOpen) {
+    // Con un formulario detrás (lugar o ruta) Cancelar restaura la geometría con la que se entró, en vez
+    // de dejar la propuesta sin nada: descartar el trabajo es cosa de cerrar el formulario.
+    if (isPlaceFormOpen || isForRoute) {
       setPins(pinsOnEnterRef.current);
     } else {
       clearPins();
@@ -92,7 +112,8 @@ export default function PickingOverlay() {
     );
   }
 
-  const confirmDisabled = mode === "point" ? pins.length !== 1 : pins.length < 3;
+  // El punto es exacto (uno solo, el clic lo reubica); línea y polígono son mínimos.
+  const confirmDisabled = mode === "point" ? pins.length !== 1 : pins.length < MIN_PINS[mode];
 
   let message: string;
   if (isDrawingRect) {
@@ -102,6 +123,8 @@ export default function PickingOverlay() {
       pins.length === 1
         ? "Punto listo. Confirma o haz clic para reubicarlo"
         : "Haz clic en el mapa para marcar el punto";
+  } else if (mode === "line") {
+    message = pins.length < 2 ? "Marca al menos 2 puntos para la ruta" : "Haz clic para seguir la ruta o confirma";
   } else {
     message =
       pins.length < 3 ? "Marca al menos 3 puntos para el polígono" : "Haz clic para agregar más puntos o confirma";
@@ -121,32 +144,27 @@ export default function PickingOverlay() {
           className="rounded-full bg-background/80 px-6 py-2 shadow-lg ring-1 ring-border backdrop-blur-md"
           style={{ fontFamily: "var(--font-roboto), system-ui, sans-serif" }}
         >
-          <span className="text-base font-semibold tracking-wide text-foreground">Modo Edición</span>
+          <span className="text-base font-semibold tracking-wide text-foreground">
+            {isForRoute ? "Dibujar Ruta" : "Modo Edición"}
+          </span>
         </div>
       </div>
 
       <div className="pointer-events-auto fixed right-2 top-4 z-[100] flex flex-col gap-4">
         <div className="flex flex-col gap-2">
-          <button
-            type="button"
-            onClick={() => setPicking(true, "point")}
-            className={toolClass(mode === "point")}
-            title="Modo punto"
-            aria-label="Modo punto"
-            aria-pressed={mode === "point"}
-          >
-            <MaterialSymbol name="distance" className="text-[22px]" />
-          </button>
-          <button
-            type="button"
-            onClick={() => setPicking(true, "polygon")}
-            className={toolClass(mode === "polygon")}
-            title="Modo polígono"
-            aria-label="Modo polígono"
-            aria-pressed={mode === "polygon"}
-          >
-            <MaterialSymbol name="polyline" className="text-[22px]" />
-          </button>
+          {allowedModes.map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setPicking(true, m)}
+              className={toolClass(mode === m)}
+              title={MODE_TOOLS[m].label}
+              aria-label={MODE_TOOLS[m].label}
+              aria-pressed={mode === m}
+            >
+              <MaterialSymbol name={MODE_TOOLS[m].icon} className="text-[22px]" />
+            </button>
+          ))}
         </div>
         <div className="flex flex-col gap-2">
           <button
@@ -169,16 +187,19 @@ export default function PickingOverlay() {
           >
             <MaterialSymbol name="redo" className="text-[22px]" />
           </button>
-          <button
-            type="button"
-            onClick={() => setDrawingRect(true)}
-            className={toolClass(isDrawingRect)}
-            title="Cuadrado"
-            aria-label="Cuadrado"
-            aria-pressed={isDrawingRect}
-          >
-            <MaterialSymbol name="crop_free" className="text-[22px]" />
-          </button>
+          {/* El cuadrado sale del modo línea: al soltar fuerza el modo polígono. */}
+          {mode !== "line" ? (
+            <button
+              type="button"
+              onClick={() => setDrawingRect(true)}
+              className={toolClass(isDrawingRect)}
+              title="Cuadrado"
+              aria-label="Cuadrado"
+              aria-pressed={isDrawingRect}
+            >
+              <MaterialSymbol name="crop_free" className="text-[22px]" />
+            </button>
+          ) : null}
           <button
             type="button"
             onClick={() => clearPins()}

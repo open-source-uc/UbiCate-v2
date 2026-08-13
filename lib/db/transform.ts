@@ -1,10 +1,9 @@
-import type { EventFeature, Feature } from "@/lib/types";
+import type { EventFeature, Feature, RouteFeature } from "@/lib/types";
 
 import type { Prisma } from "../../generated/prisma/client";
 
 type PlaceWithRelations = Prisma.PlaceGetPayload<{
   include: {
-    campus: true;
     categories: { include: { category: true } };
     floors: { include: { floor: true } };
   };
@@ -12,13 +11,18 @@ type PlaceWithRelations = Prisma.PlaceGetPayload<{
 
 type EventWithRelations = Prisma.EventGetPayload<{
   include: {
-    campus: true;
     places: { include: { place: true } };
   };
 }>;
 
 type CampusWithRelations = Prisma.CampusGetPayload<{
   include: { places: false };
+}>;
+
+type RouteWithRelations = Prisma.RouteGetPayload<{
+  include: {
+    places: { include: { place: true } };
+  };
 }>;
 
 export function placeToFeature(place: PlaceWithRelations, faculties?: string[]): Feature {
@@ -62,7 +66,7 @@ export function campusToFeature(campus: CampusWithRelations): Feature {
   };
 }
 
-type GeoGeometryType = "Point" | "Polygon" | "MultiPolygon";
+type GeoGeometryType = "Point" | "Polygon" | "MultiPolygon" | "LineString";
 
 export interface FeatureData {
   id: string;
@@ -184,5 +188,60 @@ export function featureToEventData(feature: EventFeature): EventData {
     startDate: inputToDate(feature.properties.startDate),
     endDate: inputToDate(feature.properties.endDate),
     showFrom: feature.properties.showFrom ? inputToDate(feature.properties.showFrom) : null,
+  };
+}
+
+// ----- Rutas -----
+
+export function routeToFeature(route: RouteWithRelations): RouteFeature {
+  const geometry = route.geometry as unknown as { type: "LineString"; coordinates: [number, number][] };
+
+  return {
+    type: "Feature",
+    properties: {
+      identifier: route.id,
+      name: route.name,
+      information: route.information ?? "",
+      categories: [],
+      campus: route.campusId ?? "",
+      faculties: [],
+      placeIds: route.places.map((rp: { place: { id: string } }) => rp.place.id),
+    },
+    geometry,
+  };
+}
+
+export interface RouteData {
+  id: string;
+  name: string;
+  information: string;
+  geometryType: GeoGeometryType;
+  geometry: Prisma.InputJsonValue;
+  longitude: number | null;
+  latitude: number | null;
+  campusId: string | null;
+}
+
+export function featureToRouteData(feature: RouteFeature): RouteData {
+  const coordinates = feature.geometry.coordinates;
+
+  // Una ruta no tiene un punto propio como sí lo tiene un lugar: se guarda el centroide de los
+  // vértices para que el panel tenga a dónde encuadrar sin recorrer la línea entera.
+  let longitude: number | null = null;
+  let latitude: number | null = null;
+  if (coordinates.length > 0) {
+    longitude = coordinates.reduce((sum, c) => sum + c[0], 0) / coordinates.length;
+    latitude = coordinates.reduce((sum, c) => sum + c[1], 0) / coordinates.length;
+  }
+
+  return {
+    id: feature.properties.identifier,
+    name: feature.properties.name,
+    information: feature.properties.information || "",
+    geometryType: feature.geometry.type as GeoGeometryType,
+    geometry: JSON.parse(JSON.stringify(feature.geometry)) as Prisma.InputJsonValue,
+    longitude,
+    latitude,
+    campusId: feature.properties.campus || null,
   };
 }

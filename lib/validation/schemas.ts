@@ -48,6 +48,42 @@ export const patchSchema = z.object({
   }),
 });
 
+// Schemas para rutas
+export const routeSchema = z.object({
+  data: z.object({
+    name: z
+      .string({ required_error: "El nombre es obligatorio" })
+      .min(1, "El nombre no puede estar vacío")
+      .max(100, "El nombre no puede exceder 100 caracteres"),
+    information: z
+      .string({ required_error: "La descripción es obligatoria" })
+      .max(2500, "La descripción no puede exceder 2500 caracteres"),
+    campus: z.string({ required_error: "El campus es obligatorio" }).min(1, "Debes elegir un campus"),
+    placeIds: z.array(z.string()).optional().default([]),
+  }),
+  points: z
+    .array(
+      z.object({
+        geometry: z.object({
+          type: z.literal("Point"),
+          coordinates: z.array(z.number()).length(2),
+        }),
+        type: z.literal("Feature"),
+        properties: z.object({}),
+      }),
+      { required_error: "Los puntos son obligatorios" },
+    )
+    .min(2, "La ruta debe tener al menos 2 puntos"),
+});
+
+export const routePutSchema = routeSchema.extend({
+  identifier: z.string({ required_error: "El identificador es obligatorio" }),
+});
+
+export const routeDeleteSchema = z.object({
+  identifier: z.string({ required_error: "El identificador es obligatorio" }),
+});
+
 // Schemas para eventos
 const eventDateSchema = z.string({ required_error: "La fecha es obligatoria" }).min(1, "La fecha no puede estar vacía");
 

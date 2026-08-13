@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import { Button } from "@/app/components/ui/button";
 import * as Icons from "@/app/components/ui/icons/icons";
+import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
@@ -15,17 +16,19 @@ import { Feature, SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
+import RouteInformation from "../../routes/routeInformation";
 import { SearchDropdown } from "../../search/SearchDropdown";
 
 import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
+import RoutesPanel from "./routesPanel";
 import UsageGuide from "./usageGuide";
 // import ThemesList from "./themesList";
 
 const SUBSIDEBAR_ANIM_MS = 200;
 
 export default function DesktopSidebar() {
-  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal } = useSidebar();
+  const { isOpen, setIsOpen, selectedPlace, setSelectedPlace, closeSignal, openRoutesPanelSignal } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const { rotateTheme } = useTheme();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
@@ -46,10 +49,6 @@ export default function DesktopSidebar() {
     setIsOpen(!isOpen);
   };
 
-  const handleToggleSidebar = () => {
-    toggleSidebar();
-  };
-
   const toggleSubSidebar = (type: SubSidebarType) => {
     setActiveSubSidebar((prev) => (prev === type ? null : type));
   };
@@ -60,7 +59,7 @@ export default function DesktopSidebar() {
 
   const handleCampusClick = (campusName: string) => {
     router.push(`/?campus=${campusName}`);
-    handleToggleSidebar();
+    setIsOpen(false);
     setActiveSubSidebar(null);
   };
 
@@ -89,6 +88,13 @@ export default function DesktopSidebar() {
     setActiveSubSidebar(null);
     setIsOpen(false);
   }, [closeSignal, setIsOpen, isCreatingPlace]);
+
+  // Clic en la línea de una ruta en el mapa: se abre su ficha. NO se expande el sidebar principal: el
+  // panel basta y abrirlo entero es invasivo para un clic en el mapa.
+  useEffect(() => {
+    if (openRoutesPanelSignal === 0) return;
+    setActiveSubSidebar("routeInformation");
+  }, [openRoutesPanelSignal]);
 
   return (
     <>
@@ -141,6 +147,16 @@ export default function DesktopSidebar() {
                 text={isOpen ? "Campus" : undefined}
                 isActive={activeSubSidebar === "campus"}
               />
+              {/* Routes button */}
+              <Button
+                variant="ghost"
+                size="sidebar"
+                onClick={() => (isOpen ? toggleSubSidebar("rutas") : handleCollapsedClick("rutas"))}
+                icon={<MaterialSymbol name="route" className="text-[22px] text-background" />}
+                badge="Nuevo"
+                text={isOpen ? "Rutas" : undefined}
+                isActive={activeSubSidebar === "rutas"}
+              />
               {/* Usage Guide button */}
               <Button
                 variant="ghost"
@@ -182,6 +198,19 @@ export default function DesktopSidebar() {
             {renderedSubSidebar === "campus" && (
               <div className="w-full h-full space-y-4">
                 <CampusList handleCampusClick={handleCampusClick} setActiveSubSidebar={setActiveSubSidebar} />
+              </div>
+            )}
+            {renderedSubSidebar === "rutas" && (
+              <div className="w-full h-full">
+                <RoutesPanel onClose={() => setActiveSubSidebar(null)} />
+              </div>
+            )}
+            {renderedSubSidebar === "routeInformation" && (
+              <div className="w-full h-full">
+                <RouteInformation
+                  onClose={() => setActiveSubSidebar(null)}
+                  onBack={() => setActiveSubSidebar("rutas")}
+                />
               </div>
             )}
             {renderedSubSidebar === "guías" && (

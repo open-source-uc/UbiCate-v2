@@ -8,6 +8,7 @@ import { Source, Layer, useMap } from "react-map-gl/maplibre";
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import { useRoutesDebug } from "@/app/hooks/useRoutes";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import { pruneEventPlaces } from "@/lib/places/eventPlaces";
@@ -25,6 +26,9 @@ import {
   eventPolygonLayer,
   eventPolygonLineLayer,
   eventTextLayer,
+  routeLineBorderLayer,
+  routeLineLayer,
+  routeTextLayer,
 } from "./layers";
 
 function DebugMode() {
@@ -34,8 +38,8 @@ function DebugMode() {
   const [editingEvent, setEditingEvent] = useState<EventFeature | null>(null);
   const mainMap = useMap();
   const [mapLayers, setMapLayers] = useState<string[]>([]);
-  const { isPicking } = useMapPicking();
-  const { hiddenPlaceIds } = useSidebar();
+  const { isPicking, isForRoute } = useMapPicking();
+  const { hiddenPlaceIds, selectedRoute } = useSidebar();
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -96,15 +100,7 @@ function DebugMode() {
     staleTime: 5 * 60 * 1000,
   });
 
-  const { data: approvedData } = useQuery({
-    queryKey: ["places"],
-    queryFn: async () => {
-      const response = await apiClient("/api/ubicate");
-      return response;
-    },
-    enabled: isDebugMode,
-    staleTime: 5 * 60 * 1000,
-  });
+  const debugRoutes = useRoutesDebug(isDebugMode);
 
   /*
   El overlay de debug sí muestra los eventos vencidos (dropExpiredEvents: false),
@@ -124,11 +120,11 @@ function DebugMode() {
   const approvedIdentifiers = useMemo(
     () =>
       new Set(
-        (approvedData?.approved_places?.features || []).map((f: Feature) =>
+        (ubicateData?.approved_places?.features || []).map((f: Feature) =>
           normalizeIdentifier(f.properties.identifier),
         ),
       ),
-    [approvedData],
+    [ubicateData],
   );
 
   const eventPlaceMap = useMemo(() => {
@@ -142,7 +138,7 @@ function DebugMode() {
 
   const debugEventFeatures = useMemo(() => {
     const approvedFeatures = new Map<string, Feature>();
-    for (const f of (approvedData?.approved_places?.features || []) as Feature[]) {
+    for (const f of (ubicateData?.approved_places?.features || []) as Feature[]) {
       approvedFeatures.set(normalizeIdentifier(f.properties.identifier), f);
     }
 
@@ -178,7 +174,7 @@ function DebugMode() {
     }
 
     return enriched;
-  }, [eventJson, approvedData]);
+  }, [eventJson, ubicateData]);
 
   function buildLocationsFromParentIds(parentIds: string[], props?: EventProperties): EventLocation[] {
     return parentIds.map((id) => {
@@ -251,12 +247,18 @@ function DebugMode() {
   const approvedFeatures: Feature[] = ubicateData?.approved_places?.features ?? [];
   const newPlacesFeatures: Feature[] = ubicateData?.new_places?.features ?? [];
 
+  // Lienzo limpio en todo el flujo de dibujo: el modo edición y también el formulario de ruta, donde los
+  // pins siguen desplegados. Con una ruta elegida también, para que se vean su trazado y sus lugares y
+  // no los cientos de puntos del debug. El modo seleccionado se conserva para cuando se vuelva.
+  const visibleDebugMode = isPicking || isForRoute || selectedRoute ? 0 : debugMode;
+
   return (
     <>
-      {/* En modo edición el mapa queda limpio: se oculta (no se desmonta) para no perder el estado del panel */}
+      {/* En modo edición el mapa queda limpio: se oculta (no se desmonta) para no perder el estado del panel.
+          Con el formulario de ruta abierto también, o los radios quedarían sin pintar nada. */}
       <div
         className={`fixed right-0 top-44 bg-gray-800 bg-opacity-75 text-white p-4 w-min h-2/5 overflow-auto resize-x border-2 border-dashed pointer-events-auto ${
-          isPicking ? "hidden" : ""
+          isPicking || isForRoute ? "hidden" : ""
         }`}
       >
         <button
@@ -282,6 +284,11 @@ function DebugMode() {
           <label className="flex items-center">
             <input type="radio" checked={debugMode === 3} onChange={() => setDebugMode(3)} className="mr-2" />
             Eventos
+          </label>
+          <br />
+          <label className="flex items-center">
+            <input type="radio" checked={debugMode === 4} onChange={() => setDebugMode(4)} className="mr-2" />
+            Rutas
           </label>
 
           <div className="mt-3">
@@ -356,6 +363,9 @@ function DebugMode() {
           <li className="flex items-center">
             <span className="w-6 h-6 bg-[#9333EA] mr-2" /> Eventos - Púrpura
           </li>
+          <li className="flex items-center">
+            <span className="w-6 h-6 bg-[#22C55E] mr-2" /> Rutas - Verde
+          </li>
         </ul>
 
         {mapLayers.length > 0 && (
@@ -374,7 +384,7 @@ function DebugMode() {
         )}
       </div>
 
-      {debugMode === 1 && (
+      {visibleDebugMode === 1 && (
         <>
           <Source
             id="debug-1"
@@ -394,7 +404,7 @@ function DebugMode() {
         </>
       )}
 
-      {debugMode === 2 && newPlacesFeatures.length > 0 ? (
+      {visibleDebugMode === 2 && newPlacesFeatures.length > 0 ? (
         <>
           <Source
             id="debug-8"
@@ -415,7 +425,15 @@ function DebugMode() {
         </>
       ) : null}
 
-      {debugMode === 3 && debugEventFeatures.length > 0 ? (
+      {visibleDebugMode === 4 && debugRoutes.length > 0 ? (
+        <Source id="debug-routes" type="geojson" data={featuresToGeoJSON(debugRoutes)}>
+          <Layer {...routeLineBorderLayer} />
+          <Layer {...routeLineLayer} />
+          <Layer {...routeTextLayer} />
+        </Source>
+      ) : null}
+
+      {visibleDebugMode === 3 && debugEventFeatures.length > 0 ? (
         <>
           <Source id="debug-events" type="geojson" data={featuresToGeoJSON(visibleFeatures(debugEventFeatures))}>
             <Layer {...eventPolygonLayer} />

@@ -6,7 +6,15 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { categoryFilter, getActiveEvents, getEventPlaces } from "@/app/components/features/filters/pills/placeFilters";
 import { AppLoadError, fetchJsonOrThrow, LoadErrorKind, markAppLoadedOnce } from "@/lib/api/loadError";
-import { CATEGORIES, EventFeature, Feature, JSONFeatures, PointFeature, PolygonFeature } from "@/lib/types";
+import {
+  CATEGORIES,
+  EventFeature,
+  Feature,
+  JSONFeatures,
+  PointFeature,
+  PolygonFeature,
+  RouteFeature,
+} from "@/lib/types";
 
 import usePlaces from "../hooks/usePlaces";
 
@@ -19,6 +27,9 @@ const REFETCH_IN_BACKGROUND = process.env.NEXT_PUBLIC_REFETCH_IN_BACKGROUND === 
 // Margen tras el primer request exitoso: el refresh fresco va en paralelo y puede tardar un poco más en
 // delatar que el servidor está caído.
 const FIRST_RESULT_GRACE_MS = 2000;
+
+// Desfase aleatorio del refetch de reconexión: todos los clientes del campus vuelven a la vez.
+const RECONNECT_JITTER_MS = 30_000;
 
 export type FirstRequestResult = "ok" | LoadErrorKind;
 
@@ -47,13 +58,25 @@ interface SidebarContextType {
   allFeatures: Feature[];
   allEvents: EventFeature[];
   eventPlaces: Feature[];
+  routes: RouteFeature[];
+  // La ruta elegida vive acá y no en el panel: el panel se desmonta al clickear el mapa y la ruta
+  // dibujada tiene que sobrevivir a eso. Solo se apaga volviéndola a tocar en el sidebar.
+  selectedRoute: RouteFeature | null;
+  setSelectedRoute: (route: RouteFeature | null) => void;
+  // Señal para abrir el panel de Rutas desde fuera del sidebar (clic en la línea del mapa).
+  openRoutesPanelSignal: number;
+  openRoutesPanel: (route?: RouteFeature | null) => void;
+  // Ruta cuya ficha debe mostrarse. Se guarda el Feature completo, no un id: el id tendría que volver a
+  // resolverse contra `routes` y el que entrega maplibre viene de properties serializadas.
+  // Solo lo pone el clic en el mapa: elegir una ruta en la lista la dibuja, pero no abre su ficha.
+  routeDetail: RouteFeature | null;
   isDataLoaded: boolean;
   // Solo tiene valor cuando la app se quedó sin datos que mostrar (ni frescos ni de cache).
   loadError: LoadErrorKind | null;
   firstRequestResult: FirstRequestResult | null;
   isRetryingLoad: boolean;
   retryLoad: () => void;
-  refetchPlaces: (opts?: { syncMap?: boolean }) => void;
+  refetchPlaces: (opts?: { syncMap?: boolean; fresh?: boolean }) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
@@ -66,6 +89,20 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   const [eventCounts, setEventCounts] = useState<Map<string, number>>(new Map());
   const [eventPlaceIds, setEventPlaceIds] = useState<Set<string>>(new Set());
   const [isOnline, setIsOnline] = useState<boolean>(true);
+  const [selectedRoute, setSelectedRoute] = useState<RouteFeature | null>(null);
+  const [openRoutesPanelSignal, setOpenRoutesPanelSignal] = useState<number>(0);
+  const [routeDetail, setRouteDetail] = useState<RouteFeature | null>(null);
+
+  // Elegir una ruta en la lista la dibuja y cierra cualquier ficha abierta.
+  const selectRoute = useCallback((route: RouteFeature | null) => {
+    setSelectedRoute(route);
+    setRouteDetail(null);
+  }, []);
+
+  const openRoutesPanel = useCallback((route?: RouteFeature | null) => {
+    setRouteDetail(route ?? null);
+    setOpenRoutesPanelSignal((n) => n + 1);
+  }, []);
   const queryClient = useQueryClient();
 
   // React Query borra `error` al INICIAR cualquier fetch mientras no haya datos (fetchState en
@@ -153,6 +190,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         events: { features: (EventFeature | Feature)[] };
         message: string;
       }>,
+    retry: 1,
     staleTime: REFETCH_ONLINE_MS,
     networkMode: "offlineFirst",
     refetchInterval: isLoadBlocked ? false : isOnline ? REFETCH_ONLINE_MS : REFETCH_OFFLINE_MS,
@@ -160,6 +198,33 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     refetchOnReconnect: !isLoadBlocked,
     refetchOnWindowFocus: !isLoadBlocked,
   });
+
+  // Rutas por el MISMO flujo de 3 capas que lugares y eventos, y montadas acá para que se carguen al
+  // abrir la app y no recién cuando alguien abre el panel de Rutas.
+  const { data: routesData } = useQuery({
+    queryKey: ["routes"],
+    queryFn: () =>
+      fetch("/api/routes").then((r) => r.json()) as Promise<{
+        routes: { features: RouteFeature[] };
+        message: string;
+      }>,
+    retry: 1,
+    staleTime: REFETCH_ONLINE_MS,
+    networkMode: "offlineFirst",
+    refetchInterval: isLoadBlocked ? false : isOnline ? REFETCH_ONLINE_MS : REFETCH_OFFLINE_MS,
+    refetchIntervalInBackground: REFETCH_IN_BACKGROUND,
+    refetchOnReconnect: !isLoadBlocked,
+    refetchOnWindowFocus: !isLoadBlocked,
+  });
+
+  const routes: RouteFeature[] = useMemo(() => routesData?.routes?.features ?? [], [routesData]);
+
+  // Ruta y filtro de categorías se excluyen: encender una pill limpia la ruta dibujada (el recorrido de
+  // `routesPanel` es el simétrico). Va en su propio efecto y no en el efecto central de filtros, que
+  // también corre en cada refetch de datos y borraría la ruta sin que el usuario tocara nada.
+  useEffect(() => {
+    if (activeFilters.length > 0) selectRoute(null);
+  }, [activeFilters, selectRoute]);
 
   const { allEvents, eventPlaces } = useMemo(() => {
     const features = eventsData?.events?.features ?? [];
@@ -194,18 +259,21 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     if (isSuccess) markAppLoadedOnce();
   }, [isSuccess]);
 
-  // Trae datos frescos del servidor saltándose TODAS las capas de cache (SW + memoria del servidor)
-  // vía el header X-Ubicate-Fresh. syncMap=true además fuerza los lugares aprobados al mapa (post-mutación);
-  // syncMap=false solo refresca los datos y deja que allFeatures/PillFilter reconstruyan el mapa (carga/reconexión).
+  // Trae datos del servidor saltándose el cache del SW. syncMap=true además fuerza los lugares
+  // aprobados al mapa (post-mutación); syncMap=false solo refresca los datos y deja que
+  // allFeatures/PillFilter reconstruyan el mapa (carga/reconexión). fresh=true salta además la
+  // Capa 1 y lee de la BD: solo para mutaciones y debug, ver optimize_data.md.
   const refetchPlaces = useCallback(
-    async (opts?: { syncMap?: boolean }) => {
+    async (opts?: { syncMap?: boolean; fresh?: boolean }) => {
       const syncMap = opts?.syncMap ?? true;
+      const fresh = opts?.fresh ?? true;
+      const headerName = fresh ? "X-Ubicate-Fresh" : "X-Ubicate-Revalidate";
       try {
         const freshData = await fetchJsonOrThrow<{
           approved_places: { features: Feature[] };
           new_places: { features: Feature[] };
           message: string;
-        }>("/api/ubicate", { headers: { "X-Ubicate-Fresh": "true" } });
+        }>("/api/ubicate", { headers: { [headerName]: "true" } });
         queryClient.setQueryData(["places"], freshData);
         queryClient.invalidateQueries({ queryKey: ["ubicate-debug"] });
         setManualServerError(false);
@@ -228,20 +296,26 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   // Al cargar con conexión → buscar enseguida datos frescos del servidor. Al reconectar → volver a
   // pedirlos y restaurar la cadencia online. Al perder conexión → cambiar a polling agresivo (offline).
   useEffect(() => {
+    let reconnectTimer: ReturnType<typeof setTimeout> | undefined;
+
     const goOnline = () => {
       setIsOnline(true);
-      if (!isLoadBlockedRef.current) refetchPlaces({ syncMap: false });
+      clearTimeout(reconnectTimer);
+      reconnectTimer = setTimeout(() => {
+        if (!isLoadBlockedRef.current) refetchPlaces({ syncMap: false, fresh: false });
+      }, Math.random() * RECONNECT_JITTER_MS);
     };
     const goOffline = () => setIsOnline(false);
 
     if (typeof navigator !== "undefined") {
       setIsOnline(navigator.onLine);
-      if (navigator.onLine) refetchPlaces({ syncMap: false });
+      if (navigator.onLine) refetchPlaces({ syncMap: false, fresh: false });
     }
 
     window.addEventListener("online", goOnline);
     window.addEventListener("offline", goOffline);
     return () => {
+      clearTimeout(reconnectTimer);
       window.removeEventListener("online", goOnline);
       window.removeEventListener("offline", goOffline);
     };
@@ -309,6 +383,12 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         allFeatures,
         allEvents,
         eventPlaces,
+        routes,
+        selectedRoute,
+        setSelectedRoute: selectRoute,
+        openRoutesPanelSignal,
+        openRoutesPanel,
+        routeDetail,
         isDataLoaded: isSuccess,
         loadError,
         firstRequestResult,

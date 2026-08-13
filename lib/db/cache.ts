@@ -4,27 +4,19 @@ interface CacheEntry<T> {
   ttlMs: number;
 }
 
+const STALE_GRACE_MS = 30 * 60 * 1000;
+
 class DataCache {
   private store = new Map<string, CacheEntry<unknown>>();
-  private refreshTimers = new Map<string, ReturnType<typeof setInterval>>();
-  private lastRefreshMap = new Map<string, Date>();
+  private inFlight = new Map<string, { promise: Promise<unknown>; generation: number }>();
+  private generations = new Map<string, number>();
   private defaultTtlMs: number;
 
   constructor(defaultTtlMs = 5 * 60 * 1000) {
     this.defaultTtlMs = defaultTtlMs;
   }
 
-  get<T>(key: string): T | null {
-    const entry = this.store.get(key);
-    if (!entry) return null;
-    if (Date.now() - entry.timestamp > entry.ttlMs) {
-      this.store.delete(key);
-      return null;
-    }
-    return entry.data as T;
-  }
-
-  set<T>(key: string, data: T, ttlMs?: number): void {
+  private set<T>(key: string, data: T, ttlMs?: number): void {
     this.store.set(key, {
       data,
       timestamp: Date.now(),
@@ -32,57 +24,65 @@ class DataCache {
     });
   }
 
+  private load<T>(key: string, loader: () => Promise<T>, ttlMs?: number): Promise<T> {
+    const current = this.generations.get(key) ?? 0;
+    const existing = this.inFlight.get(key);
+    if (existing && existing.generation >= current) {
+      return existing.promise as Promise<T>;
+    }
+
+    const generation = current;
+    const promise = (async () => {
+      const data = await loader();
+      if (generation >= (this.generations.get(key) ?? 0)) this.set(key, data, ttlMs);
+      return data;
+    })();
+
+    const entry = { promise, generation };
+    this.inFlight.set(key, entry);
+    promise
+      .catch(() => {})
+      .finally(() => {
+        if (this.inFlight.get(key) === entry) this.inFlight.delete(key);
+      });
+
+    return promise;
+  }
+
+  async getOrLoad<T>(
+    key: string,
+    loader: () => Promise<T>,
+    options?: { ttlMs?: number; forceFresh?: boolean },
+  ): Promise<T> {
+    const ttlMs = options?.ttlMs;
+    if (options?.forceFresh) return this.load(key, loader, ttlMs);
+
+    const entry = this.store.get(key) as CacheEntry<T> | undefined;
+    if (entry) {
+      const age = Date.now() - entry.timestamp;
+      if (age <= entry.ttlMs) return entry.data;
+      if (age <= entry.ttlMs + STALE_GRACE_MS) {
+        void this.load(key, loader, ttlMs).catch(() => {});
+        return entry.data;
+      }
+    }
+
+    return this.load(key, loader, ttlMs);
+  }
+
+  private bump(key: string): void {
+    this.generations.set(key, (this.generations.get(key) ?? 0) + 1);
+  }
+
   invalidate(key?: string): void {
     if (key) {
+      this.bump(key);
       this.store.delete(key);
-    } else {
-      this.store.clear();
+      return;
     }
-  }
 
-  isStale(key: string): boolean {
-    const entry = this.store.get(key);
-    if (!entry) return true;
-    return Date.now() - entry.timestamp > entry.ttlMs;
-  }
-
-  getLastRefresh(key?: string): Date | null {
-    if (key) {
-      return this.lastRefreshMap.get(key) ?? null;
-    }
-    let latest: Date | null = null;
-    for (const date of this.lastRefreshMap.values()) {
-      if (!latest || date > latest) latest = date;
-    }
-    return latest;
-  }
-
-  startRefresh(key: string, intervalMs: number, refreshFn: () => Promise<void>): void {
-    this.stopRefresh(key);
-    const timer = setInterval(async () => {
-      try {
-        await refreshFn();
-        this.lastRefreshMap.set(key, new Date());
-      } catch (error) {
-        console.error(`Cache refresh error for "${key}":`, error);
-      }
-    }, intervalMs);
-    this.refreshTimers.set(key, timer);
-  }
-
-  stopRefresh(key?: string): void {
-    if (key) {
-      const timer = this.refreshTimers.get(key);
-      if (timer) {
-        clearInterval(timer);
-        this.refreshTimers.delete(key);
-      }
-    } else {
-      for (const [, timer] of this.refreshTimers) {
-        clearInterval(timer);
-      }
-      this.refreshTimers.clear();
-    }
+    for (const k of new Set([...this.store.keys(), ...this.inFlight.keys()])) this.bump(k);
+    this.store.clear();
   }
 }
 

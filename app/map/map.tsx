@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { use, useEffect, useMemo, useRef, useState } from "react";
+import React, { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike, MapMouseEvent, MapTouchEvent } from "maplibre-gl";
@@ -13,12 +13,19 @@ import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
+import { normalizeIdentifier } from "@/lib/places/utils";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
 import { SilentErrorBoundary } from "../components/app/appErrors/SilentErrorBoundary";
 import Changelog from "../components/features/changelog/Changelog";
 import DirectionsComponent from "../components/features/directions/component";
+import RouteLayer from "../components/features/directions/routeLayer";
 import UserLocation from "../components/features/directions/userLocation";
+import RouteMapLayer, {
+  ROUTE_BORDER_COLOR,
+  ROUTE_COLOR,
+  RoutePlacesLayer,
+} from "../components/features/routes/routeMapLayer";
 import MarkerIcon from "../components/ui/icons/markerIcon";
 import MaterialSymbol from "../components/ui/icons/MaterialSymbol";
 import { useMapPicking } from "../context/mapPickingCtx";
@@ -91,13 +98,56 @@ export default function MapComponent({
 }) {
   const mapRef = useRef<MapRef>(null);
   const params = useSearchParams();
-  const { points, polygons, pointsName, setPlaces, activeFilters, eventPlaceIds, allFeatures } = useSidebar();
+  const {
+    points,
+    polygons,
+    pointsName,
+    setPlaces,
+    activeFilters,
+    eventPlaceIds,
+    allFeatures,
+    selectedRoute,
+    openRoutesPanel,
+  } = useSidebar();
   const isEventsFilter = activeFilters.includes(CATEGORIES.EVENTS);
-  const { pins, setPinsFromCoords, handlePinDrag, polygon, removePin } = use(pinsContext);
-  const { isPicking, isForEvent, isDrawingRect, setDrawingRect, setPicking, isViewOnly, isCreatingPlace } =
-    useMapPicking();
+  const { pins, setPinsFromCoords, handlePinDrag, polygon, line, removePin } = use(pinsContext);
+  const {
+    isPicking,
+    mode,
+    isForEvent,
+    isForRoute,
+    routePlaceIds,
+    isDrawingRect,
+    setDrawingRect,
+    setPicking,
+    isViewOnly,
+    isCreatingPlace,
+  } = useMapPicking();
   const isEventMode = isEventsFilter || isPicking || isForEvent;
+  // También con el formulario abierto (picking apagado): los pins siguen en pantalla y deben leerse como
+  // una ruta, no como los vértices sueltos de un polígono.
+  const isDrawingLine = isForRoute || (isPicking && mode === "line");
   const [selectedPinId, setSelectedPinId] = useState<string | null>(null);
+  const featuresByIds = useCallback(
+    (placeIds: string[]) => {
+      if (placeIds.length === 0) return [];
+      const ids = new Set(placeIds.map((id) => normalizeIdentifier(id)));
+      return allFeatures.filter((f) => ids.has(normalizeIdentifier(f.properties.identifier)));
+    },
+    [allFeatures],
+  );
+
+  const selectedRoutePlaces = useMemo(
+    () => (selectedRoute ? featuresByIds(selectedRoute.properties.placeIds) : []),
+    [selectedRoute, featuresByIds],
+  );
+
+  // Lugares del formulario de ruta abierto: se pintan mientras se editan los datos (no mientras se
+  // dibuja la línea, que ahí el lienzo va limpio).
+  const routeFormPlaces = useMemo(
+    () => (isForRoute && !isPicking ? featuresByIds(routePlaceIds) : []),
+    [isForRoute, isPicking, routePlaceIds, featuresByIds],
+  );
   const wasDraggingRef = useRef(false);
   const rectJustFinishedRef = useRef(false);
   const [rectPreview, setRectPreview] = useState<[number, number][] | null>(null);
@@ -306,9 +356,25 @@ export default function MapComponent({
           "custom-area-polygon",
           "event-points-layer",
           "event-polygon-layer",
+          // Ruta elegida: la línea abre el panel de Rutas; sus lugares abren la ficha del lugar.
+          // Para la línea se usa el área de contacto ancha, no la línea visible.
+          "ubicate-route-hit",
+          "ubicate-route-places-point",
+          "ubicate-route-places-area",
         ]}
         onClick={(e) => {
           if (isDrawingRect || rectJustFinishedRef.current) return;
+          // La línea de la ruta abre su ficha. Se resuelve acá y no en useMapEvents porque acá está el
+          // objeto que se dibujó: reconstruirlo desde las properties del feature (que maplibre
+          // serializa) daba "esta ruta ya no está disponible".
+          if (selectedRoute && e.features?.length) {
+            const hitRoute = e.features.some((f) => f.layer?.id === "ubicate-route-hit");
+            const hitPlace = e.features.some((f) => f.layer?.id !== "ubicate-route-hit");
+            if (hitRoute && !hitPlace) {
+              openRoutesPanel(selectedRoute);
+              return;
+            }
+          }
           if (selectedPinId) {
             setSelectedPinId(null);
             return;
@@ -352,11 +418,20 @@ export default function MapComponent({
             }}
           />
         </Source>
-        <Source id="custom-polygon-area" type="geojson" data={featuresToGeoJSON(isEventMode ? [] : polygon)}>
+        {/* En modo línea el memo `polygon` sigue vivo (≥3 pins) y pintaría un área sobre la ruta. */}
+        <Source
+          id="custom-polygon-area"
+          type="geojson"
+          data={featuresToGeoJSON(isEventMode || isDrawingLine ? [] : polygon)}
+        >
           <Layer {...mapConfig.customPolygonSectionAreaLayer} />
           <Layer {...mapConfig.customPolygonStrokeLayer} />
         </Source>
-        <Source id="event-polygon-area" type="geojson" data={featuresToGeoJSON(isEventMode ? polygon : [])}>
+        <Source
+          id="event-polygon-area"
+          type="geojson"
+          data={featuresToGeoJSON(isEventMode && !isDrawingLine ? polygon : [])}
+        >
           <Layer id="event-polygon-fill" type="fill" paint={{ "fill-color": "rgba(147, 51, 234, 0.3)" }} />
           <Layer
             id="event-polygon-stroke"
@@ -364,6 +439,23 @@ export default function MapComponent({
             paint={{ "line-color": "#9333EA", "line-width": 0.7, "line-dasharray": [4, 2] }}
           />
         </Source>
+        {/* Ruta en construcción. idPrefix propio: el RouteLayer de las direcciones puede estar montado
+            a la vez y maplibre no admite dos sources con el mismo id. */}
+        {isDrawingLine && line ? (
+          <RouteLayer route={line} idPrefix="route-draft" color={ROUTE_COLOR} borderColor={ROUTE_BORDER_COLOR} />
+        ) : null}
+        {/* Ruta guardada que el usuario eligió en el panel. No convive con el dibujo: mientras se edita
+            manda el borrador. */}
+        {/* Se esconde en modo edición y en el flujo de ruta, para dejar el lienzo limpio; la selección se
+            mantiene y la ruta vuelve al salir. Ojo: NO se usa `isCreatingPlace`, que incluye
+            `hasPendingProposal` — basta con pins sueltos y un marcador custom seleccionado (cosa normal
+            en debug) para que se encienda, y la ruta desaparecía sin motivo.
+            Los lugares van en su propia capa y no por `setPlaces`: el efecto de filtros de sidebarCtx
+            repisa `findPlaces` en cada refetch y los haría desaparecer solos. */}
+        {!isPicking && !isForRoute && selectedRoute ? (
+          <RouteMapLayer route={selectedRoute} places={selectedRoutePlaces} />
+        ) : null}
+        {routeFormPlaces.length > 0 ? <RoutePlacesLayer places={routeFormPlaces} idPrefix="route-draft" /> : null}
         <Source
           id="rect-preview"
           type="geojson"

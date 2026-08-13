@@ -1,6 +1,7 @@
-import { booleanPointInPolygon, point, polygon } from "@turf/turf";
+import { bbox, booleanPointInPolygon, point, polygon } from "@turf/turf";
 
 import type { Prisma } from "@/generated/prisma/client";
+import { buildCachedPayload, type CachedPayload } from "@/lib/api/httpCache";
 import { prisma } from "@/lib/prisma";
 import type { Feature } from "@/lib/types";
 
@@ -11,84 +12,107 @@ const CACHE_KEY_PLACES = "allPlaces";
 const CACHE_KEY_CAMPUSES = "campuses";
 const CACHE_TTL = 5 * 60 * 1000;
 
-function computeFacultiesForPoint(lng: number, lat: number, allFeatures: Feature[]): string[] {
-  const p = point([lng, lat]);
-  const faculties: string[] = [];
+interface FacultyArea {
+  identifier: string;
+  area: GeoJSON.Feature<GeoJSON.Polygon>;
+  minLng: number;
+  minLat: number;
+  maxLng: number;
+  maxLat: number;
+}
+
+function buildFacultyIndex(allFeatures: Feature[]): FacultyArea[] {
+  const index: FacultyArea[] = [];
 
   for (const feature of allFeatures) {
-    if (feature.properties.categories.includes("faculty") && feature.geometry.type === "Polygon") {
-      const poly = polygon(feature.geometry.coordinates);
-      if (booleanPointInPolygon(p, poly)) {
-        faculties.push(feature.properties.identifier);
-      }
-    }
+    if (feature.geometry.type !== "Polygon" || !feature.properties.categories.includes("faculty")) continue;
+    const area = polygon(feature.geometry.coordinates);
+    const box = bbox(area);
+    index.push({
+      identifier: feature.properties.identifier,
+      area,
+      minLng: box[0],
+      minLat: box[1],
+      maxLng: box[2],
+      maxLat: box[3],
+    });
+  }
+
+  return index;
+}
+
+function facultiesForPoint(lng: number, lat: number, index: FacultyArea[]): string[] {
+  const faculties: string[] = [];
+  let p: GeoJSON.Feature<GeoJSON.Point> | null = null;
+
+  for (const faculty of index) {
+    if (lng < faculty.minLng || lng > faculty.maxLng || lat < faculty.minLat || lat > faculty.maxLat) continue;
+    p ??= point([lng, lat]);
+    if (booleanPointInPolygon(p, faculty.area)) faculties.push(faculty.identifier);
   }
 
   return faculties;
 }
 
-function computeFacultiesForAll(allFeatures: Feature[]): Feature[] {
-  return allFeatures.map((f) => {
-    if (f.geometry.type !== "Point") return f;
-    const [lng, lat] = f.geometry.coordinates;
-    return {
-      ...f,
-      properties: {
-        ...f.properties,
-        faculties: computeFacultiesForPoint(lng, lat, allFeatures),
-      },
-    };
-  });
+function assignFaculties(allFeatures: Feature[]): Feature[] {
+  const index = buildFacultyIndex(allFeatures);
+
+  for (const feature of allFeatures) {
+    if (feature.geometry.type !== "Point") continue;
+    const [lng, lat] = feature.geometry.coordinates;
+    feature.properties.faculties = facultiesForPoint(lng, lat, index);
+  }
+
+  return allFeatures;
 }
 
-async function loadAndCacheAllPlaces(): Promise<{ approved: Feature[]; newPlaces: Feature[] }> {
+export interface PlacesData {
+  approved: Feature[];
+  newPlaces: Feature[];
+  response: CachedPayload;
+}
+
+async function loadAllPlaces(): Promise<PlacesData> {
   const places = await prisma.place.findMany({
     // isEventOnly: lugares creados inline dentro de un evento. Se sirven solo vía /api/events,
     // nunca en el mapa normal.
     where: { isEventOnly: false },
     include: {
-      campus: true,
       categories: { include: { category: true } },
       floors: { include: { floor: true } },
     },
   });
 
-  const features = places.map((p) => placeToFeature(p));
-  const withFaculties = computeFacultiesForAll(features);
+  const withFaculties = assignFaculties(places.map((p) => placeToFeature(p)));
 
-  const result = {
-    approved: withFaculties.filter((f) => !f.properties.needApproval),
-    newPlaces: withFaculties.filter((f) => f.properties.needApproval),
-  };
+  const approved = withFaculties.filter((f) => !f.properties.needApproval);
+  const newPlaces = withFaculties.filter((f) => f.properties.needApproval);
 
-  cache.set(CACHE_KEY_PLACES, result, CACHE_TTL);
-  return result;
+  const response = await buildCachedPayload({
+    message: "Success",
+    approved_places: { type: "FeatureCollection", features: approved },
+    new_places: { type: "FeatureCollection", features: newPlaces },
+  });
+
+  return { approved, newPlaces, response };
 }
 
-async function loadAndCacheCampuses(): Promise<Feature[]> {
+async function loadCampuses(): Promise<Feature[]> {
   const campuses = await prisma.campus.findMany();
-  const features = campuses.map(campusToFeature);
-  cache.set(CACHE_KEY_CAMPUSES, features, CACHE_TTL);
-  return features;
+  return campuses.map(campusToFeature);
 }
 
-export async function getAllPlaces(options?: {
-  bypassCache?: boolean;
-}): Promise<{ approved: Feature[]; newPlaces: Feature[] }> {
+export async function getAllPlaces(options?: { bypassCache?: boolean }): Promise<PlacesData> {
   // bypassCache=true → salta la Capa 1 (cache en memoria) y lee directo de la BD.
   // Lo usan el modo debug (siempre datos frescos) y el refetch post-mutación.
-  // loadAndCacheAllPlaces() además repuebla la Capa 1 con los datos frescos.
-  if (!options?.bypassCache) {
-    const cached = cache.get<{ approved: Feature[]; newPlaces: Feature[] }>(CACHE_KEY_PLACES);
-    if (cached) return cached;
-  }
-  return loadAndCacheAllPlaces();
+  return cache.getOrLoad(CACHE_KEY_PLACES, loadAllPlaces, {
+    ttlMs: CACHE_TTL,
+    forceFresh: options?.bypassCache,
+  });
 }
 
 export async function getCampuses(): Promise<Feature[]> {
-  const cached = cache.get<Feature[]>(CACHE_KEY_CAMPUSES);
-  if (cached) return cached;
-  return loadAndCacheCampuses();
+  return cache.getOrLoad(CACHE_KEY_CAMPUSES, loadCampuses, { ttlMs: CACHE_TTL });
 }
 
 export async function getPlaceById(id: string): Promise<Feature | null> {
@@ -103,8 +127,7 @@ export async function getPlaceById(id: string): Promise<Feature | null> {
 
 export async function getFacultyForPoint(lng: number, lat: number): Promise<string[]> {
   const { approved, newPlaces } = await getAllPlaces();
-  const all = [...approved, ...newPlaces];
-  return computeFacultiesForPoint(lng, lat, all);
+  return facultiesForPoint(lng, lat, buildFacultyIndex([...approved, ...newPlaces]));
 }
 
 export async function getCampusNameForPoint(lng: number, lat: number): Promise<string | null> {
@@ -162,7 +185,7 @@ export async function createPlace(feature: Feature): Promise<void> {
     },
   });
 
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_PLACES);
 }
 
 export async function updatePlace(id: string, feature: Feature): Promise<void> {
@@ -208,7 +231,7 @@ export async function updatePlace(id: string, feature: Feature): Promise<void> {
     });
   });
 
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_PLACES);
 }
 
 export async function approvePlace(id: string): Promise<void> {
@@ -254,21 +277,17 @@ export async function approvePlace(id: string): Promise<void> {
       data: { needApproval: false },
     });
   }
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_PLACES);
 }
 
 export async function rejectPlace(id: string): Promise<void> {
   await prisma.place.delete({ where: { id } });
-  cache.invalidate();
+  cache.invalidate(CACHE_KEY_PLACES);
 }
 
 export async function deletePlace(id: string): Promise<void> {
   await prisma.place.delete({ where: { id } });
   cache.invalidate();
-}
-
-export function initCache(): void {
-  cache.startRefresh(CACHE_KEY_PLACES, CACHE_TTL, () => loadAndCacheAllPlaces().then(() => {}));
 }
 
 export async function normalizeIdentifierExists(identifier: string): Promise<boolean> {

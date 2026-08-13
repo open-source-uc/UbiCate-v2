@@ -20,6 +20,7 @@ model Campus {
   updatedAt    DateTime        @updatedAt
   events       Event[]
   places       Place[]
+  routes       Route[]
 
   @@map("campus")
 }
@@ -40,6 +41,7 @@ model Place {
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
   eventLinks    EventPlace[]
+  routeLinks    RoutePlace[]
   campus        Campus?         @relation(fields: [campusId], references: [id])
   parentPlace   Place?          @relation("PlaceHierarchy", fields: [parentPlaceId], references: [id])
   childPlaces   Place[]         @relation("PlaceHierarchy")
@@ -134,10 +136,42 @@ model EventPlace {
   @@map("event_place")
 }
 
+model Route {
+  id           String          @id @db.VarChar(150)
+  name         String          @db.VarChar(500)
+  information  String?
+  campusId     String?         @db.VarChar(100)
+  geometryType GeoGeometryType
+  geometry     Json
+  longitude    Decimal?        @db.Decimal(12, 8)
+  latitude     Decimal?        @db.Decimal(12, 8)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  campus       Campus?         @relation(fields: [campusId], references: [id])
+  places       RoutePlace[]
+
+  @@index([campusId])
+  @@map("route")
+}
+
+// Sin columna de orden a propósito: los lugares de una ruta son un conjunto, no una secuencia.
+// Agregar `position Int` después es aditivo y no cambia la PK.
+model RoutePlace {
+  routeId String @db.VarChar(150)
+  placeId String @db.VarChar(150)
+  route   Route  @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  place   Place  @relation(fields: [placeId], references: [id], onDelete: Cascade)
+
+  @@id([routeId, placeId])
+  @@index([placeId])
+  @@map("route_place")
+}
+
 enum GeoGeometryType {
   Point
   Polygon
   MultiPolygon
+  LineString
 }
 
 enum ProposalType {

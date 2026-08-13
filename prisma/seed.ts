@@ -235,6 +235,8 @@ function prepareEvent(feature: GeoJsonFeature, validCampusIds: Set<string>): Pre
 // Orden inverso a las FKs. `migrate reset` deja todo vacío, así que en el flujo normal no borra nada;
 // esto existe para poder re-correr el seed sobre una BD ya sembrada sin duplicar ni chocar con PKs.
 async function resetTables() {
+  await prisma.routePlace.deleteMany();
+  await prisma.route.deleteMany();
   await prisma.eventPlace.deleteMany();
   await prisma.event.deleteMany();
   await prisma.placeCategory.deleteMany();

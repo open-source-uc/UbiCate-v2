@@ -4,13 +4,15 @@ import { createContext, ReactNode } from "react";
 
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
-import { PointFeature, PolygonFeature } from "@/lib/types";
+import { LineFeature, PointFeature, PolygonFeature } from "@/lib/types";
 
 import { useCustomPins } from "../hooks/useCustomPins";
 
 interface PinsContextType {
   pins: PointFeature[];
   addPin: (lng: number, lat: number, name?: string) => PointFeature | null;
+  /** Línea: engancha el vértice al extremo más cercano al clic. */
+  addPinToNearestEnd: (lng: number, lat: number) => PointFeature | null;
   insertPin: (lng: number, lat: number) => PointFeature | null;
   handlePinDrag: (event: MarkerDragEvent, pinId: string) => void;
   clearPins: () => void;
@@ -18,6 +20,7 @@ interface PinsContextType {
   setPinsFromCoords: (coords: [number, number][]) => void;
   removePin: (pinId: string) => void;
   polygon: PolygonFeature | null;
+  line: LineFeature | null;
   undo: () => void;
   redo: () => void;
   resetHistory: () => void;
@@ -28,6 +31,7 @@ interface PinsContextType {
 export const pinsContext = createContext<PinsContextType>({
   pins: [],
   addPin: () => null,
+  addPinToNearestEnd: () => null,
   insertPin: () => null,
   handlePinDrag: () => null,
   clearPins: () => null,
@@ -35,6 +39,7 @@ export const pinsContext = createContext<PinsContextType>({
   setPinsFromCoords: () => null,
   removePin: () => null,
   polygon: null,
+  line: null,
   undo: () => null,
   redo: () => null,
   resetHistory: () => null,
@@ -46,6 +51,7 @@ export function PinsProvider({ children }: { children: ReactNode }) {
   const {
     pins,
     addPin,
+    addPinToNearestEnd,
     insertPin,
     handlePinDrag,
     clearPins,
@@ -53,13 +59,16 @@ export function PinsProvider({ children }: { children: ReactNode }) {
     setPinsFromCoords,
     removePin,
     polygon,
+    line,
     undo,
     redo,
     resetHistory,
     canUndo,
     canRedo,
   } = useCustomPins({
-    maxPins: 20,
+    // 20 alcanza de sobra para un punto o un polígono, pero una ruta de campus necesita bastantes
+    // más vértices para seguir los caminos.
+    maxPins: 60,
   });
 
   return (
@@ -67,6 +76,7 @@ export function PinsProvider({ children }: { children: ReactNode }) {
       value={{
         pins,
         addPin,
+        addPinToNearestEnd,
         insertPin,
         handlePinDrag,
         clearPins,
@@ -74,6 +84,7 @@ export function PinsProvider({ children }: { children: ReactNode }) {
         setPinsFromCoords,
         removePin,
         polygon,
+        line,
         undo,
         redo,
         resetHistory,

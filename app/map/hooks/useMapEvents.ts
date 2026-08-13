@@ -35,16 +35,19 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   const { setPlaces, setSelectedPlace, setIsOpen, selectedPlace, closeSidebar } = useSidebar();
   const [isLoaded, setIsLoaded] = useState(false);
   const { create, cancel } = useTimeoutManager();
-  const { addPin, insertPin, clearPins, setPinsFromCoords, pins } = use(pinsContext);
-  const { isPicking, mode, setPicking, isForEvent, isViewOnly, isPlaceFormOpen, hasPendingProposal } = useMapPicking();
+  const { addPin, addPinToNearestEnd, insertPin, clearPins, setPinsFromCoords, pins } = use(pinsContext);
+  const { isPicking, mode, setPicking, isForEvent, isForRoute, isViewOnly, isPlaceFormOpen, hasPendingProposal } =
+    useMapPicking();
   const { setMapLoaded } = useAppLoading();
 
   const isForEventRef = useRef(isForEvent);
+  const isForRouteRef = useRef(isForRoute);
   const isPickingRef = useRef(isPicking);
   useEffect(() => {
     isForEventRef.current = isForEvent;
+    isForRouteRef.current = isForRoute;
     isPickingRef.current = isPicking;
-  }, [isForEvent, isPicking]);
+  }, [isForEvent, isForRoute, isPicking]);
 
   const handlePlaceSelection = useCallback(
     (place: Feature | null, options: HandlePlaceSelectionOptions) => {
@@ -145,11 +148,20 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
           // Reubicar es UN paso de historial: con clearPins() + addPin() el usuario tenía que deshacer
           // dos veces (el punto nuevo y el borrado del anterior) para ver un solo cambio en pantalla.
           setPinsFromCoords([[e.lngLat.lng, e.lngLat.lat]]);
+        } else if (mode === "line") {
+          // Se engancha al extremo más cercano al clic, no siempre al final: editando una ruta ya hecha,
+          // un clic al principio del recorrido lo estiraba desde el otro extremo. `insertPin` tampoco
+          // sirve: busca la arista más cercana cerrando el anillo y reordena los vértices.
+          addPinToNearestEnd(e.lngLat.lng, e.lngLat.lat);
         } else {
           insertPin(e.lngLat.lng, e.lngLat.lat);
         }
         return;
       }
+
+      // Con el formulario de ruta abierto el mapa no toca la geometría: más abajo un clic en vacío
+      // programa clearPins() y borraría la ruta dibujada.
+      if (isForRoute) return;
 
       if (selectionLocked) return;
 
@@ -190,8 +202,10 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     [
       isPicking,
       isViewOnly,
+      isForRoute,
       selectionLocked,
       mode,
+      addPinToNearestEnd,
       insertPin,
       setPinsFromCoords,
       create,
@@ -253,7 +267,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       const enterPicking = () => {
         cancel("deletePins");
-        if (!isForEventRef.current && !isPickingRef.current) {
+        // Sin el chequeo de ruta, un doble clic con el formulario de ruta abierto entra en modo punto
+        // y destruye la línea dibujada.
+        if (!isForEventRef.current && !isForRouteRef.current && !isPickingRef.current) {
           setPicking(true, "point");
         }
       };
@@ -298,7 +314,9 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
   // Con el formulario abierto manda el formulario: mover/rehacer la geometría no debe cambiar el lugar
   // seleccionado (cambiarlo desmonta el formulario y se pierde lo escrito).
   useEffect(() => {
-    if (isPicking || isPlaceFormOpen) return;
+    // isForRoute: al confirmar la ruta esto seleccionaría el último vértice (un CUSTOM_MARK) y el
+    // sidebar saltaría a la ficha del lugar, tapando el formulario de la ruta.
+    if (isPicking || isPlaceFormOpen || isForRoute) return;
     let config: HandlePlaceSelectionOptions;
     if (pins.length === 1) {
       config = { openSidebar: true, flyMode: "always" };
@@ -308,7 +326,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
     if (pins.length > 0) {
       handlePlaceSelection(pins[pins.length - 1] ?? null, config);
     }
-  }, [pins, isPicking, isPlaceFormOpen]);
+  }, [pins, isPicking, isPlaceFormOpen, isForRoute]);
 
   return {
     handlePlaceSelection,

@@ -1,6 +1,8 @@
-import { Feature, LineFeature } from "@/lib/types";
+import { Feature, LineFeature, RouteFeature } from "@/lib/types";
 
-export function featuresToGeoJSON(features: Feature[] | Feature | LineFeature | null): any {
+type AnyFeature = Feature | LineFeature | RouteFeature;
+
+export function featuresToGeoJSON(features: AnyFeature[] | AnyFeature | null): any {
   return {
     type: "FeatureCollection",
     features: Array.isArray(features) ? features : features === null ? [] : [features],

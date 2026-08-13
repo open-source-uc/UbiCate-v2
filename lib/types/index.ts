@@ -10,12 +10,20 @@ export interface PolygonGeometry {
   coordinates: [number, number][][];
 }
 
-interface LineGeometry {
+export interface LineGeometry {
   type: "LineString";
   coordinates: [number, number][];
 }
 
-export type SubSidebarType = "temas" | "buscar" | "campus" | "guías" | "placeInformation" | null;
+export type SubSidebarType =
+  | "temas"
+  | "buscar"
+  | "campus"
+  | "guías"
+  | "rutas"
+  | "routeInformation"
+  | "placeInformation"
+  | null;
 
 export enum CATEGORIES {
   AUDITORIUM = "auditorium",
@@ -138,6 +146,18 @@ export interface EventFeature {
   type: string;
   properties: EventProperties;
   geometry: PointGeometry | PolygonGeometry;
+}
+
+// Las rutas son LineString y NO entran en `Feature`: ese tipo (y todos sus consumidores: el mapa,
+// la búsqueda, los filtros) asume Point o Polygon. Mismo criterio que EventFeature.
+export interface RouteProperties extends Properties {
+  placeIds: string[];
+}
+
+export interface RouteFeature {
+  type: string;
+  properties: RouteProperties;
+  geometry: LineGeometry;
 }
 
 export interface EventLocation {

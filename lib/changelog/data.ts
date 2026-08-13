@@ -20,8 +20,7 @@ const CHANGELOGS: ChangelogEntry[] = [
       { type: "improved", text: "Optimizaciones generales al sistema." },
       { type: "improved", text: "Mejoras visuales." },
       { type: "improved", text: "Actualización a la sección de créditos." },
-      { type: "fixed", text: "Solucionado error que no mostraba la dirección de la geolocalización correctamente." },
-      { type: "fixed", text: "Geolocalización ahora funciona en dispositivos iOS." },
+      { type: "improved", text: "Mejorada la precisión de la geolocalización." },
     ],
   },
 ];

@@ -62,7 +62,7 @@ export default function PlaceInformation({
   const [editingEvent, setEditingEvent] = useState<EventFeature | null>(null);
   const [showEventForm, setShowEventForm] = useState(false);
   const { isPicking } = useMapPicking();
-  const { hiddenPlaceIds, togglePlaceHidden } = useSidebar();
+  const { hiddenPlaceIds, togglePlaceHidden, selectedRoute } = useSidebar();
   const queryClient = useQueryClient();
 
   const toggleEventExpand = useCallback((id: string) => {
@@ -450,18 +450,22 @@ export default function PlaceInformation({
       <section className="flex-1 overflow-y-auto">
         <div className="flex h-full flex-col gap-6 px-4 pb-6 pt-5">
           <div className="space-y-3">
-            <label
-              title="Al recargar la página los puntos escondidos por esta opción volverán a aparecer"
-              className="flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-border/80 bg-accent/5 px-3 py-2"
-            >
-              <input
-                type="checkbox"
-                checked={hiddenPlaceIds.has(place.properties.identifier)}
-                onChange={() => togglePlaceHidden(place.properties.identifier)}
-                className="h-4 w-4 cursor-pointer accent-primary"
-              />
-              <span className="text-xs font-semibold text-foreground">Ocultar por ahora</span>
-            </label>
+            {/* Mirando una ruta no se ofrece esconder el lugar: es parte del recorrido y sacarlo del
+                mapa dejaría la ruta incompleta. */}
+            {selectedRoute ? null : (
+              <label
+                title="Al recargar la página los puntos escondidos por esta opción volverán a aparecer"
+                className="flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-border/80 bg-accent/5 px-3 py-2"
+              >
+                <input
+                  type="checkbox"
+                  checked={hiddenPlaceIds.has(place.properties.identifier)}
+                  onChange={() => togglePlaceHidden(place.properties.identifier)}
+                  className="h-4 w-4 cursor-pointer accent-primary"
+                />
+                <span className="text-xs font-semibold text-foreground">Ocultar por ahora</span>
+              </label>
+            )}
 
             <div className="grid grid-cols-3 gap-3">
               <Button

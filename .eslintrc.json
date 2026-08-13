@@ -10,7 +10,8 @@
     "unused-imports"
   ],
   "ignorePatterns": [
-    "!app/**/*.{tsx,ts}"
+    "!app/**/*.{tsx,ts}",
+    "loadtest/**"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

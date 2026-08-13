@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { booleanClockwise, centroid } from "@turf/turf";
 
 import "@/lib/setup-proxy";
+import { buildCachedPayload, cachedJsonResponse } from "@/lib/api/httpCache";
 import { createEvent, deleteEvent, getAllEvents, pruneExpiredEvents, updateEvent } from "@/lib/db/events";
 import { getAllPlaces, getCampusNameForPoint, getFacultyForPoint } from "@/lib/db/places";
 import { pruneEventPlaces } from "@/lib/places/eventPlaces";
@@ -155,20 +156,18 @@ function buildEventProperties(
 export async function GET(request: NextRequest) {
   try {
     const bypassCache = request.headers.get("X-Ubicate-Fresh") === "true";
-    const authed = request.headers.get("ubicate-token") === API_UBICATE_SECRET;
-
-    // Persistir la limpieza (borrar de la BD) solo si la request viene autenticada: el endpoint es
-    // público y no queremos que un GET anónimo dispare escrituras.
-    if (authed) {
-      await pruneExpiredEvents();
-    }
 
     const { events, eventPlaces } = await getAllEvents({ bypassCache });
 
     // La respuesta va siempre limpia (eventos vencidos + lugares huérfanos), aunque no se haya persistido.
     const { features } = pruneEventPlaces([...events, ...eventPlaces], { dropExpiredEvents: true });
 
-    return NextResponse.json({ message: "Success", events: { type: "FeatureCollection", features } }, { status: 200 });
+    const payload = await buildCachedPayload({
+      message: "Success",
+      events: { type: "FeatureCollection", features },
+    });
+
+    return cachedJsonResponse(request, payload, { noStore: bypassCache });
   } catch (error) {
     console.error("Error in GET events:", error);
     return NextResponse.json(

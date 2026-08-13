@@ -7,12 +7,23 @@ import { CATEGORIES, Feature } from "@/lib/types";
 import { pinsContext } from "./pinsCtx";
 import { useSidebar } from "./sidebarCtx";
 
-export type PickingMode = "point" | "polygon";
+export type PickingMode = "point" | "polygon" | "line";
+
+// "line" no es solo un botón más: es una semántica de dibujo distinta (los vértices van en orden y la
+// figura no se cierra). Se ofrece únicamente en el flujo de rutas, y ahí punto/polígono no aplican.
+const ROUTE_MODES: PickingMode[] = ["line"];
+const PLACE_MODES: PickingMode[] = ["point", "polygon"];
 
 interface MapPickingContextType {
   isPicking: boolean;
   mode: PickingMode;
   isForEvent: boolean;
+  isForRoute: boolean;
+  /** Modos que la toolbar puede ofrecer en la sesión actual. */
+  allowedModes: PickingMode[];
+  /** Lugares que el formulario de ruta tiene asociados ahora mismo, para pintarlos en el mapa. */
+  routePlaceIds: string[];
+  setRoutePlaceIds: (ids: string[]) => void;
   isDrawingRect: boolean;
   isPlaceFormOpen: boolean;
   // Sesión de solo lectura: se muestra la geometría en el mapa sin herramientas ni edición.
@@ -30,6 +41,7 @@ interface MapPickingContextType {
   hasPendingProposal: boolean;
   setPicking: (v: boolean, mode?: PickingMode, opts?: { viewOnly?: boolean; place?: Feature | null }) => void;
   setForEvent: (v: boolean) => void;
+  setForRoute: (v: boolean) => void;
   setDrawingRect: (v: boolean) => void;
   setPlaceFormOpen: (v: boolean) => void;
 }
@@ -38,6 +50,10 @@ const MapPickingContext = createContext<MapPickingContextType>({
   isPicking: false,
   mode: "point",
   isForEvent: false,
+  isForRoute: false,
+  allowedModes: PLACE_MODES,
+  routePlaceIds: [],
+  setRoutePlaceIds: () => {},
   isDrawingRect: false,
   isPlaceFormOpen: false,
   isViewOnly: false,
@@ -46,6 +62,7 @@ const MapPickingContext = createContext<MapPickingContextType>({
   hasPendingProposal: false,
   setPicking: () => {},
   setForEvent: () => {},
+  setForRoute: () => {},
   setDrawingRect: () => {},
   setPlaceFormOpen: () => {},
 });
@@ -54,6 +71,8 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
   const [isPicking, setIsPicking] = useState(false);
   const [mode, setMode] = useState<PickingMode>("point");
   const [isForEvent, setIsForEvent] = useState(false);
+  const [isForRoute, setIsForRoute] = useState(false);
+  const [routePlaceIds, setRoutePlaceIds] = useState<string[]>([]);
   const [isDrawingRect, setIsDrawingRect] = useState(false);
   const [isPlaceFormOpen, setIsPlaceFormOpen] = useState(false);
   const [isViewOnly, setIsViewOnly] = useState(false);
@@ -75,6 +94,11 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
     setIsForEvent(v);
   }, []);
 
+  const setForRoute = useCallback((v: boolean) => {
+    setIsForRoute(v);
+    if (!v) setRoutePlaceIds([]);
+  }, []);
+
   const setDrawingRect = useCallback((v: boolean) => {
     setIsDrawingRect(v);
   }, []);
@@ -90,9 +114,13 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
   const { selectedPlace } = useSidebar();
   const hasPendingProposal =
     !isForEvent &&
+    !isForRoute &&
     (isPlaceFormOpen ||
       (pins.length > 0 && selectedPlace?.properties.categories.includes(CATEGORIES.CUSTOM_MARK) === true));
-  const isCreatingPlace = isPicking || hasPendingProposal;
+  // isForRoute entra acá pero NO en hasPendingProposal: la ruta necesita que el sidebar siga abierto y
+  // el lienzo limpio, pero no la congelación de la selección (esa la resuelve useMapEvents).
+  const isCreatingPlace = isPicking || hasPendingProposal || isForRoute;
+  const allowedModes = isForRoute ? ROUTE_MODES : PLACE_MODES;
 
   return (
     <MapPickingContext.Provider
@@ -100,6 +128,10 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         isPicking,
         mode,
         isForEvent,
+        isForRoute,
+        allowedModes,
+        routePlaceIds,
+        setRoutePlaceIds,
         isDrawingRect,
         isPlaceFormOpen,
         isViewOnly,
@@ -108,6 +140,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         hasPendingProposal,
         setPicking,
         setForEvent,
+        setForRoute,
         setDrawingRect,
         setPlaceFormOpen,
       }}

@@ -6,7 +6,7 @@ import { booleanClockwise } from "@turf/boolean-clockwise";
 import type { MarkerDragEvent } from "react-map-gl/maplibre";
 
 import { getCampusNameFromPoint } from "@/lib/campus/getCampusBounds";
-import { CATEGORIES, PointFeature, PolygonFeature } from "@/lib/types";
+import { CATEGORIES, LineFeature, PointFeature, PolygonFeature } from "@/lib/types";
 
 type CustomPin = PointFeature;
 
@@ -46,6 +46,15 @@ function bestInsertIndex(ring: number[][], p: number[]): number {
     }
   }
   return bestIdx;
+}
+
+// Distancia aproximada (al cuadrado) entre dos coordenadas, con el lng corregido por cos(lat) igual que
+// en bestInsertIndex.
+function coordDistSq(a: number[], p: number[]): number {
+  const kx = Math.cos((p[1] * Math.PI) / 180);
+  const dx = (a[0] - p[0]) * kx;
+  const dy = a[1] - p[1];
+  return dx * dx + dy * dy;
 }
 
 interface PinsState {
@@ -131,6 +140,27 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
       }
       const newPin = buildPin(lng, lat);
       commit((prev) => [...prev, newPin]);
+      return newPin;
+    },
+    [customPins.length, maxPins, buildPin, commit],
+  );
+
+  // Para una línea: el vértice nuevo se engancha al **extremo más cercano** al clic. Con append a secas,
+  // editando una ruta ya dibujada un clic al principio del recorrido lo estiraba desde el final y
+  // cruzaba el trazado entero.
+  const addPinToNearestEnd = useCallback(
+    (lng: number, lat: number) => {
+      if (customPins.length >= maxPins) {
+        console.warn(`Maximum number of pins (${maxPins}) reached`);
+        return null;
+      }
+      const newPin = buildPin(lng, lat);
+      commit((prev) => {
+        if (prev.length < 2) return [...prev, newPin];
+        const toStart = coordDistSq(prev[0].geometry.coordinates, [lng, lat]);
+        const toEnd = coordDistSq(prev[prev.length - 1].geometry.coordinates, [lng, lat]);
+        return toStart < toEnd ? [newPin, ...prev] : [...prev, newPin];
+      });
       return newPin;
     },
     [customPins.length, maxPins, buildPin, commit],
@@ -256,6 +286,21 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     };
   }, [customPins]);
 
+  // Al revés del polígono: la línea NO se cierra ni se reorienta. El orden de los vértices es el
+  // recorrido, así que tocarlo cambiaría el trazado.
+  const line: null | LineFeature = useMemo(() => {
+    if (customPins.length < 2) return null;
+
+    return {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "LineString",
+        coordinates: customPins.map((pin) => pin.geometry.coordinates),
+      },
+    };
+  }, [customPins]);
+
   const undo = useCallback(() => dispatch({ type: "undo" }), []);
   const redo = useCallback(() => dispatch({ type: "redo" }), []);
   const resetHistory = useCallback(() => dispatch({ type: "reset-history" }), []);
@@ -263,6 +308,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
   return {
     pins: customPins,
     addPin,
+    addPinToNearestEnd,
     insertPin,
     clearPins,
     setPins,
@@ -277,5 +323,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     pinsCount: customPins.length,
     maxPins,
     polygon,
+    line,
   };
 }

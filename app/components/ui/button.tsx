@@ -18,6 +18,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     | "mapAccent";
   size?: "sm" | "md" | "lg" | "icon" | "icon-lg" | "sidebar" | "sidebar-collapsed";
   icon?: React.ReactNode;
+  badge?: React.ReactNode;
   text?: string;
   isActive?: boolean;
   asChild?: boolean;
@@ -25,11 +26,30 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant = "secondary", size = "md", icon, text, isActive = false, disabled, children, ...props },
+    {
+      className,
+      variant = "secondary",
+      size = "md",
+      icon,
+      badge,
+      text,
+      isActive = false,
+      disabled,
+      children,
+      ...props
+    },
     ref,
   ) => {
-    const baseClasses =
-      "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background pointer-events-auto cursor-pointer";
+    const isSidebarSize = size === "sidebar" || size === "sidebar-collapsed";
+
+    const baseClasses = cn(
+      "inline-flex items-center justify-center font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none ring-offset-background pointer-events-auto cursor-pointer",
+      // Las pestañas del sidebar ya marcan su estado con `isActive`; el ring de foco se veía como un
+      // borde suelto alrededor del botón completo.
+      isSidebarSize
+        ? "outline-none focus:outline-none focus-visible:outline-none"
+        : "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+    );
 
     const variants = {
       primary: "bg-primary text-primary-foreground hover:bg-primary/90",
@@ -82,7 +102,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     } as const;
 
     const getIconWrapperClass = () => {
-      if (size === "sidebar" || size === "sidebar-collapsed") {
+      if (isSidebarSize) {
         // shrink-0: sin esto flexbox achica el ícono mientras el sidebar todavía está angosto y se ve
         // como si el ícono "creciera" al terminar la animación.
         return cn(
@@ -98,12 +118,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const content = () => {
       if (children) return children;
 
-      if (size === "sidebar" || size === "sidebar-collapsed") {
+      if (isSidebarSize) {
         return (
           <>
             {icon ? (
-              <span className={getIconWrapperClass()}>
+              <span className={cn(getIconWrapperClass(), "relative")}>
                 <div className="w-6 h-6 shrink-0 flex items-center justify-center">{icon}</div>
+                {badge ? (
+                  <span className="pointer-events-none absolute left-1/2 -top-1 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-secondary-foreground shadow-sm">
+                    {badge}
+                  </span>
+                ) : null}
               </span>
             ) : null}
             {text && size === "sidebar" ? (
