@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6098942686933,
+                    -33.49841313825549
+                ]
+            },
+            "properties": {
+                "identifier": "MSROU48IF07RK8",
+                "name": "Biblioteca San Joaquín",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.6139074970273,
                     -33.49749615337219
                 ]
