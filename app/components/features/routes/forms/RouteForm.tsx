@@ -5,10 +5,12 @@ import { use, useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 import { useMapPicking } from "@/app/context/mapPickingCtx";
-import { pinsContext } from "@/app/context/pinsCtx";
+import { MAX_PINS, pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { RouteFormData, useRouteForm } from "@/app/hooks/useRouteForm";
 import { refreshRoutes } from "@/app/hooks/useRoutes";
+import { emitFlyToEvent } from "@/lib/events/customEvents";
+import { parseRouteGeoJSON } from "@/lib/geojson/parseRouteGeoJSON";
 import { normalizeIdentifier } from "@/lib/places/utils";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
 
@@ -44,6 +46,10 @@ export default function RouteForm({
   const queryClient = useQueryClient();
   const [placeSearch, setPlaceSearch] = useState("");
   const [routeCoords, setRouteCoords] = useState<[number, number][]>(defaultCoords);
+  const [showImport, setShowImport] = useState(false);
+  const [geojsonText, setGeojsonText] = useState("");
+  const [importError, setImportError] = useState<string | null>(null);
+  const [importNotes, setImportNotes] = useState<string[]>([]);
 
   const { data, setData, routeMutation, isLoading } = useRouteForm(method, defaultData, async () => {
     await refreshRoutes(queryClient);
@@ -98,6 +104,28 @@ export default function RouteForm({
     // El historial se reinicia al entrar al picking, así que los pins van ANTES.
     setPinsFromCoords(routeCoords);
     setPicking(true, "line");
+  };
+
+  // La geometría importada se guarda igual que la dibujada (`routeCoords`) y además se pone como pins,
+  // así el borrador se ve en el mapa y "Redibujar" arranca desde el trazado importado.
+  const applyImport = (text: string) => {
+    const result = parseRouteGeoJSON(text, MAX_PINS);
+    if (!result.ok) {
+      setImportError(result.error);
+      setImportNotes([]);
+      return;
+    }
+
+    setPinsFromCoords(result.coords);
+    setRouteCoords(result.coords);
+    setImportError(null);
+    setImportNotes(result.notes);
+    setGeojsonText("");
+    setShowImport(false);
+
+    const lng = result.coords.reduce((sum, c) => sum + c[0], 0) / result.coords.length;
+    const lat = result.coords.reduce((sum, c) => sum + c[1], 0) / result.coords.length;
+    emitFlyToEvent(lng, lat, 16);
   };
 
   const selectedPlaces: Feature[] = data.placeIds
@@ -162,21 +190,83 @@ export default function RouteForm({
       <h1 className="text-2xl font-bold text-center text-foreground">{title}</h1>
 
       <div className="rounded-lg border border-border p-3 space-y-3">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-sm text-foreground">
             {routeCoords.length >= 2 ? `Ruta de ${routeCoords.length} puntos` : "Sin ruta dibujada"}
           </span>
-          <button
-            type="button"
-            onClick={handleRedraw}
-            className="flex items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-sm text-foreground transition hover:bg-accent/10"
-          >
-            <MaterialSymbol name="route" className="text-[18px]" />
-            {routeCoords.length >= 2 ? "Redibujar" : "Dibujar"}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleRedraw}
+              className="flex items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-sm text-foreground transition hover:bg-accent/10"
+            >
+              <MaterialSymbol name="route" className="text-[18px]" />
+              {routeCoords.length >= 2 ? "Redibujar" : "Dibujar"}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setShowImport((prev) => !prev);
+                setImportError(null);
+              }}
+              className="flex items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-sm text-foreground transition hover:bg-accent/10"
+            >
+              <MaterialSymbol name="data_object" className="text-[18px]" />
+              GeoJSON
+            </button>
+          </div>
         </div>
+
+        {showImport ? (
+          <div className="space-y-2">
+            <textarea
+              value={geojsonText}
+              onChange={(e) => setGeojsonText(e.target.value)}
+              rows={5}
+              spellCheck={false}
+              className="block w-full p-2 font-mono text-xs rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2"
+              placeholder={'{"type":"LineString","coordinates":[[-70.61,-33.49],[-70.60,-33.50]]}'}
+              disabled={isLoading}
+            />
+            <p className="text-xs text-muted-foreground">
+              Acepta un LineString, MultiLineString o al menos 2 puntos, como geometría suelta, Feature o
+              FeatureCollection. Reemplaza el trazado actual y se puede seguir editando con Redibujar.
+            </p>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => applyImport(geojsonText)}
+                disabled={isLoading}
+                className="rounded-lg bg-primary px-3 py-1.5 text-sm text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground disabled:opacity-50"
+              >
+                Importar
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowImport(false);
+                  setGeojsonText("");
+                  setImportError(null);
+                }}
+                className="text-xs text-muted-foreground underline transition hover:text-foreground"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {importError ? <p className="text-xs text-destructive">{importError}</p> : null}
+        {importNotes.map((note) => (
+          <p key={note} className="text-xs text-muted-foreground">
+            {note}
+          </p>
+        ))}
+
         {routeCoords.length < 2 ? (
-          <p className="text-xs text-muted-foreground">Marca al menos 2 puntos en el mapa para definir la ruta.</p>
+          <p className="text-xs text-muted-foreground">
+            Marca al menos 2 puntos en el mapa, o importa un GeoJSON, para definir la ruta.
+          </p>
         ) : null}
       </div>
 
