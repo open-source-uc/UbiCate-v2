@@ -31,7 +31,8 @@ function toCampusSigla(value: string | null): string | null {
 
 export default function RoutesPanel({ onClose }: RoutesPanelProps) {
   const isDebugMode = useDebugMode();
-  const { routes, isDataLoaded, selectedRoute, setSelectedRoute, activeFilters, setActiveFilters } = useSidebar();
+  const { routes, isDataLoaded, selectedRoute, setSelectedRoute, activeFilters, setActiveFilters, openRoutesPanel } =
+    useSidebar();
   const queryClient = useQueryClient();
   const params = useSearchParams();
   const [isCreating, setIsCreating] = useState(false);
@@ -58,12 +59,8 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
 
   const clearSelection = () => setSelectedRoute(null);
 
-  const handleSelectRoute = (route: RouteFeature) => {
-    if (selectedId === route.properties.identifier) {
-      clearSelection();
-      return;
-    }
-
+  // Dibuja la ruta y centra el mapa en ella. Lo comparten el clic en el ítem y "Ver detalle".
+  const drawRoute = (route: RouteFeature) => {
     // Un filtro de categorías activo llena el mapa de marcadores encima de la ruta: al elegir una ruta
     // se apagan las pills para dejar el recorrido y sus lugares solos.
     if (activeFilters.length > 0) setActiveFilters([]);
@@ -76,6 +73,22 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
       const lat = coords.reduce((sum, c) => sum + c[1], 0) / coords.length;
       emitFlyToEvent(lng, lat, 16);
     }
+  };
+
+  const handleSelectRoute = (route: RouteFeature) => {
+    if (selectedId === route.properties.identifier) {
+      clearSelection();
+      return;
+    }
+    drawRoute(route);
+  };
+
+  const handleShowDetail = (route: RouteFeature) => {
+    // Se dibuja además de abrir la ficha: si no, el detalle describiría una ruta que no está en el mapa.
+    drawRoute(route);
+    // ⚠️ Va DESPUÉS de drawRoute a propósito: `setSelectedRoute` es `selectRoute`, que limpia
+    // `routeDetail`. Al revés, la ficha se abriría vacía y caería en el respaldo de `selectedRoute`.
+    openRoutesPanel(route);
   };
 
   const handleDelete = async (route: RouteFeature) => {
@@ -214,7 +227,18 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
                     Eliminar
                   </button>
                 </div>
-              ) : null}
+              ) : (
+                // Solo en modo normal: en debug la fila la ocupan Editar y Eliminar.
+                <div className="mt-2">
+                  <button
+                    type="button"
+                    onClick={() => handleShowDetail(route)}
+                    className="w-full rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground"
+                  >
+                    Ver detalle
+                  </button>
+                </div>
+              )}
             </li>
           ))}
         </ul>

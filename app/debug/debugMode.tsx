@@ -9,7 +9,6 @@ import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceFor
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useDebugMode } from "@/app/hooks/useDebugMode";
-import { useRoutesDebug } from "@/app/hooks/useRoutes";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { setDebugModeEnabled } from "@/lib/debug/debugModeStore";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
@@ -28,9 +27,6 @@ import {
   eventPolygonLayer,
   eventPolygonLineLayer,
   eventTextLayer,
-  routeLineBorderLayer,
-  routeLineLayer,
-  routeTextLayer,
 } from "./layers";
 
 function DebugMode() {
@@ -72,8 +68,6 @@ function DebugMode() {
     enabled: isDebugMode,
     staleTime: 5 * 60 * 1000,
   });
-
-  const debugRoutes = useRoutesDebug(isDebugMode);
 
   /*
   El overlay de debug sí muestra los eventos vencidos (dropExpiredEvents: false),
@@ -257,11 +251,6 @@ function DebugMode() {
             <input type="radio" checked={debugMode === 3} onChange={() => setDebugMode(3)} className="mr-2" />
             Eventos
           </label>
-          <br />
-          <label className="flex items-center">
-            <input type="radio" checked={debugMode === 4} onChange={() => setDebugMode(4)} className="mr-2" />
-            Rutas
-          </label>
 
           <div className="mt-3">
             <button
@@ -395,14 +384,6 @@ function DebugMode() {
             <Layer {...allPlacesTextApprovalLayer} />
           </Source>
         </>
-      ) : null}
-
-      {visibleDebugMode === 4 && debugRoutes.length > 0 ? (
-        <Source id="debug-routes" type="geojson" data={featuresToGeoJSON(debugRoutes)}>
-          <Layer {...routeLineBorderLayer} />
-          <Layer {...routeLineLayer} />
-          <Layer {...routeTextLayer} />
-        </Source>
       ) : null}
 
       {visibleDebugMode === 3 && debugEventFeatures.length > 0 ? (

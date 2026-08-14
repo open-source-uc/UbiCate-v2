@@ -23,7 +23,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { setPlaces, allFeatures } = useSidebar();
+  const { setPlaces, allFeatures, setSelectedRoute } = useSidebar();
 
   const fuse = useMemo(() => {
     if (allFeatures.length === 0) return null;
@@ -97,7 +97,13 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
   }, [selectedIndex]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    const value = e.target.value;
+    setQuery(value);
+    // Buscar y tener una ruta dibujada se excluyen, igual que los filtros de categoría: la búsqueda manda
+    // sus propios puntos al mapa y la ruta quedaría encima sin relación con lo buscado. `setSelectedRoute`
+    // es `selectRoute` del contexto, así que además cierra la ficha (`routeDetail`).
+    // Va en el handler y no en el efecto de abajo para no volver a llamar setState dentro de un efecto.
+    if (value.trim().length > 0) setSelectedRoute(null);
   };
 
   const handleInputFocus = () => {
