@@ -4,6 +4,55 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907319188118,
+                            -33.49744389906256
+                        ],
+                        [
+                            -70.60878083109856,
+                            -33.49763457941259
+                        ],
+                        [
+                            -70.60882341116667,
+                            -33.49801957350205
+                        ],
+                        [
+                            -70.60932464897633,
+                            -33.49812134362157
+                        ],
+                        [
+                            -70.60948457568884,
+                            -33.49802600403512
+                        ],
+                        [
+                            -70.60907319188118,
+                            -33.49744389906256
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMAZZQBM3L4ZBA",
+                "name": "Aulas Helen Lee Lassen",
+                "information": "DGE - Dirección General Estudiantil",
+                "categories": [
+                    "faculty",
+                    ""
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6098942686933,
