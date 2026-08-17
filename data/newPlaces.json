@@ -4,6 +4,55 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.611723,
+                            -33.498246
+                        ],
+                        [
+                            -70.611063,
+                            -33.497565
+                        ],
+                        [
+                            -70.610978,
+                            -33.498233
+                        ],
+                        [
+                            -70.611524,
+                            -33.498273
+                        ],
+                        [
+                            -70.611524,
+                            -33.498231
+                        ],
+                        [
+                            -70.611723,
+                            -33.498246
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "TEMPLO",
+                "name": "Templo",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TEMPLO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.612076,
