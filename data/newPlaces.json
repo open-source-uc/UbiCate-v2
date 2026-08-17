@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61471362612379,
+                    -33.49801787702692
+                ]
+            },
+            "properties": {
+                "identifier": "MSWOZ6B1AZZVZ7",
+                "name": "Sala de estudio de educación ",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60999989509583,
                     -33.49758341449186
                 ]
