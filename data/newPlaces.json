@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61343208090415,
+                    -33.49661416925536
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MANUEL_ROJAS-SJ",
+                "name": "Sala Manuel Rojas",
+                "information": "Sala para veincitinco personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61343078801357,
                     -33.496559646306885
                 ]
