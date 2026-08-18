@@ -4,6 +4,30 @@
         {
             "type": "Feature",
             "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61331128377944,
+                    -33.49658745009769
+                ]
+            },
+            "properties": {
+                "identifier": "MSYW6QZ62YWO07",
+                "name": "Edificio de Postgrado - Facultad de Historia y Facultad de Letras ",
+                "information": "",
+                "categories": [
+                    "classroom_building"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
