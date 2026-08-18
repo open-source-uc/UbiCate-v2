@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61338859917707,
+                    -33.496559979556764
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_LÉSMER_MONTECINO-SJ",
+                "name": "Sala Lésmer Montecino ",
+                "information": "Sala para diez personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61331128377944,
                     -33.49658745009769
                 ]
