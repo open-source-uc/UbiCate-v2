@@ -184,7 +184,9 @@ export default function DesktopSidebar() {
           </div>
           <div className={`flex justify-center ${!isOpen ? "block anim-fade-in" : "hidden"}`}>
             <div className="w-10 h-10 rounded-xl bg-primary">
-              <Link href="/creditos" className="font-semibold block hover:underline">
+              {/* Sin prefetch: este Link y el de FooterOptionsSidebar están ambos montados siempre y se
+                  alternan con `hidden`, así que cada toggle del sidebar re-agendaba el prefetch. */}
+              <Link href="/creditos" prefetch={false} className="font-semibold block hover:underline">
                 <span className={`w-10 h-10 rounded-lg flex items-center justify-center`}>
                   <Icons.OSUC />
                 </span>{" "}

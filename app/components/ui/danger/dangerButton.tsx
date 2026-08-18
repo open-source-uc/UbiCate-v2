@@ -4,7 +4,9 @@ import * as Icon from "../icons/icons";
 
 export default function LocationButton({ onClick }: { onClick?: () => void }) {
   return (
-    <Link href="/seguridad" className="" tabIndex={-1}>
+    // Sin prefetch: este FAB se desmonta al entrar al modo edición y vuelve al salir, y Next re-agenda
+    // el prefetch en cada remonte. /seguridad es estática, así que la navegación sigue siendo rápida.
+    <Link href="/seguridad" prefetch={false} className="" tabIndex={-1}>
       <button
         onClick={() => {
           onClick?.();
