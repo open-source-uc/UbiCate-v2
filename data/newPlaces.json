@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6134156450912,
+                    -33.496632423095
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_JUAN_CALVET-MAGALHAES-SJ",
+                "name": "Sala Juan Calvet-Magalhaes",
+                "information": "Sala para siete personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61339220676801,
                     -33.496631169416695
                 ]
