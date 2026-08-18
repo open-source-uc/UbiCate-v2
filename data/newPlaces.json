@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61343078801357,
+                    -33.496559646306885
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MARCELA_OYANEDEL-SJ",
+                "name": "Sala Marcela Oyanedel ",
+                "information": "Sala para veinticinco personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61338859917707,
                     -33.496559979556764
                 ]
