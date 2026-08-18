@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61339220676801,
+                    -33.496631169416695
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_VIOLETA_PARRA-SJ",
+                "name": "Sala Violeta Parra",
+                "information": "Sala para siete personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61338909107022,
                     -33.49662549649288
                 ]
