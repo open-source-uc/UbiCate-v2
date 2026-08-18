@@ -49,8 +49,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       "Content-Length": object.size.toString(),
       "Access-Control-Allow-Methods": "GET",
       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-      "Cache-Control": "public, max-age=1800, s-maxage=3600",
-      Expires: new Date(Date.now() + 30 * 60 * 1000).toUTCString(),
+      // El basemap se regenera a mano con self-host-map/upload-local.bash, o sea casi nunca; 30 días
+      // alinea con el TTL del cache "map-tiles" del service worker.
+      "Cache-Control": "public, max-age=2592000, s-maxage=2592000",
       ETag: object.httpEtag,
       Vary: "Accept-Encoding",
     });

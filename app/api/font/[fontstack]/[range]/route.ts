@@ -72,8 +72,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       "Content-Length": object.size.toString(),
       "Access-Control-Allow-Methods": "GET",
       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-      "Cache-Control": "public, max-age=1800, s-maxage=3600",
-      Expires: new Date(Date.now() + 30 * 60 * 1000).toUTCString(),
+      // El .pbf de un par (fuente, rango) es función del archivo de fuente subido a R2: no cambia
+      // nunca, así que se puede marcar inmutable. Sin esto el navegador revalidaba cada 30 minutos.
+      "Cache-Control": "public, max-age=31536000, immutable",
       ETag: object.httpEtag,
       Vary: "Accept-Encoding",
     });

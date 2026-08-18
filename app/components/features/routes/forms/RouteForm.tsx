@@ -58,19 +58,19 @@ export default function RouteForm({
     onClose?.();
   });
 
-  // Ruta nueva: se entra derecho a dibujar, primero la geometría y después los datos. Editando una
-  // existente NO, que lo más común es corregir el nombre o los lugares; para eso está "Redibujar".
+  // Primero el formulario, el dibujo después con "Dibujar". Antes una ruta nueva entraba derecho al
+  // modo línea y el formulario quedaba tapado antes de poder escribir nada. Editando una existente se
+  // restauran sus pins, para que el trazo se vea en el mapa junto a los datos.
   useEffect(() => {
     setForRoute(true);
     if (defaultCoords.length > 0) {
       setPinsFromCoords(defaultCoords);
     } else {
       clearPins();
-      setPicking(true, "line");
     }
     return () => setForRoute(false);
-    // Init de una sola vez al abrir el formulario de ruta (entra en modo línea o restaura la geometría).
-    // Con estas deps volvería a entrar en modo edición y perdería el trazo. Ver routes.md.
+    // Init de una sola vez al abrir el formulario de ruta (restaura la geometría o parte de cero).
+    // Con estas deps volvería a correr y perdería el trazo. Ver routes.md.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

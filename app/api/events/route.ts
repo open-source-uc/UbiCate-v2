@@ -170,9 +170,14 @@ export async function GET(request: NextRequest) {
     return cachedJsonResponse(request, payload, { noStore: bypassCache });
   } catch (error) {
     console.error("Error in GET events:", error);
+    // Mismo motivo que en /api/routes: un 200 con lista vacía se cachea en el SW y borra los eventos
+    // buenos. Ver el comentario de app/api/routes/route.ts.
     return NextResponse.json(
-      { message: "Success", events: { type: "FeatureCollection", features: [] } },
-      { status: 200 },
+      {
+        error: "Error retrieving events data",
+        message: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
     );
   }
 }

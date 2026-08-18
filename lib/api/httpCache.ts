@@ -14,6 +14,23 @@ export async function buildCachedPayload(value: unknown): Promise<CachedPayload>
   return { body, etag: `"${hex}"` };
 }
 
+// El header puede venir como lista ("a", "b") o como *, y sobre todo: un proxy que comprima la
+// respuesta puede degradar el ETag fuerte a débil (W/"..."). Con una comparación de igualdad estricta
+// el 304 no ocurría nunca en esos casos y se retransmitía el payload completo, en silencio.
+function matchesEtag(header: string | null, etag: string): boolean {
+  if (!header) return false;
+
+  const strip = (value: string) => {
+    const trimmed = value.trim();
+    return trimmed.startsWith("W/") ? trimmed.slice(2) : trimmed;
+  };
+
+  if (header.trim() === "*") return true;
+
+  const target = strip(etag);
+  return header.split(",").some((candidate) => strip(candidate) === target);
+}
+
 export function cachedJsonResponse(request: Request, payload: CachedPayload, options?: { noStore?: boolean }) {
   const headers: Record<string, string> = {
     "Cache-Control": options?.noStore ? "no-store" : DATA_CACHE_CONTROL,
@@ -21,7 +38,7 @@ export function cachedJsonResponse(request: Request, payload: CachedPayload, opt
     Vary: "X-Ubicate-Fresh",
   };
 
-  if (request.headers.get("if-none-match") === payload.etag) {
+  if (matchesEtag(request.headers.get("if-none-match"), payload.etag)) {
     return new NextResponse(null, { status: 304, headers });
   }
 

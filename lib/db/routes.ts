@@ -9,7 +9,9 @@ const CACHE_KEY_ROUTES = "allRoutes";
 const CACHE_TTL = 5 * 60 * 1000;
 
 const routeInclude = {
-  places: { include: { place: true } },
+  // route_place no tiene columna de orden, así que ordenar por placeId no pierde semántica y hace
+  // determinista el ETag de la respuesta (ver el comentario de lib/db/places.ts).
+  places: { include: { place: true }, orderBy: { placeId: "asc" } },
 } as const;
 
 export interface RoutesData {
@@ -18,7 +20,7 @@ export interface RoutesData {
 }
 
 async function loadAllRoutes(): Promise<RoutesData> {
-  const rows = await prisma.route.findMany({ include: routeInclude });
+  const rows = await prisma.route.findMany({ include: routeInclude, orderBy: { id: "asc" } });
   const routes = rows.map((r) => routeToFeature(r));
 
   const response = await buildCachedPayload({

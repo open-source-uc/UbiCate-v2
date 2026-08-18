@@ -73,14 +73,19 @@ export interface PlacesData {
 }
 
 async function loadAllPlaces(): Promise<PlacesData> {
+  // El orderBy no es cosmético: el ETag de la respuesta es un hash del JSON, y sin ORDER BY el orden
+  // de filas de Postgres es indefinido (un UPDATE mueve la tupla en el heap). Los mismos datos en otro
+  // orden dan otro ETag, el If-None-Match del cliente falla y se retransmiten los ~499 KB. Ver
+  // optimize_data.md.
   const places = await prisma.place.findMany({
     // isEventOnly: lugares creados inline dentro de un evento. Se sirven solo vía /api/events,
     // nunca en el mapa normal.
     where: { isEventOnly: false },
     include: {
-      categories: { include: { category: true } },
-      floors: { include: { floor: true } },
+      categories: { include: { category: true }, orderBy: { categoryId: "asc" } },
+      floors: { include: { floor: true }, orderBy: { floorId: "asc" } },
     },
+    orderBy: { id: "asc" },
   });
 
   const withFaculties = assignFaculties(places.map((p) => placeToFeature(p)));

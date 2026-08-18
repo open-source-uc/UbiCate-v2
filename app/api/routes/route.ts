@@ -54,9 +54,15 @@ export async function GET(request: NextRequest) {
     return cachedJsonResponse(request, response, { noStore: bypassCache });
   } catch (error) {
     console.error("Error in GET routes:", error);
+    // 500 y no un 200 con lista vacía: el StaleWhileRevalidate del SW no filtra por status, así que ese
+    // 200 sobrescribía la entrada buena de `ubicate-routes` y el panel quedaba vacío hasta 30 días.
+    // "cero rutas" y "no pude leer las rutas" son cosas distintas.
     return NextResponse.json(
-      { message: "Success", routes: { type: "FeatureCollection", features: [] } },
-      { status: 200 },
+      {
+        error: "Error retrieving routes data",
+        message: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
     );
   }
 }

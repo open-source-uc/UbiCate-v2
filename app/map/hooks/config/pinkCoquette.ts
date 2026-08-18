@@ -6,7 +6,9 @@ export const placesTextLayer: LayerProps = {
   source: "places",
   layout: {
     "text-field": ["coalesce", ["get", "displayName"], ["get", "name"]],
-    "text-font": ["Roboto Slab Medium", "Arial Unicode MS Regular"],
+    // Mismo fontstack que las capas de rutas y de debug: para maplibre cada array distinto es otra
+    // fuente y duplicaba la descarga de glyphs. Ver CLAUDE.md.
+    "text-font": ["Roboto Slab Medium"],
     "text-size": 16,
     "text-anchor": "top",
     "text-offset": [0, 1],

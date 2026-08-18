@@ -12,7 +12,7 @@ import {
   useRef,
 } from "react";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { categoryFilter, getActiveEvents, getEventPlaces } from "@/app/components/features/filters/pills/placeFilters";
 import { AppLoadError, fetchJsonOrThrow, LoadErrorKind, markAppLoadedOnce } from "@/lib/api/loadError";
@@ -27,12 +27,23 @@ import {
 } from "@/lib/types";
 
 import usePlaces from "../hooks/usePlaces";
+import { refreshRoutes } from "../hooks/useRoutes";
 
 // Tiempos de refetch configurables por entorno (en segundos → ms). Deben ser NEXT_PUBLIC_* para estar
 // disponibles en el cliente. Si no están definidos, se usan los valores por defecto (5 min / 30 s).
 const REFETCH_ONLINE_MS = (Number(process.env.NEXT_PUBLIC_REFETCH_ONLINE_SECONDS) || 300) * 1000;
 const REFETCH_OFFLINE_MS = (Number(process.env.NEXT_PUBLIC_REFETCH_OFFLINE_SECONDS) || 30) * 1000;
 const REFETCH_IN_BACKGROUND = process.env.NEXT_PUBLIC_REFETCH_IN_BACKGROUND === "true";
+
+// Simétrico a `refreshRoutes` (que vive en useRoutes.ts porque también lo usan las mutaciones de
+// rutas). Acá no hay hook de eventos y sidebarCtx es su único consumidor, así que va local.
+async function revalidateEvents(queryClient: QueryClient): Promise<void> {
+  const data = await fetchJsonOrThrow<{
+    events: { features: (EventFeature | Feature)[] };
+    message: string;
+  }>("/api/events", { headers: { "X-Ubicate-Revalidate": "true" } });
+  queryClient.setQueryData(["events"], data);
+}
 
 // Margen tras el primer request exitoso: el refresh fresco va en paralelo y puede tardar un poco más en
 // delatar que el servidor está caído.
@@ -139,6 +150,15 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   }, []);
   const queryClient = useQueryClient();
 
+  // El PRIMER fetch de cada query va sin header a propósito: así el service worker responde al instante
+  // desde su cache (carga rápida y offline). Del segundo en adelante — polling, foco, reconexión — se
+  // manda X-Ubicate-Revalidate, que en el SW matchea una regla NetworkFirst. Sin esto el
+  // StaleWhileRevalidate devuelve el cuerpo viejo y se queda el fresco para sí, así que React Query
+  // siempre iba un ciclo atrás y una ruta nueva no aparecía nunca en una visita corta.
+  // No agrega requests: el StaleWhileRevalidate ya hacía uno de red por tick.
+  const revalidateHeaders = (queryKey: string[]) =>
+    queryClient.getQueryState(queryKey)?.dataUpdatedAt ? { "X-Ubicate-Revalidate": "true" } : undefined;
+
   // React Query borra `error` al INICIAR cualquier fetch mientras no haya datos (fetchState en
   // query-core), así que el refetch por foco de ventana hacía desaparecer la pantalla de error al
   // minimizar y volver. El error queda pegado acá hasta que un fetch traiga datos de verdad.
@@ -159,7 +179,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
         approved_places: JSONFeatures;
         new_places: JSONFeatures;
         message: string;
-      }>("/api/ubicate"),
+      }>("/api/ubicate", { headers: revalidateHeaders(["places"]) }),
     // Un solo reintento: si falla, avisar rápido con la pantalla de error en vez de esperar el backoff.
     retry: 1,
     staleTime: REFETCH_ONLINE_MS,
@@ -222,10 +242,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   const { data: eventsData } = useQuery({
     queryKey: ["events"],
     queryFn: () =>
-      fetch("/api/events").then((r) => r.json()) as Promise<{
+      fetchJsonOrThrow<{
         events: { features: (EventFeature | Feature)[] };
         message: string;
-      }>,
+      }>("/api/events", { headers: revalidateHeaders(["events"]) }),
     retry: 1,
     staleTime: REFETCH_ONLINE_MS,
     networkMode: "offlineFirst",
@@ -240,10 +260,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   const { data: routesData } = useQuery({
     queryKey: ["routes"],
     queryFn: () =>
-      fetch("/api/routes").then((r) => r.json()) as Promise<{
+      fetchJsonOrThrow<{
         routes: { features: RouteFeature[] };
         message: string;
-      }>,
+      }>("/api/routes", { headers: revalidateHeaders(["routes"]) }),
     retry: 1,
     staleTime: REFETCH_ONLINE_MS,
     networkMode: "offlineFirst",
@@ -331,11 +351,23 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     [queryClient, setPlaces],
   );
 
+  // Carga y reconexión traen los TRES endpoints, no solo lugares: rutas y eventos también viven detrás
+  // del StaleWhileRevalidate del SW y sin esto se quedaban con lo que hubiera en Cache Storage.
+  // `allSettled` a propósito: un fallo de rutas o de eventos no debe afectar a lugares, que es el único
+  // que alimenta la pantalla de error.
+  const revalidateAppData = useCallback(async () => {
+    await Promise.allSettled([
+      refetchPlaces({ syncMap: false, fresh: false }),
+      refreshRoutes(queryClient, "revalidate"),
+      revalidateEvents(queryClient),
+    ]);
+  }, [refetchPlaces, queryClient]);
+
   // Se lee dentro de los listeners sin volver a suscribirlos: cambiar las deps del efecto relanzaría
   // el refetch de montaje, que es justo lo que no queremos con la pantalla de error arriba.
   // useEffectEvent da esa lectura "no reactiva" sin escribir una ref durante el render.
   const refetchIfNotBlocked = useEffectEvent(() => {
-    if (!isLoadBlocked) refetchPlaces({ syncMap: false, fresh: false });
+    if (!isLoadBlocked) revalidateAppData();
   });
 
   // Al cargar con conexión → buscar enseguida datos frescos del servidor. Al reconectar → volver a
@@ -356,7 +388,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
       // navigator.onLine solo existe en el cliente.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOnline(navigator.onLine);
-      if (navigator.onLine) refetchPlaces({ syncMap: false, fresh: false });
+      if (navigator.onLine) revalidateAppData();
     }
 
     window.addEventListener("online", goOnline);
@@ -366,7 +398,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("online", goOnline);
       window.removeEventListener("offline", goOffline);
     };
-  }, [refetchPlaces]);
+  }, [revalidateAppData]);
 
   // Recalcula los puntos del mapa desde los filtros activos SIEMPRE que cambien los datos, los eventos
   // o los filtros — aunque el sidebar (y por tanto PillFilter) esté cerrado. Maneja también el filtro

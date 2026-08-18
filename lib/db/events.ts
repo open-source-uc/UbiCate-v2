@@ -9,19 +9,20 @@ import { eventToFeature, featureToEventData, featureToPlaceData, placeToFeature 
 const CACHE_KEY_EVENTS = "allEvents";
 const CACHE_TTL = 5 * 60 * 1000;
 
+// Los orderBy hacen determinista el ETag del payload de eventos (ver lib/db/places.ts).
 const eventInclude = {
-  places: { include: { place: true } },
+  places: { include: { place: true }, orderBy: { placeId: "asc" } },
 } as const;
 
 const inlinePlaceInclude = {
-  categories: { include: { category: true } },
-  floors: { include: { floor: true } },
+  categories: { include: { category: true }, orderBy: { categoryId: "asc" } },
+  floors: { include: { floor: true }, orderBy: { floorId: "asc" } },
 } as const;
 
 async function loadAllEvents(): Promise<{ events: EventFeature[]; eventPlaces: Feature[] }> {
   const [events, inlinePlaces] = await Promise.all([
-    prisma.event.findMany({ include: eventInclude }),
-    prisma.place.findMany({ where: { isEventOnly: true }, include: inlinePlaceInclude }),
+    prisma.event.findMany({ include: eventInclude, orderBy: { id: "asc" } }),
+    prisma.place.findMany({ where: { isEventOnly: true }, include: inlinePlaceInclude, orderBy: { id: "asc" } }),
   ]);
 
   return {
