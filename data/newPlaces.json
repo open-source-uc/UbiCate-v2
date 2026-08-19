@@ -221,32 +221,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.612076,
-                    -33.499103
-                ]
-            },
-            "properties": {
-                "identifier": "DIR_INFORMATICA",
-                "name": "Dirección de Sistemas y Ciberseguridad",
-                "information": "",
-                "categories": [
-                    "classroom"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "LA_Y"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
