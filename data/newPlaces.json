@@ -229,16 +229,13 @@
             },
             "properties": {
                 "identifier": "DIR_INFORMATICA",
-                "name": "Dirección de Sistemas y Ciberseguridad, VRID",
-                "information": "La dirección de Sistemas y Ciberseguridad pertenece a la Vicerrectoría de Inteligencia Digital.",
+                "name": "Dirección de Sistemas y Ciberseguridad",
+                "information": "",
                 "categories": [
-                    "offices"
+                    "classroom"
                 ],
                 "floors": [
-                    1,
-                    6,
-                    7,
-                    8
+                    1
                 ],
                 "needApproval": true,
                 "campus": "SJ",
