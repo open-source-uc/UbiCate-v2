@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.614207,
+                    -33.498117
+                ]
+            },
+            "properties": {
+                "identifier": "ED214",
+                "name": "ED214",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.612076,
                     -33.499103
                 ]
