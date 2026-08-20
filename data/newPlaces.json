@@ -6,6 +6,1181 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.614207,
+                    -33.498117
+                ]
+            },
+            "properties": {
+                "identifier": "ED214",
+                "name": "ED214",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612076,
+                    -33.499103
+                ]
+            },
+            "properties": {
+                "identifier": "DIR_INFORMATICA",
+                "name": "Dirección de Sistemas y Ciberseguridad",
+                "information": "",
+                "categories": [
+                    "classroom",
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6134156450912,
+                    -33.496632423095
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_JUAN_CALVET-MAGALHAES-SJ",
+                "name": "Sala Juan Calvet-Magalhaes",
+                "information": "Sala para siete personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61339220676801,
+                    -33.496631169416695
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_VIOLETA_PARRA-SJ",
+                "name": "Sala Violeta Parra",
+                "information": "Sala para siete personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61338909107022,
+                    -33.49662549649288
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_GABRIELA_MISTRAL-SJ",
+                "name": "Sala Gabriela Mistral",
+                "information": "Sala para diez personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61343208090415,
+                    -33.49661416925536
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MANUEL_ROJAS-SJ",
+                "name": "Sala Manuel Rojas",
+                "information": "Sala para veincitinco personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61343078801357,
+                    -33.496559646306885
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_MARCELA_OYANEDEL-SJ",
+                "name": "Sala Marcela Oyanedel ",
+                "information": "Sala para veinticinco personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61338859917707,
+                    -33.496559979556764
+                ]
+            },
+            "properties": {
+                "identifier": "SALA_LÉSMER_MONTECINO-SJ",
+                "name": "Sala Lésmer Montecino ",
+                "information": "Sala para diez personas, perteneciente a la Facultad de Letras. ",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61331128377944,
+                    -33.49658745009769
+                ]
+            },
+            "properties": {
+                "identifier": "MSYW6QZ62YWO07",
+                "name": "Edificio de Postgrado - Facultad de Historia y Facultad de Letras ",
+                "information": "",
+                "categories": [
+                    "classroom_building"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.611723,
+                            -33.498246
+                        ],
+                        [
+                            -70.611063,
+                            -33.497565
+                        ],
+                        [
+                            -70.610978,
+                            -33.498233
+                        ],
+                        [
+                            -70.611524,
+                            -33.498273
+                        ],
+                        [
+                            -70.611524,
+                            -33.498231
+                        ],
+                        [
+                            -70.611723,
+                            -33.498246
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "TEMPLO",
+                "name": "Templo",
+                "information": "",
+                "categories": [
+                    "building",
+                    "faculty"
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "TEMPLO"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.61134167015553,
+                            -33.500312727225655
+                        ],
+                        [
+                            -70.6109058111906,
+                            -33.500283091634735
+                        ],
+                        [
+                            -70.61088971793652,
+                            -33.50038597741631
+                        ],
+                        [
+                            -70.61054103076458,
+                            -33.50035801933559
+                        ],
+                        [
+                            -70.61059400439262,
+                            -33.50069910730345
+                        ],
+                        [
+                            -70.61140269041061,
+                            -33.50063983637601
+                        ],
+                        [
+                            -70.61139330267906,
+                            -33.500520735238716
+                        ],
+                        [
+                            -70.61134167015553,
+                            -33.500312727225655
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "D",
+                "name": "College",
+                "information": "Piso 1: Auditorio College, Sala de Estudio, Salas D 101 a D 104.\nPiso 2: Sala San Andrés, Sala de Estudio, Salas D 201 a D 204. Piso 3: Sala de Estudio, Salas D 301 a D 306.\n",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61471362612379,
+                    -33.49801787702692
+                ]
+            },
+            "properties": {
+                "identifier": "MSWOZ6B1AZZVZ7",
+                "name": "Sala de estudio de educación ",
+                "information": "",
+                "categories": [
+                    "studyroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EDU"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60999989509583,
+                    -33.49758341449186
+                ]
+            },
+            "properties": {
+                "identifier": "M1",
+                "name": "M1",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.60907319188118,
+                            -33.49744389906256
+                        ],
+                        [
+                            -70.60878083109856,
+                            -33.49763457941259
+                        ],
+                        [
+                            -70.60882341116667,
+                            -33.49801957350205
+                        ],
+                        [
+                            -70.60932464897633,
+                            -33.49812134362157
+                        ],
+                        [
+                            -70.60948457568884,
+                            -33.49802600403512
+                        ],
+                        [
+                            -70.60907319188118,
+                            -33.49744389906256
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MMAZZQBM3L4ZBA",
+                "name": "Aulas Helen Lee Lassen",
+                "information": "DGE - Dirección General Estudiantil",
+                "categories": [
+                    "faculty",
+                    ""
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6098942686933,
+                    -33.49841313825549
+                ]
+            },
+            "properties": {
+                "identifier": "MSROU48IF07RK8",
+                "name": "Biblioteca San Joaquín",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6139074970273,
+                    -33.49749615337219
+                ]
+            },
+            "properties": {
+                "identifier": "R6",
+                "name": "MUC959",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LET"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.6109551916718,
+                            -33.49973538543014
+                        ],
+                        [
+                            -70.6100009009242,
+                            -33.49966912937426
+                        ],
+                        [
+                            -70.60996502637863,
+                            -33.49998925140585
+                        ],
+                        [
+                            -70.610526278615,
+                            -33.50003034995647
+                        ],
+                        [
+                            -70.61053365468979,
+                            -33.499912086727484
+                        ],
+                        [
+                            -70.61066206544638,
+                            -33.499925786258736
+                        ],
+                        [
+                            -70.61066910624504,
+                            -33.49988916097645
+                        ],
+                        [
+                            -70.61092140762729,
+                            -33.49989913573618
+                        ],
+                        [
+                            -70.6109551916718,
+                            -33.49973538543014
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MAT",
+                "name": "Facultad de Matemáticas",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MAT"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61342676327033,
+                    -33.498158266513
+                ]
+            },
+            "properties": {
+                "identifier": "MSORG7WEG0XEHN",
+                "name": "Galería Arte Hall Universitario",
+                "information": "",
+                "categories": [
+                    "other"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61796240314763,
+                    -33.42006068251823
+                ]
+            },
+            "properties": {
+                "identifier": "MSNSF2BGKUNTX0",
+                "name": "Decanato",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61818770870562,
+                    -33.42009202458361
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-33077211",
+                "name": "Sala Consejo",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61024903375703,
+                    -33.50059297552472
+                ]
+            },
+            "properties": {
+                "identifier": "CS403-SJ",
+                "name": "CS403",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    4
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61021423518498,
+                    -33.49661725950944
+                ]
+            },
+            "properties": {
+                "identifier": "AP102-SJ",
+                "name": "AP102",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.59377920386297,
+                    -33.446192143801476
+                ]
+            },
+            "properties": {
+                "identifier": "MSJ1GOEDFHFUEK",
+                "name": "Casa Violeta Parra",
+                "information": "La muestra titulada Paz y Justicia es la segunda de este nuevo espacio dedicado a la obra visual de la folclorista nacional Violeta Parra. En ella se reúnen más de 30 piezas entre pinturas, papel maché y sus destacadas arpilleras. Obras emblemáticas como “Contra la guerra”, “Prisionero inocente” y “Viva la paz” dialogan entre si hablándonos y dando fe de una temática que atravesó siempre su producción artística estando al centro de sus preocupaciones e intereses.",
+                "categories": [
+                    "culture"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -70.610716674844,
+                            -33.49928452182047
+                        ],
+                        [
+                            -70.61072511810539,
+                            -33.49924197380466
+                        ],
+                        [
+                            -70.61077170271832,
+                            -33.49927713318073
+                        ],
+                        [
+                            -70.610716674844,
+                            -33.49928452182047
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "identifier": "MSIYF1HEQS1SB7",
+                "name": "Fesem CienUC",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.610958,
+                    -33.499468
+                ]
+            },
+            "properties": {
+                "identifier": "DIR_DOCENCIA_FIS",
+                "name": "Dirección de Docencia",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61089981969684,
+                    -33.49933954298243
+                ]
+            },
+            "properties": {
+                "identifier": "MSIY9WIV7CG75X",
+                "name": "Facultad de Física",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60856994241476,
+                    -33.500603211395834
+                ]
+            },
+            "properties": {
+                "identifier": "SPORTS_PLACE-32757455",
+                "name": "Cancha Tenis",
+                "information": "",
+                "categories": [
+                    "sports_place"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61032829806209,
+                    -33.49873601582474
+                ]
+            },
+            "properties": {
+                "identifier": "N4",
+                "name": "N6",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61021628473091,
+                    -33.49658596216007
+                ]
+            },
+            "properties": {
+                "identifier": "AP602-SJ",
+                "name": "AP602",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    6
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61345417321176,
+                    -33.49792074524397
+                ]
+            },
+            "properties": {
+                "identifier": "MSGHR09D50Q1AY",
+                "name": "Casino Campus Sabores",
+                "information": "Tres tipos de Menú\nMenú Junaeb\nAlmuerzo de casa\nSandwichs\nCafetería\nAcepta Junaeb y todo medio de pago\nHorario de 08:30 a 18:30 de lun a vie",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61169574499807,
+                    -33.4970007354698
+                ]
+            },
+            "properties": {
+                "identifier": "AE204-SJ",
+                "name": "AE204",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "EA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61804091550869,
+                    -33.41956256503625
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORIO_COMPUTACIÓN_DECANO-LC",
+                "name": "Laboratorio computación \"Sala 30\"",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": [
+                    "MMCERH5YS23HFL"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612511,
+                    -33.500141
+                ]
+            },
+            "properties": {
+                "identifier": "A3",
+                "name": "A3",
+                "information": "Facultad de Ingeniería",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ING"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.6098777057118,
+                    -33.49907110849295
+                ]
+            },
+            "properties": {
+                "identifier": "MSF6VJ0F3LCMYH",
+                "name": "Dirección de Bibliotecas UC",
+                "information": "Oficinas de la Dirección de Bibliotecas UC.",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.609898,
+                    -33.498421
+                ]
+            },
+            "properties": {
+                "identifier": "BIBLIO_CS",
+                "name": "Biblioteca San Joaquín",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61037142701295,
+                    -33.496591437233256
+                ]
+            },
+            "properties": {
+                "identifier": "AP006-SJ",
+                "name": "AP006",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61030147597194,
+                    -33.49897002906657
+                ]
+            },
+            "properties": {
+                "identifier": "N6",
+                "name": "N4",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61020432195241,
+                    -33.49668706385611
+                ]
+            },
+            "properties": {
+                "identifier": "AP103-SJ",
+                "name": "AP103",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61034271493554,
+                    -33.498582103544834
+                ]
+            },
+            "properties": {
+                "identifier": "N8",
+                "name": "N8",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.612041,
+                    -33.499107
+                ]
+            },
+            "properties": {
+                "identifier": "J3",
+                "name": "J3",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "LA_Y"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61074310095651,
+                    -33.4995840805998
+                ]
+            },
+            "properties": {
+                "identifier": "MM9EP5Q8KE2LT6",
+                "name": "Baño",
+                "information": "",
+                "categories": [
+                    "bath"
+                ],
+                "floors": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "FIS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61042667564166,
                     -33.496667420704895
                 ]
@@ -2783,36 +3958,36 @@
                 "coordinates": [
                     [
                         [
-                            -70.61227230518169,
-                            -33.498918138288374
+                            -70.612336,
+                            -33.498908
                         ],
                         [
-                            -70.61190214258913,
-                            -33.49899601122336
+                            -70.611879,
+                            -33.499037
                         ],
                         [
-                            -70.61188900843263,
-                            -33.499108004319524
+                            -70.611889,
+                            -33.499108
                         ],
                         [
-                            -70.61186951427668,
-                            -33.49931876095403
+                            -70.611868,
+                            -33.499316
                         ],
                         [
-                            -70.61237019012256,
-                            -33.499361919258305
+                            -70.61225,
+                            -33.499349
                         ],
                         [
-                            -70.61240281843587,
-                            -33.499147065753654
+                            -70.612374,
+                            -33.499161
                         ],
                         [
-                            -70.61243657186414,
-                            -33.498879670909155
+                            -70.612388,
+                            -33.499037
                         ],
                         [
-                            -70.61227230518169,
-                            -33.498918138288374
+                            -70.612336,
+                            -33.498908
                         ]
                     ]
                 ]
@@ -2825,7 +4000,9 @@
                     "building",
                     "faculty"
                 ],
-                "floors": [],
+                "floors": [
+                    8
+                ],
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": [
