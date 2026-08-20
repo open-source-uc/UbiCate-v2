@@ -15,6 +15,7 @@ import { useSidebar } from "@/app/context/sidebarCtx";
 import { useIsDebugMode } from "@/app/hooks/useDebugMode";
 import { apiClient } from "@/lib/api/ubicateApiClient";
 import { getParentPlaceFloor, normalizeIdentifier } from "@/lib/places/utils";
+import { buildShareUrl, shareLink } from "@/lib/share/shareLink";
 import {
   CATEGORIES,
   CategoryToDisplayName,
@@ -286,45 +287,17 @@ export default function PlaceInformation({
 
   // El enlace se arma acá y no se lee de `window.location.href`: la app dejó de escribir `place` y
   // `lng`/`lat` en la URL al interactuar, así que la barra de direcciones ya no describe la selección.
-  const buildShareUrl = () => {
-    const url = new URL(window.location.href);
-    // Se descartan los parámetros con los que se entró: el enlace describe lo que está seleccionado ahora.
-    url.search = "";
-
-    if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK) && place.geometry.type === "Point") {
-      const [lng, lat] = place.geometry.coordinates;
-      url.searchParams.set("lng", String(lng));
-      url.searchParams.set("lat", String(lat));
-    } else {
-      url.searchParams.set("place", place.properties.identifier);
-    }
-
-    return url.toString();
-  };
-
-  const handleShare = async () => {
+  const handleShare = () => {
     if (typeof window === "undefined") return;
 
-    const shareUrl = buildShareUrl();
-
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          url: shareUrl,
-        });
-        return;
-      }
-
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(shareUrl);
-        console.log("Enlace copiado al portapapeles");
-        return;
-      }
-
-      console.warn("Las opciones de compartir no están disponibles en este navegador.");
-    } catch (error) {
-      console.error("Error al compartir:", error);
+    // Un pin suelto no tiene identificador que resolver: se comparte por coordenadas.
+    if (place.properties.categories.includes(CATEGORIES.CUSTOM_MARK) && place.geometry.type === "Point") {
+      const [lng, lat] = place.geometry.coordinates;
+      shareLink(buildShareUrl({ lng: String(lng), lat: String(lat) }));
+      return;
     }
+
+    shareLink(buildShareUrl({ place: place.properties.identifier }));
   };
 
   const isCustomMark = place?.properties.categories.includes(CATEGORIES.CUSTOM_MARK);

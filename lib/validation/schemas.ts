@@ -68,6 +68,14 @@ export const routeSchema = z.object({
       .max(2500, "La descripción no puede exceder 2500 caracteres"),
     campus: z.string(required("El campus es obligatorio")).min(1, "Debes elegir un campus"),
     placeIds: z.array(z.string()).optional().default([]),
+    // El color es opcional: sin él la ruta se dibuja con el verde por defecto. Se acepta el string
+    // vacío para que el formulario pueda mandar "sin color" sin tener que omitir la clave.
+    color: z
+      .union([
+        z.string().regex(/^#[0-9a-fA-F]{6}$/, "El color debe ser un hexadecimal de 6 dígitos, como #22C55E"),
+        z.literal(""),
+      ])
+      .optional(),
   }),
   points: z
     .array(

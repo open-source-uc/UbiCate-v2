@@ -1,4 +1,5 @@
 import type { EventFeature, Feature, RouteFeature } from "@/lib/types";
+import { normalizeHexColor } from "@/lib/utils/color";
 
 import type { Prisma } from "../../generated/prisma/client";
 
@@ -206,6 +207,7 @@ export function routeToFeature(route: RouteWithRelations): RouteFeature {
       campus: route.campusId ?? "",
       faculties: [],
       placeIds: route.places.map((rp: { place: { id: string } }) => rp.place.id),
+      color: route.color ?? null,
     },
     geometry,
   };
@@ -220,6 +222,7 @@ export interface RouteData {
   longitude: number | null;
   latitude: number | null;
   campusId: string | null;
+  color: string | null;
 }
 
 export function featureToRouteData(feature: RouteFeature): RouteData {
@@ -243,5 +246,8 @@ export function featureToRouteData(feature: RouteFeature): RouteData {
     longitude,
     latitude,
     campusId: feature.properties.campus || null,
+    // Se guarda normalizado (minúsculas, 6 dígitos) para que el mismo color escrito de dos formas no
+    // cambie el ETag de /api/routes.
+    color: normalizeHexColor(feature.properties.color),
   };
 }

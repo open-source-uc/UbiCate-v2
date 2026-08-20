@@ -1,11 +1,13 @@
 "use client";
 
+import { Button } from "@/app/components/ui/button";
 import * as Icons from "@/app/components/ui/icons/icons";
 import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
 import MarkDownComponent from "@/app/components/ui/markDown";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { normalizeIdentifier } from "@/lib/places/utils";
+import { buildShareUrl, shareLink } from "@/lib/share/shareLink";
 import { Feature, siglas } from "@/lib/types";
 
 interface RouteInformationProps {
@@ -29,7 +31,7 @@ export default function RouteInformation({ onClose, onBack }: RouteInformationPr
         <button
           type="button"
           onClick={onBack}
-          className="rounded-lg bg-primary px-4 py-2 text-sm text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground"
+          className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground"
         >
           Ver todas las rutas
         </button>
@@ -42,6 +44,13 @@ export default function RouteInformation({ onClose, onBack }: RouteInformationPr
     .filter((f): f is Feature => f !== undefined);
 
   const coords = route.geometry.coordinates;
+
+  // Mismo enlace que el botón Compartir de un lugar, con el param `route`: al abrirlo, `map.tsx` dibuja
+  // la ruta y abre esta ficha.
+  const handleShare = () => {
+    if (typeof window === "undefined") return;
+    shareLink(buildShareUrl({ route: route.properties.identifier }));
+  };
 
   // Solo centra el mapa: `emitPlaceSelectedEvent` seleccionaría el lugar y el sidebar saltaría a su
   // ficha, sacando de pantalla el detalle de la ruta.
@@ -81,13 +90,24 @@ export default function RouteInformation({ onClose, onBack }: RouteInformationPr
       </div>
 
       <div className="flex-1 px-4 py-4 space-y-5">
-        <button
-          type="button"
-          onClick={onBack}
-          className="w-full rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground"
-        >
-          Todas las rutas
-        </button>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={onBack}
+            className="flex-1 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground"
+          >
+            Todas las rutas
+          </button>
+          <Button
+            onClick={handleShare}
+            aria-label="Compartir esta ruta"
+            variant="mapPrimary"
+            className="shrink-0 gap-2 rounded-lg px-3 py-2 text-sm font-semibold"
+          >
+            <Icons.Share className="h-4 w-4 fill-background" />
+            <span>Compartir</span>
+          </Button>
+        </div>
 
         <section>
           <h4 className="text-sm font-semibold text-foreground">

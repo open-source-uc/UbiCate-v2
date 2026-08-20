@@ -141,6 +141,9 @@ model Route {
   name         String          @db.VarChar(500)
   information  String?
   campusId     String?         @db.VarChar(100)
+  // Hex "#rrggbb" con el que se dibuja la ruta. Null = el verde por defecto; el borde se deriva
+  // oscureciéndolo, no se guarda.
+  color        String?         @db.VarChar(7)
   geometryType GeoGeometryType
   geometry     Json
   longitude    Decimal?        @db.Decimal(12, 8)

@@ -106,6 +106,7 @@ export async function POST(request: NextRequest) {
         campus: data.campus,
         faculties: [],
         placeIds,
+        color: data.color || null,
       },
     };
 
@@ -167,6 +168,7 @@ export async function PUT(request: NextRequest) {
         campus: data.campus,
         faculties: [],
         placeIds,
+        color: data.color || null,
       },
     };
 

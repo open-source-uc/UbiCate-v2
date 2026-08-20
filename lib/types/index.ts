@@ -145,6 +145,8 @@ export interface EventFeature {
 // la búsqueda, los filtros) asume Point o Polygon. Mismo criterio que EventFeature.
 export interface RouteProperties extends Properties {
   placeIds: string[];
+  /** Hex con el que se dibuja la ruta y sus lugares. `null` = el verde por defecto de las rutas. */
+  color?: string | null;
 }
 
 export interface RouteFeature {

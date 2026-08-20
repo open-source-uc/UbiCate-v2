@@ -10,6 +10,8 @@ export interface RouteFormData {
   information: string;
   campus: string;
   placeIds: string[];
+  /** Hex "#rrggbb" con el que se dibuja la ruta. "" = el verde por defecto. */
+  color: string;
   identifier?: string;
 }
 
@@ -49,12 +51,14 @@ export function useRouteForm(method: "POST" | "PUT", defaultData?: RouteFormData
           information: defaultData.information,
           campus: defaultData.campus,
           placeIds: defaultData.placeIds || [],
+          color: defaultData.color || "",
         }
       : {
           name: "",
           information: "",
           campus: "",
           placeIds: [],
+          color: "",
         },
   );
 

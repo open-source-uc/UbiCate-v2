@@ -16,6 +16,7 @@ import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { RouteFeature, siglas } from "@/lib/types";
 
 import RouteForm from "../../routes/forms/RouteForm";
+import { routeColors } from "../../routes/routeMapLayer";
 
 interface RoutesPanelProps {
   onClose: () => void;
@@ -135,6 +136,7 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
                   information: editingRoute.properties.information,
                   campus: editingRoute.properties.campus,
                   placeIds: editingRoute.properties.placeIds,
+                  color: editingRoute.properties.color ?? "",
                   identifier: editingRoute.properties.identifier,
                 }
               : undefined
@@ -195,7 +197,14 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
                 className="flex w-full items-center gap-3 text-left cursor-pointer"
                 aria-pressed={selectedId === route.properties.identifier}
               >
-                <span className="w-9 h-9 shrink-0 rounded-lg bg-primary flex items-center justify-center">
+                {/* Mismo color con el que se dibuja la ruta en el mapa, para reconocerla en la lista. */}
+                <span
+                  className="w-9 h-9 shrink-0 rounded-lg flex items-center justify-center"
+                  style={{
+                    backgroundColor: routeColors(route.properties.color).color,
+                    border: `1px solid ${routeColors(route.properties.color).borderColor}`,
+                  }}
+                >
                   <MaterialSymbol name="route" className="text-[20px] text-background" />
                 </span>
                 <div className="min-w-0">

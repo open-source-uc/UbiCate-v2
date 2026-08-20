@@ -12,6 +12,7 @@ import { Map, Source, Layer, Marker as MapLibreMarker } from "react-map-gl/mapli
 import DebugMode from "@/app/debug/debugMode";
 import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
+import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
 import { normalizeIdentifier } from "@/lib/places/utils";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
@@ -22,9 +23,9 @@ import DirectionsComponent from "../components/features/directions/component";
 import RouteLayer from "../components/features/directions/routeLayer";
 import UserLocation from "../components/features/directions/userLocation";
 import RouteMapLayer, {
-  ROUTE_BORDER_COLOR,
-  ROUTE_COLOR,
   RoutePlacesLayer,
+  RouteStartFlag,
+  routeColors,
 } from "../components/features/routes/routeMapLayer";
 import MarkerIcon from "../components/ui/icons/markerIcon";
 import MaterialSymbol from "../components/ui/icons/MaterialSymbol";
@@ -106,7 +107,9 @@ export default function MapComponent({
     activeFilters,
     eventPlaceIds,
     allFeatures,
+    routes,
     selectedRoute,
+    setSelectedRoute,
     openRoutesPanel,
   } = useSidebar();
   const isEventsFilter = activeFilters.includes(CATEGORIES.EVENTS);
@@ -118,6 +121,7 @@ export default function MapComponent({
     isForRoute,
     routePlaceIds,
     routeDraftName,
+    routeDraftColor,
     isDrawingRect,
     setDrawingRect,
     setPicking,
@@ -149,6 +153,10 @@ export default function MapComponent({
     () => (isForRoute && !isPicking ? featuresByIds(routePlaceIds) : []),
     [isForRoute, isPicking, routePlaceIds, featuresByIds],
   );
+
+  // El borrador se dibuja con el color que se está eligiendo en el formulario; sin uno válido cae al
+  // verde por defecto, así el hex a medio escribir no deja la línea invisible.
+  const draftColors = useMemo(() => routeColors(routeDraftColor), [routeDraftColor]);
   const wasDraggingRef = useRef(false);
   const rectJustFinishedRef = useRef(false);
   const [rectPreview, setRectPreview] = useState<[number, number][] | null>(null);
@@ -250,7 +258,7 @@ export default function MapComponent({
       setRectPreview(null);
     };
   }, [isDrawingRect, setPinsFromCoords, setPicking, setDrawingRect]);
-  const { handleMapLoad, handlePlaceSelection, handleMapClick, selectionLocked } = useMapEvents({
+  const { handleMapLoad, handlePlaceSelection, handleMapClick, selectionLocked, isLoaded } = useMapEvents({
     mapRef,
     paramPlace,
     paramLng,
@@ -324,6 +332,32 @@ export default function MapComponent({
     const filteredPlaces = allFeatures.filter((feature) => feature.properties.categories.includes(category));
     setPlaces(filteredPlaces);
   }, [params, setPlaces, allFeatures]);
+
+  // `route` es un parámetro de ENTRADA, igual que `place`: lo arma el botón Compartir de la ficha de una
+  // ruta. Las rutas llegan por React Query, así que hay que esperar a que carguen; el ref lo deja correr
+  // una sola vez, o cada refetch volvería a centrar el mapa mientras el usuario navega.
+  const routeParamHandled = useRef(false);
+  useEffect(() => {
+    if (routeParamHandled.current || !isLoaded) return;
+
+    const routeId = params.get("route");
+    if (!routeId || routes.length === 0) return;
+
+    const route = routes.find((r) => normalizeIdentifier(r.properties.identifier) === normalizeIdentifier(routeId));
+    if (!route) return;
+
+    routeParamHandled.current = true;
+    setSelectedRoute(route);
+    // ⚠️ DESPUÉS de setSelectedRoute, que es `selectRoute` y limpia `routeDetail`: al revés la ficha
+    // caería en el respaldo de `selectedRoute`.
+    openRoutesPanel(route);
+
+    const coords = route.geometry.coordinates;
+    if (coords.length === 0) return;
+    const lng = coords.reduce((sum, c) => sum + c[0], 0) / coords.length;
+    const lat = coords.reduce((sum, c) => sum + c[1], 0) / coords.length;
+    emitFlyToEvent(lng, lat, 16);
+  }, [params, routes, isLoaded, setSelectedRoute, openRoutesPanel]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -471,9 +505,14 @@ export default function MapComponent({
             // Se rotula en vivo lo que se va escribiendo en el formulario. Con el nombre vacío se pasa
             // undefined y no se monta la capa de texto, en vez de dibujar una etiqueta en blanco.
             label={routeDraftName.trim() || undefined}
-            color={ROUTE_COLOR}
-            borderColor={ROUTE_BORDER_COLOR}
+            color={draftColors.color}
+            borderColor={draftColors.borderColor}
           />
+        ) : null}
+        {/* La bandera del borrador solo con el formulario abierto: dibujando, cada vértice ya tiene su
+            pin y el del inicio queda tapado. */}
+        {isForRoute && !isPicking && line && line.geometry.coordinates.length > 0 ? (
+          <RouteStartFlag coordinates={line.geometry.coordinates[0]} color={routeDraftColor} />
         ) : null}
         {/* Ruta guardada que el usuario eligió en el panel. No convive con el dibujo: mientras se edita
             manda el borrador. */}
@@ -486,7 +525,9 @@ export default function MapComponent({
         {!isPicking && !isForRoute && selectedRoute ? (
           <RouteMapLayer route={selectedRoute} places={selectedRoutePlaces} />
         ) : null}
-        {routeFormPlaces.length > 0 ? <RoutePlacesLayer places={routeFormPlaces} idPrefix="route-draft" /> : null}
+        {routeFormPlaces.length > 0 ? (
+          <RoutePlacesLayer places={routeFormPlaces} idPrefix="route-draft" color={routeDraftColor} />
+        ) : null}
         <Source
           id="rect-preview"
           type="geojson"

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 // Ligaduras que usa la toolbar del modo edición (`pickingOverlay.tsx`). Se listan explícitamente para
 // que la petición las cubra aunque algún día Google sirva la fuente partida por unicode-range.
-const EDIT_MODE_GLYPHS = "distance polyline route undo redo crop_free delete cancel location_on";
+const EDIT_MODE_GLYPHS = "distance polyline route undo redo crop_free delete cancel location_on flag";
 
 /**
  * Material Symbols dibuja los iconos con **ligaduras**: hasta que llega el `.woff2`, el navegador tiene

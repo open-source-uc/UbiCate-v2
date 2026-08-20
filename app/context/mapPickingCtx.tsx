@@ -27,6 +27,9 @@ interface MapPickingContextType {
   // Nombre que el formulario de ruta va escribiendo, para rotular el trazo en el mapa mientras se edita.
   routeDraftName: string;
   setRouteDraftName: (name: string) => void;
+  // Color elegido en el formulario de ruta, para que el borrador se dibuje con él. "" = el por defecto.
+  routeDraftColor: string;
+  setRouteDraftColor: (color: string) => void;
   isDrawingRect: boolean;
   isPlaceFormOpen: boolean;
   // Sesión de solo lectura: se muestra la geometría en el mapa sin herramientas ni edición.
@@ -58,6 +61,8 @@ const MapPickingContext = createContext<MapPickingContextType>({
   routePlaceIds: [],
   routeDraftName: "",
   setRouteDraftName: () => {},
+  routeDraftColor: "",
+  setRouteDraftColor: () => {},
   setRoutePlaceIds: () => {},
   isDrawingRect: false,
   isPlaceFormOpen: false,
@@ -79,6 +84,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
   const [isForRoute, setIsForRoute] = useState(false);
   const [routePlaceIds, setRoutePlaceIds] = useState<string[]>([]);
   const [routeDraftName, setRouteDraftName] = useState("");
+  const [routeDraftColor, setRouteDraftColor] = useState("");
   const [isDrawingRect, setIsDrawingRect] = useState(false);
   const [isPlaceFormOpen, setIsPlaceFormOpen] = useState(false);
   const [isViewOnly, setIsViewOnly] = useState(false);
@@ -105,6 +111,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
     if (!v) {
       setRoutePlaceIds([]);
       setRouteDraftName("");
+      setRouteDraftColor("");
     }
   }, []);
 
@@ -143,6 +150,8 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         setRoutePlaceIds,
         routeDraftName,
         setRouteDraftName,
+        routeDraftColor,
+        setRouteDraftColor,
         isDrawingRect,
         isPlaceFormOpen,
         isViewOnly,

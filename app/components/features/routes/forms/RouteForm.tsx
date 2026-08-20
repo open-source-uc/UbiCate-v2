@@ -13,11 +13,13 @@ import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { parseRouteGeoJSON } from "@/lib/geojson/parseRouteGeoJSON";
 import { normalizeIdentifier } from "@/lib/places/utils";
 import { CATEGORIES, Feature, siglas } from "@/lib/types";
+import { normalizeHexColor } from "@/lib/utils/color";
 
 import * as Icons from "../../../ui/icons/icons";
 import MaterialSymbol from "../../../ui/icons/MaterialSymbol";
 import { DescriptionField } from "../../places/forms/descriptionField";
 import { PlaceNameField } from "../../places/forms/placeNameField";
+import { ROUTE_COLOR, routeColors } from "../routeMapLayer";
 
 // El id de campus es la sigla (PK de la tabla campus y lo que traen los lugares en properties.campus).
 // `siglas` traduce sigla → nombre para mostrar.
@@ -41,7 +43,8 @@ export default function RouteForm({
   title?: string;
 }) {
   const { pins, clearPins, setPinsFromCoords } = use(pinsContext);
-  const { isPicking, setPicking, setForRoute, setRoutePlaceIds, setRouteDraftName } = useMapPicking();
+  const { isPicking, setPicking, setForRoute, setRoutePlaceIds, setRouteDraftName, setRouteDraftColor } =
+    useMapPicking();
   const { allFeatures } = useSidebar();
   const queryClient = useQueryClient();
   const [placeSearch, setPlaceSearch] = useState("");
@@ -99,6 +102,11 @@ export default function RouteForm({
   useEffect(() => {
     setRouteDraftName(data.name);
   }, [data.name, setRouteDraftName]);
+
+  // Mismo canal para el color: el borrador y sus lugares se repintan mientras se elige.
+  useEffect(() => {
+    setRouteDraftColor(data.color);
+  }, [data.color, setRouteDraftColor]);
 
   const handleRedraw = () => {
     // El historial se reinicia al entrar al picking, así que los pins van ANTES.
@@ -162,6 +170,9 @@ export default function RouteForm({
         information: data.information,
         campus: data.campus,
         placeIds: data.placeIds,
+        // Normalizado acá: el servidor solo acepta "#rrggbb", y el campo permite escribirlo sin # o en
+        // mayúsculas mientras se tipea.
+        color: normalizeHexColor(data.color) ?? "",
       },
       points: routeCoords.map((coordinates) => ({
         type: "Feature" as const,
@@ -172,7 +183,11 @@ export default function RouteForm({
     });
   };
 
-  const canSubmit = routeCoords.length >= 2 && data.name.trim().length > 0 && data.campus.length > 0 && !isLoading;
+  const isColorValid = data.color.trim().length === 0 || normalizeHexColor(data.color) !== null;
+  const previewColors = routeColors(data.color);
+
+  const canSubmit =
+    routeCoords.length >= 2 && data.name.trim().length > 0 && data.campus.length > 0 && isColorValid && !isLoading;
 
   return (
     <form className="space-y-4 text-md px-3 py-5" onSubmit={handleSubmit}>
@@ -297,6 +312,52 @@ export default function RouteForm({
             </option>
           ))}
         </select>
+      </div>
+
+      <div className="space-y-2">
+        <label className="flex items-center justify-center text-md font-medium text-foreground" htmlFor="routeColor">
+          Color de la ruta
+        </label>
+        <div className="flex items-center gap-2">
+          <input
+            type="color"
+            aria-label="Elegir el color de la ruta"
+            value={normalizeHexColor(data.color) ?? ROUTE_COLOR}
+            onChange={(e) => setData((prev) => ({ ...prev, color: e.target.value }))}
+            className="h-11 w-14 shrink-0 cursor-pointer rounded-lg border border-border bg-input p-1 disabled:opacity-50"
+            disabled={isLoading}
+          />
+          <input
+            id="routeColor"
+            type="text"
+            value={data.color}
+            onChange={(e) => setData((prev) => ({ ...prev, color: e.target.value }))}
+            spellCheck={false}
+            maxLength={7}
+            className="block w-full p-3 font-mono text-sm rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2"
+            placeholder={ROUTE_COLOR}
+            disabled={isLoading}
+          />
+          {data.color.trim().length > 0 ? (
+            <button
+              type="button"
+              onClick={() => setData((prev) => ({ ...prev, color: "" }))}
+              className="shrink-0 text-xs text-muted-foreground underline transition hover:text-foreground"
+              disabled={isLoading}
+            >
+              Por defecto
+            </button>
+          ) : null}
+        </div>
+        {isColorValid ? (
+          // El borde no se elige: se deriva oscureciendo el color, y esta muestra es el par final.
+          <span
+            className="block h-2 w-full rounded-full"
+            style={{ backgroundColor: previewColors.color, outline: `2px solid ${previewColors.borderColor}` }}
+          />
+        ) : (
+          <p className="text-xs text-destructive">Usa un hexadecimal de 6 dígitos, por ejemplo {ROUTE_COLOR}.</p>
+        )}
       </div>
 
       <div className="space-y-2">
