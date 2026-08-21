@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61018066262527,
+                    -33.49669560247424
+                ]
+            },
+            "properties": {
+                "identifier": "AP302",
+                "name": "AP303",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.614207,
                     -33.498117
                 ]
