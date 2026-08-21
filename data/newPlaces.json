@@ -1155,32 +1155,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61042667564166,
-                    -33.496667420704895
-                ]
-            },
-            "properties": {
-                "identifier": "MKFJC6BLLPXX9M",
-                "name": "Dirección de Aprendizaje y Acompañamiento Académico",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "AP-SECTOR"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61195888092733,
                     -33.499659802954504
                 ]
