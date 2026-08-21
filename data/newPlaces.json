@@ -4341,32 +4341,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60892371832026,
-                    -33.497939808651886
-                ]
-            },
-            "properties": {
-                "identifier": "MMZ7QX3OKVGV35",
-                "name": "Área Social Salud y Bienestar Estudiantil",
-                "information": "Entre piso 1 y 2",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "MMAZZQBM3L4ZBA"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.60895692978129,
                     -33.49795265404909
                 ]
