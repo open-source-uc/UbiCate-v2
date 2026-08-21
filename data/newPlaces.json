@@ -3892,30 +3892,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60791530249031,
-                    -33.49664246884663
-                ]
-            },
-            "properties": {
-                "identifier": "MOCUWLPFD0LNZD",
-                "name": "decon",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61020027054272,
                     -33.49671548811
                 ]
