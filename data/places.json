@@ -6,6 +6,31 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61309665127146,
+                    -33.49784972634952
+                ]
+            },
+            "properties": {
+                "identifier": "MQ15A37ZYHZ4AS",
+                "name": "Vicerrectoría de Asuntos Internacionales",
+                "information": "VRAI - Office of the Vice President for International Affairs\nhttps://internacionalizacion.uc.cl/",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22550960185339,
                     -39.277659009767476
                 ]
