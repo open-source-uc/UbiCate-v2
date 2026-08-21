@@ -1416,50 +1416,6 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.60931149304258,
-                            -33.499634152334345
-                        ],
-                        [
-                            -70.60927883870005,
-                            -33.49987676680085
-                        ],
-                        [
-                            -70.60963681625758,
-                            -33.499914144648905
-                        ],
-                        [
-                            -70.60967693984225,
-                            -33.499660232733376
-                        ],
-                        [
-                            -70.60931149304258,
-                            -33.499634152334345
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMBZDO0JMAZVV5",
-                "name": "edificio mide",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "MMBZDO0JMAZVV5"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.6407506658312,
