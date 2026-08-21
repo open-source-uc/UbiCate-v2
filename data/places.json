@@ -4499,14 +4499,16 @@
             },
             "properties": {
                 "identifier": "MMBZDO0JMAZVV5",
-                "name": "Casino Pérgola",
+                "name": "edificio mide",
                 "information": "",
                 "categories": [
                     "faculty"
                 ],
                 "floors": [],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "MMBZDO0JMAZVV5"
+                ]
             }
         },
         {
