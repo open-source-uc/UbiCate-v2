@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61162682968084,
+                    -33.50156669030147
+                ]
+            },
+            "properties": {
+                "identifier": "MT55QVAUG5K70T",
+                "name": "Fotocopias GTA",
+                "information": "Fotocopias a precios muy baratos.",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61149271209644,
                     -33.502012625601914
                 ]
