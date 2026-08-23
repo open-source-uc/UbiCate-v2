@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61153082281068,
+                    -33.50271549620124
+                ]
+            },
+            "properties": {
+                "identifier": "MT55KGQGCV0V20",
+                "name": "Colombianas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61018066262527,
                     -33.49669560247424
                 ]
