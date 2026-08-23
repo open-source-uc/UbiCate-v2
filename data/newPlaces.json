@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61199416798856,
+                    -33.5030571710758
+                ]
+            },
+            "properties": {
+                "identifier": "MT55MLET1PL50M",
+                "name": "Carnahm Smash House",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61153082281068,
                     -33.50271549620124
                 ]
