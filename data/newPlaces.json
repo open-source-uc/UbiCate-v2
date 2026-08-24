@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61023883279766,
+                    -33.498201688355046
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32389741",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61202761170614,
                     -33.501409683140764
                 ]
