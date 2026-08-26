@@ -40,6 +40,7 @@ next-env.d.ts
 
 # environment
 .env
+.env.test
 .wrangler
 
 # Serwist

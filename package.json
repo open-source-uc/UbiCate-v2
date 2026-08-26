@@ -10,6 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "knip": "knip",
+    "test:setup": "dotenv -e .env.test -- prisma migrate reset --force && dotenv -e .env.test -- prisma generate",
+    "test": "dotenv -e .env.test -- vitest",
     "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:deploy": "prisma migrate deploy",
@@ -58,6 +60,7 @@
     "@types/react-dom": "^19.2.4",
     "@typescript-eslint/eslint-plugin": "^8.67.0",
     "@typescript-eslint/parser": "^8.67.0",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.0",
     "eslint-config-prettier": "^10.1.8",
@@ -70,6 +73,7 @@
     "serwist": "^9.5.12",
     "tsx": "^4.23.12",
     "typescript": "^6.0.3",
+    "vitest": "^4.1.11",
     "wrangler": "^4.122.0"
   },
   "pnpm": {
