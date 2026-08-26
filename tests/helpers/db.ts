@@ -1,5 +1,5 @@
 import { cache } from "@/lib/db/cache";
-import { prisma } from "@/lib/prisma";
+import { DATABASE_SCHEMA, prisma } from "@/lib/prisma";
 
 const TABLES = [
   "place_category",
@@ -14,7 +14,9 @@ const TABLES = [
   "campus",
 ];
 
-const TRUNCATE = `TRUNCATE TABLE ${TABLES.map((t) => `"${t}"`).join(",")} RESTART IDENTITY CASCADE`;
+// Calificado con el schema: sin esto el TRUNCATE lo resuelve el search_path (o sea "public") y
+// vaciaría un schema distinto del que consulta Prisma, que se califica con DATABASE_SCHEMA.
+const TRUNCATE = `TRUNCATE TABLE ${TABLES.map((t) => `"${DATABASE_SCHEMA}"."${t}"`).join(",")} RESTART IDENTITY CASCADE`;
 
 export async function resetDb(): Promise<void> {
   await prisma.$executeRawUnsafe(TRUNCATE);
