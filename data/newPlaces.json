@@ -11,6 +11,33 @@
                 ]
             },
             "properties": {
+                "identifier": "MTAGBMSG4DASMC",
+                "name": "CS-102",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZC25PAKQMPS",
+                    "CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61012539487182,
+                    -33.50033480802906
+                ]
+            },
+            "properties": {
                 "identifier": "MTAGBK0PQL8L0D",
                 "name": "CS-102",
                 "information": "",
