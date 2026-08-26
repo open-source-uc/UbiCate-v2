@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6092412582037,
+                    -33.49684828054328
+                ]
+            },
+            "properties": {
+                "identifier": "-32306118",
+                "name": "Auditorio Dirección de investigación y postgrado",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61012539487182,
                     -33.50033480802906
                 ]
