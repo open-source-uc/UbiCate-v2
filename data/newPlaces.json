@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.64024423610131,
+                    -33.440778873574224
+                ]
+            },
+            "properties": {
+                "identifier": "MTA8LG5BU439UJ",
+                "name": "Oficina Telecomunicaciones",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.61023883279766,
                     -33.498201688355046
                 ]
