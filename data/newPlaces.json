@@ -6,6 +6,308 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6092412582037,
+                    -33.49684828054328
+                ]
+            },
+            "properties": {
+                "identifier": "-32306118",
+                "name": "Auditorio Dirección de investigación y postgrado",
+                "information": "",
+                "categories": [
+                    "auditorium"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AGC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61012539487182,
+                    -33.50033480802906
+                ]
+            },
+            "properties": {
+                "identifier": "MTAGBMSG4DASMC",
+                "name": "CS-102",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZC25PAKQMPS",
+                    "CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61012539487182,
+                    -33.50033480802906
+                ]
+            },
+            "properties": {
+                "identifier": "MTAGBK0PQL8L0D",
+                "name": "CS-102",
+                "information": "",
+                "categories": [
+                    ""
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZC25PAKQMPS",
+                    "CS"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.64024423610131,
+                    -33.440778873574224
+                ]
+            },
+            "properties": {
+                "identifier": "MTA8LG5BU439UJ",
+                "name": "Oficina Telecomunicaciones",
+                "information": "",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    -1
+                ],
+                "needApproval": true,
+                "campus": "CC",
+                "faculties": [
+                    "MMDKQ6662EGEJ8"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61023883279766,
+                    -33.498201688355046
+                ]
+            },
+            "properties": {
+                "identifier": "STUDYROOM-32389741",
+                "name": "Sala de estudio",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    2
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61202761170614,
+                    -33.501409683140764
+                ]
+            },
+            "properties": {
+                "identifier": "MT6687QJIOC146",
+                "name": "Pifkai Impresiones",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61151895207885,
+                    -33.5028928818134
+                ]
+            },
+            "properties": {
+                "identifier": "MT55SY7V21TTOF",
+                "name": "A Sushi",
+                "information": "Venden Sushi",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61162682968084,
+                    -33.50156669030147
+                ]
+            },
+            "properties": {
+                "identifier": "MT55QVAUG5K70T",
+                "name": "Fotocopias GTA",
+                "information": "Fotocopias a precios muy baratos.",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61149271209644,
+                    -33.502012625601914
+                ]
+            },
+            "properties": {
+                "identifier": "MT55O1333LBHGX",
+                "name": "La Elianita",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61199416798856,
+                    -33.5030571710758
+                ]
+            },
+            "properties": {
+                "identifier": "MT55MLET1PL50M",
+                "name": "Carnahm Smash House",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61153082281068,
+                    -33.50271549620124
+                ]
+            },
+            "properties": {
+                "identifier": "MT55KGQGCV0V20",
+                "name": "Colombianas",
+                "information": "",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61018066262527,
+                    -33.49669560247424
+                ]
+            },
+            "properties": {
+                "identifier": "AP302",
+                "name": "AP303",
+                "information": "",
+                "categories": [
+                    "classroom"
+                ],
+                "floors": [
+                    3
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "AP-SECTOR"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.614207,
                     -33.498117
                 ]
@@ -427,32 +729,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "MMAZZQBM3L4ZBA"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.6098942686933,
-                    -33.49841313825549
-                ]
-            },
-            "properties": {
-                "identifier": "MSROU48IF07RK8",
-                "name": "Biblioteca San Joaquín",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
                 ]
             }
         },
@@ -995,32 +1271,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.609898,
-                    -33.498421
-                ]
-            },
-            "properties": {
-                "identifier": "BIBLIO_CS",
-                "name": "Biblioteca San Joaquín",
-                "information": "",
-                "categories": [
-                    "library"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61037142701295,
                     -33.496591437233256
                 ]
@@ -1173,32 +1423,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "FIS"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61042667564166,
-                    -33.496667420704895
-                ]
-            },
-            "properties": {
-                "identifier": "MKFJC6BLLPXX9M",
-                "name": "Dirección de Aprendizaje y Acompañamiento Académico",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "AP-SECTOR"
                 ]
             }
         },
@@ -1411,50 +1635,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -70.60931149304258,
-                            -33.499634152334345
-                        ],
-                        [
-                            -70.60927883870005,
-                            -33.49987676680085
-                        ],
-                        [
-                            -70.60963681625758,
-                            -33.499914144648905
-                        ],
-                        [
-                            -70.60967693984225,
-                            -33.499660232733376
-                        ],
-                        [
-                            -70.60931149304258,
-                            -33.499634152334345
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "identifier": "MMBZDO0JMAZVV5",
-                "name": "edificio mide",
-                "information": "",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "MMBZDO0JMAZVV5"
-                ]
             }
         },
         {
@@ -1742,32 +1922,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.610896,
-                    -33.496978
-                ]
-            },
-            "properties": {
-                "identifier": "ALMUERZO1",
-                "name": "Casino RocknRolla",
-                "information": "Casino con venta de platos preparados en línea calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "EA"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61350389900275,
                     -33.497966992312044
                 ]
@@ -1911,32 +2065,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60906830471443,
-                    -33.4965008558894
-                ]
-            },
-            "properties": {
-                "identifier": "ALMUERZO6",
-                "name": "Paradiso",
-                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "AGC"
-                ]
             }
         },
         {
@@ -2639,32 +2767,6 @@
                 "needApproval": true,
                 "campus": "LC",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.61750512586346,
-                    -33.41947455350437
-                ]
-            },
-            "properties": {
-                "identifier": "MH24OCF37BPI5J",
-                "name": "Cafetería Huerto Sur",
-                "information": "Cafetería con platos preparados, dulces, té, café, galletas, opción vegetariana.\nMedio de pago Junaeb vigente.",
-                "categories": [
-                    "food_lunch"
-                ],
-                "floors": [
-                    4
-                ],
-                "needApproval": true,
-                "campus": "LC",
-                "faculties": [
-                    "AQR-1"
-                ]
             }
         },
         {
@@ -3504,32 +3606,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.61309665127146,
-                    -33.49784972634952
-                ]
-            },
-            "properties": {
-                "identifier": "MQ15A37ZYHZ4AS",
-                "name": "Vicerrectoría de Asuntos Internacionales",
-                "information": "VRAI - Office of the Vice President for International Affairs\nhttps://internacionalizacion.uc.cl/",
-                "categories": [
-                    "faculty"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "HALL_SJ"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -72.22574079122181,
                     -39.277610111486716
                 ]
@@ -3626,32 +3702,6 @@
                 "campus": "SJ",
                 "faculties": [
                     "MMBZA2IRXAGEN1"
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60985980167332,
-                    -33.49817682022046
-                ]
-            },
-            "properties": {
-                "identifier": "LABORATORY-38162238",
-                "name": "Laboratorio digital",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "SOC"
                 ]
             }
         },
@@ -4092,30 +4142,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -70.60791530249031,
-                    -33.49664246884663
-                ]
-            },
-            "properties": {
-                "identifier": "MOCUWLPFD0LNZD",
-                "name": "decon",
-                "information": "",
-                "categories": [
-                    ""
-                ],
-                "floors": [
-                    1
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -70.61020027054272,
                     -33.49671548811
                 ]
@@ -4482,32 +4508,6 @@
                 "needApproval": true,
                 "campus": "SJ",
                 "faculties": []
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.60892371832026,
-                    -33.497939808651886
-                ]
-            },
-            "properties": {
-                "identifier": "MMZ7QX3OKVGV35",
-                "name": "Área Social Salud y Bienestar Estudiantil",
-                "information": "Entre piso 1 y 2",
-                "categories": [
-                    "offices"
-                ],
-                "floors": [
-                    2
-                ],
-                "needApproval": true,
-                "campus": "SJ",
-                "faculties": [
-                    "MMAZZQBM3L4ZBA"
-                ]
             }
         },
         {

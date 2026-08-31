@@ -6,6 +6,81 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.6098942686933,
+                    -33.49841313825549
+                ]
+            },
+            "properties": {
+                "identifier": "MSROU48IF07RK8",
+                "name": "Biblioteca San Joaquín",
+                "information": "",
+                "categories": [
+                    "library"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.60892371832026,
+                    -33.497939808651886
+                ]
+            },
+            "properties": {
+                "identifier": "MMZ7QX3OKVGV35",
+                "name": "Área Social Salud y Bienestar Estudiantil",
+                "information": "Entre piso 1 y 2",
+                "categories": [
+                    "offices"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "MMAZZQBM3L4ZBA"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.61309665127146,
+                    -33.49784972634952
+                ]
+            },
+            "properties": {
+                "identifier": "MQ15A37ZYHZ4AS",
+                "name": "Vicerrectoría de Asuntos Internacionales",
+                "information": "VRAI - Office of the Vice President for International Affairs\nhttps://internacionalizacion.uc.cl/",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    2
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "HALL_SJ"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.22550960185339,
                     -39.277659009767476
                 ]
@@ -4499,14 +4574,16 @@
             },
             "properties": {
                 "identifier": "MMBZDO0JMAZVV5",
-                "name": "Casino Pérgola",
+                "name": "edificio mide",
                 "information": "",
                 "categories": [
                     "faculty"
                 ],
                 "floors": [],
                 "campus": "SJ",
-                "faculties": []
+                "faculties": [
+                    "MMBZDO0JMAZVV5"
+                ]
             }
         },
         {
@@ -25506,7 +25583,7 @@
             },
             "properties": {
                 "identifier": "BIBLIO_CS",
-                "name": "Biblioteca Central",
+                "name": "Biblioteca San Joaquín",
                 "information": "",
                 "categories": [
                     "library"
@@ -31460,7 +31537,7 @@
             "properties": {
                 "identifier": "ALMUERZO1",
                 "name": "Casino RocknRolla",
-                "information": "",
+                "information": "Casino con venta de platos preparados en línea calientes y fríos, sopas, sandwich, bebidas, té, café, postres. Opción vegetariana\nConvenio Junaeb vigente ",
                 "categories": [
                     "food_lunch"
                 ],
@@ -31556,7 +31633,7 @@
             "properties": {
                 "identifier": "ALMUERZO6",
                 "name": "Paradiso",
-                "information": "",
+                "information": "Cafetería con venta de platos preparados calientes y fríos, sopas, sandwich, bebidas, té, café, postres, helados. Opción vegetariana\nConvenio Junaeb vigente ",
                 "categories": [
                     "food_lunch"
                 ],
@@ -35472,24 +35549,26 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "identifier": "LABORATORY-38162238",
-                "name": "Laboratorio digital",
-                "campus": "SJ",
-                "information": "",
-                "categories": [
-                    "laboratory"
-                ],
-                "faculties": [],
-                "floors": [
-                    1
-                ]
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -70.60985980167332,
                     -33.49817682022046
+                ]
+            },
+            "properties": {
+                "identifier": "LABORATORY-38162238",
+                "name": "Laboratorio digital",
+                "information": "",
+                "categories": [
+                    "laboratory"
+                ],
+                "floors": [
+                    1
+                ],
+                "campus": "SJ",
+                "faculties": [
+                    "SOC"
                 ]
             }
         },
