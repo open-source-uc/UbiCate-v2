@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.59367639305125,
+                    -33.445721506820725
+                ]
+            },
+            "properties": {
+                "identifier": "MTLKE6IDLALFBG",
+                "name": "I plot fotocopiadora",
+                "information": "",
+                "categories": [
+                    "photocopy"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "OR",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.5943685720981,
                     -33.44573484185557
                 ]
