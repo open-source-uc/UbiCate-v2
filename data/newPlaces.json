@@ -6,6 +6,32 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61306744583267,
+                    -33.498868243597826
+                ]
+            },
+            "properties": {
+                "identifier": "MTKUG0SQUZJ7UT",
+                "name": "Escuela de enfermería",
+                "information": "",
+                "categories": [
+                    "faculty"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "SJ",
+                "faculties": [
+                    "ENF"
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.60956019642008,
                     -33.49974921887246
                 ]
