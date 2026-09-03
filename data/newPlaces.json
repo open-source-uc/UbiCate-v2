@@ -6,6 +6,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -70.61848783001665,
+                    -33.419412063986904
+                ]
+            },
+            "properties": {
+                "identifier": "MTLKGL5I238B8T",
+                "name": "Quiosco Rocknrolla",
+                "information": "sandwich, cafetería, gohan, galletas, pizzas.\nConvenio Junaeb ",
+                "categories": [
+                    "food_lunch"
+                ],
+                "floors": [
+                    1
+                ],
+                "needApproval": true,
+                "campus": "LC",
+                "faculties": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -70.59367639305125,
                     -33.445721506820725
                 ]
