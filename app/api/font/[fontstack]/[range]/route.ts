@@ -1,36 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getCloudflareContext } from "@opennextjs/cloudflare";
-
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
+import { getBasemapObject, type BasemapObject } from "@/lib/map/basemapStore";
 
-// Default fallback font if requested font is not available
+// Ambos entran en la key de almacenamiento y, en self-host, esa key es una ruta del filesystem: sin
+// esto un range con ../ se sale del directorio de glyphs.
+const RANGE_PATTERN = /^\d+-\d+$/;
+const FONT_NAME_PATTERN = /^[A-Za-z0-9_-]+$/;
 
-async function findAvailableFont(
-  R2: R2Bucket,
-  fontstack: string,
-  range: string,
-): Promise<{ font: string; key: string; object: R2ObjectBody } | null> {
-  // Split fontstack and try each font in order
+async function findAvailableFont(fontstack: string, range: string): Promise<BasemapObject | null> {
   const fonts = fontstack.split(",").map((f) => f.trim());
 
   for (const requestedFont of fonts) {
-    // Decode URI component to handle URL-encoded font names
     const decodedFont = decodeURIComponent(requestedFont).replaceAll(" ", "");
-    // Re-encode for use as R2 key
-    const encodedFont = encodeURIComponent(decodedFont);
-    const tileKey = `glyphs/${decodedFont}/${range}.pbf`;
+    if (!FONT_NAME_PATTERN.test(decodedFont)) continue;
 
-    try {
-      const object = await R2.get(tileKey);
-      if (object) {
-        return { font: encodedFont, key: tileKey, object };
-      } else {
-        return null;
-      }
-    } catch (error) {
-      return null;
-    }
+    const object = await getBasemapObject(`glyphs/${decodedFont}/${range}.pbf`);
+    // continue, no return: el resto del fontstack es justamente el fallback.
+    if (object) return object;
   }
   console.warn("No available fonts found for fontstack:", fontstack);
 
@@ -41,26 +28,25 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   try {
     const { fontstack, range } = await params;
 
-    const { env } = await getCloudflareContext({ async: true });
-    const R2 = env.R2;
+    if (!RANGE_PATTERN.test(range)) {
+      return NextResponse.json({ error: `Invalid glyph range: ${range}` }, { status: 400 });
+    }
 
-    const result = await findAvailableFont(R2, fontstack, range);
+    let object;
+    try {
+      object = await findAvailableFont(fontstack, range);
+    } catch (storageError) {
+      console.error("Basemap storage access error:", storageError);
+      return NextResponse.json({ error: "Storage access failed" }, { status: 503 });
+    }
 
-    if (!result) {
+    if (!object) {
       return NextResponse.json(
         {
           error: `No glyphs found for fontstack: ${fontstack}, range: ${range}`,
         },
         { status: 404 },
       );
-    }
-
-    const { object } = result;
-    // Obtener los datos como stream
-    const data = object.body;
-
-    if (!data) {
-      return NextResponse.json({ error: "Empty tile data" }, { status: 500 });
     }
 
     const origin = request.headers.get("origin");
@@ -72,10 +58,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       "Content-Length": object.size.toString(),
       "Access-Control-Allow-Methods": "GET",
       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-      // El .pbf de un par (fuente, rango) es función del archivo de fuente subido a R2: no cambia
+      // El .pbf de un par (fuente, rango) es función del archivo de fuente que se generó: no cambia
       // nunca, así que se puede marcar inmutable. Sin esto el navegador revalidaba cada 30 minutos.
       "Cache-Control": "public, max-age=31536000, immutable",
-      ETag: object.httpEtag,
+      ETag: object.etag,
       Vary: "Accept-Encoding",
     });
 
@@ -83,7 +69,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       headers.set("Access-Control-Allow-Origin", allowedOrigin);
     }
 
-    return new NextResponse(data, {
+    return new NextResponse(object.body, {
       status: 200,
       headers: headers,
     });

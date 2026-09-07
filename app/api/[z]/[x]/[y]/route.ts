@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getCloudflareContext } from "@opennextjs/cloudflare";
-
 import { getAllowedOrigin } from "@/lib/config/allowOrigins";
+import { getBasemapObject } from "@/lib/map/basemapStore";
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ x: string; y: string; z: string }> }) {
   try {
@@ -16,27 +15,18 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: "Invalid tile coordinates: must be integers" }, { status: 400 });
     }
 
-    const { env } = await getCloudflareContext({ async: true });
-    const R2 = env.R2;
     const tileKey = `ubicate-tiles/${zNum}/${xNum}/${yNum}.pbf`;
 
     let object;
     try {
-      object = await R2.get(tileKey);
-    } catch (r2Error) {
-      console.error("R2 access error:", r2Error);
+      object = await getBasemapObject(tileKey);
+    } catch (storageError) {
+      console.error("Basemap storage access error:", storageError);
       return NextResponse.json({ error: "Storage access failed" }, { status: 503 });
     }
 
     if (!object) {
       return NextResponse.json({ error: `Tile not found: ${zNum}/${xNum}/${yNum}.pbf` }, { status: 404 });
-    }
-
-    // Obtener los datos como stream
-    const data = object.body;
-
-    if (!data) {
-      return NextResponse.json({ error: "Empty tile data" }, { status: 500 });
     }
 
     // Verificar y establecer CORS dinámicamente
@@ -52,7 +42,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       // El basemap se regenera a mano con self-host-map/upload-local.bash, o sea casi nunca; 30 días
       // alinea con el TTL del cache "map-tiles" del service worker.
       "Cache-Control": "public, max-age=2592000, s-maxage=2592000",
-      ETag: object.httpEtag,
+      ETag: object.etag,
       Vary: "Accept-Encoding",
     });
 
@@ -60,7 +50,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       headers.set("Access-Control-Allow-Origin", allowedOrigin);
     }
 
-    return new NextResponse(data, {
+    return new NextResponse(object.body, {
       status: 200,
       headers: headers,
     });

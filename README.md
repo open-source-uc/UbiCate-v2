@@ -91,6 +91,7 @@ GITHUB_USER_EMAIL=<EMAIL>                       # Opcional en desarrollo. Obliga
 GITHUB_BRANCH_NAME=<BRANCH>                     # Opcional en desarrollo. Obligatorio en producción.
 API_UBICATE_SECRET=<SECRET>                     # Opcional en desarrollo. Obligatorio en producción. Se usa en /debug para aprobar o borrar ubicaciones.
 NEXT_PUBLIC_IS_SELF_HOST=<"TRUE" | "FALSE">     # Si es "TRUE", se usa un mapa autohospedado. Si no, se usa el mapa desde los servidores de OSUC.
+MAP_TILES_DIR=<RUTA>                            # Opcional. Solo en self-host fuera de Cloudflare: directorio con ubicate-tiles/ y glyphs/. Vacía = se leen del bucket R2.
 INDEX_PAGE=<"TRUE" | "FALSE">                   # Opcional. Si es "TRUE", habilita la indexación de la página por motores de búsqueda. Por defecto es "FALSE".
 OUTBOUND_PROXY=
 RUNTIME="edge"
@@ -130,6 +131,37 @@ npm install
 ```
 
 ## 3. Self-host map (Solo si quieres desarrollar y necesitas modificar los tiles del mapa)
+
+Con `NEXT_PUBLIC_IS_SELF_HOST="TRUE"` el mapa deja de pedirle los tiles y los glyphs a
+`ubicate.osuc.dev` y los pide a tu propio origen, por `/api/{z}/{x}/{y}` y
+`/api/font/{fontstack}/{range}`. Esas dos rutas pueden leerlos de dos lugares:
+
+| Fuente | Cuándo | Cómo se activa |
+| --- | --- | --- |
+| Bucket R2 de Cloudflare | Deploy en Cloudflare Workers | Es el default: binding `R2` de `wrangler.jsonc` |
+| Filesystem | `next start` en un VPS/Docker, o dev sin R2 | `MAP_TILES_DIR` apuntando al directorio con `ubicate-tiles/` y `glyphs/` |
+
+### 📂 Servir el mapa desde el filesystem (self-host fuera de Cloudflare)
+
+Los `.pbf` ya vienen versionados en el repo, así que no hay nada que subir:
+
+1. Descomprime los `.zip` de `self-host-map` si te faltan las carpetas `ubicate-tiles/` o `glyphs/`.
+
+2. En tu `.env`:
+
+   ```shell
+   NEXT_PUBLIC_IS_SELF_HOST="TRUE"
+   MAP_TILES_DIR="self-host-map"
+   ```
+
+   Las dos son necesarias: la primera reapunta al cliente, la segunda habilita el servidor. Si
+   `MAP_TILES_DIR` queda vacía, las rutas van a R2 y el mapa se queda sin capa base ni etiquetas.
+
+3. Reinicia el servidor: las variables `NEXT_PUBLIC_*` se inlinean en compilación.
+
+> \[!NOTE]
+> `MAP_TILES_DIR` puede apuntar a cualquier directorio, no solo a `self-host-map` — útil para montarlo
+> como volumen en Docker en vez de servirlo desde el repo.
 
 ### 🛠️ Instrucciones para cargar el mapa en R2 (localmente)
 
