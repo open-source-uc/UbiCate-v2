@@ -11,7 +11,12 @@ export function getAllowedOrigin(origin: string | null): string | null {
     }
 
     // dominios de producción
-    const allowedHostnames = ["osuc.dev", "uc.cl", "ubicate-v2.pages.dev", "ca-ubicate-dtfd-prod-central-001.bluebeach-090562db.centralus.azurecontainerapps.io"];
+    const allowedHostnames = [
+      "osuc.dev",
+      "uc.cl",
+      "ubicate-v2.pages.dev",
+      "ca-ubicate-dtfd-prod-central-001.bluebeach-090562db.centralus.azurecontainerapps.io",
+    ];
 
     if (allowedHostnames.includes(hostname) || allowedHostnames.some((h) => hostname.endsWith("." + h))) {
       return origin;
