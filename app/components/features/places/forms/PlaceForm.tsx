@@ -13,10 +13,12 @@ import { DescriptionField } from "./descriptionField";
 import { FloorsField } from "./floorsField";
 import { Notification } from "./notification";
 import { PlaceNameField } from "./placeNameField";
+import { PopularNameField } from "./popularNameField";
 import { SubmitButton } from "./submitButton";
 
 interface PlaceFormData {
   name: string;
+  popularName: string;
   information: string;
   categories: string[];
   floors: (number | "")[];
@@ -33,6 +35,7 @@ export default function PlaceForm({
   onClose,
   defaultData = {
     name: "",
+    popularName: "",
     information: "",
     categories: [""],
     floors: [],
@@ -89,6 +92,12 @@ export default function PlaceForm({
         <PlaceNameField
           value={data.name}
           onChange={(value) => setData((prev) => ({ ...prev, name: value }))}
+          disabled={isLoading}
+        />
+
+        <PopularNameField
+          value={data.popularName}
+          onChange={(value) => setData((prev) => ({ ...prev, popularName: value }))}
           disabled={isLoading}
         />
 

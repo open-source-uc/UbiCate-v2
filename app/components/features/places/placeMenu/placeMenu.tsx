@@ -120,6 +120,7 @@ export default function PlaceMenu({
         <PlaceForm
           defaultData={{
             name: editPlace?.properties.name ?? "",
+            popularName: editPlace?.properties.popularName ?? "",
             information: editPlace?.properties.information ?? "",
             categories: editPlace?.properties.categories ?? [],
             floors: editPlace?.properties.floors ?? [],

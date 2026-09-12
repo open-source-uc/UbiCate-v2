@@ -230,11 +230,18 @@ export default function PlaceInformation({
               : null}
           </div>
 
-          {place.properties.information ? (
+          {place.properties.popularName || place.properties.information ? (
             <div className="space-y-3">
               <h4 className="text-lg font-semibold text-foreground">Descripción</h4>
-              <div className="rounded-xl border border-border/60 bg-muted/40 p-3">
-                <MarkDownComponent>{place.properties.information}</MarkDownComponent>
+              <div className="space-y-3 rounded-xl border border-border/60 bg-muted/40 p-3">
+                {place.properties.popularName ? (
+                  <p className="text-sm text-foreground">
+                    <span className="font-semibold">Nombre popular:</span> {place.properties.popularName}
+                  </p>
+                ) : null}
+                {place.properties.information ? (
+                  <MarkDownComponent>{place.properties.information}</MarkDownComponent>
+                ) : null}
               </div>
             </div>
           ) : null}
