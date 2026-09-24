@@ -37,7 +37,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
     if (!query.trim() || !fuse) return [];
 
     const results = fuse.search(query);
-    return results.slice(0, 20).map((result) => result.item);
+    return results.slice(0, 100).map((result) => result.item);
   }, [query, fuse]);
 
   // Calcular la altura dinámica basada en numberOfShowResults
