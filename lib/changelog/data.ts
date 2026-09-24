@@ -7,7 +7,7 @@ const CHANGELOGS: ChangelogEntry[] = [
     version: "v2.0.0",
     date: "2026-09-24",
     title: "Un nuevo Ubícate",
-    description: "Ha llegado un nuevo Ubícate, con una fase de cambios por delante y transparencia a sus usuarios.",
+    description: "Ha llegado un nuevo Ubícate, con novedades y transparencia para sus usuarios.",
     changes: [
       { type: "new", text: "¿Quieres hacer una caminata en la UC? Explora la nueva sección de circuitos." },
       { type: "new", text: "¿Te era difícil proponer lugares? Prueba el nuevo modo edición." },
