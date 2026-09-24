@@ -11,7 +11,7 @@ import * as Icons from "@/app/components/ui/icons/icons";
 import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useDebugMode } from "@/app/hooks/useDebugMode";
-import { deleteRouteRequest, refreshRoutes } from "@/app/hooks/useRoutes";
+import { deleteRouteRequest, refreshRoutes, setRouteEnabledRequest } from "@/app/hooks/useRoutes";
 import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { RouteFeature, siglas } from "@/lib/types";
 
@@ -38,6 +38,7 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
   const params = useSearchParams();
   const [isCreating, setIsCreating] = useState(false);
   const [editingRoute, setEditingRoute] = useState<RouteFeature | null>(null);
+  const [togglingId, setTogglingId] = useState<string | null>(null);
   const selectedId = selectedRoute?.properties.identifier ?? null;
 
   const currentCampus = useMemo(() => {
@@ -122,6 +123,23 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
     }
   };
 
+  const handleToggleEnabled = async (route: RouteFeature) => {
+    const identifier = route.properties.identifier;
+    setTogglingId(identifier);
+    try {
+      await setRouteEnabledRequest(identifier, route.properties.enabled === false);
+      await refreshRoutes(queryClient);
+    } catch (error: any) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.data?.message || error.message || "No se pudo cambiar la visibilidad de la ruta",
+      });
+    } finally {
+      setTogglingId(null);
+    }
+  };
+
   if (isCreating || editingRoute) {
     return (
       <div className="flex flex-col h-full overflow-auto">
@@ -137,6 +155,7 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
                   campus: editingRoute.properties.campus,
                   placeIds: editingRoute.properties.placeIds,
                   color: editingRoute.properties.color ?? "",
+                  enabled: editingRoute.properties.enabled !== false,
                   identifier: editingRoute.properties.identifier,
                 }
               : undefined
@@ -208,7 +227,14 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
                   <MaterialSymbol name="route" className="text-[20px] text-background" />
                 </span>
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-foreground truncate">{route.properties.name}</p>
+                  <p className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    <span className="truncate">{route.properties.name}</span>
+                    {route.properties.enabled === false ? (
+                      <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                        Oculta
+                      </span>
+                    ) : null}
+                  </p>
                   <p className="text-xs text-muted-foreground">
                     {siglas.get(route.properties.campus) ?? route.properties.campus}
                     {route.properties.placeIds.length > 0 ? ` · ${route.properties.placeIds.length} lugares` : ""}
@@ -227,6 +253,14 @@ export default function RoutesPanel({ onClose }: RoutesPanelProps) {
                     className="flex-1 rounded-lg border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-accent/10"
                   >
                     Editar
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleToggleEnabled(route)}
+                    disabled={togglingId === route.properties.identifier}
+                    className="flex-1 rounded-lg border border-border px-3 py-1.5 text-xs text-foreground transition hover:bg-accent/10 disabled:opacity-50"
+                  >
+                    {route.properties.enabled === false ? "Habilitar" : "Deshabilitar"}
                   </button>
                   <button
                     type="button"

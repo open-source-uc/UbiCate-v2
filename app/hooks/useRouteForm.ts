@@ -12,6 +12,8 @@ export interface RouteFormData {
   placeIds: string[];
   /** Hex "#rrggbb" con el que se dibuja la ruta. "" = el verde por defecto. */
   color: string;
+  /** `false` = solo visible en modo debug. */
+  enabled: boolean;
   identifier?: string;
 }
 
@@ -52,6 +54,7 @@ export function useRouteForm(method: "POST" | "PUT", defaultData?: RouteFormData
           campus: defaultData.campus,
           placeIds: defaultData.placeIds || [],
           color: defaultData.color || "",
+          enabled: defaultData.enabled,
         }
       : {
           name: "",
@@ -59,6 +62,8 @@ export function useRouteForm(method: "POST" | "PUT", defaultData?: RouteFormData
           campus: "",
           placeIds: [],
           color: "",
+          // Una ruta nueva nace oculta: se trabaja en modo debug y se publica cuando esté lista.
+          enabled: false,
         },
   );
 

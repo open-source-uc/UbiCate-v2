@@ -3,10 +3,18 @@ import { NextRequest, NextResponse } from "next/server";
 import "@/lib/setup-proxy";
 import { cachedJsonResponse } from "@/lib/api/httpCache";
 import { getAllPlaces, getCampuses } from "@/lib/db/places";
-import { createRoute, deleteRoute, getAllRoutes, getRoutesData, routeExists, updateRoute } from "@/lib/db/routes";
+import {
+  createRoute,
+  deleteRoute,
+  getAllRoutes,
+  getRoutesData,
+  routeExists,
+  setRouteEnabled,
+  updateRoute,
+} from "@/lib/db/routes";
 import { generateRandomIdWithTimestamp, normalizeIdentifier } from "@/lib/places/utils";
 import { CATEGORIES, type Feature, type RouteFeature } from "@/lib/types";
-import { routeDeleteSchema, routePutSchema, routeSchema } from "@/lib/validation/schemas";
+import { routeDeleteSchema, routeEnabledSchema, routePutSchema, routeSchema } from "@/lib/validation/schemas";
 
 const API_UBICATE_SECRET = process.env.API_UBICATE_SECRET;
 
@@ -48,6 +56,16 @@ function resolvePlaceIds(placeIds: string[], approved: Feature[]): string[] {
 
 export async function GET(request: NextRequest) {
   try {
+    // `?all=true` incluye las deshabilitadas (modo debug). Exige token y va siempre `no-store`: si un
+    // CDN o el SW la guardaran, las rutas en preparación se filtrarían a los usuarios normales.
+    if (request.nextUrl.searchParams.get("all") === "true") {
+      if (request.headers.get("ubicate-token") !== API_UBICATE_SECRET) {
+        return NextResponse.json({ message: "No autorizado" }, { status: 401 });
+      }
+      const { adminResponse } = await getRoutesData({ bypassCache: true });
+      return cachedJsonResponse(request, adminResponse, { noStore: true });
+    }
+
     const bypassCache = request.headers.get("X-Ubicate-Fresh") === "true";
     const { response } = await getRoutesData({ bypassCache });
 
@@ -107,6 +125,7 @@ export async function POST(request: NextRequest) {
         faculties: [],
         placeIds,
         color: data.color || null,
+        enabled: data.enabled ?? false,
       },
     };
 
@@ -169,6 +188,7 @@ export async function PUT(request: NextRequest) {
         faculties: [],
         placeIds,
         color: data.color || null,
+        enabled: data.enabled ?? existing.properties.enabled ?? true,
       },
     };
 
@@ -176,6 +196,41 @@ export async function PUT(request: NextRequest) {
     return NextResponse.json({ message: "¡La ruta fue actualizada!" });
   } catch (error) {
     console.error("Error in PUT route:", error);
+    return NextResponse.json(
+      { error: "Error al procesar la solicitud", message: error instanceof Error ? error.message : "Unknown error" },
+      { status: 400 },
+    );
+  }
+}
+
+export async function PATCH(request: NextRequest) {
+  try {
+    const token = request.headers.get("ubicate-token");
+    if (token !== API_UBICATE_SECRET) {
+      return NextResponse.json({ message: "No autorizado" }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const result = routeEnabledSchema.safeParse(body);
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message || "Error de validación";
+      return NextResponse.json({ message: firstError }, { status: 400 });
+    }
+
+    const routes = await getAllRoutes();
+    const existing = routes.find(
+      (r) => normalizeIdentifier(r.properties.identifier) === normalizeIdentifier(result.data.identifier),
+    );
+    if (!existing) {
+      return NextResponse.json({ message: "¡La ruta NO existe!" }, { status: 404 });
+    }
+
+    await setRouteEnabled(existing.properties.identifier, result.data.enabled);
+    return NextResponse.json({
+      message: result.data.enabled ? "¡La ruta ahora es visible para todos!" : "La ruta quedó oculta",
+    });
+  } catch (error) {
+    console.error("Error in PATCH route:", error);
     return NextResponse.json(
       { error: "Error al procesar la solicitud", message: error instanceof Error ? error.message : "Unknown error" },
       { status: 400 },

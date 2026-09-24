@@ -26,8 +26,9 @@ import {
   RouteFeature,
 } from "@/lib/types";
 
+import { useIsDebugMode } from "../hooks/useDebugMode";
 import usePlaces from "../hooks/usePlaces";
-import { refreshRoutes } from "../hooks/useRoutes";
+import { fetchAllRoutesForDebug, refreshRoutes, ROUTES_DEBUG_QUERY_KEY } from "../hooks/useRoutes";
 
 // Tiempos de refetch configurables por entorno (en segundos → ms). Deben ser NEXT_PUBLIC_* para estar
 // disponibles en el cliente. Si no están definidos, se usan los valores por defecto (5 min / 30 s).
@@ -273,7 +274,22 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     refetchOnWindowFocus: !isLoadBlocked,
   });
 
-  const routes: RouteFeature[] = useMemo(() => routesData?.routes?.features ?? [], [routesData]);
+  // En modo debug se ven también las rutas deshabilitadas, para trabajarlas antes de publicarlas. Es
+  // una query aparte y no otro queryFn de ["routes"]: esa entrada la comparten el SW y el modo normal,
+  // y no puede terminar guardando rutas ocultas.
+  const isDebugMode = useIsDebugMode();
+  const { data: debugRoutesData } = useQuery({
+    queryKey: ROUTES_DEBUG_QUERY_KEY,
+    queryFn: fetchAllRoutesForDebug,
+    enabled: isDebugMode,
+    retry: 1,
+    staleTime: 0,
+  });
+
+  const routes: RouteFeature[] = useMemo(
+    () => (isDebugMode && debugRoutesData ? debugRoutesData : routesData)?.routes?.features ?? [],
+    [isDebugMode, debugRoutesData, routesData],
+  );
 
   // Ruta y filtro de categorías se excluyen: encender una pill limpia la ruta dibujada (el recorrido de
   // `routesPanel` es el simétrico). Va en su propio efecto y no en el efecto central de filtros, que

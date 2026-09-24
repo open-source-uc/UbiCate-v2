@@ -173,6 +173,7 @@ export default function RouteForm({
         // Normalizado acá: el servidor solo acepta "#rrggbb", y el campo permite escribirlo sin # o en
         // mayúsculas mientras se tipea.
         color: normalizeHexColor(data.color) ?? "",
+        enabled: data.enabled,
       },
       points: routeCoords.map((coordinates) => ({
         type: "Feature" as const,
@@ -415,6 +416,22 @@ export default function RouteForm({
           <p className="text-xs text-muted-foreground text-center">Aún no agregas lugares (es opcional).</p>
         )}
       </div>
+
+      <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-border p-3">
+        <input
+          type="checkbox"
+          checked={data.enabled}
+          onChange={(e) => setData((prev) => ({ ...prev, enabled: e.target.checked }))}
+          className="mt-0.5 h-4 w-4 cursor-pointer accent-primary"
+          disabled={isLoading}
+        />
+        <span className="space-y-0.5">
+          <span className="block text-sm font-medium text-foreground">Visible para todos</span>
+          <span className="block text-xs text-muted-foreground">
+            Si la dejas deshabilitada, solo se ve en modo debug.
+          </span>
+        </span>
+      </label>
 
       <DescriptionField
         value={data.information}

@@ -6,6 +6,9 @@ import { apiClient } from "@/lib/api/ubicateApiClient";
 import { RouteFeature } from "@/lib/types";
 
 export const ROUTES_QUERY_KEY = ["routes"];
+// Todas las rutas, incluidas las deshabilitadas. Solo existe en modo debug y siempre va fresca (con
+// token, `?all=true` y `X-Ubicate-Fresh`): nunca pasa por el cache del SW ni por el CDN.
+export const ROUTES_DEBUG_QUERY_KEY = ["routes-debug"];
 
 /**
  * `fresh` salta el cache del SW **y** la Capa 1 del servidor (lee de la BD): para ver la propia
@@ -40,6 +43,15 @@ export async function refreshRoutes(queryClient: QueryClient, mode: RoutesCacheM
   const fresh = await fetchRoutes(mode);
   // La query de sidebarCtx guarda la respuesta completa del endpoint, no el array pelado.
   queryClient.setQueryData(ROUTES_QUERY_KEY, { routes: { features: fresh }, message: "Success" });
+  if (mode === "fresh") await queryClient.invalidateQueries({ queryKey: ROUTES_DEBUG_QUERY_KEY });
+}
+
+export async function fetchAllRoutesForDebug(): Promise<{ routes: { features: RouteFeature[] }; message: string }> {
+  return await apiClient("/api/routes?all=true", { headers: { "X-Ubicate-Fresh": "true" } });
+}
+
+export async function setRouteEnabledRequest(identifier: string, enabled: boolean): Promise<{ message?: string }> {
+  return await apiClient("/api/routes", { method: "PATCH", body: { identifier, enabled } });
 }
 
 export async function deleteRouteRequest(identifier: string): Promise<{ message?: string }> {

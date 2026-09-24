@@ -40,6 +40,10 @@ export default function MobileSidebar() {
   const router = useRouter();
   const dragStartY = useRef<number | null>(null);
   const lastHeight = useRef<number>(10);
+  // Altura durante el arrastre. `handleMouseUp` se registra en `document` al hacer mousedown y queda con
+  // el `sidebarHeight` de ese render: sin esta ref el snap usaba la altura INICIAL y el sheet volvía a
+  // su paso anterior en vez de extenderse.
+  const dragHeight = useRef<number>(10);
   const isDragging = useRef<boolean>(false);
 
   const toggleSubSidebar = (type: SubSidebarType) => {
@@ -52,12 +56,53 @@ export default function MobileSidebar() {
     setActiveSubSidebar(null);
   };
 
-  // Handlers for drag functionality (desktop)
-  const handleMouseDown = (e: React.MouseEvent) => {
-    dragStartY.current = e.clientY;
+  const startDrag = (clientY: number) => {
+    dragStartY.current = clientY;
     lastHeight.current = sidebarHeight;
+    dragHeight.current = sidebarHeight;
     isDragging.current = true;
     setEnableTransition(false);
+  };
+
+  const moveDrag = (clientY: number) => {
+    if (!isDragging.current || dragStartY.current === null) return;
+
+    const dragDelta = dragStartY.current - clientY;
+    const heightPercentDelta = (dragDelta / window.innerHeight) * 100;
+
+    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
+    dragHeight.current = newHeight;
+    setSidebarHeight(newHeight);
+
+    // Ensure sidebar is open when dragging
+    if (newHeight > 10 && !isOpen) {
+      setIsOpen(true);
+    }
+  };
+
+  const endDrag = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    dragStartY.current = null;
+    setEnableTransition(true);
+
+    // Snap to predefined heights
+    const height = dragHeight.current;
+    if (height < 30) {
+      setSidebarHeight(10);
+      setIsOpen(false);
+    } else if (height < 65) {
+      setSidebarHeight(45);
+      setIsOpen(true);
+    } else {
+      setSidebarHeight(80);
+      setIsOpen(true);
+    }
+  };
+
+  // Handlers for drag functionality (desktop)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    startDrag(e.clientY);
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
@@ -65,83 +110,19 @@ export default function MobileSidebar() {
 
   const handleMouseMove = (e: MouseEvent) => {
     e.preventDefault();
-    if (!isDragging.current || dragStartY.current === null) return;
-
-    const windowHeight = window.innerHeight;
-    const dragDelta = dragStartY.current - e.clientY;
-    const heightPercentDelta = (dragDelta / windowHeight) * 100;
-
-    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
-    setSidebarHeight(newHeight);
-
-    // Ensure sidebar is open when dragging
-    if (newHeight > 10 && !isOpen) {
-      setIsOpen(true);
-    }
+    moveDrag(e.clientY);
   };
 
   const handleMouseUp = () => {
-    isDragging.current = false;
-    dragStartY.current = null;
-    setEnableTransition(true);
-
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
-
-    // Snap to predefined heights
-    if (sidebarHeight < 30) {
-      setSidebarHeight(10);
-      setIsOpen(false);
-    } else if (sidebarHeight < 65) {
-      setSidebarHeight(45);
-      setIsOpen(true);
-    } else {
-      setSidebarHeight(80);
-      setIsOpen(true);
-    }
+    endDrag();
   };
 
   // Handlers for drag functionality (mobile)
-  const handleTouchStart = (e: React.TouchEvent) => {
-    dragStartY.current = e.touches[0].clientY;
-    lastHeight.current = sidebarHeight;
-    isDragging.current = true;
-    setEnableTransition(false);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging.current || dragStartY.current === null) return;
-
-    const windowHeight = window.innerHeight;
-    const dragDelta = dragStartY.current - e.touches[0].clientY;
-    const heightPercentDelta = (dragDelta / windowHeight) * 100;
-
-    const newHeight = Math.max(10, Math.min(100, lastHeight.current + heightPercentDelta));
-    setSidebarHeight(newHeight);
-
-    // Ensure sidebar is open when dragging
-    if (newHeight > 10 && !isOpen) {
-      setIsOpen(true);
-    }
-  };
-
-  const handleTouchEnd = () => {
-    isDragging.current = false;
-    dragStartY.current = null;
-    setEnableTransition(true);
-
-    // Snap to heights and handle open/close state
-    if (sidebarHeight < 30) {
-      setSidebarHeight(10);
-      setIsOpen(false);
-    } else if (sidebarHeight < 65) {
-      setSidebarHeight(45);
-      setIsOpen(true);
-    } else {
-      setSidebarHeight(80);
-      setIsOpen(true);
-    }
-  };
+  const handleTouchStart = (e: React.TouchEvent) => startDrag(e.touches[0].clientY);
+  const handleTouchMove = (e: React.TouchEvent) => moveDrag(e.touches[0].clientY);
+  const handleTouchEnd = () => endDrag();
 
   // Handle click on grab bar when sidebar is closed
   const handleGrabBarClick = () => {
@@ -150,6 +131,24 @@ export default function MobileSidebar() {
       setIsOpen(true);
     }
   };
+
+  // La misma barra azul en el sheet principal y en cada panel, para que siempre se vea de dónde arrastrar.
+  const renderGrabBar = (tall: boolean, focusable: boolean) => (
+    <div
+      className={`w-full ${tall ? "h-16" : "h-8"} shrink-0 cursor-grab active:cursor-grabbing flex justify-center items-start pt-3 rounded-t-lg touch-none`}
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
+      onClick={handleGrabBarClick}
+      role="button"
+      aria-label="Arrastrar para redimensionar el panel"
+      tabIndex={focusable ? 0 : -1}
+    >
+      <div className="w-1/5 h-2 bg-primary rounded-full mx-auto" />
+    </div>
+  );
 
   // El panel del lugar se mantiene mientras se esté creando un punto (`isCreatingPlace`): aunque algo
   // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
@@ -267,21 +266,7 @@ export default function MobileSidebar() {
         role="dialog"
         aria-label="Panel de navegación móvil"
       >
-        {/* Drag handle that spans full width */}
-        <div
-          className={`w-full ${isOpen ? "h-8" : "h-16"} cursor-grab active:cursor-grabbing 
-    flex justify-center items-start pt-3 rounded-t-lg touch-pan-x`}
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onClick={handleGrabBarClick}
-          role="button"
-          aria-label="Arrastrar para redimensionar el panel"
-          tabIndex={0}
-        >
-          <div className="w-1/5 h-2 bg-primary rounded-full mx-auto" />
-        </div>
+        {renderGrabBar(!isOpen, true)}
 
         {isOpen ? (
           <div
@@ -369,7 +354,7 @@ export default function MobileSidebar() {
         {/* Sub Sidebars */}
         {activeSubSidebar ? (
           <section
-            className="anim-slide-up fixed pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-lg"
+            className="anim-slide-up fixed flex flex-col pb-5 bg-background text-foreground transform z-[60] inset-x-0 bottom-0 translate-y-0 rounded-t-2xl"
             style={{
               height: `${sidebarHeight}dvh`,
               transition: enableTransition ? "all 300ms" : "none",
@@ -388,23 +373,10 @@ export default function MobileSidebar() {
             }`}
             aria-hidden={!activeSubSidebar}
           >
-            {/* Drag handle in subsidebar */}
-            <div
-              className="w-full h-7 cursor-grab active:cursor-grabbing flex justify-center items-center rounded-t-lg touch-pan-x"
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onClick={handleGrabBarClick}
-              role="button"
-              aria-label="Arrastrar para redimensionar el panel"
-              tabIndex={activeSubSidebar ? 0 : -1}
-            >
-              <div className="w-1/4 h-1.5 bg-muted rounded-full mx-auto" />
-            </div>
+            {renderGrabBar(false, true)}
 
             <div
-              className="flex flex-col h-full px-4 space-y-4 relative overflow-y-auto pb-8"
+              className="flex flex-col flex-1 min-h-0 px-4 space-y-4 relative overflow-y-auto pb-8"
               {...(activeSubSidebar ? {} : { inert: "" as any })}
             >
               {activeSubSidebar === "campus" && (

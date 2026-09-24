@@ -147,6 +147,8 @@ export interface RouteProperties extends Properties {
   placeIds: string[];
   /** Hex con el que se dibuja la ruta y sus lugares. `null` = el verde por defecto de las rutas. */
   color?: string | null;
+  /** `false` = solo visible en modo debug; el GET público de /api/routes no la incluye. */
+  enabled?: boolean;
 }
 
 export interface RouteFeature {

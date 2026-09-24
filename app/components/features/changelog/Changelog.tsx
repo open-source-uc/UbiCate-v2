@@ -15,7 +15,10 @@ const TYPE_META: Record<ChangelogChangeType, { label: string; className: string 
 };
 
 function formatDate(iso: string): string {
-  const d = new Date(iso);
+  // `new Date("2026-09-24")` es medianoche UTC, que en Chile cae el día anterior: una fecha sin hora
+  // se arma en hora local.
+  const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  const d = dateOnly ? new Date(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3])) : new Date(iso);
   if (isNaN(d.getTime())) return iso;
   return new Intl.DateTimeFormat("es-CL", { day: "numeric", month: "long", year: "numeric" }).format(d);
 }

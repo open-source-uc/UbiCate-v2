@@ -208,6 +208,7 @@ export function routeToFeature(route: RouteWithRelations): RouteFeature {
       faculties: [],
       placeIds: route.places.map((rp: { place: { id: string } }) => rp.place.id),
       color: route.color ?? null,
+      enabled: route.enabled,
     },
     geometry,
   };
@@ -223,6 +224,7 @@ export interface RouteData {
   latitude: number | null;
   campusId: string | null;
   color: string | null;
+  enabled: boolean;
 }
 
 export function featureToRouteData(feature: RouteFeature): RouteData {
@@ -249,5 +251,6 @@ export function featureToRouteData(feature: RouteFeature): RouteData {
     // Se guarda normalizado (minúsculas, 6 dígitos) para que el mismo color escrito de dos formas no
     // cambie el ETag de /api/routes.
     color: normalizeHexColor(feature.properties.color),
+    enabled: feature.properties.enabled ?? true,
   };
 }

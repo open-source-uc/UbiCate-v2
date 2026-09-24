@@ -323,7 +323,7 @@ export default function PlaceInformation({
     }
   }
 
-  const showAddEvent = isDebug && !isEventFeature;
+  const showAddEvent = isDebug && !isEventFeature && !needsApproval;
 
   const categoryLabel = place.properties?.categories?.[0]
     ? CategoryToDisplayName.get(place.properties.categories[0] as CATEGORIES) || "Lugar sin categoría"

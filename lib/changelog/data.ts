@@ -5,7 +5,7 @@ const CHANGELOGS: ChangelogEntry[] = [
   {
     id: "v2-0-0",
     version: "v2.0.0",
-    date: "2026-07-30",
+    date: "2026-09-24",
     title: "Un nuevo Ubícate",
     description: "Ha llegado un nuevo Ubícate, con una fase de cambios por delante y transparencia a sus usuarios.",
     changes: [
@@ -18,8 +18,6 @@ const CHANGELOGS: ChangelogEntry[] = [
         text: "Ahora el sistema te hace saber cuando estás sin internet, en línea o si el servidor presenta problemas.",
       },
       { type: "improved", text: "Optimizaciones generales al sistema." },
-      { type: "improved", text: "Mejoras visuales." },
-      { type: "improved", text: "Actualización a la sección de créditos." },
       { type: "improved", text: "Mejorada la precisión de la geolocalización." },
     ],
   },

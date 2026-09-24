@@ -76,6 +76,8 @@ export const routeSchema = z.object({
         z.literal(""),
       ])
       .optional(),
+    // Sin la clave: el POST la crea deshabilitada y el PUT conserva la que tenía.
+    enabled: z.boolean().optional(),
   }),
   points: z
     .array(
@@ -98,6 +100,11 @@ export const routePutSchema = routeSchema.extend({
 
 export const routeDeleteSchema = z.object({
   identifier: z.string(required("El identificador es obligatorio")),
+});
+
+export const routeEnabledSchema = z.object({
+  identifier: z.string(required("El identificador es obligatorio")),
+  enabled: z.boolean(required("Debes indicar si la ruta queda habilitada")),
 });
 
 // Schemas para eventos

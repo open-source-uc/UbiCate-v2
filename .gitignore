@@ -54,6 +54,7 @@ public/swe-worker*
 **/ubicate-tiles/
 **/glyphs/
 **/node_modules/
+/generated
 # python env
 .venv
 generated/*

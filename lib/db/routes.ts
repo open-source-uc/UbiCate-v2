@@ -15,20 +15,27 @@ const routeInclude = {
 } as const;
 
 export interface RoutesData {
+  /** Todas, habilitadas o no: es lo que usan las mutaciones para resolver el identificador. */
   routes: RouteFeature[];
+  /** Solo las habilitadas: el payload público, el que cachean el SW y el CDN. */
   response: CachedPayload;
+  /** Todas: solo para el modo debug, se sirve siempre `no-store`. */
+  adminResponse: CachedPayload;
 }
 
 async function loadAllRoutes(): Promise<RoutesData> {
   const rows = await prisma.route.findMany({ include: routeInclude, orderBy: { id: "asc" } });
   const routes = rows.map((r) => routeToFeature(r));
 
-  const response = await buildCachedPayload({
-    message: "Success",
-    routes: { type: "FeatureCollection", features: routes },
-  });
+  const toPayload = (features: RouteFeature[]) =>
+    buildCachedPayload({ message: "Success", routes: { type: "FeatureCollection", features } });
 
-  return { routes, response };
+  const [response, adminResponse] = await Promise.all([
+    toPayload(routes.filter((r) => r.properties.enabled !== false)),
+    toPayload(routes),
+  ]);
+
+  return { routes, response, adminResponse };
 }
 
 export async function getRoutesData(options?: { bypassCache?: boolean }): Promise<RoutesData> {
@@ -55,6 +62,7 @@ export async function createRoute(route: RouteFeature): Promise<void> {
       information: data.information,
       campusId: data.campusId,
       color: data.color,
+      enabled: data.enabled,
       geometryType: data.geometryType,
       geometry: data.geometry,
       longitude: data.longitude,
@@ -82,6 +90,7 @@ export async function updateRoute(id: string, route: RouteFeature): Promise<void
         information: data.information,
         campusId: data.campusId,
         color: data.color,
+        enabled: data.enabled,
         geometryType: data.geometryType,
         geometry: data.geometry,
         longitude: data.longitude,
@@ -93,6 +102,11 @@ export async function updateRoute(id: string, route: RouteFeature): Promise<void
     });
   });
 
+  cache.invalidate(CACHE_KEY_ROUTES);
+}
+
+export async function setRouteEnabled(id: string, enabled: boolean): Promise<void> {
+  await prisma.route.update({ where: { id }, data: { enabled } });
   cache.invalidate(CACHE_KEY_ROUTES);
 }
 
