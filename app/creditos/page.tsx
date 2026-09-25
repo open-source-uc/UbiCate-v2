@@ -51,7 +51,7 @@ export default function Page() {
       spellCheck="false"
       className="h-screen w-full overflow-y-auto py-16 px-4 tablet:px-16 desktop:px-48 bg-primary"
     >
-      <section className="mx-auto px-4 pt-16 space-y-6">
+      <section className="mx-auto pt-16 space-y-6 tablet:px-4">
         <h1 className="text-4xl text-background">
           <span className="font-medium">Ubicate:</span> <span className="font-light">Un proyecto de colaboración</span>
         </h1>
@@ -88,7 +88,7 @@ export default function Page() {
         </p>
       </section>
 
-      <section className="pt-8 mx-auto px-4 space-y-8">
+      <section className="pt-8 mx-auto space-y-8 tablet:px-4">
         <div className="space-y-3 text-left">
           <h2 className="text-2xl font-regular text-background">Contribuidores de UbiCate</h2>
           <p className="text-lg font-light text-muted">
@@ -106,7 +106,7 @@ export default function Page() {
         </div>
 
         {contributors.length > 0 ? (
-          <ul className="list-none grid gap-6 p-0 grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4">
+          <ul className="list-none grid gap-4 p-0 grid-cols-1 min-[440px]:grid-cols-2 tablet:gap-6 tablet:grid-cols-3 desktop:grid-cols-4">
             {contributors.map((contributor) => (
               <Contribuir key={contributor.name} {...contributor} />
             ))}
@@ -119,7 +119,7 @@ export default function Page() {
         )}
       </section>
 
-      <section className="pt-8 mx-auto px-4 space-y-8">
+      <section className="pt-8 mx-auto space-y-8 tablet:px-4">
         <div className="space-y-3 text-left">
           <h2 className="text-2xl font-regular text-background">Contribuidores Dirección de Desarrollo Digital</h2>
           <p className="text-lg font-light text-muted">
@@ -133,7 +133,7 @@ export default function Page() {
         </div>
 
         {digitalDevelopmentTeams.map(({ team, lead, members }) => (
-          <div key={team} className="border-l border-background/20 pl-6 space-y-4">
+          <div key={team} className="border-l border-background/20 pl-4 tablet:pl-6 space-y-4">
             <h3 className="text-xs font-medium uppercase tracking-widest text-muted">{team}</h3>
             <ul className="list-none grid gap-4 p-0 tablet:grid-cols-2 desktop:grid-cols-3">
               {lead ? <TeamMember key={lead.name} {...lead} isLead /> : null}

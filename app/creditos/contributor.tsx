@@ -12,19 +12,19 @@ interface ContributorProps {
 function Contribuir({ name, career, photo, github }: ContributorProps) {
   const content = (
     <div className="space-y-3 text-left">
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 items-center gap-3">
         {photo ? (
           <Image
             src={photo}
             alt={name}
             width={48}
             height={48}
-            className="h-12 w-12 shrink-0 rounded-full object-cover object-top"
+            className="h-10 w-10 shrink-0 rounded-full object-cover object-top tablet:h-12 tablet:w-12"
           />
         ) : null}
-        <p className="min-w-0 text-lg font-medium text-background">{name}</p>
+        <p className="min-w-0 text-base font-medium break-words hyphens-auto text-background tablet:text-lg">{name}</p>
       </div>
-      <p className="text-sm text-muted">{career}</p>
+      <p className="text-sm break-words text-muted">{career}</p>
     </div>
   );
 
@@ -40,12 +40,12 @@ function Contribuir({ name, career, photo, github }: ContributorProps) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Perfil de GitHub de ${name}`}
-          className="block p-6"
+          className="block p-4 tablet:p-6"
         >
           {content}
         </a>
       ) : (
-        <div className="p-6">{content}</div>
+        <div className="p-4 tablet:p-6">{content}</div>
       )}
     </li>
   );
