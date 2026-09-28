@@ -5,7 +5,7 @@ import { use, useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 import { useMapPicking } from "@/app/context/mapPickingCtx";
-import { MAX_PINS, pinsContext } from "@/app/context/pinsCtx";
+import { pinsContext } from "@/app/context/pinsCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { RouteFormData, useRouteForm } from "@/app/hooks/useRouteForm";
 import { refreshRoutes } from "@/app/hooks/useRoutes";
@@ -48,6 +48,7 @@ export default function RouteForm({
   const { allFeatures } = useSidebar();
   const queryClient = useQueryClient();
   const [placeSearch, setPlaceSearch] = useState("");
+  const [hoveredPlaceId, setHoveredPlaceId] = useState<string | null>(null);
   const [routeCoords, setRouteCoords] = useState<[number, number][]>(defaultCoords);
   const [showImport, setShowImport] = useState(false);
   const [geojsonText, setGeojsonText] = useState("");
@@ -93,10 +94,11 @@ export default function RouteForm({
   }, [isPicking, pins]);
 
   // El mapa pinta los lugares asociados mientras se edita, así se ve por dónde pasa la ruta sin tener
-  // que guardar. Se republican en cada cambio porque la lista se edita en vivo.
+  // que guardar. Se republican en cada cambio porque la lista se edita en vivo. El lugar bajo el cursor
+  // en el buscador viaja por el mismo canal: se dibuja como uno más y se va al salir del ítem.
   useEffect(() => {
-    setRoutePlaceIds(data.placeIds);
-  }, [data.placeIds, setRoutePlaceIds]);
+    setRoutePlaceIds(hoveredPlaceId ? [...data.placeIds, hoveredPlaceId] : data.placeIds);
+  }, [data.placeIds, hoveredPlaceId, setRoutePlaceIds]);
 
   // El nombre se rotula sobre el trazo mientras se escribe, igual que los lugares asociados.
   useEffect(() => {
@@ -117,7 +119,7 @@ export default function RouteForm({
   // La geometría importada se guarda igual que la dibujada (`routeCoords`) y además se pone como pins,
   // así el borrador se ve en el mapa y "Redibujar" arranca desde el trazado importado.
   const applyImport = (text: string) => {
-    const result = parseRouteGeoJSON(text, MAX_PINS);
+    const result = parseRouteGeoJSON(text);
     if (!result.ok) {
       setImportError(result.error);
       setImportNotes([]);
@@ -140,6 +142,8 @@ export default function RouteForm({
     .map((id) => allFeatures.find((f) => normalizeIdentifier(f.properties.identifier) === normalizeIdentifier(id)))
     .filter((f): f is Feature => f !== undefined);
 
+  // Se acota al campus elegido para la ruta; sin campus elegido busca en todos. `properties.campus` de
+  // un lugar es `campusId`, la misma sigla que guarda el <select>, así que la comparación es directa.
   const filteredPlaces =
     placeSearch.length >= 2
       ? allFeatures
@@ -147,14 +151,18 @@ export default function RouteForm({
             (f) =>
               !f.properties.categories.includes(CATEGORIES.CAMPUS) &&
               !data.placeIds.includes(f.properties.identifier) &&
+              (data.campus.length === 0 || f.properties.campus === data.campus) &&
               f.properties.name.toLowerCase().includes(placeSearch.toLowerCase()),
           )
-          .slice(0, 10)
+          .slice(0, 100)
       : [];
 
   const handleAddPlace = (feature: Feature) => {
     setData((prev) => ({ ...prev, placeIds: [...prev.placeIds, feature.properties.identifier] }));
     setPlaceSearch("");
+    // Al agregarlo el ítem sale de la lista, así que el mouseleave no llega nunca y la vista previa
+    // quedaría pegada en el mapa.
+    setHoveredPlaceId(null);
   };
 
   const handleRemovePlace = (identifier: string) => {
@@ -295,27 +303,6 @@ export default function RouteForm({
       />
 
       <div className="space-y-2">
-        <label className="flex items-center justify-center text-md font-medium text-foreground" htmlFor="routeCampus">
-          Campus
-        </label>
-        <select
-          id="routeCampus"
-          value={data.campus}
-          onChange={(e) => setData((prev) => ({ ...prev, campus: e.target.value }))}
-          className="block p-3 w-full text-sm rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2 disabled:opacity-50"
-          disabled={isLoading}
-          required
-        >
-          <option value="">Selecciona un campus</option>
-          {CAMPUS_IDS.map((id) => (
-            <option key={id} value={id}>
-              {siglas.get(id) ?? id}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="space-y-2">
         <label className="flex items-center justify-center text-md font-medium text-foreground" htmlFor="routeColor">
           Color de la ruta
         </label>
@@ -362,6 +349,27 @@ export default function RouteForm({
       </div>
 
       <div className="space-y-2">
+        <label className="flex items-center justify-center text-md font-medium text-foreground" htmlFor="routeCampus">
+          Campus
+        </label>
+        <select
+          id="routeCampus"
+          value={data.campus}
+          onChange={(e) => setData((prev) => ({ ...prev, campus: e.target.value }))}
+          className="block p-3 w-full text-sm rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2 disabled:opacity-50"
+          disabled={isLoading}
+          required
+        >
+          <option value="">Selecciona un campus</option>
+          {CAMPUS_IDS.map((id) => (
+            <option key={id} value={id}>
+              {siglas.get(id) ?? id}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="space-y-2">
         <label className="flex items-center justify-center text-md font-medium text-foreground" htmlFor="routePlaces">
           Lugares de la ruta
         </label>
@@ -369,7 +377,10 @@ export default function RouteForm({
           id="routePlaces"
           type="text"
           value={placeSearch}
-          onChange={(e) => setPlaceSearch(e.target.value)}
+          onChange={(e) => {
+            setPlaceSearch(e.target.value);
+            setHoveredPlaceId(null);
+          }}
           className="block p-3 w-full text-sm rounded-lg border border-border bg-input text-foreground focus:ring-primary focus:outline-hidden focus:ring-2"
           placeholder="Busca un lugar por su nombre..."
           disabled={isLoading}
@@ -382,6 +393,10 @@ export default function RouteForm({
                 <button
                   type="button"
                   onClick={() => handleAddPlace(f)}
+                  onMouseEnter={() => setHoveredPlaceId(f.properties.identifier)}
+                  onMouseLeave={() => setHoveredPlaceId(null)}
+                  onFocus={() => setHoveredPlaceId(f.properties.identifier)}
+                  onBlur={() => setHoveredPlaceId(null)}
                   className="w-full px-3 py-2 text-left text-sm text-foreground transition hover:bg-accent/10"
                 >
                   {f.properties.name}

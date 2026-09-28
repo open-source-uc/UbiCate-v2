@@ -11,7 +11,6 @@ import { CATEGORIES, LineFeature, PointFeature, PolygonFeature } from "@/lib/typ
 type CustomPin = PointFeature;
 
 interface UseCustomPinsOptions {
-  maxPins?: number;
   generatePinId?: (index: number) => string;
 }
 
@@ -97,7 +96,7 @@ function pinsReducer(state: PinsState, action: PinsAction): PinsState {
 }
 
 export function useCustomPins(options: UseCustomPinsOptions = {}) {
-  const { maxPins = 100, generatePinId = (index) => `custom-pin-${index}` } = options;
+  const { generatePinId = (index) => `custom-pin-${index}` } = options;
 
   const [state, dispatch] = useReducer(pinsReducer, { pins: [], past: [], future: [] });
   const customPins = state.pins;
@@ -134,15 +133,11 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
 
   const addPin = useCallback(
     (lng: number, lat: number) => {
-      if (customPins.length >= maxPins) {
-        console.warn(`Maximum number of pins (${maxPins}) reached`);
-        return null;
-      }
       const newPin = buildPin(lng, lat);
       commit((prev) => [...prev, newPin]);
       return newPin;
     },
-    [customPins.length, maxPins, buildPin, commit],
+    [buildPin, commit],
   );
 
   // Para una línea: el vértice nuevo se engancha al **extremo más cercano** al clic. Con append a secas,
@@ -150,10 +145,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
   // cruzaba el trazado entero.
   const addPinToNearestEnd = useCallback(
     (lng: number, lat: number) => {
-      if (customPins.length >= maxPins) {
-        console.warn(`Maximum number of pins (${maxPins}) reached`);
-        return null;
-      }
       const newPin = buildPin(lng, lat);
       commit((prev) => {
         if (prev.length < 2) return [...prev, newPin];
@@ -163,15 +154,11 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
       });
       return newPin;
     },
-    [customPins.length, maxPins, buildPin, commit],
+    [buildPin, commit],
   );
 
   const insertPin = useCallback(
     (lng: number, lat: number) => {
-      if (customPins.length >= maxPins) {
-        console.warn(`Maximum number of pins (${maxPins}) reached`);
-        return null;
-      }
       const newPin = buildPin(lng, lat);
       commit((prev) => {
         if (prev.length < 3) return [...prev, newPin];
@@ -183,7 +170,7 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
       });
       return newPin;
     },
-    [customPins.length, maxPins, buildPin, commit],
+    [buildPin, commit],
   );
 
   // Clear all pins
@@ -204,10 +191,10 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
   // deshacer debe devolver el estado anterior al cuadrado, no borrar esquina por esquina).
   const setPinsFromCoords = useCallback(
     (coords: [number, number][]) => {
-      const next = coords.slice(0, maxPins).map(([lng, lat]) => buildPin(lng, lat));
+      const next = coords.map(([lng, lat]) => buildPin(lng, lat));
       commit(() => next);
     },
-    [buildPin, commit, maxPins],
+    [buildPin, commit],
   );
 
   const removePin = useCallback(
@@ -321,7 +308,6 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     canUndo: state.past.length > 0,
     canRedo: state.future.length > 0,
     pinsCount: customPins.length,
-    maxPins,
     polygon,
     line,
   };

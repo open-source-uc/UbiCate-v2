@@ -28,11 +28,6 @@ interface PinsContextType {
   canRedo: boolean;
 }
 
-// 20 alcanza de sobra para un punto o un polígono, pero una ruta de campus necesita bastantes
-// más vértices para seguir los caminos. Se exporta porque la importación de GeoJSON tiene que
-// reducir el trazado a este mismo tope.
-export const MAX_PINS = 60;
-
 export const pinsContext = createContext<PinsContextType>({
   pins: [],
   addPin: () => null,
@@ -70,7 +65,7 @@ export function PinsProvider({ children }: { children: ReactNode }) {
     resetHistory,
     canUndo,
     canRedo,
-  } = useCustomPins({ maxPins: MAX_PINS });
+  } = useCustomPins();
 
   return (
     <pinsContext.Provider

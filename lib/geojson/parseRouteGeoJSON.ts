@@ -91,17 +91,7 @@ function dropConsecutiveDuplicates(coords: RouteCoord[]): RouteCoord[] {
   return coords.filter((coord, i) => i === 0 || coord[0] !== coords[i - 1][0] || coord[1] !== coords[i - 1][1]);
 }
 
-// Muestreo uniforme que conserva el primer y el último vértice. Se prefiere a cortar en `max`
-// porque un GeoJSON trazado en otra herramienta suele traer cientos de vértices, y truncarlo
-// dejaría media ruta en silencio.
-function downsample(coords: RouteCoord[], max: number): RouteCoord[] {
-  const step = (coords.length - 1) / (max - 1);
-  const out: RouteCoord[] = [];
-  for (let i = 0; i < max; i++) out.push(coords[Math.round(i * step)]);
-  return dropConsecutiveDuplicates(out);
-}
-
-export function parseRouteGeoJSON(raw: string, maxPoints: number): ParseRouteGeoJSONResult {
+export function parseRouteGeoJSON(raw: string): ParseRouteGeoJSONResult {
   if (raw.trim().length === 0) return { ok: false, error: "Pega un GeoJSON para importar." };
 
   let parsed: unknown;
@@ -134,12 +124,6 @@ export function parseRouteGeoJSON(raw: string, maxPoints: number): ParseRouteGeo
 
   coords = dropConsecutiveDuplicates(coords);
   if (coords.length < 2) return { ok: false, error: "La ruta necesita al menos 2 puntos distintos." };
-
-  if (coords.length > maxPoints) {
-    const original = coords.length;
-    coords = downsample(coords, maxPoints);
-    notes.push(`Traía ${original} puntos: se redujo a ${coords.length} (el máximo) conservando la forma.`);
-  }
 
   return { ok: true, coords, notes };
 }
