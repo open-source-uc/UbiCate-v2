@@ -5,6 +5,7 @@ import { useSyncExternalStore } from "react";
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useHasHydrated } from "@/app/hooks/useHasHydrated";
+import { DESKTOP_MEDIA_QUERY } from "@/lib/utils/breakpoints";
 
 import DesktopSidebar from "./desktopSidebar";
 import MobileSidebar from "./mobilSidebar";
@@ -14,15 +15,14 @@ import TopMobileSidebar from "./topMobilSidebar";
 // El breakpoint es estado externo del navegador, así que va por useSyncExternalStore en vez de
 // copiarse a useState desde un efecto. matchMedia notifica solo cuando se cruza el umbral, a
 // diferencia del listener de `resize`, que disparaba en cada pixel.
-const DESKTOP_QUERY = "(min-width: 1154px)";
 
 function subscribeToBreakpoint(onChange: () => void) {
-  const query = window.matchMedia(DESKTOP_QUERY);
+  const query = window.matchMedia(DESKTOP_MEDIA_QUERY);
   query.addEventListener("change", onChange);
   return () => query.removeEventListener("change", onChange);
 }
 
-const getIsDesktop = () => window.matchMedia(DESKTOP_QUERY).matches;
+const getIsDesktop = () => window.matchMedia(DESKTOP_MEDIA_QUERY).matches;
 // En el servidor no hay viewport; `useHasHydrated` evita pintar la variante equivocada.
 const getIsDesktopOnServer = () => false;
 

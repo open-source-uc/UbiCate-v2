@@ -1,6 +1,7 @@
 import { use, useCallback, useEffect, useRef, useState } from "react";
 
 import { centroid } from "@turf/centroid";
+import type { Map as MapLibreMap } from "maplibre-gl";
 import type { MapEvent, MapLayerMouseEvent, MapRef } from "react-map-gl/maplibre";
 
 import { useAppLoading } from "@/app/context/appLoadingCtx";
@@ -18,6 +19,23 @@ import {
 import type { FlyToEvent } from "@/lib/events/customEvents";
 import { normalizeFeature } from "@/lib/map/getLayerMap";
 import { Feature } from "@/lib/types";
+import { DESKTOP_MEDIA_QUERY } from "@/lib/utils/breakpoints";
+
+// El sidebar de escritorio flota sobre el lienzo (`absolute left-0`), así que tapa su franja izquierda.
+// Este padding se le pasa al transform de maplibre, y con eso TODO encuadre —flyTo, fitBounds, la
+// restricción de maxBounds— se calcula contra el área que de verdad se ve.
+// Es el ancho máximo que el sidebar puede llegar a ocupar: barra expandida (w-52 = 208px) + panel
+// (w-96 = 384px). ⚠️ A propósito NO sigue el estado abierto/cerrado: un padding que cambia solo mueve
+// la cámara sin que el usuario haya tocado el mapa.
+const DESKTOP_MAP_LEFT_PADDING = 592;
+
+function mapPadding(map: MapLibreMap) {
+  const isDesktop = window.matchMedia(DESKTOP_MEDIA_QUERY).matches;
+  // Tope del 40% del lienzo: con una ventana angosta un padding mayor que el ancho deja a maplibre sin
+  // área visible contra la cual encuadrar.
+  const left = isDesktop ? Math.min(DESKTOP_MAP_LEFT_PADDING, map.getCanvas().clientWidth * 0.4) : 0;
+  return { top: 0, right: 0, bottom: 0, left };
+}
 
 interface UseMapEventsProps {
   mapRef: React.RefObject<MapRef | null>;
@@ -111,16 +129,20 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
 
       if (flyMode === "ifOutside") {
         const bounds = map?.getBounds();
-        const margin = 0.001;
 
         if (!map || !bounds) return;
 
-        const isOutside = !(
-          lng >= bounds.getWest() + margin &&
-          lng <= bounds.getEast() - margin &&
-          lat >= bounds.getSouth() + margin &&
-          lat <= bounds.getNorth() - margin
-        );
+        // Se mide en píxeles contra el área visible, no en lat/lng contra getBounds(): un lugar debajo
+        // del sidebar cae dentro de los bounds del lienzo pero el usuario no lo ve.
+        const canvas = map.getCanvas();
+        const point = map.project([lng, lat]);
+        const margin = 24;
+        const paddingLeft = map.getPadding()?.left ?? 0;
+        const isOutside =
+          point.x < paddingLeft + margin ||
+          point.x > canvas.clientWidth - margin ||
+          point.y < margin ||
+          point.y > canvas.clientHeight - margin;
 
         if (isOutside) {
           const mapHeight = bounds.getNorth() - bounds.getSouth();
@@ -255,6 +277,12 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       // los límites quedan mal calculados y el mapa se sale del campus. Era el motivo de que "los bounds
       // estén definidos pero no se respeten".
       map?.resize();
+      if (map) {
+        // Antes de cualquier encuadre: así el fitBounds de más abajo ya nace descontando el sidebar.
+        map.setPadding(mapPadding(map));
+        // Cruzar el breakpoint de escritorio lo enciende o lo apaga, y el tope del 40% depende del ancho.
+        map.on("resize", () => map.setPadding(mapPadding(map)));
+      }
 
       if (paramPlace) {
         map?.setMaxBounds(getMaxCampusBoundsFromName(paramPlace.properties.campus));
