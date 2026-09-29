@@ -56,6 +56,10 @@ function coordDistSq(a: number[], p: number[]): number {
   return dx * dx + dy * dy;
 }
 
+function withCoords(pins: CustomPin[], coords: [number, number][]): CustomPin[] {
+  return pins.map((pin, i) => ({ ...pin, geometry: { ...pin.geometry, coordinates: coords[i] } }));
+}
+
 interface PinsState {
   pins: CustomPin[];
   past: CustomPin[][];
@@ -64,6 +68,8 @@ interface PinsState {
 
 type PinsAction =
   | { type: "commit"; updater: (prev: CustomPin[]) => CustomPin[] }
+  | { type: "preview"; pins: CustomPin[] }
+  | { type: "commit-from"; from: CustomPin[]; pins: CustomPin[] }
   | { type: "undo" }
   | { type: "redo" }
   | { type: "reset-history" };
@@ -78,6 +84,13 @@ function pinsReducer(state: PinsState, action: PinsAction): PinsState {
       if (pins === state.pins) return state;
       return { pins, past: [...state.past, state.pins], future: [] };
     }
+    // Un arrastre repinta en cada movimiento sin tocar el historial; al soltar, `commit-from` lo registra
+    // como UN solo paso cuyo estado anterior es el de antes de empezar a arrastrar.
+    case "preview":
+      return { ...state, pins: action.pins };
+    case "commit-from":
+      if (action.pins === action.from) return { ...state, pins: action.from };
+      return { pins: action.pins, past: [...state.past, action.from], future: [] };
     case "undo": {
       if (state.past.length === 0) return state;
       return {
@@ -232,6 +245,27 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     [commit],
   );
 
+  // Herramientas mano y rotar: reposicionan TODOS los pins a la vez. `from` es la foto al empezar el
+  // arrastre y `coords` trae una coordenada por pin, en el mismo orden.
+  const previewTransform = useCallback((from: CustomPin[], coords: [number, number][]) => {
+    dispatch({ type: "preview", pins: withCoords(from, coords) });
+  }, []);
+
+  // `coords` null = el arrastre no movió nada. El campus se recalcula recién al soltar: con una ruta de
+  // miles de vértices hacerlo en cada movimiento del puntero se nota.
+  const finishTransform = useCallback((from: CustomPin[], coords: [number, number][] | null) => {
+    const pins = !coords
+      ? from
+      : withCoords(from, coords).map((pin) => {
+          const [lng, lat] = pin.geometry.coordinates;
+          return {
+            ...pin,
+            properties: { ...pin.properties, campus: getCampusNameFromPoint(lng, lat) ?? pin.properties.campus },
+          };
+        });
+    dispatch({ type: "commit-from", from, pins });
+  }, []);
+
   const handlePinDrag = useCallback(
     (event: MarkerDragEvent, pinId: string) => {
       updatePinPosition(pinId, event.lngLat.lng, event.lngLat.lat);
@@ -302,6 +336,8 @@ export function useCustomPins(options: UseCustomPinsOptions = {}) {
     setPinsFromCoords,
     removePin,
     handlePinDrag,
+    previewTransform,
+    finishTransform,
     undo,
     redo,
     resetHistory,

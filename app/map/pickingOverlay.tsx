@@ -4,6 +4,7 @@ import { use, useEffect, useEffectEvent, useRef } from "react";
 
 import { PickingMode, useMapPicking } from "@/app/context/mapPickingCtx";
 import { pinsContext } from "@/app/context/pinsCtx";
+import { TRANSFORM_MIN_PINS, TransformTool } from "@/lib/map/transformShape";
 import { PointFeature } from "@/lib/types";
 
 import MaterialSymbol from "../components/ui/icons/MaterialSymbol";
@@ -14,6 +15,11 @@ const MODE_TOOLS: Record<PickingMode, { icon: string; label: string }> = {
   point: { icon: "distance", label: "Modo punto" },
   polygon: { icon: "polyline", label: "Modo polígono" },
   line: { icon: "route", label: "Modo ruta" },
+};
+
+const TRANSFORM_TOOLS: Record<TransformTool, { icon: string; label: string; message: string }> = {
+  move: { icon: "pan_tool", label: "Mover todo", message: "Arrastra en el mapa para mover lo dibujado" },
+  rotate: { icon: "rotate_right", label: "Rotar todo", message: "Arrastra en el mapa para rotar lo dibujado" },
 };
 
 const MIN_PINS: Record<PickingMode, number> = { point: 1, line: 2, polygon: 3 };
@@ -27,6 +33,8 @@ export default function PickingOverlay() {
     setPicking,
     isDrawingRect,
     setDrawingRect,
+    transformTool,
+    setTransformTool,
     isPlaceFormOpen,
     isViewOnly,
     viewPlace,
@@ -121,6 +129,8 @@ export default function PickingOverlay() {
   let message: string;
   if (isDrawingRect) {
     message = "Arrastra en el mapa para dibujar el cuadrado";
+  } else if (transformTool) {
+    message = TRANSFORM_TOOLS[transformTool].message;
   } else if (mode === "point") {
     message =
       pins.length === 1
@@ -190,6 +200,20 @@ export default function PickingOverlay() {
           >
             <MaterialSymbol name="redo" className="text-[22px]" />
           </button>
+          {(Object.keys(TRANSFORM_TOOLS) as TransformTool[]).map((tool) => (
+            <button
+              key={tool}
+              type="button"
+              onClick={() => setTransformTool(transformTool === tool ? null : tool)}
+              disabled={pins.length < TRANSFORM_MIN_PINS[tool]}
+              className={toolClass(transformTool === tool)}
+              title={TRANSFORM_TOOLS[tool].label}
+              aria-label={TRANSFORM_TOOLS[tool].label}
+              aria-pressed={transformTool === tool}
+            >
+              <MaterialSymbol name={TRANSFORM_TOOLS[tool].icon} className="text-[22px]" />
+            </button>
+          ))}
           {/* El cuadrado sale del modo línea: al soltar fuerza el modo polígono. */}
           {mode !== "line" ? (
             <button

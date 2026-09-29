@@ -230,6 +230,11 @@ export default function RouteForm({
             <button
               type="button"
               onClick={() => {
+                // Al abrir se precarga el trazado vigente (el de la ruta editada o el ya dibujado), para
+                // poder copiarlo o retocarlo en vez de partir de un textarea vacío.
+                if (!showImport && routeCoords.length >= 2) {
+                  setGeojsonText(JSON.stringify({ type: "LineString", coordinates: routeCoords }));
+                }
                 setShowImport((prev) => !prev);
                 setImportError(null);
               }}

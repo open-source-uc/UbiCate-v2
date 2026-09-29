@@ -10,6 +10,8 @@ interface MarkerProps {
   place: PointFeature;
   icon: React.ReactElement;
   draggable?: boolean;
+  // false: el marcador no captura el puntero y los eventos caen al mapa.
+  interactive?: boolean;
   onClick: (place: Feature) => void;
   onMouseEnter?: (place: Feature | null) => void;
   onDrag?: (e: MarkerDragEvent) => void;
@@ -21,6 +23,7 @@ interface MarkerProps {
 export default function Marker({
   place,
   draggable = false,
+  interactive = true,
   onClick,
   onMouseEnter,
   onDrag,
@@ -37,6 +40,7 @@ export default function Marker({
       longitude={place.geometry.coordinates[0]}
       offset={offset}
       draggable={draggable}
+      style={interactive ? undefined : { pointerEvents: "none" }}
       onDrag={(e) => onDrag?.(e)}
       onDragEnd={(e) => onDragEnd?.(e)}
       onClick={(e) => {
@@ -53,7 +57,7 @@ export default function Marker({
         }}
       >
         <div
-          className={`flex items-center justify-center rounded-full pointer-events-auto cursor-pointer ring-border ring-1 w-5 h-5 z-50 ${color}`}
+          className={`flex items-center justify-center rounded-full ${interactive ? "pointer-events-auto cursor-pointer" : "pointer-events-none"} ring-border ring-1 w-5 h-5 z-50 ${color}`}
         >
           {icon}
         </div>

@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import React, { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { use, useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 
 import { bbox } from "@turf/bbox";
 import type { LngLatBoundsLike, MapMouseEvent, MapTouchEvent } from "maplibre-gl";
@@ -14,6 +14,7 @@ import Campus from "@/data/campuses.json";
 import { getCampusBoundsFromName, getMaxCampusBoundsFromName } from "@/lib/campus/getCampusBounds";
 import { emitFlyToEvent } from "@/lib/events/customEvents";
 import { featuresToGeoJSON } from "@/lib/geojson/featuresToGeoJSON";
+import { TRANSFORMS } from "@/lib/map/transformShape";
 import { normalizeIdentifier } from "@/lib/places/utils";
 import { Feature, PointFeature, CATEGORIES, siglas } from "@/lib/types";
 
@@ -113,7 +114,8 @@ export default function MapComponent({
     openRoutesPanel,
   } = useSidebar();
   const isEventsFilter = activeFilters.includes(CATEGORIES.EVENTS);
-  const { pins, setPinsFromCoords, handlePinDrag, polygon, line, removePin } = use(pinsContext);
+  const { pins, setPinsFromCoords, handlePinDrag, polygon, line, removePin, previewTransform, finishTransform } =
+    use(pinsContext);
   const {
     isPicking,
     mode,
@@ -124,6 +126,7 @@ export default function MapComponent({
     routeDraftColor,
     isDrawingRect,
     setDrawingRect,
+    transformTool,
     setPicking,
     isViewOnly,
     isCreatingPlace,
@@ -258,6 +261,95 @@ export default function MapComponent({
       setRectPreview(null);
     };
   }, [isDrawingRect, setPinsFromCoords, setPicking, setDrawingRect]);
+
+  // La foto de los pins se toma al EMPEZAR cada arrastre; leerla como dependencia reinstalaría los
+  // listeners en cada movimiento.
+  const getPinsSnapshot = useEffectEvent(() => pins);
+
+  // Herramientas mano y rotar: arrastrar en cualquier punto del mapa mueve o gira el conjunto entero.
+  // Mismo manejo de dragPan y `touch-action` que el cuadrado (ver arriba), por el mismo motivo.
+  useEffect(() => {
+    const map = mapRef.current?.getMap();
+    if (!map || !transformTool) return;
+    const transform = TRANSFORMS[transformTool];
+
+    map.dragPan.disable();
+    const canvasContainer = map.getCanvasContainer();
+    const canvas = map.getCanvas();
+    const previousTouchAction = {
+      container: canvasContainer.style.touchAction,
+      canvas: canvas.style.touchAction,
+    };
+    canvasContainer.style.touchAction = "none";
+    canvas.style.touchAction = "none";
+    canvas.style.cursor = "grab";
+
+    let drag: {
+      from: PointFeature[];
+      fromCoords: [number, number][];
+      start: { lng: number; lat: number };
+      coords: [number, number][] | null;
+    } | null = null;
+
+    const begin = (lngLat: { lng: number; lat: number }) => {
+      const from = getPinsSnapshot();
+      if (from.length === 0) return;
+      drag = {
+        from,
+        fromCoords: from.map((p) => p.geometry.coordinates as [number, number]),
+        start: { lng: lngLat.lng, lat: lngLat.lat },
+        coords: null,
+      };
+      canvas.style.cursor = "grabbing";
+    };
+    const move = (lngLat: { lng: number; lat: number }) => {
+      if (!drag) return;
+      drag.coords = transform(drag.fromCoords, drag.start, { lng: lngLat.lng, lat: lngLat.lat });
+      previewTransform(drag.from, drag.coords);
+    };
+    const end = () => {
+      if (!drag) return;
+      finishTransform(drag.from, drag.coords);
+      drag = null;
+      canvas.style.cursor = "grab";
+    };
+
+    const onDown = (e: MapMouseEvent) => begin(e.lngLat);
+    const onMove = (e: MapMouseEvent) => move(e.lngLat);
+    // Un solo dedo transforma; con dos o más se deja pasar el gesto de zoom/rotar del mapa.
+    const onTouchStart = (e: MapTouchEvent) => {
+      if (e.points.length > 1) return;
+      begin(e.lngLat);
+    };
+    const onTouchMove = (e: MapTouchEvent) => {
+      if (e.points.length > 1) return;
+      move(e.lngLat);
+    };
+
+    map.on("mousedown", onDown);
+    map.on("mousemove", onMove);
+    map.on("mouseup", end);
+    map.on("touchstart", onTouchStart);
+    map.on("touchmove", onTouchMove);
+    map.on("touchend", end);
+    // Soltar el botón fuera del lienzo también cierra el arrastre.
+    window.addEventListener("mouseup", end);
+
+    return () => {
+      end();
+      map.off("mousedown", onDown);
+      map.off("mousemove", onMove);
+      map.off("mouseup", end);
+      map.off("touchstart", onTouchStart);
+      map.off("touchmove", onTouchMove);
+      map.off("touchend", end);
+      window.removeEventListener("mouseup", end);
+      map.dragPan.enable();
+      canvas.style.cursor = "";
+      canvasContainer.style.touchAction = previousTouchAction.container;
+      canvas.style.touchAction = previousTouchAction.canvas;
+    };
+  }, [transformTool, previewTransform, finishTransform]);
   const { handleMapLoad, handlePlaceSelection, handleMapClick, selectionLocked, isLoaded } = useMapEvents({
     mapRef,
     paramPlace,
@@ -420,7 +512,7 @@ export default function MapComponent({
           "ubicate-route-places-area",
         ]}
         onClick={(e) => {
-          if (isDrawingRect || rectJustFinishedRef.current) return;
+          if (isDrawingRect || transformTool || rectJustFinishedRef.current) return;
           // La línea de la ruta abre su ficha. Se resuelve acá y no en useMapEvents porque acá está el
           // objeto que se dibujó: reconstruirlo desde las properties del feature (que maplibre
           // serializa) daba "esta ruta ya no está disponible".
@@ -604,7 +696,10 @@ export default function MapComponent({
                 }
               }}
               icon={<MarkerIcon label={primaryCategory} />}
-              draggable={!isViewOnly}
+              // Con mano/rotar los vértices dejan pasar el puntero al lienzo: agarrar uno transforma
+              // el conjunto, no ese vértice.
+              draggable={!isViewOnly && !transformTool}
+              interactive={!transformTool}
               onDrag={() => {
                 wasDraggingRef.current = true;
               }}
@@ -617,7 +712,7 @@ export default function MapComponent({
             />
           );
         })}
-        {isPicking && selectedPinId
+        {isPicking && selectedPinId && !transformTool
           ? (() => {
               const selected = pins.find((p) => p.properties.identifier === selectedPinId);
               if (!selected) return null;

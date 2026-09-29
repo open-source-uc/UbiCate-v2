@@ -31,6 +31,7 @@ export default function MobileSidebar() {
     lastSelectedPlace,
     subscribeToClose,
     subscribeToOpenRoutesPanel,
+    setSelectedRoute,
   } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
@@ -51,6 +52,8 @@ export default function MobileSidebar() {
   };
 
   const handleCampusClick = (campusName: string) => {
+    // La ruta pertenece a un campus: dibujada sobre otro quedaría fuera de los límites del mapa.
+    setSelectedRoute(null);
     router.push(`/?campus=${campusName}`);
     setIsOpen(false);
     setActiveSubSidebar(null);

@@ -2,6 +2,7 @@
 
 import { createContext, ReactNode, use, useCallback, useContext, useState } from "react";
 
+import type { TransformTool } from "@/lib/map/transformShape";
 import { CATEGORIES, Feature } from "@/lib/types";
 
 import { pinsContext } from "./pinsCtx";
@@ -31,6 +32,8 @@ interface MapPickingContextType {
   routeDraftColor: string;
   setRouteDraftColor: (color: string) => void;
   isDrawingRect: boolean;
+  // Herramienta mano o rotar: arrastrar en cualquier parte del mapa mueve/gira todo lo dibujado.
+  transformTool: TransformTool | null;
   isPlaceFormOpen: boolean;
   // Sesión de solo lectura: se muestra la geometría en el mapa sin herramientas ni edición.
   isViewOnly: boolean;
@@ -49,6 +52,7 @@ interface MapPickingContextType {
   setForEvent: (v: boolean) => void;
   setForRoute: (v: boolean) => void;
   setDrawingRect: (v: boolean) => void;
+  setTransformTool: (tool: TransformTool | null) => void;
   setPlaceFormOpen: (v: boolean) => void;
 }
 
@@ -65,6 +69,7 @@ const MapPickingContext = createContext<MapPickingContextType>({
   setRouteDraftColor: () => {},
   setRoutePlaceIds: () => {},
   isDrawingRect: false,
+  transformTool: null,
   isPlaceFormOpen: false,
   isViewOnly: false,
   viewPlace: null,
@@ -74,6 +79,7 @@ const MapPickingContext = createContext<MapPickingContextType>({
   setForEvent: () => {},
   setForRoute: () => {},
   setDrawingRect: () => {},
+  setTransformTool: () => {},
   setPlaceFormOpen: () => {},
 });
 
@@ -86,6 +92,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
   const [routeDraftName, setRouteDraftName] = useState("");
   const [routeDraftColor, setRouteDraftColor] = useState("");
   const [isDrawingRect, setIsDrawingRect] = useState(false);
+  const [transformTool, setTransformTool] = useState<TransformTool | null>(null);
   const [isPlaceFormOpen, setIsPlaceFormOpen] = useState(false);
   const [isViewOnly, setIsViewOnly] = useState(false);
   const [viewPlace, setViewPlace] = useState<Feature | null>(null);
@@ -95,6 +102,8 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
     (v: boolean, m?: PickingMode, opts?: { viewOnly?: boolean; place?: Feature | null }) => {
       setIsPicking(v);
       if (m) setMode(m);
+      // Elegir un modo de dibujo (o salir del modo edición) suelta mano/rotar.
+      setTransformTool(null);
       const viewOnly = v && opts?.viewOnly === true;
       setIsViewOnly(viewOnly);
       setViewPlace(viewOnly ? (opts?.place ?? null) : null);
@@ -115,8 +124,15 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  // Mano, rotar y cuadrado se excluyen: los tres se adueñan del arrastre sobre el mapa.
   const setDrawingRect = useCallback((v: boolean) => {
     setIsDrawingRect(v);
+    if (v) setTransformTool(null);
+  }, []);
+
+  const selectTransformTool = useCallback((tool: TransformTool | null) => {
+    setTransformTool(tool);
+    if (tool) setIsDrawingRect(false);
   }, []);
 
   const setPlaceFormOpen = useCallback((v: boolean) => {
@@ -153,6 +169,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         routeDraftColor,
         setRouteDraftColor,
         isDrawingRect,
+        transformTool,
         isPlaceFormOpen,
         isViewOnly,
         viewPlace,
@@ -162,6 +179,7 @@ export function MapPickingProvider({ children }: { children: ReactNode }) {
         setForEvent,
         setForRoute,
         setDrawingRect,
+        setTransformTool: selectTransformTool,
         setPlaceFormOpen,
       }}
     >

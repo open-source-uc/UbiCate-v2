@@ -19,6 +19,9 @@ interface PinsContextType {
   setPins: (pins: PointFeature[]) => void;
   setPinsFromCoords: (coords: [number, number][]) => void;
   removePin: (pinId: string) => void;
+  /** Mover/rotar todo el dibujo; `finishTransform` lo deja como un solo paso de historial. */
+  previewTransform: (from: PointFeature[], coords: [number, number][]) => void;
+  finishTransform: (from: PointFeature[], coords: [number, number][] | null) => void;
   polygon: PolygonFeature | null;
   line: LineFeature | null;
   undo: () => void;
@@ -38,6 +41,8 @@ export const pinsContext = createContext<PinsContextType>({
   setPins: () => null,
   setPinsFromCoords: () => null,
   removePin: () => null,
+  previewTransform: () => null,
+  finishTransform: () => null,
   polygon: null,
   line: null,
   undo: () => null,
@@ -58,6 +63,8 @@ export function PinsProvider({ children }: { children: ReactNode }) {
     setPins,
     setPinsFromCoords,
     removePin,
+    previewTransform,
+    finishTransform,
     polygon,
     line,
     undo,
@@ -79,6 +86,8 @@ export function PinsProvider({ children }: { children: ReactNode }) {
         setPins,
         setPinsFromCoords,
         removePin,
+        previewTransform,
+        finishTransform,
         polygon,
         line,
         undo,

@@ -36,6 +36,7 @@ export default function DesktopSidebar() {
     lastSelectedPlace,
     subscribeToClose,
     subscribeToOpenRoutesPanel,
+    setSelectedRoute,
   } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const { rotateTheme } = useTheme();
@@ -68,6 +69,8 @@ export default function DesktopSidebar() {
   };
 
   const handleCampusClick = (campusName: string) => {
+    // La ruta pertenece a un campus: dibujada sobre otro quedaría fuera de los límites del mapa.
+    setSelectedRoute(null);
     router.push(`/?campus=${campusName}`);
     setIsOpen(false);
     setActiveSubSidebar(null);
