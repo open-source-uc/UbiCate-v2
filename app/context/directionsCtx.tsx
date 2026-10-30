@@ -17,6 +17,7 @@ interface DirectionsContextType {
 
   setDirectionRoutes: (routes: DirectionRoute[]) => void;
   selectDirectionRoute: (id: string) => void;
+  clearDirections: () => void;
 }
 
 const DirectionsContext = createContext<DirectionsContextType | undefined>(undefined);
@@ -60,6 +61,14 @@ export function DirectionsProvider({ children }: { children: ReactNode }) {
     setDistance(selected.distance);
   };
 
+  const clearDirections = () => {
+    setRoute(null);
+    setDuration(null);
+    setDistance(null);
+    setRoutes([]);
+    setSelectedRouteId(null);
+  };
+
   return (
     <DirectionsContext.Provider
       value={{
@@ -71,6 +80,7 @@ export function DirectionsProvider({ children }: { children: ReactNode }) {
         setDirectionData,
         setDirectionRoutes,
         selectDirectionRoute,
+        clearDirections,
       }}
     >
       {children}

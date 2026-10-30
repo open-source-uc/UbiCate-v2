@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { useEffect, useEffectEvent, useState } from "react";
+import { use, useEffect, useEffectEvent, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import { Button } from "@/app/components/ui/button";
 import * as Icons from "@/app/components/ui/icons/icons";
 import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
+import { useDirections } from "@/app/context/directionsCtx";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
+import { NotificationContext } from "@/app/context/notificationCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/lib/types";
@@ -23,6 +25,7 @@ import CampusList from "./campusList";
 import FooterOptionsSidebar from "./footerOptionsSidebar";
 import RoutesPanel from "./routesPanel";
 import UsageGuide from "./usageGuide";
+
 // import ThemesList from "./themesList";
 
 const SUBSIDEBAR_ANIM_MS = 200;
@@ -40,6 +43,8 @@ export default function DesktopSidebar() {
   } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const { rotateTheme } = useTheme();
+  const { routes, clearDirections } = useDirections();
+  const { clearNotification, clearAllCodes, component } = use(NotificationContext);
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   // El contenido sobrevive al cierre lo que dura la animación, para que el panel no se vacíe de golpe.
   const [renderedSubSidebar, setRenderedSubSidebar] = useState<SubSidebarType>(null);
@@ -80,8 +85,15 @@ export default function DesktopSidebar() {
   // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
   const menuPlace = selectedPlace ?? (isCreatingPlace ? lastSelectedPlace : null);
 
+  const clearNavigationOnPlaceChange = useEffectEvent(() => {
+    clearDirections();
+    clearNotification();
+    clearAllCodes();
+  });
+
   useEffect(() => {
     if (selectedPlace !== null) {
+      clearNavigationOnPlaceChange();
       // Coordinación entre árboles: seleccionar un lugar en el mapa abre su panel en el sidebar.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSubSidebar("placeInformation");

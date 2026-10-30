@@ -72,7 +72,7 @@ export function useMapEvents({ mapRef, paramPlace, paramLng, paramLat }: UseMapE
       // ⚠️ Seleccionar un lugar NO toca la barra de direcciones. Los parámetros `place` y `lng`/`lat`
       // son solo de entrada (un enlace compartido) y los arma el botón Compartir de `placeInformation`.
       // Antes cada clic en el mapa hacía replaceState y la URL cambiaba sola mientras se navegaba.
-      setSelectedPlace(place);
+      setSelectedPlace(place ? { ...place } : null);
       const title = document.querySelector("title");
       if (!place) {
         if (title) {

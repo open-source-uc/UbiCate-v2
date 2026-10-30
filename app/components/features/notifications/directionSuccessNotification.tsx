@@ -1,6 +1,7 @@
 import { use } from "react";
 
 import * as Icons from "@/app/components/ui/icons/icons";
+import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
 
 interface DirectionSuccessNotificationProps {
@@ -15,6 +16,7 @@ export default function DirectionSuccessNotification({
   children,
 }: DirectionSuccessNotificationProps) {
   const { clearNotification, clearAllCodes } = use(NotificationContext);
+  const { clearDirections } = useDirections();
 
   // Calculate walking time if distance is available
   const walkingTimeMinutes = distance ? Math.ceil(distance / 83.33) : null;
@@ -27,14 +29,15 @@ export default function DirectionSuccessNotification({
           <h1 className="font-bold">En Ruta a {placeName}</h1>
         </div>
         <button
-          className="bg-accent flex items-center rounded-full hover:bg-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-auto"
+          className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-full bg-accent text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           aria-label="Cerrar menú"
           onClick={() => {
             clearNotification();
             clearAllCodes();
+            clearDirections();
           }}
         >
-          <Icons.Close />
+          <Icons.Close className="h-4 w-4 fill-background" />
         </button>
       </div>
 
