@@ -55,6 +55,16 @@ public/swe-worker*
 **/glyphs/
 **/node_modules/
 /generated
+
+# Valhalla
+infrastructure/routing/data/valhalla_tiles/
+infrastructure/routing/data/*.tar
+infrastructure/routing/data/*.osm.pbf
+infrastructure/routing/data/admins.sqlite
+infrastructure/routing/data/default_speeds.json
+infrastructure/routing/data/file_hashes.txt
+infrastructure/routing/data/timezones.sqlite
+
 # python env
 .venv
 generated/*
