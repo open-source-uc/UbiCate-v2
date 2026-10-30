@@ -1,8 +1,9 @@
-import { use, useState, useEffect, useRef } from "react";
+"use client";
+
+import { useState, useEffect, useRef, use } from "react";
 
 import { useDirections } from "@/app/context/directionsCtx";
 import { NotificationContext } from "@/app/context/notificationCtx";
-import { useSidebar } from "@/app/context/sidebarCtx";
 import { useDirectionStatus } from "@/app/hooks/useDirectionStatus";
 import { useOptimalDirection } from "@/app/hooks/useOptimalDirection";
 import { useUbication } from "@/app/hooks/useUbication";
@@ -19,97 +20,103 @@ interface RouteButtonProps {
 
 export default function RouteButton({ place }: RouteButtonProps) {
   const { position, setTracking } = useUbication();
-
-  const { setDirectionData } = useDirections();
-  const { setSelectedPlace } = useSidebar();
+  const { setDirectionRoutes } = useDirections();
   const { setNotification } = use(NotificationContext);
-  const status = useDirectionStatus(position, place);
-  const [shouldCalculateRoute, setShouldCalculateRoute] = useState(false);
 
+  const status = useDirectionStatus(position, place);
+
+  const [shouldCalculateRoute, setShouldCalculateRoute] = useState(false);
   const [isWaitingForLocation, setIsWaitingForLocation] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const {
-    data: optimalDirection,
+    data: directionRoutes,
     error: directionError,
     isLoading: isCalculatingRoute,
   } = useOptimalDirection(status.origin!, status.destination!, shouldCalculateRoute && status.ok);
 
-  // Efecto para calcular ruta automáticamente cuando se obtiene la ubicación
+  // Iniciar el cálculo cuando se obtiene la ubicación.
   useEffect(() => {
-    if (position && isWaitingForLocation) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
+    if (!position || !isWaitingForLocation) return;
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    // Reacción de una sola vez a que por fin llegó la posición del GPS.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsWaitingForLocation(false);
+    setShouldCalculateRoute(true);
+  }, [position, isWaitingForLocation]);
+
+  // Procesar el resultado de Valhalla.
+  useEffect(() => {
+    if (!shouldCalculateRoute || isCalculatingRoute) return;
+
+    if (!status.ok) {
+      if (status.error) {
+        setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
       }
 
-      // Reacción de una sola vez a que por fin llegó la posición del GPS.
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsWaitingForLocation(false);
-      setShouldCalculateRoute(true);
-    }
-  }, [position, status, isWaitingForLocation]);
-
-  useEffect(() => {
-    if (isCalculatingRoute) return;
-
-    if (!shouldCalculateRoute) return;
-
-    if (!status.ok && status.error) {
-      setNotification(<DirectionErrorNotification>{status.error}</DirectionErrorNotification>);
+      setShouldCalculateRoute(false);
       return;
     }
 
     if (directionError) {
-      setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
       console.error("Error fetching directions:", directionError);
+
+      setNotification(
+        <DirectionErrorNotification>
+          {directionError.message || "No se logró obtener la ruta"}
+        </DirectionErrorNotification>,
+      );
+
+      setShouldCalculateRoute(false);
       return;
     }
 
-    if (!optimalDirection) {
-      setNotification(<DirectionErrorNotification>No se logró obtener la ruta</DirectionErrorNotification>);
-      console.error("Optimal direction not defined:", optimalDirection);
+    if (!directionRoutes?.length) {
+      setNotification(<DirectionErrorNotification>No se encontraron rutas peatonales.</DirectionErrorNotification>);
+
+      setShouldCalculateRoute(false);
       return;
     }
 
-    const { direction, duration, distance } = optimalDirection;
+    setDirectionRoutes(directionRoutes);
 
-    setDirectionData(direction, "xd", distance);
-    setNotification(<DirectionSuccessNotification distance={distance} placeName={place?.properties.name} />);
-    setSelectedPlace(null);
-    // Cierra el ciclo de cálculo cuando el hook de direcciones entrega el resultado.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const firstRoute = directionRoutes[0];
+
+    setNotification(<DirectionSuccessNotification distance={firstRoute.distance} placeName={place?.properties.name} />);
+
     setShouldCalculateRoute(false);
   }, [
-    optimalDirection,
-    isCalculatingRoute,
     shouldCalculateRoute,
-    setDirectionData,
-    setNotification,
-    directionError,
-    setSelectedPlace,
-    place,
+    isCalculatingRoute,
     status,
+    directionRoutes,
+    directionError,
+    setDirectionRoutes,
+    setNotification,
+    place,
   ]);
 
-  const handleDirections = async () => {
-    // Si está esperando ubicación, cancelar
+  const handleDirections = () => {
     if (isWaitingForLocation) {
       setTracking(false);
       setIsWaitingForLocation(false);
+
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
+
       return;
     }
 
-    // Si está calculando ruta, no hacer nada
-    if (isCalculatingRoute) {
-      return;
-    }
+    if (isCalculatingRoute) return;
 
-    // Si no hay ubicación, activar tracking y esperar
     if (!position) {
       setTracking(true);
       setIsWaitingForLocation(true);
@@ -120,6 +127,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
             No podemos obtener tu ubicación. Verifica que los permisos de ubicación estén habilitados.
           </DirectionErrorNotification>,
         );
+
         setIsWaitingForLocation(false);
         setTracking(false);
         timeoutRef.current = null;
@@ -128,7 +136,6 @@ export default function RouteButton({ place }: RouteButtonProps) {
       return;
     }
 
-    // Si ya tenemos la ubicación, calcular ruta
     setShouldCalculateRoute(true);
   };
 
@@ -143,7 +150,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
   const getButtonContent = () => {
     if (isWaitingForLocation) {
       return {
-        icon: <Icons.Loading className="animate-spin" />, // Asume que tienes un ícono de loading
+        icon: <Icons.Loading className="animate-spin" />,
         text: "Obteniendo ubicación...",
       };
     }
@@ -151,7 +158,7 @@ export default function RouteButton({ place }: RouteButtonProps) {
     if (isCalculatingRoute) {
       return {
         icon: <Icons.Loading className="animate-spin" />,
-        text: "Calculando ruta...",
+        text: "Calculando rutas...",
       };
     }
 
@@ -162,17 +169,17 @@ export default function RouteButton({ place }: RouteButtonProps) {
   };
 
   const { icon, text } = getButtonContent();
-  const isDisabled = !navigator.geolocation || isCalculatingRoute;
-  const isLoading = isWaitingForLocation || isCalculatingRoute;
 
-  const variant = isLoading ? "mapAccent" : "mapPrimary";
+  const hasGeolocation = typeof navigator !== "undefined" && !!navigator.geolocation;
+
+  const isLoading = isWaitingForLocation || isCalculatingRoute;
 
   return (
     <Button
       onClick={handleDirections}
       aria-label={isLoading ? "Procesando solicitud..." : "Cómo llegar a esta ubicación"}
-      disabled={isDisabled}
-      variant={variant}
+      disabled={!hasGeolocation || isCalculatingRoute}
+      variant={isLoading ? "mapAccent" : "mapPrimary"}
       className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl px-2 py-4 text-primary-foreground transition-colors disabled:bg-muted/50 disabled:text-muted-foreground"
     >
       {icon}

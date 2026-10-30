@@ -16,7 +16,14 @@ interface RouteInfoMarkerProps {
   borderColor?: string;
 }
 
-export default function RouteLayer({ route, idPrefix = "route", label, color, borderColor }: RouteInfoMarkerProps) {
+export default function RouteLayer({
+  route,
+  beforeId,
+  idPrefix = "route",
+  label,
+  color,
+  borderColor,
+}: RouteInfoMarkerProps) {
   const routeGeoJSON = featuresToGeoJSON(route);
 
   // Get CSS variable values for route colors
@@ -32,6 +39,7 @@ export default function RouteLayer({ route, idPrefix = "route", label, color, bo
       <Source id={`${idPrefix}-border`} type="geojson" data={routeGeoJSON}>
         <Layer
           id={`${idPrefix}-border`}
+          beforeId={beforeId}
           type="line"
           layout={{
             "line-cap": "round",
@@ -48,6 +56,7 @@ export default function RouteLayer({ route, idPrefix = "route", label, color, bo
       <Source id={idPrefix} type="geojson" data={routeGeoJSON}>
         <Layer
           id={idPrefix}
+          beforeId={beforeId}
           type="line"
           layout={{
             "line-cap": "round",

@@ -10,6 +10,7 @@ import {
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import EventPlaceForm from "@/app/components/features/places/forms/EventPlaceForm";
+import { useDirections } from "@/app/context/directionsCtx";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useIsDebugMode } from "@/app/hooks/useDebugMode";
@@ -33,6 +34,7 @@ import { formatEventTag, nowInChile } from "@/lib/utils/time";
 import { Button } from "../../../ui/button";
 import * as Icons from "../../../ui/icons/icons";
 import MarkDownComponent from "../../../ui/markDown";
+import RouteButton from "../../directions/routeButton";
 
 import { SidebarLabel } from "./SidebarLabel";
 
@@ -66,6 +68,8 @@ export default function PlaceInformation({
   const { isPicking } = useMapPicking();
   const { hiddenPlaceIds, togglePlaceHidden, selectedRoute } = useSidebar();
   const queryClient = useQueryClient();
+
+  const { routes, selectedRouteId, selectDirectionRoute } = useDirections();
 
   const toggleEventExpand = useCallback((id: string) => {
     setExpandedEvents((prev) => {
@@ -377,7 +381,7 @@ export default function PlaceInformation({
             <span className="text-xs font-semibold">Más</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="z-[70] min-w-[12rem] rounded-xl border border-border bg-popover p-2 shadow-xl">
+        <DropdownMenuContent className="z-70 min-w-48 rounded-xl border border-border bg-popover p-2 shadow-xl">
           {availableOptions.map((option, index) => {
             const OptionIcon = option.icon;
             const showSeparator = index < availableOptions.length - 1 && option.label === "Editar";
@@ -422,7 +426,7 @@ export default function PlaceInformation({
 
         <button
           onClick={() => onClose?.()}
-          className="flex h-8 w-8 items-center text-background justify-center cursor-pointer rounded-full bg-primary text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-full bg-primary text-primary-foreground transition hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           aria-label="Cerrar menú"
         >
           <Icons.Close className="h-4 w-4 fill-background" />
@@ -472,8 +476,64 @@ export default function PlaceInformation({
                 </Button>
               ) : null}
 
+              <RouteButton place={place} />
+
               {renderOptionControl()}
             </div>
+
+            {routes.length > 0 && (
+              <div className="mt-4 w-full space-y-3">
+                <h4 className="text-sm font-semibold text-foreground">Alternativas de ruta</h4>
+
+                <div className="space-y-2">
+                  {routes.map((route, index) => {
+                    const selected = route.id === selectedRouteId;
+
+                    const formatDistance = (distance: number) => {
+                      if (distance >= 1000) {
+                        return `${(distance / 1000).toFixed(2)} km`;
+                      }
+
+                      return `${distance} m`;
+                    };
+
+                    return (
+                      <button
+                        key={route.id}
+                        type="button"
+                        onClick={() => selectDirectionRoute(route.id)}
+                        aria-pressed={selected}
+                        className={`flex w-full items-center justify-between gap-3 rounded-xl border p-3 text-left transition ${
+                          selected ? "border-primary bg-primary/10" : "border-border bg-accent/5 hover:bg-accent/20"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                              selected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                            }`}
+                          >
+                            {index + 1}
+                          </span>
+
+                          <div className="flex flex-col gap-0.5">
+                            <span className="text-sm font-semibold text-foreground">Ruta {index + 1}</span>
+
+                            <span className="text-xs text-muted-foreground">
+                              {formatDistance(route.distance)}
+                              {" · "}
+                              {route.duration} min
+                            </span>
+                          </div>
+                        </div>
+
+                        {selected ? <span className="text-xs font-semibold text-primary">Seleccionada</span> : null}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           {activeAssociatedEvents.length > 0 && (
@@ -615,7 +675,7 @@ export default function PlaceInformation({
 
       {showEventForm ? (
         <div
-          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/50 pointer-events-auto ${
+          className={`fixed inset-0 z-100 flex items-center justify-center bg-black/50 pointer-events-auto ${
             isPicking ? "hidden" : ""
           }`}
         >
