@@ -2,12 +2,14 @@
 
 import { useRouter } from "next/navigation";
 
-import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { use, useEffect, useEffectEvent, useRef, useState } from "react";
 
 import { NotificationErrorBoundary } from "@/app/components/app/appErrors/NotificationErrorBoundary";
 import * as Icons from "@/app/components/ui/icons/icons";
 import MaterialSymbol from "@/app/components/ui/icons/MaterialSymbol";
+import { useDirections } from "@/app/context/directionsCtx";
 import { useMapPicking } from "@/app/context/mapPickingCtx";
+import { NotificationContext } from "@/app/context/notificationCtx";
 import { useSidebar } from "@/app/context/sidebarCtx";
 import { useTimeoutManager } from "@/app/hooks/useTimeoutManager";
 import { SubSidebarType } from "@/lib/types";
@@ -34,6 +36,9 @@ export default function MobileSidebar() {
     setSelectedRoute,
   } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
+  const { clearDirections } = useDirections();
+  const { clearNotification, clearAllCodes } = use(NotificationContext);
+
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   const [sidebarHeight, setSidebarHeight] = useState<number>(10);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -156,10 +161,16 @@ export default function MobileSidebar() {
   // El panel del lugar se mantiene mientras se esté creando un punto (`isCreatingPlace`): aunque algo
   // deseleccione el lugar, la propuesta solo se descarta con la x del sidebar.
   const menuPlace = selectedPlace ?? (isCreatingPlace ? lastSelectedPlace : null);
+  const clearNavigationOnPlaceChange = useEffectEvent(() => {
+    clearDirections();
+    clearNotification();
+    clearAllCodes();
+  });
 
   // Handle when a specific place is selected
   useEffect(() => {
     if (selectedPlace !== null) {
+      clearNavigationOnPlaceChange();
       // Coordinación entre árboles: seleccionar un lugar en el mapa abre su panel y fija la altura del sheet.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSubSidebar("placeInformation");

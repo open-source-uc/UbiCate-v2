@@ -43,8 +43,8 @@ export default function DesktopSidebar() {
   } = useSidebar();
   const { isCreatingPlace } = useMapPicking();
   const { rotateTheme } = useTheme();
-  const { routes, clearDirections } = useDirections();
-  const { clearNotification, clearAllCodes, component } = use(NotificationContext);
+  const { clearDirections } = useDirections();
+  const { clearNotification, clearAllCodes } = use(NotificationContext);
   const [activeSubSidebar, setActiveSubSidebar] = useState<SubSidebarType>(null);
   // El contenido sobrevive al cierre lo que dura la animación, para que el panel no se vacíe de golpe.
   const [renderedSubSidebar, setRenderedSubSidebar] = useState<SubSidebarType>(null);
