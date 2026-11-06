@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { createPortal } from "react-dom";
 
@@ -37,6 +37,7 @@ export default function Changelog() {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const { entries, isLoading, isError } = useChangelogs();
 
@@ -67,6 +68,12 @@ export default function Changelog() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, closeModal]);
 
+  // El modal se monta en un portal al final de <body>, lejos del botón en el orden de tabulación:
+  // al abrirlo se mueve el foco adentro para que con Tab se llegue directo a su contenido.
+  useEffect(() => {
+    if (open) dialogRef.current?.focus();
+  }, [open]);
+
   return (
     <>
       <button
@@ -91,7 +98,9 @@ export default function Changelog() {
               aria-label="Novedades"
             >
               <div
-                className={`flex max-h-[80vh] w-full max-w-md flex-col overflow-hidden rounded-xl bg-background text-foreground shadow-xl ${
+                ref={dialogRef}
+                tabIndex={-1}
+                className={`flex max-h-[80vh] w-full max-w-md flex-col overflow-hidden rounded-xl bg-background text-foreground shadow-xl outline-none ${
                   closing ? "anim-scale-out" : "anim-scale-in"
                 }`}
                 onClick={(e) => e.stopPropagation()}
