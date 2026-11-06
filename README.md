@@ -6,7 +6,7 @@
 <h4 align="center"> Ubicate UC </h4>
 
 > [!IMPORTANT]
-> La rama principal para contribuir es `DTFD`. `main` está descontinuada temporalmente por unos meses.
+> La rama principal para contribuir es `DTFD-AZ` (antes `DTFD`; cambió con la migración a Azure). `main` está descontinuada temporalmente por unos meses.
 > Para más detalles sobre el proceso de contribución, revisa [contributing.md](https://github.com/open-source-uc/UbiCate-v2?tab=contributing-ov-file).
 
 <p align="center">
@@ -348,10 +348,10 @@ Utilice las **issues** para informar cualquier bug o solicitud.
 
 ### Workflow
 
-> PR a `DTFD` -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a `DTFD`
+> PR a `DTFD-AZ` -> Revisar preview y checks -> Asignar reviewers -> Aprobación -> Merge a `DTFD-AZ`
 
 > [!IMPORTANT]
-> La branch oficial para contribuir es `DTFD`. `main` no estará activa por unos meses.
+> La branch oficial para contribuir es `DTFD-AZ`. `main` no estará activa por unos meses.
 > Para más detalles sobre el proceso de contribución, revisa [contributing.md](contributing.md).
 
 ## Necesitas contactarnos
